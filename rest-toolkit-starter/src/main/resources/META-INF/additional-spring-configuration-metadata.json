@@ -1,0 +1,321 @@
+{
+  "groups": [
+    {
+      "name": "nichetoolkit.rest.identity",
+      "sourceType": "io.github.nichetoolkit.rest.configure.RestIdentityProperties",
+      "type": "io.github.nichetoolkit.rest.configure.RestIdentityProperties"
+    },
+    {
+      "name": "nichetoolkit.rest.intercept",
+      "sourceType": "io.github.nichetoolkit.rest.configure.RestInterceptProperties",
+      "type": "io.github.nichetoolkit.rest.configure.RestInterceptProperties"
+    },
+    {
+      "name": "nichetoolkit.rest.http",
+      "sourceType": "io.github.nichetoolkit.rest.configure.RestHttpProperties",
+      "type": "io.github.nichetoolkit.rest.configure.RestHttpProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "nichetoolkit.rest.identity.enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "java.lang.Boolean",
+      "description": "identity enabled.",
+      "defaultValue": "false"
+    },
+    {
+      "name": "nichetoolkit.rest.identity.type",
+      "type": "io.github.nichetoolkit.rest.identity.IdentityType",
+      "sourceType": "io.github.nichetoolkit.rest.identity.IdentityType",
+      "description": "identity init type.",
+      "defaultValue": "AUTO"
+    },
+    {
+      "name": "nichetoolkit.rest.identity.config.worker-id",
+      "type": "java.lang.Long",
+      "sourceType": "java.lang.Long",
+      "description": "worker-id."
+    },
+    {
+      "name": "nichetoolkit.rest.identity.config.center-id",
+      "type": "java.lang.Long",
+      "sourceType": "java.lang.Long",
+      "description": "center-id."
+    },
+    {
+      "name": "nichetoolkit.rest.identity.server.url",
+      "type": "java.lang.String",
+      "sourceType": "java.lang.String",
+      "description": "server url."
+    },
+    {
+      "name": "nichetoolkit.rest.identity.server.api",
+      "type": "java.lang.String",
+      "sourceType": "java.lang.String",
+      "description": "server api."
+    },
+    {
+      "name": "nichetoolkit.rest.intercept.enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "java.lang.Boolean",
+      "description": "intercept enabled.",
+      "defaultValue": "false"
+    },
+    {
+      "name": "nichetoolkit.rest.intercept.log-enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "java.lang.Boolean",
+      "description": "intercept log enabled.",
+      "defaultValue": "false"
+    },
+    {
+      "name": "nichetoolkit.rest.intercept.bean-enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "java.lang.Boolean",
+      "description": "intercept bean enabled.",
+      "defaultValue": "false"
+    },
+    {
+      "name": "nichetoolkit.rest.intercept.body-length",
+      "type": "java.lang.Integer",
+      "sourceType": "java.lang.Integer",
+      "description": "intercept log body length limit.",
+      "defaultValue": "1000"
+    },
+    {
+      "name": "nichetoolkit.rest.intercept.error-length",
+      "type": "java.lang.Integer",
+      "sourceType": "java.lang.Integer",
+      "description": "intercept log error length limit.",
+      "defaultValue": "1000"
+    },
+    {
+      "name": "nichetoolkit.rest.intercept.message-length",
+      "type": "java.lang.Integer",
+      "sourceType": "java.lang.Integer",
+      "description": "intercept log message length limit.",
+      "defaultValue": "1000"
+    },
+    {
+      "name": "nichetoolkit.rest.intercept.result-length",
+      "type": "java.lang.Integer",
+      "sourceType": "java.lang.Integer",
+      "description": "intercept log result length limit.",
+      "defaultValue": "1000"
+    },
+    {
+      "name": "nichetoolkit.rest.http.enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "java.lang.Boolean",
+      "description": "http enabled.",
+      "defaultValue": "true"
+    },
+    {
+      "name": "nichetoolkit.rest.http.connect-timeout",
+      "type": "java.lang.Integer",
+      "sourceType": "java.lang.Integer",
+      "description": "http connect timeout.",
+      "defaultValue": "2000"
+    },
+    {
+      "name": "nichetoolkit.rest.http.read-timeout",
+      "type": "java.lang.Integer",
+      "sourceType": "java.lang.Integer",
+      "description": "http read timeout.",
+      "defaultValue": "30000"
+    },
+    {
+      "name": "nichetoolkit.rest.http.request-timeout",
+      "type": "java.lang.Integer",
+      "sourceType": "java.lang.Integer",
+      "description": "http request timeout.",
+      "defaultValue": "200"
+    },
+    {
+      "name": "nichetoolkit.rest.http.max-core-size",
+      "type": "java.lang.Integer",
+      "sourceType": "java.lang.Integer",
+      "description": "http max core size.",
+      "defaultValue": "5"
+    },
+    {
+      "name": "nichetoolkit.rest.http.max-idle-size",
+      "type": "java.lang.Integer",
+      "sourceType": "java.lang.Integer",
+      "description": "http max idle size.",
+      "defaultValue": "10"
+    },
+    {
+      "name": "nichetoolkit.rest.http.http-type",
+      "type": "io.github.nichetoolkit.rest.http.config.HttpClientType",
+      "sourceType": "io.github.nichetoolkit.rest.http.config.HttpClientType",
+      "description": "http type.",
+      "defaultValue": "default"
+    },
+    {
+      "name": "nichetoolkit.rest.http.charset",
+      "type": "java.nio.charset.Charset",
+      "sourceType": "java.nio.charset.Charset",
+      "description": "http charset.",
+      "defaultValue": "UTF_8"
+    },
+    {
+      "name": "nichetoolkit.rest.http.retry-times",
+      "type": "java.lang.Integer",
+      "sourceType": "java.lang.Integer",
+      "description": "http retry times.",
+      "defaultValue": "0"
+    },
+    {
+      "name": "nichetoolkit.rest.http.keep-alive-hosts",
+      "type": "java.util.Map",
+      "sourceType": "java.util.Map",
+      "description": "http keep alive hosts."
+    },
+    {
+      "name": "nichetoolkit.rest.http.keep-alive-time",
+      "type": "java.util.Map",
+      "sourceType": "java.util.Map",
+      "description": "http keep alive hosts.",
+      "defaultValue": "600000L"
+    },
+    {
+      "name": "nichetoolkit.rest.http.proxy.type",
+      "type": "io.github.nichetoolkit.rest.http.config.ProxyType",
+      "sourceType": "io.github.nichetoolkit.rest.http.config.ProxyType",
+      "description": "http keep alive hosts.",
+      "defaultValue": "socks"
+    },
+    {
+      "name": "nichetoolkit.rest.http.proxy.hostname",
+      "type": "java.lang.String",
+      "sourceType": "java.lang.String",
+      "description": "http proxy hostname."
+    },
+    {
+      "name": "nichetoolkit.rest.http.proxy.port",
+      "type": "java.lang.Integer",
+      "sourceType": "java.lang.Integer",
+      "description": "http proxy port."
+    }
+  ],
+  "hints": [
+    {
+      "name": "nichetoolkit.rest.identity.enabled",
+      "values": [
+        {
+          "value": false,
+          "description": "identity close."
+        },
+        {
+          "value": true,
+          "description": "identity open."
+        }
+      ]
+    },
+    {
+      "name": "nichetoolkit.rest.intercept.enabled",
+      "values": [
+        {
+          "value": false,
+          "description": "intercept close."
+        },
+        {
+          "value": true,
+          "description": "intercept open."
+        }
+      ]
+    },
+    {
+      "name": "nichetoolkit.rest.intercept.log-enabled",
+      "values": [
+        {
+          "value": false,
+          "description": "intercept log close."
+        },
+        {
+          "value": true,
+          "description": "intercept log open."
+        }
+      ]
+    },
+    {
+      "name": "nichetoolkit.rest.intercept.bean-enabled",
+      "values": [
+        {
+          "value": false,
+          "description": "intercept bean close."
+        },
+        {
+          "value": true,
+          "description": "intercept bean open."
+        }
+      ]
+    },
+    {
+      "name": "nichetoolkit.rest.identity.type",
+      "values": [
+        {
+          "value": "AUTO",
+          "description": "identity type AUTO."
+        },
+        {
+          "value": "CONFIG",
+          "description": "identity type CONFIG."
+        },
+        {
+          "value": "SERVER",
+          "description": "identity type SERVER."
+        }
+      ]
+    },
+    {
+      "name": "nichetoolkit.rest.http.enabled",
+      "values": [
+        {
+          "value": false,
+          "description": "http close."
+        },
+        {
+          "value": true,
+          "description": "http open."
+        }
+      ]
+    },
+    {
+      "name": "nichetoolkit.rest.http.http-type",
+      "values": [
+        {
+          "value": "default",
+          "description": "http type default."
+        },
+        {
+          "value": "httpClient",
+          "description": "http type httpClient."
+        },
+        {
+          "value": "okHttp3",
+          "description": "http type okHttp3."
+        }
+      ]
+    },
+    {
+      "name": "nichetoolkit.rest.http.proxy.type",
+      "values": [
+        {
+          "value": "direct",
+          "description": "http proxy type direct."
+        },
+        {
+          "value": "http",
+          "description": "http proxy type http."
+        },
+        {
+          "value": "socks",
+          "description": "http proxy type socks."
+        }
+      ]
+    }
+  ]
+}

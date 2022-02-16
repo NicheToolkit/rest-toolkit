@@ -1,0 +1,356 @@
+{
+  "groups": [
+    {
+      "name": "nichetoolkit.rest.ip-address",
+      "sourceType": "io.github.nichetoolkit.rest.configure.RestIpAddressProperties",
+      "type": "io.github.nichetoolkit.rest.configure.RestIpAddressProperties"
+    },
+    {
+      "name": "nichetoolkit.rest.md5",
+      "sourceType": "io.github.nichetoolkit.rest.configure.RestMd5CipherProperties",
+      "type": "io.github.nichetoolkit.rest.configure.RestMd5CipherProperties"
+    },
+    {
+      "name": "nichetoolkit.rest.jwt",
+      "sourceType": "io.github.nichetoolkit.rest.configure.RestJwtProperties",
+      "type": "io.github.nichetoolkit.rest.configure.RestJwtProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "nichetoolkit.rest.ip-address.enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "java.lang.Boolean",
+      "description": "ip ignored enabled.",
+      "defaultValue": "false"
+    },
+    {
+      "name": "nichetoolkit.rest.ip-address.ignored-ip-addresses",
+      "type": "java.lang.String[]",
+      "sourceType": "java.lang.String[]",
+      "description": "ip ignored ips."
+    },
+    {
+      "name": "nichetoolkit.rest.md5.enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "java.lang.Boolean",
+      "description": "md5 enabled.",
+      "defaultValue": "false"
+    },
+    {
+      "name": "nichetoolkit.rest.md5.cipher",
+      "type": "java.lang.String",
+      "sourceType": "java.lang.String",
+      "description": "md5 cipher."
+    },
+    {
+      "name": "nichetoolkit.rest.jwt.enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "java.lang.Boolean",
+      "description": "jwt enabled.",
+      "defaultValue": "false"
+    },
+    {
+      "name": "nichetoolkit.rest.jwt.algorithm",
+      "type": "io.github.nichetoolkit.rest.worker.jwt.AlgorithmType",
+      "sourceType": "io.github.nichetoolkit.rest.worker.jwt.AlgorithmType",
+      "description": "algorithm type.",
+      "defaultValue": "HS256"
+    },
+    {
+      "name": "nichetoolkit.rest.jwt.secret-key",
+      "type": "java.lang.String",
+      "sourceType": "java.lang.String",
+      "description": "secret key."
+    },
+    {
+      "name": "nichetoolkit.rest.jwt.kid",
+      "type": "java.lang.String",
+      "sourceType": "java.lang.String",
+      "description": "kid."
+    },
+    {
+      "name": "nichetoolkit.rest.jwt.issuer",
+      "type": "java.lang.String",
+      "sourceType": "java.lang.String",
+      "description": "issuer."
+    },
+    {
+      "name": "nichetoolkit.rest.jwt.audiences",
+      "type": "java.lang.String[]",
+      "sourceType": "java.lang.String[]",
+      "description": "audiences."
+    },
+    {
+      "name": "nichetoolkit.rest.jwt.expire-time",
+      "type": "java.lang.Long",
+      "sourceType": "java.lang.Long",
+      "description": "expire time.",
+      "defaultValue": "0"
+    },
+    {
+      "name": "nichetoolkit.rest.jwt.expire-unit",
+      "type": "java.time.temporal.ChronoUnit",
+      "sourceType": "java.lang.Long",
+      "description": "expire unit.",
+      "defaultValue": "MILLIS"
+    },
+    {
+      "name": "nichetoolkit.rest.jwt.issued-delay-time",
+      "type": "java.lang.Long",
+      "sourceType": "java.lang.Long",
+      "description": "issued delay time.",
+      "defaultValue": "0"
+    },
+    {
+      "name": "nichetoolkit.rest.jwt.issued-delay-unit",
+      "type": "java.time.temporal.ChronoUnit",
+      "sourceType": "java.lang.Long",
+      "description": "issued delay unit.",
+      "defaultValue": "MILLIS"
+    },
+    {
+      "name": "nichetoolkit.rest.jwt.not-before-enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "java.lang.Boolean",
+      "description": "not before enabled.",
+      "defaultValue": "false"
+    }
+  ],
+  "hints": [
+    {
+      "name": "nichetoolkit.rest.ip-address.enabled",
+      "values": [
+        {
+          "value": false,
+          "description": "ip close."
+        },
+        {
+          "value": true,
+          "description": "ip open."
+        }
+      ]
+    },
+    {
+      "name": "nichetoolkit.rest.jwt.enabled",
+      "values": [
+        {
+          "value": false,
+          "description": "jwt close."
+        },
+        {
+          "value": true,
+          "description": "jwt open."
+        }
+      ]
+    },
+    {
+      "name": "nichetoolkit.rest.jwt.algorithm",
+      "values": [
+        {
+          "value": "NONE",
+          "description": "jwt algorithm type NONE."
+        },
+        {
+          "value": "ES256",
+          "description": "jwt algorithm type ES256."
+        },
+        {
+          "value": "ES384",
+          "description": "jwt algorithm type ES384."
+        },
+        {
+          "value": "ES512",
+          "description": "jwt algorithm type ES512."
+        },
+        {
+          "value": "HS256",
+          "description": "jwt algorithm type HS256."
+        },
+        {
+          "value": "HS384",
+          "description": "jwt algorithm type HS384."
+        },
+        {
+          "value": "HS512",
+          "description": "jwt algorithm type HS512."
+        },
+        {
+          "value": "PS256",
+          "description": "jwt algorithm type PS256."
+        },{
+          "value": "PS384",
+          "description": "jwt algorithm type PS384."
+        },
+        {
+          "value": "PS512",
+          "description": "jwt algorithm type PS512."
+        },
+        {
+          "value": "RS256",
+          "description": "jwt algorithm type RS256."
+        },
+        {
+          "value": "RS384",
+          "description": "jwt algorithm type RS256."
+        },
+        {
+          "value": "RS512",
+          "description": "jwt algorithm type RS256."
+        }
+      ]
+    },
+    {
+      "name": "nichetoolkit.rest.jwt.expire-unit",
+      "values": [
+        {
+          "value": "NANOS",
+          "description": "expire unit NANOS."
+        },
+        {
+          "value": "MICROS",
+          "description": "expire unit MICROS."
+        },
+        {
+          "value": "MILLIS",
+          "description": "expire unit MILLIS."
+        },
+        {
+          "value": "SECONDS",
+          "description": "expire unit SECONDS."
+        },
+        {
+          "value": "MINUTES",
+          "description": "expire unit MINUTES."
+        },
+        {
+          "value": "HOURS",
+          "description": "expire unit HOURS."
+        },
+        {
+          "value": "HALF_DAYS",
+          "description": "expire unit HALF_DAYS."
+        },
+        {
+          "value": "DAYS",
+          "description": "expire unit DAYS."
+        },
+        {
+          "value": "WEEKS",
+          "description": "expire unit WEEKS."
+        },
+        {
+          "value": "MONTHS",
+          "description": "expire unit MONTHS."
+        },
+        {
+          "value": "YEARS",
+          "description": "expire unit YEARS."
+        },
+        {
+          "value": "DECADES",
+          "description": "expire unit DECADES."
+        },
+        {
+          "value": "CENTURIES",
+          "description": "expire unit CENTURIES."
+        },
+        {
+          "value": "MILLENNIA",
+          "description": "expire unit MILLENNIA."
+        },
+        {
+          "value": "ERAS",
+          "description": "expire unit ERAS."
+        },
+        {
+          "value": "FOREVER",
+          "description": "expire unit FOREVER."
+        }
+
+      ]
+    },
+    {
+      "name": "nichetoolkit.rest.jwt.issued-delay-unit",
+      "values": [
+        {
+          "value": "NANOS",
+          "description": "expire unit NANOS."
+        },
+        {
+          "value": "MICROS",
+          "description": "expire unit MICROS."
+        },
+        {
+          "value": "MILLIS",
+          "description": "expire unit MILLIS."
+        },
+        {
+          "value": "SECONDS",
+          "description": "expire unit SECONDS."
+        },
+        {
+          "value": "MINUTES",
+          "description": "expire unit MINUTES."
+        },
+        {
+          "value": "HOURS",
+          "description": "expire unit HOURS."
+        },
+        {
+          "value": "HALF_DAYS",
+          "description": "expire unit HALF_DAYS."
+        },
+        {
+          "value": "DAYS",
+          "description": "expire unit DAYS."
+        },
+        {
+          "value": "WEEKS",
+          "description": "expire unit WEEKS."
+        },
+        {
+          "value": "MONTHS",
+          "description": "expire unit MONTHS."
+        },
+        {
+          "value": "YEARS",
+          "description": "expire unit YEARS."
+        },
+        {
+          "value": "DECADES",
+          "description": "expire unit DECADES."
+        },
+        {
+          "value": "CENTURIES",
+          "description": "expire unit CENTURIES."
+        },
+        {
+          "value": "MILLENNIA",
+          "description": "expire unit MILLENNIA."
+        },
+        {
+          "value": "ERAS",
+          "description": "expire unit ERAS."
+        },
+        {
+          "value": "FOREVER",
+          "description": "expire unit FOREVER."
+        }
+      ]
+    },
+    {
+      "name": "nichetoolkit.rest.jwt.not-before-enabled",
+      "values": [
+        {
+          "value": false,
+          "description": "jwt close."
+        },
+        {
+          "value": true,
+          "description": "jwt open."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "groups": [
+    {
+      "name": "nichetoolkit.rest.error",
+      "sourceType": "io.github.nichetoolkit.rest.configure.RestExceptionProperties",
+      "type": "io.github.nichetoolkit.rest.configure.RestExceptionProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "nichetoolkit.rest.error.console-log.rest-exception-enabled",
+      "type": "java.lang.Boolean",
+      "description": "rest exception enabled."
+    },
+    {
+      "name": "nichetoolkit.rest.error.console-log.common-exception-enabled",
+      "type": "java.lang.Boolean",
+      "description": "common exception enabled."
+    }
+  ],
+  "hints": [
+    {
+      "name": "nichetoolkit.rest.error.console-log.rest-exception-enabled",
+      "values": [
+        {
+          "value": false,
+          "description": "rest exception enabled close."
+        },
+        {
+          "value": true,
+          "description": "rest exception enabled open."
+        }
+      ]
+    },
+    {
+      "name": "nichetoolkit.rest.error.console-log.common-exception-enabled",
+      "values": [
+        {
+          "value": false,
+          "description": "common exception enabled close."
+        },
+        {
+          "value": true,
+          "description": "common exception enabled open."
+        }
+      ]
+    }
+  ]
+}

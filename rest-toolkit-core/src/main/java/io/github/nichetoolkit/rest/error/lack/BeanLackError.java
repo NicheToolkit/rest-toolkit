@@ -1,0 +1,37 @@
+package io.github.nichetoolkit.rest.error.lack;
+
+import io.github.nichetoolkit.rest.RestError;
+import io.github.nichetoolkit.rest.RestErrorStatus;
+import io.github.nichetoolkit.rest.RestStatus;
+
+import java.util.function.Supplier;
+
+/**
+ * <p>BeanLackErrorException</p>
+ * @author Cyan (snow22314@outlook.com)
+ * @version v1.0.0
+ */
+public class BeanLackError extends RestError {
+
+    public BeanLackError() {
+        super(RestErrorStatus.BEAN_LACK_ERROR);
+    }
+
+    public BeanLackError(Supplier<RestStatus> supplier) {
+        super(supplier);
+    }
+
+    public BeanLackError(String error) {
+        super(error,RestErrorStatus.BEAN_LACK_ERROR);
+    }
+
+    public BeanLackError(RestStatus status) {
+        super(status);
+    }
+
+
+    @Override
+    public BeanLackError get() {
+        return new BeanLackError();
+    }
+}
