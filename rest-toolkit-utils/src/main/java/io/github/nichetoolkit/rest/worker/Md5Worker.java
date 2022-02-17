@@ -1,6 +1,6 @@
 package io.github.nichetoolkit.rest.worker;
 
-import io.github.nichetoolkit.rest.configure.RestMd5CipherProperties;
+import io.github.nichetoolkit.rest.configure.RestMd5Properties;
 import io.github.nichetoolkit.rest.util.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,30 +20,28 @@ import java.util.Set;
  * @version v1.0.0
  */
 @Slf4j
-public class MD5Worker {
+public class Md5Worker {
 
     private static final String SIGN_KEY = "sign";
 
     private static final String PASSWORD_KEY = "password";
 
-    private static final String CIPHER = NRadixWorker.encrypts(System.currentTimeMillis());
+    private RestMd5Properties md5CipherProperties;
 
-    private  RestMd5CipherProperties md5CipherProperties;
+    private static Md5Worker INSTANCE = null;
 
-    private static MD5Worker INSTANCE = null;
-
-    public static MD5Worker getInstance() {
+    public static Md5Worker getInstance() {
         return INSTANCE;
     }
 
     @Autowired
-    public MD5Worker(RestMd5CipherProperties md5CipherProperties) {
+    public Md5Worker(RestMd5Properties md5CipherProperties) {
         this.md5CipherProperties = md5CipherProperties;
     }
 
     @PostConstruct
     public void md5WorkerInit() {
-        log.debug("md5Worker properties: {}", JsonUtils.parseJson(md5CipherProperties));
+        log.debug("md5 properties: {}", JsonUtils.parseJson(md5CipherProperties));
         INSTANCE = this;
     }
 

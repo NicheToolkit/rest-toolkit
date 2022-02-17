@@ -5,7 +5,6 @@ import io.github.nichetoolkit.rest.configure.RestIdentityProperties;
 import io.github.nichetoolkit.rest.identity.worker.IdentityWorker;
 import io.github.nichetoolkit.rest.identity.worker.WorkerType;
 import io.github.nichetoolkit.rest.util.JsonUtils;
-import io.github.nichetoolkit.rest.util.LoggerUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -39,7 +38,7 @@ public class IdentityFactory {
             if (identityWorker != null) {
                 return identityWorker;
             } else {
-                LoggerUtils.error("identity worker maybe haven't initiated!");
+                log.error("identity worker maybe haven't initiated!");
                 throw new RestError(IdentityErrorStatus.IDENTITY_WORKER_UNAVAILABLE);
             }
         } else {
@@ -61,7 +60,7 @@ public class IdentityFactory {
         } else if (IdentityType.SERVER == type) {
             Long sequence = properties.getServer().getSequence();
             IdentityWorker.get(sequence);
-            LoggerUtils.warn("waiting for identity config to initiate!");
+            log.warn("waiting for identity config to initiate!");
         } else {
             Long sequence = properties.getConfig().getSequence();
             IdentityWorker.get(sequence);

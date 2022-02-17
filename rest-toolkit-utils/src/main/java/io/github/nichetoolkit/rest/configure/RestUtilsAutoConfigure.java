@@ -2,9 +2,9 @@ package io.github.nichetoolkit.rest.configure;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.nichetoolkit.rest.holder.ObjectMapperHolder;
+import io.github.nichetoolkit.rest.worker.RadixWorker;
 import io.github.nichetoolkit.rest.worker.jwt.JwtWorker;
-import io.github.nichetoolkit.rest.worker.IpAddressWorker;
-import io.github.nichetoolkit.rest.worker.MD5Worker;
+import io.github.nichetoolkit.rest.worker.Md5Worker;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -13,8 +13,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
-
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * <p>RestUtilsAutoConfigure</p>
@@ -31,14 +29,6 @@ public class RestUtilsAutoConfigure {
 
     @Bean
     @Primary
-    @ConditionalOnMissingBean(JwtWorker.class)
-    @ConditionalOnProperty(value = "nichetoolkit.rest.jwt.enabled", havingValue = "true")
-    public JwtWorker jwtWorker(RestJwtProperties jwtProperties) {
-        return new JwtWorker(jwtProperties);
-    }
-
-    @Bean
-    @Primary
     @Autowired(required = false)
     @ConditionalOnMissingBean(ObjectMapperHolder.class)
     public ObjectMapperHolder objectMapperHolder(ObjectMapper objectMapper) {
@@ -47,20 +37,26 @@ public class RestUtilsAutoConfigure {
 
     @Bean
     @Primary
-    @Autowired(required = false)
-    @ConditionalOnMissingBean(IpAddressWorker.class)
-    @ConditionalOnProperty(value = "nichetoolkit.rest.ip-address.enabled", havingValue = "true")
-    public IpAddressWorker IpAddressWorker(RestIpAddressProperties ipAddressProperties, HttpServletRequest httpServletRequest) {
-        return new IpAddressWorker(ipAddressProperties, httpServletRequest);
+    @ConditionalOnMissingBean(JwtWorker.class)
+    @ConditionalOnProperty(value = "nichetoolkit.rest.jwt.enabled", havingValue = "true")
+    public JwtWorker jwtWorker(RestJwtProperties jwtProperties) {
+        return new JwtWorker(jwtProperties);
     }
-
 
     @Bean
     @Primary
-    @ConditionalOnMissingBean(MD5Worker.class)
+    @ConditionalOnMissingBean(Md5Worker.class)
     @ConditionalOnProperty(value = "nichetoolkit.rest.md5.enabled", havingValue = "true")
-    public MD5Worker md5Worker(RestMd5CipherProperties md5CipherProperties) {
-        return new MD5Worker(md5CipherProperties);
+    public Md5Worker md5Worker(RestMd5Properties md5Properties) {
+        return new Md5Worker(md5Properties);
+    }
+
+    @Bean
+    @Primary
+    @ConditionalOnMissingBean(RadixWorker.class)
+    @ConditionalOnProperty(value = "nichetoolkit.rest.radix.enabled", havingValue = "true")
+    public RadixWorker radixWorker(RestRadixProperties radixProperties) {
+        return new RadixWorker(radixProperties);
     }
 
 

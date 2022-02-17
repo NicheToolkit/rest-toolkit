@@ -54,6 +54,8 @@ public interface UtilConstants {
 
     String ZIP_SUFFIX = "zip";
 
+    String IMAGE_SUFFIX = "jpeg";
+
     String UNKNOWN_HEADER = "unknown";
 
     String X_REAL_IP_HEADER = "X-Real-IP";
@@ -89,24 +91,4 @@ public interface UtilConstants {
             'S', 'T', 'U', 'V', 'W', 'X',
             'Y', 'Z'
     };
-
-    Character[] N_RADIX_DIGITS = {
-            'q', 'w', 'e', '8', 'a', 's', 
-            '2', 'd', 'z', 'x', '9', 'c', 
-            '7', 'p', '5', 'i', 'k', '3', 
-            'm', 'j', 'u', 'f', 'r', '4', 
-            'v', 'y', 'l', 't', 'n', '6', 
-            'b', 'g', 'h'
-    };
-
-    Character[] HEX_DIGITS = {
-            '0', '1', '2', '3', '4', '5',
-            '6', '7', '8', '9', 'A', 'B',
-            'C', 'D', 'E', 'F'
-    };
-
-    Character N_RADIX_SUPPLY_DIGIT = 'o';
-    
-    
-    Integer N_RADIX_MIN_LENGTH = 6;
 }

@@ -254,23 +254,6 @@
       ]
     },
     {
-      "name": "nichetoolkit.rest.identity.type",
-      "values": [
-        {
-          "value": "AUTO",
-          "description": "identity type AUTO."
-        },
-        {
-          "value": "CONFIG",
-          "description": "identity type CONFIG."
-        },
-        {
-          "value": "SERVER",
-          "description": "identity type SERVER."
-        }
-      ]
-    },
-    {
       "name": "nichetoolkit.rest.http.enabled",
       "values": [
         {
@@ -280,40 +263,6 @@
         {
           "value": true,
           "description": "http open."
-        }
-      ]
-    },
-    {
-      "name": "nichetoolkit.rest.http.http-type",
-      "values": [
-        {
-          "value": "default",
-          "description": "http type default."
-        },
-        {
-          "value": "httpClient",
-          "description": "http type httpClient."
-        },
-        {
-          "value": "okHttp3",
-          "description": "http type okHttp3."
-        }
-      ]
-    },
-    {
-      "name": "nichetoolkit.rest.http.proxy.type",
-      "values": [
-        {
-          "value": "direct",
-          "description": "http proxy type direct."
-        },
-        {
-          "value": "http",
-          "description": "http proxy type http."
-        },
-        {
-          "value": "socks",
-          "description": "http proxy type socks."
         }
       ]
     }

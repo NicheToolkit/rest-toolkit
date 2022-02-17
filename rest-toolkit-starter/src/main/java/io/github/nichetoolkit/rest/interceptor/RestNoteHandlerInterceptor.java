@@ -3,12 +3,7 @@ package io.github.nichetoolkit.rest.interceptor;
 import io.github.nichetoolkit.rest.*;
 import io.github.nichetoolkit.rest.configure.RestInterceptProperties;
 import io.github.nichetoolkit.rest.constant.RestConstants;
-import io.github.nichetoolkit.rest.util.ContextUtils;
-import io.github.nichetoolkit.rest.util.DateUtils;
-import io.github.nichetoolkit.rest.util.GeneralUtils;
-import io.github.nichetoolkit.rest.util.JsonUtils;
-import io.github.nichetoolkit.rest.util.CommonUtils;
-import io.github.nichetoolkit.rest.worker.IpAddressWorker;
+import io.github.nichetoolkit.rest.util.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;
@@ -154,7 +149,7 @@ public class RestNoteHandlerInterceptor implements AsyncHandlerInterceptor, Rest
         RestRequest.Builder requestBuilder = new RestRequest.Builder();
         Map<String, String> headerMap = applyRestRequestHeader(request);
         RestRequest restRequest = requestBuilder.headers(JsonUtils.parseJson(headerMap))
-                .ipAddress(IpAddressWorker.baseIpAddress(request))
+                .ipAddress(IpAddressUtils.baseIpAddress(request))
                 .userAgent(request.getHeader(RestConstants.USER_AGENT_HEADER)).method(request.getMethod())
                 .url(request.getRequestURL().toString()).build();
         applyRestResponseError(response, throwable, restResponse);

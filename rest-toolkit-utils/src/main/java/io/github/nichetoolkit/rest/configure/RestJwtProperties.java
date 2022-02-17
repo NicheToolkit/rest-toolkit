@@ -1,9 +1,9 @@
 package io.github.nichetoolkit.rest.configure;
 
+import io.github.nichetoolkit.rest.util.GeneralUtils;
+import io.github.nichetoolkit.rest.worker.RadixWorker;
 import io.github.nichetoolkit.rest.worker.jwt.AlgorithmType;
 import io.github.nichetoolkit.rest.worker.jwt.JwtBuilder;
-import io.github.nichetoolkit.rest.util.GeneralUtils;
-import io.github.nichetoolkit.rest.worker.NRadixWorker;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
@@ -64,7 +64,7 @@ public class RestJwtProperties {
                     this.algorithm.signer(this.secretKey);
                 }
             } else {
-                String secretKey = NRadixWorker.encrypts(System.currentTimeMillis());
+                String secretKey = RadixWorker.encrypts(System.currentTimeMillis());
                 this.secretKey = secretKey;
                 this.algorithm.signer(secretKey);
                 this.algorithm.verifier(secretKey);

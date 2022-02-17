@@ -36,10 +36,10 @@ public class JwtWorker {
 
     private Verifier verifier;
 
-    private static JwtWorker instance = null;
+    private static JwtWorker INSTANCE = null;
 
     public static JwtWorker getInstance() {
-        return instance;
+        return INSTANCE;
     }
 
     @Autowired
@@ -53,8 +53,8 @@ public class JwtWorker {
 
     @PostConstruct
     public void jwtWorkerInit() {
-        log.debug("jwtWorker properties: {}", JsonUtils.parseJson(jwtProperties));
-        instance = this;
+        log.debug("jwt properties: {}", JsonUtils.parseJson(jwtProperties));
+        INSTANCE = this;
     }
 
 
@@ -119,6 +119,11 @@ public class JwtWorker {
                 .issuedAt(ZonedDateTime.now()).subject(subject);
     }
 
+    public static JwtBuilder builder(String uniqueId, String subject) {
+        return JwtBuilder.builder().uniqueId(uniqueId)
+                .issuedAt(ZonedDateTime.now()).subject(subject);
+    }
+
     public static JwtBuilder builder(String uniqueId, String subject, Map<String, Object> claimsMap) {
         return JwtBuilder.builder().addClaim(claimsMap).uniqueId(uniqueId)
                 .issuedAt(ZonedDateTime.now()).subject(subject);
@@ -131,12 +136,17 @@ public class JwtWorker {
 
     public static String token(String subject)  {
         JwtBuilder jwtBuilder = builder(subject);
-        return token(jwtBuilder,instance.signer);
+        return token(jwtBuilder,INSTANCE.signer);
+    }
+
+    public static String token(String uniqueId,String subject)  {
+        JwtBuilder jwtBuilder = builder(uniqueId,subject);
+        return token(jwtBuilder,INSTANCE.signer);
     }
 
     public static String token(String subject, Map<String, Object> claimsMap)  {
         JwtBuilder jwtBuilder = builder(subject, claimsMap);
-        return token(jwtBuilder,instance.signer);
+        return token(jwtBuilder,INSTANCE.signer);
     }
 
     public static String token(AlgorithmType algorithm, PrivateKey privateKey, String kid, CryptoProvider cryptoProvider,String subject, Map<String, Object> claimsMap) {
@@ -204,7 +214,7 @@ public class JwtWorker {
     }
 
     public static JWT parse(String token) {
-        return parse(token,instance.verifier);
+        return parse(token,INSTANCE.verifier);
     }
 
     public static JWT parse(String token, AlgorithmType algorithm, byte[] bytes) {

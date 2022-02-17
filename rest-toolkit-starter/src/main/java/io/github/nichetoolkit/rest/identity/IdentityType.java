@@ -6,9 +6,9 @@ package io.github.nichetoolkit.rest.identity;
  * @version v1.0.0
  */
 public enum IdentityType {
-    /** 自动单机配置 */
+    /** 自动配置 */
     AUTO,
-    /** 配置文件配置 */
+    /** 文件配置 */
     CONFIG,
     /** 服务器配置 */
     SERVER

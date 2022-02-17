@@ -72,12 +72,17 @@ import java.util.concurrent.TimeUnit;
 @ConditionalOnProperty(value = "nichetoolkit.rest.http.enabled", havingValue = "true")
 public class RestHttpAutoConfigure {
 
-    @Autowired
     private RestInterceptProperties interceptProperties;
-    @Autowired
     private RestHttpInterceptor httpInterceptor;
-    @Autowired
     private RestHttpProperties httpProperties;
+
+    @Autowired
+    public RestHttpAutoConfigure(RestHttpProperties httpProperties,RestHttpInterceptor httpInterceptor,RestInterceptProperties interceptProperties) {
+        log.debug("================= http-auto-config initiated ！ ===================");
+        this.httpProperties = httpProperties;
+        this.httpInterceptor = httpInterceptor;
+        this.interceptProperties = interceptProperties;
+    }
 
     @Bean
     @ConditionalOnMissingBean(RestTemplates.class)

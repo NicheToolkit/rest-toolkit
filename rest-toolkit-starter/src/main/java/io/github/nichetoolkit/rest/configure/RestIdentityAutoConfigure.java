@@ -2,6 +2,7 @@ package io.github.nichetoolkit.rest.configure;
 
 import io.github.nichetoolkit.rest.identity.IdentityFactory;
 import io.github.nichetoolkit.rest.identity.IdentityManager;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
@@ -15,10 +16,15 @@ import org.springframework.core.env.Environment;
  * @author Cyan (snow22314@outlook.com)
  * @version v1.0.0
  */
+@Slf4j
 @Configuration
 @ComponentScan(basePackages = {"io.github.nichetoolkit.rest"})
-@ConditionalOnProperty(value = "nichetoolkit.identity.enabled", havingValue = "true")
+@ConditionalOnProperty(value = "nichetoolkit.rest.identity.enabled", havingValue = "true")
 public class RestIdentityAutoConfigure {
+
+    public RestIdentityAutoConfigure() {
+        log.debug("================= identity-auto-config initiated ！ ===================");
+    }
 
     @Bean
     @Primary
