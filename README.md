@@ -1,6 +1,7 @@
 ## [Rest-Toolkit](https://github.com/NicheToolkit/rest-toolkit) rest开发工具组
 
 [![GitHub license](https://img.shields.io/badge/license-Apache-blue.svg)](https://github.com/NicheToolkit/rest-toolkit/blob/master/LICENSE)[![Maven Release](https://img.shields.io/maven-central/v/io.github.nichetoolkit/rest-toolkit-starter.svg)](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22io.github.nichetoolkit%22%20AND%20a%3A%rest-toolkit-starter%22)
+![Tests](https://github.com/NicheToolkit/rest-toolkit/workflows/Tests/badge.svg)
 
 针对日常[Spring Boot](https://spring.io/projects/spring-boot)框架下开发整理抽离的底层基础组件，不建议直接使用，通过其他组件引入使用
 
