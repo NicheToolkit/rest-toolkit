@@ -47,7 +47,7 @@ public class ImageUtils {
             graphics.setColor(randomColor());
             graphics.drawString(character, 15 * i + 7, 16);
         }
-        return ImageVerify.builder().content(contentBuilder.toString()).image(image).build();
+        return new ImageVerify(contentBuilder.toString(),image);
     }
 
     protected static Character randomChar() {

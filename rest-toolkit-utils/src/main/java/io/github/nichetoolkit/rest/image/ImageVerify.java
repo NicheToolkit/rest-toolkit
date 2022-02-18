@@ -15,10 +15,17 @@ import java.io.Serializable;
  * @author Cyan (snow22314@outlook.com)
  * @version v1.0.0
  */
-@Builder
 public class ImageVerify implements Serializable {
     private String content;
     private BufferedImage image;
+
+    public ImageVerify() {
+    }
+
+    public ImageVerify(String content, BufferedImage image) {
+        this.content = content;
+        this.image = image;
+    }
 
     public String getContent() {
         return content;

@@ -74,7 +74,7 @@ public class IdentityManager implements ApplicationRunner {
         String ip = IdentityManager.getEnvironment().getProperty(ServerConfig.IP_ADDRESS);
         String port = IdentityManager.getEnvironment().getProperty(ServerConfig.SERVER_PORT);
         String name = IdentityManager.getEnvironment().getProperty(ServerConfig.APP_NAME);
-        return ServerConfig.builder().ip(ip).port(port).name(name).build();
+        return new ServerConfig(ip,port,name);
     }
 
     public static WorkerConfig workerConfig() throws RestException {

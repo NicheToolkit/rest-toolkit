@@ -9,8 +9,6 @@ import lombok.Builder;
  * @author Cyan (snow22314 @ outlook.com)
  * @version v1.0.0
  */
-@Builder
-@AllArgsConstructor
 @SuppressWarnings("SameNameButDifferent")
 public class ServerConfig {
     @JsonIgnore
@@ -25,6 +23,12 @@ public class ServerConfig {
     private String name;
 
     public ServerConfig() {
+    }
+
+    public ServerConfig(String ip, String port, String name) {
+        this.ip = ip;
+        this.port = port;
+        this.name = name;
     }
 
     public String getIp() {
