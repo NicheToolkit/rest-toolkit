@@ -138,7 +138,7 @@ public class RestHttpAutoConfigure {
         }
 
         @Bean(name = HttpClientType.OKHTTP3_BEAN)
-        public RestTemplate okHttp3Template(OkHttp3ClientHttpRequestFactory okHttp3ClientHttpRequestFactory) {
+        public RestTemplate okHttpTemplate(OkHttp3ClientHttpRequestFactory okHttp3ClientHttpRequestFactory) {
             return createRestTemplate(okHttp3ClientHttpRequestFactory);
         }
 
