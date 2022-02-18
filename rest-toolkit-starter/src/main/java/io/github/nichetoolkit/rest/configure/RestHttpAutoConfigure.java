@@ -95,124 +95,152 @@ public class RestHttpAutoConfigure {
         return new RestTemplates(restTemplate);
     }
 
-    @Bean(name = HttpClientType.DEFAULT_BEAN)
-    public RestTemplate restTemplate(SimpleClientHttpRequestFactory simpleClientHttpRequestFactory) {
-        return createRestTemplate(simpleClientHttpRequestFactory);
-    }
 
-    @Bean(name = "simpleClientHttpRequestFactory")
-    public SimpleClientHttpRequestFactory simpleClientHttpRequestFactory() {
-        SimpleClientHttpRequestFactory simpleClientHttpRequestFactory = new SimpleClientHttpRequestFactory();
-        simpleClientHttpRequestFactory.setConnectTimeout(httpProperties.getConnectTimeout());
-        /** 数据读取超时时间，即SocketTimeout */
-        simpleClientHttpRequestFactory.setReadTimeout(httpProperties.getReadTimeout());
-        /** 从连接池获取请求连接的超时时间，不宜过长，必须设置，比如连接不够用时，时间过长将是灾难性的 */
-        Proxy proxy = httpProperties.getProxy().toProxy();
-        if (GeneralUtils.isNotEmpty(proxy)) {
-            simpleClientHttpRequestFactory.setProxy(proxy);
+    @Configuration
+    @ConditionalOnProperty(value = "nichetoolkit.rest.http.http-type", havingValue = "default")
+    public class DefaultRestTemplateAutoConfigure {
+
+        public DefaultRestTemplateAutoConfigure() {
+            log.debug("================= default-rest-template-auto-config initiated ！ ===================");
         }
-        ThreadPoolTaskScheduler taskExecutor = new ThreadPoolTaskScheduler();
-        taskExecutor.setPoolSize(httpProperties.getMaxCoreSize());
-        taskExecutor.setThreadFactory(new HttpThreadFactory("http-thread-pool"));
-        simpleClientHttpRequestFactory.setTaskExecutor(taskExecutor);
-        return simpleClientHttpRequestFactory;
-    }
 
-    @Bean(name = HttpClientType.OKHTTP3_BEAN)
-    public RestTemplate okHttp3Template(OkHttp3ClientHttpRequestFactory okHttp3ClientHttpRequestFactory) {
-        return createRestTemplate(okHttp3ClientHttpRequestFactory);
-    }
+        @Bean(name = HttpClientType.DEFAULT_BEAN)
+        public RestTemplate restTemplate(SimpleClientHttpRequestFactory simpleClientHttpRequestFactory) {
+            return createRestTemplate(simpleClientHttpRequestFactory);
+        }
 
-    @Bean(name = "okHttp3ClientHttpRequestFactory")
-    public OkHttp3ClientHttpRequestFactory okHttp3ClientHttpRequestFactory(OkHttpClient okHttpClient) {
-        OkHttp3ClientHttpRequestFactory okHttp3ClientHttpRequestFactory = new OkHttp3ClientHttpRequestFactory(okHttpClient);
-        okHttp3ClientHttpRequestFactory.setConnectTimeout(httpProperties.getConnectTimeout());
-        /** 数据读取超时时间，即SocketTimeout */
-        okHttp3ClientHttpRequestFactory.setReadTimeout(httpProperties.getReadTimeout());
-        /** 从连接池获取请求连接的超时时间，不宜过长，必须设置，比如连接不够用时，时间过长将是灾难性的 */
-        okHttp3ClientHttpRequestFactory.setWriteTimeout(httpProperties.getRequestTimeout());
-        return okHttp3ClientHttpRequestFactory;
-    }
-
-    @Bean(name = "okHttpClient")
-    public OkHttpClient okHttpClient(X509TrustManager x509TrustManager) throws HttpConfigError {
-        OkHttpClient.Builder okHttpClientBuilder = new OkHttpClient().newBuilder();
-        ConnectionPool connectionPool = new ConnectionPool(httpProperties.getMaxIdleSize(), httpProperties.getKeepAliveTime(), TimeUnit.MILLISECONDS);
-        okHttpClientBuilder.connectionPool(connectionPool);
-        try {
-            SSLContext sslContext = new SSLContextBuilder().loadTrustMaterial(null, (arg0, arg1) -> true).build();
-            sslContext.init(null, new TrustManager[]{x509TrustManager}, new SecureRandom());
-            okHttpClientBuilder.sslSocketFactory(sslContext.getSocketFactory(),x509TrustManager);
-            okHttpClientBuilder.hostnameVerifier(NoopHostnameVerifier.INSTANCE);
-            okHttpClientBuilder.retryOnConnectionFailure(true);
-            okHttpClientBuilder.connectTimeout(httpProperties.getConnectTimeout(),TimeUnit.MILLISECONDS);
-            okHttpClientBuilder.readTimeout(httpProperties.getReadTimeout(),TimeUnit.MILLISECONDS);
-            okHttpClientBuilder.writeTimeout(httpProperties.getRequestTimeout(),TimeUnit.MILLISECONDS);
-            ProxySelector proxySelector = ProxySelector.getDefault();
-            okHttpClientBuilder.proxySelector(proxySelector);
-            return okHttpClientBuilder.build();
-        } catch (KeyManagementException | NoSuchAlgorithmException | KeyStoreException exception) {
-            log.error("the http connection pool initiated with error, error: {}", exception.getMessage());
-            throw new HttpConfigError("the http connection pool initiated with error, error: " + exception.getMessage(), exception);
+        @Bean(name = "simpleClientHttpRequestFactory")
+        public SimpleClientHttpRequestFactory simpleClientHttpRequestFactory() {
+            SimpleClientHttpRequestFactory simpleClientHttpRequestFactory = new SimpleClientHttpRequestFactory();
+            simpleClientHttpRequestFactory.setConnectTimeout(httpProperties.getConnectTimeout());
+            /** 数据读取超时时间，即SocketTimeout */
+            simpleClientHttpRequestFactory.setReadTimeout(httpProperties.getReadTimeout());
+            /** 从连接池获取请求连接的超时时间，不宜过长，必须设置，比如连接不够用时，时间过长将是灾难性的 */
+            Proxy proxy = httpProperties.getProxy().toProxy();
+            if (GeneralUtils.isNotEmpty(proxy)) {
+                simpleClientHttpRequestFactory.setProxy(proxy);
+            }
+            ThreadPoolTaskScheduler taskExecutor = new ThreadPoolTaskScheduler();
+            taskExecutor.setPoolSize(httpProperties.getMaxCoreSize());
+            taskExecutor.setThreadFactory(new HttpThreadFactory("http-thread-pool"));
+            simpleClientHttpRequestFactory.setTaskExecutor(taskExecutor);
+            return simpleClientHttpRequestFactory;
         }
     }
 
-    @Bean(name = HttpClientType.HTTPCLIENT_BEAN)
-    public RestTemplate httpTemplate(HttpComponentsClientHttpRequestFactory HttpComponentsClientHttpRequestFactory) {
-        return createRestTemplate(HttpComponentsClientHttpRequestFactory);
-    }
 
-    @Bean(name = "httpComponentsClientHttpRequestFactory")
-    public HttpComponentsClientHttpRequestFactory httpComponentsClientHttpRequestFactory(HttpClient httpClient) {
-        HttpComponentsClientHttpRequestFactory httpComponentsClientHttpRequestFactory = new HttpComponentsClientHttpRequestFactory(httpClient);
-        httpComponentsClientHttpRequestFactory.setConnectTimeout(httpProperties.getConnectTimeout());
-        /** 数据读取超时时间，即SocketTimeout */
-        httpComponentsClientHttpRequestFactory.setReadTimeout(httpProperties.getReadTimeout());
-        /** 从连接池获取请求连接的超时时间，不宜过长，必须设置，比如连接不够用时，时间过长将是灾难性的 */
-        httpComponentsClientHttpRequestFactory.setConnectionRequestTimeout(httpProperties.getRequestTimeout());
-        return httpComponentsClientHttpRequestFactory;
-    }
-
-    @Bean(name = "httpClient")
-    public HttpClient httpClient(X509TrustManager x509TrustManager) throws HttpConfigError {
-        HttpClientBuilder httpClientBuilder = HttpClientBuilder.create();
-        Proxy proxy = httpProperties.getProxy().toProxy();
-        if (GeneralUtils.isNotEmpty(proxy)) {
-            InetSocketAddress address = (InetSocketAddress) proxy.address();
-            HttpHost host = new HttpHost(address.getHostName(), address.getPort(), proxy.type().name().toLowerCase());
-            httpClientBuilder.setProxy(host);
+    @Configuration
+    @ConditionalOnProperty(value = "nichetoolkit.rest.http.http-type", havingValue = "ok_http_client")
+    public class OkHttpRestTemplateAutoConfigure {
+        public OkHttpRestTemplateAutoConfigure() {
+            log.debug("================= okhttp3-rest-template-auto-config initiated ！ ===================");
         }
-        try {
-            /** 设置信任ssl访问 */
-            SSLContext sslContext = new SSLContextBuilder().loadTrustMaterial(null, (arg0, arg1) -> true).build();
-            sslContext.init(null, new TrustManager[]{x509TrustManager}, new SecureRandom());
-            httpClientBuilder.setSSLContext(sslContext);
 
-            HostnameVerifier hostnameVerifier = NoopHostnameVerifier.INSTANCE;
-            SSLConnectionSocketFactory sslConnectionSocketFactory = new SSLConnectionSocketFactory(sslContext, hostnameVerifier);
-            Registry<ConnectionSocketFactory> socketFactoryRegistry = RegistryBuilder.<ConnectionSocketFactory>create()
-                    /**  注册http和https请求 */
-                    .register("http", PlainConnectionSocketFactory.getSocketFactory())
-                    .register("https", sslConnectionSocketFactory).build();
+        @Bean(name = HttpClientType.OKHTTP3_BEAN)
+        public RestTemplate okHttp3Template(OkHttp3ClientHttpRequestFactory okHttp3ClientHttpRequestFactory) {
+            return createRestTemplate(okHttp3ClientHttpRequestFactory);
+        }
 
-            /** 使用Httpclient连接池的方式配置(推荐)，同时支持netty，okHttp以及其他http框架 */
-            PoolingHttpClientConnectionManager poolingHttpClientConnectionManager = new PoolingHttpClientConnectionManager(socketFactoryRegistry);
-            /** 最大连接数 */
-            poolingHttpClientConnectionManager.setMaxTotal(httpProperties.getMaxCoreSize());
-            /** 同路由并发数 */
-            poolingHttpClientConnectionManager.setDefaultMaxPerRoute(httpProperties.getMaxIdleSize());
-            /** 配置连接池 */
-            httpClientBuilder.setConnectionManager(poolingHttpClientConnectionManager);
-            /** 重试次数 */
-            httpClientBuilder.setRetryHandler(new DefaultHttpRequestRetryHandler(httpProperties.getRetryTimes(), true));
-            /** 设置默认请求头 */
-            httpClientBuilder.setDefaultHeaders(getDefaultHeaders());
-            /** 设置长连接保持策略 */
-            httpClientBuilder.setKeepAliveStrategy(connectionKeepAliveStrategy());
-            return httpClientBuilder.build();
-        } catch (KeyManagementException | NoSuchAlgorithmException | KeyStoreException exception) {
-            log.error("the http connection pool initiated with error, error: {}", exception.getMessage());
-            throw new HttpConfigError("the http connection pool initiated with error, error: " + exception.getMessage(), exception);
+        @Bean(name = "okHttp3ClientHttpRequestFactory")
+        public OkHttp3ClientHttpRequestFactory okHttp3ClientHttpRequestFactory(OkHttpClient okHttpClient) {
+            OkHttp3ClientHttpRequestFactory okHttp3ClientHttpRequestFactory = new OkHttp3ClientHttpRequestFactory(okHttpClient);
+            okHttp3ClientHttpRequestFactory.setConnectTimeout(httpProperties.getConnectTimeout());
+            /** 数据读取超时时间，即SocketTimeout */
+            okHttp3ClientHttpRequestFactory.setReadTimeout(httpProperties.getReadTimeout());
+            /** 从连接池获取请求连接的超时时间，不宜过长，必须设置，比如连接不够用时，时间过长将是灾难性的 */
+            okHttp3ClientHttpRequestFactory.setWriteTimeout(httpProperties.getRequestTimeout());
+            return okHttp3ClientHttpRequestFactory;
+        }
+
+        @Bean(name = "okHttpClient")
+        public OkHttpClient okHttpClient(X509TrustManager x509TrustManager) throws HttpConfigError {
+            OkHttpClient.Builder okHttpClientBuilder = new OkHttpClient().newBuilder();
+            ConnectionPool connectionPool = new ConnectionPool(httpProperties.getMaxIdleSize(), httpProperties.getKeepAliveTime(), TimeUnit.MILLISECONDS);
+            okHttpClientBuilder.connectionPool(connectionPool);
+            try {
+                SSLContext sslContext = new SSLContextBuilder().loadTrustMaterial(null, (arg0, arg1) -> true).build();
+                sslContext.init(null, new TrustManager[]{x509TrustManager}, new SecureRandom());
+                okHttpClientBuilder.sslSocketFactory(sslContext.getSocketFactory(),x509TrustManager);
+                okHttpClientBuilder.hostnameVerifier(NoopHostnameVerifier.INSTANCE);
+                okHttpClientBuilder.retryOnConnectionFailure(true);
+                okHttpClientBuilder.connectTimeout(httpProperties.getConnectTimeout(),TimeUnit.MILLISECONDS);
+                okHttpClientBuilder.readTimeout(httpProperties.getReadTimeout(),TimeUnit.MILLISECONDS);
+                okHttpClientBuilder.writeTimeout(httpProperties.getRequestTimeout(),TimeUnit.MILLISECONDS);
+                ProxySelector proxySelector = ProxySelector.getDefault();
+                okHttpClientBuilder.proxySelector(proxySelector);
+                return okHttpClientBuilder.build();
+            } catch (KeyManagementException | NoSuchAlgorithmException | KeyStoreException exception) {
+                log.error("the http connection pool initiated with error, error: {}", exception.getMessage());
+                throw new HttpConfigError("the http connection pool initiated with error, error: " + exception.getMessage(), exception);
+            }
+        }
+    }
+
+
+    @Configuration
+    @ConditionalOnProperty(value = "nichetoolkit.rest.http.http-type", havingValue = "http_client")
+    public class HttpClientRestTemplateAutoConfigure {
+        public HttpClientRestTemplateAutoConfigure() {
+            log.debug("================= http-client-rest-template-auto-config initiated ！ ===================");
+        }
+
+        @Bean(name = HttpClientType.HTTPCLIENT_BEAN)
+        public RestTemplate httpTemplate(HttpComponentsClientHttpRequestFactory HttpComponentsClientHttpRequestFactory) {
+            return createRestTemplate(HttpComponentsClientHttpRequestFactory);
+        }
+
+        @Bean(name = "httpComponentsClientHttpRequestFactory")
+        public HttpComponentsClientHttpRequestFactory httpComponentsClientHttpRequestFactory(HttpClient httpClient) {
+            HttpComponentsClientHttpRequestFactory httpComponentsClientHttpRequestFactory = new HttpComponentsClientHttpRequestFactory(httpClient);
+            httpComponentsClientHttpRequestFactory.setConnectTimeout(httpProperties.getConnectTimeout());
+            /** 数据读取超时时间，即SocketTimeout */
+            httpComponentsClientHttpRequestFactory.setReadTimeout(httpProperties.getReadTimeout());
+            /** 从连接池获取请求连接的超时时间，不宜过长，必须设置，比如连接不够用时，时间过长将是灾难性的 */
+            httpComponentsClientHttpRequestFactory.setConnectionRequestTimeout(httpProperties.getRequestTimeout());
+            return httpComponentsClientHttpRequestFactory;
+        }
+
+        @Bean(name = "httpClient")
+        public HttpClient httpClient(X509TrustManager x509TrustManager) throws HttpConfigError {
+            HttpClientBuilder httpClientBuilder = HttpClientBuilder.create();
+            Proxy proxy = httpProperties.getProxy().toProxy();
+            if (GeneralUtils.isNotEmpty(proxy)) {
+                InetSocketAddress address = (InetSocketAddress) proxy.address();
+                HttpHost host = new HttpHost(address.getHostName(), address.getPort(), proxy.type().name().toLowerCase());
+                httpClientBuilder.setProxy(host);
+            }
+            try {
+                /** 设置信任ssl访问 */
+                SSLContext sslContext = new SSLContextBuilder().loadTrustMaterial(null, (arg0, arg1) -> true).build();
+                sslContext.init(null, new TrustManager[]{x509TrustManager}, new SecureRandom());
+                httpClientBuilder.setSSLContext(sslContext);
+
+                HostnameVerifier hostnameVerifier = NoopHostnameVerifier.INSTANCE;
+                SSLConnectionSocketFactory sslConnectionSocketFactory = new SSLConnectionSocketFactory(sslContext, hostnameVerifier);
+                Registry<ConnectionSocketFactory> socketFactoryRegistry = RegistryBuilder.<ConnectionSocketFactory>create()
+                        /**  注册http和https请求 */
+                        .register("http", PlainConnectionSocketFactory.getSocketFactory())
+                        .register("https", sslConnectionSocketFactory).build();
+
+                /** 使用Httpclient连接池的方式配置(推荐)，同时支持netty，okHttp以及其他http框架 */
+                PoolingHttpClientConnectionManager poolingHttpClientConnectionManager = new PoolingHttpClientConnectionManager(socketFactoryRegistry);
+                /** 最大连接数 */
+                poolingHttpClientConnectionManager.setMaxTotal(httpProperties.getMaxCoreSize());
+                /** 同路由并发数 */
+                poolingHttpClientConnectionManager.setDefaultMaxPerRoute(httpProperties.getMaxIdleSize());
+                /** 配置连接池 */
+                httpClientBuilder.setConnectionManager(poolingHttpClientConnectionManager);
+                /** 重试次数 */
+                httpClientBuilder.setRetryHandler(new DefaultHttpRequestRetryHandler(httpProperties.getRetryTimes(), true));
+                /** 设置默认请求头 */
+                httpClientBuilder.setDefaultHeaders(getDefaultHeaders());
+                /** 设置长连接保持策略 */
+                httpClientBuilder.setKeepAliveStrategy(connectionKeepAliveStrategy());
+                return httpClientBuilder.build();
+            } catch (KeyManagementException | NoSuchAlgorithmException | KeyStoreException exception) {
+                log.error("the http connection pool initiated with error, error: {}", exception.getMessage());
+                throw new HttpConfigError("the http connection pool initiated with error, error: " + exception.getMessage(), exception);
+            }
         }
     }
 
