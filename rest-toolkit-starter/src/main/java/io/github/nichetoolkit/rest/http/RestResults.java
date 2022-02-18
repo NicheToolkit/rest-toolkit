@@ -17,6 +17,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.MultiValueMap;
 
+import java.util.Optional;
+
 /**
  * <p>RestResults</p>
  * @author Cyan (snow22314@outlook.com)
@@ -462,7 +464,7 @@ public class RestResults {
 
     public static <T> T bean(String response, String resource, JavaType javaType) throws RestException {
         RestResult<T> result = result(response, resource, javaType, true);
-        return result.getData();
+        return Optional.ofNullable(result).map(RestResult::getData).orElse(null);
     }
 
     public static <T> RestResult<T> result(RestResult response, TypeReference<T> typeReference) throws RestException {
