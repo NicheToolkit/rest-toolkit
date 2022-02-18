@@ -23,6 +23,7 @@ import org.springframework.util.MultiValueMap;
  * @version v1.0.0
  */
 @Slf4j
+@SuppressWarnings("TypeParameterUnusedInFormals")
 public class RestResults {
 
     public static <T> RestResult<T> result(String response, TypeReference<T> typeReference) throws RestException {
