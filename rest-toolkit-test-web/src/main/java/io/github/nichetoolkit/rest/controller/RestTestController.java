@@ -47,21 +47,21 @@ public class RestTestController {
     private JwtWorker jwtWorker;
 
     @GetMapping("/identity")
-    private ResponseEntity<RestResult<String>> generalIdentity() throws RestException {
+    public ResponseEntity<RestResult<String>> generalIdentity() throws RestException {
 //        Long identity = IdentityUtils.generateLong();
         String identity = IdentityUtils.generateString();
         return RestResult.ok(RestErrorStatus.SUCCESS, identity);
     }
 
     @GetMapping("/uuid")
-    private ResponseEntity<RestResult<String>> generalUuid() throws RestException {
+    public ResponseEntity<RestResult<String>> generalUuid() throws RestException {
 //        String uuid = UUID.randomUUID().toString().replaceAll("-", "");
         String uuid = GeneralUtils.uuid();
         return RestResult.ok(RestErrorStatus.SUCCESS, uuid);
     }
 
     @GetMapping("/image")
-    private void generalImage(HttpServletResponse response) throws RestException {
+    public void generalImage(HttpServletResponse response) throws RestException {
         ImageVerify imageVerify = ImageUtils.randoms();
         response.setContentType(MediaType.IMAGE_JPEG_VALUE);
         response.setCharacterEncoding(StandardCharsets.UTF_8.name());
@@ -73,7 +73,7 @@ public class RestTestController {
     }
 
     @GetMapping("/radix")
-    private ResponseEntity<RestResult<Map<String, Object>>> generalRadix() throws RestException {
+    public ResponseEntity<RestResult<Map<String, Object>>> generalRadix() throws RestException {
         Long subject = IdentityUtils.generateLong();
         String encryptSubject = radixWorker.encrypt(subject);
         Long decryptSubject = radixWorker.decrypt(encryptSubject);
@@ -85,7 +85,7 @@ public class RestTestController {
     }
 
     @GetMapping("/md5")
-    private ResponseEntity<RestResult<Map<String, Object>>> generalMd5() throws RestException {
+    public ResponseEntity<RestResult<Map<String, Object>>> generalMd5() throws RestException {
         String password = GeneralUtils.uuid();
 //        String encryptPassword = Md5Worker.encrypts(password);
         String encryptPassword = md5Worker.encrypt(password);
@@ -96,7 +96,7 @@ public class RestTestController {
     }
 
     @GetMapping("/jwt")
-    private ResponseEntity<RestResult<Map<String, Object>>> generalJwt() throws RestException {
+    public ResponseEntity<RestResult<Map<String, Object>>> generalJwt() throws RestException {
         String uniqueId = GeneralUtils.uuid();
         Long subject = IdentityUtils.generateLong();
 //        String encryptSubject = RadixWorker.encrypts(subject);
