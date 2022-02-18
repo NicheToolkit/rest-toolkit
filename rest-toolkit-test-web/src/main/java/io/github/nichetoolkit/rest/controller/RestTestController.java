@@ -34,6 +34,7 @@ import java.util.Map;
 @Slf4j
 @RestNote
 @RestController
+@SuppressWarnings("SameNameButDifferent")
 @RequestMapping("/v1.0.0/rest")
 public class RestTestController {
 

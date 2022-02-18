@@ -15,8 +15,6 @@ import java.nio.charset.StandardCharsets;
  * @author Cyan (snow22314@outlook.com)
  * @version v1.0.0
  */
-
-@Slf4j
 public class StreamHelper {
 
     public static void transfer(MultipartFile multipartFile, String transferFilePath) throws StreamTransferException {

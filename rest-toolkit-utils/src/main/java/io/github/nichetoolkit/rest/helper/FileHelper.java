@@ -19,6 +19,7 @@ import java.util.Map;
  * @version v1.0.0
  */
 @Slf4j
+@SuppressWarnings("SameNameButDifferent")
 public class FileHelper {
 
     public static File createFile(final String path) throws FileCreateException {

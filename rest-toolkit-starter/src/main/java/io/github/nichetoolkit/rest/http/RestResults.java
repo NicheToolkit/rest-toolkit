@@ -25,7 +25,7 @@ import java.util.Optional;
  * @version v1.0.0
  */
 @Slf4j
-@SuppressWarnings("TypeParameterUnusedInFormals")
+@SuppressWarnings({"TypeParameterUnusedInFormals","SameNameButDifferent"})
 public class RestResults {
 
     public static <T> RestResult<T> result(String response, TypeReference<T> typeReference) throws RestException {

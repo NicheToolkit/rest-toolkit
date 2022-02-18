@@ -17,6 +17,7 @@ import io.github.nichetoolkit.rest.error.often.NameRepeatException;
  * @version v1.0.0
  */
 @Slf4j
+@SuppressWarnings("SameNameButDifferent")
 public class OptionalHelper {
 
     public static <T> void nullable(T object, SupplierActuator<RestException> supplierActuator) throws RestException {

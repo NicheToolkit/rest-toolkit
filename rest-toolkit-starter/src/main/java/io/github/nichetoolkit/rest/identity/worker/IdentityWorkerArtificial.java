@@ -11,6 +11,7 @@ import java.util.Objects;
  * @version v1.0.0
  */
 @Slf4j
+@SuppressWarnings("SameNameButDifferent")
 class IdentityWorkerArtificial implements IdentityWorker {
     private final String name;
     private Long lastTime = IdentityWorkerConfig.TIMESTAMP;
