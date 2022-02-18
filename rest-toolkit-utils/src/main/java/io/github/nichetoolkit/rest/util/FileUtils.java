@@ -225,6 +225,7 @@ public class FileUtils {
             bufferedOutputStream.write(bufferCache);
             bufferedOutputStream.flush();
         } catch (IOException exception) {
+            exception.printStackTrace();
             log.error(exception.getMessage(), exception);
         }
     }
@@ -276,8 +277,9 @@ public class FileUtils {
                 response.addHeader(UtilConstants.CONTENT_HEADER, UtilConstants.FILENAME_UTF_8_CONTENT + URLEncoder.encode(fileName, StandardCharsets.UTF_8.name()));
             }
 
-        } catch (Exception exception) {
+        } catch (IOException exception) {
             exception.printStackTrace();
+            log.error(exception.getMessage(), exception);
         }
     }
 }
