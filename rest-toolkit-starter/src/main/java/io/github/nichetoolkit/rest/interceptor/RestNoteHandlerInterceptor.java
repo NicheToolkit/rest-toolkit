@@ -37,9 +37,9 @@ import java.util.Optional;
 @WebFilter
 @Component
 public class RestNoteHandlerInterceptor implements AsyncHandlerInterceptor, RestBodyAdvice, RestExceptionAdvice, Filter {
-    protected final ThreadLocal<Long> START_TIME_HOLDER = new ThreadLocal<>();
-    protected final ThreadLocal<Exception> EXCEPTION_HOLDER = new ThreadLocal<>();
-    protected final ThreadLocal<RestResponse> REST_RESPONSE_HOLDER = new ThreadLocal<>();
+    protected static final ThreadLocal<Long> START_TIME_HOLDER = new ThreadLocal<>();
+    protected static final ThreadLocal<Exception> EXCEPTION_HOLDER = new ThreadLocal<>();
+    protected static final ThreadLocal<RestResponse> REST_RESPONSE_HOLDER = new ThreadLocal<>();
     private final RestInterceptProperties interceptProperties;
 
     @Autowired
