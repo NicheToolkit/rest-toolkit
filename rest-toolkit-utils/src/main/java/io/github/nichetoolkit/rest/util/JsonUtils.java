@@ -27,6 +27,7 @@ import java.util.Set;
  * @version v1.0.0
  */
 @Slf4j
+@SuppressWarnings("TypeParameterUnusedInFormals")
 public class JsonUtils {
 
     /**
