@@ -39,6 +39,7 @@ public class HttpThreadFactory implements ThreadFactory {
     }
 
     @Override
+    @SuppressWarnings("ThreadPriorityCheck")
     public Thread newThread(@NonNull Runnable runnable) {
         Thread thread = new Thread(group, runnable,
                 namePrefix + threadNumber.getAndIncrement(),
