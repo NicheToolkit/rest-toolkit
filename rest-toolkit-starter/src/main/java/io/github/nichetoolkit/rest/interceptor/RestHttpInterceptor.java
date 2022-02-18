@@ -15,6 +15,7 @@ import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 /**
@@ -39,7 +40,7 @@ public class RestHttpInterceptor implements ClientHttpRequestInterceptor {
         log.info(" HttpRequest -Params:  {}", JsonUtils.parseJson(params));
         HttpHeaders headers = httpRequest.getHeaders();
         log.info(" HttpRequest -Headers: {}",JsonUtils.parseJson(headers));
-        String httpRequestBody = new String(bytes);
+        String httpRequestBody = new String(bytes, StandardCharsets.UTF_8);
         log.info(" HttpRequest -Body:    {}", httpRequestBody);
         return execution.execute(httpRequest, bytes);
     }

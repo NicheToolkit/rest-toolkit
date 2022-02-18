@@ -255,7 +255,7 @@ public class FileUtils {
                 browser = request.getHeader(UtilConstants.USER_AGENT_HEADER);
                 if (browser.contains("MSIE 6.0") || browser.contains("MSIE 7.0")) {
                     // IE6, IE7 浏览器
-                    response.addHeader(UtilConstants.CONTENT_HEADER, UtilConstants.FILENAME_CONTENT + new String(fileName.getBytes(), StandardCharsets.ISO_8859_1));
+                    response.addHeader(UtilConstants.CONTENT_HEADER, UtilConstants.FILENAME_CONTENT + URLEncoder.encode(fileName, StandardCharsets.ISO_8859_1.name()));
                 } else if (browser.contains("MSIE 8.0")) {
                     // IE8
                     response.addHeader(UtilConstants.CONTENT_HEADER, UtilConstants.FILENAME_CONTENT + URLEncoder.encode(fileName, StandardCharsets.UTF_8.name()));
@@ -267,7 +267,7 @@ public class FileUtils {
                     response.addHeader(UtilConstants.CONTENT_HEADER, UtilConstants.FILENAME_UTF_8_CONTENT + URLEncoder.encode(fileName, StandardCharsets.UTF_8.name()));
                 } else if (browser.contains("Safari")) {
                     // 苹果
-                    response.addHeader(UtilConstants.CONTENT_HEADER, UtilConstants.FILENAME_CONTENT + new String(fileName.getBytes(), StandardCharsets.ISO_8859_1));
+                    response.addHeader(UtilConstants.CONTENT_HEADER, UtilConstants.FILENAME_CONTENT + URLEncoder.encode(fileName, StandardCharsets.ISO_8859_1.name()));
                 } else {
                     // 火狐或者其他的浏览器
                     response.addHeader(UtilConstants.CONTENT_HEADER, UtilConstants.FILENAME_UTF_8_CONTENT + URLEncoder.encode(fileName, StandardCharsets.UTF_8.name()));

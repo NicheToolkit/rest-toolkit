@@ -22,6 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.nio.charset.StandardCharsets;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
@@ -214,7 +215,7 @@ public class RestNoteHandlerInterceptor implements AsyncHandlerInterceptor, Rest
         if (StringUtils.hasText(contentType) && contentType.contains(MediaType.APPLICATION_JSON_VALUE)) {
             if (request instanceof RestNoteRequestWrapper) {
                 RestNoteRequestWrapper requestWrapper = (RestNoteRequestWrapper) request;
-                String bodyString = new String(requestWrapper.getBody());
+                String bodyString = new String(requestWrapper.getBody(), StandardCharsets.UTF_8);
                 String body = CommonUtils.substring(bodyString, interceptProperties.getBodyLength());
                 restRequest.setBody(body);
             } else {
