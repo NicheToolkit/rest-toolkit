@@ -68,8 +68,6 @@
         <rest-toolkit.version>1.0.3</rest-toolkit.version>
         <guava.version>31.0.1-jre</guava.version>
         <fusionauth-jwt.version>5.0.0</fusionauth-jwt.version>
-        <commons-lang3.version>3.12.0</commons-lang3.version>
-        <commons-io.version>2.11.0</commons-io.version>
         <source-plugin.version>2.2.1</source-plugin.version>
         <javadoc-plugin.version>2.9.1</javadoc-plugin.version>
         <gpg-plugin.version>1.5</gpg-plugin.version>
