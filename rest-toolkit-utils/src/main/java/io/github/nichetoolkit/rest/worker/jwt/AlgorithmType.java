@@ -32,7 +32,7 @@ public enum AlgorithmType implements RestSigner {
 
     NONE(0, "none", Algorithm.none) {
         @Override
-        public Signer signer() {
+        public final Signer signer() {
             UnsecuredSigner signer = new UnsecuredSigner();
             setSigner(signer);
             return signer;
@@ -40,112 +40,112 @@ public enum AlgorithmType implements RestSigner {
     },
     ES256(1, "ES256", Algorithm.ES256) {
         @Override
-        public Signer signer(String secret) {
+        public final Signer signer(String secret) {
             ECSigner signer = ECSigner.newSHA256Signer(secret);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(String secret, String kid) {
+        public final Signer signer(String secret, String kid) {
             ECSigner signer = ECSigner.newSHA256Signer(secret, kid);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(String secret, CryptoProvider cryptoProvider) {
+        public final Signer signer(String secret, CryptoProvider cryptoProvider) {
             ECSigner signer = ECSigner.newSHA256Signer(secret, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(String secret, String kid, CryptoProvider cryptoProvider) {
+        public final Signer signer(String secret, String kid, CryptoProvider cryptoProvider) {
             ECSigner signer = ECSigner.newSHA256Signer(secret, kid, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(PrivateKey privateKey) {
+        public final Signer signer(PrivateKey privateKey) {
             ECSigner signer = ECSigner.newSHA256Signer(privateKey);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(PrivateKey privateKey, String kid) {
+        public final Signer signer(PrivateKey privateKey, String kid) {
             ECSigner signer = ECSigner.newSHA256Signer(privateKey, kid);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(PrivateKey privateKey, CryptoProvider cryptoProvider) {
+        public final Signer signer(PrivateKey privateKey, CryptoProvider cryptoProvider) {
             ECSigner signer = ECSigner.newSHA256Signer(privateKey, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(PrivateKey privateKey, String kid, CryptoProvider cryptoProvider) {
+        public final Signer signer(PrivateKey privateKey, String kid, CryptoProvider cryptoProvider) {
             ECSigner signer = ECSigner.newSHA256Signer(privateKey, kid, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Verifier verifier(String secret) {
+        public final Verifier verifier(String secret) {
             ECVerifier verifier = ECVerifier.newVerifier(secret);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(PublicKey publicKey) {
+        public final Verifier verifier(PublicKey publicKey) {
             ECVerifier verifier = ECVerifier.newVerifier(publicKey);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(Path path) {
+        public final Verifier verifier(Path path) {
             ECVerifier verifier = ECVerifier.newVerifier(path);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(byte[] bytes) {
+        public final Verifier verifier(byte[] bytes) {
             ECVerifier verifier = ECVerifier.newVerifier(bytes);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(String secret, CryptoProvider cryptoProvider) {
+        public final Verifier verifier(String secret, CryptoProvider cryptoProvider) {
             ECVerifier verifier = ECVerifier.newVerifier(secret, cryptoProvider);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(PublicKey publicKey, CryptoProvider cryptoProvider) {
+        public final Verifier verifier(PublicKey publicKey, CryptoProvider cryptoProvider) {
             ECVerifier verifier = ECVerifier.newVerifier(publicKey, cryptoProvider);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(Path path, CryptoProvider cryptoProvider) {
+        public final Verifier verifier(Path path, CryptoProvider cryptoProvider) {
             ECVerifier verifier = ECVerifier.newVerifier(path, cryptoProvider);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(byte[] bytes, CryptoProvider cryptoProvider) {
+        public final Verifier verifier(byte[] bytes, CryptoProvider cryptoProvider) {
             ECVerifier verifier = ECVerifier.newVerifier(bytes, cryptoProvider);
             setVerifier(verifier);
             return verifier;
@@ -153,112 +153,112 @@ public enum AlgorithmType implements RestSigner {
     },
     ES384(2, "ES384", Algorithm.ES384) {
         @Override
-        public Signer signer(String secret) {
+        public final Signer signer(String secret) {
             ECSigner signer = ECSigner.newSHA384Signer(secret);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(String secret, String kid) {
+        public final Signer signer(String secret, String kid) {
             ECSigner signer = ECSigner.newSHA384Signer(secret, kid);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(String secret, CryptoProvider cryptoProvider) {
+        public final Signer signer(String secret, CryptoProvider cryptoProvider) {
             ECSigner signer = ECSigner.newSHA384Signer(secret, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(String secret, String kid, CryptoProvider cryptoProvider) {
+        public final Signer signer(String secret, String kid, CryptoProvider cryptoProvider) {
             ECSigner signer = ECSigner.newSHA384Signer(secret, kid, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(PrivateKey privateKey) {
+        public final Signer signer(PrivateKey privateKey) {
             ECSigner signer = ECSigner.newSHA384Signer(privateKey);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(PrivateKey privateKey, String kid) {
+        public final Signer signer(PrivateKey privateKey, String kid) {
             ECSigner signer = ECSigner.newSHA384Signer(privateKey, kid);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(PrivateKey privateKey, CryptoProvider cryptoProvider) {
+        public final Signer signer(PrivateKey privateKey, CryptoProvider cryptoProvider) {
             ECSigner signer = ECSigner.newSHA384Signer(privateKey, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(PrivateKey privateKey, String kid, CryptoProvider cryptoProvider) {
+        public final Signer signer(PrivateKey privateKey, String kid, CryptoProvider cryptoProvider) {
             ECSigner signer = ECSigner.newSHA384Signer(privateKey, kid, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Verifier verifier(String secret) {
+        public final Verifier verifier(String secret) {
             ECVerifier verifier = ECVerifier.newVerifier(secret);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(PublicKey publicKey) {
+        public final Verifier verifier(PublicKey publicKey) {
             ECVerifier verifier = ECVerifier.newVerifier(publicKey);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(Path path) {
+        public final Verifier verifier(Path path) {
             ECVerifier verifier = ECVerifier.newVerifier(path);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(byte[] bytes) {
+        public final Verifier verifier(byte[] bytes) {
             ECVerifier verifier = ECVerifier.newVerifier(bytes);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(String secret, CryptoProvider cryptoProvider) {
+        public final Verifier verifier(String secret, CryptoProvider cryptoProvider) {
             ECVerifier verifier = ECVerifier.newVerifier(secret, cryptoProvider);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(PublicKey publicKey, CryptoProvider cryptoProvider) {
+        public final Verifier verifier(PublicKey publicKey, CryptoProvider cryptoProvider) {
             ECVerifier verifier = ECVerifier.newVerifier(publicKey, cryptoProvider);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(Path path, CryptoProvider cryptoProvider) {
+        public final Verifier verifier(Path path, CryptoProvider cryptoProvider) {
             ECVerifier verifier = ECVerifier.newVerifier(path, cryptoProvider);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(byte[] bytes, CryptoProvider cryptoProvider) {
+        public final Verifier verifier(byte[] bytes, CryptoProvider cryptoProvider) {
             ECVerifier verifier = ECVerifier.newVerifier(bytes, cryptoProvider);
             setVerifier(verifier);
             return verifier;
@@ -266,112 +266,112 @@ public enum AlgorithmType implements RestSigner {
     },
     ES512(3, "ES512", Algorithm.ES512) {
         @Override
-        public Signer signer(String secret) {
+        public final Signer signer(String secret) {
             ECSigner signer = ECSigner.newSHA512Signer(secret);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(String secret, String kid) {
+        public final Signer signer(String secret, String kid) {
             ECSigner signer = ECSigner.newSHA512Signer(secret, kid);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(String secret, CryptoProvider cryptoProvider) {
+        public final Signer signer(String secret, CryptoProvider cryptoProvider) {
             ECSigner signer = ECSigner.newSHA512Signer(secret, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(String secret, String kid, CryptoProvider cryptoProvider) {
+        public final Signer signer(String secret, String kid, CryptoProvider cryptoProvider) {
             ECSigner signer = ECSigner.newSHA512Signer(secret, kid, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(PrivateKey privateKey) {
+        public final Signer signer(PrivateKey privateKey) {
             ECSigner signer = ECSigner.newSHA512Signer(privateKey);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(PrivateKey privateKey, String kid) {
+        public final Signer signer(PrivateKey privateKey, String kid) {
             ECSigner signer = ECSigner.newSHA512Signer(privateKey, kid);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(PrivateKey privateKey, CryptoProvider cryptoProvider) {
+        public final Signer signer(PrivateKey privateKey, CryptoProvider cryptoProvider) {
             ECSigner signer = ECSigner.newSHA512Signer(privateKey, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(PrivateKey privateKey, String kid, CryptoProvider cryptoProvider) {
+        public final Signer signer(PrivateKey privateKey, String kid, CryptoProvider cryptoProvider) {
             ECSigner signer = ECSigner.newSHA512Signer(privateKey, kid, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Verifier verifier(String secret) {
+        public final Verifier verifier(String secret) {
             ECVerifier verifier = ECVerifier.newVerifier(secret);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(PublicKey publicKey) {
+        public final Verifier verifier(PublicKey publicKey) {
             ECVerifier verifier = ECVerifier.newVerifier(publicKey);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(Path path) {
+        public final Verifier verifier(Path path) {
             ECVerifier verifier = ECVerifier.newVerifier(path);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(byte[] bytes) {
+        public final Verifier verifier(byte[] bytes) {
             ECVerifier verifier = ECVerifier.newVerifier(bytes);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(String secret, CryptoProvider cryptoProvider) {
+        public final Verifier verifier(String secret, CryptoProvider cryptoProvider) {
             ECVerifier verifier = ECVerifier.newVerifier(secret, cryptoProvider);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(PublicKey publicKey, CryptoProvider cryptoProvider) {
+        public final Verifier verifier(PublicKey publicKey, CryptoProvider cryptoProvider) {
             ECVerifier verifier = ECVerifier.newVerifier(publicKey, cryptoProvider);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(Path path, CryptoProvider cryptoProvider) {
+        public final Verifier verifier(Path path, CryptoProvider cryptoProvider) {
             ECVerifier verifier = ECVerifier.newVerifier(path, cryptoProvider);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(byte[] bytes, CryptoProvider cryptoProvider) {
+        public final Verifier verifier(byte[] bytes, CryptoProvider cryptoProvider) {
             ECVerifier verifier = ECVerifier.newVerifier(bytes, cryptoProvider);
             setVerifier(verifier);
             return verifier;
@@ -379,91 +379,91 @@ public enum AlgorithmType implements RestSigner {
     },
     HS256(4, "HS256", Algorithm.HS256) {
         @Override
-        public Signer signer(byte[] secret) {
+        public final Signer signer(byte[] secret) {
             HMACSigner signer = HMACSigner.newSHA256Signer(secret);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(String secret) {
+        public final Signer signer(String secret) {
             HMACSigner signer = HMACSigner.newSHA256Signer(secret);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(byte[] secret, String kid) {
+        public final Signer signer(byte[] secret, String kid) {
             HMACSigner signer = HMACSigner.newSHA256Signer(secret, kid);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(String secret, String kid) {
+        public final Signer signer(String secret, String kid) {
             HMACSigner signer = HMACSigner.newSHA256Signer(secret, kid);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(String secret, CryptoProvider cryptoProvider) {
+        public final Signer signer(String secret, CryptoProvider cryptoProvider) {
             HMACSigner signer = HMACSigner.newSHA256Signer(secret, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(byte[] secret, String kid, CryptoProvider cryptoProvider) {
+        public final Signer signer(byte[] secret, String kid, CryptoProvider cryptoProvider) {
             HMACSigner signer = HMACSigner.newSHA256Signer(secret, kid, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(String secret, String kid, CryptoProvider cryptoProvider) {
+        public final Signer signer(String secret, String kid, CryptoProvider cryptoProvider) {
             HMACSigner signer = HMACSigner.newSHA256Signer(secret, kid, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Verifier verifier(String secret) {
+        public final Verifier verifier(String secret) {
             HMACVerifier verifier = HMACVerifier.newVerifier(secret);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(Path path) {
+        public final Verifier verifier(Path path) {
             HMACVerifier verifier = HMACVerifier.newVerifier(path);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(byte[] bytes) {
+        public final Verifier verifier(byte[] bytes) {
             HMACVerifier verifier = HMACVerifier.newVerifier(bytes);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(String secret, CryptoProvider cryptoProvider) {
+        public final Verifier verifier(String secret, CryptoProvider cryptoProvider) {
             HMACVerifier verifier = HMACVerifier.newVerifier(secret, cryptoProvider);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(Path path, CryptoProvider cryptoProvider) {
+        public final Verifier verifier(Path path, CryptoProvider cryptoProvider) {
             HMACVerifier verifier = HMACVerifier.newVerifier(path, cryptoProvider);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(byte[] bytes, CryptoProvider cryptoProvider) {
+        public final Verifier verifier(byte[] bytes, CryptoProvider cryptoProvider) {
             HMACVerifier verifier = HMACVerifier.newVerifier(bytes, cryptoProvider);
             setVerifier(verifier);
             return verifier;
@@ -471,91 +471,91 @@ public enum AlgorithmType implements RestSigner {
     },
     HS384(5, "HS384", Algorithm.HS384) {
         @Override
-        public Signer signer(byte[] secret) {
+        public final Signer signer(byte[] secret) {
             HMACSigner signer = HMACSigner.newSHA384Signer(secret);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(String secret) {
+        public final Signer signer(String secret) {
             HMACSigner signer = HMACSigner.newSHA384Signer(secret);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(byte[] secret, String kid) {
+        public final Signer signer(byte[] secret, String kid) {
             HMACSigner signer = HMACSigner.newSHA384Signer(secret, kid);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(String secret, String kid) {
+        public final Signer signer(String secret, String kid) {
             HMACSigner signer = HMACSigner.newSHA384Signer(secret, kid);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(String secret, CryptoProvider cryptoProvider) {
+        public final Signer signer(String secret, CryptoProvider cryptoProvider) {
             HMACSigner signer = HMACSigner.newSHA384Signer(secret, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(byte[] secret, String kid, CryptoProvider cryptoProvider) {
+        public final Signer signer(byte[] secret, String kid, CryptoProvider cryptoProvider) {
             HMACSigner signer = HMACSigner.newSHA384Signer(secret, kid, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(String secret, String kid, CryptoProvider cryptoProvider) {
+        public final Signer signer(String secret, String kid, CryptoProvider cryptoProvider) {
             HMACSigner signer = HMACSigner.newSHA384Signer(secret, kid, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Verifier verifier(String secret) {
+        public final Verifier verifier(String secret) {
             HMACVerifier verifier = HMACVerifier.newVerifier(secret);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(Path path) {
+        public final Verifier verifier(Path path) {
             HMACVerifier verifier = HMACVerifier.newVerifier(path);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(byte[] bytes) {
+        public final Verifier verifier(byte[] bytes) {
             HMACVerifier verifier = HMACVerifier.newVerifier(bytes);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(String secret, CryptoProvider cryptoProvider) {
+        public final Verifier verifier(String secret, CryptoProvider cryptoProvider) {
             HMACVerifier verifier = HMACVerifier.newVerifier(secret, cryptoProvider);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(Path path, CryptoProvider cryptoProvider) {
+        public final Verifier verifier(Path path, CryptoProvider cryptoProvider) {
             HMACVerifier verifier = HMACVerifier.newVerifier(path, cryptoProvider);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(byte[] bytes, CryptoProvider cryptoProvider) {
+        public final Verifier verifier(byte[] bytes, CryptoProvider cryptoProvider) {
             HMACVerifier verifier = HMACVerifier.newVerifier(bytes, cryptoProvider);
             setVerifier(verifier);
             return verifier;
@@ -563,91 +563,91 @@ public enum AlgorithmType implements RestSigner {
     },
     HS512(6, "HS512", Algorithm.HS512) {
         @Override
-        public Signer signer(byte[] secret) {
+        public final Signer signer(byte[] secret) {
             HMACSigner signer = HMACSigner.newSHA512Signer(secret);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(String secret) {
+        public final Signer signer(String secret) {
             HMACSigner signer = HMACSigner.newSHA512Signer(secret);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(byte[] secret, String kid) {
+        public final Signer signer(byte[] secret, String kid) {
             HMACSigner signer = HMACSigner.newSHA512Signer(secret, kid);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(String secret, String kid) {
+        public final Signer signer(String secret, String kid) {
             HMACSigner signer = HMACSigner.newSHA512Signer(secret, kid);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(String secret, CryptoProvider cryptoProvider) {
+        public final Signer signer(String secret, CryptoProvider cryptoProvider) {
             HMACSigner signer = HMACSigner.newSHA512Signer(secret, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(byte[] secret, String kid, CryptoProvider cryptoProvider) {
+        public final Signer signer(byte[] secret, String kid, CryptoProvider cryptoProvider) {
             HMACSigner signer = HMACSigner.newSHA512Signer(secret, kid, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(String secret, String kid, CryptoProvider cryptoProvider) {
+        public final Signer signer(String secret, String kid, CryptoProvider cryptoProvider) {
             HMACSigner signer = HMACSigner.newSHA512Signer(secret, kid, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Verifier verifier(String secret) {
+        public final Verifier verifier(String secret) {
             HMACVerifier verifier = HMACVerifier.newVerifier(secret);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(Path path) {
+        public final Verifier verifier(Path path) {
             HMACVerifier verifier = HMACVerifier.newVerifier(path);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(byte[] bytes) {
+        public final Verifier verifier(byte[] bytes) {
             HMACVerifier verifier = HMACVerifier.newVerifier(bytes);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(String secret, CryptoProvider cryptoProvider) {
+        public final Verifier verifier(String secret, CryptoProvider cryptoProvider) {
             HMACVerifier verifier = HMACVerifier.newVerifier(secret, cryptoProvider);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(Path path, CryptoProvider cryptoProvider) {
+        public final Verifier verifier(Path path, CryptoProvider cryptoProvider) {
             HMACVerifier verifier = HMACVerifier.newVerifier(path, cryptoProvider);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(byte[] bytes, CryptoProvider cryptoProvider) {
+        public final Verifier verifier(byte[] bytes, CryptoProvider cryptoProvider) {
             HMACVerifier verifier = HMACVerifier.newVerifier(bytes, cryptoProvider);
             setVerifier(verifier);
             return verifier;
@@ -655,105 +655,105 @@ public enum AlgorithmType implements RestSigner {
     },
     PS256(7, "PS256", Algorithm.PS256) {
         @Override
-        public Signer signer(String secret) {
+        public final Signer signer(String secret) {
             RSAPSSSigner signer = RSAPSSSigner.newSHA256Signer(secret);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(String secret, String kid) {
+        public final Signer signer(String secret, String kid) {
             RSAPSSSigner signer = RSAPSSSigner.newSHA256Signer(secret, kid);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(String secret, CryptoProvider cryptoProvider) {
+        public final Signer signer(String secret, CryptoProvider cryptoProvider) {
             RSAPSSSigner signer = RSAPSSSigner.newSHA256Signer(secret, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(String secret, String kid, CryptoProvider cryptoProvider) {
+        public final Signer signer(String secret, String kid, CryptoProvider cryptoProvider) {
             RSAPSSSigner signer = RSAPSSSigner.newSHA256Signer(secret, kid, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(PrivateKey privateKey) {
+        public final Signer signer(PrivateKey privateKey) {
             RSAPSSSigner signer = RSAPSSSigner.newSHA256Signer(privateKey);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(PrivateKey privateKey, String kid) {
+        public final Signer signer(PrivateKey privateKey, String kid) {
             RSAPSSSigner signer = RSAPSSSigner.newSHA256Signer(privateKey, kid);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(PrivateKey privateKey, CryptoProvider cryptoProvider) {
+        public final Signer signer(PrivateKey privateKey, CryptoProvider cryptoProvider) {
             RSAPSSSigner signer = RSAPSSSigner.newSHA256Signer(privateKey, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(PrivateKey privateKey, String kid, CryptoProvider cryptoProvider) {
+        public final Signer signer(PrivateKey privateKey, String kid, CryptoProvider cryptoProvider) {
             RSAPSSSigner signer = RSAPSSSigner.newSHA256Signer(privateKey, kid, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Verifier verifier(String secret) {
+        public final Verifier verifier(String secret) {
             RSAPSSVerifier verifier = RSAPSSVerifier.newVerifier(secret);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(PublicKey publicKey) {
+        public final Verifier verifier(PublicKey publicKey) {
             RSAPSSVerifier verifier = RSAPSSVerifier.newVerifier(publicKey);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(Path path) {
+        public final Verifier verifier(Path path) {
             RSAPSSVerifier verifier = RSAPSSVerifier.newVerifier(path);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(byte[] bytes) {
+        public final Verifier verifier(byte[] bytes) {
             RSAPSSVerifier verifier = RSAPSSVerifier.newVerifier(bytes);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(String secret, CryptoProvider cryptoProvider) {
+        public final Verifier verifier(String secret, CryptoProvider cryptoProvider) {
             RSAPSSVerifier verifier = RSAPSSVerifier.newVerifier(secret, cryptoProvider);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(PublicKey publicKey, CryptoProvider cryptoProvider) {
+        public final Verifier verifier(PublicKey publicKey, CryptoProvider cryptoProvider) {
             RSAPSSVerifier verifier = RSAPSSVerifier.newVerifier(publicKey, cryptoProvider);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(Path path, CryptoProvider cryptoProvider) {
+        public final Verifier verifier(Path path, CryptoProvider cryptoProvider) {
             RSAPSSVerifier verifier = RSAPSSVerifier.newVerifier(path, cryptoProvider);
             setVerifier(verifier);
             return verifier;
@@ -762,105 +762,105 @@ public enum AlgorithmType implements RestSigner {
     },
     PS384(8, "PS384", Algorithm.PS384) {
         @Override
-        public Signer signer(String secret) {
+        public final Signer signer(String secret) {
             RSAPSSSigner signer = RSAPSSSigner.newSHA384Signer(secret);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(String secret, String kid) {
+        public final Signer signer(String secret, String kid) {
             RSAPSSSigner signer = RSAPSSSigner.newSHA384Signer(secret, kid);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(String secret, CryptoProvider cryptoProvider) {
+        public final Signer signer(String secret, CryptoProvider cryptoProvider) {
             RSAPSSSigner signer = RSAPSSSigner.newSHA384Signer(secret, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(String secret, String kid, CryptoProvider cryptoProvider) {
+        public final Signer signer(String secret, String kid, CryptoProvider cryptoProvider) {
             RSAPSSSigner signer = RSAPSSSigner.newSHA384Signer(secret, kid, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(PrivateKey privateKey) {
+        public final Signer signer(PrivateKey privateKey) {
             RSAPSSSigner signer = RSAPSSSigner.newSHA384Signer(privateKey);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(PrivateKey privateKey, String kid) {
+        public final Signer signer(PrivateKey privateKey, String kid) {
             RSAPSSSigner signer = RSAPSSSigner.newSHA384Signer(privateKey, kid);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(PrivateKey privateKey, CryptoProvider cryptoProvider) {
+        public final Signer signer(PrivateKey privateKey, CryptoProvider cryptoProvider) {
             RSAPSSSigner signer = RSAPSSSigner.newSHA384Signer(privateKey, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(PrivateKey privateKey, String kid, CryptoProvider cryptoProvider) {
+        public final Signer signer(PrivateKey privateKey, String kid, CryptoProvider cryptoProvider) {
             RSAPSSSigner signer = RSAPSSSigner.newSHA384Signer(privateKey, kid, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Verifier verifier(String secret) {
+        public final Verifier verifier(String secret) {
             RSAPSSVerifier verifier = RSAPSSVerifier.newVerifier(secret);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(PublicKey publicKey) {
+        public final Verifier verifier(PublicKey publicKey) {
             RSAPSSVerifier verifier = RSAPSSVerifier.newVerifier(publicKey);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(Path path) {
+        public final Verifier verifier(Path path) {
             RSAPSSVerifier verifier = RSAPSSVerifier.newVerifier(path);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(byte[] bytes) {
+        public final Verifier verifier(byte[] bytes) {
             RSAPSSVerifier verifier = RSAPSSVerifier.newVerifier(bytes);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(String secret, CryptoProvider cryptoProvider) {
+        public final Verifier verifier(String secret, CryptoProvider cryptoProvider) {
             RSAPSSVerifier verifier = RSAPSSVerifier.newVerifier(secret, cryptoProvider);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(PublicKey publicKey, CryptoProvider cryptoProvider) {
+        public final Verifier verifier(PublicKey publicKey, CryptoProvider cryptoProvider) {
             RSAPSSVerifier verifier = RSAPSSVerifier.newVerifier(publicKey, cryptoProvider);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(Path path, CryptoProvider cryptoProvider) {
+        public final Verifier verifier(Path path, CryptoProvider cryptoProvider) {
             RSAPSSVerifier verifier = RSAPSSVerifier.newVerifier(path, cryptoProvider);
             setVerifier(verifier);
             return verifier;
@@ -868,105 +868,105 @@ public enum AlgorithmType implements RestSigner {
     },
     PS512(9, "PS512", Algorithm.PS512) {
         @Override
-        public Signer signer(String secret) {
+        public final Signer signer(String secret) {
             RSAPSSSigner signer = RSAPSSSigner.newSHA512Signer(secret);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(String secret, String kid) {
+        public final Signer signer(String secret, String kid) {
             RSAPSSSigner signer = RSAPSSSigner.newSHA512Signer(secret, kid);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(String secret, CryptoProvider cryptoProvider) {
+        public final Signer signer(String secret, CryptoProvider cryptoProvider) {
             RSAPSSSigner signer = RSAPSSSigner.newSHA512Signer(secret, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(String secret, String kid, CryptoProvider cryptoProvider) {
+        public final Signer signer(String secret, String kid, CryptoProvider cryptoProvider) {
             RSAPSSSigner signer = RSAPSSSigner.newSHA512Signer(secret, kid, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(PrivateKey privateKey) {
+        public final Signer signer(PrivateKey privateKey) {
             RSAPSSSigner signer = RSAPSSSigner.newSHA512Signer(privateKey);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(PrivateKey privateKey, String kid) {
+        public final Signer signer(PrivateKey privateKey, String kid) {
             RSAPSSSigner signer = RSAPSSSigner.newSHA512Signer(privateKey, kid);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(PrivateKey privateKey, CryptoProvider cryptoProvider) {
+        public final Signer signer(PrivateKey privateKey, CryptoProvider cryptoProvider) {
             RSAPSSSigner signer = RSAPSSSigner.newSHA512Signer(privateKey, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(PrivateKey privateKey, String kid, CryptoProvider cryptoProvider) {
+        public final Signer signer(PrivateKey privateKey, String kid, CryptoProvider cryptoProvider) {
             RSAPSSSigner signer = RSAPSSSigner.newSHA512Signer(privateKey, kid, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Verifier verifier(String secret) {
+        public final Verifier verifier(String secret) {
             RSAPSSVerifier verifier = RSAPSSVerifier.newVerifier(secret);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(PublicKey publicKey) {
+        public final Verifier verifier(PublicKey publicKey) {
             RSAPSSVerifier verifier = RSAPSSVerifier.newVerifier(publicKey);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(Path path) {
+        public final Verifier verifier(Path path) {
             RSAPSSVerifier verifier = RSAPSSVerifier.newVerifier(path);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(byte[] bytes) {
+        public final Verifier verifier(byte[] bytes) {
             RSAPSSVerifier verifier = RSAPSSVerifier.newVerifier(bytes);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(String secret, CryptoProvider cryptoProvider) {
+        public final Verifier verifier(String secret, CryptoProvider cryptoProvider) {
             RSAPSSVerifier verifier = RSAPSSVerifier.newVerifier(secret, cryptoProvider);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(PublicKey publicKey, CryptoProvider cryptoProvider) {
+        public final Verifier verifier(PublicKey publicKey, CryptoProvider cryptoProvider) {
             RSAPSSVerifier verifier = RSAPSSVerifier.newVerifier(publicKey, cryptoProvider);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(Path path, CryptoProvider cryptoProvider) {
+        public final Verifier verifier(Path path, CryptoProvider cryptoProvider) {
             RSAPSSVerifier verifier = RSAPSSVerifier.newVerifier(path, cryptoProvider);
             setVerifier(verifier);
             return verifier;
@@ -974,105 +974,105 @@ public enum AlgorithmType implements RestSigner {
     },
     RS256(10, "RS256", Algorithm.RS256) {
         @Override
-        public Signer signer(String secret) {
+        public final Signer signer(String secret) {
             RSASigner signer = RSASigner.newSHA256Signer(secret);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(String secret, String kid) {
+        public final Signer signer(String secret, String kid) {
             RSASigner signer = RSASigner.newSHA256Signer(secret, kid);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(String secret, CryptoProvider cryptoProvider) {
+        public final Signer signer(String secret, CryptoProvider cryptoProvider) {
             RSASigner signer = RSASigner.newSHA256Signer(secret, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(String secret, String kid, CryptoProvider cryptoProvider) {
+        public final Signer signer(String secret, String kid, CryptoProvider cryptoProvider) {
             RSASigner signer = RSASigner.newSHA256Signer(secret, kid, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(PrivateKey privateKey) {
+        public final Signer signer(PrivateKey privateKey) {
             RSASigner signer = RSASigner.newSHA256Signer(privateKey);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(PrivateKey privateKey, String kid) {
+        public final Signer signer(PrivateKey privateKey, String kid) {
             RSASigner signer = RSASigner.newSHA256Signer(privateKey, kid);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(PrivateKey privateKey, CryptoProvider cryptoProvider) {
+        public final Signer signer(PrivateKey privateKey, CryptoProvider cryptoProvider) {
             RSASigner signer = RSASigner.newSHA256Signer(privateKey, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(PrivateKey privateKey, String kid, CryptoProvider cryptoProvider) {
+        public final Signer signer(PrivateKey privateKey, String kid, CryptoProvider cryptoProvider) {
             RSASigner signer = RSASigner.newSHA256Signer(privateKey, kid, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Verifier verifier(String secret) {
+        public final Verifier verifier(String secret) {
             RSAVerifier verifier = RSAVerifier.newVerifier(secret);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(PublicKey publicKey) {
+        public final Verifier verifier(PublicKey publicKey) {
             RSAVerifier verifier = RSAVerifier.newVerifier(publicKey);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(Path path) {
+        public final Verifier verifier(Path path) {
             RSAVerifier verifier = RSAVerifier.newVerifier(path);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(byte[] bytes) {
+        public final Verifier verifier(byte[] bytes) {
             RSAVerifier verifier = RSAVerifier.newVerifier(bytes);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(String secret, CryptoProvider cryptoProvider) {
+        public final Verifier verifier(String secret, CryptoProvider cryptoProvider) {
             RSAVerifier verifier = RSAVerifier.newVerifier(secret, cryptoProvider);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(PublicKey publicKey, CryptoProvider cryptoProvider) {
+        public final Verifier verifier(PublicKey publicKey, CryptoProvider cryptoProvider) {
             RSAVerifier verifier = RSAVerifier.newVerifier(publicKey, cryptoProvider);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(Path path, CryptoProvider cryptoProvider) {
+        public final Verifier verifier(Path path, CryptoProvider cryptoProvider) {
             RSAVerifier verifier = RSAVerifier.newVerifier(path, cryptoProvider);
             setVerifier(verifier);
             return verifier;
@@ -1080,105 +1080,105 @@ public enum AlgorithmType implements RestSigner {
     },
     RS384(11, "RS384", Algorithm.RS384) {
         @Override
-        public Signer signer(String secret) {
+        public final Signer signer(String secret) {
             RSASigner signer = RSASigner.newSHA384Signer(secret);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(String secret, String kid) {
+        public final Signer signer(String secret, String kid) {
             RSASigner signer = RSASigner.newSHA384Signer(secret, kid);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(String secret, CryptoProvider cryptoProvider) {
+        public final Signer signer(String secret, CryptoProvider cryptoProvider) {
             RSASigner signer = RSASigner.newSHA384Signer(secret, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(String secret, String kid, CryptoProvider cryptoProvider) {
+        public final Signer signer(String secret, String kid, CryptoProvider cryptoProvider) {
             RSASigner signer = RSASigner.newSHA384Signer(secret, kid, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(PrivateKey privateKey) {
+        public final Signer signer(PrivateKey privateKey) {
             RSASigner signer = RSASigner.newSHA384Signer(privateKey);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(PrivateKey privateKey, String kid) {
+        public final Signer signer(PrivateKey privateKey, String kid) {
             RSASigner signer = RSASigner.newSHA384Signer(privateKey, kid);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(PrivateKey privateKey, CryptoProvider cryptoProvider) {
+        public final Signer signer(PrivateKey privateKey, CryptoProvider cryptoProvider) {
             RSASigner signer = RSASigner.newSHA384Signer(privateKey, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(PrivateKey privateKey, String kid, CryptoProvider cryptoProvider) {
+        public final Signer signer(PrivateKey privateKey, String kid, CryptoProvider cryptoProvider) {
             RSASigner signer = RSASigner.newSHA384Signer(privateKey, kid, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Verifier verifier(String secret) {
+        public final Verifier verifier(String secret) {
             RSAVerifier verifier = RSAVerifier.newVerifier(secret);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(PublicKey publicKey) {
+        public final Verifier verifier(PublicKey publicKey) {
             RSAVerifier verifier = RSAVerifier.newVerifier(publicKey);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(Path path) {
+        public final Verifier verifier(Path path) {
             RSAVerifier verifier = RSAVerifier.newVerifier(path);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(byte[] bytes) {
+        public final Verifier verifier(byte[] bytes) {
             RSAVerifier verifier = RSAVerifier.newVerifier(bytes);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(String secret, CryptoProvider cryptoProvider) {
+        public final Verifier verifier(String secret, CryptoProvider cryptoProvider) {
             RSAVerifier verifier = RSAVerifier.newVerifier(secret, cryptoProvider);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(PublicKey publicKey, CryptoProvider cryptoProvider) {
+        public final Verifier verifier(PublicKey publicKey, CryptoProvider cryptoProvider) {
             RSAVerifier verifier = RSAVerifier.newVerifier(publicKey, cryptoProvider);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(Path path, CryptoProvider cryptoProvider) {
+        public final Verifier verifier(Path path, CryptoProvider cryptoProvider) {
             RSAVerifier verifier = RSAVerifier.newVerifier(path, cryptoProvider);
             setVerifier(verifier);
             return verifier;
@@ -1186,105 +1186,105 @@ public enum AlgorithmType implements RestSigner {
     },
     RS512(12, "RS512", Algorithm.RS512) {
         @Override
-        public Signer signer(String secret) {
+        public final Signer signer(String secret) {
             RSASigner signer = RSASigner.newSHA512Signer(secret);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(String secret, String kid) {
+        public final Signer signer(String secret, String kid) {
             RSASigner signer = RSASigner.newSHA512Signer(secret, kid);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(String secret, CryptoProvider cryptoProvider) {
+        public final Signer signer(String secret, CryptoProvider cryptoProvider) {
             RSASigner signer = RSASigner.newSHA512Signer(secret, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(String secret, String kid, CryptoProvider cryptoProvider) {
+        public final Signer signer(String secret, String kid, CryptoProvider cryptoProvider) {
             RSASigner signer = RSASigner.newSHA512Signer(secret, kid, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(PrivateKey privateKey) {
+        public final Signer signer(PrivateKey privateKey) {
             RSASigner signer = RSASigner.newSHA512Signer(privateKey);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(PrivateKey privateKey, String kid) {
+        public final Signer signer(PrivateKey privateKey, String kid) {
             RSASigner signer = RSASigner.newSHA512Signer(privateKey, kid);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(PrivateKey privateKey, CryptoProvider cryptoProvider) {
+        public final Signer signer(PrivateKey privateKey, CryptoProvider cryptoProvider) {
             RSASigner signer = RSASigner.newSHA512Signer(privateKey, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Signer signer(PrivateKey privateKey, String kid, CryptoProvider cryptoProvider) {
+        public final Signer signer(PrivateKey privateKey, String kid, CryptoProvider cryptoProvider) {
             RSASigner signer = RSASigner.newSHA512Signer(privateKey, kid, cryptoProvider);
             setSigner(signer);
             return signer;
         }
 
         @Override
-        public Verifier verifier(String secret) {
+        public final Verifier verifier(String secret) {
             RSAVerifier verifier = RSAVerifier.newVerifier(secret);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(PublicKey publicKey) {
+        public final Verifier verifier(PublicKey publicKey) {
             RSAVerifier verifier = RSAVerifier.newVerifier(publicKey);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(Path path) {
+        public final Verifier verifier(Path path) {
             RSAVerifier verifier = RSAVerifier.newVerifier(path);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(byte[] bytes) {
+        public final Verifier verifier(byte[] bytes) {
             RSAVerifier verifier = RSAVerifier.newVerifier(bytes);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(String secret, CryptoProvider cryptoProvider) {
+        public final Verifier verifier(String secret, CryptoProvider cryptoProvider) {
             RSAVerifier verifier = RSAVerifier.newVerifier(secret, cryptoProvider);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(PublicKey publicKey, CryptoProvider cryptoProvider) {
+        public final Verifier verifier(PublicKey publicKey, CryptoProvider cryptoProvider) {
             RSAVerifier verifier = RSAVerifier.newVerifier(publicKey, cryptoProvider);
             setVerifier(verifier);
             return verifier;
         }
 
         @Override
-        public Verifier verifier(Path path, CryptoProvider cryptoProvider) {
+        public final Verifier verifier(Path path, CryptoProvider cryptoProvider) {
             RSAVerifier verifier = RSAVerifier.newVerifier(path, cryptoProvider);
             setVerifier(verifier);
             return verifier;
@@ -1324,11 +1324,11 @@ public enum AlgorithmType implements RestSigner {
         this.signer = signer;
     }
 
-    public Signer getSigner() {
+    public final Signer getSigner() {
         return signer;
     }
 
-    public Verifier getVerifier() {
+    public final Verifier getVerifier() {
         return verifier;
     }
 
