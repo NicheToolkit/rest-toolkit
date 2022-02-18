@@ -7,6 +7,7 @@ import io.github.nichetoolkit.rest.worker.jwt.JwtBuilder;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
@@ -155,7 +156,7 @@ public class RestJwtProperties {
     public JwtBuilder toBuilder() {
         if (this.getEnabled()) {
             JwtBuilder builder = JwtBuilder.builder();
-            ZonedDateTime nowDateTime = ZonedDateTime.now();
+            ZonedDateTime nowDateTime = ZonedDateTime.now(ZoneId.systemDefault());
             if (GeneralUtils.isNotEmpty(this.getIssuer())) {
                 builder.issuer(this.getIssuer());
             }
