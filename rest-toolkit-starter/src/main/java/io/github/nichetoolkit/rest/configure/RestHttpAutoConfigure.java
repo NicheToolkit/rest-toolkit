@@ -186,8 +186,8 @@ public class RestHttpAutoConfigure {
         }
 
         @Bean(name = HttpClientType.HTTPCLIENT_BEAN)
-        public RestTemplate httpTemplate(HttpComponentsClientHttpRequestFactory HttpComponentsClientHttpRequestFactory) {
-            return createRestTemplate(HttpComponentsClientHttpRequestFactory);
+        public RestTemplate httpTemplate(HttpComponentsClientHttpRequestFactory httpComponentsClientHttpRequestFactory) {
+            return createRestTemplate(httpComponentsClientHttpRequestFactory);
         }
 
         @Bean(name = "httpComponentsClientHttpRequestFactory")
