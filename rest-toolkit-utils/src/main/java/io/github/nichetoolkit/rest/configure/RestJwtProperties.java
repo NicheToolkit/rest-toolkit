@@ -102,6 +102,7 @@ public class RestJwtProperties {
         this.issuer = issuer;
     }
 
+    @SuppressWarnings("MixedMutabilityReturnType")
     public List<String> getAudiences() {
         if (GeneralUtils.isNotEmpty(this.audiences)) {
             return new ArrayList<>(Arrays.asList(this.audiences));
