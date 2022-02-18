@@ -246,6 +246,7 @@ public class RestHttpAutoConfigure {
     }
 
     @Bean
+    @ConditionalOnMissingBean(X509TrustManager.class)
     public X509TrustManager x509TrustManager() {
         return new X509TrustManager() {
             @Override
