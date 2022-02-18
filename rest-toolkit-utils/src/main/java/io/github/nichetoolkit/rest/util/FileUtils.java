@@ -199,38 +199,6 @@ public class FileUtils {
         return originalName.substring(0,originalName.lastIndexOf("."));
     }
 
-    public static void writeZip(final File file, HttpServletResponse response) {
-        write(file, "application/octet-stream",response);
-    }
-
-    public static void writeExcel(final File file, HttpServletResponse response) {
-        write(file,"application/vnd.ms-excel",response);
-    }
-
-    public static void write(final File file,String contentType, HttpServletResponse response) {
-        /* 写入response */
-
-        String filename = file.getName();
-        try (FileInputStream fileInputStream =  new FileInputStream(file);
-             InputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
-             ServletOutputStream servletOutputStream = response.getOutputStream();
-             OutputStream bufferedOutputStream = new BufferedOutputStream(servletOutputStream)) {
-            byte[] bufferCache = new byte[bufferedInputStream.available()];
-            bufferedInputStream.read(bufferCache);
-            response.reset();
-            response.addHeader("Content-Disposition", UtilConstants.FILENAME_CONTENT
-                    + new String(filename.replace(" ", "").getBytes(StandardCharsets.UTF_8), StandardCharsets.ISO_8859_1));
-            response.addHeader("Content-Length", "" + file.length());
-            response.setCharacterEncoding(StandardCharsets.UTF_8.name());
-            response.setContentType(contentType);
-            bufferedOutputStream.write(bufferCache);
-            bufferedOutputStream.flush();
-        } catch (IOException exception) {
-            exception.printStackTrace();
-            log.error(exception.getMessage(), exception);
-        }
-    }
-
     public static String fileSize(final Long fileSize) {
         DecimalFormat decimalFormat = new DecimalFormat("#.00");
         String fileSizeString;
@@ -256,7 +224,7 @@ public class FileUtils {
             if (request != null && request.getHeader(UtilConstants.USER_AGENT_HEADER) != null) {
                 browser = request.getHeader(UtilConstants.USER_AGENT_HEADER);
                 if (browser.contains("MSIE 6.0") || browser.contains("MSIE 7.0")) {
-                    // IE6, IE7 浏览器
+                    // IE6, IE7
                     response.addHeader(UtilConstants.CONTENT_HEADER, UtilConstants.FILENAME_CONTENT + URLEncoder.encode(fileName, StandardCharsets.ISO_8859_1.name()));
                 } else if (browser.contains("MSIE 8.0")) {
                     // IE8
@@ -265,13 +233,13 @@ public class FileUtils {
                     // IE9
                     response.addHeader(UtilConstants.CONTENT_HEADER, UtilConstants.FILENAME_CONTENT + URLEncoder.encode(fileName, StandardCharsets.UTF_8.name()));
                 } else if (browser.contains("Chrome")) {
-                    // 谷歌
+                    // Google
                     response.addHeader(UtilConstants.CONTENT_HEADER, UtilConstants.FILENAME_UTF_8_CONTENT + URLEncoder.encode(fileName, StandardCharsets.UTF_8.name()));
                 } else if (browser.contains("Safari")) {
-                    // 苹果
+                    // Safari
                     response.addHeader(UtilConstants.CONTENT_HEADER, UtilConstants.FILENAME_CONTENT + URLEncoder.encode(fileName, StandardCharsets.ISO_8859_1.name()));
                 } else {
-                    // 火狐或者其他的浏览器
+                    // Firefox or other
                     response.addHeader(UtilConstants.CONTENT_HEADER, UtilConstants.FILENAME_UTF_8_CONTENT + URLEncoder.encode(fileName, StandardCharsets.UTF_8.name()));
                 }
             } else {
