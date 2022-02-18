@@ -2,6 +2,7 @@ package io.github.nichetoolkit.rest.image;
 
 import io.github.nichetoolkit.rest.constant.UtilConstants;
 import lombok.Builder;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.lang.NonNull;
 
 import javax.imageio.ImageIO;
@@ -15,6 +16,8 @@ import java.io.Serializable;
  * @author Cyan (snow22314@outlook.com)
  * @version v1.0.0
  */
+@Slf4j
+@SuppressWarnings("SameNameButDifferent")
 public class ImageVerify implements Serializable {
     private String content;
     private BufferedImage image;
@@ -51,6 +54,7 @@ public class ImageVerify implements Serializable {
         try {
             ImageIO.write(image, formatName, outputStream);
         } catch (IOException exception) {
+            log.error("It is failed during image writing to output stream!", exception);
             exception.printStackTrace();
         }
     }
