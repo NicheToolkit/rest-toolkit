@@ -14,6 +14,7 @@ import java.util.function.Supplier;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
+@SuppressWarnings("SameNameButDifferent")
 public class RestError extends DefaultError implements RestStatus, Supplier {
     protected String name;
     protected Integer status;

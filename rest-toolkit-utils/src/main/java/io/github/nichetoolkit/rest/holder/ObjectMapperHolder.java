@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @author Cyan (snow22314@outlook.com)
  * @version v1.0.0
  */
-@Slf4j
 public class ObjectMapperHolder {
 
     public static ObjectMapper OBJECT_MAPPER = new ObjectMapper();
