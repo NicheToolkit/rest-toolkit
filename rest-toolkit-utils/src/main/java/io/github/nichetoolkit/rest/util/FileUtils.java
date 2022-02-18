@@ -114,7 +114,7 @@ public class FileUtils {
     public static String createPath(final String path) {
         File filePath = new File(path);
         if (!filePath.exists()) {
-            boolean mkdirs = filePath.mkdirs();
+            filePath.mkdirs();
         }
         return filePath.getPath();
     }
@@ -122,7 +122,7 @@ public class FileUtils {
     public static String createPath(final String path,final String child) {
         File allPath = new File(path, child);
         if (!allPath.exists()) {
-            boolean mkdirs = allPath.mkdirs();
+            allPath.mkdirs();
         }
         return allPath.getPath();
     }
@@ -162,7 +162,7 @@ public class FileUtils {
 
     public static void write(final File file, byte[] data) {
         if (!file.exists()) {
-            boolean mkdirs = file.getParentFile().mkdirs();
+            file.getParentFile().mkdirs();
         }
         try (FileOutputStream fileOutputStream = new FileOutputStream(file)){
             fileOutputStream.write(data);
