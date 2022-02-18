@@ -11,6 +11,7 @@ import lombok.Builder;
  */
 @Builder
 @AllArgsConstructor
+@SuppressWarnings("SameNameButDifferent")
 public class ServerConfig {
     @JsonIgnore
     public static final String IP_ADDRESS = "spring.cloud.client.ip-address";

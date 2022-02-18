@@ -12,6 +12,7 @@ import java.util.Objects;
  */
 @Builder
 @AllArgsConstructor
+@SuppressWarnings("SameNameButDifferent")
 public class WorkerConfig {
     private Long workerId;
     private Long centerId;

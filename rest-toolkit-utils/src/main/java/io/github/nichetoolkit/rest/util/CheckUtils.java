@@ -17,6 +17,7 @@ import io.github.nichetoolkit.rest.error.often.NameRepeatException;
  * @version v1.0.0
  */
 @Slf4j
+@SuppressWarnings("SameNameButDifferent")
 public class CheckUtils {
 
     public static <T> void checkNullObject(T object, String logMessage, String exceptionMessage) throws RestException {

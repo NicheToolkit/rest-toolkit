@@ -14,6 +14,7 @@ import java.util.List;
  * @version v1.0.0
  */
 @Slf4j
+@SuppressWarnings("SameNameButDifferent")
 public class ZipUtils {
 
     public static File zipFile(String zipPath, String filename, File file) {

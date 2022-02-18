@@ -24,6 +24,7 @@ import javax.annotation.PostConstruct;
  * @version v1.0.0
  */
 @Slf4j
+@SuppressWarnings("SameNameButDifferent")
 public class IdentityManager implements ApplicationRunner {
 
     private final RestIdentityProperties identityProperties;

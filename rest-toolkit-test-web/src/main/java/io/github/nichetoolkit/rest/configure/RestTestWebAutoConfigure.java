@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Slf4j
 @Configuration
+@SuppressWarnings("SameNameButDifferent")
 @ComponentScan(basePackages = {"io.github.nichetoolkit.rest"})
 public class RestTestWebAutoConfigure {
     public RestTestWebAutoConfigure() {

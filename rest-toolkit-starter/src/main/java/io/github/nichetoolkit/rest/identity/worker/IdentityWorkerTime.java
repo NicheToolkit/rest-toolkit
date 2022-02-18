@@ -12,6 +12,7 @@ import java.util.Date;
  * @version v1.0.0
  */
 @Data
+@SuppressWarnings("SameNameButDifferent")
 class IdentityWorkerTime implements SupplierActuator {
     public static final Long EPOCH = 1288834974657L;
     private Long time;

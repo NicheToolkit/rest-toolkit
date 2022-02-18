@@ -15,6 +15,7 @@ import java.util.function.Supplier;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
+@SuppressWarnings("SameNameButDifferent")
 @JsonIgnoreProperties(value = {"cause","stackTrace","localizedMessage","suppressed"})
 class DefaultException extends Exception implements RestStatus, Supplier,Serializable {
     protected RestError error;

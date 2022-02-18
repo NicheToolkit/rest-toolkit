@@ -17,6 +17,7 @@ import java.security.SecureRandom;
  * @version v1.0.0
  */
 @Slf4j
+@SuppressWarnings("SameNameButDifferent")
 public class IdentityFactory {
 
     private final RestIdentityProperties properties;

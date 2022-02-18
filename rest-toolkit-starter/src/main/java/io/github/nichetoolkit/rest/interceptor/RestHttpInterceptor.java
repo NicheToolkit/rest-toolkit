@@ -25,6 +25,8 @@ import java.util.Map;
  */
 @Slf4j
 @Component
+@SuppressWarnings("SameNameButDifferent")
+
 public class RestHttpInterceptor implements ClientHttpRequestInterceptor {
     @Override
     @NonNull

@@ -68,6 +68,7 @@ import java.util.concurrent.TimeUnit;
  */
 @Slf4j
 @Configuration
+@SuppressWarnings("SameNameButDifferent")
 @ComponentScan(basePackages = {"io.github.nichetoolkit.rest"})
 @ConditionalOnProperty(value = "nichetoolkit.rest.http.enabled", havingValue = "true")
 public class RestHttpAutoConfigure {

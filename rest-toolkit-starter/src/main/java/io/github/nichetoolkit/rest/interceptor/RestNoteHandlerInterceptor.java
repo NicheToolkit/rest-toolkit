@@ -36,6 +36,8 @@ import java.util.Optional;
 @Slf4j
 @WebFilter
 @Component
+@SuppressWarnings("SameNameButDifferent")
+
 public class RestNoteHandlerInterceptor implements AsyncHandlerInterceptor, RestBodyAdvice, RestExceptionAdvice, Filter {
     protected static final ThreadLocal<Long> START_TIME_HOLDER = new ThreadLocal<>();
     protected static final ThreadLocal<Exception> EXCEPTION_HOLDER = new ThreadLocal<>();

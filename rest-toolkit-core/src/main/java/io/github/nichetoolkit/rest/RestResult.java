@@ -18,7 +18,7 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-@SuppressWarnings({"UnnecessaryParentheses","unused"})
+@SuppressWarnings({"UnnecessaryParentheses","unused","SameNameButDifferent"})
 public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
     @JsonFormat(
             pattern = "yyyy-MM-dd HH:mm:ss"
