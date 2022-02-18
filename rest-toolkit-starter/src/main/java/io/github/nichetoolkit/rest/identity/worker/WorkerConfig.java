@@ -1,8 +1,5 @@
 package io.github.nichetoolkit.rest.identity.worker;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-
 import java.util.Objects;
 
 /**
@@ -10,9 +7,6 @@ import java.util.Objects;
  * @author Cyan (snow22314 @ outlook.com)
  * @version v1.0.0
  */
-@Builder
-@AllArgsConstructor
-@SuppressWarnings("SameNameButDifferent")
 public class WorkerConfig {
     private Long workerId;
     private Long centerId;
