@@ -3,7 +3,6 @@ package io.github.nichetoolkit.rest.util;
 
 import io.github.nichetoolkit.rest.error.natives.ParseErrorException;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang.StringUtils;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -124,7 +123,7 @@ public class DateUtils {
      * @return Date 时间
      */
     public static Date parse(String dateString, String dateFormat) throws ParseErrorException {
-        if (StringUtils.isEmpty(dateFormat)) {
+        if (GeneralUtils.isEmpty(dateFormat)) {
             dateFormat = switchDateFormat(dateString);
         }
         try {
