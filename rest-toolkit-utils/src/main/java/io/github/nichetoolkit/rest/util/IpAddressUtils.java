@@ -28,6 +28,9 @@ public class IpAddressUtils {
     }
 
     public static String ipAddress(HttpServletRequest httpServletRequest, List<String> ignoredIpAddresses) {
+        if (GeneralUtils.isEmpty(httpServletRequest)) {
+            return UtilConstants.LOCALHOST_IPV4;
+        }
         String ip = httpServletRequest.getHeader(UtilConstants.X_FORWARDED_FOR_HEADER);
         if (GeneralUtils.isEmpty(ip)) {
             return httpServletRequest.getRemoteAddr();
@@ -70,6 +73,9 @@ public class IpAddressUtils {
 
     @SuppressWarnings({"Duplicates", "unused"})
     public static String remoteIpAddress(HttpServletRequest request) {
+        if (GeneralUtils.isEmpty(request)) {
+            return UtilConstants.LOCALHOST_IPV4;
+        }
         String ip = request.getHeader(UtilConstants.X_FORWARDED_FOR_HEADER);
         if (GeneralUtils.isEmpty(ip) || UtilConstants.UNKNOWN_HEADER.equalsIgnoreCase(ip)) {
             ip = request.getHeader(UtilConstants.PROXY_CLIENT_IP_HEADER);
@@ -94,6 +100,9 @@ public class IpAddressUtils {
     }
 
     public static String userIpAddress(HttpServletRequest request) {
+        if (GeneralUtils.isEmpty(request)) {
+            return UtilConstants.LOCALHOST_IPV4;
+        }
         String ip = request.getHeader(UtilConstants.X_REAL_IP_HEADER);
         if (ip == null || ip.length() == 0 || UtilConstants.UNKNOWN_HEADER.equalsIgnoreCase(ip)) {
             ip = request.getHeader(UtilConstants.X_FORWARDED_FOR_HEADER);

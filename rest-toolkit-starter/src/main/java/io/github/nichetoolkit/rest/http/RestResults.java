@@ -1191,16 +1191,18 @@ public class RestResults {
     }
 
     public static void checkRestResponse(Object response, String resource, boolean isCheckBody, boolean isCheckData) throws RestException {
-        if (response instanceof ResponseEntity) {
-            ResponseEntity responseEntity = (ResponseEntity) response;
-            checkEntity(responseEntity, resource);
-            checkEntitySuccess(responseEntity, resource);
-            checkBody(responseEntity, resource, isCheckBody, isCheckData);
-        } else if (response instanceof RestResult) {
-            RestResult restResult = (RestResult) response;
-            checkResult(restResult, resource);
-            checkResultSuccess(restResult, resource);
-            checkData(restResult, resource, isCheckData);
+        if (GeneralUtils.isNotEmpty(response)) {
+            if (response instanceof ResponseEntity) {
+                ResponseEntity responseEntity = (ResponseEntity) response;
+                checkEntity(responseEntity, resource);
+                checkEntitySuccess(responseEntity, resource);
+                checkBody(responseEntity, resource, isCheckBody, isCheckData);
+            } else if (response instanceof RestResult) {
+                RestResult restResult = (RestResult) response;
+                checkResult(restResult, resource);
+                checkResultSuccess(restResult, resource);
+                checkData(restResult, resource, isCheckData);
+            }
         } else {
             checkResponse(response, resource);
         }
