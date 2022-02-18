@@ -2,6 +2,7 @@ package io.github.nichetoolkit.rest.identity.worker;
 
 import io.github.nichetoolkit.rest.actuator.SupplierActuator;
 import lombok.Data;
+import org.springframework.lang.NonNull;
 
 import java.util.Date;
 
@@ -19,12 +20,8 @@ class IdentityWorkerTime implements SupplierActuator {
         this.time = System.currentTimeMillis() - EPOCH;
     }
 
-    public IdentityWorkerTime(Long time) {
+    public IdentityWorkerTime(@NonNull Long time) {
         this.time = time - EPOCH;
-    }
-
-    public IdentityWorkerTime(Date time) {
-        this.time = time.getTime() - EPOCH;
     }
 
     public Long sequence(Long sequence) {

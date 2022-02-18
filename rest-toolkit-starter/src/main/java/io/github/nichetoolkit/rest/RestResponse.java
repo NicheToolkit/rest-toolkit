@@ -132,7 +132,7 @@ public class RestResponse<T extends RestResponse<T>> {
         }
 
         public RestResponse.Builder<T> time() {
-            this.time = new Date().getTime();
+            this.time = System.currentTimeMillis();
             return this;
         }
 
