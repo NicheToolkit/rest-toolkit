@@ -1336,13 +1336,13 @@ public enum AlgorithmType implements RestSigner {
         this.verifier = verifier;
     }
 
-    public static AlgorithmType parserKey(@NonNull Integer key) {
+    public static AlgorithmType parseKey(@NonNull Integer key) {
         AlgorithmType sortTypeEnum = RestValue.parseKey(AlgorithmType.class, key);
         return Optional.ofNullable(sortTypeEnum).orElse(AlgorithmType.HS256);
     }
 
     @JsonCreator
-    public static AlgorithmType parserValue(@NonNull String value) {
+    public static AlgorithmType parseValue(@NonNull String value) {
         AlgorithmType sortTypeEnum = RestValue.parseValue(AlgorithmType.class, value);
         return Optional.ofNullable(sortTypeEnum).orElse(AlgorithmType.HS256);
     }

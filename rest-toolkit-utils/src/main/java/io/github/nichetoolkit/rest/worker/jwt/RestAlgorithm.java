@@ -16,7 +16,7 @@ public interface RestAlgorithm<A> extends RestValue<Integer, String> {
 
     A getAlgorithm();
 
-    static <A,T extends RestAlgorithm<A>> T parserAlgorithm(Class<T> clazz, A algorithm) {
+    static <A,T extends RestAlgorithm<A>> T parseAlgorithm(Class<T> clazz, A algorithm) {
         if (algorithm != null && clazz.isEnum()) {
             Map<A,T> valueEnumMap = Stream.of(clazz.getEnumConstants()).collect(Collectors.toMap(RestAlgorithm::getAlgorithm, Function.identity()));
             return valueEnumMap.get(algorithm);
