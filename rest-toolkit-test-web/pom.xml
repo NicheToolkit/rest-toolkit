@@ -5,11 +5,11 @@
   <parent>
     <groupId>io.github.nichetoolkit</groupId>
     <artifactId>rest-toolkit-parent</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
   </parent>
 
   <artifactId>rest-toolkit-test-web</artifactId>
-  <version>1.0.3</version>
+  <version>1.0.4</version>
   <name>rest-toolkit-test-web</name>
   <packaging>jar</packaging>
   <description>Rest toolkit test project for Spring Boot</description>

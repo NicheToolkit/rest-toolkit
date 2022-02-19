@@ -15,7 +15,7 @@ public interface RestField extends RestValue<Integer,String> {
     String getField();
 
     @SuppressWarnings("Duplicates")
-    static <T extends RestField> T parserField(Class<T> clazz, String field) {
+    static <T extends RestField> T parseField(Class<T> clazz, String field) {
         if (field != null && clazz.isEnum()) {
             Map<String,T> valueEnumMap =Stream.of(clazz.getEnumConstants()).collect(Collectors.toMap(RestField::getField, Function.identity()));
             return valueEnumMap.get(field);

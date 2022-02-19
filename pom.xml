@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.nichetoolkit</groupId>
     <artifactId>rest-toolkit-parent</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
 
     <modules>
         <module>rest-toolkit-core</module>
@@ -65,7 +65,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <spring-boot.version>2.6.0</spring-boot.version>
-        <rest-toolkit.version>1.0.3</rest-toolkit.version>
+        <rest-toolkit.version>1.0.4</rest-toolkit.version>
         <guava.version>31.0.1-jre</guava.version>
         <fusionauth-jwt.version>5.0.0</fusionauth-jwt.version>
         <source-plugin.version>2.2.1</source-plugin.version>
