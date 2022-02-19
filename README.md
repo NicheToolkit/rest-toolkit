@@ -11,9 +11,11 @@
 
 -  [Jts-Toolkit](https://github.com/NicheToolkit/jts-toolkit) 
 
-## Release-1.0.3介绍
+## Release介绍
 
 -  [Rest-Toolkit@1.0.3](https://github.com/NicheToolkit/rest-toolkit/tree/master/release/1.0.3.md)
+
+-  [Rest-Toolkit@1.0.4](https://github.com/NicheToolkit/rest-toolkit/tree/master/release/1.0.4.md)
 
 ## Maven Central
 
@@ -30,7 +32,7 @@
   <dependency>
     <groupId>io.github.nichetoolkit</groupId>
     <artifactId>rest-toolkit-core</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
   </dependency>
 ```  
  
@@ -40,7 +42,7 @@
   <dependency>
     <groupId>io.github.nichetoolkit</groupId>
     <artifactId>rest-toolkit-starter</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
   </dependency>
 ``` 
 
@@ -50,7 +52,7 @@
   <dependency>
     <groupId>io.github.nichetoolkit</groupId>
     <artifactId>rest-toolkit-utils</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
   </dependency>
 ```
 
