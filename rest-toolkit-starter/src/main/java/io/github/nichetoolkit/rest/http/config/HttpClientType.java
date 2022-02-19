@@ -43,12 +43,12 @@ public enum HttpClientType implements RestValue<String,String> {
     }
 
     @JsonCreator
-    public static HttpClientType parseKey(@NonNull String key) {
+    public static HttpClientType parseKey(String key) {
         HttpClientType sortTypeEnum = RestValue.parseKey(HttpClientType.class, key);
         return Optional.ofNullable(sortTypeEnum).orElse(HttpClientType.DEFAULT);
     }
 
-    public static HttpClientType parseValue(@NonNull String value) {
+    public static HttpClientType parseValue(String value) {
         HttpClientType sortTypeEnum = RestValue.parseValue(HttpClientType.class, value);
         return Optional.ofNullable(sortTypeEnum).orElse(HttpClientType.DEFAULT);
     }

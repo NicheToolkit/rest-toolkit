@@ -28,7 +28,7 @@ public interface RestPurview extends RestValue<Long,String> {
         }
     }
 
-    static boolean reachKey(@NonNull Long key, RestPurview purviewType) {
+    static boolean reachKey(@NonNull Long key, @NonNull RestPurview purviewType) {
         Long sourceKey = purviewType.getKey();
         return (key & sourceKey) != 0;
     }

@@ -38,12 +38,12 @@ public enum ProxyType implements RestValue<String, Proxy.Type> {
     }
 
     @JsonCreator
-    public static ProxyType parseKey(@NonNull String key) {
+    public static ProxyType parseKey(String key) {
         ProxyType sortTypeEnum = RestValue.parseKey(ProxyType.class, key);
         return Optional.ofNullable(sortTypeEnum).orElse(ProxyType.SOCKS);
     }
 
-    public static ProxyType parseValue(@NonNull Proxy.Type value) {
+    public static ProxyType parseValue(Proxy.Type value) {
         ProxyType sortTypeEnum = RestValue.parseValue(ProxyType.class, value);
         return Optional.ofNullable(sortTypeEnum).orElse(ProxyType.SOCKS);
     }
