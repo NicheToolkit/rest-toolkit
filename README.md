@@ -11,6 +11,8 @@
 
 -  [Jts-Toolkit](https://github.com/NicheToolkit/jts-toolkit) 
 
+-  [File-Toolkit](https://github.com/NicheToolkit/file-toolkit) 
+
 ## Release介绍
 
 -  [Rest-Toolkit@1.0.3](https://github.com/NicheToolkit/rest-toolkit/tree/master/release/1.0.3.md)
@@ -19,10 +21,10 @@
 
 ## Maven Central
 
--  [Maven Central Repository](https://search.maven.org/search?q=nichetoolkit)
+-  [Maven Central Repository](https://search.maven.org/search?q=g:io.github.nichetoolkit)
 
 ## 依赖环境
- > [Spring Boot](https://spring.io/projects/spring-boot) 2.6.0.RELEASE\
+ > [Spring Boot](https://spring.io/projects/spring-boot) 2.6.6.RELEASE\
  > [Maven](https://maven.apache.org/) 3.6.0+\
  > [JDK](https://www.oracle.com/java/technologies/downloads/#java8) 1.8
  
@@ -32,7 +34,7 @@
   <dependency>
     <groupId>io.github.nichetoolkit</groupId>
     <artifactId>rest-toolkit-core</artifactId>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
   </dependency>
 ```  
  
@@ -42,7 +44,7 @@
   <dependency>
     <groupId>io.github.nichetoolkit</groupId>
     <artifactId>rest-toolkit-starter</artifactId>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
   </dependency>
 ``` 
 
@@ -52,7 +54,7 @@
   <dependency>
     <groupId>io.github.nichetoolkit</groupId>
     <artifactId>rest-toolkit-utils</artifactId>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
   </dependency>
 ```
 
