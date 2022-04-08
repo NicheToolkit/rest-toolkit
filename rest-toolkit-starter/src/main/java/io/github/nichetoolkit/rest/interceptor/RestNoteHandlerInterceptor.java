@@ -37,17 +37,13 @@ import java.util.Optional;
 @WebFilter
 @Component
 @SuppressWarnings("SameNameButDifferent")
-
 public class RestNoteHandlerInterceptor implements AsyncHandlerInterceptor, RestBodyAdvice, RestExceptionAdvice, Filter {
     protected static final ThreadLocal<Long> START_TIME_HOLDER = new ThreadLocal<>();
     protected static final ThreadLocal<Exception> EXCEPTION_HOLDER = new ThreadLocal<>();
     protected static final ThreadLocal<RestResponse> REST_RESPONSE_HOLDER = new ThreadLocal<>();
-    private final RestInterceptProperties interceptProperties;
 
     @Autowired
-    public RestNoteHandlerInterceptor(RestInterceptProperties interceptProperties) {
-        this.interceptProperties = interceptProperties;
-    }
+    private RestInterceptProperties interceptProperties;
 
     @Override
     public void init(FilterConfig filterConfig) {
