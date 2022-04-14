@@ -60,17 +60,17 @@ public interface RestPurview extends RestValue<Long,String> {
         return key;
     }
 
-    static <T extends RestPurview> List<T> deconKey(Long purview, Class<T> clazz) {
+    static <T extends RestPurview> List<T> deconKey(Class<T> clazz, Long purview) {
         if (purview == null || purview == 0L || !clazz.isEnum()){
             return null;
         }
-        List<T> purviewList = new ArrayList<>();
+        List<T> purviewTypes = new ArrayList<>();
         for (T purviewType : clazz.getEnumConstants()) {
             if (RestPurview.reachKey(purview,purviewType)) {
-                purviewList.add(purviewType);
+                purviewTypes.add(purviewType);
             }
         }
-        return purviewList;
+        return purviewTypes;
     }
 
 }
