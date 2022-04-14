@@ -2,9 +2,7 @@ package io.github.nichetoolkit.rest;
 
 import org.springframework.lang.NonNull;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -51,7 +49,6 @@ public interface RestPurview extends RestValue<Long,String> {
         return annexKey(purview,Arrays.asList(purviewTypes));
     }
 
-
     static <T extends RestPurview> Long annexKey(Long purview, Collection<T> purviewTypes) {
         Long key = purview;
         if (purviewTypes != null && purviewTypes.size() > 0) {
@@ -63,5 +60,17 @@ public interface RestPurview extends RestValue<Long,String> {
         return key;
     }
 
+    static <T extends RestPurview> List<T> deconKey(Long purview, Class<T> clazz) {
+        if (purview == null || purview == 0L || !clazz.isEnum()){
+            return null;
+        }
+        List<T> purviewList = new ArrayList<>();
+        for (T purviewType : clazz.getEnumConstants()) {
+            if (RestPurview.reachKey(purview,purviewType)) {
+                purviewList.add(purviewType);
+            }
+        }
+        return purviewList;
+    }
 
 }
