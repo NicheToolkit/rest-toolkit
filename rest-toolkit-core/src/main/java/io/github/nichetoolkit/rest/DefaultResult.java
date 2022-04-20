@@ -53,35 +53,35 @@ public class DefaultResult<T,S extends DefaultResult<T,S>> implements Serializab
     }
 
     public static <T,S extends DefaultResult<T,S>> DefaultResult<T,S> success() {
-        return (new DefaultResult.Builder<T,S>()).status(RestErrorStatus.SUCCESS.getStatus()).build();
+        return (new DefaultResult.Builder<T,S>()).restStatus(RestErrorStatus.SUCCESS).build();
     }
 
     public static <T,S extends DefaultResult<T,S>> DefaultResult<T,S> success(T data) {
-        return (new DefaultResult.Builder<T,S>()).status(RestErrorStatus.SUCCESS.getStatus()).data(data).build();
+        return (new DefaultResult.Builder<T,S>()).restStatus(RestErrorStatus.SUCCESS).data(data).build();
     }
 
     public static <T,S extends DefaultResult<T,S>> DefaultResult<T,S> success(String message) {
-        return (new DefaultResult.Builder<T,S>()).status(RestErrorStatus.SUCCESS.getStatus()).message(message).build();
+        return (new DefaultResult.Builder<T,S>()).status(RestErrorStatus.SUCCESS).message(message).build();
     }
 
     public static <T,S extends DefaultResult<T,S>> DefaultResult<T,S> success(String message, T data) {
-        return (new DefaultResult.Builder<T,S>()).status(RestErrorStatus.SUCCESS.getStatus()).message(message).data(data).build();
+        return (new DefaultResult.Builder<T,S>()).status(RestErrorStatus.SUCCESS).message(message).data(data).build();
     }
 
     public static <T,S extends DefaultResult<T,S>> DefaultResult<T,S> success(RestStatus status) {
-        return (new DefaultResult.Builder<T,S>()).status(status.getStatus()).message(status.getMessage()).build();
+        return (new DefaultResult.Builder<T,S>()).restStatus(status).build();
     }
 
     public static <T,S extends DefaultResult<T,S>> DefaultResult<T,S> success(RestStatus status, T data) {
-        return (new DefaultResult.Builder<T,S>()).status(status.getStatus()).message(status.getMessage()).data(data).build();
+        return (new DefaultResult.Builder<T,S>()).restStatus(status).data(data).build();
     }
 
     public static <T,S extends DefaultResult<T,S>> DefaultResult<T,S> fail(String message) {
-        return (new DefaultResult.Builder<T,S>()).status(RestErrorStatus.FAILED.getStatus()).message(message).build();
+        return (new DefaultResult.Builder<T,S>()).status(RestErrorStatus.FAILED).message(message).build();
     }
 
     public static <T,S extends DefaultResult<T,S>> DefaultResult<T,S> fail(String message, T data) {
-        return (new DefaultResult.Builder<T,S>()).status(RestErrorStatus.FAILED.getStatus()).message(message).data(data).build();
+        return (new DefaultResult.Builder<T,S>()).status(RestErrorStatus.FAILED).message(message).data(data).build();
     }
 
     public static <T,S extends DefaultResult<T,S>> DefaultResult<T,S> fail(Integer status, String message, T data) {
@@ -97,16 +97,16 @@ public class DefaultResult<T,S extends DefaultResult<T,S>> implements Serializab
     }
 
     public static <T,S extends DefaultResult<T,S>> DefaultResult<T,S> fail(RestStatus status) {
-        return (new DefaultResult.Builder<T,S>()).status(status.getStatus()).message(status.getMessage()).build();
+        return (new DefaultResult.Builder<T,S>()).restStatus(status).build();
     }
 
 
     public static <T,S extends DefaultResult<T,S>> DefaultResult<T,S> fail(RestStatus status,Throwable cause) {
-        return (new Builder<T, S>()).status(status.getStatus()).message(status.getMessage()).cause(cause).build();
+        return (new Builder<T, S>()).restStatus(status).cause(cause).build();
     }
 
     public static <T,S extends DefaultResult<T,S>> DefaultResult<T,S> fail(RestStatus status, T data) {
-        return (new DefaultResult.Builder<T,S>()).status(status.getStatus()).message(status.getMessage()).data(data).build();
+        return (new DefaultResult.Builder<T,S>()).restStatus(status).data(data).build();
     }
 
     public static <T,S extends DefaultResult<T,S>> DefaultResult.Builder<T,S> defaultBuilder() {
