@@ -185,16 +185,22 @@ public class FileUtils {
         }
     }
 
-    public static String suffix(final String name){
-        if(GeneralUtils.isEmpty(name)){
-            return null;
+    public static String suffix(final String originalName){
+        if(GeneralUtils.isEmpty(originalName)){
+            return "";
         }
-        return name.substring(name.lastIndexOf(".") + 1);
+        if (!originalName.contains(".")) {
+            return "";
+        }
+        return originalName.substring(originalName.lastIndexOf(".") + 1);
     }
 
     public static String filename(final String originalName){
         if(GeneralUtils.isEmpty(originalName)){
             return "";
+        }
+        if (!originalName.contains(".")) {
+            return originalName;
         }
         return originalName.substring(0,originalName.lastIndexOf("."));
     }
