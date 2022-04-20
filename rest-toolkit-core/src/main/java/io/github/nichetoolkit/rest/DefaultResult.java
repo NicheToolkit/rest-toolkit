@@ -122,6 +122,12 @@ public class DefaultResult<T,S extends DefaultResult<T,S>> implements Serializab
         public Builder() {
         }
 
+        public DefaultResult.Builder<T,S> restStatus(RestStatus status) {
+            this.status = status.getStatus();
+            this.message = status.getMessage();
+            return this;
+        }
+
         public DefaultResult.Builder<T,S> status(Integer status) {
             this.status = status;
             return this;

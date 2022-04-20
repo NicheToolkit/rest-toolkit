@@ -50,35 +50,35 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
     }
 
     public static <T> ResponseEntity<RestResult<T>> ok() {
-        return ResponseEntity.ok((new RestResult.Builder<T>()).status(RestErrorStatus.SUCCESS.getStatus()).build());
+        return ResponseEntity.ok((new RestResult.Builder<T>()).restStatus(RestErrorStatus.SUCCESS).build());
     }
 
     public static <T> ResponseEntity<RestResult<T>> ok(T data) {
-        return ResponseEntity.ok((new RestResult.Builder<T>()).status(RestErrorStatus.SUCCESS.getStatus()).data(data).build());
+        return ResponseEntity.ok((new RestResult.Builder<T>()).restStatus(RestErrorStatus.SUCCESS).data(data).build());
     }
 
     public static <T> ResponseEntity<RestResult<T>> ok(String message) {
-        return ResponseEntity.ok((new RestResult.Builder<T>()).status(RestErrorStatus.SUCCESS.getStatus()).message(message).build());
+        return ResponseEntity.ok((new RestResult.Builder<T>()).status(RestErrorStatus.SUCCESS).message(message).build());
     }
 
     public static <T> ResponseEntity<RestResult<T>> ok(String message, T data) {
-        return ResponseEntity.ok((new RestResult.Builder<T>()).status(RestErrorStatus.SUCCESS.getStatus()).message(message).data(data).build());
+        return ResponseEntity.ok((new RestResult.Builder<T>()).status(RestErrorStatus.SUCCESS).message(message).data(data).build());
     }
 
     public static <T> ResponseEntity<RestResult<T>> ok(RestStatus status) {
-        return ResponseEntity.ok((new RestResult.Builder<T>()).status(status.getStatus()).message(status.getMessage()).build());
+        return ResponseEntity.ok((new RestResult.Builder<T>()).restStatus(status).build());
     }
 
     public static <T> ResponseEntity<RestResult<T>> ok(RestStatus status, T data) {
-        return ResponseEntity.ok((new RestResult.Builder<T>()).status(status.getStatus()).message(status.getMessage()).data(data).build());
+        return ResponseEntity.ok((new RestResult.Builder<T>()).restStatus(status).data(data).build());
     }
 
     public static <T> ResponseEntity<RestResult<T>> error(String message) {
-        return ResponseEntity.ok((new RestResult.Builder<T>()).status(RestErrorStatus.FAILED.getStatus()).message(message).build());
+        return ResponseEntity.ok((new RestResult.Builder<T>()).status(RestErrorStatus.FAILED).message(message).build());
     }
 
     public static <T> ResponseEntity<RestResult<T>> error(String message, T data) {
-        return ResponseEntity.ok((new RestResult.Builder<T>()).status(RestErrorStatus.FAILED.getStatus()).message(message).data(data).build());
+        return ResponseEntity.ok((new RestResult.Builder<T>()).status(RestErrorStatus.FAILED).message(message).data(data).build());
     }
 
     public static <T> ResponseEntity<RestResult<T>> error(Integer status, String message, T data) {
@@ -90,11 +90,11 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
     }
 
     public static <T> ResponseEntity<RestResult<T>> error(RestStatus status) {
-        return ResponseEntity.ok((new RestResult.Builder<T>()).status(status.getStatus()).message(status.getMessage()).build());
+        return ResponseEntity.ok((new RestResult.Builder<T>()).restStatus(status).build());
     }
 
     public static <T> ResponseEntity<RestResult<T>> error(RestStatus status, T data) {
-        return ResponseEntity.ok((new RestResult.Builder<T>()).status(status.getStatus()).message(status.getMessage()).data(data).build());
+        return ResponseEntity.ok((new RestResult.Builder<T>()).restStatus(status).data(data).build());
     }
 
     public static <T> RestResult.Builder<T> builder() {
@@ -109,14 +109,31 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
         }
 
         @Override
+        public RestResult.Builder<T> restStatus(RestStatus status) {
+            this.status = status.getStatus();
+            this.message = status.getMessage();
+            return this;
+        }
+
+        @Override
         public RestResult.Builder<T> status(Integer status) {
             super.status(status);
+            return this;
+        }
+
+        public RestResult.Builder<T> status(RestStatus status) {
+            this.status = status.getStatus();
             return this;
         }
 
         @Override
         public RestResult.Builder<T> message(String message) {
             super.message(message);
+            return this;
+        }
+
+        public RestResult.Builder<T> message(RestStatus status) {
+            this.message = status.getMessage();
             return this;
         }
 
