@@ -11,7 +11,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 /**
- * <p>RestTemplateProperties</p>
+ * <p>RestHttpProperties</p>
  * @author Cyan (snow22314@outlook.com)
  * @version v1.0.0
  */

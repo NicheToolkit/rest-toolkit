@@ -1,14 +1,17 @@
 package io.github.nichetoolkit.rest.configure;
 
 
-import io.github.nichetoolkit.rest.interceptor.RestNoteHandlerInterceptor;
+import io.github.nichetoolkit.rest.interceptor.RestHandlerInterceptor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import java.util.List;
 
 /**
  * <p>RestInterceptConfigure</p>
@@ -21,11 +24,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @ComponentScan(basePackages = {"io.github.nichetoolkit.rest"})
 @ConditionalOnProperty(value = "nichetoolkit.rest.intercept.enabled", havingValue = "true")
 public class RestInterceptAutoConfigure implements WebMvcConfigurer {
-    private final RestNoteHandlerInterceptor handlerInterceptor;
+    private final RestHandlerInterceptor handlerInterceptor;
     private final RestInterceptProperties interceptProperties;
 
     @Autowired
-    public RestInterceptAutoConfigure(RestNoteHandlerInterceptor handlerInterceptor, RestInterceptProperties interceptProperties) {
+    public RestInterceptAutoConfigure(RestHandlerInterceptor handlerInterceptor,
+                                      RestInterceptProperties interceptProperties) {
         log.debug("================= intercept-auto-config initiated ！ ===================");
         this.handlerInterceptor = handlerInterceptor;
         this.interceptProperties = interceptProperties;

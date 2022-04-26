@@ -3,6 +3,8 @@ package io.github.nichetoolkit.rest.interceptor;
 import io.github.nichetoolkit.rest.*;
 import io.github.nichetoolkit.rest.configure.RestInterceptProperties;
 import io.github.nichetoolkit.rest.constant.RestConstants;
+import io.github.nichetoolkit.rest.helper.RestRequestHelper;
+import io.github.nichetoolkit.rest.RestNote;
 import io.github.nichetoolkit.rest.util.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +39,7 @@ import java.util.Optional;
 @WebFilter
 @Component
 @SuppressWarnings("SameNameButDifferent")
-public class RestNoteHandlerInterceptor implements AsyncHandlerInterceptor, RestBodyAdvice, RestExceptionAdvice, Filter {
+public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBodyAdvice, RestExceptionAdvice, Filter {
     protected static final ThreadLocal<Long> START_TIME_HOLDER = new ThreadLocal<>();
     protected static final ThreadLocal<Exception> EXCEPTION_HOLDER = new ThreadLocal<>();
     protected static final ThreadLocal<RestResponse> REST_RESPONSE_HOLDER = new ThreadLocal<>();
@@ -100,6 +102,11 @@ public class RestNoteHandlerInterceptor implements AsyncHandlerInterceptor, Rest
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
         Long start = System.currentTimeMillis();
         START_TIME_HOLDER.set(start);
+        if (!(handler instanceof HandlerMethod)) {
+            return true;
+        }
+        RestRequestWrapper requestWrapper = RestRequestHelper.getRestRequestWrapper(request);
+        requestWrapper.setHandlerMethods((HandlerMethod) handler);
         return true;
     }
 
@@ -128,11 +135,11 @@ public class RestNoteHandlerInterceptor implements AsyncHandlerInterceptor, Rest
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        RestNoteRequestWrapper requestWrapper = null;
+        RestRequestWrapper requestWrapper = null;
         if (servletRequest instanceof HttpServletRequest) {
             String contentType = servletRequest.getContentType();
             if (GeneralUtils.isNotEmpty(contentType) && contentType.contains(MediaType.APPLICATION_JSON_VALUE)) {
-                requestWrapper = new RestNoteRequestWrapper((HttpServletRequest) servletRequest);
+                requestWrapper = new RestRequestWrapper((HttpServletRequest) servletRequest);
             }
         }
         if (null == requestWrapper) {
@@ -157,7 +164,6 @@ public class RestNoteHandlerInterceptor implements AsyncHandlerInterceptor, Rest
         restRequest.setParams(params);
         return restRequest;
     }
-
 
 
     public void applyRestResponseTime(HttpServletResponse response, Throwable throwable, RestResponse restResponse) {
@@ -198,12 +204,12 @@ public class RestNoteHandlerInterceptor implements AsyncHandlerInterceptor, Rest
         }
     }
 
-    public Map<String,String> applyRestRequestHeader(HttpServletRequest request) {
-        Map<String,String> headerMap = new HashMap<>();
+    public Map<String, String> applyRestRequestHeader(HttpServletRequest request) {
+        Map<String, String> headerMap = new HashMap<>();
         Enumeration<String> headerNames = request.getHeaderNames();
         while (headerNames.hasMoreElements()) {
             String element = headerNames.nextElement();
-            headerMap.put(element,request.getHeader(element));
+            headerMap.put(element, request.getHeader(element));
         }
         return headerMap;
     }
@@ -211,9 +217,9 @@ public class RestNoteHandlerInterceptor implements AsyncHandlerInterceptor, Rest
     public void applyRestRequestBody(HttpServletRequest request, RestRequest restRequest) {
         String contentType = request.getContentType();
         if (StringUtils.hasText(contentType) && contentType.contains(MediaType.APPLICATION_JSON_VALUE)) {
-            if (request instanceof RestNoteRequestWrapper) {
-                RestNoteRequestWrapper requestWrapper = (RestNoteRequestWrapper) request;
-                String bodyString = new String(requestWrapper.getBody(), StandardCharsets.UTF_8);
+            if (request instanceof RestRequestWrapper) {
+                RestRequestWrapper requestWrapper = (RestRequestWrapper) request;
+                String bodyString = new String(requestWrapper.getCacheBody(), StandardCharsets.UTF_8);
                 String body = CommonUtils.substring(bodyString, interceptProperties.getBodyLength());
                 restRequest.setBody(body);
             } else {
@@ -232,7 +238,7 @@ public class RestNoteHandlerInterceptor implements AsyncHandlerInterceptor, Rest
 
     public void applyInterceptRequestLog(RestRequest request, RestResponse response) {
         if (interceptProperties.getLogEnabled()) {
-            if (GeneralUtils.isNotEmpty(request) || GeneralUtils.isNotEmpty(response)){
+            if (GeneralUtils.isNotEmpty(request) || GeneralUtils.isNotEmpty(response)) {
                 log.info(">>>>>>>>>>>>>> intercept log begin <<<<<<<<<<<<<<");
             }
             if (GeneralUtils.isNotEmpty(request)) {
@@ -263,7 +269,7 @@ public class RestNoteHandlerInterceptor implements AsyncHandlerInterceptor, Rest
                     log.info("response        result : {}", response.getResult());
                 }
             }
-            if (GeneralUtils.isNotEmpty(request) || GeneralUtils.isNotEmpty(response)){
+            if (GeneralUtils.isNotEmpty(request) || GeneralUtils.isNotEmpty(response)) {
                 log.info(">>>>>>>>>>>>>>> intercept log end <<<<<<<<<<<<<<<");
             }
 
