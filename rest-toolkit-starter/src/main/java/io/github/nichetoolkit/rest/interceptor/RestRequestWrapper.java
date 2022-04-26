@@ -151,11 +151,14 @@ public class RestRequestWrapper extends HttpServletRequestWrapper implements Clo
         return paramList;
     }
 
-    @Nullable
     @SuppressWarnings(value = "unchecked")
     public <A extends Annotation> A getMethodAnnotation(Class<A> annotationType) {
-        List<HandlerMethod> handlerMethodList = (List<HandlerMethod>) getAttribute(HANDLER_METHOD_KEY);
-        if (handlerMethodList == null) {
+        Object attribute = getAttribute(HANDLER_METHOD_KEY);
+        if (GeneralUtils.isEmpty(attribute)) {
+            return null;
+        }
+        List<HandlerMethod> handlerMethodList = (List<HandlerMethod>) attribute;
+        if (GeneralUtils.isEmpty(handlerMethodList)) {
             return null;
         }
         for(HandlerMethod handlerMethod : handlerMethodList) {
