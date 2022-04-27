@@ -64,11 +64,17 @@ public enum RestErrorStatus implements RestStatus {
     AUTH_DENIED(10302, "拒绝访问"),
     AUTH_FORBIDDEN(10301, "权限不足"),
 
-    /** auth */
+    /** token */
     TOKEN_ERROR(10310, "认证错误"),
-    TOKEN_EXPIRED(10313, "认证过期"),
     TOKEN_FAILED(10311, "认证失败"),
     TOKEN_SERVICE_INVALID(10312, "认证无效"),
+    TOKEN_EXPIRED(10313, "认证过期"),
+
+    /** login */
+    LOGIN_ERROR(10320, "登录错误"),
+    LOGIN_FAILED(10321, "登录失败"),
+    LOGIN_INFO_INVALID(10322, "登录无效"),
+    LOGIN_INFO_EXPIRED(10323, "登录过期"),
 
     /** service */
     SERVICE_ERROR(10400, "服务器错误"),
