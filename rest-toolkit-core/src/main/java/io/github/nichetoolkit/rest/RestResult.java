@@ -49,7 +49,7 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
         this.time = new Date();
     }
 
-    public static <T> ResponseEntity<RestResult<T>> ok() {
+    public static <T> ResponseEntity<RestResult> ok() {
         return ResponseEntity.ok((new RestResult.Builder<T>()).restStatus(RestErrorStatus.SUCCESS).build());
     }
 
