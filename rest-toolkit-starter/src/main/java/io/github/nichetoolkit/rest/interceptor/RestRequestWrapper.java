@@ -6,6 +6,7 @@ import io.github.nichetoolkit.rest.util.JsonUtils;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
+import org.checkerframework.checker.units.qual.A;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 import org.springframework.util.StreamUtils;
@@ -13,6 +14,7 @@ import org.springframework.web.method.HandlerMethod;
 
 import javax.servlet.ReadListener;
 import javax.servlet.ServletInputStream;
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 import java.io.*;
@@ -48,14 +50,22 @@ public class RestRequestWrapper extends HttpServletRequestWrapper implements Clo
         super(request);
     }
 
-    private void cacheBody(ServletInputStream inputStream) throws IOException{
+    private void cacheBody(ServletRequest request) {
         if (GeneralUtils.isEmpty(this.cacheBody)) {
-            this.cacheBody = StreamUtils.copyToByteArray(inputStream);
+            try {
+                this.cacheBody = StreamUtils.copyToByteArray(request.getInputStream());
+            } catch (IOException exception) {
+                throw new RuntimeException(exception);
+            }
             this.inputStream = new RequestCachingInputStream(cacheBody);
         }
     }
 
     public byte[] getCacheBody() {
+        if (cacheBody != null) {
+            return cacheBody;
+        }
+        cacheBody(getRequest());
         return cacheBody;
     }
 
@@ -76,7 +86,7 @@ public class RestRequestWrapper extends HttpServletRequestWrapper implements Clo
         if (inputStream != null) {
             return inputStream;
         }
-        cacheBody(getRequest().getInputStream());
+        cacheBody(getRequest());
         return this.inputStream;
     }
 
@@ -96,7 +106,7 @@ public class RestRequestWrapper extends HttpServletRequestWrapper implements Clo
         return url;
     }
 
-    public String getParamsJson() throws IOException {
+    public String getParamsJson() {
         if (this.paramsJson != null) {
             return this.paramsJson;
         }
@@ -104,11 +114,11 @@ public class RestRequestWrapper extends HttpServletRequestWrapper implements Clo
         return this.paramsJson;
     }
 
-    public Map<String, Object> getParamsMap() throws IOException {
+    public Map<String, Object> getParamsMap() {
         if (this.paramsMap != null) {
             return this.paramsMap;
         }
-        cacheBody(getRequest().getInputStream());
+        cacheBody(getRequest());
         cacheMap();
         return Collections.unmodifiableMap(this.paramsMap);
     }

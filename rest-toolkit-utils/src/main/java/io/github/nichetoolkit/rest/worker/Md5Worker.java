@@ -52,7 +52,7 @@ public class Md5Worker {
     private static String md5Encrypts(String source) {
         StringBuilder hexBuilder = new StringBuilder();
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance("SHA256");
+            MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
             byte[] bytes = messageDigest.digest(source.getBytes(StandardCharsets.UTF_8));
             for (byte byt : bytes) {
                 hexBuilder.append(Integer.toHexString((byt & 0xFF) | 0x100), 1, 3);
