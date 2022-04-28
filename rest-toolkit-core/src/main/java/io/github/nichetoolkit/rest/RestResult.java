@@ -57,7 +57,7 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
         return ResponseEntity.ok((new RestResult.Builder<T>()).restStatus(RestErrorStatus.SUCCESS).data(data).build());
     }
 
-    public static <T> ResponseEntity<RestResult<T>> ok(String message) {
+    public static <T> ResponseEntity<RestResult> ok(String message) {
         return ResponseEntity.ok((new RestResult.Builder<T>()).status(RestErrorStatus.SUCCESS).message(message).build());
     }
 
@@ -65,7 +65,7 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
         return ResponseEntity.ok((new RestResult.Builder<T>()).status(RestErrorStatus.SUCCESS).message(message).data(data).build());
     }
 
-    public static <T> ResponseEntity<RestResult<T>> ok(RestStatus status) {
+    public static <T> ResponseEntity<RestResult> ok(RestStatus status) {
         return ResponseEntity.ok((new RestResult.Builder<T>()).restStatus(status).build());
     }
 
@@ -73,7 +73,7 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
         return ResponseEntity.ok((new RestResult.Builder<T>()).restStatus(status).data(data).build());
     }
 
-    public static <T> ResponseEntity<RestResult<T>> error(String message) {
+    public static <T> ResponseEntity<RestResult> error(String message) {
         return ResponseEntity.ok((new RestResult.Builder<T>()).status(RestErrorStatus.FAILED).message(message).build());
     }
 
@@ -85,11 +85,11 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
         return ResponseEntity.ok((new RestResult.Builder<T>()).status(status).message(message).data(data).build());
     }
 
-    public static <T> ResponseEntity<RestResult<T>> error(Integer status, String message) {
+    public static <T> ResponseEntity<RestResult> error(Integer status, String message) {
         return ResponseEntity.ok((new RestResult.Builder<T>()).status(status).message(message).build());
     }
 
-    public static <T> ResponseEntity<RestResult<T>> error(RestStatus status) {
+    public static <T> ResponseEntity<RestResult> error(RestStatus status) {
         return ResponseEntity.ok((new RestResult.Builder<T>()).restStatus(status).build());
     }
 

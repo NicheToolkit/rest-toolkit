@@ -47,6 +47,12 @@ public class RestTestController {
     @Autowired
     private JwtWorker jwtWorker;
 
+    @GetMapping("/test")
+    public ResponseEntity<RestResult> test() throws RestException {
+//
+        return RestResult.ok();
+    }
+
     @GetMapping("/identity")
     public ResponseEntity<RestResult<String>> generalIdentity() throws RestException {
 //        Long identity = IdentityUtils.generateLong();
