@@ -26,6 +26,16 @@ public interface RestArithmetic extends RestValue<Long, String> {
         }
     }
 
+    @SuppressWarnings("Duplicates")
+    static <T extends RestArithmetic> T parseArithmetic(Collection<T> values, Long arithmetic) {
+        if (arithmetic != null && values != null && values.size() > 0) {
+            Map<Long, T> valueEnumMap = values.stream().collect(Collectors.toMap(RestArithmetic::getArithmetic, Function.identity()));
+            return valueEnumMap.get(arithmetic);
+        } else {
+            return null;
+        }
+    }
+
     static boolean reachKey(@NonNull Long key, @NonNull RestArithmetic arithmeticType) {
         Long sourceKey = Optional.ofNullable(arithmeticType.getKey()).orElse(0L);
         return (key & sourceKey) != 0;
@@ -66,6 +76,19 @@ public interface RestArithmetic extends RestValue<Long, String> {
         }
         List<T> arithmeticTypes = new ArrayList<>();
         for (T arithmeticType : clazz.getEnumConstants()) {
+            if (RestArithmetic.reachKey(arithmetic, arithmeticType)) {
+                arithmeticTypes.add(arithmeticType);
+            }
+        }
+        return arithmeticTypes;
+    }
+
+    static <T extends RestArithmetic> List<T> deconKey(Collection<T> values, Long arithmetic) {
+        if (arithmetic == null || arithmetic == 0L || values == null || values.size() == 0) {
+            return null;
+        }
+        List<T> arithmeticTypes = new ArrayList<>();
+        for (T arithmeticType : values) {
             if (RestArithmetic.reachKey(arithmetic, arithmeticType)) {
                 arithmeticTypes.add(arithmeticType);
             }

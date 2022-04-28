@@ -1,5 +1,6 @@
 package io.github.nichetoolkit.rest;
 
+import java.util.Collection;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -10,14 +11,24 @@ import java.util.stream.Stream;
  * @author Cyan (snow22314@outlook.com)
  * @version v1.0.0
  */
-public interface RestField extends RestValue<Integer,String> {
+public interface RestField extends RestValue<Integer, String> {
 
     String getField();
 
     @SuppressWarnings("Duplicates")
     static <T extends RestField> T parseField(Class<T> clazz, String field) {
         if (field != null && clazz.isEnum()) {
-            Map<String,T> valueEnumMap =Stream.of(clazz.getEnumConstants()).collect(Collectors.toMap(RestField::getField, Function.identity()));
+            Map<String, T> valueEnumMap = Stream.of(clazz.getEnumConstants()).collect(Collectors.toMap(RestField::getField, Function.identity()));
+            return valueEnumMap.get(field);
+        } else {
+            return null;
+        }
+    }
+
+    @SuppressWarnings("Duplicates")
+    static <T extends RestField> T parseField(Collection<T> values, String field) {
+        if (field != null && values != null && values.size() > 0) {
+            Map<String, T> valueEnumMap = values.stream().collect(Collectors.toMap(RestField::getField, Function.identity()));
             return valueEnumMap.get(field);
         } else {
             return null;
