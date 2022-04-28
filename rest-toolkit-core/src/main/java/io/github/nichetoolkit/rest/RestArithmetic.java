@@ -12,14 +12,14 @@ import java.util.stream.Stream;
  * @author Cyan (snow22314@outlook.com)
  * @version v1.0.0
  */
-public interface RestArithmetic extends RestValue<Long,String> {
+public interface RestArithmetic extends RestValue<Long, String> {
 
     Long getArithmetic();
 
     @SuppressWarnings("Duplicates")
     static <T extends RestArithmetic> T parseArithmetic(Class<T> clazz, Long arithmetic) {
         if (arithmetic != null && clazz.isEnum()) {
-            Map<Long,T> valueEnumMap = Stream.of(clazz.getEnumConstants()).collect(Collectors.toMap(RestArithmetic::getArithmetic, Function.identity()));
+            Map<Long, T> valueEnumMap = Stream.of(clazz.getEnumConstants()).collect(Collectors.toMap(RestArithmetic::getArithmetic, Function.identity()));
             return valueEnumMap.get(arithmetic);
         } else {
             return null;
@@ -32,13 +32,13 @@ public interface RestArithmetic extends RestValue<Long,String> {
     }
 
     static <T extends RestArithmetic> Long annexKey(Collection<T> arithmeticTypes) {
-        return annexKey(0L,arithmeticTypes);
+        return annexKey(null, arithmeticTypes);
     }
 
 
     @SuppressWarnings("unchecked")
     static <T extends RestArithmetic> Long annexKey(T... arithmeticTypes) {
-        return annexKey(0L,arithmeticTypes);
+        return annexKey(null, arithmeticTypes);
     }
 
     @SuppressWarnings("unchecked")
@@ -46,27 +46,27 @@ public interface RestArithmetic extends RestValue<Long,String> {
         if (arithmeticTypes == null || arithmeticTypes.length == 0) {
             return arithmetic;
         }
-        return annexKey(arithmetic,Arrays.asList(arithmeticTypes));
+        return annexKey(arithmetic, Arrays.asList(arithmeticTypes));
     }
 
     static <T extends RestArithmetic> Long annexKey(Long arithmetic, Collection<T> arithmeticTypes) {
-        Long key = arithmetic;
+        Long key = Optional.ofNullable(arithmetic).orElse(0L);
         if (arithmeticTypes != null && arithmeticTypes.size() > 0) {
             for (T arithmeticType : arithmeticTypes) {
                 Long sourceKey = arithmeticType.getKey();
                 key = key | sourceKey;
             }
         }
-        return key;
+        return key == 0L ? null : key;
     }
 
     static <T extends RestArithmetic> List<T> deconKey(Class<T> clazz, Long arithmetic) {
-        if (arithmetic == null || arithmetic == 0L || !clazz.isEnum()){
+        if (arithmetic == null || arithmetic == 0L || !clazz.isEnum()) {
             return null;
         }
         List<T> arithmeticTypes = new ArrayList<>();
         for (T arithmeticType : clazz.getEnumConstants()) {
-            if (RestArithmetic.reachKey(arithmetic,arithmeticType)) {
+            if (RestArithmetic.reachKey(arithmetic, arithmeticType)) {
                 arithmeticTypes.add(arithmeticType);
             }
         }
