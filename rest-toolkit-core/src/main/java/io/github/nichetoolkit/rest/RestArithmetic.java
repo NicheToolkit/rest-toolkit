@@ -27,7 +27,7 @@ public interface RestArithmetic extends RestValue<Long, String> {
     }
 
     static boolean reachKey(@NonNull Long key, @NonNull RestArithmetic arithmeticType) {
-        Long sourceKey = arithmeticType.getKey();
+        Long sourceKey = Optional.ofNullable(arithmeticType.getKey()).orElse(0L);
         return (key & sourceKey) != 0;
     }
 
