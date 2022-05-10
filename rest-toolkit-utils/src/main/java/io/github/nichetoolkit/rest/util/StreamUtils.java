@@ -75,7 +75,15 @@ public class StreamUtils {
             exception.printStackTrace();
         }
     }
-
+    
+    public static void write(HttpServletResponse response, File file) {
+        try {
+            StreamHelper.write(response, file);
+        } catch (StreamWriteException exception) {
+            log.error("It is failed when file write to response!", exception);
+            exception.printStackTrace();
+        }
+    }
     public static void write(HttpServletResponse response, String json) {
         try {
             StreamHelper.write(response, json);

@@ -1,13 +1,17 @@
 package io.github.nichetoolkit.rest.helper;
 
+import io.github.nichetoolkit.rest.error.natives.FileErrorException;
 import io.github.nichetoolkit.rest.error.often.StreamReadException;
 import io.github.nichetoolkit.rest.error.often.StreamTransferException;
 import io.github.nichetoolkit.rest.error.often.StreamWriteException;
+import io.github.nichetoolkit.rest.util.StreamUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
 /**
@@ -89,6 +93,15 @@ public class StreamHelper {
 
     }
 
+    public static void write(HttpServletResponse response, File file) throws StreamWriteException {
+        try (FileInputStream inputStream = new FileInputStream(file);
+             ServletOutputStream outputStream = response.getOutputStream()) {
+             write(outputStream, inputStream);
+        } catch (IOException exception) {
+            throw new StreamWriteException(exception.getMessage());
+        }
+    }
+
     public static void write(HttpServletResponse response, String json) throws StreamWriteException {
         try (OutputStream outputStream = response.getOutputStream()) {
             response.setHeader("Content-type", "text/html;charset=UTF-8");
@@ -107,7 +120,6 @@ public class StreamHelper {
             throw new StreamWriteException(exception.getMessage());
         }
     }
-
 
     public static void write(OutputStream outputStream, byte[] data) throws StreamWriteException {
         InputStream inputStream = new ByteArrayInputStream(data);
