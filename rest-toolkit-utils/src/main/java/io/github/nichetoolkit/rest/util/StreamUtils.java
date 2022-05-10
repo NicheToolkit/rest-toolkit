@@ -75,7 +75,7 @@ public class StreamUtils {
             exception.printStackTrace();
         }
     }
-    
+
     public static void write(HttpServletResponse response, File file) {
         try {
             StreamHelper.write(response, file);

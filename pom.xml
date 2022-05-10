@@ -10,7 +10,7 @@
         <module>rest-toolkit-core</module>
         <module>rest-toolkit-utils</module>
         <module>rest-toolkit-starter</module>
-        <module>rest-toolkit-test-web</module>
+        <!--<module>rest-toolkit-test-web</module>-->
     </modules>
 
     <name>rest-toolkit-parent</name>
