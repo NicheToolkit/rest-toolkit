@@ -2,6 +2,7 @@ package io.github.nichetoolkit.rest.util;
 
 import io.github.nichetoolkit.rest.constant.UtilConstants;
 
+import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
 import java.util.*;
@@ -28,6 +29,8 @@ public class GeneralUtils {
             return ((StringBuffer) object).toString().trim().length() > 0;
         } else if (object instanceof Boolean) {
             return true;
+        } else if (object instanceof BigDecimal) {
+            return ((BigDecimal) object).doubleValue() > 0d;
         } else if (object instanceof List) {
             return !((List) object).isEmpty();
         } else if (object instanceof Set) {
@@ -57,6 +60,8 @@ public class GeneralUtils {
             return ((StringBuffer) object).toString().trim().length() == 0;
         } else if (object instanceof Boolean) {
             return false;
+        } else if (object instanceof BigDecimal) {
+            return ((BigDecimal) object).doubleValue() == 0d;
         } else if (object instanceof List) {
             return ((List) object).isEmpty();
         } else if (object instanceof Set) {
