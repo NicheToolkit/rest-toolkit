@@ -5,6 +5,8 @@ import io.github.nichetoolkit.rest.error.often.FileCopyException;
 import io.github.nichetoolkit.rest.error.often.FileCreateException;
 import io.github.nichetoolkit.rest.helper.FileHelper;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.MediaType;
+import org.springframework.http.MediaTypeFactory;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletOutputStream;
@@ -15,6 +17,7 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * <p>FileUtils</p>
@@ -193,6 +196,11 @@ public class FileUtils {
             return "";
         }
         return originalName.substring(originalName.lastIndexOf(".") + 1);
+    }
+
+    public static MediaType mediaType(final String filename){
+        Optional<MediaType> mediaTypeOptional = MediaTypeFactory.getMediaType(filename);
+        return mediaTypeOptional.orElse(MediaType.APPLICATION_OCTET_STREAM);
     }
 
     public static String filename(final String originalName){
