@@ -93,8 +93,9 @@ public enum RestErrorStatus implements RestStatus {
     /** field */
     FIELD_ERROR(10500, "字段错误"),
     FIELD_IS_NULL(10501, "字段为空"),
-    FIELD_NOT_EXIST(10502, "对象不存在"),
-    FIELD_IS_EXIST(10503, "对象已存在"),
+    FIELD_REPEATED(10502, "字段重复"),
+    FIELD_NOT_EXIST(10503, "对象不存在"),
+    FIELD_IS_EXIST(10504, "对象已存在"),
     /** name */
     NAME_ERROR(10510, "名称错误"),
     NAME_IS_NULL(10511, "名称为空"),

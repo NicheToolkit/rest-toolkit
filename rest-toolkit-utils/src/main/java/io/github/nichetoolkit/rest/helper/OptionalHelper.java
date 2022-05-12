@@ -2,6 +2,7 @@ package io.github.nichetoolkit.rest.helper;
 
 import io.github.nichetoolkit.rest.actuator.SupplierActuator;
 import io.github.nichetoolkit.rest.error.data.*;
+import io.github.nichetoolkit.rest.error.often.FieldRepeatException;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import lombok.extern.slf4j.Slf4j;
 import io.github.nichetoolkit.rest.RestException;
@@ -61,7 +62,7 @@ public class OptionalHelper {
         }
     }
 
-    public static void trueable(Boolean object, String message,String field, BiFunctionActuator<String,String,RestException> biFunctionActuator) throws RestException {
+    public static void trueable(Boolean object, String message, String field, BiFunctionActuator<String,String,RestException> biFunctionActuator) throws RestException {
         if (GeneralUtils.isNotEmpty(object) && object) {
             RestException restException = biFunctionActuator.actuate(field,message);
             log.error(restException.getMessage());
@@ -247,7 +248,19 @@ public class OptionalHelper {
     }
 
     public static void nameRepeat(Boolean exist, String message, String resource) throws RestException {
-        trueable(exist,message,resource,NameRepeatException::new);
+        trueable(exist,message,resource,(resource1,message1) -> new NameRepeatException(resource1, null,message1));
+    }
+
+    public static void fieldRepeat(Boolean exist) throws RestException {
+        trueable(exist, FieldRepeatException::new);
+    }
+
+    public static void fieldRepeat(Boolean exist, String field) throws RestException {
+        trueable(exist,field,FieldRepeatException::new);
+    }
+
+    public static void fieldRepeat(Boolean exist, String field, String message) throws RestException {
+        trueable(exist,message,field,(field1,message1) -> new FieldRepeatException(field1,(Object)null,message1));
     }
 
 }
