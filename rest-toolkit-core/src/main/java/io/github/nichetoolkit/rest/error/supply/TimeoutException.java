@@ -20,8 +20,8 @@ public class TimeoutException extends RestErrorException {
         super(status, RestError.error(status));
     }
 
-    public TimeoutException(String resource) {
-        super(RestErrorStatus.TIME_OUT, RestError.error(resource, RestErrorStatus.TIME_OUT));
+    public TimeoutException(String message) {
+        super(RestErrorStatus.TIME_OUT, RestError.error(RestErrorStatus.TIME_OUT,message));
     }
 
     @Override
