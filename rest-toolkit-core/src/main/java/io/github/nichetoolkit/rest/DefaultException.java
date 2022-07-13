@@ -58,7 +58,7 @@ class DefaultException extends Exception implements RestStatus, Supplier,Seriali
     }
 
     public DefaultException(Throwable cause) {
-        super(RestErrorStatus.FAILED.getMessage(), cause);
+        super(cause.getMessage(), cause);
         this.error = RestError.parser(cause);
         this.status = RestErrorStatus.FAILED.getStatus();
     }
@@ -83,7 +83,7 @@ class DefaultException extends Exception implements RestStatus, Supplier,Seriali
     }
 
     public DefaultException(Integer status, Throwable cause) {
-        super(RestErrorStatus.FAILED.getMessage(), cause);
+        super(cause.getMessage(), cause);
         this.error = RestError.parser(status,cause);
         this.status = status;
     }
@@ -101,7 +101,7 @@ class DefaultException extends Exception implements RestStatus, Supplier,Seriali
     }
 
     public DefaultException(RestStatus status, RestError error) {
-        super(status.getMessage());
+        super(error.getMessage());
         this.status = status.getStatus();
         this.error = error;
     }
@@ -113,7 +113,7 @@ class DefaultException extends Exception implements RestStatus, Supplier,Seriali
 
 
     public DefaultException(RestStatus status, Throwable cause) {
-        super(status.getMessage(), cause);
+        super(cause.getMessage(), cause);
         this.error = RestError.parser(status);
         this.status = status.getStatus();
     }
@@ -131,13 +131,13 @@ class DefaultException extends Exception implements RestStatus, Supplier,Seriali
     }
 
     public DefaultException(Integer status, RestStatus restStatus, Throwable cause) {
-        super(restStatus.getMessage(), cause);
+        super(cause.getMessage(), cause);
         this.error = RestError.parser(status,restStatus);
         this.status = status;
     }
 
     public DefaultException(Integer status, RestError error, Throwable cause) {
-        super(error.getMessage(), cause);
+        super(cause.getMessage(), cause);
         this.error = error;
         this.status = status;
     }
@@ -155,13 +155,13 @@ class DefaultException extends Exception implements RestStatus, Supplier,Seriali
     }
 
     public DefaultException(RestStatus status, RestError error,  Throwable cause) {
-        super(status.getMessage(), cause);
+        super(cause.getMessage(), cause);
         this.error = error;
         this.status = status.getStatus();
     }
 
     public DefaultException(Integer status, RestStatus restStatus, RestError error, Throwable cause) {
-        super(restStatus.getMessage(), cause);
+        super(cause.getMessage(), cause);
         this.status = status;
         this.error = error;
     }
@@ -174,13 +174,13 @@ class DefaultException extends Exception implements RestStatus, Supplier,Seriali
 
 
     public DefaultException(RestStatus status, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(status.getMessage(), cause, enableSuppression, writableStackTrace);
+        super(cause.getMessage(), cause, enableSuppression, writableStackTrace);
         this.error = RestError.parser(status);
         this.status = status.getStatus();
     }
 
     public DefaultException(RestError error, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(error.getMessage(), cause, enableSuppression, writableStackTrace);
+        super(cause.getMessage(), cause, enableSuppression, writableStackTrace);
         this.error = error;
         this.status = error.getStatus();
     }
@@ -192,12 +192,12 @@ class DefaultException extends Exception implements RestStatus, Supplier,Seriali
     }
 
     public DefaultException(Integer status, RestStatus restStatus, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(restStatus.getMessage(), cause, enableSuppression, writableStackTrace);
+        super(cause.getMessage(), cause, enableSuppression, writableStackTrace);
         this.error = RestError.parser(status,restStatus);
         this.status = status;
     }
     public DefaultException(Integer status, RestError error, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(error.getMessage(), cause, enableSuppression, writableStackTrace);
+        super(cause.getMessage(), cause, enableSuppression, writableStackTrace);
         this.error = error;
         this.status = status;
     }
@@ -216,7 +216,7 @@ class DefaultException extends Exception implements RestStatus, Supplier,Seriali
     }
 
     public DefaultException(RestStatus status, RestError error, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(status.getMessage(), cause, enableSuppression, writableStackTrace);
+        super(cause.getMessage(), cause, enableSuppression, writableStackTrace);
         this.status = status.getStatus();
         this.error = error;
     }
