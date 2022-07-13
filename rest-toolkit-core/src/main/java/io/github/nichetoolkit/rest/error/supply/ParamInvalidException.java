@@ -20,12 +20,12 @@ public class ParamInvalidException extends RestErrorException {
         super(status, RestError.error(status));
     }
 
-    public ParamInvalidException(String field) {
-        super(RestErrorStatus.PARAM_INVALID, RestError.error(field, RestErrorStatus.PARAM_INVALID));
+    public ParamInvalidException(String message) {
+        super(RestErrorStatus.PARAM_INVALID, RestError.error(RestErrorStatus.PARAM_INVALID,message));
     }
 
-    public ParamInvalidException(String field, String value) {
-        super(RestErrorStatus.PARAM_INVALID, RestError.error(field, value, RestErrorStatus.PARAM_INVALID));
+    public ParamInvalidException(String message, String field) {
+        super(RestErrorStatus.PARAM_INVALID, RestError.error(field, RestErrorStatus.PARAM_INVALID, message));
     }
 
     public ParamInvalidException(String resource, String field, String value, String message) {
