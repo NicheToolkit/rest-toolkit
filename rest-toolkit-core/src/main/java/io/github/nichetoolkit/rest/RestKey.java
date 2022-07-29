@@ -2,7 +2,10 @@ package io.github.nichetoolkit.rest;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * <p>RestKey</p>
@@ -36,6 +39,15 @@ public interface RestKey<K> {
      */
     static <T extends RestKey<K>,K> List<K> keys(Class<T> clazz) {
         return values(clazz).stream().map(RestKey::getKey).distinct().collect(Collectors.toList());
+    }
+
+    @SuppressWarnings("Duplicates")
+    static <T extends RestKey<K>, K> T parseKey(Class<T> clazz, K key) {
+        if (key != null && clazz.isEnum()) {
+            Map<K, T> keyEnumMap = Stream.of(clazz.getEnumConstants()).collect(Collectors.toMap(RestKey::getKey, Function.identity()));
+            return keyEnumMap.get(key);
+        }
+        return null;
     }
 
 }

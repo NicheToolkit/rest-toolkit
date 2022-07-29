@@ -50,7 +50,7 @@ public interface RestValue<K, V> extends RestKey<K> {
     @SuppressWarnings("Duplicates")
     static <T extends RestValue<K, V>, K, V> T parseKey(Class<T> clazz, K key) {
         if (key != null && clazz.isEnum()) {
-            Map<K, T> keyEnumMap = Stream.of(clazz.getEnumConstants()).collect(Collectors.toMap(RestKey::getKey, Function.identity()));
+            Map<K, T> keyEnumMap = Stream.of(clazz.getEnumConstants()).collect(Collectors.toMap(RestValue::getKey, Function.identity()));
             return keyEnumMap.get(key);
         }
         return null;
