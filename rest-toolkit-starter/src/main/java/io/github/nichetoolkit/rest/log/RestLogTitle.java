@@ -15,5 +15,9 @@ import java.lang.annotation.Target;
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface RestLogTitle {
+    @AliasFor("value")
     String title() default "";
+
+    String value() default "";
+
 }
