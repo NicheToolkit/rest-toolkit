@@ -126,9 +126,9 @@ public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBody
             }
             RestLog restLog = null;
             RestLogTitle logTitleAnnotation = controllerClass.getAnnotation(RestLogTitle.class);
-            if (GeneralUtils.isNotEmpty(logTitleAnnotation) && GeneralUtils.isNotEmpty(logTitleAnnotation.title())) {
+            if (GeneralUtils.isNotEmpty(logTitleAnnotation) && GeneralUtils.isNotEmpty(logTitleAnnotation.value())) {
                 restLog = new RestLog();
-                restLog.setTitle(logTitleAnnotation.title());
+                restLog.setTitle(logTitleAnnotation.value());
             }
             RestLogMessage logMessageAnnotation = handlerMethod.getMethodAnnotation(RestLogMessage.class);
             if (GeneralUtils.isNotEmpty(logMessageAnnotation)) {
