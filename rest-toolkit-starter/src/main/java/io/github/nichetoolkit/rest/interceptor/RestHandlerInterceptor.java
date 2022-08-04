@@ -5,6 +5,8 @@ import io.github.nichetoolkit.rest.configure.RestInterceptProperties;
 import io.github.nichetoolkit.rest.constant.RestConstants;
 import io.github.nichetoolkit.rest.helper.RestRequestHelper;
 import io.github.nichetoolkit.rest.RestNote;
+import io.github.nichetoolkit.rest.log.RestLogMessage;
+import io.github.nichetoolkit.rest.log.RestLogTitle;
 import io.github.nichetoolkit.rest.util.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -121,10 +123,27 @@ public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBody
             if (GeneralUtils.isEmpty(methodAnnotation) && GeneralUtils.isEmpty(controllerAnnotation)) {
                 return;
             }
+            RestLog restLog = null;
+            RestLogTitle logTitleAnnotation = controllerClass.getAnnotation(RestLogTitle.class);
+            if (GeneralUtils.isNotEmpty(logTitleAnnotation) && GeneralUtils.isNotEmpty(logTitleAnnotation.value())) {
+                restLog = new RestLog();
+                restLog.setTitle(logTitleAnnotation.value());
+            }
+            RestLogMessage logMessageAnnotation = method.getAnnotation(RestLogMessage.class);
+            if (GeneralUtils.isNotEmpty(logMessageAnnotation)) {
+                if (GeneralUtils.isEmpty(restLog)) {
+                    restLog = new RestLog();
+                }
+                restLog.setTitle(logMessageAnnotation.title());
+                restLog.setMessage(logMessageAnnotation.message());
+                restLog.setKey(logMessageAnnotation.key());
+                restLog.setValue(logMessageAnnotation.value());
+                restLog.setLogType(logMessageAnnotation.logType());
+            }
             RestResponse restResponse = REST_RESPONSE_HOLDER.get();
             RestRequest restRequest = applyInterceptRest(request, response, exception, restResponse);
-            applyInterceptRequestLog(restRequest, restResponse);
-            applyInterceptService(restRequest, restResponse);
+            applyInterceptRequestLog(restRequest, restResponse,restLog);
+            applyInterceptService(restRequest, restResponse,restLog);
         }
     }
 
@@ -229,17 +248,24 @@ public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBody
         }
     }
 
-    public void applyInterceptService(RestRequest request, RestResponse restResponse) throws RestException {
+    public void applyInterceptService(RestRequest request, RestResponse restResponse, RestLog restLog) throws RestException {
         RestNoteService interceptService = ContextUtils.getBean(RestNoteService.class);
         if (GeneralUtils.isNotEmpty(interceptService) && interceptProperties.getBeanEnabled()) {
-            interceptService.handler(request, restResponse);
+            interceptService.handler(request, restResponse,restLog);
         }
     }
 
-    public void applyInterceptRequestLog(RestRequest request, RestResponse response) {
+    public void applyInterceptRequestLog(RestRequest request, RestResponse response, RestLog restLog) {
         if (interceptProperties.getLogEnabled()) {
             if (GeneralUtils.isNotEmpty(request) || GeneralUtils.isNotEmpty(response)) {
                 log.info(">>>>>>>>>>>>>> intercept log begin <<<<<<<<<<<<<<");
+            }
+            if (GeneralUtils.isNotEmpty(restLog)) {
+                log.info("log              title : {}", restLog.getTitle());
+                log.info("log            message : {}", restLog.getMessage());
+                log.info("log                key : {}", restLog.getMessage());
+                log.info("log              value : {}", restLog.getMessage());
+                log.info("log            logType : {}", restLog.getLogType().toString());
             }
             if (GeneralUtils.isNotEmpty(request)) {
                 log.info("request     ip address : {}", request.getIpAddress());

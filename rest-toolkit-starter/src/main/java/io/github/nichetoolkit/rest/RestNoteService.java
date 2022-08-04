@@ -8,6 +8,6 @@ package io.github.nichetoolkit.rest;
 public abstract class RestNoteService {
 
     @SuppressWarnings("RedundantThrows")
-    abstract public void handler(RestRequest request, RestResponse restResponse) throws RestException;
+    abstract public void handler(RestRequest request, RestResponse restResponse, RestLog restLog) throws RestException;
 
 }

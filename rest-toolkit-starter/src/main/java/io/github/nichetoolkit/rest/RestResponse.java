@@ -1,7 +1,5 @@
 package io.github.nichetoolkit.rest;
 
-import java.util.Date;
-
 /**
  * <p>RestResponse</p>
  * @author Cyan (snow22314@outlook.com)
