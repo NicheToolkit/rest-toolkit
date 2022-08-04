@@ -11,6 +11,7 @@ import io.github.nichetoolkit.rest.util.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.MediaType;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
@@ -41,6 +42,7 @@ import java.util.Optional;
 @WebFilter
 @Component
 @SuppressWarnings("SameNameButDifferent")
+@Order(1000)
 public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBodyAdvice, RestExceptionAdvice, Filter {
     protected static final ThreadLocal<Long> START_TIME_HOLDER = new ThreadLocal<>();
     protected static final ThreadLocal<Exception> EXCEPTION_HOLDER = new ThreadLocal<>();
@@ -118,8 +120,7 @@ public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBody
             HandlerMethod handlerMethod = (HandlerMethod) handler;
             Class<?> controllerClass = handlerMethod.getBean().getClass();
             RestNote controllerAnnotation = controllerClass.getAnnotation(RestNote.class);
-            Method method = handlerMethod.getMethod();
-            RestNote methodAnnotation = method.getAnnotation(RestNote.class);
+            RestNote methodAnnotation = handlerMethod.getMethodAnnotation(RestNote.class);
             if (GeneralUtils.isEmpty(methodAnnotation) && GeneralUtils.isEmpty(controllerAnnotation)) {
                 return;
             }
@@ -129,7 +130,7 @@ public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBody
                 restLog = new RestLog();
                 restLog.setTitle(logTitleAnnotation.value());
             }
-            RestLogMessage logMessageAnnotation = method.getAnnotation(RestLogMessage.class);
+            RestLogMessage logMessageAnnotation = handlerMethod.getMethodAnnotation(RestLogMessage.class);
             if (GeneralUtils.isNotEmpty(logMessageAnnotation)) {
                 if (GeneralUtils.isEmpty(restLog)) {
                     restLog = new RestLog();
