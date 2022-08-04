@@ -126,16 +126,18 @@ public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBody
             }
             RestLog restLog = null;
             RestLogTitle logTitleAnnotation = controllerClass.getAnnotation(RestLogTitle.class);
-            if (GeneralUtils.isNotEmpty(logTitleAnnotation) && GeneralUtils.isNotEmpty(logTitleAnnotation.value())) {
+            if (GeneralUtils.isNotEmpty(logTitleAnnotation) && GeneralUtils.isNotEmpty(logTitleAnnotation.title())) {
                 restLog = new RestLog();
-                restLog.setTitle(logTitleAnnotation.value());
+                restLog.setTitle(logTitleAnnotation.title());
             }
             RestLogMessage logMessageAnnotation = handlerMethod.getMethodAnnotation(RestLogMessage.class);
             if (GeneralUtils.isNotEmpty(logMessageAnnotation)) {
                 if (GeneralUtils.isEmpty(restLog)) {
                     restLog = new RestLog();
                 }
-                restLog.setTitle(logMessageAnnotation.title());
+                if (GeneralUtils.isNotEmpty(logMessageAnnotation.title())) {
+                    restLog.setTitle(logMessageAnnotation.title());
+                }
                 restLog.setMessage(logMessageAnnotation.message());
                 restLog.setKey(logMessageAnnotation.key());
                 restLog.setValue(logMessageAnnotation.value());
@@ -264,8 +266,8 @@ public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBody
             if (GeneralUtils.isNotEmpty(restLog)) {
                 log.info("log              title : {}", restLog.getTitle());
                 log.info("log            message : {}", restLog.getMessage());
-                log.info("log                key : {}", restLog.getMessage());
-                log.info("log              value : {}", restLog.getMessage());
+                log.info("log                key : {}", restLog.getKey());
+                log.info("log              value : {}", restLog.getValue());
                 log.info("log            logType : {}", restLog.getLogType().toString());
             }
             if (GeneralUtils.isNotEmpty(request)) {
