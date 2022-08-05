@@ -478,11 +478,17 @@ public class JsonHelper {
             if (GeneralUtils.isNotEmpty(jsonNode)) {
                 RestResult<String> restResult = new RestResult<>();
                 JsonNode status = jsonNode.get(DefaultResult.STATUS_NAME);
-                restResult.setStatus(status.asInt());
+                if (GeneralUtils.isNotEmpty(status)) {
+                    restResult.setStatus(status.asInt());
+                }
                 JsonNode message = jsonNode.get(DefaultResult.MESSAGE_NAME);
-                restResult.setMessage(message.toString());
+                if (GeneralUtils.isNotEmpty(message)) {
+                    restResult.setMessage(message.toString());
+                }
                 JsonNode data = jsonNode.get(DefaultResult.DATA_NAME);
-                restResult.setData(data.toString());
+                if (GeneralUtils.isNotEmpty(data)) {
+                    restResult.setData(data.toString());
+                }
                 return restResult;
             }
             return null;
