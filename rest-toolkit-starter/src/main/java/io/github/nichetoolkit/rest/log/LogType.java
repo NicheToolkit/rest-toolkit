@@ -2,6 +2,7 @@ package io.github.nichetoolkit.rest.log;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.github.nichetoolkit.rest.RestEnum;
 import io.github.nichetoolkit.rest.RestField;
 import io.github.nichetoolkit.rest.RestValue;
 import io.github.nichetoolkit.rest.util.JsonUtils;
@@ -77,6 +78,6 @@ public enum LogType implements RestField {
 
     @Override
     public String toString() {
-        return JsonUtils.parseJson(this);
+        return JsonUtils.parseJson(RestEnum.mapBean(this));
     }
 }

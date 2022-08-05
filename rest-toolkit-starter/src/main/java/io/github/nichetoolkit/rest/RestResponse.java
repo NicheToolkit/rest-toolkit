@@ -16,6 +16,9 @@ public class RestResponse<T extends RestResponse<T>> {
     private String method;
     private String mediaType;
     private String result;
+    private String resultString;
+    private RestResult restResult;
+    private String data;
 
     public RestResponse() {
     }
@@ -31,6 +34,9 @@ public class RestResponse<T extends RestResponse<T>> {
         this.method = builder.method;
         this.mediaType = builder.mediaType;
         this.result = builder.result;
+        this.resultString = builder.resultString;
+        this.restResult = builder.restResult;
+        this.data = builder.data;
     }
 
     public Long getTime() {
@@ -114,6 +120,30 @@ public class RestResponse<T extends RestResponse<T>> {
         this.result = result;
     }
 
+    public String getResultString() {
+        return resultString;
+    }
+
+    public void setResultString(String resultString) {
+        this.resultString = resultString;
+    }
+
+    public RestResult getRestResult() {
+        return restResult;
+    }
+
+    public void setRestResult(RestResult restResult) {
+        this.restResult = restResult;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
     public static class Builder<T extends RestResponse<T>> {
         protected Long time;
         protected Long startTime;
@@ -125,6 +155,9 @@ public class RestResponse<T extends RestResponse<T>> {
         protected String method;
         protected String mediaType;
         protected String result;
+        protected String resultString;
+        protected RestResult restResult;
+        protected String data;
 
         public Builder() {
         }
@@ -182,6 +215,22 @@ public class RestResponse<T extends RestResponse<T>> {
 
         public RestResponse.Builder<T> result(String result) {
             this.result = result;
+            return this;
+        }
+
+        public RestResponse.Builder<T> resultString(String resultString) {
+            this.resultString = resultString;
+            return this;
+        }
+
+        public RestResponse.Builder<T> restResult(RestResult restResult) {
+            this.restResult = restResult;
+            return this;
+        }
+
+
+        public RestResponse.Builder<T> data(String data) {
+            this.data = data;
             return this;
         }
 

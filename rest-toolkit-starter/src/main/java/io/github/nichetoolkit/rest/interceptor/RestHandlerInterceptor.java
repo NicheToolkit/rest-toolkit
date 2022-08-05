@@ -1,5 +1,6 @@
 package io.github.nichetoolkit.rest.interceptor;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import io.github.nichetoolkit.rest.*;
 import io.github.nichetoolkit.rest.configure.RestInterceptProperties;
 import io.github.nichetoolkit.rest.constant.RestConstants;
@@ -12,6 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;
 import org.springframework.core.annotation.Order;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
@@ -78,9 +80,16 @@ public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBody
         RestResponse restResponse = new RestResponse();
         restResponse.setMediaType(mediaType.toString());
         if (mediaType.includes(MediaType.APPLICATION_JSON)) {
-            String resultJson = JsonUtils.parseJson(resultBody);
-            String result = CommonUtils.substring(resultJson, interceptProperties.getResultLength());
+            String result = JsonUtils.parseJson(resultBody);
             restResponse.setResult(result);
+            TypeReference<String> typeReference = new TypeReference<String>(){};
+            RestResult<String> restResult = JsonUtils.parseResult(result, typeReference);
+            if (GeneralUtils.isNotEmpty(restResult)) {
+                restResponse.setData(restResult.getData());
+                restResponse.setRestResult(new RestResult(restResult.getStatus(),restResult.getMessage()));
+            }
+            String resultString = CommonUtils.substring(result, interceptProperties.getResultLength());
+            restResponse.setResultString(resultString);
             Method method = params.getMethod();
             if (GeneralUtils.isNotEmpty(method)) {
                 restResponse.setMethod(method.getName());
@@ -197,8 +206,20 @@ public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBody
             restResponse.setStartTime(startTime);
             restResponse.setEndTime(endTime);
             restResponse.setCostTime(costTime);
-            restResponse.setStatus(response.getStatus());
-            restResponse.setMessage(Optional.ofNullable(throwable).map(Throwable::getMessage).orElse(RestConstants.OK_MESSAGE));
+            int status = response.getStatus();
+
+            if (status != HttpStatus.OK.value()) {
+                restResponse.setStatus(status);
+                restResponse.setMessage(Optional.ofNullable(throwable).map(Throwable::getMessage).orElse(RestConstants.OK_MESSAGE));
+            } else {
+                RestResult restResult = restResponse.getRestResult();
+                if (GeneralUtils.isNotEmpty(restResult)) {
+                    restResponse.setStatus(restResult.getStatus());
+                    restResponse.setMessage(restResult.getMessage());
+                } else {
+                    restResponse.setMessage(Optional.ofNullable(throwable).map(Throwable::getMessage).orElse(RestConstants.OK_MESSAGE));
+                }
+            }
         }
     }
 
@@ -241,9 +262,10 @@ public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBody
         if (StringUtils.hasText(contentType) && contentType.contains(MediaType.APPLICATION_JSON_VALUE)) {
             if (request instanceof RestRequestWrapper) {
                 RestRequestWrapper requestWrapper = (RestRequestWrapper) request;
-                String bodyString = new String(requestWrapper.getCacheBody(), StandardCharsets.UTF_8);
-                String body = CommonUtils.substring(bodyString, interceptProperties.getBodyLength());
+                String body = new String(requestWrapper.getCacheBody(), StandardCharsets.UTF_8);
                 restRequest.setBody(body);
+                String bodyString = CommonUtils.substring(body, interceptProperties.getBodyLength());
+                restRequest.setBody(bodyString);
             } else {
                 restRequest.setBody("the request of content type without 'application/json' is ignored.");
                 log.debug("the request is not 'RestRequestWrapper' type!");
@@ -260,7 +282,7 @@ public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBody
 
     public void applyInterceptRequestLog(RestRequest request, RestResponse response, RestLog restLog) {
         if (interceptProperties.getLogEnabled()) {
-            if (GeneralUtils.isNotEmpty(request) || GeneralUtils.isNotEmpty(response)) {
+            if (GeneralUtils.isNotEmpty(request) || GeneralUtils.isNotEmpty(response) || GeneralUtils.isNotEmpty(restLog)) {
                 log.info(">>>>>>>>>>>>>> intercept log begin <<<<<<<<<<<<<<");
             }
             if (GeneralUtils.isNotEmpty(restLog)) {
@@ -278,8 +300,8 @@ public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBody
                 if (GeneralUtils.isNotEmpty(request.getParams())) {
                     log.info("request         params : {}", request.getParams());
                 }
-                if (GeneralUtils.isNotEmpty(request.getBody())) {
-                    log.info("request           body : {}", request.getBody());
+                if (GeneralUtils.isNotEmpty(request.getBodyString())) {
+                    log.info("request           body : {}", request.getBodyString());
                 }
             }
             if (GeneralUtils.isNotEmpty(response)) {
@@ -294,11 +316,11 @@ public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBody
                 }
                 log.info("response        method : {}", response.getMethod());
                 log.info("response    media type : {}", response.getMediaType());
-                if (GeneralUtils.isNotEmpty(response.getResult())) {
-                    log.info("response        result : {}", response.getResult());
+                if (GeneralUtils.isNotEmpty(response.getResultString())) {
+                    log.info("response        result : {}", response.getResultString());
                 }
             }
-            if (GeneralUtils.isNotEmpty(request) || GeneralUtils.isNotEmpty(response)) {
+            if (GeneralUtils.isNotEmpty(request) || GeneralUtils.isNotEmpty(response) || GeneralUtils.isNotEmpty(restLog)) {
                 log.info(">>>>>>>>>>>>>>> intercept log end <<<<<<<<<<<<<<<");
             }
 

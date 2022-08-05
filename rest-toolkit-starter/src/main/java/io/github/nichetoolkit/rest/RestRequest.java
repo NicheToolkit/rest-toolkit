@@ -13,6 +13,7 @@ public class RestRequest<T extends RestRequest<T>> {
     private String url;
     private String params;
     private String body;
+    private String bodyString;
 
     public RestRequest() {
     }
@@ -24,6 +25,7 @@ public class RestRequest<T extends RestRequest<T>> {
         this.url = builder.url;
         this.params = builder.params;
         this.body = builder.body;
+        this.bodyString = builder.bodyString;
     }
 
     public String getIpAddress() {
@@ -82,6 +84,14 @@ public class RestRequest<T extends RestRequest<T>> {
         this.body = body;
     }
 
+    public String getBodyString() {
+        return bodyString;
+    }
+
+    public void setBodyString(String bodyString) {
+        this.bodyString = bodyString;
+    }
+
     public static class Builder<T extends RestRequest<T>> {
         protected String headers;
         protected String ipAddress;
@@ -90,6 +100,7 @@ public class RestRequest<T extends RestRequest<T>> {
         protected String url;
         protected String params;
         protected String body;
+        protected String bodyString;
 
         public Builder() {
         }
@@ -126,6 +137,11 @@ public class RestRequest<T extends RestRequest<T>> {
 
         public RestRequest.Builder<T> body(String body) {
             this.body = body;
+            return this;
+        }
+
+        public RestRequest.Builder<T> bodyString(String bodyString) {
+            this.bodyString = bodyString;
             return this;
         }
 
