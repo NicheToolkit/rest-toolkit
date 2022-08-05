@@ -6,6 +6,7 @@ import io.github.nichetoolkit.rest.configure.RestInterceptProperties;
 import io.github.nichetoolkit.rest.constant.RestConstants;
 import io.github.nichetoolkit.rest.helper.RestRequestHelper;
 import io.github.nichetoolkit.rest.RestNote;
+import io.github.nichetoolkit.rest.log.LogType;
 import io.github.nichetoolkit.rest.log.RestLogMessage;
 import io.github.nichetoolkit.rest.log.RestLogTitle;
 import io.github.nichetoolkit.rest.util.*;
@@ -137,6 +138,7 @@ public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBody
             if (GeneralUtils.isNotEmpty(logTitleAnnotation) && GeneralUtils.isNotEmpty(logTitleAnnotation.value())) {
                 restLog = new RestLog();
                 restLog.setTitle(logTitleAnnotation.value());
+                restLog.setKey(logTitleAnnotation.key());
             }
             RestLogMessage logMessageAnnotation = handlerMethod.getMethodAnnotation(RestLogMessage.class);
             if (GeneralUtils.isNotEmpty(logMessageAnnotation)) {
@@ -147,9 +149,23 @@ public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBody
                     restLog.setTitle(logMessageAnnotation.title());
                 }
                 restLog.setMessage(logMessageAnnotation.message());
-                restLog.setKey(logMessageAnnotation.key());
+                if (GeneralUtils.isNotEmpty(logMessageAnnotation.key())) {
+                    restLog.setKey(logMessageAnnotation.key());
+                }
                 restLog.setValue(logMessageAnnotation.value());
-                restLog.setLogType(logMessageAnnotation.logType());
+                LogType logType = logMessageAnnotation.logType();
+                restLog.setLogType(logType);
+                if (GeneralUtils.isNotEmpty(logType)) {
+                    if (GeneralUtils.isEmpty(restLog.getKey())) {
+                        restLog.setKey(logType.getKey());
+                    }
+                    if (GeneralUtils.isEmpty(restLog.getValue())) {
+                        restLog.setValue(logType.getValue());
+                    }
+                    if (GeneralUtils.isEmpty(restLog.getMessage())) {
+                        restLog.setMessage(logType.getField());
+                    }
+                }
             }
             RestResponse restResponse = REST_RESPONSE_HOLDER.get();
             RestRequest restRequest = applyInterceptRest(request, response, exception, restResponse);
