@@ -8,12 +8,12 @@ import com.fasterxml.jackson.databind.type.MapType;
 import com.fasterxml.jackson.databind.type.TypeFactory;
 import io.github.nichetoolkit.rest.RestResult;
 import io.github.nichetoolkit.rest.error.ClassUnsupportedException;
-import io.github.nichetoolkit.rest.error.json.JsonParseMapException;
-import io.github.nichetoolkit.rest.helper.JsonHelper;
 import io.github.nichetoolkit.rest.error.json.JsonParseBeanException;
 import io.github.nichetoolkit.rest.error.json.JsonParseListException;
+import io.github.nichetoolkit.rest.error.json.JsonParseMapException;
 import io.github.nichetoolkit.rest.error.json.JsonParseSetException;
 import io.github.nichetoolkit.rest.error.supply.JsonParseException;
+import io.github.nichetoolkit.rest.helper.JsonHelper;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Collections;
@@ -454,6 +454,16 @@ public class JsonUtils {
         }
     }
 
+    public static RestResult<String> parseResult(String json) {
+        try {
+            return JsonHelper.parseResult(json);
+        } catch (JsonParseBeanException exception) {
+            log.error("It is failed during json to parse as result of restResult!", exception);
+            exception.printStackTrace();
+            return null;
+        }
+    }
+
     public static <T> T parseConvert(Object value, Class<T> clazz) {
         try {
             return JsonHelper.parseConvert(value, clazz);
@@ -463,5 +473,8 @@ public class JsonUtils {
             return null;
         }
     }
+
+
+
 
 }

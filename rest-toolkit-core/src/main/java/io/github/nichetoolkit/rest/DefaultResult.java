@@ -15,6 +15,13 @@ import java.util.Optional;
 @Data
 @SuppressWarnings({"UnnecessaryParentheses","unused"})
 public class DefaultResult<T,S extends DefaultResult<T,S>> implements Serializable {
+    @JsonIgnore
+    public static final String STATUS_NAME = "status";
+    @JsonIgnore
+    public static final String MESSAGE_NAME = "message";
+    @JsonIgnore
+    public static final String DATA_NAME = "data";
+
     private Integer status;
     private String message;
     @JsonInclude(JsonInclude.Include.NON_NULL)

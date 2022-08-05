@@ -5,11 +5,13 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JavaType;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.ArrayType;
 import com.fasterxml.jackson.databind.type.CollectionType;
 import com.fasterxml.jackson.databind.type.MapType;
 import com.fasterxml.jackson.databind.type.TypeFactory;
+import io.github.nichetoolkit.rest.DefaultResult;
 import io.github.nichetoolkit.rest.RestResult;
 import io.github.nichetoolkit.rest.error.ClassUnsupportedException;
 import io.github.nichetoolkit.rest.error.json.JsonParseBeanException;
@@ -19,11 +21,9 @@ import io.github.nichetoolkit.rest.error.json.JsonParseSetException;
 import io.github.nichetoolkit.rest.error.supply.JsonParseException;
 import io.github.nichetoolkit.rest.holder.ObjectMapperHolder;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
+import org.springframework.boot.SpringApplication;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * <p>JsonHelper</p>
@@ -467,6 +467,28 @@ public class JsonHelper {
     public static <T> RestResult<T> parseResult(String json, JavaType innerType) throws JsonParseBeanException {
         JavaType javaType = TypeFactory.defaultInstance().constructParametricType(RestResult.class, innerType);
         return parseBean(json,javaType);
+    }
+
+    public static RestResult<String> parseResult(String json) throws JsonParseBeanException {
+        if(GeneralUtils.isEmpty(json)) {
+            return null;
+        }
+        try {
+            JsonNode jsonNode = ObjectMapperHolder.objectMapper().readTree(json);
+            if (GeneralUtils.isNotEmpty(jsonNode)) {
+                RestResult<String> restResult = new RestResult<>();
+                JsonNode status = jsonNode.get(DefaultResult.STATUS_NAME);
+                restResult.setStatus(status.asInt());
+                JsonNode message = jsonNode.get(DefaultResult.MESSAGE_NAME);
+                restResult.setMessage(message.toString());
+                JsonNode data = jsonNode.get(DefaultResult.DATA_NAME);
+                restResult.setData(data.toString());
+                return restResult;
+            }
+            return null;
+        } catch (JsonProcessingException exception) {
+            throw new JsonParseBeanException(json, RestResult.class.getName(), exception.getMessage());
+        }
     }
 
     public static <T> T parseConvert(Object value, Class<T> clazz) throws ClassUnsupportedException {
