@@ -82,10 +82,10 @@ public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBody
         if (mediaType.includes(MediaType.APPLICATION_JSON)) {
             String result = JsonUtils.parseJson(resultBody);
             restResponse.setResult(result);
-            TypeReference<String> typeReference = new TypeReference<String>(){};
-            RestResult<String> restResult = JsonUtils.parseResult(result, typeReference);
+            TypeReference<Object> typeReference = new TypeReference<Object>(){};
+            RestResult<Object> restResult = JsonUtils.parseResult(result, typeReference);
             if (GeneralUtils.isNotEmpty(restResult)) {
-                restResponse.setData(restResult.getData());
+                restResponse.setData(JsonUtils.parseJson(restResult.getData()));
                 restResponse.setRestResult(new RestResult(restResult.getStatus(),restResult.getMessage()));
             }
             String resultString = CommonUtils.substring(result, interceptProperties.getResultLength());
