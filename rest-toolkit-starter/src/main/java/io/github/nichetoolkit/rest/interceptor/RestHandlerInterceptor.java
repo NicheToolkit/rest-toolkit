@@ -264,7 +264,7 @@ public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBody
                 String body = new String(requestWrapper.getCacheBody(), StandardCharsets.UTF_8);
                 restRequest.setBody(body);
                 String bodyString = CommonUtils.substring(body, interceptProperties.getBodyLength());
-                restRequest.setBody(bodyString);
+                restRequest.setBodyString(bodyString);
             } else {
                 restRequest.setBody("the request of content type without 'application/json' is ignored.");
                 log.debug("the request is not 'RestRequestWrapper' type!");
