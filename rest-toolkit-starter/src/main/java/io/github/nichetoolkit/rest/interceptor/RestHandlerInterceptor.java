@@ -1,6 +1,5 @@
 package io.github.nichetoolkit.rest.interceptor;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import io.github.nichetoolkit.rest.*;
 import io.github.nichetoolkit.rest.configure.RestInterceptProperties;
 import io.github.nichetoolkit.rest.constant.RestConstants;
@@ -133,17 +132,17 @@ public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBody
             if (GeneralUtils.isEmpty(methodAnnotation) && GeneralUtils.isEmpty(controllerAnnotation)) {
                 return;
             }
-            RestLog restLog = null;
+            RestNotelog restLog = null;
             RestLogTitle logTitleAnnotation = controllerClass.getAnnotation(RestLogTitle.class);
             if (GeneralUtils.isNotEmpty(logTitleAnnotation) && GeneralUtils.isNotEmpty(logTitleAnnotation.value())) {
-                restLog = new RestLog();
+                restLog = new RestNotelog();
                 restLog.setTitle(logTitleAnnotation.value());
                 restLog.setKey(logTitleAnnotation.key());
             }
             RestLogMessage logMessageAnnotation = handlerMethod.getMethodAnnotation(RestLogMessage.class);
             if (GeneralUtils.isNotEmpty(logMessageAnnotation)) {
                 if (GeneralUtils.isEmpty(restLog)) {
-                    restLog = new RestLog();
+                    restLog = new RestNotelog();
                 }
                 if (GeneralUtils.isNotEmpty(logMessageAnnotation.title())) {
                     restLog.setTitle(logMessageAnnotation.title());
@@ -288,14 +287,14 @@ public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBody
         }
     }
 
-    public void applyInterceptService(RestRequest request, RestResponse restResponse, RestLog restLog) throws RestException {
+    public void applyInterceptService(RestRequest request, RestResponse restResponse, RestNotelog restLog) throws RestException {
         RestNoteService interceptService = ContextUtils.getBean(RestNoteService.class);
         if (GeneralUtils.isNotEmpty(interceptService) && interceptProperties.getBeanEnabled()) {
             interceptService.handler(request, restResponse,restLog);
         }
     }
 
-    public void applyInterceptRequestLog(RestRequest request, RestResponse response, RestLog restLog) {
+    public void applyInterceptRequestLog(RestRequest request, RestResponse response, RestNotelog restLog) {
         if (interceptProperties.getLogEnabled()) {
             if (GeneralUtils.isNotEmpty(request) || GeneralUtils.isNotEmpty(response) || GeneralUtils.isNotEmpty(restLog)) {
                 log.info(">>>>>>>>>>>>>> intercept log begin <<<<<<<<<<<<<<");

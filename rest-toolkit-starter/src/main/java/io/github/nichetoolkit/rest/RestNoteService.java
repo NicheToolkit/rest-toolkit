@@ -7,6 +7,6 @@ package io.github.nichetoolkit.rest;
  */
 public abstract class RestNoteService {
 
-    abstract public void handler(RestRequest request, RestResponse restResponse, RestLog restLog);
+    abstract public void handler(RestRequest request, RestResponse restResponse, RestNotelog restLog);
 
 }
