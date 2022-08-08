@@ -90,6 +90,12 @@ public enum RestErrorStatus implements RestStatus {
     CONVERT_TYPE_UNSUPPORTED(10421, "转换类型不支持"),
     CONVERT_TYPE_UNKNOWN(10422, "转换类型未知"),
 
+    /** class */
+    CLASS_ERROR(10430, "类类型错误"),
+    CLASS_TYPE_UNSUPPORTED(10431, "类类型不支持"),
+    CLASS_TYPE_UNKNOWN(10432, "类类型未知"),
+    CLASS_TYPE_UNRENEW(10433, "类类型无法实例化"),
+
     /** field */
     FIELD_ERROR(10500, "字段错误"),
     FIELD_IS_NULL(10501, "字段为空"),
