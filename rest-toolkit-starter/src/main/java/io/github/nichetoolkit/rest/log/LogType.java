@@ -15,23 +15,23 @@ import java.util.Optional;
  * @version v1.0.0
  */
 public enum LogType implements RestField {
-    NONE(0,null,null),
-    QUERY(1,"query","查询"),
-    QUERY_ID(2,"queryId","单个查询"),
-    QUERY_ALL(3,"queryAll","批量查询"),
-    QUERY_FILTER(4,"queryFilter","过滤器查询"),
-    QUERY_CENSUS(5,"queryCensus","统计查询"),
-    UPLOAD(6,"upload","上传"),
-    DOWNLOAD(7,"download","下载"),
-    CREATE(8,"create","创建"),
-    UPDATE(9,"update","更新"),
-    SAVE(10,"save","保存"),
-    SAVE_ALL(11,"saveAll","批量保存"),
-    DELETE(12,"delete","删除"),
-    DELETE_ID(13,"deleteId","单个删除"),
-    DELETE_ALL(14,"deleteAll","批量删除"),
-    DELETE_FILTER(15,"deleteFilter","过滤器删除"),
-    EXTEND(99,"extend","扩展操作"),
+    NONE(0, null, null),
+    QUERY(1, "query", "查询"),
+    QUERY_ID(2, "queryId", "单个查询"),
+    QUERY_ALL(3, "queryAll", "批量查询"),
+    QUERY_FILTER(4, "queryFilter", "过滤器查询"),
+    QUERY_CENSUS(5, "queryCensus", "统计查询"),
+    UPLOAD(6, "upload", "上传"),
+    DOWNLOAD(7, "download", "下载"),
+    CREATE(8, "create", "创建"),
+    UPDATE(9, "update", "更新"),
+    SAVE(10, "save", "保存"),
+    SAVE_ALL(11, "saveAll", "批量保存"),
+    DELETE(12, "delete", "删除"),
+    DELETE_ID(13, "deleteId", "单个删除"),
+    DELETE_ALL(14, "deleteAll", "批量删除"),
+    DELETE_FILTER(15, "deleteFilter", "过滤器删除"),
+    EXTEND(99, "extend", "扩展操作"),
     ;
 
     private final Integer key;
@@ -74,6 +74,43 @@ public enum LogType implements RestField {
     public static LogType parseField(String field) {
         LogType sortTypeEnum = RestField.parseField(LogType.class, field);
         return Optional.ofNullable(sortTypeEnum).orElse(LogType.NONE);
+    }
+
+    public boolean isSave() {
+        switch (this) {
+            case CREATE:
+            case UPDATE:
+            case SAVE:
+            case SAVE_ALL:
+                return true;
+            default:
+                return false;
+        }
+    }
+
+    public boolean isQuery() {
+        switch (this) {
+            case QUERY:
+            case QUERY_ID:
+            case QUERY_ALL:
+            case QUERY_FILTER:
+            case QUERY_CENSUS:
+                return true;
+            default:
+                return false;
+        }
+    }
+
+    public boolean isDelete() {
+        switch (this) {
+            case DELETE:
+            case DELETE_ID:
+            case DELETE_ALL:
+            case DELETE_FILTER:
+                return true;
+            default:
+                return false;
+        }
     }
 
     @Override

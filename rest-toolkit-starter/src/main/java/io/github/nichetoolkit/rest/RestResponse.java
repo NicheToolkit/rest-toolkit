@@ -6,19 +6,19 @@ package io.github.nichetoolkit.rest;
  * @version v1.0.0
  */
 public class RestResponse<T extends RestResponse<T>> {
-    private Long time;
-    private Long startTime;
-    private Long endTime;
-    private Long costTime;
-    private Integer status;
-    private String message;
-    private String error;
-    private String method;
-    private String mediaType;
-    private String result;
-    private String resultString;
-    private RestResult restResult;
-    private String data;
+    protected Long time;
+    protected Long startTime;
+    protected Long endTime;
+    protected Long costTime;
+    protected Integer status;
+    protected String message;
+    protected String error;
+    protected String method;
+    protected String mediaType;
+    protected String result;
+    protected String resultString;
+    protected RestResult restResult;
+    protected String data;
 
     public RestResponse() {
     }
@@ -70,7 +70,6 @@ public class RestResponse<T extends RestResponse<T>> {
     public void setCostTime(Long costTime) {
         this.costTime = costTime;
     }
-
 
     public Integer getStatus() {
         return status;

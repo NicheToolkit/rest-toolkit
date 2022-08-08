@@ -6,14 +6,14 @@ package io.github.nichetoolkit.rest;
  * @version v1.0.0
  */
 public class RestRequest<T extends RestRequest<T>> {
-    private String headers;
-    private String ipAddress;
-    private String userAgent;
-    private String method;
-    private String url;
-    private String params;
-    private String body;
-    private String bodyString;
+    protected String headers;
+    protected String ipAddress;
+    protected String userAgent;
+    protected String method;
+    protected String url;
+    protected String params;
+    protected String body;
+    protected String bodyString;
 
     public RestRequest() {
     }
