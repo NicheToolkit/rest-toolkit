@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
  * @author Cyan (snow22314@outlook.com)
  * @version v1.0.0
  */
-@Target({ElementType.METHOD})
+@Target({ElementType.TYPE,ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @RestLog
 @RestNotelog
