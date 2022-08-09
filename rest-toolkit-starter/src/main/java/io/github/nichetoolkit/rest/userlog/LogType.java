@@ -1,4 +1,4 @@
-package io.github.nichetoolkit.rest.log;
+package io.github.nichetoolkit.rest.userlog;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
