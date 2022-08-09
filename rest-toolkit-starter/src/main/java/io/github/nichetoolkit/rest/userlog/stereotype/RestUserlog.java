@@ -9,7 +9,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * <p>RestRemark</p>
+ * <p>RestUserlog</p>
  * @author Cyan (snow22314@outlook.com)
  * @version v1.0.0
  */
