@@ -31,6 +31,16 @@ public enum LogType implements RestField {
     DELETE_ID(13, "deleteId", "单个删除"),
     DELETE_ALL(14, "deleteAll", "批量删除"),
     DELETE_FILTER(15, "deleteFilter", "过滤器删除"),
+    STATUS(16, "status", "状态修改"),
+    STATUS_SWITCH(17, "statusSwitch", "状态切换"),
+    VALID_SWITCH(18, "validSwitch", "有效状态切换"),
+    LOCKED_SWITCH(19, "lockedSwitch", "锁定状态切换"),
+    USER(20, "user", "用户操作"),
+    USER_LOGON(21, "userLogon", "用户注册"),
+    USER_LOGIN(22, "userLogin", "用户登录"),
+    USER_LOGOUT(23, "userLogout", "用户注销"),
+    USER_REVISE(24, "userRevise", "用户修改密码"),
+    USER_RETRIEVE(25, "userRetrieve", "用户找回密码"),
     EXTEND(99, "extend", "扩展操作"),
     ;
 
