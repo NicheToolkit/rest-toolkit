@@ -36,11 +36,11 @@ public enum LogType implements RestField {
     VALID_SWITCH(18, "validSwitch", "有效状态切换"),
     LOCKED_SWITCH(19, "lockedSwitch", "锁定状态切换"),
     USER(20, "user", "用户操作"),
-    USER_LOGON(21, "userLogon", "用户注册"),
-    USER_LOGIN(22, "userLogin", "用户登录"),
-    USER_LOGOUT(23, "userLogout", "用户注销"),
-    USER_REVISE(24, "userRevise", "用户修改密码"),
-    USER_RETRIEVE(25, "userRetrieve", "用户找回密码"),
+    USER_LOGON(21, "userLogon", "注册"),
+    USER_LOGIN(22, "userLogin", "登录"),
+    USER_LOGOUT(23, "userLogout", "注销"),
+    USER_REVISE(24, "userRevise", "修改密码"),
+    USER_RETRIEVE(25, "userRetrieve", "找回密码"),
     EXTEND(99, "extend", "扩展操作"),
     ;
 
