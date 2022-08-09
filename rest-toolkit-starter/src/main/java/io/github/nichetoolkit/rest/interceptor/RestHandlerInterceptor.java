@@ -299,7 +299,7 @@ public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBody
     }
 
     public void applyInterceptService(RestRequest request, RestResponse restResponse, RestUsernote usernote) throws RestException {
-        RestUserlogService interceptService = ContextUtils.getBean(RestUserlogService.class);
+        RestUsernoteService interceptService = ContextUtils.getBean(RestUsernoteService.class);
         if (GeneralUtils.isNotEmpty(interceptService) && interceptProperties.getBeanEnabled()) {
             interceptService.handler(request, restResponse,usernote);
         }

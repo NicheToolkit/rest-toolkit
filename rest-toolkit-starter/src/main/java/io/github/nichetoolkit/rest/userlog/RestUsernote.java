@@ -1,7 +1,7 @@
 package io.github.nichetoolkit.rest.userlog;
 
 /**
- * <p>RestNotelog</p>
+ * <p>RestUsernote</p>
  * @author Cyan (snow22314@outlook.com)
  * @version v1.0.0
  */

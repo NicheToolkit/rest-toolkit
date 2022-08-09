@@ -1,4 +1,6 @@
-package io.github.nichetoolkit.rest;
+package io.github.nichetoolkit.rest.userlog;
+
+import io.github.nichetoolkit.rest.RestResult;
 
 /**
  * <p>RestResponse</p>

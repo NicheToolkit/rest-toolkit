@@ -1,4 +1,4 @@
-package io.github.nichetoolkit.rest;
+package io.github.nichetoolkit.rest.userlog;
 
 /**
  * <p>RestRequest</p>
