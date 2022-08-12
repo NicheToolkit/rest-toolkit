@@ -1,8 +1,10 @@
 package io.github.nichetoolkit.rest.util;
 
 
+import ch.qos.logback.classic.spi.STEUtil;
 import io.github.nichetoolkit.rest.error.natives.ParseErrorException;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.SpringApplication;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -160,11 +162,54 @@ public class DateUtils {
 
     public static Date today() {
         Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY, 0);
-        calendar.set(Calendar.MINUTE, 0);
-        calendar.set(Calendar.SECOND, 0);
-        calendar.set(Calendar.MILLISECOND, 0);
+        clear(calendar);
         return calendar.getTime();
+    }
+
+    public static Date getDay(final Date date) {
+        if (date == null) {
+            return null;
+        }
+        final Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        clear(calendar);
+        return calendar.getTime();
+    }
+
+    public static Date getMonth(final Date date) {
+        if (date == null) {
+            return null;
+        }
+        final Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.set(Calendar.DAY_OF_MONTH, 1);
+        clear(calendar);
+        return calendar.getTime();
+    }
+
+    public static Date getYear(final Date date) {
+        if (date == null) {
+            return null;
+        }
+        final Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.set(Calendar.MONTH, 0);
+        calendar.set(Calendar.DAY_OF_MONTH, 1);
+        clear(calendar);
+        return calendar.getTime();
+    }
+
+    public static Integer getDateInt(final Date date, int field) {
+        if (date == null) {
+            return null;
+        }
+        final Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        if (field == Calendar.MONTH) {
+            return calendar.get(field) + 1;
+        } else {
+            return calendar.get(field);
+        }
     }
 
     public static Date addYears(final Date date, final int amount) {
@@ -185,6 +230,13 @@ public class DateUtils {
 
     public static Date addMinutes(final Date date, final int amount) {
         return add(date, Calendar.MINUTE, amount);
+    }
+
+    private static void clear(Calendar calendar) {
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
     }
 
     private static Date add(final Date date, final int calendarField, final int amount) {
