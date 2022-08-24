@@ -50,7 +50,7 @@ public interface RestValue<K, V> extends RestKey<K> {
     @SuppressWarnings("Duplicates")
     static <T extends RestValue<K, V>, K, V> T parseKey(Class<T> clazz, K key) {
         if (key != null && clazz.isEnum()) {
-            Map<K, T> keyEnumMap = Stream.of(clazz.getEnumConstants()).collect(Collectors.toMap(RestValue::getKey, Function.identity()));
+            Map<K, T> keyEnumMap = Stream.of(clazz.getEnumConstants()).collect(Collectors.toMap(RestValue::getKey, Function.identity(),(oldValue,newValue) -> newValue, HashMap::new));
             return keyEnumMap.get(key);
         }
         return null;
@@ -59,7 +59,7 @@ public interface RestValue<K, V> extends RestKey<K> {
     @SuppressWarnings("Duplicates")
     static <T extends RestValue<K, V>, K, V> T parseKey(Collection<T> values, K key) {
         if (key != null && values != null && values.size() > 0) {
-            Map<K, T> keyEnumMap = values.stream().collect(Collectors.toMap(RestKey::getKey, Function.identity()));
+            Map<K, T> keyEnumMap = values.stream().collect(Collectors.toMap(RestKey::getKey, Function.identity(),(oldValue,newValue) -> newValue, HashMap::new));
             return keyEnumMap.get(key);
         }
         return null;
@@ -68,7 +68,7 @@ public interface RestValue<K, V> extends RestKey<K> {
     @SuppressWarnings("Duplicates")
     static <T extends RestValue<K, V>, K, V> T parseValue(Class<T> clazz, V value) {
         if (value != null && clazz.isEnum()) {
-            Map<V, T> valueEnumMap = Stream.of(clazz.getEnumConstants()).collect(Collectors.toMap(RestValue::getValue, Function.identity()));
+            Map<V, T> valueEnumMap = Stream.of(clazz.getEnumConstants()).collect(Collectors.toMap(RestValue::getValue, Function.identity(),(oldValue,newValue) -> newValue, HashMap::new));
             return valueEnumMap.get(value);
         }
         return null;

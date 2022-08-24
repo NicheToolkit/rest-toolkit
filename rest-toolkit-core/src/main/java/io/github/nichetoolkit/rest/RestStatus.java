@@ -45,7 +45,7 @@ public interface RestStatus {
     @SuppressWarnings("Duplicates")
     static <T extends RestStatus> T parseStatus(Class<T> clazz, Integer status){
         if (status != null && clazz.isEnum()) {
-            Map<Integer, T> errorMap = Stream.of(clazz.getEnumConstants()).collect(Collectors.toMap(RestStatus::getStatus, Function.identity()));
+            Map<Integer, T> errorMap = Stream.of(clazz.getEnumConstants()).collect(Collectors.toMap(RestStatus::getStatus, Function.identity(),(oldValue,newValue) -> newValue, HashMap::new));
             return errorMap.get(status);
         }
         return null;

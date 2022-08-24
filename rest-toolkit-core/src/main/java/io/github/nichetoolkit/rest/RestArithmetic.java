@@ -19,7 +19,7 @@ public interface RestArithmetic extends RestValue<Long, String> {
     @SuppressWarnings("Duplicates")
     static <T extends RestArithmetic> T parseArithmetic(Class<T> clazz, Long arithmetic) {
         if (arithmetic != null && clazz.isEnum()) {
-            Map<Long, T> valueEnumMap = Stream.of(clazz.getEnumConstants()).collect(Collectors.toMap(RestArithmetic::getArithmetic, Function.identity()));
+            Map<Long, T> valueEnumMap = Stream.of(clazz.getEnumConstants()).collect(Collectors.toMap(RestArithmetic::getArithmetic, Function.identity(),(oldValue,newValue) -> newValue, HashMap::new));
             return valueEnumMap.get(arithmetic);
         } else {
             return null;
@@ -29,7 +29,7 @@ public interface RestArithmetic extends RestValue<Long, String> {
     @SuppressWarnings("Duplicates")
     static <T extends RestArithmetic> T parseArithmetic(Collection<T> values, Long arithmetic) {
         if (arithmetic != null && values != null && values.size() > 0) {
-            Map<Long, T> valueEnumMap = values.stream().collect(Collectors.toMap(RestArithmetic::getArithmetic, Function.identity()));
+            Map<Long, T> valueEnumMap = values.stream().collect(Collectors.toMap(RestArithmetic::getArithmetic, Function.identity(),(oldValue,newValue) -> newValue, HashMap::new));
             return valueEnumMap.get(arithmetic);
         } else {
             return null;

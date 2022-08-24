@@ -2,6 +2,7 @@ package io.github.nichetoolkit.rest.worker.jwt;
 
 import io.github.nichetoolkit.rest.RestValue;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -18,7 +19,7 @@ public interface RestAlgorithm<A> extends RestValue<Integer, String> {
 
     static <A,T extends RestAlgorithm<A>> T parseAlgorithm(Class<T> clazz, A algorithm) {
         if (algorithm != null && clazz.isEnum()) {
-            Map<A,T> valueEnumMap = Stream.of(clazz.getEnumConstants()).collect(Collectors.toMap(RestAlgorithm::getAlgorithm, Function.identity()));
+            Map<A,T> valueEnumMap = Stream.of(clazz.getEnumConstants()).collect(Collectors.toMap(RestAlgorithm::getAlgorithm, Function.identity(),(oldValue,newValue) -> newValue, HashMap::new));
             return valueEnumMap.get(algorithm);
         } else {
             return null;

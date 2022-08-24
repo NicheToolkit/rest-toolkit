@@ -1,6 +1,7 @@
 package io.github.nichetoolkit.rest;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -44,7 +45,7 @@ public interface RestKey<K> {
     @SuppressWarnings("Duplicates")
     static <T extends RestKey<K>, K> T parseKey(Class<T> clazz, K key) {
         if (key != null && clazz.isEnum()) {
-            Map<K, T> keyEnumMap = Stream.of(clazz.getEnumConstants()).collect(Collectors.toMap(RestKey::getKey, Function.identity()));
+            Map<K, T> keyEnumMap = Stream.of(clazz.getEnumConstants()).collect(Collectors.toMap(RestKey::getKey, Function.identity(),(oldValue,newValue) -> newValue, HashMap::new));
             return keyEnumMap.get(key);
         }
         return null;
