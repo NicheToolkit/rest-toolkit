@@ -2,6 +2,7 @@ package io.github.nichetoolkit.rest.util;
 
 import io.github.nichetoolkit.rest.constant.UtilConstants;
 
+import java.lang.reflect.Array;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
@@ -43,7 +44,7 @@ public class GeneralUtils {
         } else if (object instanceof Iterator) {
             return ((Iterator) object).hasNext();
         } else if (object.getClass().isArray()) {
-            return !Arrays.asList(object).isEmpty() && Arrays.asList(object).size() > 0;
+            return !Arrays.asList(object).isEmpty() && Array.getLength(object) > 0;
         } else {
             return true;
         }
@@ -76,7 +77,7 @@ public class GeneralUtils {
         } else if (object instanceof Iterator) {
             return !((Iterator) object).hasNext();
         } else if (object.getClass().isArray()) {
-            return Arrays.asList(object).isEmpty() || Arrays.asList(object).size() == 0;
+            return Arrays.asList(object).isEmpty() || Array.getLength(object) == 0;
         } else {
             return false;
         }
