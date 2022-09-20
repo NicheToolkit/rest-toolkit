@@ -43,7 +43,7 @@ public class GeneralUtils {
         } else if (object instanceof Iterator) {
             return ((Iterator) object).hasNext();
         } else if (object.getClass().isArray()) {
-            return !Arrays.asList(object).isEmpty();
+            return !Arrays.asList(object).isEmpty() && Arrays.asList(object).size() > 0;
         } else {
             return true;
         }
@@ -76,7 +76,7 @@ public class GeneralUtils {
         } else if (object instanceof Iterator) {
             return !((Iterator) object).hasNext();
         } else if (object.getClass().isArray()) {
-            return Arrays.asList(object).isEmpty();
+            return Arrays.asList(object).isEmpty() || Arrays.asList(object).size() == 0;
         } else {
             return false;
         }
