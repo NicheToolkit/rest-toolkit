@@ -232,6 +232,10 @@ public class DateUtils {
         return add(date, Calendar.MINUTE, amount);
     }
 
+    public static Date addSeconds(final Date date, final int amount) {
+        return add(date, Calendar.SECOND, amount);
+    }
+
     private static void clear(Calendar calendar) {
         calendar.set(Calendar.HOUR_OF_DAY, 0);
         calendar.set(Calendar.MINUTE, 0);
