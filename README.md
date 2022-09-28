@@ -108,7 +108,7 @@ Critical: 0% High: 27% Medium: 73% Low: 0% None: 0% Unknown: 0%
 
 ## Maven Central
 
--  [Maven Central Repository](https://search.maven.org/search?q=g:io.github.nichetoolkit)
+-  [Maven Central Repository](https://central.sonatype.dev/search?q=io.github.nichetoolkit)
 
 ## 依赖环境
  > [Spring Boot](https://spring.io/projects/spring-boot) 2.6.6.RELEASE\
