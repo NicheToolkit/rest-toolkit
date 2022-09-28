@@ -6,7 +6,7 @@ import io.github.nichetoolkit.rest.RestErrorStatus;
 import io.github.nichetoolkit.rest.RestStatus;
 
 /**
- * <p>TokenErrorException</p>
+ * <p>LoginErrorException</p>
  * @author Cyan (snow22314@outlook.com)
  * @version v1.0.0
  */

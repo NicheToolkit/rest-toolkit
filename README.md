@@ -19,6 +19,8 @@
 
 -  [Rest-Toolkit@1.0.4](https://github.com/NicheToolkit/rest-toolkit/tree/master/release/1.0.4.md)
 
+-  [Rest-Toolkit@1.0.5](https://github.com/NicheToolkit/rest-toolkit/tree/master/release/1.0.5.md)
+
 ## Maven Central
 
 -  [Maven Central Repository](https://search.maven.org/search?q=g:io.github.nichetoolkit)

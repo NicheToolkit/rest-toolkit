@@ -13,7 +13,7 @@ import io.github.nichetoolkit.rest.error.often.IdentityNullException;
 import io.github.nichetoolkit.rest.error.often.NameRepeatException;
 
 /**
- * <p>OptionalHelper</p>
+ * <p>OptionalHelper</p>RestRequestHelper
  * @author Cyan (snow22314@outlook.com)
  * @version v1.0.0
  */
