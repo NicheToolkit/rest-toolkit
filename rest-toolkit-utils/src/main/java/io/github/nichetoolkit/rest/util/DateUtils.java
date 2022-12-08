@@ -1,10 +1,8 @@
 package io.github.nichetoolkit.rest.util;
 
 
-import ch.qos.logback.classic.spi.STEUtil;
 import io.github.nichetoolkit.rest.error.natives.ParseErrorException;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.SpringApplication;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
