@@ -114,7 +114,7 @@ Critical: 0% High: 27% Medium: 73% Low: 0% None: 0% Unknown: 0%
 
 
 ## 依赖环境
- > [Spring Boot](https://spring.io/projects/spring-boot) 2.6.6.RELEASE\
+ > [Spring Boot](https://spring.io/projects/spring-boot) 2.7.6.RELEASE\
  > [Maven](https://maven.apache.org/) 3.6.0+\
  > [JDK](https://www.oracle.com/java/technologies/downloads/#java8) 1.8
  
