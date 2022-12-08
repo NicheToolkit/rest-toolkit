@@ -13,90 +13,90 @@ import java.util.function.Function;
  */
 public class CollectUtils {
 
-    public static <K,V> Map<K,List<V>> collect(List<V> srcList, FunctionActuator<V,K> function) throws RestException {
-        Map<K,List<V>> map = new HashMap<>();
-        for (V src : srcList) {
+    public static <K,V> Map<K,Collection<V>> collect(Collection<V> srcCollection, FunctionActuator<V,K> function) throws RestException {
+        Map<K,Collection<V>> map = new HashMap<>();
+        for (V src : srcCollection) {
             K key = function.actuate(src);
             collect(key,src,map);
         }
         return map;
     }
 
-    public static <K,V> Map<K,List<V>> collect(List<V> srcList, Function<V,K> function) {
-        Map<K,List<V>> map = new HashMap<>();
-        for (V src : srcList) {
+    public static <K,V> Map<K,Collection<V>> collect(Collection<V> srcCollection, Function<V,K> function) {
+        Map<K,Collection<V>> map = new HashMap<>();
+        for (V src : srcCollection) {
             K key = function.apply(src);
             collect(key,src,map);
         }
         return map;
     }
 
-    public static <K,V> void collect(K key,V src, Map<K,List<V>> map){
+    public static <K,V> void collect(K key,V src, Map<K,Collection<V>> map) {
         if (map.containsKey(key)) {
             map.get(key).add(src);
         } else {
-            List<V> wrapList = new ArrayList<>();
-            wrapList.add(src);
-            map.put(key, wrapList);
+            Collection<V> wrapCollection = new ArrayList<>();
+            wrapCollection.add(src);
+            map.put(key, wrapCollection);
         }
     }
 
-    public static <T> void collect(boolean key, T data, List<T> falseList, List<T> trueList) {
+    public static <T> void collect(boolean key, T data, Collection<T> falseCollection, Collection<T> trueCollection) {
         if (key) {
-            trueList.add(data);
+            trueCollection.add(data);
         } else {
-            falseList.add(data);
+            falseCollection.add(data);
         }
 
     }
 
-    public static <K, T> void collect(K key, List<T> dataList, Map<K, List<T>> dataMap) {
+    public static <K, T> void collect(K key, Collection<T> dataCollection, Map<K, Collection<T>> dataMap) {
         Optional.ofNullable(key).ifPresent(value -> {
             if (dataMap.containsKey(value)) {
-                dataMap.get(value).addAll(dataList);
+                dataMap.get(value).addAll(dataCollection);
             } else {
-                List<T> tempList = new ArrayList<>(dataList);
-                dataMap.put(value, tempList);
+                Collection<T> tempCollection = new ArrayList<>(dataCollection);
+                dataMap.put(value, tempCollection);
             }
         });
     }
 
-    public static <K, T> void collect(K key, T data, List<T> falseList, Map<K, List<T>> trueMap) {
+    public static <K, T> void collect(K key, T data, Collection<T> falseCollection, Map<K, Collection<T>> trueMap) {
         Optional<K> optional = Optional.ofNullable(key);
         if (optional.isPresent()) {
             collect(key, data, trueMap);
         } else {
-            falseList.add(data);
+            falseCollection.add(data);
         }
     }
 
-    public static <K, T> void collect(K key, T data, List<T> falseList, List<T> trueList) {
+    public static <K, T> void collect(K key, T data, Collection<T> falseCollection, Collection<T> trueCollection) {
         Optional<K> optional = Optional.ofNullable(key);
         if (optional.isPresent()) {
-            trueList.add(data);
+            trueCollection.add(data);
         } else {
-            falseList.add(data);
+            falseCollection.add(data);
         }
     }
 
-    public static <T> void collect(Long srcKey, Long targetKey, T data, List<T> equalList, Map<Long, List<T>> unequalMap) {
+    public static <T> void collect(Long srcKey, Long targetKey, T data, Collection<T> equalCollection, Map<Long, Collection<T>> unequalMap) {
         if (srcKey.equals(targetKey)) {
-            equalList.add(data);
+            equalCollection.add(data);
         } else {
             collect(targetKey, data, unequalMap);
         }
     }
 
-    public static <K, T> void collect(K srcKey, K targetKey, T data, List<T> equalList, List<T> unequalList) {
+    public static <K, T> void collect(K srcKey, K targetKey, T data, Collection<T> equalCollection, Collection<T> unequalCollection) {
         if (srcKey.equals(targetKey)) {
-            equalList.add(data);
+            equalCollection.add(data);
         } else {
-            unequalList.add(data);
+            unequalCollection.add(data);
         }
     }
 
-    public static <K, T> void collect(K srcKey, List<K> targetKeyList, T data, Map<K, List<T>> dataMap) {
-        if (targetKeyList.contains(srcKey)) {
+    public static <K, T> void collect(K srcKey, Collection<K> targetKeyCollection, T data, Map<K, Collection<T>> dataMap) {
+        if (targetKeyCollection.contains(srcKey)) {
             collect(srcKey,data,dataMap);
         }
     }

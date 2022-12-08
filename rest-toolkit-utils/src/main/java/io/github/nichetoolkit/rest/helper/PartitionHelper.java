@@ -8,6 +8,7 @@ import io.github.nichetoolkit.rest.actuator.FunctionActuator;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -18,23 +19,30 @@ import java.util.List;
  */
 public class PartitionHelper {
 
-    /**
-     * queryAll的分段处理
-     * @param idList id集合
-     * @param maxSize 分段大小
-     * @param function 执行器（伪函数指针）
-     * @param <T> 注册实体类型
-     * @return List<T> 实体集合
-     */
-    public static <K,T> List<T> query(List<K> idList, Integer maxSize, FunctionActuator<List<K>, List<T>> function) throws RestException {
+    public static <T> void partition(Collection<T> dataList, Integer partitionSize, ConsumerActuator<Collection<T>> consumer) throws RestException {
+        if (GeneralUtils.isEmpty(dataList)) {
+            return;
+        }
+        if (dataList.size() > partitionSize) {
+            List<List<T>> partitionList = Lists.partition(new ArrayList<>(dataList), partitionSize);
+            for (List<T> partition : partitionList) {
+                consumer.actuate(partition);
+            }
+        } else {
+            consumer.actuate(dataList);
+        }
+    }
+    
+
+    public static <I,T> List<T> query(Collection<I> idList, Integer querySize, FunctionActuator<Collection<I>, List<T>> function) throws RestException {
         if (GeneralUtils.isEmpty(idList)) {
             return Collections.emptyList();
         }
         List<T> entityList;
-        if (idList.size() > maxSize) {
+        if (idList.size() > querySize) {
             entityList = new ArrayList<>();
-            List<List<K>> partitionList = Lists.partition(idList, maxSize);
-            for (List<K> partition : partitionList) {
+            List<List<I>> partitionList = Lists.partition(new ArrayList<>(idList), querySize);
+            for (List<I> partition : partitionList) {
                 entityList.addAll(function.actuate(partition));
             }
         } else {
@@ -43,21 +51,13 @@ public class PartitionHelper {
         return entityList;
     }
 
-    /**
-     * insertAll的分段处理
-     * @param modelList 模型集合
-     * @param maxSize 分段大小
-     * @param function 执行器（伪函数指针）
-     * @param <T> 模型类型
-     * @return Integer 数量
-     */
-    public static <T> Boolean insert(List<T> modelList, Integer maxSize, FunctionActuator<List<T>,Integer> function) throws RestException {
+    public static <T> Boolean insert(Collection<T> modelList, Integer insertSize, FunctionActuator<Collection<T>,Integer> function) throws RestException {
         if (GeneralUtils.isEmpty(modelList)) {
             return true;
         }
         Integer resultSize = 0;
-        if (modelList.size() > maxSize) {
-            List<List<T>> partitionList = Lists.partition(modelList, maxSize);
+        if (modelList.size() > insertSize) {
+            List<List<T>> partitionList = Lists.partition(new ArrayList<>(modelList), insertSize);
             for (List<T> partition : partitionList) {
                 resultSize += function.actuate(partition);
             }
@@ -68,36 +68,19 @@ public class PartitionHelper {
     }
 
 
-    /**
-     * saveAll的分段处理
-     * @param modelList 模型集合
-     * @param maxSize 分段大小
-     * @param function 执行器（伪函数指针）
-     * @param <T> 模型类型
-     * @return Boolean 是否成功
-     */
-    public static <T> Boolean save(List<T> modelList, Integer maxSize, FunctionActuator<List<T>, Integer> function) throws RestException {
-        return insert(modelList,maxSize,function);
+    public static <T> Boolean save(Collection<T> modelList, Integer saveSize, FunctionActuator<Collection<T>, Integer> function) throws RestException {
+        return insert(modelList,saveSize,function);
     }
 
 
-    /**
-     * updateAll的分段处理
-     * @param modelList 模型集合
-     * @param maxSize 分段大小
-     * @param function 执行器（伪函数指针）
-     * @param <T> 模型类型
-     * @return Integer 数量
-     */
-    public static <T> Boolean update(List<T> modelList, Integer maxSize, FunctionActuator<List<T>, Integer> function) throws RestException {
+    public static <T> Boolean update(Collection<T> modelList, Integer updateSize, FunctionActuator<Collection<T>, Integer> function) throws RestException {
         if (GeneralUtils.isEmpty(modelList)) {
             return true;
         }
-        /* 数据分段处理 */
         boolean comparer;
         int size = modelList.size();
-        if (size > maxSize) {
-            List<List<T>> partitionList = Lists.partition(modelList, maxSize);
+        if (size > updateSize) {
+            List<List<T>> partitionList = Lists.partition(new ArrayList<>(modelList), updateSize);
             Integer resultSize = 0;
             for (List<T> partition : partitionList) {
                 resultSize += function.actuate(partition);
@@ -110,25 +93,8 @@ public class PartitionHelper {
         return comparer;
     }
 
-    /**
-     * deleteAll的分段处理
-     * @param idList id集合
-     * @param maxSize 分段大小
-     * @param consumer 执行器（伪函数指针）
-     * @throws RestException SDM模块异常
-     */
-    public static <K> void delete(List<K> idList, Integer maxSize, ConsumerActuator<List<K>> consumer) throws RestException {
-        if (GeneralUtils.isEmpty(idList)) {
-            return;
-        }
-        if (idList.size() > maxSize) {
-            List<List<K>> partitionList = Lists.partition(idList, maxSize);
-            for (List<K> partition : partitionList) {
-                consumer.actuate(partition);
-            }
-        } else {
-            consumer.actuate(idList);
-        }
+    public static <I> void delete(Collection<I> idList, Integer deleteSize, ConsumerActuator<Collection<I>> consumer) throws RestException {
+        partition(idList,deleteSize,consumer);
     }
 
 
