@@ -70,6 +70,13 @@
       "defaultValue": "false"
     },
     {
+      "name": "nichetoolkit.rest.intercept.userlog-enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "java.lang.Boolean",
+      "description": "intercept userlog enabled.",
+      "defaultValue": "false"
+    },
+    {
       "name": "nichetoolkit.rest.intercept.bean-enabled",
       "type": "java.lang.Boolean",
       "sourceType": "java.lang.Boolean",

@@ -14,6 +14,8 @@ public class RestInterceptProperties {
     private Boolean enabled = false;
     private Boolean logEnabled = false;
     private Boolean userlogEnabled = false;
+    /** instead of userlogEnabled */
+    @Deprecated
     private Boolean beanEnabled = false;
     private Integer bodyLength = 1000;
     private Integer errorLength = 1000;
@@ -47,10 +49,14 @@ public class RestInterceptProperties {
         this.userlogEnabled = userlogEnabled;
     }
 
+    /** instead of getUserlogEnabled */
+    @Deprecated
     public Boolean getBeanEnabled() {
         return beanEnabled;
     }
 
+    /** instead of setUserlogEnabled */
+    @Deprecated
     public void setBeanEnabled(Boolean beanEnabled) {
         this.beanEnabled = beanEnabled;
     }
