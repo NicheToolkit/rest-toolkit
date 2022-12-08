@@ -14,6 +14,7 @@ import java.lang.annotation.Target;
  */
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
+@RestLog
 public @interface RestNotelog {
     @AliasFor(attribute = "notelog")
     String value() default "";

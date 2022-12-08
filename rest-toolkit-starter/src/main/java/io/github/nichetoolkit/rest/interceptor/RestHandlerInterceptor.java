@@ -6,8 +6,8 @@ import io.github.nichetoolkit.rest.constant.RestConstants;
 import io.github.nichetoolkit.rest.helper.RestRequestHelper;
 import io.github.nichetoolkit.rest.userlog.*;
 import io.github.nichetoolkit.rest.userlog.stereotype.RestLog;
-import io.github.nichetoolkit.rest.userlog.stereotype.RestUserlog;
 import io.github.nichetoolkit.rest.userlog.stereotype.RestNotelog;
+import io.github.nichetoolkit.rest.userlog.stereotype.RestUserlog;
 import io.github.nichetoolkit.rest.util.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,13 +70,20 @@ public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBody
         if (declaringClass == DefaultAdvice.class) {
             return true;
         }
-        RestLog classAnnotation = declaringClass.getAnnotation(RestLog.class);
-        RestLog methodAnnotation = params.getMethodAnnotation(RestLog.class);
-        return GeneralUtils.isNotEmpty(classAnnotation) || GeneralUtils.isNotEmpty(methodAnnotation);
+        if (!interceptProperties.getUserlogEnabled() && !interceptProperties.getLogEnabled()) {
+            return false;
+        }
+        RestLog classRestLogAnnotation = declaringClass.getAnnotation(RestLog.class);
+        RestNotelog notelogAnnotation = declaringClass.getAnnotation(RestNotelog.class);
+        RestLog methodRestLogAnnotation = params.getMethodAnnotation(RestLog.class);
+        RestUserlog userlogAnnotation = params.getMethodAnnotation(RestUserlog.class);
+        return GeneralUtils.isNotEmpty(classRestLogAnnotation) || GeneralUtils.isNotEmpty(notelogAnnotation)
+                || GeneralUtils.isNotEmpty(methodRestLogAnnotation) || GeneralUtils.isNotEmpty(userlogAnnotation);
     }
 
     @Override
     public void doRestBodyHandle(Object resultBody, MethodParameter params, MediaType mediaType, Class clazz, ServerHttpRequest request, ServerHttpResponse response) {
+
         RestResponse restResponse = new RestResponse();
         restResponse.setMediaType(mediaType.toString());
         if (mediaType.includes(MediaType.APPLICATION_JSON)) {
@@ -85,7 +92,7 @@ public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBody
             RestResult<String> restResult = JsonUtils.parseResult(result);
             if (GeneralUtils.isNotEmpty(restResult)) {
                 restResponse.setData(restResult.getData());
-                restResponse.setRestResult(new RestResult(restResult.getStatus(),restResult.getMessage()));
+                restResponse.setRestResult(new RestResult(restResult.getStatus(), restResult.getMessage()));
             }
             String resultString = CommonUtils.substring(result, interceptProperties.getResultLength());
             restResponse.setResultString(resultString);
@@ -124,64 +131,64 @@ public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBody
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception exception) throws Exception {
-        if (handler instanceof HandlerMethod) {
-            HandlerMethod handlerMethod = (HandlerMethod) handler;
-            Class<?> controllerClass = handlerMethod.getBean().getClass();
-            RestLog controllerAnnotation = controllerClass.getAnnotation(RestLog.class);
-            RestLog methodAnnotation = handlerMethod.getMethodAnnotation(RestLog.class);
-            if (GeneralUtils.isEmpty(methodAnnotation) && GeneralUtils.isEmpty(controllerAnnotation)) {
-                return;
-            }
-            RestUsernote usernote = null;
-            RestNotelog restNotelog = controllerClass.getAnnotation(RestNotelog.class);
-            if (GeneralUtils.isNotEmpty(restNotelog)
-                    && (GeneralUtils.isNotEmpty(restNotelog.notelog())
-                    || GeneralUtils.isNotEmpty(restNotelog.value()))) {
-                int logKey = restNotelog.logKey();
-                String notelog = restNotelog.notelog();
-                if (GeneralUtils.isEmpty(restNotelog.notelog())) {
-                    notelog = restNotelog.value();
-                }
-                usernote = new RestUsernote();
-                usernote.setNotelog(notelog);
-                usernote.setLogKey(logKey);
-            }
-            RestUserlog restUserlog = handlerMethod.getMethodAnnotation(RestUserlog.class);
-            if (GeneralUtils.isNotEmpty(restUserlog)) {
-                if (GeneralUtils.isEmpty(usernote)) {
-                    usernote = new RestUsernote();
-                }
-                if (GeneralUtils.isNotEmpty(restUserlog.notelog())) {
-                    usernote.setNotelog(restUserlog.notelog());
-                }
-                String userlog = restUserlog.userlog();
-                if (GeneralUtils.isEmpty(restNotelog.notelog())) {
-                    userlog = restUserlog.value();
-                }
-                usernote.setUserlog(userlog);
-                if (GeneralUtils.isNotEmpty(restUserlog.logKey())) {
-                    usernote.setLogKey(restUserlog.logKey());
-                }
-                usernote.setLogValue(restUserlog.logValue());
-                LogType logType = restUserlog.logType();
-                usernote.setLogType(logType);
-                if (GeneralUtils.isNotEmpty(logType)) {
-                    if (GeneralUtils.isEmpty(usernote.getLogKey())) {
-                        usernote.setLogKey(logType.getKey());
-                    }
-                    if (GeneralUtils.isEmpty(usernote.getLogType())) {
-                        usernote.setLogValue(logType.getValue());
-                    }
-                    if (GeneralUtils.isEmpty(usernote.getUserlog())) {
-                        usernote.setUserlog(logType.getField());
-                    }
-                }
-            }
-            RestResponse restResponse = REST_RESPONSE_HOLDER.get();
-            RestRequest restRequest = applyInterceptRest(request, response, exception, restResponse);
-            applyInterceptRequestLog(restRequest, restResponse,usernote);
-            applyInterceptService(restRequest, restResponse,usernote);
+        if ((!interceptProperties.getUserlogEnabled() && !interceptProperties.getLogEnabled()) || !(handler instanceof HandlerMethod)) {
+            return;
         }
+        HandlerMethod handlerMethod = (HandlerMethod) handler;
+        RestLog beanRestLogAnnotation = handlerMethod.getBeanType().getAnnotation(RestLog.class);
+        RestNotelog notelogAnnotation = handlerMethod.getBeanType().getAnnotation(RestNotelog.class);
+        RestLog methodRestLog = handlerMethod.getMethodAnnotation(RestLog.class);
+        RestUserlog userlogAnnotation = handlerMethod.getMethodAnnotation(RestUserlog.class);
+        if (GeneralUtils.isEmpty(beanRestLogAnnotation) && GeneralUtils.isEmpty(notelogAnnotation)
+                && GeneralUtils.isEmpty(methodRestLog) && GeneralUtils.isEmpty(userlogAnnotation)) {
+            return;
+        }
+        RestUsernote usernote = null;
+        if (GeneralUtils.isNotEmpty(notelogAnnotation) && (GeneralUtils.isNotEmpty(notelogAnnotation.notelog())
+                || GeneralUtils.isNotEmpty(notelogAnnotation.value()))) {
+            int logKey = notelogAnnotation.logKey();
+            String notelog = notelogAnnotation.notelog();
+            if (GeneralUtils.isEmpty(notelogAnnotation.notelog())) {
+                notelog = notelogAnnotation.value();
+            }
+            usernote = new RestUsernote();
+            usernote.setNotelog(notelog);
+            usernote.setLogKey(logKey);
+        }
+        if (GeneralUtils.isNotEmpty(userlogAnnotation)) {
+            if (GeneralUtils.isEmpty(usernote)) {
+                usernote = new RestUsernote();
+            }
+            if (GeneralUtils.isNotEmpty(userlogAnnotation.notelog())) {
+                usernote.setNotelog(userlogAnnotation.notelog());
+            }
+            String userlog = userlogAnnotation.userlog();
+            if (GeneralUtils.isEmpty(notelogAnnotation.notelog())) {
+                userlog = userlogAnnotation.value();
+            }
+            usernote.setUserlog(userlog);
+            if (GeneralUtils.isNotEmpty(userlogAnnotation.logKey())) {
+                usernote.setLogKey(userlogAnnotation.logKey());
+            }
+            usernote.setLogValue(userlogAnnotation.logValue());
+            LogType logType = userlogAnnotation.logType();
+            usernote.setLogType(logType);
+            if (GeneralUtils.isNotEmpty(logType)) {
+                if (GeneralUtils.isEmpty(usernote.getLogKey())) {
+                    usernote.setLogKey(logType.getKey());
+                }
+                if (GeneralUtils.isEmpty(usernote.getLogType())) {
+                    usernote.setLogValue(logType.getValue());
+                }
+                if (GeneralUtils.isEmpty(usernote.getUserlog())) {
+                    usernote.setUserlog(logType.getField());
+                }
+            }
+        }
+        RestResponse restResponse = REST_RESPONSE_HOLDER.get();
+        RestRequest restRequest = applyInterceptRest(request, response, exception, restResponse);
+        applyInterceptRequestLog(restRequest, restResponse, usernote);
+        applyInterceptService(restRequest, restResponse, usernote);
     }
 
     @Override
@@ -301,7 +308,7 @@ public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBody
     public void applyInterceptService(RestRequest request, RestResponse restResponse, RestUsernote usernote) throws RestException {
         RestUsernoteService usernoteService = ContextUtils.getBean(RestUsernoteService.class);
         if (GeneralUtils.isNotEmpty(usernoteService) && interceptProperties.getBeanEnabled()) {
-            usernoteService.usernote(request, restResponse,usernote);
+            usernoteService.usernote(request, restResponse, usernote);
         }
     }
 

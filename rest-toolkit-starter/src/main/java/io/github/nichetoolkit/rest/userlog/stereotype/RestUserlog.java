@@ -13,12 +13,10 @@ import java.lang.annotation.Target;
  * @author Cyan (snow22314@outlook.com)
  * @version v1.0.0
  */
-@Target({ElementType.TYPE,ElementType.METHOD})
+@Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
-@RestLog
 @RestNotelog
 public @interface RestUserlog {
-
     @AliasFor(attribute = "userlog")
     String value() default "";
 

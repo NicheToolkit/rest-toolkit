@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 public class RestInterceptProperties {
     private Boolean enabled = false;
     private Boolean logEnabled = false;
+    private Boolean userlogEnabled = false;
     private Boolean beanEnabled = false;
     private Integer bodyLength = 1000;
     private Integer errorLength = 1000;
@@ -36,6 +37,14 @@ public class RestInterceptProperties {
 
     public void setLogEnabled(Boolean logEnabled) {
         this.logEnabled = logEnabled;
+    }
+
+    public Boolean getUserlogEnabled() {
+        return userlogEnabled;
+    }
+
+    public void setUserlogEnabled(Boolean userlogEnabled) {
+        this.userlogEnabled = userlogEnabled;
     }
 
     public Boolean getBeanEnabled() {

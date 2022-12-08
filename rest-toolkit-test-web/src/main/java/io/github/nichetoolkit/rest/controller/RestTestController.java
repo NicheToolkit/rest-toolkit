@@ -3,15 +3,17 @@ package io.github.nichetoolkit.rest.controller;
 import io.fusionauth.jwt.domain.JWT;
 import io.github.nichetoolkit.rest.RestErrorStatus;
 import io.github.nichetoolkit.rest.RestException;
-import io.github.nichetoolkit.rest.RestNote;
 import io.github.nichetoolkit.rest.RestResult;
 import io.github.nichetoolkit.rest.identity.IdentityUtils;
-import io.github.nichetoolkit.rest.image.ImageVerify;
 import io.github.nichetoolkit.rest.image.ImageUtils;
-import io.github.nichetoolkit.rest.worker.jwt.JwtWorker;
+import io.github.nichetoolkit.rest.image.ImageVerify;
+import io.github.nichetoolkit.rest.userlog.stereotype.RestLog;
+import io.github.nichetoolkit.rest.userlog.stereotype.RestNotelog;
+import io.github.nichetoolkit.rest.userlog.stereotype.RestUserlog;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import io.github.nichetoolkit.rest.worker.Md5Worker;
 import io.github.nichetoolkit.rest.worker.RadixWorker;
+import io.github.nichetoolkit.rest.worker.jwt.JwtWorker;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -32,7 +34,7 @@ import java.util.Map;
  * @version v1.0.0
  */
 @Slf4j
-@RestNote
+@RestNotelog
 @RestController
 @SuppressWarnings("SameNameButDifferent")
 @RequestMapping("/v1.0.0/rest")

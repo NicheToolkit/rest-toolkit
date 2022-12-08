@@ -62,7 +62,8 @@ public class DefaultAdvice implements ResponseBodyAdvice<Object>, ApplicationCon
     public Object beforeBodyWrite(Object body, @NonNull MethodParameter params,  @NonNull MediaType mediaType, @NonNull Class clazz, @NonNull ServerHttpRequest request, @NonNull ServerHttpResponse response) {
         if (this.restBodyAdvices != null && !this.restBodyAdvices.isEmpty()) {
             for (RestBodyAdvice advice : this.restBodyAdvices) {
-                if (advice.supports(params,clazz)) {
+                boolean supports = advice.supports(params, clazz);
+                if (supports) {
                     advice.doRestBodyHandle(body, params,mediaType,clazz,request, response);
                 }
             }
