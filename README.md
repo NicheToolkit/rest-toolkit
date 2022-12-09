@@ -108,7 +108,7 @@ Critical: 0% High: 27% Medium: 73% Low: 0% None: 0% Unknown: 0%
 
 ## Maven Central
 
--  [Maven Central Repository](https://search.maven.org/search?q=g:io.github.nichetoolkit)
+-  [Maven Central Repository](https://search.maven.org/search?q=io.github.nichetoolkit)
 
 -  [Sonatype Central Repository](https://central.sonatype.dev/search?q=io.github.nichetoolkit)
 
