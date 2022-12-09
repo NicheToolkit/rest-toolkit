@@ -66,10 +66,13 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <spring-boot.version>2.7.6</spring-boot.version>
+
         <rest-toolkit.version>1.0.6-SNAPSHOT</rest-toolkit.version>
-        <rest-okhttp3.version>4.8.1</rest-okhttp3.version>
-        <guava.version>30.1.1-jre</guava.version>
-        <fusionauth-jwt.version>5.0.0</fusionauth-jwt.version>
+
+        <okhttp3.version>4.10.0</okhttp3.version>
+        <guava.version>31.1-jre</guava.version>
+        <fusionauth-jwt.version>5.2.1</fusionauth-jwt.version>
+
         <source-plugin.version>2.2.1</source-plugin.version>
         <javadoc-plugin.version>2.9.1</javadoc-plugin.version>
         <gpg-plugin.version>1.5</gpg-plugin.version>
