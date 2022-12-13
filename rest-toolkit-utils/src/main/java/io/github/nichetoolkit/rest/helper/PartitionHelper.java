@@ -51,13 +51,13 @@ public class PartitionHelper {
         return entityList;
     }
 
-    public static <T> Boolean insert(Collection<T> modelList, Integer insertSize, FunctionActuator<Collection<T>,Integer> function) throws RestException {
+    public static <T> Boolean save(Collection<T> modelList, Integer saveSize, FunctionActuator<Collection<T>,Integer> function) throws RestException {
         if (GeneralUtils.isEmpty(modelList)) {
             return true;
         }
         Integer resultSize = 0;
-        if (modelList.size() > insertSize) {
-            List<List<T>> partitionList = Lists.partition(new ArrayList<>(modelList), insertSize);
+        if (modelList.size() > saveSize) {
+            List<List<T>> partitionList = Lists.partition(new ArrayList<>(modelList), saveSize);
             for (List<T> partition : partitionList) {
                 resultSize += function.actuate(partition);
             }
@@ -65,32 +65,6 @@ public class PartitionHelper {
             resultSize = function.actuate(modelList);
         }
         return resultSize == modelList.size();
-    }
-
-
-    public static <T> Boolean save(Collection<T> modelList, Integer saveSize, FunctionActuator<Collection<T>, Integer> function) throws RestException {
-        return insert(modelList,saveSize,function);
-    }
-
-
-    public static <T> Boolean update(Collection<T> modelList, Integer updateSize, FunctionActuator<Collection<T>, Integer> function) throws RestException {
-        if (GeneralUtils.isEmpty(modelList)) {
-            return true;
-        }
-        boolean comparer;
-        int size = modelList.size();
-        if (size > updateSize) {
-            List<List<T>> partitionList = Lists.partition(new ArrayList<>(modelList), updateSize);
-            Integer resultSize = 0;
-            for (List<T> partition : partitionList) {
-                resultSize += function.actuate(partition);
-            }
-            comparer = resultSize == partitionList.size();
-        } else {
-            Integer result = function.actuate(modelList);
-            comparer = result > 0;
-        }
-        return comparer;
     }
 
     public static <I> void delete(Collection<I> idList, Integer deleteSize, ConsumerActuator<Collection<I>> consumer) throws RestException {

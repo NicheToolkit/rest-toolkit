@@ -43,19 +43,13 @@ public class PartitionUtils {
         return entityList;
     }
 
-
-    public static <T> Boolean save(Collection<T> dataList, Integer saveSize, Function<Collection<T>, Integer> function) {
-        return insert(dataList,saveSize,function);
-    }
-
-    
-    public static <T> Boolean insert(Collection<T> dataList, Integer insertSize, Function<Collection<T>,Integer> function) {
+    public static <T> Boolean save(Collection<T> dataList, Integer saveSize, Function<Collection<T>,Integer> function) {
         if (GeneralUtils.isEmpty(dataList)) {
             return true;
         }
         Integer resultSize = 0;
-        if (dataList.size() > insertSize) {
-            List<List<T>> partitionCollection = Lists.partition(new ArrayList<>(dataList), insertSize);
+        if (dataList.size() > saveSize) {
+            List<List<T>> partitionCollection = Lists.partition(new ArrayList<>(dataList), saveSize);
             for (Collection<T> partition : partitionCollection) {
                 resultSize += function.apply(partition);
             }
@@ -63,27 +57,6 @@ public class PartitionUtils {
             resultSize = function.apply(dataList);
         }
         return resultSize == dataList.size();
-    }
-
-
-    public static <T> Boolean update(Collection<T> dataList, Integer updateSize, Function<Collection<T>, Integer> function) {
-        if (GeneralUtils.isEmpty(dataList)) {
-            return true;
-        }
-        boolean comparer;
-        int size = dataList.size();
-        if (size > updateSize) {
-            List<List<T>> partitionCollection = Lists.partition(new ArrayList<>(dataList), updateSize);
-            Integer resultSize = 0;
-            for (Collection<T> partition : partitionCollection) {
-                resultSize += function.apply(partition);
-            }
-            comparer = resultSize == partitionCollection.size();
-        } else {
-            Integer result = function.apply(dataList);
-            comparer = result > 0;
-        }
-        return comparer;
     }
 
     public static <I> void delete(Collection<I> idList, Integer deleteSize, Consumer<Collection<I>> consumer) {
