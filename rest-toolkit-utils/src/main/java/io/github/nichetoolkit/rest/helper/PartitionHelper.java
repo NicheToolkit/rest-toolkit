@@ -51,20 +51,20 @@ public class PartitionHelper {
         return entityList;
     }
 
-    public static <T> Boolean save(Collection<T> modelList, Integer saveSize, FunctionActuator<Collection<T>,Integer> function) throws RestException {
-        if (GeneralUtils.isEmpty(modelList)) {
-            return true;
+    public static <T> Integer save(Collection<T> dataList, Integer saveSize, FunctionActuator<Collection<T>,Integer> function) throws RestException {
+        if (GeneralUtils.isEmpty(dataList)) {
+            return 0;
         }
-        Integer resultSize = 0;
-        if (modelList.size() > saveSize) {
-            List<List<T>> partitionList = Lists.partition(new ArrayList<>(modelList), saveSize);
+        Integer result = 0;
+        if (dataList.size() > saveSize) {
+            List<List<T>> partitionList = Lists.partition(new ArrayList<>(dataList), saveSize);
             for (List<T> partition : partitionList) {
-                resultSize += function.actuate(partition);
+                result += function.actuate(partition);
             }
         } else {
-            resultSize = function.actuate(modelList);
+            result = function.actuate(dataList);
         }
-        return resultSize == modelList.size();
+        return result;
     }
 
     public static <I> void delete(Collection<I> idList, Integer deleteSize, ConsumerActuator<Collection<I>> consumer) throws RestException {
