@@ -79,7 +79,7 @@ public class RestTemplates {
         return singletonMap;
     }
 
-    public static <K, V, O> MultiValueMap<K, List<V>> merge(MultiValueMap<K, V> paramsMap, K key, V value) {
+    public static <K, V> MultiValueMap<K, List<V>> merge(MultiValueMap<K, V> paramsMap, K key, V value) {
         if (GeneralUtils.isEmpty(paramsMap)) {
             return emptyMap();
         }
@@ -91,7 +91,7 @@ public class RestTemplates {
         return singletonMap;
     }
 
-    public static <K, V, O> MultiValueMap<K, List<V>> merge(MultiValueMap<K, V> firstMap, MultiValueMap<K, V> secondMap) {
+    public static <K, V> MultiValueMap<K, List<V>> merge(MultiValueMap<K, V> firstMap, MultiValueMap<K, V> secondMap) {
         if (GeneralUtils.isEmpty(firstMap) && GeneralUtils.isEmpty(secondMap)) {
             return emptyMap();
         }
