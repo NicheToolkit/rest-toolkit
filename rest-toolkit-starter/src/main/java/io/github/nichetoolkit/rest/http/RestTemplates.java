@@ -79,7 +79,19 @@ public class RestTemplates {
         return singletonMap;
     }
 
-    public static <K, V> MultiValueMap<K, List<V>> merge(MultiValueMap<K, V> paramsMap, K key, V value) {
+    public static <K, V> MultiValueMap<K, V> merge(MultiValueMap<K, V> paramsMap, K key, V value) {
+        if (GeneralUtils.isEmpty(paramsMap)) {
+            return emptyMap();
+        }
+        LinkedMultiValueMap<K, V> singletonMap = new LinkedMultiValueMap<>();
+        paramsMap.forEach(singletonMap::put);
+        if (GeneralUtils.isNotEmpty(value)) {
+            singletonMap.put(key, Collections.singletonList(value));
+        }
+        return singletonMap;
+    }
+
+    public static <K, V> MultiValueMap<K, List<V>> mergeList(MultiValueMap<K, V> paramsMap, K key, V value) {
         if (GeneralUtils.isEmpty(paramsMap)) {
             return emptyMap();
         }
@@ -91,13 +103,41 @@ public class RestTemplates {
         return singletonMap;
     }
 
-    public static <K, V> MultiValueMap<K, List<V>> merge(MultiValueMap<K, V> firstMap, MultiValueMap<K, V> secondMap) {
+    public static <K, V> MultiValueMap<K, V> merge(MultiValueMap<K, V> firstMap, MultiValueMap<K, V> secondMap) {
+        if (GeneralUtils.isEmpty(firstMap) && GeneralUtils.isEmpty(secondMap)) {
+            return emptyMap();
+        }
+        LinkedMultiValueMap<K, V> singletonMap = new LinkedMultiValueMap<>();
+        if (GeneralUtils.isNotEmpty(firstMap)) {
+            firstMap.forEach(singletonMap::put);
+        }
+        if (GeneralUtils.isNotEmpty(secondMap)) {
+            secondMap.forEach(singletonMap::put);
+        }
+        return singletonMap;
+    }
+
+    public static <K, V> MultiValueMap<K, List<V>> mergeList(MultiValueMap<K, List<V>> firstMap, MultiValueMap<K, List<V>> secondMap) {
         if (GeneralUtils.isEmpty(firstMap) && GeneralUtils.isEmpty(secondMap)) {
             return emptyMap();
         }
         LinkedMultiValueMap<K, List<V>> singletonMap = new LinkedMultiValueMap<>();
         if (GeneralUtils.isNotEmpty(firstMap)) {
-            firstMap.forEach(singletonMap::add);
+            firstMap.forEach(singletonMap::put);
+        }
+        if (GeneralUtils.isNotEmpty(secondMap)) {
+            secondMap.forEach(singletonMap::put);
+        }
+        return singletonMap;
+    }
+
+    public static <K, V> MultiValueMap<K, List<V>> mergeAll(MultiValueMap<K, List<V>> firstMap, MultiValueMap<K, V> secondMap) {
+        if (GeneralUtils.isEmpty(firstMap) && GeneralUtils.isEmpty(secondMap)) {
+            return emptyMap();
+        }
+        LinkedMultiValueMap<K, List<V>> singletonMap = new LinkedMultiValueMap<>();
+        if (GeneralUtils.isNotEmpty(firstMap)) {
+            firstMap.forEach(singletonMap::put);
         }
         if (GeneralUtils.isNotEmpty(secondMap)) {
             secondMap.forEach(singletonMap::add);
