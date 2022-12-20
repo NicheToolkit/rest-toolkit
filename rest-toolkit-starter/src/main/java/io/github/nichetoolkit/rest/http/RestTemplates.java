@@ -28,7 +28,7 @@ import java.util.Map;
  * @version v1.0.0
  */
 @Slf4j
-@SuppressWarnings({"SameNameButDifferent","TypeParameterUnusedInFormals"})
+@SuppressWarnings({"SameNameButDifferent", "TypeParameterUnusedInFormals"})
 public class RestTemplates {
 
     private final RestTemplate restTemplate;
@@ -55,25 +55,53 @@ public class RestTemplates {
         return singletonMap;
     }
 
-    public static <K, V> MultiValueMap<K, V> add(Map<K,V> paramsMap) {
-        LinkedMultiValueMap<K, V> singletonMap = new LinkedMultiValueMap<>(paramsMap.size());
-        if (GeneralUtils.isNotEmpty(paramsMap)) {
-            paramsMap.forEach(singletonMap::add);
+    public static <K, V> MultiValueMap<K, V> add(Map<K, V> paramsMap) {
+        if (GeneralUtils.isEmpty(paramsMap)) {
+            return emptyMap();
         }
+        LinkedMultiValueMap<K, V> singletonMap = new LinkedMultiValueMap<>(paramsMap.size());
+        paramsMap.forEach(singletonMap::add);
         return singletonMap;
     }
 
-    public static <K, V> MultiValueMap<K, V> put(Map<K,List<V>> paramsMap) {
-        LinkedMultiValueMap<K, V> singletonMap = new LinkedMultiValueMap<>(paramsMap.size());
-        if (GeneralUtils.isNotEmpty(paramsMap)) {
-            paramsMap.forEach(singletonMap::put);
+    public static <K, V> MultiValueMap<K, V> put(Map<K, List<V>> paramsMap) {
+        if (GeneralUtils.isEmpty(paramsMap)) {
+            return emptyMap();
         }
+        LinkedMultiValueMap<K, V> singletonMap = new LinkedMultiValueMap<>(paramsMap.size());
+        paramsMap.forEach(singletonMap::put);
         return singletonMap;
     }
 
     public static <K, V> MultiValueMap<K, List<V>> singletonListMap(K key, V value) {
         LinkedMultiValueMap<K, List<V>> singletonMap = new LinkedMultiValueMap<>(1);
         singletonMap.add(key, Collections.singletonList(value));
+        return singletonMap;
+    }
+
+    public static <K, V, O> MultiValueMap<K, List<V>> merge(MultiValueMap<K, V> paramsMap, K key, V value) {
+        if (GeneralUtils.isEmpty(paramsMap)) {
+            return emptyMap();
+        }
+        LinkedMultiValueMap<K, List<V>> singletonMap = new LinkedMultiValueMap<>();
+        paramsMap.forEach(singletonMap::add);
+        if (GeneralUtils.isNotEmpty(value)) {
+            singletonMap.add(key, Collections.singletonList(value));
+        }
+        return singletonMap;
+    }
+
+    public static <K, V, O> MultiValueMap<K, List<V>> merge(MultiValueMap<K, V> firstMap, MultiValueMap<K, V> secondMap) {
+        if (GeneralUtils.isEmpty(firstMap) && GeneralUtils.isEmpty(secondMap)) {
+            return emptyMap();
+        }
+        LinkedMultiValueMap<K, List<V>> singletonMap = new LinkedMultiValueMap<>();
+        if (GeneralUtils.isNotEmpty(firstMap)) {
+            firstMap.forEach(singletonMap::add);
+        }
+        if (GeneralUtils.isNotEmpty(secondMap)) {
+            secondMap.forEach(singletonMap::add);
+        }
         return singletonMap;
     }
 
@@ -122,421 +150,419 @@ public class RestTemplates {
     }
 
     public static <T> T formObject(String url, TypeReference<T> typeReference) throws RestException {
-        return postObject(url,formHttpEntity(),typeReference);
+        return postObject(url, formHttpEntity(), typeReference);
     }
 
     public static <T> T formObject(String url, JavaType javaType) throws RestException {
-        return postObject(url,formHttpEntity(),javaType);
+        return postObject(url, formHttpEntity(), javaType);
     }
 
     public static <T> T formObject(String url, Class<T> clazz) throws RestException {
-        return postObject(url,formHttpEntity(),clazz);
+        return postObject(url, formHttpEntity(), clazz);
     }
 
     public static <T> T formObject(String url, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
-        return postObject(url,formHttpEntity(),params,typeReference);
+        return postObject(url, formHttpEntity(), params, typeReference);
     }
 
     public static <T> T formObject(String url, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
-        return postObject(url,formHttpEntity(),params,javaType);
+        return postObject(url, formHttpEntity(), params, javaType);
     }
 
     public static <T> T formObject(String url, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
-        return postObject(url,formHttpEntity(),params,clazz);
+        return postObject(url, formHttpEntity(), params, clazz);
     }
 
     public static <T> T formObject(String url, Object body, TypeReference<T> typeReference) throws RestException {
-        return postObject(url,formHttpEntity(body),typeReference);
+        return postObject(url, formHttpEntity(body), typeReference);
     }
 
     public static <T> T formObject(String url, Object body, JavaType javaType) throws RestException {
-        return postObject(url,formHttpEntity(body),javaType);
+        return postObject(url, formHttpEntity(body), javaType);
     }
 
     public static <T> T formObject(String url, Object body, Class<T> clazz) throws RestException {
-        return postObject(url,formHttpEntity(body),clazz);
+        return postObject(url, formHttpEntity(body), clazz);
     }
 
     public static <T> T formObject(String url, Object body, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
-        return postObject(url,formHttpEntity(body),params,typeReference);
+        return postObject(url, formHttpEntity(body), params, typeReference);
     }
 
     public static <T> T formObject(String url, Object body, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
-        return postObject(url,formHttpEntity(body),params,javaType);
+        return postObject(url, formHttpEntity(body), params, javaType);
     }
 
     public static <T> T formObject(String url, Object body, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
-        return postObject(url,formHttpEntity(body),params,clazz);
+        return postObject(url, formHttpEntity(body), params, clazz);
     }
 
-    public static <T> T formObject(String url, HttpHeaders httpHeaders,TypeReference<T> typeReference) throws RestException {
-        return postObject(url,formHttpEntity(httpHeaders),typeReference);
+    public static <T> T formObject(String url, HttpHeaders httpHeaders, TypeReference<T> typeReference) throws RestException {
+        return postObject(url, formHttpEntity(httpHeaders), typeReference);
     }
 
-    public static <T> T formObject(String url, HttpHeaders httpHeaders,JavaType javaType) throws RestException {
-        return postObject(url,formHttpEntity(httpHeaders),javaType);
+    public static <T> T formObject(String url, HttpHeaders httpHeaders, JavaType javaType) throws RestException {
+        return postObject(url, formHttpEntity(httpHeaders), javaType);
     }
 
     public static <T> T formObject(String url, HttpHeaders httpHeaders, Class<T> clazz) throws RestException {
-        return postObject(url,formHttpEntity(httpHeaders),clazz);
+        return postObject(url, formHttpEntity(httpHeaders), clazz);
     }
 
     public static <T> T formObject(String url, HttpHeaders httpHeaders, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
-        return postObject(url,formHttpEntity(httpHeaders),params,typeReference);
+        return postObject(url, formHttpEntity(httpHeaders), params, typeReference);
     }
 
     public static <T> T formObject(String url, HttpHeaders httpHeaders, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
-        return postObject(url,formHttpEntity(httpHeaders),params,javaType);
+        return postObject(url, formHttpEntity(httpHeaders), params, javaType);
     }
 
     public static <T> T formObject(String url, HttpHeaders httpHeaders, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
-        return postObject(url,formHttpEntity(httpHeaders),params,clazz);
+        return postObject(url, formHttpEntity(httpHeaders), params, clazz);
     }
 
     public static <T> T formObject(String url, Object body, HttpHeaders httpHeaders, TypeReference<T> typeReference) throws RestException {
-        return postObject(url,formHttpEntity(body,httpHeaders),typeReference);
+        return postObject(url, formHttpEntity(body, httpHeaders), typeReference);
     }
 
     public static <T> T formObject(String url, Object body, HttpHeaders httpHeaders, JavaType javaType) throws RestException {
-        return postObject(url,formHttpEntity(body,httpHeaders),javaType);
+        return postObject(url, formHttpEntity(body, httpHeaders), javaType);
     }
 
-    public static <T> T formObject(String url, Object body, HttpHeaders httpHeaders,  Class<T> clazz) throws RestException {
-        return postObject(url,formHttpEntity(body,httpHeaders),clazz);
+    public static <T> T formObject(String url, Object body, HttpHeaders httpHeaders, Class<T> clazz) throws RestException {
+        return postObject(url, formHttpEntity(body, httpHeaders), clazz);
     }
 
     public static <T> T formObject(String url, Object body, HttpHeaders httpHeaders, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
-        return postObject(url,formHttpEntity(body,httpHeaders),params,typeReference);
+        return postObject(url, formHttpEntity(body, httpHeaders), params, typeReference);
     }
 
     public static <T> T formObject(String url, Object body, HttpHeaders httpHeaders, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
-        return postObject(url,formHttpEntity(body,httpHeaders),params,javaType);
+        return postObject(url, formHttpEntity(body, httpHeaders), params, javaType);
     }
 
     public static <T> T formObject(String url, Object body, HttpHeaders httpHeaders, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
-        return postObject(url,formHttpEntity(body,httpHeaders),params,clazz);
+        return postObject(url, formHttpEntity(body, httpHeaders), params, clazz);
     }
-
 
 
     public static <T> RestResult<T> formObjectResult(String url, TypeReference<T> typeReference) throws RestException {
-        return postObjectResult(url,formHttpEntity(),typeReference);
+        return postObjectResult(url, formHttpEntity(), typeReference);
     }
 
     public static <T> RestResult<T> formObjectResult(String url, JavaType javaType) throws RestException {
-        return postObjectResult(url,formHttpEntity(),javaType);
+        return postObjectResult(url, formHttpEntity(), javaType);
     }
 
     public static <T> RestResult<T> formObjectResult(String url, Class<T> clazz) throws RestException {
-        return postObjectResult(url,formHttpEntity(),clazz);
+        return postObjectResult(url, formHttpEntity(), clazz);
     }
 
     public static <T> RestResult<T> formObjectResult(String url, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
-        return postObjectResult(url,formHttpEntity(),params,typeReference);
+        return postObjectResult(url, formHttpEntity(), params, typeReference);
     }
 
     public static <T> RestResult<T> formObjectResult(String url, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
-        return postObjectResult(url,formHttpEntity(),params,javaType);
+        return postObjectResult(url, formHttpEntity(), params, javaType);
     }
 
     public static <T> RestResult<T> formObjectResult(String url, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
-        return postObjectResult(url,formHttpEntity(),params,clazz);
+        return postObjectResult(url, formHttpEntity(), params, clazz);
     }
 
     public static <T> RestResult<T> formObjectResult(String url, Object body, TypeReference<T> typeReference) throws RestException {
-        return postObjectResult(url,formHttpEntity(body),typeReference);
+        return postObjectResult(url, formHttpEntity(body), typeReference);
     }
 
     public static <T> RestResult<T> formObjectResult(String url, Object body, JavaType javaType) throws RestException {
-        return postObjectResult(url,formHttpEntity(body),javaType);
+        return postObjectResult(url, formHttpEntity(body), javaType);
     }
 
     public static <T> RestResult<T> formObjectResult(String url, Object body, Class<T> clazz) throws RestException {
-        return postObjectResult(url,formHttpEntity(body),clazz);
+        return postObjectResult(url, formHttpEntity(body), clazz);
     }
 
     public static <T> RestResult<T> formObjectResult(String url, Object body, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
-        return postObjectResult(url,formHttpEntity(body),params,typeReference);
+        return postObjectResult(url, formHttpEntity(body), params, typeReference);
     }
 
     public static <T> RestResult<T> formObjectResult(String url, Object body, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
-        return postObjectResult(url,formHttpEntity(body),params,javaType);
+        return postObjectResult(url, formHttpEntity(body), params, javaType);
     }
 
     public static <T> RestResult<T> formObjectResult(String url, Object body, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
-        return postObjectResult(url,formHttpEntity(body),params,clazz);
+        return postObjectResult(url, formHttpEntity(body), params, clazz);
     }
 
-    public static <T> RestResult<T> formObjectResult(String url, HttpHeaders httpHeaders,TypeReference<T> typeReference) throws RestException {
-        return postObjectResult(url,formHttpEntity(httpHeaders),typeReference);
+    public static <T> RestResult<T> formObjectResult(String url, HttpHeaders httpHeaders, TypeReference<T> typeReference) throws RestException {
+        return postObjectResult(url, formHttpEntity(httpHeaders), typeReference);
     }
 
-    public static <T> RestResult<T> formObjectResult(String url, HttpHeaders httpHeaders,JavaType javaType) throws RestException {
-        return postObjectResult(url,formHttpEntity(httpHeaders),javaType);
+    public static <T> RestResult<T> formObjectResult(String url, HttpHeaders httpHeaders, JavaType javaType) throws RestException {
+        return postObjectResult(url, formHttpEntity(httpHeaders), javaType);
     }
 
     public static <T> RestResult<T> formObjectResult(String url, HttpHeaders httpHeaders, Class<T> clazz) throws RestException {
-        return postObjectResult(url,formHttpEntity(httpHeaders),clazz);
+        return postObjectResult(url, formHttpEntity(httpHeaders), clazz);
     }
 
     public static <T> RestResult<T> formObjectResult(String url, HttpHeaders httpHeaders, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
-        return postObjectResult(url,formHttpEntity(httpHeaders),params,typeReference);
+        return postObjectResult(url, formHttpEntity(httpHeaders), params, typeReference);
     }
 
     public static <T> RestResult<T> formObjectResult(String url, HttpHeaders httpHeaders, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
-        return postObjectResult(url,formHttpEntity(httpHeaders),params,javaType);
+        return postObjectResult(url, formHttpEntity(httpHeaders), params, javaType);
     }
 
     public static <T> RestResult<T> formObjectResult(String url, HttpHeaders httpHeaders, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
-        return postObjectResult(url,formHttpEntity(httpHeaders),params,clazz);
+        return postObjectResult(url, formHttpEntity(httpHeaders), params, clazz);
     }
 
     public static <T> RestResult<T> formObjectResult(String url, Object body, HttpHeaders httpHeaders, TypeReference<T> typeReference) throws RestException {
-        return postObjectResult(url,formHttpEntity(body,httpHeaders),typeReference);
+        return postObjectResult(url, formHttpEntity(body, httpHeaders), typeReference);
     }
 
     public static <T> RestResult<T> formObjectResult(String url, Object body, HttpHeaders httpHeaders, JavaType javaType) throws RestException {
-        return postObjectResult(url,formHttpEntity(body,httpHeaders),javaType);
+        return postObjectResult(url, formHttpEntity(body, httpHeaders), javaType);
     }
 
-    public static <T> RestResult<T> formObjectResult(String url, Object body, HttpHeaders httpHeaders,  Class<T> clazz) throws RestException {
-        return postObjectResult(url,formHttpEntity(body,httpHeaders),clazz);
+    public static <T> RestResult<T> formObjectResult(String url, Object body, HttpHeaders httpHeaders, Class<T> clazz) throws RestException {
+        return postObjectResult(url, formHttpEntity(body, httpHeaders), clazz);
     }
 
     public static <T> RestResult<T> formObjectResult(String url, Object body, HttpHeaders httpHeaders, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
-        return postObjectResult(url,formHttpEntity(body,httpHeaders),params,typeReference);
+        return postObjectResult(url, formHttpEntity(body, httpHeaders), params, typeReference);
     }
 
     public static <T> RestResult<T> formObjectResult(String url, Object body, HttpHeaders httpHeaders, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
-        return postObjectResult(url,formHttpEntity(body,httpHeaders),params,javaType);
+        return postObjectResult(url, formHttpEntity(body, httpHeaders), params, javaType);
     }
 
     public static <T> RestResult<T> formObjectResult(String url, Object body, HttpHeaders httpHeaders, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
-        return postObjectResult(url,formHttpEntity(body,httpHeaders),params,clazz);
+        return postObjectResult(url, formHttpEntity(body, httpHeaders), params, clazz);
     }
-
 
 
     public static <T> T postObject(String url, TypeReference<T> typeReference) throws RestException {
-        return postObject(url,jsonHttpEntity(),typeReference);
+        return postObject(url, jsonHttpEntity(), typeReference);
     }
 
     public static <T> T postObject(String url, JavaType javaType) throws RestException {
-        return postObject(url,jsonHttpEntity(),javaType);
+        return postObject(url, jsonHttpEntity(), javaType);
     }
 
     public static <T> T postObject(String url, Class<T> clazz) throws RestException {
-        return postObject(url,jsonHttpEntity(),clazz);
+        return postObject(url, jsonHttpEntity(), clazz);
     }
 
     public static <T> T postObject(String url, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
-        return postObject(url,jsonHttpEntity(),params,typeReference);
+        return postObject(url, jsonHttpEntity(), params, typeReference);
     }
 
     public static <T> T postObject(String url, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
-        return postObject(url,jsonHttpEntity(),params,javaType);
+        return postObject(url, jsonHttpEntity(), params, javaType);
     }
 
     public static <T> T postObject(String url, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
-        return postObject(url,jsonHttpEntity(),params,clazz);
+        return postObject(url, jsonHttpEntity(), params, clazz);
     }
 
     public static <T> T postObject(String url, Object body, TypeReference<T> typeReference) throws RestException {
-        return postObject(url,jsonHttpEntity(body),typeReference);
+        return postObject(url, jsonHttpEntity(body), typeReference);
     }
 
     public static <T> T postObject(String url, Object body, JavaType javaType) throws RestException {
-        return postObject(url,jsonHttpEntity(body),javaType);
+        return postObject(url, jsonHttpEntity(body), javaType);
     }
 
     public static <T> T postObject(String url, Object body, Class<T> clazz) throws RestException {
-        return postObject(url,jsonHttpEntity(body),clazz);
+        return postObject(url, jsonHttpEntity(body), clazz);
     }
 
     public static <T> T postObject(String url, Object body, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
-        return postObject(url,jsonHttpEntity(body),params,typeReference);
+        return postObject(url, jsonHttpEntity(body), params, typeReference);
     }
 
     public static <T> T postObject(String url, Object body, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
-        return postObject(url,jsonHttpEntity(body),params,javaType);
+        return postObject(url, jsonHttpEntity(body), params, javaType);
     }
 
     public static <T> T postObject(String url, Object body, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
-        return postObject(url,jsonHttpEntity(body),params,clazz);
+        return postObject(url, jsonHttpEntity(body), params, clazz);
     }
 
-    public static <T> T postObject(String url, HttpHeaders httpHeaders,TypeReference<T> typeReference) throws RestException {
-        return postObject(url,jsonHttpEntity(httpHeaders),typeReference);
+    public static <T> T postObject(String url, HttpHeaders httpHeaders, TypeReference<T> typeReference) throws RestException {
+        return postObject(url, jsonHttpEntity(httpHeaders), typeReference);
     }
 
-    public static <T> T postObject(String url, HttpHeaders httpHeaders,JavaType javaType) throws RestException {
-        return postObject(url,jsonHttpEntity(httpHeaders),javaType);
+    public static <T> T postObject(String url, HttpHeaders httpHeaders, JavaType javaType) throws RestException {
+        return postObject(url, jsonHttpEntity(httpHeaders), javaType);
     }
 
     public static <T> T postObject(String url, HttpHeaders httpHeaders, Class<T> clazz) throws RestException {
-        return postObject(url,jsonHttpEntity(httpHeaders),clazz);
+        return postObject(url, jsonHttpEntity(httpHeaders), clazz);
     }
 
     public static <T> T postObject(String url, HttpHeaders httpHeaders, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
-        return postObject(url,jsonHttpEntity(httpHeaders),params,typeReference);
+        return postObject(url, jsonHttpEntity(httpHeaders), params, typeReference);
     }
 
     public static <T> T postObject(String url, HttpHeaders httpHeaders, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
-        return postObject(url,jsonHttpEntity(httpHeaders),params,javaType);
+        return postObject(url, jsonHttpEntity(httpHeaders), params, javaType);
     }
 
     public static <T> T postObject(String url, HttpHeaders httpHeaders, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
-        return postObject(url,jsonHttpEntity(httpHeaders),params,clazz);
+        return postObject(url, jsonHttpEntity(httpHeaders), params, clazz);
     }
 
     public static <T> T postObject(String url, Object body, HttpHeaders httpHeaders, TypeReference<T> typeReference) throws RestException {
-        return postObject(url,jsonHttpEntity(body,httpHeaders),typeReference);
+        return postObject(url, jsonHttpEntity(body, httpHeaders), typeReference);
     }
 
     public static <T> T postObject(String url, Object body, HttpHeaders httpHeaders, JavaType javaType) throws RestException {
-        return postObject(url,jsonHttpEntity(body,httpHeaders),javaType);
+        return postObject(url, jsonHttpEntity(body, httpHeaders), javaType);
     }
 
-    public static <T> T postObject(String url, Object body, HttpHeaders httpHeaders,  Class<T> clazz) throws RestException {
-        return postObject(url,jsonHttpEntity(body,httpHeaders),clazz);
+    public static <T> T postObject(String url, Object body, HttpHeaders httpHeaders, Class<T> clazz) throws RestException {
+        return postObject(url, jsonHttpEntity(body, httpHeaders), clazz);
     }
 
     public static <T> T postObject(String url, Object body, HttpHeaders httpHeaders, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
-        return postObject(url,jsonHttpEntity(body,httpHeaders),params,typeReference);
+        return postObject(url, jsonHttpEntity(body, httpHeaders), params, typeReference);
     }
 
     public static <T> T postObject(String url, Object body, HttpHeaders httpHeaders, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
-        return postObject(url,jsonHttpEntity(body,httpHeaders),params,javaType);
+        return postObject(url, jsonHttpEntity(body, httpHeaders), params, javaType);
     }
 
     public static <T> T postObject(String url, Object body, HttpHeaders httpHeaders, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
-        return postObject(url,jsonHttpEntity(body,httpHeaders),params,clazz);
+        return postObject(url, jsonHttpEntity(body, httpHeaders), params, clazz);
     }
 
     public static <T> T postObject(String url, HttpEntity httpEntity, TypeReference<T> typeReference) throws RestException {
         String response = postString(url, httpEntity);
-        return JsonUtils.parseBean(response,typeReference);
+        return JsonUtils.parseBean(response, typeReference);
     }
 
     public static <T> T postObject(String url, HttpEntity httpEntity, JavaType javaType) throws RestException {
         String response = postString(url, httpEntity);
-        return JsonUtils.parseBean(response,javaType);
+        return JsonUtils.parseBean(response, javaType);
     }
 
     public static <T> T postObject(String url, HttpEntity httpEntity, Class<T> clazz) throws RestException {
         String response = postString(url, httpEntity);
-        return JsonUtils.parseBean(response,clazz);
+        return JsonUtils.parseBean(response, clazz);
     }
 
     public static <T> T postObject(String url, HttpEntity httpEntity, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
         String response = postString(url, httpEntity, params);
-        return JsonUtils.parseBean(response,typeReference);
+        return JsonUtils.parseBean(response, typeReference);
     }
 
     public static <T> T postObject(String url, HttpEntity httpEntity, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
         String response = postString(url, httpEntity, params);
-        return JsonUtils.parseBean(response,javaType);
+        return JsonUtils.parseBean(response, javaType);
     }
 
     public static <T> T postObject(String url, HttpEntity httpEntity, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
         String response = postString(url, httpEntity, params);
-        return JsonUtils.parseBean(response,clazz);
+        return JsonUtils.parseBean(response, clazz);
     }
 
     public static <T> RestResult<T> postObjectResult(String url, TypeReference<T> typeReference) throws RestException {
-        return postObjectResult(url,jsonHttpEntity(),typeReference);
+        return postObjectResult(url, jsonHttpEntity(), typeReference);
     }
 
     public static <T> RestResult<T> postObjectResult(String url, JavaType javaType) throws RestException {
-        return postObjectResult(url,jsonHttpEntity(),javaType);
+        return postObjectResult(url, jsonHttpEntity(), javaType);
     }
 
     public static <T> RestResult<T> postObjectResult(String url, Class<T> clazz) throws RestException {
-        return postObjectResult(url,jsonHttpEntity(),clazz);
+        return postObjectResult(url, jsonHttpEntity(), clazz);
     }
 
     public static <T> RestResult<T> postObjectResult(String url, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
-        return postObjectResult(url,jsonHttpEntity(),params,typeReference);
+        return postObjectResult(url, jsonHttpEntity(), params, typeReference);
     }
 
     public static <T> RestResult<T> postObjectResult(String url, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
-        return postObjectResult(url,jsonHttpEntity(),params,javaType);
+        return postObjectResult(url, jsonHttpEntity(), params, javaType);
     }
 
     public static <T> RestResult<T> postObjectResult(String url, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
-        return postObjectResult(url,jsonHttpEntity(),params,clazz);
+        return postObjectResult(url, jsonHttpEntity(), params, clazz);
     }
 
     public static <T> RestResult<T> postObjectResult(String url, Object body, TypeReference<T> typeReference) throws RestException {
-        return postObjectResult(url,jsonHttpEntity(body),typeReference);
+        return postObjectResult(url, jsonHttpEntity(body), typeReference);
     }
 
     public static <T> RestResult<T> postObjectResult(String url, Object body, JavaType javaType) throws RestException {
-        return postObjectResult(url,jsonHttpEntity(body),javaType);
+        return postObjectResult(url, jsonHttpEntity(body), javaType);
     }
 
     public static <T> RestResult<T> postObjectResult(String url, Object body, Class<T> clazz) throws RestException {
-        return postObjectResult(url,jsonHttpEntity(body),clazz);
+        return postObjectResult(url, jsonHttpEntity(body), clazz);
     }
 
     public static <T> RestResult<T> postObjectResult(String url, Object body, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
-        return postObjectResult(url,jsonHttpEntity(body),params,typeReference);
+        return postObjectResult(url, jsonHttpEntity(body), params, typeReference);
     }
 
     public static <T> RestResult<T> postObjectResult(String url, Object body, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
-        return postObjectResult(url,jsonHttpEntity(body),params,javaType);
+        return postObjectResult(url, jsonHttpEntity(body), params, javaType);
     }
 
     public static <T> RestResult<T> postObjectResult(String url, Object body, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
-        return postObjectResult(url,jsonHttpEntity(body),params,clazz);
+        return postObjectResult(url, jsonHttpEntity(body), params, clazz);
     }
 
-    public static <T> RestResult<T> postObjectResult(String url, HttpHeaders httpHeaders,TypeReference<T> typeReference) throws RestException {
-        return postObjectResult(url,jsonHttpEntity(httpHeaders),typeReference);
+    public static <T> RestResult<T> postObjectResult(String url, HttpHeaders httpHeaders, TypeReference<T> typeReference) throws RestException {
+        return postObjectResult(url, jsonHttpEntity(httpHeaders), typeReference);
     }
 
-    public static <T> RestResult<T> postObjectResult(String url, HttpHeaders httpHeaders,JavaType javaType) throws RestException {
-        return postObjectResult(url,jsonHttpEntity(httpHeaders),javaType);
+    public static <T> RestResult<T> postObjectResult(String url, HttpHeaders httpHeaders, JavaType javaType) throws RestException {
+        return postObjectResult(url, jsonHttpEntity(httpHeaders), javaType);
     }
 
     public static <T> RestResult<T> postObjectResult(String url, HttpHeaders httpHeaders, Class<T> clazz) throws RestException {
-        return postObjectResult(url,jsonHttpEntity(httpHeaders),clazz);
+        return postObjectResult(url, jsonHttpEntity(httpHeaders), clazz);
     }
 
     public static <T> RestResult<T> postObjectResult(String url, HttpHeaders httpHeaders, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
-        return postObjectResult(url,jsonHttpEntity(httpHeaders),params,typeReference);
+        return postObjectResult(url, jsonHttpEntity(httpHeaders), params, typeReference);
     }
 
     public static <T> RestResult<T> postObjectResult(String url, HttpHeaders httpHeaders, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
-        return postObjectResult(url,jsonHttpEntity(httpHeaders),params,javaType);
+        return postObjectResult(url, jsonHttpEntity(httpHeaders), params, javaType);
     }
 
     public static <T> RestResult<T> postObjectResult(String url, HttpHeaders httpHeaders, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
-        return postObjectResult(url,jsonHttpEntity(httpHeaders),params,clazz);
+        return postObjectResult(url, jsonHttpEntity(httpHeaders), params, clazz);
     }
 
     public static <T> RestResult<T> postObjectResult(String url, Object body, HttpHeaders httpHeaders, TypeReference<T> typeReference) throws RestException {
-        return postObjectResult(url,jsonHttpEntity(body,httpHeaders),typeReference);
+        return postObjectResult(url, jsonHttpEntity(body, httpHeaders), typeReference);
     }
 
     public static <T> RestResult<T> postObjectResult(String url, Object body, HttpHeaders httpHeaders, JavaType javaType) throws RestException {
-        return postObjectResult(url,jsonHttpEntity(body,httpHeaders),javaType);
+        return postObjectResult(url, jsonHttpEntity(body, httpHeaders), javaType);
     }
 
-    public static <T> RestResult<T> postObjectResult(String url, Object body, HttpHeaders httpHeaders,  Class<T> clazz) throws RestException {
-        return postObjectResult(url,jsonHttpEntity(body,httpHeaders),clazz);
+    public static <T> RestResult<T> postObjectResult(String url, Object body, HttpHeaders httpHeaders, Class<T> clazz) throws RestException {
+        return postObjectResult(url, jsonHttpEntity(body, httpHeaders), clazz);
     }
 
     public static <T> RestResult<T> postObjectResult(String url, Object body, HttpHeaders httpHeaders, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
-        return postObjectResult(url,jsonHttpEntity(body,httpHeaders),params,typeReference);
+        return postObjectResult(url, jsonHttpEntity(body, httpHeaders), params, typeReference);
     }
 
     public static <T> RestResult<T> postObjectResult(String url, Object body, HttpHeaders httpHeaders, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
-        return postObjectResult(url,jsonHttpEntity(body,httpHeaders),params,javaType);
+        return postObjectResult(url, jsonHttpEntity(body, httpHeaders), params, javaType);
     }
 
     public static <T> RestResult<T> postObjectResult(String url, Object body, HttpHeaders httpHeaders, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
-        return postObjectResult(url,jsonHttpEntity(body,httpHeaders),params,clazz);
+        return postObjectResult(url, jsonHttpEntity(body, httpHeaders), params, clazz);
     }
 
     public static <T> RestResult<T> postObjectResult(String url, HttpEntity httpEntity, TypeReference<T> typeReference) throws RestException {
@@ -570,311 +596,311 @@ public class RestTemplates {
     }
 
     public static <T> ResponseEntity<T> formEntity(String url, TypeReference<T> typeReference) throws RestException {
-        return postEntity(url,formHttpEntity(),typeReference);
+        return postEntity(url, formHttpEntity(), typeReference);
     }
 
     public static <T> ResponseEntity<T> formEntity(String url, JavaType javaType) throws RestException {
-        return postEntity(url,formHttpEntity(),javaType);
+        return postEntity(url, formHttpEntity(), javaType);
     }
 
     public static <T> ResponseEntity<T> formEntity(String url, Class<T> clazz) throws RestException {
-        return postEntity(url,formHttpEntity(),clazz);
+        return postEntity(url, formHttpEntity(), clazz);
     }
 
     public static <T> ResponseEntity<T> formEntity(String url, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
-        return postEntity(url,formHttpEntity(),params,typeReference);
+        return postEntity(url, formHttpEntity(), params, typeReference);
     }
 
     public static <T> ResponseEntity<T> formEntity(String url, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
-        return postEntity(url,formHttpEntity(),params,javaType);
+        return postEntity(url, formHttpEntity(), params, javaType);
     }
 
     public static <T> ResponseEntity<T> formEntity(String url, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
-        return postEntity(url,formHttpEntity(),params,clazz);
+        return postEntity(url, formHttpEntity(), params, clazz);
     }
 
     public static <T> ResponseEntity<T> formEntity(String url, Object body, TypeReference<T> typeReference) throws RestException {
-        return postEntity(url,formHttpEntity(body),typeReference);
+        return postEntity(url, formHttpEntity(body), typeReference);
     }
 
     public static <T> ResponseEntity<T> formEntity(String url, Object body, JavaType javaType) throws RestException {
-        return postEntity(url,formHttpEntity(body),javaType);
+        return postEntity(url, formHttpEntity(body), javaType);
     }
 
     public static <T> ResponseEntity<T> formEntity(String url, Object body, Class<T> clazz) throws RestException {
-        return postEntity(url,formHttpEntity(body),clazz);
+        return postEntity(url, formHttpEntity(body), clazz);
     }
 
     public static <T> ResponseEntity<T> formEntity(String url, Object body, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
-        return postEntity(url,formHttpEntity(body),params,typeReference);
+        return postEntity(url, formHttpEntity(body), params, typeReference);
     }
 
     public static <T> ResponseEntity<T> formEntity(String url, Object body, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
-        return postEntity(url,formHttpEntity(body),params,javaType);
+        return postEntity(url, formHttpEntity(body), params, javaType);
     }
 
     public static <T> ResponseEntity<T> formEntity(String url, Object body, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
-        return postEntity(url,formHttpEntity(body),params,clazz);
+        return postEntity(url, formHttpEntity(body), params, clazz);
     }
 
-    public static <T> ResponseEntity<T> formEntity(String url, HttpHeaders httpHeaders,TypeReference<T> typeReference) throws RestException {
-        return postEntity(url,formHttpEntity(httpHeaders),typeReference);
+    public static <T> ResponseEntity<T> formEntity(String url, HttpHeaders httpHeaders, TypeReference<T> typeReference) throws RestException {
+        return postEntity(url, formHttpEntity(httpHeaders), typeReference);
     }
 
-    public static <T> ResponseEntity<T> formEntity(String url, HttpHeaders httpHeaders,JavaType javaType) throws RestException {
-        return postEntity(url,formHttpEntity(httpHeaders),javaType);
+    public static <T> ResponseEntity<T> formEntity(String url, HttpHeaders httpHeaders, JavaType javaType) throws RestException {
+        return postEntity(url, formHttpEntity(httpHeaders), javaType);
     }
 
     public static <T> ResponseEntity<T> formEntity(String url, HttpHeaders httpHeaders, Class<T> clazz) throws RestException {
-        return postEntity(url,formHttpEntity(httpHeaders),clazz);
+        return postEntity(url, formHttpEntity(httpHeaders), clazz);
     }
 
     public static <T> ResponseEntity<T> formEntity(String url, HttpHeaders httpHeaders, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
-        return postEntity(url,formHttpEntity(httpHeaders),params,typeReference);
+        return postEntity(url, formHttpEntity(httpHeaders), params, typeReference);
     }
 
     public static <T> ResponseEntity<T> formEntity(String url, HttpHeaders httpHeaders, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
-        return postEntity(url,formHttpEntity(httpHeaders),params,javaType);
+        return postEntity(url, formHttpEntity(httpHeaders), params, javaType);
     }
 
     public static <T> ResponseEntity<T> formEntity(String url, HttpHeaders httpHeaders, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
-        return postEntity(url,formHttpEntity(httpHeaders),params,clazz);
+        return postEntity(url, formHttpEntity(httpHeaders), params, clazz);
     }
 
     public static <T> ResponseEntity<T> formEntity(String url, Object body, HttpHeaders httpHeaders, TypeReference<T> typeReference) throws RestException {
-        return postEntity(url,formHttpEntity(body,httpHeaders),typeReference);
+        return postEntity(url, formHttpEntity(body, httpHeaders), typeReference);
     }
 
     public static <T> ResponseEntity<T> formEntity(String url, Object body, HttpHeaders httpHeaders, JavaType javaType) throws RestException {
-        return postEntity(url,formHttpEntity(body,httpHeaders),javaType);
+        return postEntity(url, formHttpEntity(body, httpHeaders), javaType);
     }
 
-    public static <T> ResponseEntity<T> formEntity(String url, Object body, HttpHeaders httpHeaders,  Class<T> clazz) throws RestException {
-        return postEntity(url,formHttpEntity(body,httpHeaders),clazz);
+    public static <T> ResponseEntity<T> formEntity(String url, Object body, HttpHeaders httpHeaders, Class<T> clazz) throws RestException {
+        return postEntity(url, formHttpEntity(body, httpHeaders), clazz);
     }
 
     public static <T> ResponseEntity<T> formEntity(String url, Object body, HttpHeaders httpHeaders, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
-        return postEntity(url,formHttpEntity(body,httpHeaders),params,typeReference);
+        return postEntity(url, formHttpEntity(body, httpHeaders), params, typeReference);
     }
 
     public static <T> ResponseEntity<T> formEntity(String url, Object body, HttpHeaders httpHeaders, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
-        return postEntity(url,formHttpEntity(body,httpHeaders),params,javaType);
+        return postEntity(url, formHttpEntity(body, httpHeaders), params, javaType);
     }
 
     public static <T> ResponseEntity<T> formEntity(String url, Object body, HttpHeaders httpHeaders, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
-        return postEntity(url,formHttpEntity(body,httpHeaders),params,clazz);
+        return postEntity(url, formHttpEntity(body, httpHeaders), params, clazz);
     }
 
 
     public static <T> RestResult<T> formEntityResult(String url, TypeReference<T> typeReference) throws RestException {
-        return postEntityResult(url,formHttpEntity(),typeReference);
+        return postEntityResult(url, formHttpEntity(), typeReference);
     }
 
     public static <T> RestResult<T> formEntityResult(String url, JavaType javaType) throws RestException {
-        return postEntityResult(url,formHttpEntity(),javaType);
+        return postEntityResult(url, formHttpEntity(), javaType);
     }
 
     public static <T> RestResult<T> formEntityResult(String url, Class<T> clazz) throws RestException {
-        return postEntityResult(url,formHttpEntity(),clazz);
+        return postEntityResult(url, formHttpEntity(), clazz);
     }
 
     public static <T> RestResult<T> formEntityResult(String url, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
-        return postEntityResult(url,formHttpEntity(),params,typeReference);
+        return postEntityResult(url, formHttpEntity(), params, typeReference);
     }
 
     public static <T> RestResult<T> formEntityResult(String url, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
-        return postEntityResult(url,formHttpEntity(),params,javaType);
+        return postEntityResult(url, formHttpEntity(), params, javaType);
     }
 
     public static <T> RestResult<T> formEntityResult(String url, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
-        return postEntityResult(url,formHttpEntity(),params,clazz);
+        return postEntityResult(url, formHttpEntity(), params, clazz);
     }
 
     public static <T> RestResult<T> formEntityResult(String url, Object body, TypeReference<T> typeReference) throws RestException {
-        return postEntityResult(url,formHttpEntity(body),typeReference);
+        return postEntityResult(url, formHttpEntity(body), typeReference);
     }
 
     public static <T> RestResult<T> formEntityResult(String url, Object body, JavaType javaType) throws RestException {
-        return postEntityResult(url,formHttpEntity(body),javaType);
+        return postEntityResult(url, formHttpEntity(body), javaType);
     }
 
     public static <T> RestResult<T> formEntityResult(String url, Object body, Class<T> clazz) throws RestException {
-        return postEntityResult(url,formHttpEntity(body),clazz);
+        return postEntityResult(url, formHttpEntity(body), clazz);
     }
 
     public static <T> RestResult<T> formEntityResult(String url, Object body, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
-        return postEntityResult(url,formHttpEntity(body),params,typeReference);
+        return postEntityResult(url, formHttpEntity(body), params, typeReference);
     }
 
     public static <T> RestResult<T> formEntityResult(String url, Object body, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
-        return postEntityResult(url,formHttpEntity(body),params,javaType);
+        return postEntityResult(url, formHttpEntity(body), params, javaType);
     }
 
     public static <T> RestResult<T> formEntityResult(String url, Object body, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
-        return postEntityResult(url,formHttpEntity(body),params,clazz);
+        return postEntityResult(url, formHttpEntity(body), params, clazz);
     }
 
-    public static <T> RestResult<T> formEntityResult(String url, HttpHeaders httpHeaders,TypeReference<T> typeReference) throws RestException {
-        return postEntityResult(url,formHttpEntity(httpHeaders),typeReference);
+    public static <T> RestResult<T> formEntityResult(String url, HttpHeaders httpHeaders, TypeReference<T> typeReference) throws RestException {
+        return postEntityResult(url, formHttpEntity(httpHeaders), typeReference);
     }
 
-    public static <T> RestResult<T> formEntityResult(String url, HttpHeaders httpHeaders,JavaType javaType) throws RestException {
-        return postEntityResult(url,formHttpEntity(httpHeaders),javaType);
+    public static <T> RestResult<T> formEntityResult(String url, HttpHeaders httpHeaders, JavaType javaType) throws RestException {
+        return postEntityResult(url, formHttpEntity(httpHeaders), javaType);
     }
 
     public static <T> RestResult<T> formEntityResult(String url, HttpHeaders httpHeaders, Class<T> clazz) throws RestException {
-        return postEntityResult(url,formHttpEntity(httpHeaders),clazz);
+        return postEntityResult(url, formHttpEntity(httpHeaders), clazz);
     }
 
     public static <T> RestResult<T> formEntityResult(String url, HttpHeaders httpHeaders, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
-        return postEntityResult(url,formHttpEntity(httpHeaders),params,typeReference);
+        return postEntityResult(url, formHttpEntity(httpHeaders), params, typeReference);
     }
 
     public static <T> RestResult<T> formEntityResult(String url, HttpHeaders httpHeaders, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
-        return postEntityResult(url,formHttpEntity(httpHeaders),params,javaType);
+        return postEntityResult(url, formHttpEntity(httpHeaders), params, javaType);
     }
 
     public static <T> RestResult<T> formEntityResult(String url, HttpHeaders httpHeaders, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
-        return postEntityResult(url,formHttpEntity(httpHeaders),params,clazz);
+        return postEntityResult(url, formHttpEntity(httpHeaders), params, clazz);
     }
 
     public static <T> RestResult<T> formEntityResult(String url, Object body, HttpHeaders httpHeaders, TypeReference<T> typeReference) throws RestException {
-        return postEntityResult(url,formHttpEntity(body,httpHeaders),typeReference);
+        return postEntityResult(url, formHttpEntity(body, httpHeaders), typeReference);
     }
 
     public static <T> RestResult<T> formEntityResult(String url, Object body, HttpHeaders httpHeaders, JavaType javaType) throws RestException {
-        return postEntityResult(url,formHttpEntity(body,httpHeaders),javaType);
+        return postEntityResult(url, formHttpEntity(body, httpHeaders), javaType);
     }
 
-    public static <T> RestResult<T> formEntityResult(String url, Object body, HttpHeaders httpHeaders,  Class<T> clazz) throws RestException {
-        return postEntityResult(url,formHttpEntity(body,httpHeaders),clazz);
+    public static <T> RestResult<T> formEntityResult(String url, Object body, HttpHeaders httpHeaders, Class<T> clazz) throws RestException {
+        return postEntityResult(url, formHttpEntity(body, httpHeaders), clazz);
     }
 
     public static <T> RestResult<T> formEntityResult(String url, Object body, HttpHeaders httpHeaders, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
-        return postEntityResult(url,formHttpEntity(body,httpHeaders),params,typeReference);
+        return postEntityResult(url, formHttpEntity(body, httpHeaders), params, typeReference);
     }
 
     public static <T> RestResult<T> formEntityResult(String url, Object body, HttpHeaders httpHeaders, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
-        return postEntityResult(url,formHttpEntity(body,httpHeaders),params,javaType);
+        return postEntityResult(url, formHttpEntity(body, httpHeaders), params, javaType);
     }
 
     public static <T> RestResult<T> formEntityResult(String url, Object body, HttpHeaders httpHeaders, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
-        return postEntityResult(url,formHttpEntity(body,httpHeaders),params,clazz);
+        return postEntityResult(url, formHttpEntity(body, httpHeaders), params, clazz);
     }
 
     public static <T> ResponseEntity<T> postEntity(String url, TypeReference<T> typeReference) throws RestException {
-        return postEntity(url,jsonHttpEntity(),typeReference);
+        return postEntity(url, jsonHttpEntity(), typeReference);
     }
 
     public static <T> ResponseEntity<T> postEntity(String url, JavaType javaType) throws RestException {
-        return postEntity(url,jsonHttpEntity(),javaType);
+        return postEntity(url, jsonHttpEntity(), javaType);
     }
 
     public static <T> ResponseEntity<T> postEntity(String url, Class<T> clazz) throws RestException {
-        return postEntity(url,jsonHttpEntity(),clazz);
+        return postEntity(url, jsonHttpEntity(), clazz);
     }
 
     public static <T> ResponseEntity<T> postEntity(String url, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
-        return postEntity(url,jsonHttpEntity(),params,typeReference);
+        return postEntity(url, jsonHttpEntity(), params, typeReference);
     }
 
     public static <T> ResponseEntity<T> postEntity(String url, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
-        return postEntity(url,jsonHttpEntity(),params,javaType);
+        return postEntity(url, jsonHttpEntity(), params, javaType);
     }
 
     public static <T> ResponseEntity<T> postEntity(String url, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
-        return postEntity(url,jsonHttpEntity(),params,clazz);
+        return postEntity(url, jsonHttpEntity(), params, clazz);
     }
 
     public static <T> ResponseEntity<T> postEntity(String url, Object body, TypeReference<T> typeReference) throws RestException {
-        return postEntity(url,jsonHttpEntity(body),typeReference);
+        return postEntity(url, jsonHttpEntity(body), typeReference);
     }
 
     public static <T> ResponseEntity<T> postEntity(String url, Object body, JavaType javaType) throws RestException {
-        return postEntity(url,jsonHttpEntity(body),javaType);
+        return postEntity(url, jsonHttpEntity(body), javaType);
     }
 
     public static <T> ResponseEntity<T> postEntity(String url, Object body, Class<T> clazz) throws RestException {
-        return postEntity(url,jsonHttpEntity(body),clazz);
+        return postEntity(url, jsonHttpEntity(body), clazz);
     }
 
     public static <T> ResponseEntity<T> postEntity(String url, Object body, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
-        return postEntity(url,jsonHttpEntity(body),params,typeReference);
+        return postEntity(url, jsonHttpEntity(body), params, typeReference);
     }
 
     public static <T> ResponseEntity<T> postEntity(String url, Object body, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
-        return postEntity(url,jsonHttpEntity(body),params,javaType);
+        return postEntity(url, jsonHttpEntity(body), params, javaType);
     }
 
     public static <T> ResponseEntity<T> postEntity(String url, Object body, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
-        return postEntity(url,jsonHttpEntity(body),params,clazz);
+        return postEntity(url, jsonHttpEntity(body), params, clazz);
     }
 
-    public static <T> ResponseEntity<T> postEntity(String url, HttpHeaders httpHeaders,TypeReference<T> typeReference) throws RestException {
-        return postEntity(url,jsonHttpEntity(httpHeaders),typeReference);
+    public static <T> ResponseEntity<T> postEntity(String url, HttpHeaders httpHeaders, TypeReference<T> typeReference) throws RestException {
+        return postEntity(url, jsonHttpEntity(httpHeaders), typeReference);
     }
 
-    public static <T> ResponseEntity<T> postEntity(String url, HttpHeaders httpHeaders,JavaType javaType) throws RestException {
-        return postEntity(url,jsonHttpEntity(httpHeaders),javaType);
+    public static <T> ResponseEntity<T> postEntity(String url, HttpHeaders httpHeaders, JavaType javaType) throws RestException {
+        return postEntity(url, jsonHttpEntity(httpHeaders), javaType);
     }
 
     public static <T> ResponseEntity<T> postEntity(String url, HttpHeaders httpHeaders, Class<T> clazz) throws RestException {
-        return postEntity(url,jsonHttpEntity(httpHeaders),clazz);
+        return postEntity(url, jsonHttpEntity(httpHeaders), clazz);
     }
 
     public static <T> ResponseEntity<T> postEntity(String url, HttpHeaders httpHeaders, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
-        return postEntity(url,jsonHttpEntity(httpHeaders),params,typeReference);
+        return postEntity(url, jsonHttpEntity(httpHeaders), params, typeReference);
     }
 
     public static <T> ResponseEntity<T> postEntity(String url, HttpHeaders httpHeaders, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
-        return postEntity(url,jsonHttpEntity(httpHeaders),params,javaType);
+        return postEntity(url, jsonHttpEntity(httpHeaders), params, javaType);
     }
 
     public static <T> ResponseEntity<T> postEntity(String url, HttpHeaders httpHeaders, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
-        return postEntity(url,jsonHttpEntity(httpHeaders),params,clazz);
+        return postEntity(url, jsonHttpEntity(httpHeaders), params, clazz);
     }
 
     public static <T> ResponseEntity<T> postEntity(String url, Object body, HttpHeaders httpHeaders, TypeReference<T> typeReference) throws RestException {
-        return postEntity(url,jsonHttpEntity(body,httpHeaders),typeReference);
+        return postEntity(url, jsonHttpEntity(body, httpHeaders), typeReference);
     }
 
     public static <T> ResponseEntity<T> postEntity(String url, Object body, HttpHeaders httpHeaders, JavaType javaType) throws RestException {
-        return postEntity(url,jsonHttpEntity(body,httpHeaders),javaType);
+        return postEntity(url, jsonHttpEntity(body, httpHeaders), javaType);
     }
 
-    public static <T> ResponseEntity<T> postEntity(String url, Object body, HttpHeaders httpHeaders,  Class<T> clazz) throws RestException {
-        return postEntity(url,jsonHttpEntity(body,httpHeaders),clazz);
+    public static <T> ResponseEntity<T> postEntity(String url, Object body, HttpHeaders httpHeaders, Class<T> clazz) throws RestException {
+        return postEntity(url, jsonHttpEntity(body, httpHeaders), clazz);
     }
 
     public static <T> ResponseEntity<T> postEntity(String url, Object body, HttpHeaders httpHeaders, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
-        return postEntity(url,jsonHttpEntity(body,httpHeaders),params,typeReference);
+        return postEntity(url, jsonHttpEntity(body, httpHeaders), params, typeReference);
     }
 
     public static <T> ResponseEntity<T> postEntity(String url, Object body, HttpHeaders httpHeaders, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
-        return postEntity(url,jsonHttpEntity(body,httpHeaders),params,javaType);
+        return postEntity(url, jsonHttpEntity(body, httpHeaders), params, javaType);
     }
 
     public static <T> ResponseEntity<T> postEntity(String url, Object body, HttpHeaders httpHeaders, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
-        return postEntity(url,jsonHttpEntity(body,httpHeaders),params,clazz);
+        return postEntity(url, jsonHttpEntity(body, httpHeaders), params, clazz);
     }
 
     @SuppressWarnings(value = "unchecked")
     public static <T> ResponseEntity<T> postEntity(String url, HttpEntity httpEntity, TypeReference<T> typeReference) throws RestException {
-        return (ResponseEntity<T>) postEntityObject(url, httpEntity,TypeFactory.rawClass(TypeFactory.defaultInstance().constructType(typeReference)));
+        return (ResponseEntity<T>) postEntityObject(url, httpEntity, TypeFactory.rawClass(TypeFactory.defaultInstance().constructType(typeReference)));
     }
 
     @SuppressWarnings(value = "unchecked")
     public static <T> ResponseEntity<T> postEntity(String url, HttpEntity httpEntity, JavaType javaType) throws RestException {
-        return (ResponseEntity<T>) postEntityObject(url, httpEntity,TypeFactory.rawClass(javaType));
+        return (ResponseEntity<T>) postEntityObject(url, httpEntity, TypeFactory.rawClass(javaType));
     }
 
     public static <T> ResponseEntity<T> postEntity(String url, HttpEntity httpEntity, Class<T> clazz) throws RestException {
-        return postEntityObject(url, httpEntity,clazz);
+        return postEntityObject(url, httpEntity, clazz);
     }
 
     @SuppressWarnings(value = "unchecked")
     public static <T> ResponseEntity<T> postEntity(String url, HttpEntity httpEntity, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
-        return (ResponseEntity<T>) postEntityObject(url, httpEntity, params,TypeFactory.rawClass(TypeFactory.defaultInstance().constructType(typeReference)));
+        return (ResponseEntity<T>) postEntityObject(url, httpEntity, params, TypeFactory.rawClass(TypeFactory.defaultInstance().constructType(typeReference)));
     }
 
     @SuppressWarnings(value = "unchecked")
@@ -887,99 +913,99 @@ public class RestTemplates {
     }
 
     public static <T> RestResult<T> postEntityResult(String url, TypeReference<T> typeReference) throws RestException {
-        return postEntityResult(url,jsonHttpEntity(),typeReference);
+        return postEntityResult(url, jsonHttpEntity(), typeReference);
     }
 
     public static <T> RestResult<T> postEntityResult(String url, JavaType javaType) throws RestException {
-        return postEntityResult(url,jsonHttpEntity(),javaType);
+        return postEntityResult(url, jsonHttpEntity(), javaType);
     }
 
     public static <T> RestResult<T> postEntityResult(String url, Class<T> clazz) throws RestException {
-        return postEntityResult(url,jsonHttpEntity(),clazz);
+        return postEntityResult(url, jsonHttpEntity(), clazz);
     }
 
     public static <T> RestResult<T> postEntityResult(String url, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
-        return postEntityResult(url,jsonHttpEntity(),params,typeReference);
+        return postEntityResult(url, jsonHttpEntity(), params, typeReference);
     }
 
     public static <T> RestResult<T> postEntityResult(String url, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
-        return postEntityResult(url,jsonHttpEntity(),params,javaType);
+        return postEntityResult(url, jsonHttpEntity(), params, javaType);
     }
 
     public static <T> RestResult<T> postEntityResult(String url, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
-        return postEntityResult(url,jsonHttpEntity(),params,clazz);
+        return postEntityResult(url, jsonHttpEntity(), params, clazz);
     }
 
     public static <T> RestResult<T> postEntityResult(String url, Object body, TypeReference<T> typeReference) throws RestException {
-        return postEntityResult(url,jsonHttpEntity(body),typeReference);
+        return postEntityResult(url, jsonHttpEntity(body), typeReference);
     }
 
     public static <T> RestResult<T> postEntityResult(String url, Object body, JavaType javaType) throws RestException {
-        return postEntityResult(url,jsonHttpEntity(body),javaType);
+        return postEntityResult(url, jsonHttpEntity(body), javaType);
     }
 
     public static <T> RestResult<T> postEntityResult(String url, Object body, Class<T> clazz) throws RestException {
-        return postEntityResult(url,jsonHttpEntity(body),clazz);
+        return postEntityResult(url, jsonHttpEntity(body), clazz);
     }
 
     public static <T> RestResult<T> postEntityResult(String url, Object body, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
-        return postEntityResult(url,jsonHttpEntity(body),params,typeReference);
+        return postEntityResult(url, jsonHttpEntity(body), params, typeReference);
     }
 
     public static <T> RestResult<T> postEntityResult(String url, Object body, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
-        return postEntityResult(url,jsonHttpEntity(body),params,javaType);
+        return postEntityResult(url, jsonHttpEntity(body), params, javaType);
     }
 
     public static <T> RestResult<T> postEntityResult(String url, Object body, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
-        return postEntityResult(url,jsonHttpEntity(body),params,clazz);
+        return postEntityResult(url, jsonHttpEntity(body), params, clazz);
     }
 
-    public static <T> RestResult<T> postEntityResult(String url, HttpHeaders httpHeaders,TypeReference<T> typeReference) throws RestException {
-        return postEntityResult(url,jsonHttpEntity(httpHeaders),typeReference);
+    public static <T> RestResult<T> postEntityResult(String url, HttpHeaders httpHeaders, TypeReference<T> typeReference) throws RestException {
+        return postEntityResult(url, jsonHttpEntity(httpHeaders), typeReference);
     }
 
-    public static <T> RestResult<T> postEntityResult(String url, HttpHeaders httpHeaders,JavaType javaType) throws RestException {
-        return postEntityResult(url,jsonHttpEntity(httpHeaders),javaType);
+    public static <T> RestResult<T> postEntityResult(String url, HttpHeaders httpHeaders, JavaType javaType) throws RestException {
+        return postEntityResult(url, jsonHttpEntity(httpHeaders), javaType);
     }
 
     public static <T> RestResult<T> postEntityResult(String url, HttpHeaders httpHeaders, Class<T> clazz) throws RestException {
-        return postEntityResult(url,jsonHttpEntity(httpHeaders),clazz);
+        return postEntityResult(url, jsonHttpEntity(httpHeaders), clazz);
     }
 
     public static <T> RestResult<T> postEntityResult(String url, HttpHeaders httpHeaders, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
-        return postEntityResult(url,jsonHttpEntity(httpHeaders),params,typeReference);
+        return postEntityResult(url, jsonHttpEntity(httpHeaders), params, typeReference);
     }
 
     public static <T> RestResult<T> postEntityResult(String url, HttpHeaders httpHeaders, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
-        return postEntityResult(url,jsonHttpEntity(httpHeaders),params,javaType);
+        return postEntityResult(url, jsonHttpEntity(httpHeaders), params, javaType);
     }
 
     public static <T> RestResult<T> postEntityResult(String url, HttpHeaders httpHeaders, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
-        return postEntityResult(url,jsonHttpEntity(httpHeaders),params,clazz);
+        return postEntityResult(url, jsonHttpEntity(httpHeaders), params, clazz);
     }
 
     public static <T> RestResult<T> postEntityResult(String url, Object body, HttpHeaders httpHeaders, TypeReference<T> typeReference) throws RestException {
-        return postEntityResult(url,jsonHttpEntity(body,httpHeaders),typeReference);
+        return postEntityResult(url, jsonHttpEntity(body, httpHeaders), typeReference);
     }
 
     public static <T> RestResult<T> postEntityResult(String url, Object body, HttpHeaders httpHeaders, JavaType javaType) throws RestException {
-        return postEntityResult(url,jsonHttpEntity(body,httpHeaders),javaType);
+        return postEntityResult(url, jsonHttpEntity(body, httpHeaders), javaType);
     }
 
-    public static <T> RestResult<T> postEntityResult(String url, Object body, HttpHeaders httpHeaders,  Class<T> clazz) throws RestException {
-        return postEntityResult(url,jsonHttpEntity(body,httpHeaders),clazz);
+    public static <T> RestResult<T> postEntityResult(String url, Object body, HttpHeaders httpHeaders, Class<T> clazz) throws RestException {
+        return postEntityResult(url, jsonHttpEntity(body, httpHeaders), clazz);
     }
 
     public static <T> RestResult<T> postEntityResult(String url, Object body, HttpHeaders httpHeaders, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
-        return postEntityResult(url,jsonHttpEntity(body,httpHeaders),params,typeReference);
+        return postEntityResult(url, jsonHttpEntity(body, httpHeaders), params, typeReference);
     }
 
     public static <T> RestResult<T> postEntityResult(String url, Object body, HttpHeaders httpHeaders, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
-        return postEntityResult(url,jsonHttpEntity(body,httpHeaders),params,javaType);
+        return postEntityResult(url, jsonHttpEntity(body, httpHeaders), params, javaType);
     }
 
     public static <T> RestResult<T> postEntityResult(String url, Object body, HttpHeaders httpHeaders, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
-        return postEntityResult(url,jsonHttpEntity(body,httpHeaders),params,clazz);
+        return postEntityResult(url, jsonHttpEntity(body, httpHeaders), params, clazz);
     }
 
     public static <T> RestResult<T> postEntityResult(String url, HttpEntity httpEntity, TypeReference<T> typeReference) throws RestException {
@@ -1102,32 +1128,32 @@ public class RestTemplates {
 
     public static <T> T getObject(String url, TypeReference<T> typeReference) throws RestException {
         String response = getString(url);
-        return JsonUtils.parseBean(response,typeReference);
+        return JsonUtils.parseBean(response, typeReference);
     }
 
     public static <T> T getObject(String url, JavaType javaType) throws RestException {
         String response = getString(url);
-        return JsonUtils.parseBean(response,javaType);
+        return JsonUtils.parseBean(response, javaType);
     }
 
     public static <T> T getObject(String url, Class<T> clazz) throws RestException {
         String response = getString(url);
-        return JsonUtils.parseBean(response,clazz);
+        return JsonUtils.parseBean(response, clazz);
     }
 
     public static <T> T getObject(String url, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
         String response = getString(url, params);
-        return JsonUtils.parseBean(response,typeReference);
+        return JsonUtils.parseBean(response, typeReference);
     }
 
     public static <T> T getObject(String url, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
         String response = getString(url, params);
-        return JsonUtils.parseBean(response,javaType);
+        return JsonUtils.parseBean(response, javaType);
     }
 
     public static <T> T getObject(String url, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
         String response = getString(url, params);
-        return JsonUtils.parseBean(response,clazz);
+        return JsonUtils.parseBean(response, clazz);
     }
 
     public static <T> T getObjectResult(String url, TypeReference<T> typeReference) throws RestException {
@@ -1162,30 +1188,30 @@ public class RestTemplates {
 
     @SuppressWarnings(value = "unchecked")
     public static <T> ResponseEntity<T> getEntity(String url, TypeReference<T> typeReference) throws RestException {
-        return (ResponseEntity<T>) getEntityObject(url,TypeFactory.rawClass(TypeFactory.defaultInstance().constructType(typeReference)));
+        return (ResponseEntity<T>) getEntityObject(url, TypeFactory.rawClass(TypeFactory.defaultInstance().constructType(typeReference)));
     }
 
     @SuppressWarnings(value = "unchecked")
     public static <T> ResponseEntity<T> getEntity(String url, JavaType javaType) throws RestException {
-        return (ResponseEntity<T>) getEntityObject(url,TypeFactory.rawClass(javaType));
+        return (ResponseEntity<T>) getEntityObject(url, TypeFactory.rawClass(javaType));
     }
 
     public static <T> ResponseEntity<T> getEntity(String url, Class<T> clazz) throws RestException {
-        return getEntityObject(url,clazz);
+        return getEntityObject(url, clazz);
     }
 
     @SuppressWarnings(value = "unchecked")
     public static <T> ResponseEntity<T> getEntity(String url, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
-        return (ResponseEntity<T>) getEntityObject(url, params,TypeFactory.rawClass(TypeFactory.defaultInstance().constructType(typeReference)));
+        return (ResponseEntity<T>) getEntityObject(url, params, TypeFactory.rawClass(TypeFactory.defaultInstance().constructType(typeReference)));
     }
 
     @SuppressWarnings(value = "unchecked")
     public static <T> ResponseEntity<T> getEntity(String url, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
-        return (ResponseEntity<T>) getEntityObject(url, params,TypeFactory.rawClass(javaType));
+        return (ResponseEntity<T>) getEntityObject(url, params, TypeFactory.rawClass(javaType));
     }
 
     public static <T> ResponseEntity<T> getEntity(String url, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
-        return getEntityObject(url, params,clazz);
+        return getEntityObject(url, params, clazz);
     }
 
     public static <T> RestResult<T> getEntityResult(String url, TypeReference<T> typeReference) throws RestException {
@@ -1239,7 +1265,7 @@ public class RestTemplates {
 
     private static <T> ResponseEntity<T> getEntityObject(String url, Class<T> clazz) throws HttpErrorException {
         try {
-            return INSTANCE.restTemplate.getForEntity(url,clazz);
+            return INSTANCE.restTemplate.getForEntity(url, clazz);
         } catch (RestClientException exception) {
             log.error("the request with restTemplate 'getForEntity' method has error: {}", exception.getMessage());
             throw new HttpErrorException("getForEntity", exception.getMessage(), exception);
