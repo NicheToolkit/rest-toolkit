@@ -24,6 +24,10 @@ public class ServiceErrorException extends RestErrorException {
         super(RestErrorStatus.SERVICE_ERROR, RestError.error(RestErrorStatus.SERVICE_ERROR, error));
     }
 
+    public ServiceErrorException(String error,Throwable cause) {
+        super(RestErrorStatus.SERVICE_ERROR, RestError.error( RestErrorStatus.SERVICE_ERROR, error, cause));
+    }
+
     public ServiceErrorException(RestStatus status) {
         super(status, RestError.error(status));
     }
@@ -36,6 +40,10 @@ public class ServiceErrorException extends RestErrorException {
         super(status, RestError.error(status, error));
     }
 
+    public ServiceErrorException(RestStatus status, String error, Throwable cause) {
+        super(status, RestError.error(status, error, cause));
+    }
+
     public ServiceErrorException(String service, String error) {
         super(RestErrorStatus.SERVICE_ERROR, RestError.error( service, RestErrorStatus.SERVICE_ERROR, error));
     }
@@ -46,6 +54,10 @@ public class ServiceErrorException extends RestErrorException {
 
     public ServiceErrorException(String service, RestStatus status, String error) {
         super(RestErrorStatus.SERVICE_ERROR, RestError.error( service, status, error));
+    }
+
+    public ServiceErrorException(String service, RestStatus status, String error, Throwable cause) {
+        super(RestErrorStatus.SERVICE_ERROR, RestError.error( service, status, error, cause));
     }
 
     public ServiceErrorException(String resource, String service, RestStatus status) {
