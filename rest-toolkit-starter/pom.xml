@@ -66,6 +66,12 @@
         </dependency>
 
         <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+        <scope>compile</scope>
+        </dependency>
+
+        <dependency>
             <groupId>io.github.nichetoolkit</groupId>
             <artifactId>rest-toolkit-utils</artifactId>
             <version>${rest-toolkit.version}</version>
