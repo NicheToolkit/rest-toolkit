@@ -154,6 +154,7 @@ public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBody
             usernote = new RestUsernote();
             usernote.setNotelog(notelog);
             usernote.setLogKey(logKey);
+            usernote.setLogType(LogType.NONE);
         }
         if (GeneralUtils.isNotEmpty(userlogAnnotation)) {
             if (GeneralUtils.isEmpty(usernote)) {
@@ -184,6 +185,8 @@ public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBody
                     usernote.setUserlog(logType.getField());
                 }
             }
+        } else {
+            usernote = null;
         }
         RestResponse restResponse = REST_RESPONSE_HOLDER.get();
         RestRequest restRequest = applyInterceptRest(request, response, exception, restResponse);
@@ -307,7 +310,7 @@ public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBody
 
     public void applyInterceptService(RestRequest request, RestResponse restResponse, RestUsernote usernote) throws RestException {
         RestUsernoteService usernoteService = ContextUtils.getBean(RestUsernoteService.class);
-        if (GeneralUtils.isNotEmpty(usernoteService) && interceptProperties.getUserlogEnabled()) {
+        if (GeneralUtils.isNotEmpty(usernote) && GeneralUtils.isNotEmpty(usernoteService) && interceptProperties.getUserlogEnabled()) {
             usernoteService.usernote(request, restResponse, usernote);
         }
     }
