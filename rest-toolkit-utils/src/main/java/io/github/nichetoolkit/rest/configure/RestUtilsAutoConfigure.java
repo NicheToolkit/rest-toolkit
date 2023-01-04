@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.nichetoolkit.rest.holder.ObjectMapperHolder;
 import io.github.nichetoolkit.rest.worker.RadixWorker;
 import io.github.nichetoolkit.rest.worker.jwt.JwtWorker;
+import io.github.nichetoolkit.rest.worker.rsa.RsaWorker;
 import io.github.nichetoolkit.rest.worker.sha.ShaWorker;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,9 +47,17 @@ public class RestUtilsAutoConfigure {
     @Bean
     @Primary
     @ConditionalOnMissingBean(ShaWorker.class)
-    @ConditionalOnProperty(value = "nichetoolkit.rest.md5.enabled", havingValue = "true")
-    public ShaWorker md5Worker(RestShaProperties md5Properties) {
-        return new ShaWorker(md5Properties);
+    @ConditionalOnProperty(value = "nichetoolkit.rest.sha.enabled", havingValue = "true")
+    public ShaWorker shaWorker(RestShaProperties shaProperties) {
+        return new ShaWorker(shaProperties);
+    }
+
+    @Bean
+    @Primary
+    @ConditionalOnMissingBean(RsaWorker.class)
+    @ConditionalOnProperty(value = "nichetoolkit.rest.rsa.enabled", havingValue = "true")
+    public RsaWorker rsaWorker(RestRsaProperties rsaProperties) {
+        return new RsaWorker(rsaProperties);
     }
 
     @Bean
