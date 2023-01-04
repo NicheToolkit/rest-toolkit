@@ -2,7 +2,7 @@ package io.github.nichetoolkit.rest.configure;
 
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import io.github.nichetoolkit.rest.worker.RadixWorker;
-import io.github.nichetoolkit.rest.worker.jwt.AlgorithmType;
+import io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm;
 import io.github.nichetoolkit.rest.worker.jwt.JwtBuilder;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
@@ -13,7 +13,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.*;
 
 /**
- * <p>RestJWTProperties</p>
+ * <p>RestJwtProperties</p>
  * @author Cyan (snow22314@outlook.com)
  * @version v1.0.0
  */
@@ -22,9 +22,9 @@ import java.util.*;
 public class RestJwtProperties {
     private Boolean enabled = false;
     /** 加密算法 */
-    private AlgorithmType algorithm = AlgorithmType.HS256;
+    private JwtAlgorithm algorithm = JwtAlgorithm.HS256;
     /** 加密密钥 */
-    private String secretKey;
+    private String secret;
     /** 密钥kid */
     private String kid;
     /** 发行者 */
@@ -53,20 +53,20 @@ public class RestJwtProperties {
         this.enabled = enabled;
     }
 
-    public AlgorithmType getAlgorithm() {
-        if (algorithm == AlgorithmType.NONE) {
+    public JwtAlgorithm getAlgorithm() {
+        if (algorithm == JwtAlgorithm.NONE) {
             this.algorithm.signer();
         } else {
-            if (GeneralUtils.isNotEmpty(this.secretKey)) {
-                this.algorithm.verifier(this.secretKey);
+            if (GeneralUtils.isNotEmpty(this.secret)) {
+                this.algorithm.verifier(this.secret);
                 if (GeneralUtils.isNotEmpty(this.kid)) {
-                    this.algorithm.signer(this.secretKey, this.kid);
+                    this.algorithm.signer(this.secret, this.kid);
                 } else {
-                    this.algorithm.signer(this.secretKey);
+                    this.algorithm.signer(this.secret);
                 }
             } else {
                 String secretKey = RadixWorker.encrypts(System.currentTimeMillis());
-                this.secretKey = secretKey;
+                this.secret = secretKey;
                 this.algorithm.signer(secretKey);
                 this.algorithm.verifier(secretKey);
             }
@@ -74,16 +74,16 @@ public class RestJwtProperties {
         return algorithm;
     }
 
-    public void setAlgorithm(AlgorithmType algorithm) {
+    public void setAlgorithm(JwtAlgorithm algorithm) {
         this.algorithm = algorithm;
     }
 
-    public String getSecretKey() {
-        return secretKey;
+    public String getSecret() {
+        return secret;
     }
 
-    public void setSecretKey(String secretKey) {
-        this.secretKey = secretKey;
+    public void setSecret(String secret) {
+        this.secret = secret;
     }
 
     public String getKid() {

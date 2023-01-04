@@ -1,6 +1,4 @@
-package io.github.nichetoolkit.rest.worker.jwt;
-
-import io.github.nichetoolkit.rest.RestValue;
+package io.github.nichetoolkit.rest;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,7 +7,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * <p>Rest</p>
+ * <p>RestAlgorithm</p>
  * @author Cyan (snow22314@outlook.com)
  * @version v1.0.0
  */

@@ -1,6 +1,6 @@
-package io.github.nichetoolkit.rest.worker;
+package io.github.nichetoolkit.rest.worker.sha;
 
-import io.github.nichetoolkit.rest.configure.RestMd5Properties;
+import io.github.nichetoolkit.rest.configure.RestShaProperties;
 import io.github.nichetoolkit.rest.util.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,55 +15,66 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * <p>MD5Worker</p>
+ * <p>ShaWorker</p>
  * @author Cyan (snow22314@outlook.com)
  * @version v1.0.0
  */
 @Slf4j
-public class Md5Worker {
+public class ShaWorker {
 
     private static final String SIGN_KEY = "sign";
 
     private static final String PASSWORD_KEY = "password";
 
-    private RestMd5Properties md5CipherProperties;
+    private RestShaProperties shaProperties;
 
-    private static Md5Worker INSTANCE = null;
+    private static ShaWorker INSTANCE = null;
 
-    public static Md5Worker getInstance() {
+    public static ShaWorker getInstance() {
         return INSTANCE;
     }
 
     @Autowired
-    public Md5Worker(RestMd5Properties md5CipherProperties) {
-        this.md5CipherProperties = md5CipherProperties;
+    public ShaWorker(RestShaProperties shaProperties) {
+        this.shaProperties = shaProperties;
     }
 
     @PostConstruct
-    public void md5WorkerInit() {
-        log.debug("md5 properties: {}", JsonUtils.parseJson(md5CipherProperties));
+    public void shaWorkerInit() {
+        log.debug("SHA properties: {}", JsonUtils.parseJson(shaProperties));
         INSTANCE = this;
     }
 
-    public String encrypt(String source) {
-        return encrypts(source, this.md5CipherProperties.getCipher());
-    }
-
-    private static String md5Encrypts(String source) {
+    private static String shaencrypt(String source, String algorithm) {
         StringBuilder hexBuilder = new StringBuilder();
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
+            MessageDigest messageDigest = MessageDigest.getInstance(algorithm);
             byte[] bytes = messageDigest.digest(source.getBytes(StandardCharsets.UTF_8));
             for (byte byt : bytes) {
                 hexBuilder.append(Integer.toHexString((byt & 0xFF) | 0x100), 1, 3);
             }
         } catch (NoSuchAlgorithmException exception) {
-            log.error("the algorithm of md5 not be found!, error: {}",exception.getMessage());
+            log.error("the encrypts algorithm of {} is error !, error: {}", algorithm, exception.getMessage());
         }
         return hexBuilder.toString().toUpperCase();
     }
 
-    public static String encrypts(final Map<String, Object> source, String cipher) {
+    public String encrypt(String source) {
+        return encrypts(source, this.shaProperties.getSecret());
+    }
+
+    public static String encrypts(String source) {
+        return encrypts(source,INSTANCE.shaProperties.getSecret());
+    }
+
+    public static String encrypts(String source, String secret) {
+        Map<String, Object> paramMap = new HashMap<>();
+        String target = encrypts(source);
+        paramMap.put(PASSWORD_KEY, target);
+        return encrypts(paramMap, secret);
+    }
+
+    public static String encrypts(final Map<String, Object> source, String secret) {
         Set<String> keySet = source.keySet();
         String[] keyArray = keySet.toArray(new String[0]);
         Arrays.sort(keyArray);
@@ -79,18 +90,7 @@ public class Md5Worker {
                 keyBuilder.append(key).append("=").append(source.get(key).toString().trim()).append("&");
             }
         }
-        keyBuilder.append("key=").append(cipher);
-        return md5Encrypts(keyBuilder.toString()).toUpperCase();
-    }
-
-    public static String encrypts(String source) {
-        return encrypts(source,INSTANCE.md5CipherProperties.getCipher());
-    }
-
-    public static String encrypts(String source, String cipher) {
-        Map<String, Object> paramMap = new HashMap<>();
-        String target = md5Encrypts(source);
-        paramMap.put(PASSWORD_KEY, target);
-        return encrypts(paramMap, cipher);
+        keyBuilder.append("key=").append(secret);
+        return shaencrypt(keyBuilder.toString(),INSTANCE.shaProperties.getAlgorithm().getAlgorithm()).toUpperCase();
     }
 }

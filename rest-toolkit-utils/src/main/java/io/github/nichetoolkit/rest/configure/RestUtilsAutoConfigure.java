@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.nichetoolkit.rest.holder.ObjectMapperHolder;
 import io.github.nichetoolkit.rest.worker.RadixWorker;
 import io.github.nichetoolkit.rest.worker.jwt.JwtWorker;
-import io.github.nichetoolkit.rest.worker.Md5Worker;
+import io.github.nichetoolkit.rest.worker.sha.ShaWorker;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -45,10 +45,10 @@ public class RestUtilsAutoConfigure {
 
     @Bean
     @Primary
-    @ConditionalOnMissingBean(Md5Worker.class)
+    @ConditionalOnMissingBean(ShaWorker.class)
     @ConditionalOnProperty(value = "nichetoolkit.rest.md5.enabled", havingValue = "true")
-    public Md5Worker md5Worker(RestMd5Properties md5Properties) {
-        return new Md5Worker(md5Properties);
+    public ShaWorker md5Worker(RestShaProperties md5Properties) {
+        return new ShaWorker(md5Properties);
     }
 
     @Bean
