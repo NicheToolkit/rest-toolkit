@@ -83,7 +83,7 @@ public class RsaWorker {
     }
 
     public String encrypt(String source) {
-        return decrypts(source, this.rsaProperties.getPublicKey());
+        return encrypts(source, this.rsaProperties.getPublicKey());
     }
 
     public String decrypt(String source) {
@@ -97,7 +97,7 @@ public class RsaWorker {
 
     public static String decrypts(String source) {
         String privateKey = INSTANCE.rsaProperties.getPrivateKey();
-        return encrypts(source, privateKey);
+        return decrypts(source, privateKey);
     }
 
     public static String decrypts(String source, String privateKey) {
