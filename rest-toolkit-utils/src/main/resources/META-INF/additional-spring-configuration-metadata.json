@@ -85,7 +85,7 @@
       "defaultValue": "HS256"
     },
     {
-      "name": "nichetoolkit.rest.jwt.secret-key",
+      "name": "nichetoolkit.rest.jwt.secret",
       "type": "java.lang.String",
       "sourceType": "java.lang.String",
       "description": "secret key."
