@@ -24,7 +24,7 @@ import org.springframework.context.annotation.Primary;
 @Slf4j
 @Configuration
 @ComponentScan(basePackages = {"io.github.nichetoolkit.rest"})
-@ImportAutoConfiguration(value = {RadixAutoConfigure.class, JwtAutoConfigure.class})
+@ImportAutoConfiguration(value = {RadixAutoConfigure.class})
 public class RestUtilsAutoConfigure {
     public RestUtilsAutoConfigure() {
         log.debug("================= rest-toolkit-utils initiated ！ ===================");
