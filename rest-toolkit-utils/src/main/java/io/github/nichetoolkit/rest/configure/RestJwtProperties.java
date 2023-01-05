@@ -5,9 +5,11 @@ import io.github.nichetoolkit.rest.worker.RadixWorker;
 import io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm;
 import io.github.nichetoolkit.rest.worker.jwt.JwtBuilder;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.temporal.ChronoUnit;
@@ -21,6 +23,10 @@ import java.util.*;
 @Component
 @ConfigurationProperties(prefix = "nichetoolkit.rest.jwt")
 public class RestJwtProperties {
+
+    @Autowired
+    private RadixWorker radixWorker;
+
     private boolean enabled;
     /** 加密算法 */
     private JwtAlgorithm algorithm = JwtAlgorithm.HS256;
@@ -46,15 +52,8 @@ public class RestJwtProperties {
     public RestJwtProperties() {
     }
 
-    public boolean isEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
-
-    public JwtAlgorithm getAlgorithm() {
+    @PostConstruct
+    public void algorithmInit() {
         if (algorithm == JwtAlgorithm.NONE) {
             this.algorithm.signer();
         } else {
@@ -65,13 +64,23 @@ public class RestJwtProperties {
                 } else {
                     this.algorithm.signer(this.secret);
                 }
-            } else {
-                String secretKey = RadixWorker.encrypts(System.currentTimeMillis());
-                this.secret = secretKey;
-                this.algorithm.signer(secretKey);
-                this.algorithm.verifier(secretKey);
+            } else if (GeneralUtils.isNotEmpty(radixWorker)) {
+                this.secret = radixWorker.encrypt(System.currentTimeMillis());
+                this.algorithm.signer(this.secret);
+                this.algorithm.verifier(this.secret);
             }
         }
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public JwtAlgorithm getAlgorithm() {
         return algorithm;
     }
 

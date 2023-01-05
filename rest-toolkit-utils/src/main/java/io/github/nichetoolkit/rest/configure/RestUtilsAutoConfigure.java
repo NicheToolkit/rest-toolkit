@@ -39,6 +39,22 @@ public class RestUtilsAutoConfigure {
 
     @Bean
     @Primary
+    @ConditionalOnMissingBean(RadixWorker.class)
+    @ConditionalOnProperty(value = "nichetoolkit.rest.radix.enabled", havingValue = "true")
+    public RadixWorker radixWorker(RestRadixProperties radixProperties) {
+        return new RadixWorker(radixProperties);
+    }
+
+    @Bean
+    @Primary
+    @ConditionalOnMissingBean(JwtWorker.class)
+    @ConditionalOnProperty(value = "nichetoolkit.rest.jwt.enabled", havingValue = "true")
+    public JwtWorker jwtWorker(RestJwtProperties jwtProperties) {
+        return new JwtWorker(jwtProperties);
+    }
+
+    @Bean
+    @Primary
     @ConditionalOnMissingBean(ShaWorker.class)
     @ConditionalOnProperty(value = "nichetoolkit.rest.sha.enabled", havingValue = "true")
     public ShaWorker shaWorker(RestShaProperties shaProperties) {
