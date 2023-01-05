@@ -8,6 +8,7 @@ import io.github.nichetoolkit.rest.worker.rsa.RsaWorker;
 import io.github.nichetoolkit.rest.worker.sha.ShaWorker;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
@@ -23,6 +24,7 @@ import org.springframework.context.annotation.Primary;
 @Slf4j
 @Configuration
 @ComponentScan(basePackages = {"io.github.nichetoolkit.rest"})
+@ImportAutoConfiguration(value = {RadixAutoConfigure.class, JwtAutoConfigure.class})
 public class RestUtilsAutoConfigure {
     public RestUtilsAutoConfigure() {
         log.debug("================= rest-toolkit-utils initiated ！ ===================");
@@ -34,14 +36,6 @@ public class RestUtilsAutoConfigure {
     @ConditionalOnMissingBean(ObjectMapperHolder.class)
     public ObjectMapperHolder objectMapperHolder(ObjectMapper objectMapper) {
         return new ObjectMapperHolder(objectMapper);
-    }
-
-    @Bean
-    @Primary
-    @ConditionalOnMissingBean(JwtWorker.class)
-    @ConditionalOnProperty(value = "nichetoolkit.rest.jwt.enabled", havingValue = "true")
-    public JwtWorker jwtWorker(RestJwtProperties jwtProperties) {
-        return new JwtWorker(jwtProperties);
     }
 
     @Bean
@@ -59,14 +53,5 @@ public class RestUtilsAutoConfigure {
     public RsaWorker rsaWorker(RestRsaProperties rsaProperties) {
         return new RsaWorker(rsaProperties);
     }
-
-    @Bean
-    @Primary
-    @ConditionalOnMissingBean(RadixWorker.class)
-    @ConditionalOnProperty(value = "nichetoolkit.rest.radix.enabled", havingValue = "true")
-    public RadixWorker radixWorker(RestRadixProperties radixProperties) {
-        return new RadixWorker(radixProperties);
-    }
-
 
 }
