@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Primary;
 
 /**
@@ -17,9 +18,9 @@ import org.springframework.context.annotation.Primary;
  */
 @Slf4j
 @ConditionalOnClass({JwtWorker.class})
+@ComponentScan(basePackages = {"io.github.nichetoolkit.rest"})
 @AutoConfiguration(after = {RestUtilsAutoConfigure.class,RadixAutoConfigure.class})
 @ConditionalOnProperty(value = "nichetoolkit.rest.radix.enabled", havingValue = "true")
-@EnableConfigurationProperties({RestJwtProperties.class})
 public class JwtAutoConfigure {
 
     @Bean
