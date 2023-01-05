@@ -48,6 +48,7 @@ public class RestJwtProperties {
     /** 是否开启nbf */
     private boolean notBeforeEnabled = false;
 
+    @Autowired(required = false)
     public RestJwtProperties() {
         this.radixWorker = null;
     }
