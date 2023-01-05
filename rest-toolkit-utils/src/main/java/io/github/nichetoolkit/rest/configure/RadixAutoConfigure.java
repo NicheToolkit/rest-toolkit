@@ -4,6 +4,7 @@ import io.github.nichetoolkit.rest.worker.RadixWorker;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
+import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
@@ -19,7 +20,7 @@ import org.springframework.context.annotation.Primary;
 @Slf4j
 @AutoConfiguration
 @ComponentScan(basePackages = {"io.github.nichetoolkit.rest"})
-@AutoConfigureAfter(value = {JwtAutoConfigure.class})
+@AutoConfigureBefore(value = {JwtAutoConfigure.class})
 @ConditionalOnProperty(value = "nichetoolkit.rest.radix.enabled", havingValue = "true")
 public class RadixAutoConfigure {
 
