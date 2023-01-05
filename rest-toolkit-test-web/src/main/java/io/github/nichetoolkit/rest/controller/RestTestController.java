@@ -7,13 +7,11 @@ import io.github.nichetoolkit.rest.RestResult;
 import io.github.nichetoolkit.rest.identity.IdentityUtils;
 import io.github.nichetoolkit.rest.image.ImageUtils;
 import io.github.nichetoolkit.rest.image.ImageVerify;
-import io.github.nichetoolkit.rest.userlog.stereotype.RestLog;
 import io.github.nichetoolkit.rest.userlog.stereotype.RestNotelog;
-import io.github.nichetoolkit.rest.userlog.stereotype.RestUserlog;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
-import io.github.nichetoolkit.rest.worker.Md5Worker;
 import io.github.nichetoolkit.rest.worker.RadixWorker;
 import io.github.nichetoolkit.rest.worker.jwt.JwtWorker;
+import io.github.nichetoolkit.rest.worker.sha.ShaWorker;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -44,7 +42,7 @@ public class RestTestController {
     private RadixWorker radixWorker;
 
     @Autowired
-    private Md5Worker md5Worker;
+    private ShaWorker shaWorker;
 
     @Autowired
     private JwtWorker jwtWorker;
@@ -93,11 +91,11 @@ public class RestTestController {
         return RestResult.ok(RestErrorStatus.SUCCESS, result);
     }
 
-    @GetMapping("/md5")
-    public ResponseEntity<RestResult<Map<String, Object>>> generalMd5() throws RestException {
+    @GetMapping("/sha")
+    public ResponseEntity<RestResult<Map<String, Object>>> generalSha() throws RestException {
         String password = GeneralUtils.uuid();
 //        String encryptPassword = Md5Worker.encrypts(password);
-        String encryptPassword = md5Worker.encrypt(password);
+        String encryptPassword = shaWorker.encrypt(password);
         Map<String, Object> result = new HashMap<>(2);
         result.put("password", password);
         result.put("encryptPassword", encryptPassword);

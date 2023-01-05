@@ -6,7 +6,6 @@ import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Primary;
@@ -19,9 +18,13 @@ import org.springframework.context.annotation.Primary;
 @Slf4j
 @ConditionalOnClass({JwtWorker.class})
 @ComponentScan(basePackages = {"io.github.nichetoolkit.rest"})
-@AutoConfiguration(after = {RestUtilsAutoConfigure.class,RadixAutoConfigure.class})
-@ConditionalOnProperty(value = "nichetoolkit.rest.radix.enabled", havingValue = "true")
+@AutoConfiguration(after = {RadixAutoConfigure.class})
+@ConditionalOnProperty(value = "nichetoolkit.rest.jwt.enabled", havingValue = "true")
 public class JwtAutoConfigure {
+
+    public JwtAutoConfigure() {
+        log.debug("================= jwt-auto-configure initiated ！ ===================");
+    }
 
     @Bean
     @Primary
