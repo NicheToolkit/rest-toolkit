@@ -48,7 +48,7 @@ public class RsaWorker {
     public RsaWorker(RestRsaProperties rsaProperties) {
         this.rsaProperties = rsaProperties;
         RsaKey rsaKey = this.rsaProperties.toRsaKey();
-        if (this.rsaProperties.isAutoVerify() && GeneralUtils.isEmpty(rsaKey)) {
+        if (this.rsaProperties.isAutoVerify() && GeneralUtils.isNotEmpty(rsaKey)) {
             boolean verify = verify(rsaKey);
             if (!verify) {
                 log.warn("the rsa key check mismatch, rsa key : \n {}", JsonUtils.parseJson(rsaKey));
