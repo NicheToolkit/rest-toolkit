@@ -11,6 +11,7 @@ public class RsaKey implements Serializable {
 
     private String publicKey;
     private String privateKey;
+    private int keySize;
 
     public RsaKey() {
     }
@@ -26,6 +27,14 @@ public class RsaKey implements Serializable {
 
     public void setPrivateKey(String privateKey) {
         this.privateKey = privateKey;
+    }
+
+    public int getKeySize() {
+        return keySize;
+    }
+
+    public void setKeySize(int keySize) {
+        this.keySize = keySize;
     }
 
     public String getPublicKey() {

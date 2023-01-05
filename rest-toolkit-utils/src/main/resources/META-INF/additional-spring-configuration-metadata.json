@@ -168,6 +168,13 @@
       "type": "java.lang.String",
       "sourceType": "java.lang.String",
       "description": "rsa private key."
+    },
+    {
+      "name": "nichetoolkit.rest.rsa.auto-verify",
+      "type": "java.lang.Boolean",
+      "sourceType": "java.lang.Boolean",
+      "description": "rsa auto verify.",
+      "defaultValue": "true"
     }
   ],
   "hints": [

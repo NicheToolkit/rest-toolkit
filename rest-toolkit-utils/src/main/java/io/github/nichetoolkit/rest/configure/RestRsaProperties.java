@@ -1,5 +1,7 @@
 package io.github.nichetoolkit.rest.configure;
 
+import io.github.nichetoolkit.rest.util.GeneralUtils;
+import io.github.nichetoolkit.rest.worker.rsa.RsaKey;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
@@ -15,12 +17,26 @@ public class RestRsaProperties {
     private boolean enabled;
     /** 密钥长度 */
     private Integer keySize = 2048;
-    /** 密码加密公钥 */
+    /** 公钥 */
     private String publicKey;
-    /** 密码加密私钥 */
+    /** 私钥 */
     private String privateKey;
+    /** 自动校验公钥和私钥 */
+    private boolean autoVerify = true;
 
     public RestRsaProperties() {
+    }
+
+    public RsaKey toRsaKey() {
+        RsaKey rsaKey = new RsaKey();
+        if (GeneralUtils.isEmpty(this.publicKey) && GeneralUtils.isEmpty(this.privateKey)) {
+            rsaKey = null;
+        } else {
+            rsaKey.setPublicKey(this.publicKey);
+            rsaKey.setPrivateKey(this.privateKey);
+            rsaKey.setKeySize(this.keySize);
+        }
+        return rsaKey;
     }
 
     public boolean isEnabled() {
@@ -53,5 +69,13 @@ public class RestRsaProperties {
 
     public void setPrivateKey(String privateKey) {
         this.privateKey = privateKey;
+    }
+
+    public boolean isAutoVerify() {
+        return autoVerify;
+    }
+
+    public void setAutoVerify(boolean autoVerify) {
+        this.autoVerify = autoVerify;
     }
 }
