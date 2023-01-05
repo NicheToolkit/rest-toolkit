@@ -24,8 +24,7 @@ import java.util.*;
 @ConfigurationProperties(prefix = "nichetoolkit.rest.jwt")
 public class RestJwtProperties {
 
-    @Autowired
-    private RadixWorker radixWorker;
+    private final RadixWorker radixWorker;
 
     private boolean enabled;
     /** 加密算法 */
@@ -49,7 +48,9 @@ public class RestJwtProperties {
     /** 是否开启nbf */
     private boolean notBeforeEnabled = false;
 
-    public RestJwtProperties() {
+    @Autowired(required = false)
+    public RestJwtProperties(RadixWorker radixWorker) {
+        this.radixWorker = radixWorker;
     }
 
     @PostConstruct
