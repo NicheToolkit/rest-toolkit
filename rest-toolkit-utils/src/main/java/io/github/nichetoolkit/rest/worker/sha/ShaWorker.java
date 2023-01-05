@@ -45,6 +45,10 @@ public class ShaWorker {
         INSTANCE = this;
     }
 
+    private static String shaencrypt(String source) {
+        return shaencrypt(source,INSTANCE.shaProperties.getAlgorithm().getAlgorithm());
+    }
+
     private static String shaencrypt(String source, String algorithm) {
         StringBuilder hexBuilder = new StringBuilder();
         try {
@@ -69,7 +73,7 @@ public class ShaWorker {
 
     public static String encrypts(String source, String secret) {
         Map<String, Object> paramMap = new HashMap<>();
-        String target = encrypts(source);
+        String target = shaencrypt(source);
         paramMap.put(PASSWORD_KEY, target);
         return encrypts(paramMap, secret);
     }
@@ -91,6 +95,6 @@ public class ShaWorker {
             }
         }
         keyBuilder.append("key=").append(secret);
-        return shaencrypt(keyBuilder.toString(),INSTANCE.shaProperties.getAlgorithm().getAlgorithm()).toUpperCase();
+        return shaencrypt(keyBuilder.toString()).toUpperCase();
     }
 }
