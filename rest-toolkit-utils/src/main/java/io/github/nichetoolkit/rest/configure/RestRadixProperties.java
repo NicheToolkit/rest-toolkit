@@ -20,7 +20,7 @@ public class RestRadixProperties {
 
     private static final char DEFAULT_SUPPLY = 'o';
 
-    private Boolean enabled = false;
+    private boolean enabled;
 
     private String digits = DEFAULT_DIGITS;
     private String supply = String.valueOf(DEFAULT_SUPPLY);
@@ -29,11 +29,11 @@ public class RestRadixProperties {
     public RestRadixProperties() {
     }
 
-    public Boolean getEnabled() {
+    public boolean isEnabled() {
         return enabled;
     }
 
-    public void setEnabled(Boolean enabled) {
+    public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
 

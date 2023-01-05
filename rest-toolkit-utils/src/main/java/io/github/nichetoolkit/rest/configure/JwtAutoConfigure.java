@@ -18,13 +18,13 @@ import org.springframework.context.annotation.Primary;
 @Slf4j
 @ConditionalOnClass({JwtWorker.class})
 @AutoConfiguration(after = {RestUtilsAutoConfigure.class,RadixAutoConfigure.class})
+@ConditionalOnProperty(value = "nichetoolkit.rest.radix.enabled", havingValue = "true")
 @EnableConfigurationProperties({RestJwtProperties.class})
 public class JwtAutoConfigure {
 
     @Bean
     @Primary
     @ConditionalOnMissingBean(JwtWorker.class)
-    @ConditionalOnProperty(value = "nichetoolkit.rest.radix.enabled", havingValue = "true")
     public JwtWorker jwtWorker(RestJwtProperties jwtProperties) {
         return new JwtWorker(jwtProperties);
     }

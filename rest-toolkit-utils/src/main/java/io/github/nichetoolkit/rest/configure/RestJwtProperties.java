@@ -4,6 +4,7 @@ import io.github.nichetoolkit.rest.util.GeneralUtils;
 import io.github.nichetoolkit.rest.worker.RadixWorker;
 import io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm;
 import io.github.nichetoolkit.rest.worker.jwt.JwtBuilder;
+import org.springframework.beans.BeanUtils;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
@@ -20,7 +21,7 @@ import java.util.*;
 @Component
 @ConfigurationProperties(prefix = "nichetoolkit.rest.jwt")
 public class RestJwtProperties {
-    private Boolean enabled = false;
+    private boolean enabled;
     /** 加密算法 */
     private JwtAlgorithm algorithm = JwtAlgorithm.HS256;
     /** 加密密钥 */
@@ -45,11 +46,11 @@ public class RestJwtProperties {
     public RestJwtProperties() {
     }
 
-    public Boolean getEnabled() {
+    public boolean isEnabled() {
         return enabled;
     }
 
-    public void setEnabled(Boolean enabled) {
+    public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
 
@@ -155,7 +156,7 @@ public class RestJwtProperties {
     }
 
     public JwtBuilder toBuilder() {
-        if (this.getEnabled()) {
+        if (this.isEnabled()) {
             JwtBuilder builder = JwtBuilder.builder();
             ZonedDateTime nowDateTime = ZonedDateTime.now(ZoneId.systemDefault());
             if (GeneralUtils.isNotEmpty(this.getIssuer())) {

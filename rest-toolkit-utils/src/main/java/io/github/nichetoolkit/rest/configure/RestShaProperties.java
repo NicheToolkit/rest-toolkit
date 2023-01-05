@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "nichetoolkit.rest.sha")
 public class RestShaProperties {
 
-    private Boolean enabled = false;
+    private boolean enabled;
 
     private String secret;
 
@@ -24,11 +24,11 @@ public class RestShaProperties {
     public RestShaProperties() {
     }
 
-    public Boolean getEnabled() {
+    public boolean isEnabled() {
         return enabled;
     }
 
-    public void setEnabled(Boolean enabled) {
+    public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
 

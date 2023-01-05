@@ -19,12 +19,12 @@ import org.springframework.context.annotation.Primary;
 @AutoConfiguration
 @ConditionalOnClass({RadixWorker.class})
 @EnableConfigurationProperties({RestRadixProperties.class})
+@ConditionalOnProperty(value = "nichetoolkit.rest.radix.enabled", havingValue = "true")
 public class RadixAutoConfigure {
 
     @Bean
     @Primary
     @ConditionalOnMissingBean(RadixWorker.class)
-    @ConditionalOnProperty(value = "nichetoolkit.rest.radix.enabled", havingValue = "true")
     public RadixWorker radixWorker(RestRadixProperties radixProperties) {
         return new RadixWorker(radixProperties);
     }
