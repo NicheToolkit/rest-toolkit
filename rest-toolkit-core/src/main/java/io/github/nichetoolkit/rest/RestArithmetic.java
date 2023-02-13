@@ -41,6 +41,11 @@ public interface RestArithmetic extends RestValue<Long, String> {
         return (key & sourceKey) != 0;
     }
 
+    static boolean reachLong(@NonNull Long key, Long arithmetic) {
+        Long sourceKey = Optional.ofNullable(arithmetic).orElse(0L);
+        return (key & sourceKey) != 0;
+    }
+
     static <T extends RestArithmetic> Long annexKey(Collection<T> arithmeticTypes) {
         return annexKey(null, arithmeticTypes);
     }
@@ -64,6 +69,23 @@ public interface RestArithmetic extends RestValue<Long, String> {
         if (arithmeticTypes != null && arithmeticTypes.size() > 0) {
             for (T arithmeticType : arithmeticTypes) {
                 Long sourceKey = arithmeticType.getKey();
+                key = key | sourceKey;
+            }
+        }
+        return key == 0L ? null : key;
+    }
+
+    static  Long annexLong(Long arithmetic, Long... arithmeticArray) {
+        if (arithmeticArray == null || arithmeticArray.length == 0) {
+            return arithmetic;
+        }
+        return annexLong(arithmetic, Arrays.asList(arithmeticArray));
+    }
+
+    static Long annexLong(Long arithmetic, Collection<Long> arithmeticList) {
+        Long key = Optional.ofNullable(arithmetic).orElse(0L);
+        if (arithmeticList != null && arithmeticList.size() > 0) {
+            for (Long sourceKey : arithmeticList) {
                 key = key | sourceKey;
             }
         }
