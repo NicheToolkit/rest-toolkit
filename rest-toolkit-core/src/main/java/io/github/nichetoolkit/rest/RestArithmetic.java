@@ -75,6 +75,14 @@ public interface RestArithmetic extends RestValue<Long, String> {
         return key == 0L ? null : key;
     }
 
+    static Long annexLong( Collection<Long> arithmeticList) {
+        return annexLong(null, arithmeticList);
+    }
+
+    static  Long annexLong(Long... arithmeticArray) {
+        return annexLong(null, Arrays.asList(arithmeticArray));
+    }
+
     static  Long annexLong(Long arithmetic, Long... arithmeticArray) {
         if (arithmeticArray == null || arithmeticArray.length == 0) {
             return arithmetic;
