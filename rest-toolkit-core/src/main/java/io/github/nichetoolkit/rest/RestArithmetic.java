@@ -38,12 +38,12 @@ public interface RestArithmetic extends RestValue<Long, String> {
 
     static boolean reachKey(@NonNull Long key, @NonNull RestArithmetic arithmeticType) {
         Long sourceKey = Optional.ofNullable(arithmeticType.getKey()).orElse(0L);
-        return (key & sourceKey) != sourceKey;
+        return (key & sourceKey) == sourceKey;
     }
 
     static boolean reachLong(@NonNull Long key, Long arithmetic) {
         Long sourceKey = Optional.ofNullable(arithmetic).orElse(0L);
-        return (key & sourceKey) != sourceKey;
+        return (key & sourceKey) == sourceKey;
     }
 
     static <T extends RestArithmetic> Long annexKey(Collection<T> arithmeticTypes) {
