@@ -145,6 +145,50 @@ public class RestTemplates {
         return singletonMap;
     }
 
+    public static HttpEntity httpEntity(MediaType mediaType) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(mediaType);
+        return new HttpEntity<>(null, headers);
+    }
+
+    public static HttpEntity httpEntity(MediaType mediaType, Object body) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(mediaType);
+        return new HttpEntity<>(body, headers);
+    }
+
+    public static HttpEntity httpEntity(MediaType mediaType, HttpHeaders headers) {
+        headers.setContentType(mediaType);
+        return new HttpEntity<>(null, headers);
+    }
+
+    public static HttpEntity httpEntity(MediaType mediaType, Object body, HttpHeaders headers) {
+        headers.setContentType(mediaType);
+        return new HttpEntity<>(body, headers);
+    }
+
+    public static HttpEntity formDataHttpEntity() {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.MULTIPART_FORM_DATA);
+        return new HttpEntity<>(null, headers);
+    }
+
+    public static HttpEntity formDataHttpEntity(Object body) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.MULTIPART_FORM_DATA);
+        return new HttpEntity<>(body, headers);
+    }
+
+    public static HttpEntity formDataHttpEntity(HttpHeaders headers) {
+        headers.setContentType(MediaType.MULTIPART_FORM_DATA);
+        return new HttpEntity<>(null, headers);
+    }
+
+    public static HttpEntity formDataHttpEntity(Object body, HttpHeaders headers) {
+        headers.setContentType(MediaType.MULTIPART_FORM_DATA);
+        return new HttpEntity<>(body, headers);
+    }
+
     public static HttpEntity jsonHttpEntity() {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
