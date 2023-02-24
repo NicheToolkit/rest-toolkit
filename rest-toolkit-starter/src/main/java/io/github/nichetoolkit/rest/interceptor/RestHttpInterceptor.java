@@ -1,7 +1,10 @@
 package io.github.nichetoolkit.rest.interceptor;
 
+import io.github.nichetoolkit.rest.configure.RestInterceptProperties;
+import io.github.nichetoolkit.rest.util.CommonUtils;
 import io.github.nichetoolkit.rest.util.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpRequest;
@@ -27,6 +30,9 @@ import java.util.Map;
 @Component
 @SuppressWarnings("SameNameButDifferent")
 public class RestHttpInterceptor implements ClientHttpRequestInterceptor {
+    @Autowired
+    private RestInterceptProperties interceptProperties;
+
     @Override
     @NonNull
     public ClientHttpResponse intercept(@NonNull HttpRequest httpRequest, @NonNull byte[] bytes, @NonNull ClientHttpRequestExecution execution) throws IOException {
@@ -41,8 +47,8 @@ public class RestHttpInterceptor implements ClientHttpRequestInterceptor {
         log.info(" HttpRequest -Params:  {}", JsonUtils.parseJson(params));
         HttpHeaders headers = httpRequest.getHeaders();
         log.info(" HttpRequest -Headers: {}",JsonUtils.parseJson(headers));
-        String httpRequestBody = new String(bytes, StandardCharsets.UTF_8);
-        log.info(" HttpRequest -Body:    {}", httpRequestBody);
+        String bodyString = CommonUtils.substring(new String(bytes,StandardCharsets.UTF_8), interceptProperties.getBodyLength());
+        log.info(" HttpRequest -Body:    {}", bodyString);
         return execution.execute(httpRequest, bytes);
     }
 }
