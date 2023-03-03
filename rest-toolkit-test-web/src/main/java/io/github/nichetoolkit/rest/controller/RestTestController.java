@@ -49,8 +49,9 @@ public class RestTestController {
 
     @GetMapping("/test")
     public ResponseEntity<RestResult> test() throws RestException {
-//
-        return RestResult.ok();
+        Object test = null;
+        test.toString();
+        return RestResult.ok("11111");
     }
 
     @GetMapping("/identity")

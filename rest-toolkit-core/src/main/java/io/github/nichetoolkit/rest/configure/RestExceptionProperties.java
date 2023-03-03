@@ -25,7 +25,7 @@ public class RestExceptionProperties {
 
     public static class ConsoleLog {
         private Boolean restExceptionEnabled = false;
-        private Boolean commonExceptionEnabled = false;
+        private Boolean commonExceptionEnabled = true;
 
         public Boolean getRestExceptionEnabled() {
             return restExceptionEnabled;

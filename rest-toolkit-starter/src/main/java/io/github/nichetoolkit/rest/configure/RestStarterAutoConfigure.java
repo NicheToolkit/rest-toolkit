@@ -18,5 +18,4 @@ public class RestStarterAutoConfigure {
         log.debug("================= rest-toolkit-starter initiated ！ ===================");
     }
 
-
 }

@@ -2,6 +2,7 @@ package io.github.nichetoolkit.rest;
 
 import io.github.nichetoolkit.rest.configure.RestExceptionProperties;
 import io.github.nichetoolkit.rest.holder.ContextHolder;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,9 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.Collections;
 import java.util.List;
 
@@ -30,6 +34,7 @@ import java.util.List;
  * @author Cyan (snow22314@outlook.com)
  * @version v1.0.0
  */
+@Slf4j
 @Order(0)
 @CrossOrigin
 @ControllerAdvice
@@ -96,24 +101,37 @@ public class DefaultAdvice implements ResponseBodyAdvice<Object>, ApplicationCon
 
     @ResponseBody
     @ExceptionHandler({Exception.class})
-    public ResponseEntity<Object> exceptionHandle(Exception exception,HttpServletRequest request, HttpServletResponse response) {
+    public ResponseEntity<Object> exceptionHandle(Exception exception, HttpServletRequest request, HttpServletResponse response) {
         preExceptionHandle(exception,request,response);
         if (exception instanceof DefaultException) {
             DefaultException defaultException = (DefaultException) exception;
             doDefaultExceptionHandle(defaultException,request,response);
             boolean restExceptionEnabled = exceptionProperties.getConsoleLog().getRestExceptionEnabled();
             if (restExceptionEnabled) {
-                exception.printStackTrace();
+                printStackTrace(exception);
             }
             return ResponseEntity.ok(defaultException.buildResult());
         } else {
             doExceptionHandle(exception,request,response);
             boolean commonExceptionEnabled = exceptionProperties.getConsoleLog().getCommonExceptionEnabled();
             if (commonExceptionEnabled) {
-                exception.printStackTrace();
+                printStackTrace(exception);
             }
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(DefaultResult.fail(RestErrorStatus.UNKNOWN_ERROR,exception));
         }
+    }
+
+    private void printStackTrace(Exception exception) {
+        try(StringWriter stringWriter = new StringWriter();
+            PrintWriter printWriter = new PrintWriter(stringWriter)) {
+            exception.printStackTrace(printWriter);
+            String stackTrace = stringWriter.toString();
+            StackTraceElement stackTraceElement = exception.getStackTrace()[0];
+            Integer line = stackTraceElement.getLineNumber();
+            String resource = stackTraceElement.getClassName();
+            String errorClass = exception.getClass().getName();
+            log.error("{} [{}] {}: {} \n{}", resource,line, errorClass, exception.getMessage(), stackTrace);
+        } catch (IOException ignored) {}
     }
 
     private void preExceptionHandle(Exception exception,HttpServletRequest request, HttpServletResponse response)  {

@@ -32,6 +32,7 @@ import org.apache.http.message.BasicHeaderElementIterator;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.ssl.SSLContextBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
@@ -67,10 +68,10 @@ import java.util.concurrent.TimeUnit;
  * @version v1.0.0
  */
 @Slf4j
-@Configuration
+@AutoConfiguration
 @SuppressWarnings("SameNameButDifferent")
 @ComponentScan(basePackages = {"io.github.nichetoolkit.rest"})
-@ConditionalOnProperty(value = "nichetoolkit.rest.http.enabled", havingValue = "true")
+@ConditionalOnProperty(value = "nichetoolkit.rest.http.enabled", havingValue = "true", matchIfMissing = true)
 public class RestHttpAutoConfigure {
 
     private RestInterceptProperties interceptProperties;
