@@ -22,7 +22,6 @@ import java.io.IOException;
 /**
  * <p>DefaultRequestLogbackFilter</p>
  * 此过滤器需要 尽量放在最前面执行 但是必须放在 OrderedCharacterEncodingFilter 之后
- * {@link org.springframework.boot.web.servlet.filter.OrderedCharacterEncodingFilter}
  * @author Cyan (snow22314@outlook.com)
  * @version v1.0.0
  */
