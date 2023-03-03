@@ -99,7 +99,7 @@ public class RestHttpAutoConfigure {
 
 
     @Configuration
-    @ConditionalOnProperty(value = "nichetoolkit.rest.http.http-type", havingValue = "default")
+    @ConditionalOnProperty(value = "nichetoolkit.rest.http.http-type", havingValue = "default", matchIfMissing = true)
     public class DefaultRestTemplateAutoConfigure {
 
         public DefaultRestTemplateAutoConfigure() {
@@ -132,7 +132,7 @@ public class RestHttpAutoConfigure {
 
 
     @Configuration
-    @ConditionalOnProperty(value = "nichetoolkit.rest.http.http-type", havingValue = "ok_http_client")
+    @ConditionalOnProperty(value = "nichetoolkit.rest.http.http-type", havingValue = "ok_http_client", matchIfMissing = true)
     public class OkHttpRestTemplateAutoConfigure {
         public OkHttpRestTemplateAutoConfigure() {
             log.debug("================= okhttp3-rest-template-auto-config initiated ！ ===================");
@@ -180,7 +180,7 @@ public class RestHttpAutoConfigure {
 
 
     @Configuration
-    @ConditionalOnProperty(value = "nichetoolkit.rest.http.http-type", havingValue = "http_client")
+    @ConditionalOnProperty(value = "nichetoolkit.rest.http.http-type", havingValue = "http_client", matchIfMissing = true)
     public class HttpClientRestTemplateAutoConfigure {
         public HttpClientRestTemplateAutoConfigure() {
             log.debug("================= http-client-rest-template-auto-config initiated ！ ===================");
