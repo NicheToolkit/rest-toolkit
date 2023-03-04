@@ -1,9 +1,9 @@
 ## [Rest-Toolkit](https://github.com/NicheToolkit/rest-toolkit) rest开发工具组
 
 [![GitHub License](https://img.shields.io/badge/license-Apache-blue.svg)](https://github.com/NicheToolkit/rest-toolkit/blob/master/LICENSE)
-[![Maven Central](https://img.shields.io/maven-central/v/io.github.nichetoolkit/rest-toolkit-starter)](https://central.sonatype.com/search?smo=true&q=rest-toolkit-utils&namespace=io.github.nichetoolkit)
-[![Nexus Release](https://img.shields.io/nexus/r/io.github.nichetoolkit/rest-toolkit-starter?server=https%3A%2F%2Fs01.oss.sonatype.org)](https://s01.oss.sonatype.org/content/repositories/releases/io/github/nichetoolkit/rest-toolkit-utils/)
-[![Nexus Snapshot](https://img.shields.io/nexus/s/io.github.nichetoolkit/rest-toolkit-starter?server=https%3A%2F%2Fs01.oss.sonatype.org)](https://s01.oss.sonatype.org/content/repositories/snapshots/io/github/nichetoolkit/rest-toolkit-utils/)
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.nichetoolkit/rest-toolkit-starter)](https://central.sonatype.com/search?smo=true&q=rest-toolkit-starter&namespace=io.github.nichetoolkit)
+[![Nexus Release](https://img.shields.io/nexus/r/io.github.nichetoolkit/rest-toolkit-starter?server=https%3A%2F%2Fs01.oss.sonatype.org)](https://s01.oss.sonatype.org/content/repositories/releases/io/github/nichetoolkit/rest-toolkit-starter/)
+[![Nexus Snapshot](https://img.shields.io/nexus/s/io.github.nichetoolkit/rest-toolkit-starter?server=https%3A%2F%2Fs01.oss.sonatype.org)](https://s01.oss.sonatype.org/content/repositories/snapshots/io/github/nichetoolkit/rest-toolkit-starter/)
 ![Tests](https://github.com/NicheToolkit/rest-toolkit/workflows/Tests/badge.svg)
 
 针对日常[Spring Boot](https://spring.io/projects/spring-boot)框架下开发整理抽离的底层基础组件，不建议直接使用，通过其他组件引入使用
