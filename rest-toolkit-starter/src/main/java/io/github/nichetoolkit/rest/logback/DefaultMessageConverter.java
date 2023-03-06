@@ -25,7 +25,7 @@ import java.nio.charset.StandardCharsets;
 public class DefaultMessageConverter extends MessageConverter {
 
     @Autowired
-    private RestLogbackProperties logbackProperties;
+    protected RestLogbackProperties logbackProperties;
 
     @Override
     public String convert(ILoggingEvent event) {
