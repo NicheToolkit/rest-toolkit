@@ -16,7 +16,7 @@ import java.util.List;
  */
 public abstract class RestLogKeyGenerator implements RestLogKey {
 
-    private RestLogbackProperties logbackProperties;
+    protected RestLogbackProperties logbackProperties;
 
     public RestLogKeyGenerator(RestLogbackProperties logbackProperties) {
         this.logbackProperties = logbackProperties;
