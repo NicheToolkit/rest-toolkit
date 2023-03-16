@@ -173,6 +173,13 @@
       "defaultValue": "UTF_8"
     },
     {
+      "name": "nichetoolkit.rest.http.encoding-mode",
+      "type": "org.springframework.web.util.DefaultUriBuilderFactory.EncodingMode",
+      "sourceType": "org.springframework.web.util.DefaultUriBuilderFactory.EncodingMode",
+      "description": "http encoding mode.",
+      "defaultValue": "NONE"
+    },
+    {
       "name": "nichetoolkit.rest.http.retry-times",
       "type": "java.lang.Integer",
       "sourceType": "java.lang.Integer",

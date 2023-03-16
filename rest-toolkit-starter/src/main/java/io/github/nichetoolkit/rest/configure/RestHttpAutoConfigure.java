@@ -47,6 +47,7 @@ import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 import org.springframework.web.client.DefaultResponseErrorHandler;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.DefaultUriBuilderFactory;
 
 import javax.net.ssl.*;
 import java.net.InetSocketAddress;
@@ -306,6 +307,9 @@ public class RestHttpAutoConfigure {
             restTemplate.getInterceptors().add(httpInterceptor);
         }
         modifyDefaultCharset(restTemplate);
+        DefaultUriBuilderFactory uriFactory = new DefaultUriBuilderFactory();
+        uriFactory.setEncodingMode(httpProperties.getEncodingMode());
+        restTemplate.setUriTemplateHandler(uriFactory);
         restTemplate.setErrorHandler(new DefaultResponseErrorHandler());
         return restTemplate;
     }
