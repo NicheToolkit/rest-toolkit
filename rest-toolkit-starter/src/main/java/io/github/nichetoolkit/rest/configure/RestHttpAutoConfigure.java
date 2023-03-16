@@ -324,7 +324,7 @@ public class RestHttpAutoConfigure {
             messageConverters.remove(converterTarget);
         }
         Charset defaultCharset = httpProperties.getCharset();
-        messageConverters.set(1, new StringHttpMessageConverter(defaultCharset));
+        messageConverters.add(1, new StringHttpMessageConverter(defaultCharset));
     }
 
 }
