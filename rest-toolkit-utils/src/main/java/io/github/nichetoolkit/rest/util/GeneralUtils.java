@@ -21,6 +21,8 @@ public class GeneralUtils {
     public static boolean isNotEmpty(Object object) {
         if (object == null) {
             return false;
+        } else if (object instanceof Short) {
+            return Short.valueOf(object.toString()) != 0;
         } else if (object instanceof Integer) {
             return Integer.valueOf(object.toString()) != 0;
         } else if (object instanceof Long) {
@@ -56,20 +58,22 @@ public class GeneralUtils {
     public static boolean isValid(Object object) {
         if (object == null) {
             return false;
+        } else if (object instanceof Short) {
+            return true;
         } else if (object instanceof Integer) {
-            return Integer.valueOf(object.toString()) > 0;
+            return true;
         } else if (object instanceof Long) {
-            return Long.valueOf(object.toString()) > 0L;
+            return true;
         } else if (object instanceof String) {
-            return ((String) object).trim().length() > 0;
+            return true;
         } else if (object instanceof StringBuffer) {
-            return ((StringBuffer) object).toString().trim().length() > 0;
+            return true;
         } else if (object instanceof Boolean) {
             return true;
         } else if (object instanceof BigInteger) {
-            return ((BigInteger) object).compareTo(BigInteger.ZERO) > 0;
+            return true;
         } else if (object instanceof BigDecimal) {
-            return ((BigDecimal) object).compareTo(BigDecimal.ZERO) > 0;
+            return true;
         } else if (object instanceof List) {
             return !((List) object).isEmpty();
         } else if (object instanceof Set) {
@@ -91,6 +95,8 @@ public class GeneralUtils {
     public static boolean isEmpty(Object object) {
         if (object == null) {
             return true;
+        } else if (object instanceof Short) {
+            return Short.valueOf(object.toString()) == 0;
         } else if (object instanceof Integer) {
             return Integer.valueOf(object.toString()) == 0;
         } else if (object instanceof Long) {
@@ -126,20 +132,22 @@ public class GeneralUtils {
     public static boolean isInvalid(Object object) {
         if (object == null) {
             return true;
+        } else if (object instanceof Short) {
+            return false;
         } else if (object instanceof Integer) {
-            return Integer.valueOf(object.toString()) <= 0;
+            return false;
         } else if (object instanceof Long) {
-            return Long.valueOf(object.toString()) <= 0L;
+            return false;
         } else if (object instanceof String) {
-            return ((String) object).trim().length() <= 0;
+            return false;
         } else if (object instanceof StringBuffer) {
-            return ((StringBuffer) object).toString().trim().length() <= 0;
+            return false;
         } else if (object instanceof Boolean) {
             return false;
         } else if (object instanceof BigInteger) {
-            return ((BigInteger) object).compareTo(BigInteger.ZERO) <= 0;
+            return false;
         } else if (object instanceof BigDecimal) {
-            return ((BigDecimal) object).compareTo(BigDecimal.ZERO) <= 0;
+            return false;
         } else if (object instanceof List) {
             return ((List) object).isEmpty();
         } else if (object instanceof Set) {
