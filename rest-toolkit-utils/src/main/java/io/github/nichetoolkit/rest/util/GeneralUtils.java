@@ -65,9 +65,9 @@ public class GeneralUtils {
         } else if (object instanceof Long) {
             return true;
         } else if (object instanceof String) {
-            return true;
+            return ((String) object).trim().length() != 0;
         } else if (object instanceof StringBuffer) {
-            return true;
+            return ((StringBuffer) object).toString().trim().length() != 0;
         } else if (object instanceof Boolean) {
             return true;
         } else if (object instanceof BigInteger) {
@@ -139,9 +139,9 @@ public class GeneralUtils {
         } else if (object instanceof Long) {
             return false;
         } else if (object instanceof String) {
-            return false;
+            return ((String) object).trim().length() == 0;
         } else if (object instanceof StringBuffer) {
-            return false;
+            return ((StringBuffer) object).toString().trim().length() == 0;
         } else if (object instanceof Boolean) {
             return false;
         } else if (object instanceof BigInteger) {
