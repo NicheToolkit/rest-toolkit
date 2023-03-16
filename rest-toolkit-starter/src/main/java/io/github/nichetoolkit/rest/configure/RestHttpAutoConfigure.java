@@ -53,6 +53,7 @@ import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.net.ProxySelector;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.security.KeyManagementException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
@@ -311,19 +312,19 @@ public class RestHttpAutoConfigure {
 
 
     private void modifyDefaultCharset(RestTemplate restTemplate) {
-        List<HttpMessageConverter<?>> converterList = restTemplate.getMessageConverters();
+        List<HttpMessageConverter<?>> messageConverters = restTemplate.getMessageConverters();
         HttpMessageConverter<?> converterTarget = null;
-        for (HttpMessageConverter<?> item : converterList) {
-            if (StringHttpMessageConverter.class == item.getClass()) {
-                converterTarget = item;
+        for (HttpMessageConverter<?> messageConverter : messageConverters) {
+            if (StringHttpMessageConverter.class == messageConverter.getClass()) {
+                converterTarget = messageConverter;
                 break;
             }
         }
         if (null != converterTarget) {
-            converterList.remove(converterTarget);
+            messageConverters.remove(converterTarget);
         }
         Charset defaultCharset = httpProperties.getCharset();
-        converterList.add(1, new StringHttpMessageConverter(defaultCharset));
+        messageConverters.set(1, new StringHttpMessageConverter(defaultCharset));
     }
 
 }
