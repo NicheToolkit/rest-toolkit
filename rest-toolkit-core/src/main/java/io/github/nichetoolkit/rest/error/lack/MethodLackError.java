@@ -29,7 +29,6 @@ public class MethodLackError extends RestError {
         super(status);
     }
 
-
     @Override
     public MethodLackError get() {
         return new MethodLackError();

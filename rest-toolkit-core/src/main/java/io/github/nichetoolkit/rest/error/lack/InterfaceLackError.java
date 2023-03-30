@@ -29,7 +29,6 @@ public class InterfaceLackError extends RestError {
         super(status);
     }
 
-
     @Override
     public InterfaceLackError get() {
         return new InterfaceLackError();

@@ -29,7 +29,6 @@ public class BeanLackError extends RestError {
         super(status);
     }
 
-
     @Override
     public BeanLackError get() {
         return new BeanLackError();

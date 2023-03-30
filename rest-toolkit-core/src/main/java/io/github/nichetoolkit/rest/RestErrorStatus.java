@@ -26,6 +26,8 @@ public enum RestErrorStatus implements RestStatus {
     BEAN_LACK_ERROR(9101,"Bean缺失错误"),
     INTERFACE_LACK_ERROR(9111,"实现缺失错误"),
     METHOD_LACK_ERROR(9112,"方法缺失错误"),
+    CONFIGURE_LACK_ERROR(9113,"配置缺失错误"),
+    ACCESSIBLE_LACK_ERROR(9114,"属性访问权限缺失错误"),
 
     UNSUPPORTED(9999,"不支持"),
     TIME_OUT(10000, "访问超时"),
