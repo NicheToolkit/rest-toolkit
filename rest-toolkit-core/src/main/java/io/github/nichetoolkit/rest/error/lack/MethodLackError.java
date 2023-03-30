@@ -17,16 +17,28 @@ public class MethodLackError extends RestError {
         super(RestErrorStatus.METHOD_LACK_ERROR);
     }
 
+    public MethodLackError(Throwable cause) {
+        super(RestErrorStatus.METHOD_LACK_ERROR, cause);
+    }
+
     public MethodLackError(Supplier<RestStatus> supplier) {
         super(supplier);
     }
 
     public MethodLackError(String error) {
-        super(error,RestErrorStatus.METHOD_LACK_ERROR);
+        super(error, RestErrorStatus.METHOD_LACK_ERROR);
+    }
+
+    public MethodLackError(String error, Throwable cause) {
+        super(RestErrorStatus.METHOD_LACK_ERROR, error, cause);
     }
 
     public MethodLackError(RestStatus status) {
         super(status);
+    }
+
+    public MethodLackError(RestStatus status, Throwable cause) {
+        super(status, cause);
     }
 
     @Override

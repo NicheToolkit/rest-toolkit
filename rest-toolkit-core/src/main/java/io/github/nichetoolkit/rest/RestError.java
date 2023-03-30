@@ -94,6 +94,12 @@ public class RestError extends DefaultError implements RestStatus, Supplier {
         this.status = status.getStatus();
     }
 
+    public RestError(RestStatus status, String message, Throwable cause) {
+        super(message, cause);
+        this.name = status.name();
+        this.status = status.getStatus();
+    }
+
     public RestError(Integer status, String message, String name, Throwable cause) {
         super(message, cause);
         this.name = name;

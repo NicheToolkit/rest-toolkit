@@ -17,16 +17,28 @@ public class AccessibleLackError extends RestError {
         super(RestErrorStatus.ACCESSIBLE_LACK_ERROR);
     }
 
+    public AccessibleLackError(Throwable cause) {
+        super(RestErrorStatus.ACCESSIBLE_LACK_ERROR, cause);
+    }
+
     public AccessibleLackError(Supplier<RestStatus> supplier) {
         super(supplier);
     }
 
     public AccessibleLackError(String error) {
-        super(error,RestErrorStatus.ACCESSIBLE_LACK_ERROR);
+        super(error, RestErrorStatus.ACCESSIBLE_LACK_ERROR);
+    }
+
+    public AccessibleLackError(String error, Throwable cause) {
+        super(RestErrorStatus.ACCESSIBLE_LACK_ERROR, error, cause);
     }
 
     public AccessibleLackError(RestStatus status) {
         super(status);
+    }
+
+    public AccessibleLackError(RestStatus status, Throwable cause) {
+        super(status, cause);
     }
 
     @Override

@@ -17,16 +17,28 @@ public class ConfigureLackError extends RestError {
         super(RestErrorStatus.CONFIGURE_LACK_ERROR);
     }
 
+    public ConfigureLackError(Throwable cause) {
+        super(RestErrorStatus.CONFIGURE_LACK_ERROR, cause);
+    }
+
     public ConfigureLackError(Supplier<RestStatus> supplier) {
         super(supplier);
     }
 
     public ConfigureLackError(String error) {
-        super(error,RestErrorStatus.CONFIGURE_LACK_ERROR);
+        super(error, RestErrorStatus.CONFIGURE_LACK_ERROR);
+    }
+
+    public ConfigureLackError(String error, Throwable cause) {
+        super(RestErrorStatus.CONFIGURE_LACK_ERROR, error, cause);
     }
 
     public ConfigureLackError(RestStatus status) {
         super(status);
+    }
+
+    public ConfigureLackError(RestStatus status, Throwable cause) {
+        super(status, cause);
     }
 
     @Override
