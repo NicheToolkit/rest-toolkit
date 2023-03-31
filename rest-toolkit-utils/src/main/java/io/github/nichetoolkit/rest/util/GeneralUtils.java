@@ -173,6 +173,23 @@ public class GeneralUtils {
         return result.toString().toUpperCase();
     }
 
+    public static String underline(String underline) {
+        final int size;
+        final char[] chars;
+        final StringBuilder stringBuilder = new StringBuilder(
+                (size = (chars = underline.toCharArray()).length) * 3 / 2 + 1);
+        char character;
+        for (int i = 0; i < size; i++) {
+            character = chars[i];
+            if (Character.isUpperCase(character)) {
+                stringBuilder.append('_').append(Character.toLowerCase(character));
+            } else {
+                stringBuilder.append(character);
+            }
+        }
+        return stringBuilder.charAt(0) == '_' ? stringBuilder.substring(1) : stringBuilder.toString();
+    }
+
     public static String uuid() {
         ThreadLocalRandom random = ThreadLocalRandom.current();
         long lsb = random.nextLong();
