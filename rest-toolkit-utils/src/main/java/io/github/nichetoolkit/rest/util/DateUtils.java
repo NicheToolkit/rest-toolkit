@@ -93,7 +93,7 @@ public class DateUtils {
      */
     public static Date parseDate(String dateString){
         try {
-            return parse(dateString, DATE_FORMAT_10);
+            return parseFormat(dateString, DATE_FORMAT_10);
         } catch (ParseErrorException e) {
             e.printStackTrace();
             log.error("date string parse error！ dateString = {}，pattern = {}，error = {}",dateString, DATE_FORMAT_10,e.getMessage());
@@ -108,10 +108,26 @@ public class DateUtils {
      */
     public static Date parseDateTime(String timeString) {
         try {
-            return parse(timeString, DATE_FORMAT_19);
+            return parseFormat(timeString, DATE_FORMAT_19);
         } catch (ParseErrorException e) {
             e.printStackTrace();
             log.error("date string parse error！ timeString = {}，pattern = {}，error = {}",timeString, DATE_FORMAT_19,e.getMessage());
+            return null;
+        }
+    }
+
+    /**
+     * 解析日期时间
+     * @param dataTimeString 日期时间字符串
+     * @param dateFormat 格式化字符串
+     * @return Date 时间
+     */
+    public static Date parse(String dataTimeString, String dateFormat) {
+        try {
+            return parseFormat(dataTimeString, dateFormat);
+        } catch (ParseErrorException e) {
+            e.printStackTrace();
+            log.error("date string parse error！ dataTimeString = {}，pattern = {}，error = {}",dataTimeString, dateFormat,e.getMessage());
             return null;
         }
     }
@@ -122,7 +138,7 @@ public class DateUtils {
      * @param dateFormat 格式化字符串
      * @return Date 时间
      */
-    public static Date parse(String dateString, String dateFormat) throws ParseErrorException {
+    private static Date parseFormat(String dateString, String dateFormat) throws ParseErrorException {
         if (GeneralUtils.isEmpty(dateFormat)) {
             dateFormat = switchDateFormat(dateString);
         }
