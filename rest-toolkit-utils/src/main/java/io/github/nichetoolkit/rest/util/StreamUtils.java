@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 
 /**
  * <p>StreamUtils</p>
@@ -22,7 +25,7 @@ public class StreamUtils {
 
     public static void transfer(MultipartFile multipartFile, String transferFilePath) {
         try {
-            StreamHelper.transfer(multipartFile,transferFilePath);
+            StreamHelper.transfer(multipartFile, transferFilePath);
         } catch (StreamTransferException exception) {
             log.error("It is failed during transferring from multipart file to file path!", exception);
             exception.printStackTrace();
@@ -31,7 +34,7 @@ public class StreamUtils {
 
     public static void transfer(MultipartFile multipartFile, File transferFile) {
         try {
-            StreamHelper.transfer(multipartFile,transferFile);
+            StreamHelper.transfer(multipartFile, transferFile);
         } catch (StreamTransferException exception) {
             log.error("It is failed during transferring from multipart file to file!", exception);
             exception.printStackTrace();
@@ -40,7 +43,7 @@ public class StreamUtils {
 
     public static void transfer(InputStream inputStream, OutputStream outputStream) {
         try {
-            StreamHelper.transfer(inputStream,outputStream,false);
+            StreamHelper.transfer(inputStream, outputStream, false);
         } catch (StreamTransferException exception) {
             log.error("It is failed during transferring from inputStream to outputStream!", exception);
             exception.printStackTrace();
@@ -84,6 +87,7 @@ public class StreamUtils {
             exception.printStackTrace();
         }
     }
+
     public static void write(HttpServletResponse response, String json) {
         try {
             StreamHelper.write(response, json);
@@ -102,6 +106,18 @@ public class StreamUtils {
         }
     }
 
+    public static void write(HttpServletResponse response, File file, String filename) {
+        String fileName = new String(filename.trim().getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8);
+        try {
+            fileName = URLEncoder.encode(filename, StandardCharsets.UTF_8.toString());
+        } catch (UnsupportedEncodingException ignored) {
+        }
+        response.addHeader("Content-Disposition", "attachment;filename=" + fileName + ";" + "filename*=utf-8''" + fileName);
+        response.addHeader("Content-Length", "" + file.length());
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType(FileUtils.mediaType(filename).toString());
+        write(response, file);
+    }
 
     public static void write(OutputStream outputStream, byte[] data) {
         try {
@@ -121,7 +137,7 @@ public class StreamUtils {
         }
     }
 
-    public static void write(File file,InputStream inputStream) {
+    public static void write(File file, InputStream inputStream) {
         try {
             StreamHelper.write(file, inputStream);
         } catch (StreamWriteException exception) {
@@ -130,7 +146,7 @@ public class StreamUtils {
         }
     }
 
-    public static void write(String filename,InputStream inputStream) {
+    public static void write(String filename, InputStream inputStream) {
         try {
             StreamHelper.write(filename, inputStream);
         } catch (StreamWriteException exception) {
