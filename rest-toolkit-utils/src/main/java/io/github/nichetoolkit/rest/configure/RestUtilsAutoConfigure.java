@@ -1,14 +1,10 @@
 package io.github.nichetoolkit.rest.configure;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import io.github.nichetoolkit.rest.holder.ObjectMapperHolder;
 import io.github.nichetoolkit.rest.worker.RadixWorker;
 import io.github.nichetoolkit.rest.worker.jwt.JwtWorker;
 import io.github.nichetoolkit.rest.worker.rsa.RsaWorker;
 import io.github.nichetoolkit.rest.worker.sha.ShaWorker;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
@@ -27,14 +23,6 @@ import org.springframework.context.annotation.Primary;
 public class RestUtilsAutoConfigure {
     public RestUtilsAutoConfigure() {
         log.debug("================= rest-toolkit-utils initiated ！ ===================");
-    }
-
-    @Bean
-    @Primary
-    @Autowired(required = false)
-    @ConditionalOnMissingBean(ObjectMapperHolder.class)
-    public ObjectMapperHolder objectMapperHolder(ObjectMapper objectMapper) {
-        return new ObjectMapperHolder(objectMapper);
     }
 
     @Bean
