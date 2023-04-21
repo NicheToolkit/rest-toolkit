@@ -9,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
 import java.io.File;
 import java.io.InputStream;
 
@@ -25,9 +26,19 @@ public class XmlUtils {
     }
 
 
-    public static <T> Marshaller marshal(Class<T> clazz)  {
+    public static <T> Marshaller marshaller(Class<T> clazz)  {
         try {
-            return XmlHelper.marshal(clazz);
+            return XmlHelper.marshaller(clazz);
+        } catch (XmlMarshalException exception) {
+            log.error("It is failed when data write to create marshal!", exception);
+            exception.printStackTrace();
+            return null;
+        }
+    }
+
+    public static <T> Unmarshaller unmarshaller(Class<T> clazz)  {
+        try {
+            return XmlHelper.unmarshaller(clazz);
         } catch (XmlMarshalException exception) {
             log.error("It is failed when data write to create marshal!", exception);
             exception.printStackTrace();
@@ -55,9 +66,19 @@ public class XmlUtils {
         }
     }
 
-    public static <T> T read(InputStream inputStream, Class<T> clazz, boolean closable) {
+    public static <T> T read(Unmarshaller unmarshaller, InputStream inputStream, Class<T> clazz) {
         try {
-            return XmlHelper.read(inputStream, clazz, closable);
+            return XmlHelper.read(unmarshaller,inputStream, clazz);
+        } catch (XmlReadException exception) {
+            log.error("It is failed when xml read!", exception);
+            exception.printStackTrace();
+            return null;
+        }
+    }
+
+    public static <T> T read(InputStream inputStream, Class<T> clazz) {
+        try {
+            return XmlHelper.read(inputStream, clazz);
         } catch (XmlReadException exception) {
             log.error("It is failed when xml read!", exception);
             exception.printStackTrace();

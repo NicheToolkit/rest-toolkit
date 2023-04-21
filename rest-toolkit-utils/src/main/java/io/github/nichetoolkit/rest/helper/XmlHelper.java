@@ -9,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.*;
+import javax.xml.transform.stream.StreamSource;
 import java.io.*;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
@@ -32,8 +33,17 @@ public class XmlHelper {
         response.setContentType("application/octet-stream");
     }
 
+    public static <T> Unmarshaller unmarshaller (Class<T> clazz) throws XmlMarshalException {
+        try {
+            JAXBContext context = JAXBContext.newInstance(clazz);
+            return context.createUnmarshaller();
+        } catch (JAXBException exception) {
+            throw new XmlMarshalException(exception.getMessage());
+        }
+    }
 
-    public static <T> Marshaller marshal(Class<T> clazz) throws XmlMarshalException {
+
+    public static <T> Marshaller marshaller(Class<T> clazz) throws XmlMarshalException {
         try {
             JAXBContext context = JAXBContext.newInstance(clazz);
             return context.createMarshaller();
@@ -64,7 +74,19 @@ public class XmlHelper {
         }
     }
 
-    public static <T> T read(InputStream inputStream, Class<T> clazz, boolean closable) throws XmlReadException {
+    public static <T> T read(Unmarshaller unmarshaller, InputStream inputStream, Class<T> clazz) throws XmlReadException {
+        if (GeneralUtils.isEmpty(inputStream)) {
+            return null;
+        }
+        try {
+            JAXBElement<T> jaxbElement = unmarshaller.unmarshal(new StreamSource(inputStream), clazz);
+            return jaxbElement.getValue();
+        } catch ( JAXBException | DataBindingException exception) {
+            throw new XmlReadException(exception.getMessage());
+        }
+    }
+
+    public static <T> T read(InputStream inputStream, Class<T> clazz) throws XmlReadException {
         if (GeneralUtils.isEmpty(inputStream)) {
             return null;
         }
@@ -72,10 +94,6 @@ public class XmlHelper {
             return JAXB.unmarshal(inputStream, clazz);
         } catch ( DataBindingException exception) {
             throw new XmlReadException(exception.getMessage());
-        } finally {
-            if (closable && GeneralUtils.isNotEmpty(inputStream)) {
-                CloseableHelper.close(inputStream);
-            }
         }
     }
 
