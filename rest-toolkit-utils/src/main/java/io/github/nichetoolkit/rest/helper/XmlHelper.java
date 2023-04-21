@@ -122,6 +122,17 @@ public class XmlHelper {
         }
     }
 
+    public static <T> void write(Marshaller marshaller, T xmlObject, OutputStream outputStream) throws XmlWriteException {
+        if (GeneralUtils.isEmpty(xmlObject)) {
+            return;
+        }
+        try {
+            marshaller.marshal(xmlObject,outputStream);
+        } catch (JAXBException exception) {
+            throw new XmlWriteException(exception.getMessage());
+        }
+    }
+
     public static <T> void write(T xmlObject, String filename, HttpServletResponse response) throws XmlWriteException {
         if (GeneralUtils.isEmpty(xmlObject)) {
             return;
