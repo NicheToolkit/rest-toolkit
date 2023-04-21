@@ -110,12 +110,36 @@ public class XmlHelper {
         }
     }
 
+    public static <T> void write(Marshaller marshaller, T xmlObject, HttpServletResponse response) throws XmlWriteException {
+        if (GeneralUtils.isEmpty(xmlObject)) {
+            return;
+        }
+        try {
+            ServletOutputStream outputStream = response.getOutputStream();
+            marshaller.marshal(xmlObject,outputStream);
+        } catch (JAXBException| IOException exception) {
+            throw new XmlWriteException(exception.getMessage());
+        }
+    }
+
     public static <T> void write(T xmlObject, String filename, HttpServletResponse response) throws XmlWriteException {
         if (GeneralUtils.isEmpty(xmlObject)) {
             return;
         }
         try {
             encode(filename,response);
+            ServletOutputStream outputStream = response.getOutputStream();
+            JAXB.marshal(xmlObject,outputStream);
+        } catch (IOException exception) {
+            throw new XmlWriteException(exception.getMessage());
+        }
+    }
+
+    public static <T> void write(T xmlObject, HttpServletResponse response) throws XmlWriteException {
+        if (GeneralUtils.isEmpty(xmlObject)) {
+            return;
+        }
+        try {
             ServletOutputStream outputStream = response.getOutputStream();
             JAXB.marshal(xmlObject,outputStream);
         } catch (IOException exception) {

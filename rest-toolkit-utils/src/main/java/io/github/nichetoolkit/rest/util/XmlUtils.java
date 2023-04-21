@@ -95,9 +95,27 @@ public class XmlUtils {
         }
     }
 
+    public static <T> void write(Marshaller marshaller, T xmlObject, HttpServletResponse response)  {
+        try {
+            XmlHelper.write(marshaller, xmlObject, response);
+        } catch (XmlWriteException exception) {
+            log.error("It is failed when xml read!", exception);
+            exception.printStackTrace();
+        }
+    }
+
     public static <T> void write(T xmlObject, String filename, HttpServletResponse response)  {
         try {
             XmlHelper.write(xmlObject, filename, response);
+        } catch (XmlWriteException exception) {
+            log.error("It is failed when xml read!", exception);
+            exception.printStackTrace();
+        }
+    }
+
+    public static <T> void write(T xmlObject, HttpServletResponse response)  {
+        try {
+            XmlHelper.write(xmlObject, response);
         } catch (XmlWriteException exception) {
             log.error("It is failed when xml read!", exception);
             exception.printStackTrace();
