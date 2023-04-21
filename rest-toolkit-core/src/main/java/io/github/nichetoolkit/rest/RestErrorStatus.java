@@ -135,10 +135,16 @@ public enum RestErrorStatus implements RestStatus {
     STREAM_WRITE_ERROR(10622, "数据流写入错误"),
     STREAM_TRANSFER_ERROR(10623, "数据流迁移错误"),
 
+    /** xml */
+    XML_ERROR(10630, "Xml错误"),
+    XML_READ_ERROR(10631, "Xml读取错误"),
+    XML_WRITE_ERROR(10632, "Xml写入错误"),
+    XML_MARSHAL_ERROR(10633, "Xml编辑错误"),
+
     /** zip */
-    ZIP_ERROR(10630, "zip数据处理错误"),
-    ZIP_READ_ERROR(10631, "zip数据读取错误"),
-    ZIP_WRITE_ERROR(10632, "zip数据写入错误"),
+    ZIP_ERROR(10640, "zip数据处理错误"),
+    ZIP_READ_ERROR(10641, "zip数据读取错误"),
+    ZIP_WRITE_ERROR(10642, "zip数据写入错误"),
     ;
 
     private final Integer status;
