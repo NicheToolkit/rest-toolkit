@@ -21,7 +21,7 @@ public class ZipUtils {
         try {
             return ZipHelper.zipFile(zipPath,filename,file);
         } catch (ZipErrorException | FileCreateException exception) {
-            log.error("It is failed during handle zip file!", exception);
+            log.error("It is failed during handle zip file! {}", exception.getMessage());
             exception.printStackTrace();
         }
         return null;
@@ -31,7 +31,7 @@ public class ZipUtils {
         try {
             return ZipHelper.zipFiles(zipPath,filename,zipFiles);
         } catch (ZipErrorException | FileCreateException exception) {
-            log.error("It is failed during handle zip files!", exception);
+            log.error("It is failed during handle zip files! {}", exception.getMessage());
             exception.printStackTrace();
         }
         return null;
@@ -41,7 +41,7 @@ public class ZipUtils {
         try {
             return ZipHelper.gzip(bytes);
         } catch (ZipErrorException exception) {
-            log.error("It is failed during handle zip file!", exception);
+            log.error("It is failed during handle zip file! {}", exception.getMessage());
             exception.printStackTrace();
         }
         return new byte[0];
@@ -51,7 +51,7 @@ public class ZipUtils {
         try {
             return ZipHelper.ungzip(bytes);
         } catch (ZipErrorException exception) {
-            log.error("It is failed during handle zip file!", exception);
+            log.error("It is failed during handle zip file! {}", exception.getMessage());
             exception.printStackTrace();
         }
         return new byte[0];

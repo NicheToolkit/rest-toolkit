@@ -27,7 +27,7 @@ public class DeserializeUtils {
         try {
             return DeserializeHelper.deserializerBean(parser);
         } catch (JsonDeserializeException exception) {
-            log.error("It is failed during json to deserialize as map of bean fields!",exception);
+            log.error("It is failed during json to deserialize as map of bean fields!  {}", exception.getMessage());
             exception.printStackTrace();
         }
         return Collections.emptyMap();
@@ -42,7 +42,7 @@ public class DeserializeUtils {
         try {
             return DeserializeHelper.deserializerList(parser);
         } catch (JsonDeserializeException exception) {
-            log.error("It is failed during json to deserialize as list of bean!",exception);
+            log.error("It is failed during json to deserialize as list of bean! {}", exception.getMessage());
             exception.printStackTrace();
         }
         return Collections.emptyList();
@@ -57,7 +57,7 @@ public class DeserializeUtils {
         try {
             return DeserializeHelper.deserializerBeanList(parser);
         } catch (JsonDeserializeException exception) {
-            log.error("It is failed during json to deserialize as list map of bean fields!",exception);
+            log.error("It is failed during json to deserialize as list map of bean fields! {}", exception.getMessage());
             exception.printStackTrace();
         }
         return Collections.emptyList();
@@ -74,7 +74,7 @@ public class DeserializeUtils {
         try {
             return DeserializeHelper.deserializerMap(parser);
         } catch (JsonDeserializeException exception) {
-            log.error("It is failed during json to deserialize as map of bean!",exception);
+            log.error("It is failed during json to deserialize as map of bean! {}", exception.getMessage());
             exception.printStackTrace();
         }
         return Collections.emptyMap();
@@ -90,7 +90,7 @@ public class DeserializeUtils {
         try {
             return DeserializeHelper.deserializerBeanMap(parser);
         } catch (JsonDeserializeException exception) {
-            log.error("It is failed during json to deserialize as map map of bean fields!",exception);
+            log.error("It is failed during json to deserialize as map map of bean fields! {}", exception.getMessage());
             exception.printStackTrace();
         }
         return Collections.emptyMap();

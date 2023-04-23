@@ -27,7 +27,7 @@ public class StreamUtils {
         try {
             StreamHelper.transfer(multipartFile, transferFilePath);
         } catch (StreamTransferException exception) {
-            log.error("It is failed during transferring from multipart file to file path!", exception);
+            log.error("It is failed during transferring from multipart file to file path! {}", exception.getMessage());
             exception.printStackTrace();
         }
     }
@@ -36,7 +36,7 @@ public class StreamUtils {
         try {
             StreamHelper.transfer(multipartFile, transferFile);
         } catch (StreamTransferException exception) {
-            log.error("It is failed during transferring from multipart file to file!", exception);
+            log.error("It is failed during transferring from multipart file to file! {}", exception.getMessage());
             exception.printStackTrace();
         }
     }
@@ -45,7 +45,7 @@ public class StreamUtils {
         try {
             StreamHelper.transfer(inputStream, outputStream, false);
         } catch (StreamTransferException exception) {
-            log.error("It is failed during transferring from inputStream to outputStream!", exception);
+            log.error("It is failed during transferring from inputStream to outputStream! {}", exception.getMessage());
             exception.printStackTrace();
         }
     }
@@ -54,7 +54,7 @@ public class StreamUtils {
         try {
             return StreamHelper.read(inputStream);
         } catch (StreamReadException exception) {
-            log.error("It is failed during reading of inputStream!", exception);
+            log.error("It is failed during reading of inputStream! {}", exception.getMessage());
             exception.printStackTrace();
             return null;
         }
@@ -64,7 +64,7 @@ public class StreamUtils {
         try {
             return StreamHelper.bytes(inputStream);
         } catch (StreamReadException exception) {
-            log.error("It is failed during reading of inputStream!", exception);
+            log.error("It is failed during reading of inputStream! {}", exception.getMessage());
             exception.printStackTrace();
             return null;
         }
@@ -74,7 +74,7 @@ public class StreamUtils {
         try {
             StreamHelper.write(outputStream, string);
         } catch (StreamWriteException exception) {
-            log.error("It is failed when string write to outputStream!", exception);
+            log.error("It is failed when string write to outputStream! {}", exception.getMessage());
             exception.printStackTrace();
         }
     }
@@ -83,7 +83,7 @@ public class StreamUtils {
         try {
             StreamHelper.write(response, file);
         } catch (StreamWriteException exception) {
-            log.error("It is failed when file write to response!", exception);
+            log.error("It is failed when file write to response! {}", exception.getMessage());
             exception.printStackTrace();
         }
     }
@@ -92,7 +92,7 @@ public class StreamUtils {
         try {
             StreamHelper.write(response, json);
         } catch (StreamWriteException exception) {
-            log.error("It is failed when json write to response!", exception);
+            log.error("It is failed when json write to response! {}", exception.getMessage());
             exception.printStackTrace();
         }
     }
@@ -101,7 +101,7 @@ public class StreamUtils {
         try {
             StreamHelper.write(response, data);
         } catch (StreamWriteException exception) {
-            log.error("It is failed when data write to response!", exception);
+            log.error("It is failed when data write to response! {}", exception.getMessage());
             exception.printStackTrace();
         }
     }
@@ -123,7 +123,7 @@ public class StreamUtils {
         try {
             StreamHelper.write(outputStream, data);
         } catch (StreamWriteException exception) {
-            log.error("It is failed when data write to outputStream!", exception);
+            log.error("It is failed when data write to outputStream! {}", exception.getMessage());
             exception.printStackTrace();
         }
     }
@@ -132,7 +132,7 @@ public class StreamUtils {
         try {
             StreamHelper.write(outputStream, inputStream);
         } catch (StreamWriteException exception) {
-            log.error("It is failed when inputStream write to outputStream!", exception);
+            log.error("It is failed when inputStream write to outputStream! {}", exception.getMessage());
             exception.printStackTrace();
         }
     }
@@ -141,7 +141,7 @@ public class StreamUtils {
         try {
             StreamHelper.write(file, inputStream);
         } catch (StreamWriteException exception) {
-            log.error("It is failed when inputStream write to file !", exception);
+            log.error("It is failed when inputStream write to file! {}", exception.getMessage());
             exception.printStackTrace();
         }
     }
@@ -150,7 +150,7 @@ public class StreamUtils {
         try {
             StreamHelper.write(filename, inputStream);
         } catch (StreamWriteException exception) {
-            log.error("It is failed when inputStream write to file !", exception);
+            log.error("It is failed when inputStream write to file! {}", exception.getMessage());
             exception.printStackTrace();
         }
     }
@@ -159,7 +159,7 @@ public class StreamUtils {
         try {
             StreamHelper.write(filename, data);
         } catch (StreamWriteException exception) {
-            log.error("It is failed when data write to file !", exception);
+            log.error("It is failed when data write to file! {}", exception.getMessage());
             exception.printStackTrace();
         }
     }
@@ -169,7 +169,7 @@ public class StreamUtils {
         try {
             StreamHelper.write(file, data);
         } catch (StreamWriteException exception) {
-            log.error("It is failed when bytes write to file!", exception);
+            log.error("It is failed when bytes write to file! {}", exception.getMessage());
             exception.printStackTrace();
         }
     }

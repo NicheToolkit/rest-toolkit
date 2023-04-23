@@ -32,7 +32,7 @@ public class XmlUtils {
         try {
             return XmlHelper.marshaller(clazz);
         } catch (XmlMarshalException exception) {
-            log.error("It is failed when data write to create marshal!", exception);
+            log.error("It is failed when data write to create marshal! {}", exception.getMessage());
             exception.printStackTrace();
             return null;
         }
@@ -42,7 +42,7 @@ public class XmlUtils {
         try {
             return XmlHelper.unmarshaller(clazz);
         } catch (XmlMarshalException exception) {
-            log.error("It is failed when data write to create marshal!", exception);
+            log.error("It is failed when data write to create marshal! {}", exception.getMessage());
             exception.printStackTrace();
             return null;
         }
@@ -52,7 +52,7 @@ public class XmlUtils {
         try {
             return XmlHelper.read(xmlFile, clazz);
         } catch (XmlReadException exception) {
-            log.error("It is failed when xml read!", exception);
+            log.error("It is failed when xml read! {}", exception.getMessage());
             exception.printStackTrace();
             return null;
         }
@@ -62,7 +62,7 @@ public class XmlUtils {
         try {
             return XmlHelper.read(xmlFile, clazz);
         } catch (XmlReadException exception) {
-            log.error("It is failed when xml read!", exception);
+            log.error("It is failed when xml file read! {}", exception.getMessage());
             exception.printStackTrace();
             return null;
         }
@@ -72,7 +72,7 @@ public class XmlUtils {
         try {
             return XmlHelper.read(unmarshaller,inputStream, clazz);
         } catch (XmlReadException exception) {
-            log.error("It is failed when xml read!", exception);
+            log.error("It is failed when unmarshaller inputStream read! {}", exception.getMessage());
             exception.printStackTrace();
             return null;
         }
@@ -82,7 +82,7 @@ public class XmlUtils {
         try {
             return XmlHelper.read(inputStream, clazz);
         } catch (XmlReadException exception) {
-            log.error("It is failed when xml read!", exception);
+            log.error("It is failed when inputStream read! {}", exception.getMessage());
             exception.printStackTrace();
             return null;
         }
@@ -92,7 +92,7 @@ public class XmlUtils {
         try {
             XmlHelper.write(marshaller, xmlObject, filename,response);
         } catch (XmlWriteException exception) {
-            log.error("It is failed when xml read!", exception);
+            log.error("It is failed when xml read! {}", exception.getMessage());
             exception.printStackTrace();
         }
     }
@@ -101,7 +101,7 @@ public class XmlUtils {
         try {
             XmlHelper.write(marshaller, xmlObject, response);
         } catch (XmlWriteException exception) {
-            log.error("It is failed when xml read!", exception);
+            log.error("It is failed when xml read! {}", exception.getMessage());
             exception.printStackTrace();
         }
     }
@@ -110,7 +110,7 @@ public class XmlUtils {
         try {
             XmlHelper.write(marshaller, xmlObject, outputStream);
         } catch (XmlWriteException exception) {
-            log.error("It is failed when xml read!", exception);
+            log.error("It is failed when xml read! {}", exception.getMessage());
             exception.printStackTrace();
         }
     }
@@ -119,7 +119,7 @@ public class XmlUtils {
         try {
             XmlHelper.write(xmlObject, filename, response);
         } catch (XmlWriteException exception) {
-            log.error("It is failed when xml read!", exception);
+            log.error("It is failed when xml read! {}", exception.getMessage());
             exception.printStackTrace();
         }
     }
@@ -128,7 +128,7 @@ public class XmlUtils {
         try {
             XmlHelper.write(xmlObject, response);
         } catch (XmlWriteException exception) {
-            log.error("It is failed when xml read!", exception);
+            log.error("It is failed when xml read! {}", exception.getMessage());
             exception.printStackTrace();
         }
     }
