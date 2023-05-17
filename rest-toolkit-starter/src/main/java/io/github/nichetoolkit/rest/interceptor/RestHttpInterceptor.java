@@ -47,7 +47,8 @@ public class RestHttpInterceptor implements ClientHttpRequestInterceptor {
         log.info(" HttpRequest -Params:  {}", JsonUtils.parseJson(params));
         HttpHeaders headers = httpRequest.getHeaders();
         log.info(" HttpRequest -Headers: {}",JsonUtils.parseJson(headers));
-        String bodyString = CommonUtils.substring(new String(bytes,StandardCharsets.UTF_8), interceptProperties.getBodyLength());
+        String content = new String(bytes, StandardCharsets.UTF_8);
+        String bodyString = CommonUtils.substring(content, interceptProperties.getBodyLength());
         log.info(" HttpRequest -Body:    {}", bodyString);
         return execution.execute(httpRequest, bytes);
     }
