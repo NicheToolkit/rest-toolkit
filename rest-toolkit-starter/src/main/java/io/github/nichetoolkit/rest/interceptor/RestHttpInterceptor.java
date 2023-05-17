@@ -1,5 +1,6 @@
 package io.github.nichetoolkit.rest.interceptor;
 
+import com.google.common.io.ByteStreams;
 import io.github.nichetoolkit.rest.configure.RestInterceptProperties;
 import io.github.nichetoolkit.rest.util.CommonUtils;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpRequest;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.client.ClientHttpRequestExecution;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.http.client.ClientHttpResponse;
@@ -19,6 +21,7 @@ import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
@@ -37,6 +40,7 @@ public class RestHttpInterceptor implements ClientHttpRequestInterceptor {
     @Override
     @NonNull
     public ClientHttpResponse intercept(@NonNull HttpRequest httpRequest, @NonNull byte[] bytes, @NonNull ClientHttpRequestExecution execution) throws IOException {
+        ClientHttpResponse response = execution.execute(httpRequest, bytes);
         String url = httpRequest.getURI().getPath();
         log.info(" HttpRequest -Url:     {}",url);
         HttpMethod method = httpRequest.getMethod();
@@ -46,9 +50,17 @@ public class RestHttpInterceptor implements ClientHttpRequestInterceptor {
         MultiValueMap<String, String> queryParams = uriComponents.getQueryParams();
         Map<String, String> params = queryParams.toSingleValueMap();
         log.info(" HttpRequest -Params:  {}", JsonUtils.parseJson(params));
-        HttpHeaders headers = httpRequest.getHeaders();
-        log.info(" HttpRequest -Headers: {}",JsonUtils.parseJson(headers));
-        String content = new String(bytes, StandardCharsets.UTF_8);
+        HttpHeaders requestHeaders = httpRequest.getHeaders();
+        log.info(" HttpRequest -Headers: {}",JsonUtils.parseJson(requestHeaders));
+        HttpStatus statusCode = response.getStatusCode();
+        log.info(" HttpResponse -HttpStatus: {}",JsonUtils.parseJson(statusCode));
+        HttpHeaders responseHeaders = response.getHeaders();
+        log.info(" HttpResponse -Headers: {}",JsonUtils.parseJson(responseHeaders));
+        byte[] body = bytes;
+        if (GeneralUtils.isEmpty(bytes)) {
+            body = ByteStreams.toByteArray(response.getBody());
+        }
+        String content = new String(body, StandardCharsets.UTF_8);
         if (GeneralUtils.isNotEmpty(content)) {
             Integer bodyLength = interceptProperties.getBodyLength();
             String bodyString;
@@ -57,8 +69,8 @@ public class RestHttpInterceptor implements ClientHttpRequestInterceptor {
             } else {
                 bodyString = content;
             }
-            log.info(" HttpRequest -Body:    {}", bodyString);
+            log.info(" HttpResponse -Body:    {}", bodyString);
         }
-        return execution.execute(httpRequest, bytes);
+        return response;
     }
 }
