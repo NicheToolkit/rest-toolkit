@@ -2,6 +2,7 @@ package io.github.nichetoolkit.rest.interceptor;
 
 import io.github.nichetoolkit.rest.configure.RestInterceptProperties;
 import io.github.nichetoolkit.rest.util.CommonUtils;
+import io.github.nichetoolkit.rest.util.GeneralUtils;
 import io.github.nichetoolkit.rest.util.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,8 +49,16 @@ public class RestHttpInterceptor implements ClientHttpRequestInterceptor {
         HttpHeaders headers = httpRequest.getHeaders();
         log.info(" HttpRequest -Headers: {}",JsonUtils.parseJson(headers));
         String content = new String(bytes, StandardCharsets.UTF_8);
-        String bodyString = CommonUtils.substring(content, interceptProperties.getBodyLength());
-        log.info(" HttpRequest -Body:    {}", bodyString);
+        if (GeneralUtils.isNotEmpty(content)) {
+            Integer bodyLength = interceptProperties.getBodyLength();
+            String bodyString;
+            if (GeneralUtils.isNotEmpty(bodyLength)) {
+                bodyString = CommonUtils.substring(content, bodyLength);
+            } else {
+                bodyString = content;
+            }
+            log.info(" HttpRequest -Body:    {}", bodyString);
+        }
         return execution.execute(httpRequest, bytes);
     }
 }
