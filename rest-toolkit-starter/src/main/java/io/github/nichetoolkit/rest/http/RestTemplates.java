@@ -5,7 +5,10 @@ import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.type.TypeFactory;
 import io.github.nichetoolkit.rest.RestException;
 import io.github.nichetoolkit.rest.RestResult;
+import io.github.nichetoolkit.rest.constant.RestConstants;
 import io.github.nichetoolkit.rest.error.network.HttpErrorException;
+import io.github.nichetoolkit.rest.error.network.HttpResultDataNullException;
+import io.github.nichetoolkit.rest.helper.OptionalHelper;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import io.github.nichetoolkit.rest.util.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -16,11 +19,14 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
+import sun.management.resources.agent;
+import sun.plugin2.os.windows.Windows;
 
 import javax.annotation.PostConstruct;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * <p>RestTemplates</p>
@@ -44,6 +50,13 @@ public class RestTemplates {
     public void restTemplatesInit() {
         INSTANCE = this;
     }
+
+    public static HttpHeaders userAgent() {
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.set(RestConstants.USER_AGENT_HEADER, RestConstants.USER_AGENT_VALUE);
+        return httpHeaders;
+    }
+
 
     public static <K, V> MultiValueMap<K, V> emptyMap() {
         return new LinkedMultiValueMap<>(0);
@@ -1298,6 +1311,7 @@ public class RestTemplates {
         return getEntityObject(url, params, clazz);
     }
 
+
     public static <T> RestResult<T> getEntityResult(String url, TypeReference<T> typeReference) throws RestException {
         ResponseEntity<RestResult> response = getEntityResult(url);
         return RestResults.result(response, HttpMethod.GET, url, typeReference);
@@ -1347,6 +1361,7 @@ public class RestTemplates {
         }
     }
 
+
     private static <T> ResponseEntity<T> getEntityObject(String url, Class<T> clazz) throws HttpErrorException {
         try {
             return INSTANCE.restTemplate.getForEntity(url, clazz);
@@ -1370,8 +1385,8 @@ public class RestTemplates {
         try {
             return INSTANCE.restTemplate.getForEntity(url, RestResult.class);
         } catch (RestClientException exception) {
-            log.error("the request with restTemplate 'getForEntity' method has error: {}", exception.getMessage());
-            throw new HttpErrorException("getForEntity", exception.getMessage(), exception);
+            log.error("the request with restTemplate 'getEntityResult' method has error: {}", exception.getMessage());
+            throw new HttpErrorException("getEntityResult", exception.getMessage(), exception);
         }
     }
 
@@ -1380,10 +1395,94 @@ public class RestTemplates {
             UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url).queryParams(params);
             return INSTANCE.restTemplate.getForEntity(builder.toUriString(), RestResult.class);
         } catch (RestClientException exception) {
-            log.error("the request with restTemplate 'getForEntity' method has error: {}", exception.getMessage());
-            throw new HttpErrorException("getForEntity", exception.getMessage(), exception);
+            log.error("the request with restTemplate 'getEntityResult' method has error: {}", exception.getMessage());
+            throw new HttpErrorException("getEntityResult", exception.getMessage(), exception);
         }
     }
 
+    @SuppressWarnings(value = "unchecked")
+    public static <T> T exchangeObject(String url, HttpMethod httpMethod, HttpEntity httpEntity, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
+        ResponseEntity<T> response = (ResponseEntity<T>) exchangeEntityObject(url, httpMethod, httpEntity, params, TypeFactory.rawClass(TypeFactory.defaultInstance().constructType(typeReference)));
+        OptionalHelper.falseable(GeneralUtils.isNotEmpty(response) && GeneralUtils.isNotEmpty(response.getBody()),"the response entity body is null! ", HttpResultDataNullException::new);
+        return response.getBody();
+    }
+
+    @SuppressWarnings(value = "unchecked")
+    public static <T> T exchangeObject(String url, HttpMethod httpMethod, HttpEntity httpEntity, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
+        ResponseEntity<T> response = (ResponseEntity<T>) exchangeEntityObject(url, httpMethod, httpEntity, params, TypeFactory.rawClass(javaType));
+        OptionalHelper.falseable(GeneralUtils.isNotEmpty(response) && GeneralUtils.isNotEmpty(response.getBody()),"the response entity body is null! ", HttpResultDataNullException::new);
+        return response.getBody();
+    }
+
+    public static <T> T exchangeObject(String url, HttpMethod httpMethod, HttpEntity httpEntity, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
+        ResponseEntity<T> response = exchangeEntityObject(url, httpMethod, httpEntity, params, clazz);
+        OptionalHelper.falseable(GeneralUtils.isNotEmpty(response) && GeneralUtils.isNotEmpty(response.getBody()),"the response entity body is null! ", HttpResultDataNullException::new);
+        return response.getBody();
+    }
+
+    public static String exchangeString(String url, HttpMethod httpMethod, HttpEntity httpEntity, MultiValueMap<String, String> params) throws RestException {
+        ResponseEntity<String> response = exchangeEntityString(url, httpMethod,httpEntity,params);
+        OptionalHelper.falseable(GeneralUtils.isNotEmpty(response) && GeneralUtils.isNotEmpty(response.getBody()),"the response entity body is null! ", HttpResultDataNullException::new);
+        return response.getBody();
+    }
+
+    @SuppressWarnings(value = "unchecked")
+    public static <T> ResponseEntity<T> exchangeEntity(String url, HttpMethod httpMethod, HttpEntity httpEntity, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
+        return (ResponseEntity<T>) exchangeEntityObject(url, httpMethod, httpEntity, params, TypeFactory.rawClass(TypeFactory.defaultInstance().constructType(typeReference)));
+    }
+
+    @SuppressWarnings(value = "unchecked")
+    public static <T> ResponseEntity<T> exchangeEntity(String url, HttpMethod httpMethod, HttpEntity httpEntity, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
+        return (ResponseEntity<T>) exchangeEntityObject(url, httpMethod, httpEntity, params, TypeFactory.rawClass(javaType));
+    }
+
+    public static <T> ResponseEntity<T> exchangeEntity(String url, HttpMethod httpMethod, HttpEntity httpEntity, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
+        return exchangeEntityObject(url, httpMethod, httpEntity, params, clazz);
+    }
+
+    public static <T> RestResult<T> exchangeResult(String url, HttpMethod httpMethod, HttpEntity httpEntity, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
+        ResponseEntity<RestResult> response = exchangeEntityResult(url, httpMethod, httpEntity,params);
+        return RestResults.result(response, httpMethod, url, typeReference);
+    }
+
+    public static <T> RestResult<T> exchangeResult(String url, HttpMethod httpMethod, HttpEntity httpEntity, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
+        ResponseEntity<RestResult> response = exchangeEntityResult(url, httpMethod,httpEntity,params);
+        return RestResults.result(response, httpMethod, url, javaType);
+    }
+
+    public static <T> RestResult<T> exchangeResult(String url, HttpMethod httpMethod, HttpEntity httpEntity, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
+        ResponseEntity<RestResult> response = exchangeEntityResult(url, httpMethod,httpEntity,params);
+        return RestResults.result(response, httpMethod, url, clazz);
+    }
+
+    private static ResponseEntity<String> exchangeEntityString(String url, HttpMethod httpMethod, HttpEntity httpEntity, MultiValueMap<String, String> params) throws HttpErrorException {
+        try {
+            UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url).queryParams(params);
+            return INSTANCE.restTemplate.exchange(builder.toUriString(), httpMethod, httpEntity, String.class);
+        } catch (RestClientException exception) {
+            log.error("the request with restTemplate 'exchangeEntityString' method has error: {}", exception.getMessage());
+            throw new HttpErrorException("exchangeEntityString", exception.getMessage(), exception);
+        }
+    }
+
+    private static ResponseEntity<RestResult> exchangeEntityResult(String url, HttpMethod httpMethod, HttpEntity httpEntity, MultiValueMap<String, String> params) throws HttpErrorException {
+        try {
+            UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url).queryParams(params);
+            return INSTANCE.restTemplate.exchange(builder.toUriString(), httpMethod, httpEntity, RestResult.class);
+        } catch (RestClientException exception) {
+            log.error("the request with restTemplate 'exchangeEntityResult' method has error: {}", exception.getMessage());
+            throw new HttpErrorException("exchangeEntityResult", exception.getMessage(), exception);
+        }
+    }
+
+    private static <T> ResponseEntity<T> exchangeEntityObject(String url, HttpMethod httpMethod, HttpEntity httpEntity, MultiValueMap<String, String> params, Class<T> clazz) throws HttpErrorException {
+        try {
+            UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url).queryParams(params);
+            return INSTANCE.restTemplate.exchange(builder.toUriString(), httpMethod, httpEntity, clazz);
+        } catch (RestClientException exception) {
+            log.error("the request with restTemplate 'exchangeEntityObject' method has error: {}", exception.getMessage());
+            throw new HttpErrorException("exchangeEntityObject", exception.getMessage(), exception);
+        }
+    }
 
 }
