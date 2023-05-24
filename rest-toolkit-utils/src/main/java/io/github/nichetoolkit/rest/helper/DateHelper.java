@@ -81,9 +81,9 @@ public class DateHelper {
             case 17:
                 return DateConstants.DATE_FORMAT_17;
             case 19:
-                return datetime.contains("-") ? DateConstants.DATE_FORMAT_19 : DateConstants.DATE_FORMAT_19_FORWARD_SLASH;
+                return datetime.contains(DateConstants.MINUS) ? DateConstants.DATE_FORMAT_19 : DateConstants.DATE_FORMAT_19_FORWARD_SLASH;
             case 23:
-                return datetime.contains("-") ? DateConstants.DATE_FORMAT_23 : DateConstants.DATE_FORMAT_23_FORWARD_SLASH;
+                return datetime.contains(DateConstants.MINUS) ? DateConstants.DATE_FORMAT_23 : DateConstants.DATE_FORMAT_23_FORWARD_SLASH;
             case 11:
             case 12:
             case 13:
