@@ -19,28 +19,20 @@ public class FieldRepeatException extends RestErrorException {
         super(status, RestError.error(status));
     }
 
-    public FieldRepeatException(String field) {
-        super(RestErrorStatus.FIELD_REPEATED, RestError.error(field, RestErrorStatus.FIELD_REPEATED));
+    public FieldRepeatException(String message) {
+        super(RestErrorStatus.FIELD_REPEATED, RestError.error(RestErrorStatus.FIELD_REPEATED, message));
     }
 
-    public FieldRepeatException(String field, Object value) {
-        super(RestErrorStatus.FIELD_REPEATED, RestError.error(field, value, RestErrorStatus.FIELD_REPEATED));
-    }
-
-    public FieldRepeatException(String resource, String field) {
-        super(RestErrorStatus.FIELD_REPEATED, RestError.error(resource, field, RestErrorStatus.FIELD_REPEATED));
-    }
-
-    public FieldRepeatException(String resource, String field, Object value) {
-        super(RestErrorStatus.FIELD_REPEATED, RestError.error(resource,field, value, RestErrorStatus.FIELD_REPEATED));
+    public FieldRepeatException(String field, String message) {
+        super(RestErrorStatus.FIELD_REPEATED, RestError.error(field, RestErrorStatus.FIELD_REPEATED, message));
     }
 
     public FieldRepeatException(String field, Object value, String message) {
-        super(RestErrorStatus.FIELD_REPEATED, RestError.error(field, value, RestErrorStatus.FIELD_REPEATED,message));
+        super(RestErrorStatus.FIELD_REPEATED, RestError.error(field, value, RestErrorStatus.FIELD_REPEATED, message));
     }
 
     public FieldRepeatException(String resource, String field, Object value, String message) {
-        super(RestErrorStatus.FIELD_REPEATED, RestError.error(resource, field, value, RestErrorStatus.FIELD_REPEATED,message));
+        super(RestErrorStatus.FIELD_REPEATED, RestError.error(resource, field, value, RestErrorStatus.FIELD_REPEATED, message));
     }
 
     @Override

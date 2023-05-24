@@ -23,7 +23,7 @@ public class ResourceNotFoundException extends RestErrorException {
         super(RestErrorStatus.RESOURCE_NOT_FOUND, RestError.error(RestErrorStatus.RESOURCE_NOT_FOUND,message));
     }
 
-    public ResourceNotFoundException(String message, String resource) {
+    public ResourceNotFoundException(String resource, String message) {
         super(RestErrorStatus.RESOURCE_NOT_FOUND, RestError.error(resource, RestErrorStatus.RESOURCE_NOT_FOUND,message));
     }
 

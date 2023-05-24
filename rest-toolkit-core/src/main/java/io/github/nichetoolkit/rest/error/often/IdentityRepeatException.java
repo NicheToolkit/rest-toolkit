@@ -24,12 +24,13 @@ public class IdentityRepeatException extends IdentityErrorException {
         super("Id",RestErrorStatus.IDENTITY_REPEATED, message);
     }
 
-    public IdentityRepeatException(String field, Object value, String message) {
-        super(field,value, RestErrorStatus.IDENTITY_REPEATED, message);
+
+    public IdentityRepeatException(String field, String message) {
+        super(field, RestErrorStatus.IDENTITY_REPEATED, message);
     }
 
-    public IdentityRepeatException(Object value) {
-        super("Id", value, RestErrorStatus.IDENTITY_REPEATED);
+    public IdentityRepeatException(String field, Object value, String message) {
+        super(field,value, RestErrorStatus.IDENTITY_REPEATED, message);
     }
 
     @Override
