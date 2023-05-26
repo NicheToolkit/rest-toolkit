@@ -17,20 +17,20 @@ public class JsonParseBeanException extends JsonParseErrorException {
         super(status);
     }
 
-    public JsonParseBeanException(String resource) {
-        super(RestErrorStatus.JSON_PARSE_BEAN, resource);
-    }
-
-    public JsonParseBeanException(String resource, Object value) {
-        super(RestErrorStatus.JSON_PARSE_BEAN, resource, value);
+    public JsonParseBeanException(String message) {
+        super(RestErrorStatus.JSON_PARSE_BEAN, message);
     }
 
     public JsonParseBeanException(String resource, String message) {
         super(RestErrorStatus.JSON_PARSE_BEAN, resource, message);
     }
 
-    public JsonParseBeanException(String resource, Object value, String message) {
-        super(RestErrorStatus.JSON_PARSE_BEAN, resource, value, message);
+    public JsonParseBeanException(String resource, String field, String message) {
+        super(RestErrorStatus.JSON_PARSE_BEAN, resource, field, message);
+    }
+
+    public JsonParseBeanException(String resource, String field, Object value, String message) {
+        super(RestErrorStatus.JSON_PARSE_BEAN, resource, field, value, message);
     }
 
     @Override

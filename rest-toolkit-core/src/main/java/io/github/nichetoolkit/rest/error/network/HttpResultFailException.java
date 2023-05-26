@@ -21,7 +21,7 @@ public class HttpResultFailException extends HttpErrorException {
     }
 
     public HttpResultFailException(String message) {
-        super(message, RestErrorStatus.HTTP_RESULT_FAIL);
+        super(RestErrorStatus.HTTP_RESULT_FAIL,message);
     }
 
     public HttpResultFailException(Integer status, String message) {

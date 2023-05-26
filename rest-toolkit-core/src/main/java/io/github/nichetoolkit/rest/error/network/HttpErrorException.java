@@ -5,8 +5,6 @@ import io.github.nichetoolkit.rest.RestErrorException;
 import io.github.nichetoolkit.rest.RestErrorStatus;
 import io.github.nichetoolkit.rest.RestStatus;
 
-import java.util.function.Supplier;
-
 /**
  * <p>HttpException</p>
  * @author Cyan (snow22314@outlook.com)
@@ -17,44 +15,12 @@ public class HttpErrorException extends RestErrorException {
         super(RestErrorStatus.HTTP_ERROR);
     }
 
-    public HttpErrorException(Supplier<RestStatus> supplier) {
-        super(supplier);
-    }
-
-    public HttpErrorException(Throwable cause) {
-        super(RestError.error(RestErrorStatus.HTTP_ERROR), cause);
-    }
-
-    public HttpErrorException(String message) {
-        super(message, RestError.error(RestErrorStatus.HTTP_ERROR, message));
-    }
-
-    public HttpErrorException(String resource, String message) {
-        super(message, RestError.error(resource, RestErrorStatus.HTTP_ERROR, message));
-    }
-
-    public HttpErrorException(String message, Throwable cause) {
-        super(message, RestError.error(RestErrorStatus.HTTP_ERROR, message), cause);
-    }
-
-    public HttpErrorException(String resource, String message, Throwable cause) {
-        super(message, RestError.error(resource, RestErrorStatus.HTTP_ERROR, message), cause);
-    }
-
     public HttpErrorException(Integer status) {
         super(status, RestError.error(status, RestErrorStatus.HTTP_ERROR));
     }
 
     public HttpErrorException(Integer status, Throwable cause) {
         super(status, RestError.error(status, RestErrorStatus.HTTP_ERROR, cause));
-    }
-
-    public HttpErrorException(RestStatus status) {
-        super(status, RestError.error(status));
-    }
-
-    public HttpErrorException(RestStatus status, Throwable cause) {
-        super(status, RestError.error(status, cause));
     }
 
     public HttpErrorException(Integer status, String message) {
@@ -81,20 +47,88 @@ public class HttpErrorException extends RestErrorException {
         super(status, RestError.error(status, restStatus, cause), cause);
     }
 
-    public HttpErrorException(String message, RestStatus status) {
-        super(message, RestError.error(status, message));
+    public HttpErrorException(RestErrorStatus status) {
+        super(status);
     }
 
-    public HttpErrorException(String resource, String message, RestStatus status) {
-        super(message, RestError.error(resource, status, message));
+    public HttpErrorException(String error) {
+        super(RestErrorStatus.HTTP_ERROR, RestError.error(RestErrorStatus.HTTP_ERROR, error));
     }
 
-    public HttpErrorException(String message, RestStatus status, Throwable cause) {
-        super(message, RestError.error(status, message, cause), cause);
+    public HttpErrorException(String error, Throwable cause) {
+        super(RestErrorStatus.HTTP_ERROR, RestError.error(RestErrorStatus.HTTP_ERROR, error, cause), cause);
     }
 
-    public HttpErrorException(String resource, String message, RestStatus status, Throwable cause) {
-        super(message, RestError.error(resource, status, message, cause), cause);
+    public HttpErrorException(RestStatus status) {
+        super(status, RestError.error(status));
+    }
+
+    public HttpErrorException(RestStatus status, Throwable cause) {
+        super(status, RestError.error(status, cause), cause);
+    }
+
+    public HttpErrorException(RestStatus status, RestError error) {
+        super(status, error);
+    }
+
+    public HttpErrorException(RestStatus status, RestError error, Throwable cause) {
+        super(status, error, cause);
+    }
+
+    public HttpErrorException(RestStatus status, String message) {
+        super(status, RestError.error(status, message));
+    }
+
+    public HttpErrorException(RestStatus status, String message, Throwable cause) {
+        super(status, RestError.error(status, message, cause), cause);
+    }
+
+    public HttpErrorException(RestStatus status, String resource, String message) {
+        super(status, RestError.error(resource, status, message));
+    }
+
+    public HttpErrorException(RestStatus status, String resource, String message, Throwable cause) {
+        super(status, RestError.error(resource, status, message, cause), cause);
+    }
+
+    public HttpErrorException(RestStatus status, String resource, String filed, String message) {
+        super(status, RestError.error(resource, filed, status, message));
+    }
+
+    public HttpErrorException(RestStatus status, String resource, String filed, String message, Throwable cause) {
+        super(status, RestError.error(resource, filed, status, message, cause), cause);
+    }
+
+    public HttpErrorException(RestStatus status, String resource, String filed, Object value, String message) {
+        super(status, RestError.error(resource, filed, value, status, message));
+    }
+
+    public HttpErrorException(RestStatus status, String resource, String filed, Object value, String message, Throwable cause) {
+        super(status, RestError.error(resource, filed, value, status, message, cause), cause);
+    }
+
+    public HttpErrorException(String resource, String error) {
+        super(RestErrorStatus.HTTP_ERROR, RestError.error(resource, RestErrorStatus.HTTP_ERROR, error));
+    }
+
+    public HttpErrorException(String resource, String error, Throwable cause) {
+        super(RestErrorStatus.HTTP_ERROR, RestError.error(resource, RestErrorStatus.HTTP_ERROR, error, cause), cause);
+    }
+
+    public HttpErrorException(String resource, String filed, String error) {
+        super(RestErrorStatus.HTTP_ERROR, RestError.error(resource, filed, RestErrorStatus.HTTP_ERROR, error));
+    }
+
+    public HttpErrorException(String resource, String filed, String error, Throwable cause) {
+        super(RestErrorStatus.HTTP_ERROR, RestError.error(resource, filed, RestErrorStatus.HTTP_ERROR, error, cause), cause);
+    }
+
+    public HttpErrorException(String resource, String filed, Object value, String error) {
+        super(RestErrorStatus.HTTP_ERROR, RestError.error(resource, filed, value, RestErrorStatus.HTTP_ERROR, error));
+    }
+
+    public HttpErrorException(String resource, String filed, Object value, String error, Throwable cause) {
+        super(RestErrorStatus.HTTP_ERROR, RestError.error(resource, filed, value, RestErrorStatus.HTTP_ERROR, error, cause));
     }
 
     @Override

@@ -18,16 +18,17 @@ public class ClassUnsupportedException extends ClassErrorException {
         super(RestErrorStatus.CLASS_TYPE_UNSUPPORTED,message);
     }
 
-    public ClassUnsupportedException(String resource, Object value) {
-        super(RestErrorStatus.CLASS_TYPE_UNSUPPORTED, resource, value);
-    }
 
     public ClassUnsupportedException(String resource, String message) {
         super(RestErrorStatus.CLASS_TYPE_UNSUPPORTED, resource, message);
     }
 
-    public ClassUnsupportedException(String resource, Object value, String message) {
-        super(RestErrorStatus.CLASS_TYPE_UNSUPPORTED, resource, value, message);
+    public ClassUnsupportedException(String resource, String field, String message) {
+        super(RestErrorStatus.CLASS_TYPE_UNSUPPORTED, resource, field, message);
+    }
+
+    public ClassUnsupportedException(String resource, String field, Object value, String message) {
+        super(RestErrorStatus.CLASS_TYPE_UNSUPPORTED, resource,field, value, message);
     }
 
     @Override

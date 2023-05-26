@@ -21,50 +21,85 @@ public class FileErrorException extends RestErrorException {
     }
 
     public FileErrorException(String error) {
-        super(RestErrorStatus.FILE_ERROR, RestError.error(RestErrorStatus.FILE_ERROR,error));
+        super(RestErrorStatus.FILE_ERROR, RestError.error(RestErrorStatus.FILE_ERROR, error));
+    }
+
+    public FileErrorException(String error, Throwable cause) {
+        super(RestErrorStatus.FILE_ERROR, RestError.error(RestErrorStatus.FILE_ERROR, error, cause), cause);
     }
 
     public FileErrorException(RestStatus status) {
         super(status, RestError.error(status));
     }
 
+    public FileErrorException(RestStatus status, Throwable cause) {
+        super(status, RestError.error(status, cause), cause);
+    }
+
     public FileErrorException(RestStatus status, RestError error) {
         super(status, error);
     }
 
-    public FileErrorException(RestStatus status, String error) {
-        super(status,RestError.error(status, error));
+    public FileErrorException(RestStatus status, RestError error, Throwable cause) {
+        super(status, error, cause);
     }
 
-    public FileErrorException(String file, Object value) {
-        super(RestErrorStatus.FILE_ERROR, RestError.error(file, value, RestErrorStatus.FILE_ERROR));
+    public FileErrorException(RestStatus status, String message) {
+        super(status, RestError.error(status, message));
     }
 
-    public FileErrorException(String file, String error) {
-        super(RestErrorStatus.FILE_ERROR, RestError.error(file, RestErrorStatus.FILE_ERROR, error));
+    public FileErrorException(RestStatus status, String message, Throwable cause) {
+        super(status, RestError.error(status, message, cause), cause);
     }
 
-    public FileErrorException(String file, Object value, String error) {
-        super(RestErrorStatus.FILE_ERROR, RestError.error(file, value, RestErrorStatus.FILE_ERROR, error));
+    public FileErrorException(RestStatus status, String resource, String message) {
+        super(status, RestError.error(resource, status, message));
     }
 
-    public FileErrorException(String file, RestStatus status) {
-        super(status, RestError.error(file, status));
+    public FileErrorException(RestStatus status, String resource, String message, Throwable cause) {
+        super(status, RestError.error(resource, status, message, cause), cause);
     }
 
-    public FileErrorException(String file, Object value, RestStatus status) {
-        super(status, RestError.error(file, value, status));
+    public FileErrorException(RestStatus status, String resource, String filed, String message) {
+        super(status, RestError.error(resource, filed, status, message));
     }
 
-    public FileErrorException(String file, RestStatus status, String error) {
-        super(status, RestError.error(file, status, error));
+    public FileErrorException(RestStatus status, String resource, String filed, String message, Throwable cause) {
+        super(status, RestError.error(resource, filed, status, message, cause), cause);
     }
 
-    public FileErrorException(String file, Object value, RestStatus status, String error) {
-        super(status, RestError.error(file, value, status, error));
+    public FileErrorException(RestStatus status, String resource, String filed, Object value, String message) {
+        super(status, RestError.error(resource, filed, value, status, message));
     }
 
+    public FileErrorException(RestStatus status, String resource, String filed, Object value, String message, Throwable cause) {
+        super(status, RestError.error(resource, filed, value, status, message, cause), cause);
+    }
 
+    public FileErrorException(String resource, String error) {
+        super(RestErrorStatus.FILE_ERROR, RestError.error(resource, RestErrorStatus.FILE_ERROR, error));
+    }
+
+    public FileErrorException(String resource, String error, Throwable cause) {
+        super(RestErrorStatus.FILE_ERROR, RestError.error(resource, RestErrorStatus.FILE_ERROR, error, cause), cause);
+    }
+
+    public FileErrorException(String resource, String filed, String error) {
+        super(RestErrorStatus.FILE_ERROR, RestError.error(resource, filed, RestErrorStatus.FILE_ERROR, error));
+    }
+
+    public FileErrorException(String resource, String filed, String error, Throwable cause) {
+        super(RestErrorStatus.FILE_ERROR, RestError.error(resource, filed, RestErrorStatus.FILE_ERROR, error, cause), cause);
+    }
+
+    public FileErrorException(String resource, String filed, Object value, String error) {
+        super(RestErrorStatus.FILE_ERROR, RestError.error(resource, filed, value, RestErrorStatus.FILE_ERROR, error));
+    }
+
+    public FileErrorException(String resource, String filed, Object value, String error, Throwable cause) {
+        super(RestErrorStatus.FILE_ERROR, RestError.error(resource, filed, value, RestErrorStatus.FILE_ERROR, error, cause));
+    }
+    
     @Override
     public FileErrorException get() {
         return new FileErrorException();

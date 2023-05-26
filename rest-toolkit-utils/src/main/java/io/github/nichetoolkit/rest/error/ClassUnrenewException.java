@@ -18,16 +18,16 @@ public class ClassUnrenewException extends ClassErrorException {
         super(RestErrorStatus.CLASS_TYPE_UNRENEW,message);
     }
 
-    public ClassUnrenewException(String resource, Object value) {
-        super(RestErrorStatus.CLASS_TYPE_UNRENEW, resource, value);
-    }
-
     public ClassUnrenewException(String resource, String message) {
         super(RestErrorStatus.CLASS_TYPE_UNRENEW, resource, message);
     }
 
-    public ClassUnrenewException(String resource, Object value, String message) {
-        super(RestErrorStatus.CLASS_TYPE_UNRENEW, resource, value, message);
+    public ClassUnrenewException(String resource, String field, String message) {
+        super(RestErrorStatus.CLASS_TYPE_UNRENEW, resource, field, message);
+    }
+
+    public ClassUnrenewException(String resource, String field, Object value, String message) {
+        super(RestErrorStatus.CLASS_TYPE_UNRENEW, resource,field, value, message);
     }
 
     @Override
