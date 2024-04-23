@@ -32,26 +32,26 @@ import org.apache.http.message.BasicHeaderElementIterator;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.ssl.SSLContextBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.client.ClientHttpRequestFactory;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
-import org.springframework.http.client.OkHttp3ClientHttpRequestFactory;
-import org.springframework.http.client.SimpleClientHttpRequestFactory;
+import org.springframework.http.client.*;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 import org.springframework.web.client.DefaultResponseErrorHandler;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.DefaultUriBuilderFactory;
 
 import javax.net.ssl.*;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.net.ProxySelector;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.security.KeyManagementException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
@@ -67,10 +67,10 @@ import java.util.concurrent.TimeUnit;
  * @version v1.0.0
  */
 @Slf4j
-@Configuration
+@AutoConfiguration
 @SuppressWarnings("SameNameButDifferent")
 @ComponentScan(basePackages = {"io.github.nichetoolkit.rest"})
-@ConditionalOnProperty(value = "nichetoolkit.rest.http.enabled", havingValue = "true")
+@ConditionalOnProperty(value = "nichetoolkit.rest.http.enabled", havingValue = "true", matchIfMissing = true)
 public class RestHttpAutoConfigure {
 
     private RestInterceptProperties interceptProperties;
@@ -98,7 +98,7 @@ public class RestHttpAutoConfigure {
 
 
     @Configuration
-    @ConditionalOnProperty(value = "nichetoolkit.rest.http.http-type", havingValue = "default")
+    @ConditionalOnProperty(value = "nichetoolkit.rest.http.http-type", havingValue = "default", matchIfMissing = true)
     public class DefaultRestTemplateAutoConfigure {
 
         public DefaultRestTemplateAutoConfigure() {
@@ -131,7 +131,7 @@ public class RestHttpAutoConfigure {
 
 
     @Configuration
-    @ConditionalOnProperty(value = "nichetoolkit.rest.http.http-type", havingValue = "ok_http_client")
+    @ConditionalOnProperty(value = "nichetoolkit.rest.http.http-type", havingValue = "ok_http_client", matchIfMissing = true)
     public class OkHttpRestTemplateAutoConfigure {
         public OkHttpRestTemplateAutoConfigure() {
             log.debug("================= okhttp3-rest-template-auto-config initiated ！ ===================");
@@ -179,7 +179,7 @@ public class RestHttpAutoConfigure {
 
 
     @Configuration
-    @ConditionalOnProperty(value = "nichetoolkit.rest.http.http-type", havingValue = "http_client")
+    @ConditionalOnProperty(value = "nichetoolkit.rest.http.http-type", havingValue = "http_client", matchIfMissing = true)
     public class HttpClientRestTemplateAutoConfigure {
         public HttpClientRestTemplateAutoConfigure() {
             log.debug("================= http-client-rest-template-auto-config initiated ！ ===================");
@@ -299,30 +299,33 @@ public class RestHttpAutoConfigure {
 
 
     private RestTemplate createRestTemplate(ClientHttpRequestFactory factory) {
-        RestTemplate restTemplate = new RestTemplate(factory);
+        RestTemplate restTemplate = new RestTemplate(new BufferingClientHttpRequestFactory(factory));
         if (interceptProperties.getEnabled()) {
             restTemplate.getInterceptors().add(httpInterceptor);
         }
         modifyDefaultCharset(restTemplate);
+        DefaultUriBuilderFactory uriFactory = new DefaultUriBuilderFactory();
+        uriFactory.setEncodingMode(httpProperties.getEncodingMode());
+        restTemplate.setUriTemplateHandler(uriFactory);
         restTemplate.setErrorHandler(new DefaultResponseErrorHandler());
         return restTemplate;
     }
 
 
     private void modifyDefaultCharset(RestTemplate restTemplate) {
-        List<HttpMessageConverter<?>> converterList = restTemplate.getMessageConverters();
+        List<HttpMessageConverter<?>> messageConverters = restTemplate.getMessageConverters();
         HttpMessageConverter<?> converterTarget = null;
-        for (HttpMessageConverter<?> item : converterList) {
-            if (StringHttpMessageConverter.class == item.getClass()) {
-                converterTarget = item;
+        for (HttpMessageConverter<?> messageConverter : messageConverters) {
+            if (StringHttpMessageConverter.class == messageConverter.getClass()) {
+                converterTarget = messageConverter;
                 break;
             }
         }
         if (null != converterTarget) {
-            converterList.remove(converterTarget);
+            messageConverters.remove(converterTarget);
         }
         Charset defaultCharset = httpProperties.getCharset();
-        converterList.add(1, new StringHttpMessageConverter(defaultCharset));
+        messageConverters.add(1, new StringHttpMessageConverter(defaultCharset));
     }
 
 }

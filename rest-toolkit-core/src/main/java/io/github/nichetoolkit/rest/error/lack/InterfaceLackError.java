@@ -17,18 +17,29 @@ public class InterfaceLackError extends RestError {
         super(RestErrorStatus.INTERFACE_LACK_ERROR);
     }
 
+    public InterfaceLackError(Throwable cause) {
+        super(RestErrorStatus.INTERFACE_LACK_ERROR, cause);
+    }
+
     public InterfaceLackError(Supplier<RestStatus> supplier) {
         super(supplier);
     }
 
     public InterfaceLackError(String error) {
-        super(error,RestErrorStatus.INTERFACE_LACK_ERROR);
+        super(error, RestErrorStatus.INTERFACE_LACK_ERROR);
+    }
+
+    public InterfaceLackError(String error, Throwable cause) {
+        super(RestErrorStatus.INTERFACE_LACK_ERROR, error, cause);
     }
 
     public InterfaceLackError(RestStatus status) {
         super(status);
     }
 
+    public InterfaceLackError(RestStatus status, Throwable cause) {
+        super(status, cause);
+    }
 
     @Override
     public InterfaceLackError get() {

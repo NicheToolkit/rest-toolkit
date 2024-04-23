@@ -19,24 +19,24 @@ public class JsonParseException extends RestErrorException {
         super(status, RestError.error(status));
     }
 
-    public JsonParseException(String resource, String json) {
-        super(RestErrorStatus.JSON_PARSE_ERROR, RestError.error(resource, json, RestErrorStatus.JSON_PARSE_ERROR));
+    public JsonParseException(String resource, String message) {
+        super(RestErrorStatus.JSON_PARSE_ERROR, RestError.error(resource, RestErrorStatus.JSON_PARSE_ERROR,message));
     }
 
-    public JsonParseException(String resource, String json, String message) {
-        super(RestErrorStatus.JSON_PARSE_ERROR, RestError.error(resource, json, RestErrorStatus.JSON_PARSE_ERROR, message));
+    public JsonParseException(String resource, String className, String message) {
+        super(RestErrorStatus.JSON_PARSE_ERROR, RestError.error(resource, className, RestErrorStatus.JSON_PARSE_ERROR, message));
     }
 
-    public JsonParseException(String resource, String json, String className, String message) {
-        super(RestErrorStatus.JSON_PARSE_ERROR, RestError.error(resource, json, className, RestErrorStatus.JSON_PARSE_ERROR, message));
+    public JsonParseException(String resource, String className, String json, String message) {
+        super(RestErrorStatus.JSON_PARSE_ERROR, RestError.error(resource, className, json, RestErrorStatus.JSON_PARSE_ERROR, message));
     }
 
-    public JsonParseException(String resource, String json, RestStatus status, String message) {
-        super(status, RestError.error(resource, json, status, message));
+    public JsonParseException(String resource, String className, RestStatus status, String message) {
+        super(status, RestError.error(resource, className, status, message));
     }
 
-    public JsonParseException(String resource, String json, String className, RestStatus status, String message) {
-        super(status, RestError.error(resource, json, className, status, message));
+    public JsonParseException(String resource, String className, String json, RestStatus status, String message) {
+        super(status, RestError.error(resource,  className, json, status, message));
     }
 
     @Override

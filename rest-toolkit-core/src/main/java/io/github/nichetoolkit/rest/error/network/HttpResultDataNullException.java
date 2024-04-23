@@ -19,11 +19,11 @@ public class HttpResultDataNullException extends HttpErrorException {
     }
 
     public HttpResultDataNullException(String message) {
-        super(message, RestErrorStatus.HTTP_RESULT_DATA_NULL);
+        super( RestErrorStatus.HTTP_RESULT_DATA_NULL,message);
     }
 
     public HttpResultDataNullException(String resource, String message) {
-        super(resource,message,RestErrorStatus.HTTP_RESULT_DATA_NULL);
+        super(RestErrorStatus.HTTP_RESULT_DATA_NULL,resource,message);
     }
 
     @Override

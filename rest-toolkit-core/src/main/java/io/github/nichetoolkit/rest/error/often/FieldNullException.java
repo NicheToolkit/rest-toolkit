@@ -1,19 +1,19 @@
 package io.github.nichetoolkit.rest.error.often;
 
-import io.github.nichetoolkit.rest.RestErrorStatus;
 import io.github.nichetoolkit.rest.RestError;
-import io.github.nichetoolkit.rest.RestErrorException;
+import io.github.nichetoolkit.rest.RestErrorStatus;
 import io.github.nichetoolkit.rest.RestStatus;
+import io.github.nichetoolkit.rest.error.natives.FieldErrorException;
 
 /**
  * <p>FieldNullException</p>
  * @author Cyan (snow22314@outlook.com)
  * @version v1.0.0
  */
-public class FieldNullException extends RestErrorException {
+public class FieldNullException extends FieldErrorException {
 
     public FieldNullException() {
-        super(RestErrorStatus.FIELD_IS_NULL, RestError.error("Field", RestErrorStatus.FIELD_IS_NULL));
+        super(RestErrorStatus.FIELD_IS_NULL);
     }
 
     public FieldNullException(RestStatus status) {
@@ -21,11 +21,11 @@ public class FieldNullException extends RestErrorException {
     }
 
     public FieldNullException(String message) {
-        super(RestErrorStatus.FIELD_IS_NULL, RestError.error("Field", RestErrorStatus.FIELD_IS_NULL,message));
+        super(RestErrorStatus.FIELD_IS_NULL, message);
     }
 
     public FieldNullException(String field, String message) {
-        super(RestErrorStatus.FIELD_IS_NULL, RestError.error(field, RestErrorStatus.FIELD_IS_NULL,message));
+        super(RestErrorStatus.FIELD_IS_NULL, "field", field, message);
     }
 
     @Override

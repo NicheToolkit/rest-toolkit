@@ -24,65 +24,80 @@ public class ClassErrorException extends RestErrorException {
         super(RestErrorStatus.CLASS_ERROR, RestError.error(RestErrorStatus.CLASS_ERROR, error));
     }
 
+    public ClassErrorException(String error, Throwable cause) {
+        super(RestErrorStatus.CLASS_ERROR, RestError.error(RestErrorStatus.CLASS_ERROR, error, cause), cause);
+    }
+
     public ClassErrorException(RestStatus status) {
         super(status, RestError.error(status));
+    }
+
+    public ClassErrorException(RestStatus status, Throwable cause) {
+        super(status, RestError.error(status, cause), cause);
     }
 
     public ClassErrorException(RestStatus status, RestError error) {
         super(status, error);
     }
 
-
-    public ClassErrorException(RestStatus status, String resource) {
-        super(status, RestError.error(resource, status));
+    public ClassErrorException(RestStatus status, RestError error, Throwable cause) {
+        super(status, error, cause);
     }
 
-    public ClassErrorException(RestStatus status, String resource, Object value) {
-        super(status, RestError.error(resource, value, status));
+    public ClassErrorException(RestStatus status, String message) {
+        super(status, RestError.error(status, message));
+    }
+
+    public ClassErrorException(RestStatus status, String message, Throwable cause) {
+        super(status, RestError.error(status, message, cause), cause);
     }
 
     public ClassErrorException(RestStatus status, String resource, String message) {
         super(status, RestError.error(resource, status, message));
     }
 
-    public ClassErrorException(RestStatus status, String resource, Object value, String message) {
-        super(status, RestError.error(resource, value, status, message));
+    public ClassErrorException(RestStatus status, String resource, String message, Throwable cause) {
+        super(status, RestError.error(resource, status, message, cause), cause);
     }
 
-    public ClassErrorException(String filed, String error) {
-        super(RestErrorStatus.CLASS_ERROR, RestError.error(null, filed, null, RestErrorStatus.CLASS_ERROR, error));
+    public ClassErrorException(RestStatus status, String resource, String filed, String message) {
+        super(status, RestError.error(resource, filed, status, message));
     }
 
-    public ClassErrorException(String filed, Object value) {
-        super(RestErrorStatus.CLASS_ERROR, RestError.error(null, filed, value, RestErrorStatus.CLASS_ERROR));
+    public ClassErrorException(RestStatus status, String resource, String filed, String message, Throwable cause) {
+        super(status, RestError.error(resource, filed, status, message, cause), cause);
     }
 
-    public ClassErrorException(String filed, Object value, RestStatus status) {
-        super(RestErrorStatus.CLASS_ERROR, RestError.error(null, filed, value, status));
+    public ClassErrorException(RestStatus status, String resource, String filed, Object value, String message) {
+        super(status, RestError.error(resource, filed, value, status, message));
     }
 
-    public ClassErrorException(String filed, Object value, String error) {
-        super(RestErrorStatus.CLASS_ERROR, RestError.error(null, filed, value, RestErrorStatus.CLASS_ERROR, error));
+    public ClassErrorException(RestStatus status, String resource, String filed, Object value, String message, Throwable cause) {
+        super(status, RestError.error(resource, filed, value, status, message, cause), cause);
     }
 
-    public ClassErrorException(String filed, Object value, RestStatus status, String error) {
-        super(RestErrorStatus.CLASS_ERROR, RestError.error(null, filed, value, status, error));
+    public ClassErrorException(String resource, String error) {
+        super(RestErrorStatus.CLASS_ERROR, RestError.error(resource, RestErrorStatus.CLASS_ERROR, error));
     }
 
-    public ClassErrorException(String resource, String filed, Object value) {
-        super(RestErrorStatus.CLASS_ERROR, RestError.error(resource, filed, value, RestErrorStatus.CLASS_ERROR));
+    public ClassErrorException(String resource, String error, Throwable cause) {
+        super(RestErrorStatus.CLASS_ERROR, RestError.error(resource, RestErrorStatus.CLASS_ERROR, error, cause), cause);
     }
 
-    public ClassErrorException(String resource, String filed, Object value, RestStatus status) {
-        super(RestErrorStatus.CLASS_ERROR, RestError.error(resource, filed, value, status));
+    public ClassErrorException(String resource, String filed, String error) {
+        super(RestErrorStatus.CLASS_ERROR, RestError.error(resource, filed, RestErrorStatus.CLASS_ERROR, error));
+    }
+
+    public ClassErrorException(String resource, String filed, String error, Throwable cause) {
+        super(RestErrorStatus.CLASS_ERROR, RestError.error(resource, filed, RestErrorStatus.CLASS_ERROR, error, cause), cause);
     }
 
     public ClassErrorException(String resource, String filed, Object value, String error) {
         super(RestErrorStatus.CLASS_ERROR, RestError.error(resource, filed, value, RestErrorStatus.CLASS_ERROR, error));
     }
 
-    public ClassErrorException(String resource, String filed, Object value, RestStatus status, String error) {
-        super(RestErrorStatus.CLASS_ERROR, RestError.error(resource, filed, value, status, error));
+    public ClassErrorException(String resource, String filed, Object value, String error, Throwable cause) {
+        super(RestErrorStatus.CLASS_ERROR, RestError.error(resource, filed, value, RestErrorStatus.CLASS_ERROR, error, cause));
     }
 
     @Override

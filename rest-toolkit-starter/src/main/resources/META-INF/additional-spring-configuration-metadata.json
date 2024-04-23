@@ -14,6 +14,11 @@
       "name": "nichetoolkit.rest.http",
       "sourceType": "io.github.nichetoolkit.rest.configure.RestHttpProperties",
       "type": "io.github.nichetoolkit.rest.configure.RestHttpProperties"
+    },
+    {
+      "name": "nichetoolkit.rest.logback",
+      "sourceType": "io.github.nichetoolkit.rest.configure.RestLogbackProperties",
+      "type": "io.github.nichetoolkit.rest.configure.RestLogbackProperties"
     }
   ],
   "properties": [
@@ -88,28 +93,28 @@
       "type": "java.lang.Integer",
       "sourceType": "java.lang.Integer",
       "description": "intercept log body length limit.",
-      "defaultValue": "1000"
+      "defaultValue": "1024"
     },
     {
       "name": "nichetoolkit.rest.intercept.error-length",
       "type": "java.lang.Integer",
       "sourceType": "java.lang.Integer",
       "description": "intercept log error length limit.",
-      "defaultValue": "1000"
+      "defaultValue": "1024"
     },
     {
       "name": "nichetoolkit.rest.intercept.message-length",
       "type": "java.lang.Integer",
       "sourceType": "java.lang.Integer",
       "description": "intercept log message length limit.",
-      "defaultValue": "1000"
+      "defaultValue": "1024"
     },
     {
       "name": "nichetoolkit.rest.intercept.result-length",
       "type": "java.lang.Integer",
       "sourceType": "java.lang.Integer",
       "description": "intercept log result length limit.",
-      "defaultValue": "1000"
+      "defaultValue": "1024"
     },
     {
       "name": "nichetoolkit.rest.http.enabled",
@@ -168,6 +173,13 @@
       "defaultValue": "UTF_8"
     },
     {
+      "name": "nichetoolkit.rest.http.encoding-mode",
+      "type": "org.springframework.web.util.DefaultUriBuilderFactory.EncodingMode",
+      "sourceType": "org.springframework.web.util.DefaultUriBuilderFactory.EncodingMode",
+      "description": "http encoding mode.",
+      "defaultValue": "NONE"
+    },
+    {
       "name": "nichetoolkit.rest.http.retry-times",
       "type": "java.lang.Integer",
       "sourceType": "java.lang.Integer",
@@ -205,6 +217,43 @@
       "type": "java.lang.Integer",
       "sourceType": "java.lang.Integer",
       "description": "http proxy port."
+    },
+    {
+      "name": "nichetoolkit.rest.logback.enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "java.lang.Boolean",
+      "description": "logback enabled.",
+      "defaultValue": "true"
+    },
+    {
+      "name": "nichetoolkit.rest.logback.log-key",
+      "type": "java.lang.String",
+      "sourceType": "java.lang.String",
+      "description": "logback log key."
+    },
+    {
+      "name": "nichetoolkit.rest.logback.attributes",
+      "type": "java.lang.String[]",
+      "sourceType": "java.lang.String[]",
+      "description": "logback attributes."
+    },
+    {
+      "name": "nichetoolkit.rest.logback.request-key",
+      "type": "java.lang.String",
+      "sourceType": "java.lang.String",
+      "description": "logback request key."
+    },
+    {
+      "name": "nichetoolkit.rest.logback.header-key",
+      "type": "java.lang.String",
+      "sourceType": "java.lang.String",
+      "description": "logback header key."
+    },
+    {
+      "name": "nichetoolkit.rest.logback.argument-length",
+      "type": "java.lang.Integer",
+      "sourceType": "java.lang.Integer",
+      "description": "logback argument length."
     }
   ],
   "hints": [
@@ -248,6 +297,19 @@
       ]
     },
     {
+      "name": "nichetoolkit.rest.intercept.userlog-enabled",
+      "values": [
+        {
+          "value": false,
+          "description": "intercept userlog close."
+        },
+        {
+          "value": true,
+          "description": "intercept userlog open."
+        }
+      ]
+    },
+    {
       "name": "nichetoolkit.rest.intercept.bean-enabled",
       "values": [
         {
@@ -270,6 +332,19 @@
         {
           "value": true,
           "description": "http open."
+        }
+      ]
+    },
+    {
+      "name": "nichetoolkit.rest.logback.enabled",
+      "values": [
+        {
+          "value": false,
+          "description": "logback close."
+        },
+        {
+          "value": true,
+          "description": "logback open."
         }
       ]
     }

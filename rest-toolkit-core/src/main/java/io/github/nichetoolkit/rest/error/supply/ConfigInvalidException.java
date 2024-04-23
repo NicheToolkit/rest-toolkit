@@ -20,16 +20,20 @@ public class ConfigInvalidException extends RestErrorException {
         super(status, RestError.error(status));
     }
 
-    public ConfigInvalidException(String field) {
-        super(RestErrorStatus.CONFIG_INVALID, RestError.error(field, RestErrorStatus.CONFIG_INVALID));
+    public ConfigInvalidException(String message) {
+        super(RestErrorStatus.CONFIG_INVALID, RestError.error(RestErrorStatus.CONFIG_INVALID, message));
     }
 
-    public ConfigInvalidException(String field, String value) {
-        super(RestErrorStatus.CONFIG_INVALID, RestError.error(field, value, RestErrorStatus.CONFIG_INVALID));
+    public ConfigInvalidException(String field, String message) {
+        super(RestErrorStatus.CONFIG_INVALID, RestError.error(field, RestErrorStatus.CONFIG_INVALID, message));
     }
 
-    public ConfigInvalidException(String resource, String field, String value, String message) {
-        super(RestErrorStatus.CONFIG_INVALID, RestError.error(resource, field, value, RestErrorStatus.CONFIG_INVALID,message));
+    public ConfigInvalidException(String field, Object value, String message) {
+        super(RestErrorStatus.CONFIG_INVALID, RestError.error(field, value, RestErrorStatus.CONFIG_INVALID, message));
+    }
+
+    public ConfigInvalidException(String resource, String field, Object value, String message) {
+        super(RestErrorStatus.CONFIG_INVALID, RestError.error(resource, field, value, RestErrorStatus.CONFIG_INVALID, message));
     }
 
     @Override

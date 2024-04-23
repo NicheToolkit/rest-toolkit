@@ -17,10 +17,10 @@ public class RestInterceptProperties {
     /** instead of userlogEnabled */
     @Deprecated
     private Boolean beanEnabled = false;
-    private Integer bodyLength = 1000;
-    private Integer errorLength = 1000;
-    private Integer messageLength = 1000;
-    private Integer resultLength = 1000;
+    private Integer bodyLength = 1024;
+    private Integer errorLength = 1024;
+    private Integer messageLength = 1024;
+    private Integer resultLength = 1024;
 
     public RestInterceptProperties() {
     }

@@ -13,24 +13,24 @@ public class JsonParseListException extends JsonParseErrorException {
         super(RestErrorStatus.JSON_PARSE_LIST);
     }
 
-    public JsonParseListException(String resource) {
-        super(RestErrorStatus.JSON_PARSE_LIST, resource);
-    }
-
     public JsonParseListException(RestStatus status) {
         super(status);
     }
 
-    public JsonParseListException(String resource, Object value) {
-        super(RestErrorStatus.JSON_PARSE_LIST, resource, value);
+    public JsonParseListException(String message) {
+        super(RestErrorStatus.JSON_PARSE_LIST, message);
     }
 
     public JsonParseListException(String resource, String message) {
         super(RestErrorStatus.JSON_PARSE_LIST, resource, message);
     }
 
-    public JsonParseListException(String resource, Object value, String message) {
-        super(RestErrorStatus.JSON_PARSE_LIST, resource, value, message);
+    public JsonParseListException(String resource, String field, String message) {
+        super(RestErrorStatus.JSON_PARSE_LIST, resource, field, message);
+    }
+
+    public JsonParseListException(String resource, String field, Object value, String message) {
+        super(RestErrorStatus.JSON_PARSE_LIST, resource, field, value, message);
     }
 
     @Override

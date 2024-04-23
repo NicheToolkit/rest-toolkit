@@ -7,6 +7,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.checkerframework.checker.units.qual.A;
+import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 import org.springframework.util.StreamUtils;
@@ -172,7 +173,7 @@ public class RestRequestWrapper extends HttpServletRequestWrapper implements Clo
             return null;
         }
         for(HandlerMethod handlerMethod : handlerMethodList) {
-            A annotation = handlerMethod.getMethodAnnotation(annotationType);
+            A annotation = AnnotationUtils.getAnnotation(handlerMethod.getMethod(), annotationType);
             if (annotation != null) {
                 return annotation;
             }

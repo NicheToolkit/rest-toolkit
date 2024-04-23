@@ -1,17 +1,13 @@
 package io.github.nichetoolkit.rest.helper;
 
-import io.github.nichetoolkit.rest.error.natives.FileErrorException;
 import io.github.nichetoolkit.rest.error.often.StreamReadException;
 import io.github.nichetoolkit.rest.error.often.StreamTransferException;
 import io.github.nichetoolkit.rest.error.often.StreamWriteException;
-import io.github.nichetoolkit.rest.util.StreamUtils;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
-import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
 /**

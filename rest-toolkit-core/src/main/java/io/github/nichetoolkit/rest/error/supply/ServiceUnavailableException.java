@@ -20,14 +20,14 @@ public class ServiceUnavailableException extends RestErrorException {
     }
 
     public ServiceUnavailableException(String message) {
-        super(RestErrorStatus.SERVICE_UNAVAILABLE, RestError.error(RestErrorStatus.SERVICE_UNAVAILABLE,message));
+        super(RestErrorStatus.SERVICE_UNAVAILABLE, RestError.error(RestErrorStatus.SERVICE_UNAVAILABLE, message));
     }
 
-    public ServiceUnavailableException(String message,String service) {
-        super(RestErrorStatus.SERVICE_UNAVAILABLE, RestError.error(service, RestErrorStatus.SERVICE_UNAVAILABLE,message));
+    public ServiceUnavailableException(String service, String message) {
+        super(RestErrorStatus.SERVICE_UNAVAILABLE, RestError.error(service, RestErrorStatus.SERVICE_UNAVAILABLE, message));
     }
 
-    public ServiceUnavailableException(String message, String resource, String service) {
+    public ServiceUnavailableException(String resource, String service, String message) {
         super(RestErrorStatus.SERVICE_UNAVAILABLE, RestError.error(resource, service, RestErrorStatus.SERVICE_UNAVAILABLE, message));
     }
 

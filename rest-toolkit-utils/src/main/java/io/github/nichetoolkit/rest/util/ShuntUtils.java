@@ -17,31 +17,31 @@ public class ShuntUtils {
         }
     }
     
-    public static <K, T> void shunt(K key, T data, Map<K, Collection<T>> shuntMap) {
+    public static <K, T> void shunt(K key, T data, Map<K, List<T>> shuntMap) {
         Optional.ofNullable(key).ifPresent(value -> {
             if (shuntMap.containsKey(value)) {
                 shuntMap.get(value).add(data);
             } else {
-                Collection<T> cacheCollection = new ArrayList<>();
-                cacheCollection.add(data);
-                shuntMap.put(value, cacheCollection);
+                List<T> cacheList = new ArrayList<>();
+                cacheList.add(data);
+                shuntMap.put(value, cacheList);
             }
         });
     }
 
-    public static <K, T> void shunt(K key, Collection<T> dataCollection, Map<K, Collection<T>> shuntMap) {
+    public static <K, T> void shunt(K key, Collection<T> dataCollection, Map<K, List<T>> shuntMap) {
         Optional.ofNullable(key).ifPresent(value -> {
             if (shuntMap.containsKey(value)) {
                 shuntMap.get(value).addAll(dataCollection);
             } else {
-                Collection<T> cacheCollection = new ArrayList<>(dataCollection);
+                List<T> cacheCollection = new ArrayList<>(dataCollection);
                 shuntMap.put(value, cacheCollection);
             }
         });
     }
 
 
-    public static <K, T> void shuntNull(K key, T data, Collection<T> falseCollection, Map<K, Collection<T>> trueMap) {
+    public static <K, T> void shuntNull(K key, T data, Collection<T> falseCollection, Map<K, List<T>> trueMap) {
         Optional<K> optional = Optional.ofNullable(key);
         if (optional.isPresent()) {
             shunt(key, data, trueMap);
@@ -61,7 +61,7 @@ public class ShuntUtils {
     }
 
 
-    public static <T> void shuntContrast(Long srcKey, Long targetKey, T data, Collection<T> equalCollection, Map<Long, Collection<T>> unequalMap) {
+    public static <T> void shuntContrast(Long srcKey, Long targetKey, T data, Collection<T> equalCollection, Map<Long, List<T>> unequalMap) {
         if (srcKey.equals(targetKey)) {
             equalCollection.add(data);
         } else {
@@ -78,7 +78,7 @@ public class ShuntUtils {
         }
     }
 
-    public static <K, T> void shuntContain(K srcKey, Collection<K> targetKeyCollection, T data, Map<K, Collection<T>> shuntMap) {
+    public static <K, T> void shuntContain(K srcKey, Collection<K> targetKeyCollection, T data, Map<K, List<T>> shuntMap) {
         if (targetKeyCollection.contains(srcKey)) {
             shunt(srcKey,data,shuntMap);
         }

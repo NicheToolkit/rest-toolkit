@@ -17,20 +17,20 @@ public class JsonParseResultException extends JsonParseErrorException {
         super(status);
     }
 
-    public JsonParseResultException(String resource) {
-        super(RestErrorStatus.JSON_PARSE_RESULT, resource);
-    }
-
-    public JsonParseResultException(String resource, Object value) {
-        super(RestErrorStatus.JSON_PARSE_RESULT, resource, value);
+    public JsonParseResultException(String message) {
+        super(RestErrorStatus.JSON_PARSE_RESULT, message);
     }
 
     public JsonParseResultException(String resource, String message) {
         super(RestErrorStatus.JSON_PARSE_RESULT, resource, message);
     }
 
-    public JsonParseResultException(String resource, Object value, String message) {
-        super(RestErrorStatus.JSON_PARSE_RESULT, resource, value, message);
+    public JsonParseResultException(String resource, String field, String message) {
+        super(RestErrorStatus.JSON_PARSE_RESULT, resource, field, message);
+    }
+
+    public JsonParseResultException(String resource, String field, Object value, String message) {
+        super(RestErrorStatus.JSON_PARSE_RESULT, resource, field, value, message);
     }
 
     @Override

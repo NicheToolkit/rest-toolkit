@@ -6,14 +6,19 @@
       "type": "io.github.nichetoolkit.rest.configure.RestRadixProperties"
     },
     {
-      "name": "nichetoolkit.rest.md5",
-      "sourceType": "io.github.nichetoolkit.rest.configure.RestMd5Properties",
-      "type": "io.github.nichetoolkit.rest.configure.RestMd5Properties"
+      "name": "nichetoolkit.rest.sha",
+      "sourceType": "io.github.nichetoolkit.rest.configure.RestShaProperties",
+      "type": "io.github.nichetoolkit.rest.configure.RestShaProperties"
     },
     {
       "name": "nichetoolkit.rest.jwt",
       "sourceType": "io.github.nichetoolkit.rest.configure.RestJwtProperties",
       "type": "io.github.nichetoolkit.rest.configure.RestJwtProperties"
+    },
+    {
+      "name": "nichetoolkit.rest.rsa",
+      "sourceType": "io.github.nichetoolkit.rest.configure.RestRsaProperties",
+      "type": "io.github.nichetoolkit.rest.configure.RestRsaProperties"
     }
   ],
   "properties": [
@@ -46,17 +51,24 @@
       "defaultValue": "6"
     },
     {
-      "name": "nichetoolkit.rest.md5.enabled",
+      "name": "nichetoolkit.rest.sha.enabled",
       "type": "java.lang.Boolean",
       "sourceType": "java.lang.Boolean",
-      "description": "md5 enabled.",
+      "description": "sha enabled.",
       "defaultValue": "false"
     },
     {
-      "name": "nichetoolkit.rest.md5.cipher",
+      "name": "nichetoolkit.rest.sha.secret",
       "type": "java.lang.String",
       "sourceType": "java.lang.String",
-      "description": "md5 cipher."
+      "description": "sha secret."
+    },
+    {
+      "name": "nichetoolkit.rest.sha.algorithm",
+      "type": "io.github.nichetoolkit.rest.worker.sha.ShaAlgorithm",
+      "sourceType": "io.github.nichetoolkit.rest.worker.sha.ShaAlgorithm",
+      "description": "algorithm type.",
+      "defaultValue": "SHA256"
     },
     {
       "name": "nichetoolkit.rest.jwt.enabled",
@@ -67,13 +79,13 @@
     },
     {
       "name": "nichetoolkit.rest.jwt.algorithm",
-      "type": "io.github.nichetoolkit.rest.worker.jwt.AlgorithmType",
-      "sourceType": "io.github.nichetoolkit.rest.worker.jwt.AlgorithmType",
+      "type": "io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm",
+      "sourceType": "io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm",
       "description": "algorithm type.",
       "defaultValue": "HS256"
     },
     {
-      "name": "nichetoolkit.rest.jwt.secret-key",
+      "name": "nichetoolkit.rest.jwt.secret",
       "type": "java.lang.String",
       "sourceType": "java.lang.String",
       "description": "secret key."
@@ -130,6 +142,39 @@
       "sourceType": "java.lang.Boolean",
       "description": "not before enabled.",
       "defaultValue": "false"
+    },
+    {
+      "name": "nichetoolkit.rest.rsa.enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "java.lang.Boolean",
+      "description": "sha enabled.",
+      "defaultValue": "false"
+    },
+    {
+      "name": "nichetoolkit.rest.rsa.key-size",
+      "type": "java.lang.Integer",
+      "sourceType": "java.lang.Integer",
+      "description": "sha key size.",
+      "defaultValue": "2048"
+    },
+    {
+      "name": "nichetoolkit.rest.rsa.public-key",
+      "type": "java.lang.String",
+      "sourceType": "java.lang.String",
+      "description": "rsa public key."
+    },
+    {
+      "name": "nichetoolkit.rest.rsa.private-key",
+      "type": "java.lang.String",
+      "sourceType": "java.lang.String",
+      "description": "rsa private key."
+    },
+    {
+      "name": "nichetoolkit.rest.rsa.auto-verify",
+      "type": "java.lang.Boolean",
+      "sourceType": "java.lang.Boolean",
+      "description": "rsa auto verify.",
+      "defaultValue": "true"
     }
   ],
   "hints": [
@@ -138,11 +183,24 @@
       "values": [
         {
           "value": false,
-          "description": "ip close."
+          "description": "radix close."
         },
         {
           "value": true,
-          "description": "ip open."
+          "description": "radix open."
+        }
+      ]
+    },
+    {
+      "name": "nichetoolkit.rest.sha.enabled",
+      "values": [
+        {
+          "value": false,
+          "description": "sha close."
+        },
+        {
+          "value": true,
+          "description": "sha open."
         }
       ]
     },
@@ -164,11 +222,24 @@
       "values": [
         {
           "value": false,
-          "description": "jwt close."
+          "description": "jwt not before close."
         },
         {
           "value": true,
-          "description": "jwt open."
+          "description": "jwt not before open."
+        }
+      ]
+    },
+    {
+      "name": "nichetoolkit.rest.rsa.enabled",
+      "values": [
+        {
+          "value": false,
+          "description": "rsa close."
+        },
+        {
+          "value": true,
+          "description": "rsa open."
         }
       ]
     }

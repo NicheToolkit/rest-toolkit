@@ -5,6 +5,7 @@ import io.github.nichetoolkit.rest.http.config.ProxyConfig;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
 import org.springframework.stereotype.Component;
+import org.springframework.web.util.DefaultUriBuilderFactory;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -31,6 +32,8 @@ public class RestHttpProperties {
 
     private Charset charset = StandardCharsets.UTF_8;
 
+    private DefaultUriBuilderFactory.EncodingMode encodingMode = DefaultUriBuilderFactory.EncodingMode.NONE;
+
     private Integer retryTimes = 0;
 
     private Map<String,Integer> keepAliveHosts;
@@ -41,6 +44,14 @@ public class RestHttpProperties {
     private ProxyConfig proxy = new ProxyConfig();
 
     public RestHttpProperties() {
+    }
+
+    public DefaultUriBuilderFactory.EncodingMode getEncodingMode() {
+        return encodingMode;
+    }
+
+    public void setEncodingMode(DefaultUriBuilderFactory.EncodingMode encodingMode) {
+        this.encodingMode = encodingMode;
     }
 
     public Integer getMaxCoreSize() {

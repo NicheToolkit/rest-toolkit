@@ -32,7 +32,7 @@ public class JwtWorker {
 
     private Signer signer;
 
-    private AlgorithmType algorithm;
+    private JwtAlgorithm algorithm;
 
     private Verifier verifier;
 
@@ -98,11 +98,11 @@ public class JwtWorker {
         this.signer = signer;
     }
 
-    public AlgorithmType getAlgorithm() {
+    public JwtAlgorithm getAlgorithm() {
         return algorithm;
     }
 
-    public void setAlgorithm(AlgorithmType algorithm) {
+    public void setAlgorithm(JwtAlgorithm algorithm) {
         this.algorithm = algorithm;
     }
 
@@ -149,63 +149,63 @@ public class JwtWorker {
         return token(jwtBuilder,INSTANCE.signer);
     }
 
-    public static String token(AlgorithmType algorithm, PrivateKey privateKey, String kid, CryptoProvider cryptoProvider,String subject, Map<String, Object> claimsMap) {
+    public static String token(JwtAlgorithm algorithm, PrivateKey privateKey, String kid, CryptoProvider cryptoProvider, String subject, Map<String, Object> claimsMap) {
         return token(builder(subject,claimsMap),algorithm.signer(privateKey,kid,cryptoProvider));
     }
 
-    public static String token(AlgorithmType algorithm, PrivateKey privateKey, CryptoProvider cryptoProvider, String subject, Map<String, Object> claimsMap) {
+    public static String token(JwtAlgorithm algorithm, PrivateKey privateKey, CryptoProvider cryptoProvider, String subject, Map<String, Object> claimsMap) {
         return token(builder(subject,claimsMap),algorithm.signer(privateKey,cryptoProvider));
     }
 
-    public static String token(AlgorithmType algorithm, PrivateKey privateKey, String kid, String subject, Map<String, Object> claimsMap) {
+    public static String token(JwtAlgorithm algorithm, PrivateKey privateKey, String kid, String subject, Map<String, Object> claimsMap) {
         return token(builder(subject,claimsMap),algorithm.signer(privateKey,kid));
     }
 
-    public static String token(AlgorithmType algorithm, PrivateKey privateKey, String subject, Map<String, Object> claimsMap) {
+    public static String token(JwtAlgorithm algorithm, PrivateKey privateKey, String subject, Map<String, Object> claimsMap) {
         return token(builder(subject,claimsMap),algorithm.signer(privateKey));
     }
 
-    public static String token(AlgorithmType algorithm, String secretKey, String subject, Map<String, Object> claimsMap) {
+    public static String token(JwtAlgorithm algorithm, String secretKey, String subject, Map<String, Object> claimsMap) {
         return token(builder(subject,claimsMap),algorithm.signer(secretKey));
     }
 
-    public static String token(AlgorithmType algorithm, String secretKey, String kid, String subject, Map<String, Object> claimsMap) {
+    public static String token(JwtAlgorithm algorithm, String secretKey, String kid, String subject, Map<String, Object> claimsMap) {
         return token(builder(subject,claimsMap),algorithm.signer(secretKey,kid));
     }
 
-    public static String token(AlgorithmType algorithm, String secretKey, CryptoProvider cryptoProvider, String subject, Map<String, Object> claimsMap) {
+    public static String token(JwtAlgorithm algorithm, String secretKey, CryptoProvider cryptoProvider, String subject, Map<String, Object> claimsMap) {
         return token(builder(subject,claimsMap),algorithm.signer(secretKey,cryptoProvider));
     }
 
-    public static String token(AlgorithmType algorithm, String secretKey, String kid, CryptoProvider cryptoProvider, String subject, Map<String, Object> claimsMap) {
+    public static String token(JwtAlgorithm algorithm, String secretKey, String kid, CryptoProvider cryptoProvider, String subject, Map<String, Object> claimsMap) {
         return token(builder(subject,claimsMap),algorithm.signer(secretKey,kid,cryptoProvider));
     }
 
-    public static String token(JwtBuilder jwtBuilder, AlgorithmType algorithm, PrivateKey privateKey) {
+    public static String token(JwtBuilder jwtBuilder, JwtAlgorithm algorithm, PrivateKey privateKey) {
         return JWT.getEncoder().encode(jwtBuilder.build(), algorithm.signer(privateKey));
     }
 
-    public static String token(JwtBuilder jwtBuilder, AlgorithmType algorithm, PrivateKey privateKey, String kid) {
+    public static String token(JwtBuilder jwtBuilder, JwtAlgorithm algorithm, PrivateKey privateKey, String kid) {
         return JWT.getEncoder().encode(jwtBuilder.build(), algorithm.signer(privateKey,kid));
     }
 
-    public static String token(JwtBuilder jwtBuilder, AlgorithmType algorithm, PrivateKey privateKey, CryptoProvider cryptoProvider) {
+    public static String token(JwtBuilder jwtBuilder, JwtAlgorithm algorithm, PrivateKey privateKey, CryptoProvider cryptoProvider) {
         return JWT.getEncoder().encode(jwtBuilder.build(), algorithm.signer(privateKey, cryptoProvider));
     }
 
-    public static String token(JwtBuilder jwtBuilder, AlgorithmType algorithm, PrivateKey privateKey, String kid, CryptoProvider cryptoProvider) {
+    public static String token(JwtBuilder jwtBuilder, JwtAlgorithm algorithm, PrivateKey privateKey, String kid, CryptoProvider cryptoProvider) {
         return JWT.getEncoder().encode(jwtBuilder.build(), algorithm.signer(privateKey,kid, cryptoProvider));
     }
 
-    public static String token(JwtBuilder jwtBuilder, AlgorithmType algorithm, String secretKey, String kid,CryptoProvider cryptoProvider) {
+    public static String token(JwtBuilder jwtBuilder, JwtAlgorithm algorithm, String secretKey, String kid, CryptoProvider cryptoProvider) {
         return JWT.getEncoder().encode(jwtBuilder.build(), algorithm.signer(secretKey,kid, cryptoProvider));
     }
 
-    public static String token(JwtBuilder jwtBuilder, AlgorithmType algorithm, String secretKey, String kid) {
+    public static String token(JwtBuilder jwtBuilder, JwtAlgorithm algorithm, String secretKey, String kid) {
         return JWT.getEncoder().encode(jwtBuilder.build(), algorithm.signer(secretKey,kid));
     }
 
-    public static String token(JwtBuilder jwtBuilder, AlgorithmType algorithm, String secretKey) {
+    public static String token(JwtBuilder jwtBuilder, JwtAlgorithm algorithm, String secretKey) {
         return JWT.getEncoder().encode(jwtBuilder.build(), algorithm.signer(secretKey));
     }
 
@@ -217,35 +217,35 @@ public class JwtWorker {
         return parse(token,INSTANCE.verifier);
     }
 
-    public static JWT parse(String token, AlgorithmType algorithm, byte[] bytes) {
+    public static JWT parse(String token, JwtAlgorithm algorithm, byte[] bytes) {
         return JWT.getDecoder().decode(token, algorithm.verifier(bytes));
     }
 
-    public static JWT parse(String token, AlgorithmType algorithm, Path path) {
+    public static JWT parse(String token, JwtAlgorithm algorithm, Path path) {
         return JWT.getDecoder().decode(token, algorithm.verifier(path));
     }
 
-    public static JWT parse(String token, AlgorithmType algorithm, PublicKey publicKey) {
+    public static JWT parse(String token, JwtAlgorithm algorithm, PublicKey publicKey) {
         return parse(token, algorithm.verifier(publicKey));
     }
 
-    public static JWT parse(String token, AlgorithmType algorithm, String secretKey) {
+    public static JWT parse(String token, JwtAlgorithm algorithm, String secretKey) {
         return parse(token, algorithm.verifier(secretKey));
     }
 
-    public static JWT parse(String token, AlgorithmType algorithm, String secret, CryptoProvider cryptoProvider) {
+    public static JWT parse(String token, JwtAlgorithm algorithm, String secret, CryptoProvider cryptoProvider) {
         return JWT.getDecoder().decode(token, algorithm.verifier(secret, cryptoProvider));
     }
 
-    public static JWT parse(String token, AlgorithmType algorithm, PublicKey publicKey, CryptoProvider cryptoProvider) {
+    public static JWT parse(String token, JwtAlgorithm algorithm, PublicKey publicKey, CryptoProvider cryptoProvider) {
         return JWT.getDecoder().decode(token, algorithm.verifier(publicKey, cryptoProvider));
     }
 
-    public static JWT parse(String token, AlgorithmType algorithm, Path path, CryptoProvider cryptoProvider) {
+    public static JWT parse(String token, JwtAlgorithm algorithm, Path path, CryptoProvider cryptoProvider) {
         return JWT.getDecoder().decode(token, algorithm.verifier(path, cryptoProvider));
     }
 
-    public static JWT parse(String token, AlgorithmType algorithm, byte[] bytes, CryptoProvider cryptoProvider) {
+    public static JWT parse(String token, JwtAlgorithm algorithm, byte[] bytes, CryptoProvider cryptoProvider) {
         return JWT.getDecoder().decode(token, algorithm.verifier(bytes, cryptoProvider));
     }
 

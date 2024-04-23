@@ -16,7 +16,6 @@ import io.fusionauth.jwt.rsa.RSASigner;
 import io.fusionauth.jwt.rsa.RSAVerifier;
 import io.fusionauth.security.CryptoProvider;
 import io.github.nichetoolkit.rest.RestValue;
-import org.springframework.lang.NonNull;
 
 import java.nio.file.Path;
 import java.security.PrivateKey;
@@ -28,7 +27,7 @@ import java.util.Optional;
  * @author Cyan (snow22314@outlook.com)
  * @version v1.0.0
  */
-public enum AlgorithmType implements RestSigner {
+public enum JwtAlgorithm implements JwtSigner {
 
     NONE(0, "none", Algorithm.none) {
         @Override
@@ -38,6 +37,7 @@ public enum AlgorithmType implements RestSigner {
             return signer;
         }
     },
+
     ES256(1, "ES256", Algorithm.ES256) {
         @Override
         public final Signer signer(String secret) {
@@ -1298,7 +1298,7 @@ public enum AlgorithmType implements RestSigner {
     private Signer signer;
     private Verifier verifier;
 
-    AlgorithmType(Integer key, String value, Algorithm algorithm) {
+    JwtAlgorithm(Integer key, String value, Algorithm algorithm) {
         this.key = key;
         this.value = value;
         this.algorithm = algorithm;
@@ -1336,15 +1336,15 @@ public enum AlgorithmType implements RestSigner {
         this.verifier = verifier;
     }
 
-    public static AlgorithmType parseKey(Integer key) {
-        AlgorithmType sortTypeEnum = RestValue.parseKey(AlgorithmType.class, key);
-        return Optional.ofNullable(sortTypeEnum).orElse(AlgorithmType.HS256);
+    public static JwtAlgorithm parseKey(Integer key) {
+        JwtAlgorithm sortTypeEnum = RestValue.parseKey(JwtAlgorithm.class, key);
+        return Optional.ofNullable(sortTypeEnum).orElse(JwtAlgorithm.HS256);
     }
 
     @JsonCreator
-    public static AlgorithmType parseValue(String value) {
-        AlgorithmType sortTypeEnum = RestValue.parseValue(AlgorithmType.class, value);
-        return Optional.ofNullable(sortTypeEnum).orElse(AlgorithmType.HS256);
+    public static JwtAlgorithm parseValue(String value) {
+        JwtAlgorithm sortTypeEnum = RestValue.parseValue(JwtAlgorithm.class, value);
+        return Optional.ofNullable(sortTypeEnum).orElse(JwtAlgorithm.HS256);
     }
 
 

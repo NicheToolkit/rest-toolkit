@@ -1,12 +1,10 @@
 package io.github.nichetoolkit.rest.configure;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import io.github.nichetoolkit.rest.holder.ObjectMapperHolder;
 import io.github.nichetoolkit.rest.worker.RadixWorker;
 import io.github.nichetoolkit.rest.worker.jwt.JwtWorker;
-import io.github.nichetoolkit.rest.worker.Md5Worker;
+import io.github.nichetoolkit.rest.worker.rsa.RsaWorker;
+import io.github.nichetoolkit.rest.worker.sha.ShaWorker;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
@@ -29,35 +27,34 @@ public class RestUtilsAutoConfigure {
 
     @Bean
     @Primary
-    @Autowired(required = false)
-    @ConditionalOnMissingBean(ObjectMapperHolder.class)
-    public ObjectMapperHolder objectMapperHolder(ObjectMapper objectMapper) {
-        return new ObjectMapperHolder(objectMapper);
+    @ConditionalOnMissingBean(RadixWorker.class)
+    @ConditionalOnProperty(value = "nichetoolkit.rest.radix.enabled", havingValue = "true", matchIfMissing = true)
+    public RadixWorker radixWorker(RestRadixProperties radixProperties) {
+        return new RadixWorker(radixProperties);
     }
 
     @Bean
     @Primary
     @ConditionalOnMissingBean(JwtWorker.class)
-    @ConditionalOnProperty(value = "nichetoolkit.rest.jwt.enabled", havingValue = "true")
+    @ConditionalOnProperty(value = "nichetoolkit.rest.jwt.enabled", havingValue = "true", matchIfMissing = true)
     public JwtWorker jwtWorker(RestJwtProperties jwtProperties) {
         return new JwtWorker(jwtProperties);
     }
 
     @Bean
     @Primary
-    @ConditionalOnMissingBean(Md5Worker.class)
-    @ConditionalOnProperty(value = "nichetoolkit.rest.md5.enabled", havingValue = "true")
-    public Md5Worker md5Worker(RestMd5Properties md5Properties) {
-        return new Md5Worker(md5Properties);
+    @ConditionalOnMissingBean(ShaWorker.class)
+    @ConditionalOnProperty(value = "nichetoolkit.rest.sha.enabled", havingValue = "true", matchIfMissing = true)
+    public ShaWorker shaWorker(RestShaProperties shaProperties) {
+        return new ShaWorker(shaProperties);
     }
 
     @Bean
     @Primary
-    @ConditionalOnMissingBean(RadixWorker.class)
-    @ConditionalOnProperty(value = "nichetoolkit.rest.radix.enabled", havingValue = "true")
-    public RadixWorker radixWorker(RestRadixProperties radixProperties) {
-        return new RadixWorker(radixProperties);
+    @ConditionalOnMissingBean(RsaWorker.class)
+    @ConditionalOnProperty(value = "nichetoolkit.rest.rsa.enabled", havingValue = "true", matchIfMissing = true)
+    public RsaWorker rsaWorker(RestRsaProperties rsaProperties) {
+        return new RsaWorker(rsaProperties);
     }
-
 
 }

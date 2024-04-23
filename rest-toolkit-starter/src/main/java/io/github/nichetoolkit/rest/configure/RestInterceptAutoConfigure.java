@@ -4,6 +4,7 @@ package io.github.nichetoolkit.rest.configure;
 import io.github.nichetoolkit.rest.interceptor.RestHandlerInterceptor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -19,10 +20,10 @@ import java.util.List;
  * @version v1.0.0
  */
 @Slf4j
-@Configuration
+@AutoConfiguration
 @SuppressWarnings("SameNameButDifferent")
 @ComponentScan(basePackages = {"io.github.nichetoolkit.rest"})
-@ConditionalOnProperty(value = "nichetoolkit.rest.intercept.enabled", havingValue = "true")
+@ConditionalOnProperty(value = "nichetoolkit.rest.intercept.enabled", havingValue = "true", matchIfMissing = true)
 public class RestInterceptAutoConfigure implements WebMvcConfigurer {
     private final RestHandlerInterceptor handlerInterceptor;
     private final RestInterceptProperties interceptProperties;

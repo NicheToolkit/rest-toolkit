@@ -18,16 +18,16 @@ public class ClassUnknownException extends ClassErrorException {
         super(RestErrorStatus.CLASS_TYPE_UNKNOWN,message);
     }
 
-    public ClassUnknownException(String resource, Object value) {
-        super(RestErrorStatus.CLASS_TYPE_UNKNOWN, resource, value);
-    }
-
     public ClassUnknownException(String resource, String message) {
         super(RestErrorStatus.CLASS_TYPE_UNKNOWN, resource, message);
     }
 
-    public ClassUnknownException(String resource, Object value, String message) {
-        super(RestErrorStatus.CLASS_TYPE_UNKNOWN, resource, value, message);
+    public ClassUnknownException(String resource, String field, String message) {
+        super(RestErrorStatus.CLASS_TYPE_UNKNOWN, resource, field, message);
+    }
+
+    public ClassUnknownException(String resource, String field, Object value, String message) {
+        super(RestErrorStatus.CLASS_TYPE_UNKNOWN, resource,field, value, message);
     }
 
     @Override

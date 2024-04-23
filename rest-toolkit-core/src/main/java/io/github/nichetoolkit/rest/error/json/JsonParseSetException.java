@@ -13,24 +13,24 @@ public class JsonParseSetException extends JsonParseErrorException {
         super(RestErrorStatus.JSON_PARSE_SET);
     }
 
-    public JsonParseSetException(String resource) {
-        super(RestErrorStatus.JSON_PARSE_SET, resource);
-    }
-
     public JsonParseSetException(RestStatus status) {
         super(status);
     }
 
-    public JsonParseSetException(String resource, Object value) {
-        super(RestErrorStatus.JSON_PARSE_SET, resource, value);
+    public JsonParseSetException(String message) {
+        super(RestErrorStatus.JSON_PARSE_SET, message);
     }
 
     public JsonParseSetException(String resource, String message) {
         super(RestErrorStatus.JSON_PARSE_SET, resource, message);
     }
 
-    public JsonParseSetException(String resource, Object value, String message) {
-        super(RestErrorStatus.JSON_PARSE_SET, resource, value, message);
+    public JsonParseSetException(String resource, String field, String message) {
+        super(RestErrorStatus.JSON_PARSE_SET, resource, field, message);
+    }
+
+    public JsonParseSetException(String resource, String field, Object value, String message) {
+        super(RestErrorStatus.JSON_PARSE_SET, resource, field, value, message);
     }
 
     @Override

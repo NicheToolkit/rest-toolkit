@@ -12,7 +12,7 @@ import io.github.nichetoolkit.rest.error.natives.IdentityErrorException;
  */
 public class IdentityNullException extends IdentityErrorException {
     public IdentityNullException() {
-        super("Id", RestErrorStatus.IDENTITY_IS_NULL);
+        super(RestErrorStatus.IDENTITY_IS_NULL);
     }
 
     public IdentityNullException(RestStatus status) {
@@ -20,11 +20,11 @@ public class IdentityNullException extends IdentityErrorException {
     }
 
     public IdentityNullException(String message) {
-        super("Id",RestErrorStatus.IDENTITY_IS_NULL,message);
+        super(RestErrorStatus.IDENTITY_IS_NULL, message);
     }
 
     public IdentityNullException(String field, String message) {
-        super(field,RestErrorStatus.IDENTITY_IS_NULL, message);
+        super(RestErrorStatus.IDENTITY_IS_NULL, "identity", field, message);
     }
 
     @Override

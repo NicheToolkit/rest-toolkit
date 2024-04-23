@@ -21,15 +21,15 @@ public class ParamMissingException extends RestErrorException {
     }
 
     public ParamMissingException(String message) {
-        super(RestErrorStatus.PARAM_MISSING, RestError.error(RestErrorStatus.PARAM_MISSING,message));
+        super(RestErrorStatus.PARAM_MISSING, RestError.error(RestErrorStatus.PARAM_MISSING, message));
     }
 
-    public ParamMissingException(String message,String field) {
-        super(RestErrorStatus.PARAM_MISSING, RestError.error(field, RestErrorStatus.PARAM_MISSING,message));
+    public ParamMissingException(String field, String message) {
+        super(RestErrorStatus.PARAM_MISSING, RestError.error(field, RestErrorStatus.PARAM_MISSING, message));
     }
 
-    public ParamMissingException(String message, String resource, String field) {
-        super(RestErrorStatus.PARAM_MISSING, RestError.error(resource, field, RestErrorStatus.PARAM_MISSING,message));
+    public ParamMissingException(String resource, String field, String message) {
+        super(RestErrorStatus.PARAM_MISSING, RestError.error(resource, field, RestErrorStatus.PARAM_MISSING, message));
     }
 
     @Override

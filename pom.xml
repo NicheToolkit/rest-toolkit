@@ -5,7 +5,7 @@
 
     <groupId>io.github.nichetoolkit</groupId>
     <artifactId>rest-toolkit-parent</artifactId>
-    <version>1.0.6-SNAPSHOT</version>
+    <version>1.0.6</version>
 
     <modules>
         <module>rest-toolkit-core</module>
@@ -25,6 +25,11 @@
             <url>https://github.com/NicheToolkit/rest-toolkit/blob/master/LICENSE</url>
         </license>
     </licenses>
+
+    <organization>
+        <name>NicheToolkit</name>
+        <url>https://github.com/NicheToolkit</url>
+    </organization>
 
     <developers>
         <developer>
@@ -112,10 +117,14 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <spring-boot.version>2.7.7</spring-boot.version>
-        <rest-toolkit.version>1.0.6-SNAPSHOT</rest-toolkit.version>
-        <rest-okhttp3.version>4.8.1</rest-okhttp3.version>
-        <guava.version>30.1.1-jre</guava.version>
-        <fusionauth-jwt.version>5.0.0</fusionauth-jwt.version>
+
+        <rest-toolkit.version>1.0.6</rest-toolkit.version>
+
+        <okhttp3.version>4.10.0</okhttp3.version>
+        <guava.version>31.1-jre</guava.version>
+        <fusionauth-jwt.version>5.2.1</fusionauth-jwt.version>
+        <security-rsa.version>1.0.11.RELEASE</security-rsa.version>
+
         <source-plugin.version>2.2.1</source-plugin.version>
         <javadoc-plugin.version>2.9.1</javadoc-plugin.version>
         <gpg-plugin.version>1.5</gpg-plugin.version>

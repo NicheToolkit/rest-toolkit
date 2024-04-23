@@ -21,26 +21,67 @@ public class GeneralUtils {
     public static boolean isNotEmpty(Object object) {
         if (object == null) {
             return false;
+        } else if (object instanceof Short) {
+            return Short.valueOf(object.toString()) != 0;
         } else if (object instanceof Integer) {
-            return Integer.valueOf(object.toString()) > 0;
+            return Integer.valueOf(object.toString()) != 0;
         } else if (object instanceof Long) {
-            return Long.valueOf(object.toString()) > 0L;
+            return Long.valueOf(object.toString()) != 0L;
         } else if (object instanceof String) {
-            return ((String) object).trim().length() > 0;
+            return ((String) object).trim().length() != 0;
         } else if (object instanceof StringBuffer) {
-            return ((StringBuffer) object).toString().trim().length() > 0;
+            return ((StringBuffer) object).toString().trim().length() != 0;
         } else if (object instanceof Boolean) {
             return true;
         } else if (object instanceof BigInteger) {
-            return ((BigInteger) object).compareTo(BigInteger.ZERO) > 0;
+            return ((BigInteger) object).compareTo(BigInteger.ZERO) != 0;
         } else if (object instanceof BigDecimal) {
-            return ((BigDecimal) object).compareTo(BigDecimal.ZERO) > 0;
+            return ((BigDecimal) object).compareTo(BigDecimal.ZERO) != 0;
         } else if (object instanceof List) {
             return !((List) object).isEmpty();
         } else if (object instanceof Set) {
             return !((Set) object).isEmpty();
         } else if (object instanceof Map) {
             return ((Map) object).size() > 0;
+        } else if (object instanceof Collection) {
+            return !((Collection) object).isEmpty();
+        } else if (object instanceof Iterator) {
+            return ((Iterator) object).hasNext();
+        } else if (object.getClass().isArray()) {
+            return !Arrays.asList(object).isEmpty() && Array.getLength(object) > 0;
+        } else {
+            return true;
+        }
+    }
+
+    @SuppressWarnings("ArraysAsListWithZeroOrOneArgument")
+    public static boolean isValid(Object object) {
+        if (object == null) {
+            return false;
+        } else if (object instanceof Short) {
+            return true;
+        } else if (object instanceof Integer) {
+            return true;
+        } else if (object instanceof Long) {
+            return true;
+        } else if (object instanceof String) {
+            return ((String) object).trim().length() != 0;
+        } else if (object instanceof StringBuffer) {
+            return ((StringBuffer) object).toString().trim().length() != 0;
+        } else if (object instanceof Boolean) {
+            return true;
+        } else if (object instanceof BigInteger) {
+            return true;
+        } else if (object instanceof BigDecimal) {
+            return true;
+        } else if (object instanceof List) {
+            return !((List) object).isEmpty();
+        } else if (object instanceof Set) {
+            return !((Set) object).isEmpty();
+        } else if (object instanceof Map) {
+            return ((Map) object).size() > 0;
+        } else if (object instanceof Collection) {
+            return !((Collection) object).isEmpty();
         } else if (object instanceof Iterator) {
             return ((Iterator) object).hasNext();
         } else if (object.getClass().isArray()) {
@@ -54,6 +95,8 @@ public class GeneralUtils {
     public static boolean isEmpty(Object object) {
         if (object == null) {
             return true;
+        } else if (object instanceof Short) {
+            return Short.valueOf(object.toString()) == 0;
         } else if (object instanceof Integer) {
             return Integer.valueOf(object.toString()) == 0;
         } else if (object instanceof Long) {
@@ -65,15 +108,54 @@ public class GeneralUtils {
         } else if (object instanceof Boolean) {
             return false;
         } else if (object instanceof BigInteger) {
-            return ((BigInteger) object).compareTo(BigInteger.ZERO) <= 0;
+            return ((BigInteger) object).compareTo(BigInteger.ZERO) == 0;
         } else if (object instanceof BigDecimal) {
-            return ((BigDecimal) object).compareTo(BigDecimal.ZERO) <= 0;
+            return ((BigDecimal) object).compareTo(BigDecimal.ZERO) == 0;
         } else if (object instanceof List) {
             return ((List) object).isEmpty();
         } else if (object instanceof Set) {
             return ((Set) object).isEmpty();
         } else if (object instanceof Map) {
             return ((Map) object).size() == 0;
+        }  else if (object instanceof Collection) {
+            return ((Collection) object).isEmpty();
+        } else if (object instanceof Iterator) {
+            return !((Iterator) object).hasNext();
+        } else if (object.getClass().isArray()) {
+            return Arrays.asList(object).isEmpty() || Array.getLength(object) == 0;
+        } else {
+            return false;
+        }
+    }
+
+    @SuppressWarnings("ArraysAsListWithZeroOrOneArgument")
+    public static boolean isInvalid(Object object) {
+        if (object == null) {
+            return true;
+        } else if (object instanceof Short) {
+            return false;
+        } else if (object instanceof Integer) {
+            return false;
+        } else if (object instanceof Long) {
+            return false;
+        } else if (object instanceof String) {
+            return ((String) object).trim().length() == 0;
+        } else if (object instanceof StringBuffer) {
+            return ((StringBuffer) object).toString().trim().length() == 0;
+        } else if (object instanceof Boolean) {
+            return false;
+        } else if (object instanceof BigInteger) {
+            return false;
+        } else if (object instanceof BigDecimal) {
+            return false;
+        } else if (object instanceof List) {
+            return ((List) object).isEmpty();
+        } else if (object instanceof Set) {
+            return ((Set) object).isEmpty();
+        } else if (object instanceof Map) {
+            return ((Map) object).size() == 0;
+        } else if (object instanceof Collection) {
+            return ((Collection) object).isEmpty();
         } else if (object instanceof Iterator) {
             return !((Iterator) object).hasNext();
         } else if (object.getClass().isArray()) {
@@ -89,6 +171,23 @@ public class GeneralUtils {
             result.append(Integer.toHexString(new SecureRandom().nextInt(16)));
         }
         return result.toString().toUpperCase();
+    }
+
+    public static String underline(String underline) {
+        final int size;
+        final char[] chars;
+        final StringBuilder stringBuilder = new StringBuilder(
+                (size = (chars = underline.toCharArray()).length) * 3 / 2 + 1);
+        char character;
+        for (int i = 0; i < size; i++) {
+            character = chars[i];
+            if (Character.isUpperCase(character)) {
+                stringBuilder.append('_').append(Character.toLowerCase(character));
+            } else {
+                stringBuilder.append(character);
+            }
+        }
+        return stringBuilder.charAt(0) == '_' ? stringBuilder.substring(1) : stringBuilder.toString();
     }
 
     public static String uuid() {

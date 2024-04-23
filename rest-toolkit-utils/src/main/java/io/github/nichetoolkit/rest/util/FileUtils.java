@@ -108,7 +108,7 @@ public class FileUtils {
     public static File cacheFile(final String cachePath, MultipartFile file) {
         createPath(cachePath);
         String originalFilename = file.getOriginalFilename();
-        final String path = cachePath + originalFilename;
+        final String path = cachePath + File.separator + originalFilename;
         File cacheFile = new File(path);
         StreamUtils.transfer(file,cacheFile);
         return cacheFile;

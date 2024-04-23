@@ -24,52 +24,80 @@ public class AuthErrorException extends RestErrorException {
         super(RestErrorStatus.AUTH_ERROR, RestError.error(RestErrorStatus.AUTH_ERROR, error));
     }
 
+    public AuthErrorException(String error, Throwable cause) {
+        super(RestErrorStatus.AUTH_ERROR, RestError.error(RestErrorStatus.AUTH_ERROR, error, cause), cause);
+    }
+
     public AuthErrorException(RestStatus status) {
         super(status, RestError.error(status));
+    }
+
+    public AuthErrorException(RestStatus status, Throwable cause) {
+        super(status, RestError.error(status, cause), cause);
     }
 
     public AuthErrorException(RestStatus status, RestError error) {
         super(status, error);
     }
 
-    public AuthErrorException(RestStatus status, String error) {
-        super(status,RestError.error(status, error));
+    public AuthErrorException(RestStatus status, RestError error, Throwable cause) {
+        super(status, error, cause);
     }
 
-    public AuthErrorException(String user, String error) {
-        super(RestErrorStatus.AUTH_ERROR, RestError.error(null, user, null, RestErrorStatus.AUTH_ERROR, error));
+    public AuthErrorException(RestStatus status, String message) {
+        super(status, RestError.error(status, message));
     }
 
-    public AuthErrorException(String user, Object auth) {
-        super(RestErrorStatus.AUTH_ERROR, RestError.error(null, user, auth, RestErrorStatus.AUTH_ERROR));
+    public AuthErrorException(RestStatus status, String message, Throwable cause) {
+        super(status, RestError.error(status, message, cause), cause);
     }
 
-    public AuthErrorException(String user, Object auth, RestStatus status) {
-        super(status, RestError.error(null, user, auth, status));
+    public AuthErrorException(RestStatus status, String resource, String message) {
+        super(status, RestError.error(resource, status, message));
     }
 
-    public AuthErrorException(String user, Object auth, String error) {
-        super(RestErrorStatus.AUTH_ERROR, RestError.error(null, user, auth, RestErrorStatus.AUTH_ERROR, error));
+    public AuthErrorException(RestStatus status, String resource, String message, Throwable cause) {
+        super(status, RestError.error(resource, status, message, cause), cause);
     }
 
-    public AuthErrorException(String user, Object auth, RestStatus status, String error) {
-        super(RestErrorStatus.AUTH_ERROR, RestError.error(null, user, auth, status, error));
+    public AuthErrorException(RestStatus status, String resource, String filed, String message) {
+        super(status, RestError.error(resource, filed, status, message));
     }
 
-    public AuthErrorException(String resource, String user, Object auth) {
-        super(RestErrorStatus.AUTH_ERROR, RestError.error(resource, user, auth, RestErrorStatus.AUTH_ERROR));
+    public AuthErrorException(RestStatus status, String resource, String filed, String message, Throwable cause) {
+        super(status, RestError.error(resource, filed, status, message, cause), cause);
     }
 
-    public AuthErrorException(String resource, String user, Object auth, RestStatus status) {
-        super(RestErrorStatus.AUTH_ERROR, RestError.error(resource, user, auth, status));
+    public AuthErrorException(RestStatus status, String resource, String filed, Object value, String message) {
+        super(status, RestError.error(resource, filed, value, status, message));
     }
 
-    public AuthErrorException(String resource, String user, Object auth, String error) {
-        super(RestErrorStatus.AUTH_ERROR, RestError.error(resource, user, auth, RestErrorStatus.AUTH_ERROR, error));
+    public AuthErrorException(RestStatus status, String resource, String filed, Object value, String message, Throwable cause) {
+        super(status, RestError.error(resource, filed, value, status, message, cause), cause);
     }
 
-    public AuthErrorException(String resource, String user, Object auth, RestStatus status, String error) {
-        super(RestErrorStatus.AUTH_ERROR, RestError.error(resource, user, auth, status, error));
+    public AuthErrorException(String resource, String error) {
+        super(RestErrorStatus.AUTH_ERROR, RestError.error(resource, RestErrorStatus.AUTH_ERROR, error));
+    }
+
+    public AuthErrorException(String resource, String error, Throwable cause) {
+        super(RestErrorStatus.AUTH_ERROR, RestError.error(resource, RestErrorStatus.AUTH_ERROR, error, cause), cause);
+    }
+
+    public AuthErrorException(String resource, String filed, String error) {
+        super(RestErrorStatus.AUTH_ERROR, RestError.error(resource, filed, RestErrorStatus.AUTH_ERROR, error));
+    }
+
+    public AuthErrorException(String resource, String filed, String error, Throwable cause) {
+        super(RestErrorStatus.AUTH_ERROR, RestError.error(resource, filed, RestErrorStatus.AUTH_ERROR, error, cause), cause);
+    }
+
+    public AuthErrorException(String resource, String filed, Object value, String error) {
+        super(RestErrorStatus.AUTH_ERROR, RestError.error(resource, filed, value, RestErrorStatus.AUTH_ERROR, error));
+    }
+
+    public AuthErrorException(String resource, String filed, Object value, String error, Throwable cause) {
+        super(RestErrorStatus.AUTH_ERROR, RestError.error(resource, filed, value, RestErrorStatus.AUTH_ERROR, error, cause));
     }
 
     @Override

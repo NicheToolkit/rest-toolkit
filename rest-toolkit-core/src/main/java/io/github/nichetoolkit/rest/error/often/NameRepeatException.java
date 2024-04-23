@@ -1,16 +1,16 @@
 package io.github.nichetoolkit.rest.error.often;
 
-import io.github.nichetoolkit.rest.RestErrorStatus;
 import io.github.nichetoolkit.rest.RestError;
-import io.github.nichetoolkit.rest.RestErrorException;
+import io.github.nichetoolkit.rest.RestErrorStatus;
 import io.github.nichetoolkit.rest.RestStatus;
+import io.github.nichetoolkit.rest.error.natives.FieldErrorException;
 
 /**
  * <p>RepeatNameException</p>
  * @author Cyan (snow22314@outlook.com)
  * @version v1.0.0
  */
-public class NameRepeatException extends RestErrorException {
+public class NameRepeatException extends FieldErrorException {
     public NameRepeatException() {
         super(RestErrorStatus.NAME_REPEATED);
     }
@@ -19,16 +19,17 @@ public class NameRepeatException extends RestErrorException {
         super(status, RestError.error(status));
     }
 
-    public NameRepeatException(Object value) {
-        super(RestErrorStatus.NAME_REPEATED, RestError.error("name", value, RestErrorStatus.NAME_REPEATED));
+    public NameRepeatException(String message) {
+        super(RestErrorStatus.FIELD_REPEATED, message);
     }
 
-    public NameRepeatException(String resource, Object value) {
-        super(RestErrorStatus.NAME_REPEATED, RestError.error(resource,"name", value, RestErrorStatus.NAME_REPEATED));
+
+    public NameRepeatException(String field, String message) {
+        super(RestErrorStatus.FIELD_REPEATED, "name", field, message);
     }
 
-    public NameRepeatException(String resource, Object value, String message) {
-        super(RestErrorStatus.NAME_REPEATED, RestError.error(resource, "name", value, RestErrorStatus.NAME_REPEATED,message));
+    public NameRepeatException(String field, Object value, String message) {
+        super(RestErrorStatus.FIELD_REPEATED, "name", field, value, message);
     }
 
     @Override

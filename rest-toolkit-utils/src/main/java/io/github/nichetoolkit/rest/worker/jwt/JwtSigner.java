@@ -4,6 +4,7 @@ import io.fusionauth.jwt.Signer;
 import io.fusionauth.jwt.Verifier;
 import io.fusionauth.jwt.domain.Algorithm;
 import io.fusionauth.security.CryptoProvider;
+import io.github.nichetoolkit.rest.RestAlgorithm;
 import io.github.nichetoolkit.rest.error.lack.InterfaceLackError;
 
 import java.nio.file.Path;
@@ -15,7 +16,7 @@ import java.security.PublicKey;
  * @author Cyan (snow22314@outlook.com)
  * @version v1.0.0
  */
-public interface RestSigner extends RestAlgorithm<Algorithm> {
+public interface JwtSigner extends RestAlgorithm<Algorithm> {
 
     default Signer signer() {
         throw new InterfaceLackError();

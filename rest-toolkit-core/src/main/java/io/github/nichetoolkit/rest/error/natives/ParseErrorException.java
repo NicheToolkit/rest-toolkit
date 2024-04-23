@@ -24,64 +24,80 @@ public class ParseErrorException extends RestErrorException {
         super(RestErrorStatus.PARSE_ERROR, RestError.error(RestErrorStatus.PARSE_ERROR, error));
     }
 
+    public ParseErrorException(String error, Throwable cause) {
+        super(RestErrorStatus.PARSE_ERROR, RestError.error(RestErrorStatus.PARSE_ERROR, error, cause), cause);
+    }
+
     public ParseErrorException(RestStatus status) {
         super(status, RestError.error(status));
+    }
+
+    public ParseErrorException(RestStatus status, Throwable cause) {
+        super(status, RestError.error(status, cause), cause);
     }
 
     public ParseErrorException(RestStatus status, RestError error) {
         super(status, error);
     }
 
-    public ParseErrorException(RestStatus status, String error) {
-        super(status,RestError.error(status, error));
+    public ParseErrorException(RestStatus status, RestError error, Throwable cause) {
+        super(status, error, cause);
     }
 
-    public ParseErrorException(String property, String error) {
-        super(RestErrorStatus.PARSE_ERROR, RestError.error(property, RestErrorStatus.PARSE_ERROR, error));
+    public ParseErrorException(RestStatus status, String message) {
+        super(status, RestError.error(status, message));
     }
 
-    public ParseErrorException(String property, Object parser, String error) {
-        super(RestErrorStatus.PARSE_ERROR, RestError.error(property, parser, RestErrorStatus.PARSE_ERROR, error));
+    public ParseErrorException(RestStatus status, String message, Throwable cause) {
+        super(status, RestError.error(status, message, cause), cause);
     }
 
-    public ParseErrorException(String property, RestStatus status) {
-        super(status, RestError.error(property, status));
+    public ParseErrorException(RestStatus status, String resource, String message) {
+        super(status, RestError.error(resource, status, message));
     }
 
-    public ParseErrorException(String property, RestStatus status, String error) {
-        super(status, RestError.error(property, status, error));
+    public ParseErrorException(RestStatus status, String resource, String message, Throwable cause) {
+        super(status, RestError.error(resource, status, message, cause), cause);
     }
 
-    public ParseErrorException(String property, Object parser, RestStatus status) {
-        super(status, RestError.error(property, parser, status));
+    public ParseErrorException(RestStatus status, String resource, String filed, String message) {
+        super(status, RestError.error(resource, filed, status, message));
     }
 
-    public ParseErrorException(String property, Object parser, RestStatus status, String error) {
-        super(status, RestError.error(property, parser, status, error));
+    public ParseErrorException(RestStatus status, String resource, String filed, String message, Throwable cause) {
+        super(status, RestError.error(resource, filed, status, message, cause), cause);
     }
 
-    public ParseErrorException(String resource, String field, String error) {
-        super(RestErrorStatus.PARSE_ERROR, RestError.error(resource, field, RestErrorStatus.PARSE_ERROR, error));
+    public ParseErrorException(RestStatus status, String resource, String filed, Object value, String message) {
+        super(status, RestError.error(resource, filed, value, status, message));
     }
 
-    public ParseErrorException(String resource, String field, RestStatus status) {
-        super(status, RestError.error(resource, field, status));
+    public ParseErrorException(RestStatus status, String resource, String filed, Object value, String message, Throwable cause) {
+        super(status, RestError.error(resource, filed, value, status, message, cause), cause);
     }
 
-    public ParseErrorException(String resource, String field, RestStatus status, String error) {
-        super(status, RestError.error(resource, field, status, error));
+    public ParseErrorException(String resource, String error) {
+        super(RestErrorStatus.PARSE_ERROR, RestError.error(resource, RestErrorStatus.PARSE_ERROR, error));
     }
 
-    public ParseErrorException(String resource, String field, Object parser, String error) {
-        super(RestErrorStatus.PARSE_ERROR, RestError.error(resource, field, parser, RestErrorStatus.PARSE_ERROR, error));
+    public ParseErrorException(String resource, String error, Throwable cause) {
+        super(RestErrorStatus.PARSE_ERROR, RestError.error(resource, RestErrorStatus.PARSE_ERROR, error, cause), cause);
     }
 
-    public ParseErrorException(String resource, String field, Object parser, RestStatus status) {
-        super(status, RestError.error(resource, field, parser, status));
+    public ParseErrorException(String resource, String filed, String error) {
+        super(RestErrorStatus.PARSE_ERROR, RestError.error(resource, filed, RestErrorStatus.PARSE_ERROR, error));
     }
 
-    public ParseErrorException(String resource, String field, Object parser, RestStatus status, String error) {
-        super(status, RestError.error(resource, field, parser, status, error));
+    public ParseErrorException(String resource, String filed, String error, Throwable cause) {
+        super(RestErrorStatus.PARSE_ERROR, RestError.error(resource, filed, RestErrorStatus.PARSE_ERROR, error, cause), cause);
+    }
+
+    public ParseErrorException(String resource, String filed, Object value, String error) {
+        super(RestErrorStatus.PARSE_ERROR, RestError.error(resource, filed, value, RestErrorStatus.PARSE_ERROR, error));
+    }
+
+    public ParseErrorException(String resource, String filed, Object value, String error, Throwable cause) {
+        super(RestErrorStatus.PARSE_ERROR, RestError.error(resource, filed, value, RestErrorStatus.PARSE_ERROR, error, cause));
     }
 
     @Override

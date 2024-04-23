@@ -1,16 +1,15 @@
 package io.github.nichetoolkit.rest.error.data;
 
-import io.github.nichetoolkit.rest.RestError;
 import io.github.nichetoolkit.rest.RestErrorStatus;
-import io.github.nichetoolkit.rest.RestErrorException;
 import io.github.nichetoolkit.rest.RestStatus;
+import io.github.nichetoolkit.rest.error.natives.DataErrorException;
 
 /**
  * <p>DataUpdateException</p>
  * @author Cyan (snow22314@outlook.com)
  * @version v1.0.0
  */
-public class DataUpdateException extends RestErrorException {
+public class DataUpdateException extends DataErrorException {
     public DataUpdateException() {
         super(RestErrorStatus.DATA_UPDATE_FAILED);
     }
@@ -20,19 +19,19 @@ public class DataUpdateException extends RestErrorException {
     }
 
     public DataUpdateException(RestStatus status) {
-        super(status, RestError.error(status));
+        super(status);
     }
 
-    public DataUpdateException(String resource) {
-        super(RestErrorStatus.DATA_UPDATE_FAILED, RestError.error(resource, RestErrorStatus.DATA_UPDATE_FAILED));
+    public DataUpdateException(String message) {
+        super(RestErrorStatus.DATA_UPDATE_FAILED, message);
     }
 
     public DataUpdateException(String resource, String message) {
-        super(RestErrorStatus.DATA_UPDATE_FAILED, RestError.error(resource, RestErrorStatus.DATA_UPDATE_FAILED, message));
+        super(RestErrorStatus.DATA_UPDATE_FAILED, resource, message);
     }
 
-    public DataUpdateException(String resource, Object value, String message) {
-        super(RestErrorStatus.DATA_UPDATE_FAILED, RestError.error(resource, value, RestErrorStatus.DATA_UPDATE_FAILED, message));
+    public DataUpdateException(String resource, String field, Object value, String message) {
+        super(RestErrorStatus.DATA_UPDATE_FAILED, resource, field, value, message);
     }
 
     @Override

@@ -13,7 +13,7 @@ import io.github.nichetoolkit.rest.error.natives.IdentityErrorException;
 public class IdentityRepeatException extends IdentityErrorException {
 
     public IdentityRepeatException() {
-        super("Id", RestErrorStatus.IDENTITY_REPEATED);
+        super(RestErrorStatus.IDENTITY_REPEATED);
     }
 
     public IdentityRepeatException(RestStatus status) {
@@ -21,15 +21,16 @@ public class IdentityRepeatException extends IdentityErrorException {
     }
 
     public IdentityRepeatException(String message) {
-        super("Id",RestErrorStatus.IDENTITY_REPEATED, message);
+        super(RestErrorStatus.IDENTITY_REPEATED, message);
+    }
+
+
+    public IdentityRepeatException(String field, String message) {
+        super(RestErrorStatus.IDENTITY_REPEATED, "identity", field, message);
     }
 
     public IdentityRepeatException(String field, Object value, String message) {
-        super(field,value, RestErrorStatus.IDENTITY_REPEATED, message);
-    }
-
-    public IdentityRepeatException(Object value) {
-        super("Id", value, RestErrorStatus.IDENTITY_REPEATED);
+        super(RestErrorStatus.IDENTITY_REPEATED, "identity", field, value, message);
     }
 
     @Override

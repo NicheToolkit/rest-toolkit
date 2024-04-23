@@ -1,16 +1,15 @@
 package io.github.nichetoolkit.rest.error.data;
 
-import io.github.nichetoolkit.rest.RestError;
 import io.github.nichetoolkit.rest.RestErrorStatus;
-import io.github.nichetoolkit.rest.RestErrorException;
 import io.github.nichetoolkit.rest.RestStatus;
+import io.github.nichetoolkit.rest.error.natives.DataErrorException;
 
 /**
  * <p>DataBatchDeleteException</p>
  * @author Cyan (snow22314@outlook.com)
  * @version v1.0.0
  */
-public class DataBatchDeleteException extends RestErrorException {
+public class DataBatchDeleteException extends DataErrorException {
     public DataBatchDeleteException() {
         super(RestErrorStatus.DATA_DELETE_ALL_FAILED);
     }
@@ -20,19 +19,19 @@ public class DataBatchDeleteException extends RestErrorException {
     }
 
     public DataBatchDeleteException(RestStatus status) {
-        super(status, RestError.error(status));
+        super(status);
     }
 
-    public DataBatchDeleteException(String resource) {
-        super(RestErrorStatus.DATA_DELETE_ALL_FAILED, RestError.error(resource, RestErrorStatus.DATA_DELETE_ALL_FAILED));
+    public DataBatchDeleteException(String message) {
+        super(RestErrorStatus.DATA_DELETE_ALL_FAILED, message);
     }
 
     public DataBatchDeleteException(String resource, String message) {
-        super(RestErrorStatus.DATA_DELETE_ALL_FAILED, RestError.error(resource, RestErrorStatus.DATA_DELETE_ALL_FAILED, message));
+        super(RestErrorStatus.DATA_DELETE_ALL_FAILED, resource, message);
     }
 
-    public DataBatchDeleteException(String resource, Object value, String message) {
-        super(RestErrorStatus.DATA_DELETE_ALL_FAILED, RestError.error(resource, value, RestErrorStatus.DATA_DELETE_ALL_FAILED, message));
+    public DataBatchDeleteException(String resource, String field, Object value, String message) {
+        super(RestErrorStatus.DATA_DELETE_ALL_FAILED, resource, field, value, message);
     }
 
     @Override

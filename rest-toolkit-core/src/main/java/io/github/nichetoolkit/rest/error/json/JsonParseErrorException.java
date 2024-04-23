@@ -28,20 +28,20 @@ public class JsonParseErrorException extends ParseErrorException {
         super(status, RestError.error(status));
     }
 
-    public JsonParseErrorException(RestStatus status, String resource) {
-        super(status, RestError.error(resource, status));
-    }
-
-    public JsonParseErrorException(RestStatus status, String resource, Object value) {
-        super(status, RestError.error(resource, value, status));
+    public JsonParseErrorException(RestStatus status, String message) {
+        super(status, RestError.error(status, message));
     }
 
     public JsonParseErrorException(RestStatus status, String resource, String message) {
         super(status, RestError.error(resource, status, message));
     }
 
-    public JsonParseErrorException(RestStatus status, String resource, Object value, String message) {
-        super(status, RestError.error(resource, value, status, message));
+    public JsonParseErrorException(RestStatus status, String resource, String field, String message) {
+        super(status, RestError.error(resource, field, status, message));
+    }
+
+    public JsonParseErrorException(RestStatus status, String resource, String field, Object value, String message) {
+        super(status, RestError.error(resource, field, value, status, message));
     }
 
     @Override
