@@ -95,12 +95,9 @@ public class RestHttpAutoConfigure {
         return new RestTemplates(restTemplate);
     }
 
-
     @Configuration
-    @ConditionalOnClass(RestTemplate.class)
     @ConditionalOnProperty(value = "nichetoolkit.rest.http.http-type", havingValue = "default", matchIfMissing = true)
     public class DefaultRestTemplateAutoConfigure {
-
         public DefaultRestTemplateAutoConfigure() {
             log.debug("================= default-rest-template-auto-config initiated ！ ===================");
         }
@@ -245,50 +242,49 @@ public class RestHttpAutoConfigure {
                 throw new HttpConfigError("the http connection pool initiated with error, error: " + exception.getMessage(), exception);
             }
         }
-    }
 
-    @Bean
-    @ConditionalOnMissingBean(X509TrustManager.class)
-    public X509TrustManager x509TrustManager() {
-        return new X509TrustManager() {
-            @Override
-            public void checkClientTrusted(X509Certificate[] x509Certificates, String s) {
-            }
-            @Override
-            public void checkServerTrusted(X509Certificate[] x509Certificates, String s) {
-            }
-            @Override
-            public X509Certificate[] getAcceptedIssuers() {
-                return new X509Certificate[0];
-            }
-        };
-    }
+        @Bean
+        @ConditionalOnMissingBean(X509TrustManager.class)
+        public X509TrustManager x509TrustManager() {
+            return new X509TrustManager() {
+                @Override
+                public void checkClientTrusted(X509Certificate[] x509Certificates, String s) {
+                }
+                @Override
+                public void checkServerTrusted(X509Certificate[] x509Certificates, String s) {
+                }
+                @Override
+                public X509Certificate[] getAcceptedIssuers() {
+                    return new X509Certificate[0];
+                }
+            };
+        }
 
-    public ConnectionKeepAliveStrategy connectionKeepAliveStrategy(){
-        return (response, context) -> {
-            HeaderElementIterator iterator = new BasicHeaderElementIterator(response.headerIterator(HTTP.CONN_KEEP_ALIVE));
-            while (iterator.hasNext()) {
-                HeaderElement headerElement = iterator.nextElement();
-                log.debug("HeaderElement: {}", JsonUtils.parseJson(headerElement));
-                String param = headerElement.getName();
-                String value = headerElement.getValue();
-                if (value != null && "timeout".equalsIgnoreCase(param)) {
-                    try {
-                        return Long.parseLong(value) * 1000;
-                    } catch(NumberFormatException exception) {
-                        log.error("Parsing long connection expiration time exception!", exception);
+        public ConnectionKeepAliveStrategy connectionKeepAliveStrategy(){
+            return (response, context) -> {
+                HeaderElementIterator iterator = new BasicHeaderElementIterator(response.headerIterator(HTTP.CONN_KEEP_ALIVE));
+                while (iterator.hasNext()) {
+                    HeaderElement headerElement = iterator.nextElement();
+                    log.debug("HeaderElement: {}", JsonUtils.parseJson(headerElement));
+                    String param = headerElement.getName();
+                    String value = headerElement.getValue();
+                    if (value != null && "timeout".equalsIgnoreCase(param)) {
+                        try {
+                            return Long.parseLong(value) * 1000;
+                        } catch(NumberFormatException exception) {
+                            log.error("Parsing long connection expiration time exception!", exception);
+                        }
                     }
                 }
-            }
-            HttpHost target = (HttpHost) context.getAttribute(HttpClientContext.HTTP_TARGET_HOST);
-            /** 如果请求目标地址,单独配置了长连接保持时间,使用该配置 */
-            Optional<Map.Entry<String, Integer>> any = Optional.ofNullable(httpProperties.getKeepAliveHosts()).orElseGet(HashMap::new)
-                    .entrySet().stream().filter(entry -> entry.getKey().equalsIgnoreCase(target.getHostName())).findAny();
-            /** 否则使用默认长连接保持时间 */
-            return any.map(en -> en.getValue() * 1000L).orElse(httpProperties.getKeepAliveTime());
-        };
+                HttpHost target = (HttpHost) context.getAttribute(HttpClientContext.HTTP_TARGET_HOST);
+                /** 如果请求目标地址,单独配置了长连接保持时间,使用该配置 */
+                Optional<Map.Entry<String, Integer>> any = Optional.ofNullable(httpProperties.getKeepAliveHosts()).orElseGet(HashMap::new)
+                        .entrySet().stream().filter(entry -> entry.getKey().equalsIgnoreCase(target.getHostName())).findAny();
+                /** 否则使用默认长连接保持时间 */
+                return any.map(en -> en.getValue() * 1000L).orElse(httpProperties.getKeepAliveTime());
+            };
+        }
     }
-
 
     private List<Header> getDefaultHeaders() {
         List<Header> headers = new ArrayList<>();
@@ -298,7 +294,6 @@ public class RestHttpAutoConfigure {
         headers.add(new BasicHeader("Connection", "Keep-Alive"));
         return headers;
     }
-
 
     private RestTemplate createRestTemplate(ClientHttpRequestFactory factory) {
         RestTemplate restTemplate = new RestTemplate(new BufferingClientHttpRequestFactory(factory));

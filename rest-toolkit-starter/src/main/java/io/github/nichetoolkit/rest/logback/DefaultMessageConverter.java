@@ -13,8 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
 
-import java.nio.charset.StandardCharsets;
-
 /**
  * <p>DefaultMessageConverter</p>
  * @author Cyan (snow22314@outlook.com)
@@ -24,12 +22,8 @@ import java.nio.charset.StandardCharsets;
 @Component
 public class DefaultMessageConverter extends MessageConverter {
 
-    protected final RestLogbackProperties logbackProperties;
-
     @Autowired
-    public DefaultMessageConverter(RestLogbackProperties logbackProperties) {
-        this.logbackProperties = logbackProperties;
-    }
+    protected RestLogbackProperties logbackProperties;
 
     @Override
     public String convert(ILoggingEvent event) {

@@ -49,10 +49,6 @@ public class RestJwtProperties {
     /** 是否开启nbf */
     private boolean notBeforeEnabled = false;
 
-    public RestJwtProperties() {
-        this.radixWorker = null;
-    }
-
     @Autowired(required = false)
     public RestJwtProperties(RadixWorker radixWorker) {
         this.radixWorker = radixWorker;
