@@ -1,5 +1,6 @@
 package io.github.nichetoolkit.rest.configure;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import io.github.nichetoolkit.rest.worker.RadixWorker;
 import io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm;
@@ -24,7 +25,7 @@ import java.util.*;
 @Component
 @ConfigurationProperties(prefix = "nichetoolkit.rest.jwt")
 public class RestJwtProperties {
-
+    @JsonIgnore
     private final RadixWorker radixWorker;
 
     private boolean enabled;
@@ -48,6 +49,10 @@ public class RestJwtProperties {
     private ChronoUnit issuedDelayUnit = ChronoUnit.MILLIS;
     /** 是否开启nbf */
     private boolean notBeforeEnabled = false;
+
+    public RestJwtProperties() {
+        this.radixWorker = null;
+    }
 
     @Autowired(required = false)
     public RestJwtProperties(RadixWorker radixWorker) {

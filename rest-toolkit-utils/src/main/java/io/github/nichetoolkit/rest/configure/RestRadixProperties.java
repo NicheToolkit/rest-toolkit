@@ -14,13 +14,10 @@ import org.springframework.stereotype.Component;
 @Component
 @ConfigurationProperties(prefix = "nichetoolkit.rest.radix")
 public class RestRadixProperties {
-
     private static final String DEFAULT_DIGITS = "qwe8as2dzx9c7p5ik3mjufr4vyltn6bgh";
-
     private static final char DEFAULT_SUPPLY = 'o';
 
     private boolean enabled;
-
     private String digits = DEFAULT_DIGITS;
     private String supply = String.valueOf(DEFAULT_SUPPLY);
     private Integer minLength = 6;

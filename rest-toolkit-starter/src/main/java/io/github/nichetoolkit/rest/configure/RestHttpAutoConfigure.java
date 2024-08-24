@@ -157,10 +157,10 @@ public class RestHttpAutoConfigure {
             ConnectionPool connectionPool = new ConnectionPool(httpProperties.getMaxIdleSize(), httpProperties.getKeepAliveTime(), TimeUnit.MILLISECONDS);
             okHttpClientBuilder.connectionPool(connectionPool);
             try {
-                SSLContext sslContext = new SSLContextBuilder().loadTrustMaterial(null, (arg0, arg1) -> true).build();
+                SSLContext sslContext = SSLContext.getInstance("TLS");
                 sslContext.init(null, new TrustManager[]{x509TrustManager}, new SecureRandom());
                 okHttpClientBuilder.sslSocketFactory(sslContext.getSocketFactory(),x509TrustManager);
-                okHttpClientBuilder.hostnameVerifier(NoopHostnameVerifier.INSTANCE);
+                okHttpClientBuilder.hostnameVerifier((hostname, session) -> true);
                 okHttpClientBuilder.retryOnConnectionFailure(true);
                 okHttpClientBuilder.connectTimeout(httpProperties.getConnectTimeout(),TimeUnit.MILLISECONDS);
                 okHttpClientBuilder.readTimeout(httpProperties.getReadTimeout(),TimeUnit.MILLISECONDS);
@@ -168,10 +168,27 @@ public class RestHttpAutoConfigure {
                 ProxySelector proxySelector = ProxySelector.getDefault();
                 okHttpClientBuilder.proxySelector(proxySelector);
                 return okHttpClientBuilder.build();
-            } catch (KeyManagementException | NoSuchAlgorithmException | KeyStoreException exception) {
+            } catch (KeyManagementException | NoSuchAlgorithmException exception) {
                 log.error("the http connection pool initiated with error, error: {}", exception.getMessage());
                 throw new HttpConfigError("the http connection pool initiated with error, error: " + exception.getMessage(), exception);
             }
+        }
+
+        @Bean
+        @ConditionalOnMissingBean(X509TrustManager.class)
+        public X509TrustManager x509TrustManager() {
+            return new X509TrustManager() {
+                @Override
+                public void checkClientTrusted(X509Certificate[] x509Certificates, String s) {
+                }
+                @Override
+                public void checkServerTrusted(X509Certificate[] x509Certificates, String s) {
+                }
+                @Override
+                public X509Certificate[] getAcceptedIssuers() {
+                    return new X509Certificate[0];
+                }
+            };
         }
     }
 
