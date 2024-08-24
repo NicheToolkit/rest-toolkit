@@ -58,7 +58,7 @@ public interface RestValue<K, V> extends RestKey<K> {
 
     @SuppressWarnings("Duplicates")
     static <T extends RestValue<K, V>, K, V> T parseKey(Collection<T> values, K key) {
-        if (key != null && values != null && values.size() > 0) {
+        if (key != null && values != null && !values.isEmpty()) {
             Map<K, T> keyEnumMap = values.stream().collect(Collectors.toMap(RestKey::getKey, Function.identity(),(oldValue,newValue) -> newValue, HashMap::new));
             return keyEnumMap.get(key);
         }
@@ -76,7 +76,7 @@ public interface RestValue<K, V> extends RestKey<K> {
 
     @SuppressWarnings("Duplicates")
     static <T extends RestValue<K, V>, K, V> T parseValue(Collection<T> values, V value) {
-        if (value != null && values != null && values.size() > 0) {
+        if (value != null && values != null && !values.isEmpty()) {
             Map<V, T> valueEnumMap = values.stream().collect(Collectors.toMap(RestValue::getValue, Function.identity()));
             return valueEnumMap.get(value);
         }

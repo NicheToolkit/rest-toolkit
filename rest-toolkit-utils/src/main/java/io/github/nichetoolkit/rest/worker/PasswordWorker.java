@@ -13,9 +13,9 @@ public class PasswordWorker {
     private static final String UPPER_REGEX = "[A-Z]";
     private static final String NUMBER_REGEX = "[0-9]";
     /** 密码内容 */
-    private String password;
+    private final String password;
     /** 密码长度 */
-    private Integer length;
+    private final Integer length;
     /** 大写字母长度 */
     private Integer upperSize;
     /** 小写字母长度 */

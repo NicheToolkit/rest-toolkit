@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.lang.reflect.Array;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.math.RoundingMode;
 import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
 import java.util.*;
@@ -19,20 +20,19 @@ import java.util.concurrent.ThreadLocalRandom;
 @Slf4j
 public class GeneralUtils {
 
-    @SuppressWarnings("ArraysAsListWithZeroOrOneArgument")
     public static boolean isNotEmpty(Object object) {
         if (object == null) {
             return false;
         } else if (object instanceof Short) {
-            return Short.valueOf(object.toString()) != 0;
+            return Short.parseShort(object.toString()) != 0;
         } else if (object instanceof Integer) {
-            return Integer.valueOf(object.toString()) != 0;
+            return Integer.parseInt(object.toString()) != 0;
         } else if (object instanceof Long) {
-            return Long.valueOf(object.toString()) != 0L;
+            return Long.parseLong(object.toString()) != 0L;
         } else if (object instanceof String) {
-            return ((String) object).trim().length() != 0;
+            return !((String) object).trim().isEmpty();
         } else if (object instanceof StringBuffer) {
-            return ((StringBuffer) object).toString().trim().length() != 0;
+            return !((StringBuffer) object).toString().trim().isEmpty();
         } else if (object instanceof Boolean) {
             return true;
         } else if (object instanceof BigInteger) {
@@ -40,23 +40,22 @@ public class GeneralUtils {
         } else if (object instanceof BigDecimal) {
             return ((BigDecimal) object).compareTo(BigDecimal.ZERO) != 0;
         } else if (object instanceof List) {
-            return !((List) object).isEmpty();
+            return !((List<?>) object).isEmpty();
         } else if (object instanceof Set) {
-            return !((Set) object).isEmpty();
+            return !((Set<?>) object).isEmpty();
         } else if (object instanceof Map) {
-            return ((Map) object).size() > 0;
+            return !((Map<?, ?>) object).isEmpty();
         } else if (object instanceof Collection) {
-            return !((Collection) object).isEmpty();
+            return !((Collection<?>) object).isEmpty();
         } else if (object instanceof Iterator) {
-            return ((Iterator) object).hasNext();
+            return ((Iterator<?>) object).hasNext();
         } else if (object.getClass().isArray()) {
-            return !Arrays.asList(object).isEmpty() && Array.getLength(object) > 0;
+            return Array.getLength(object) > 0;
         } else {
             return true;
         }
     }
 
-    @SuppressWarnings("ArraysAsListWithZeroOrOneArgument")
     public static boolean isValid(Object object) {
         if (object == null) {
             return false;
@@ -67,9 +66,9 @@ public class GeneralUtils {
         } else if (object instanceof Long) {
             return true;
         } else if (object instanceof String) {
-            return ((String) object).trim().length() != 0;
+            return !((String) object).trim().isEmpty();
         } else if (object instanceof StringBuffer) {
-            return ((StringBuffer) object).toString().trim().length() != 0;
+            return !((StringBuffer) object).toString().trim().isEmpty();
         } else if (object instanceof Boolean) {
             return true;
         } else if (object instanceof BigInteger) {
@@ -77,36 +76,35 @@ public class GeneralUtils {
         } else if (object instanceof BigDecimal) {
             return true;
         } else if (object instanceof List) {
-            return !((List) object).isEmpty();
+            return !((List<?>) object).isEmpty();
         } else if (object instanceof Set) {
-            return !((Set) object).isEmpty();
+            return !((Set<?>) object).isEmpty();
         } else if (object instanceof Map) {
-            return ((Map) object).size() > 0;
+            return !((Map<?, ?>) object).isEmpty();
         } else if (object instanceof Collection) {
-            return !((Collection) object).isEmpty();
+            return !((Collection<?>) object).isEmpty();
         } else if (object instanceof Iterator) {
-            return ((Iterator) object).hasNext();
+            return ((Iterator<?>) object).hasNext();
         } else if (object.getClass().isArray()) {
-            return !Arrays.asList(object).isEmpty() && Array.getLength(object) > 0;
+            return Array.getLength(object) > 0;
         } else {
             return true;
         }
     }
 
-    @SuppressWarnings("ArraysAsListWithZeroOrOneArgument")
     public static boolean isEmpty(Object object) {
         if (object == null) {
             return true;
         } else if (object instanceof Short) {
-            return Short.valueOf(object.toString()) == 0;
+            return Short.parseShort(object.toString()) == 0;
         } else if (object instanceof Integer) {
-            return Integer.valueOf(object.toString()) == 0;
+            return Integer.parseInt(object.toString()) == 0;
         } else if (object instanceof Long) {
-            return Long.valueOf(object.toString()) == 0L;
+            return Long.parseLong(object.toString()) == 0L;
         } else if (object instanceof String) {
-            return ((String) object).trim().length() == 0;
+            return ((String) object).trim().isEmpty();
         } else if (object instanceof StringBuffer) {
-            return ((StringBuffer) object).toString().trim().length() == 0;
+            return ((StringBuffer) object).toString().trim().isEmpty();
         } else if (object instanceof Boolean) {
             return false;
         } else if (object instanceof BigInteger) {
@@ -114,23 +112,22 @@ public class GeneralUtils {
         } else if (object instanceof BigDecimal) {
             return ((BigDecimal) object).compareTo(BigDecimal.ZERO) == 0;
         } else if (object instanceof List) {
-            return ((List) object).isEmpty();
+            return ((List<?>) object).isEmpty();
         } else if (object instanceof Set) {
-            return ((Set) object).isEmpty();
+            return ((Set<?>) object).isEmpty();
         } else if (object instanceof Map) {
-            return ((Map) object).size() == 0;
+            return ((Map<?, ?>) object).isEmpty();
         }  else if (object instanceof Collection) {
-            return ((Collection) object).isEmpty();
+            return ((Collection<?>) object).isEmpty();
         } else if (object instanceof Iterator) {
-            return !((Iterator) object).hasNext();
+            return !((Iterator<?>) object).hasNext();
         } else if (object.getClass().isArray()) {
-            return Arrays.asList(object).isEmpty() || Array.getLength(object) == 0;
+            return Array.getLength(object) == 0;
         } else {
             return false;
         }
     }
 
-    @SuppressWarnings("ArraysAsListWithZeroOrOneArgument")
     public static boolean isInvalid(Object object) {
         if (object == null) {
             return true;
@@ -141,9 +138,9 @@ public class GeneralUtils {
         } else if (object instanceof Long) {
             return false;
         } else if (object instanceof String) {
-            return ((String) object).trim().length() == 0;
+            return ((String) object).trim().isEmpty();
         } else if (object instanceof StringBuffer) {
-            return ((StringBuffer) object).toString().trim().length() == 0;
+            return ((StringBuffer) object).toString().trim().isEmpty();
         } else if (object instanceof Boolean) {
             return false;
         } else if (object instanceof BigInteger) {
@@ -151,17 +148,17 @@ public class GeneralUtils {
         } else if (object instanceof BigDecimal) {
             return false;
         } else if (object instanceof List) {
-            return ((List) object).isEmpty();
+            return ((List<?>) object).isEmpty();
         } else if (object instanceof Set) {
-            return ((Set) object).isEmpty();
+            return ((Set<?>) object).isEmpty();
         } else if (object instanceof Map) {
-            return ((Map) object).size() == 0;
+            return ((Map<?, ?>) object).isEmpty();
         } else if (object instanceof Collection) {
-            return ((Collection) object).isEmpty();
+            return ((Collection<?>) object).isEmpty();
         } else if (object instanceof Iterator) {
-            return !((Iterator) object).hasNext();
+            return !((Iterator<?>) object).hasNext();
         } else if (object.getClass().isArray()) {
-            return Arrays.asList(object).isEmpty() || Array.getLength(object) == 0;
+            return Array.getLength(object) == 0;
         } else {
             return false;
         }
@@ -190,14 +187,14 @@ public class GeneralUtils {
 
     public static BigDecimal transform(Long value, Long multiple) {
         if (GeneralUtils.isValid(value)) {
-            return BigDecimal.valueOf(value).divide(new BigDecimal(multiple),2, BigDecimal.ROUND_HALF_UP);
+            return BigDecimal.valueOf(value).divide(new BigDecimal(multiple),2, RoundingMode.HALF_UP);
         }
         return null;
     }
 
     public static BigDecimal transform(Long value, Long multiple, Integer scale) {
         if (GeneralUtils.isValid(value)) {
-            return BigDecimal.valueOf(value).divide(new BigDecimal(multiple),scale, BigDecimal.ROUND_HALF_UP);
+            return BigDecimal.valueOf(value).divide(new BigDecimal(multiple),scale, RoundingMode.HALF_UP);
         }
         return null;
     }

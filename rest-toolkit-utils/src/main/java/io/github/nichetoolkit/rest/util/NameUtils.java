@@ -27,7 +27,7 @@ public class NameUtils {
                 for (int i = 0; i < stringTemp.length - 1; i++) {
                     nameBuffer.append(".").append(stringTemp[i]);
                 }
-                result[0] = nameBuffer.toString().substring(1);
+                result[0] = nameBuffer.substring(1);
             } else {
                 result[0] = stringTemp[0];
             }
@@ -65,7 +65,7 @@ public class NameUtils {
                 for (int i = 1; i < stringTemp.length; i++) {
                     nameBuffer.append("_").append(stringTemp[i]);
                 }
-                result[1] = nameBuffer.toString().substring(1);
+                result[1] = nameBuffer.substring(1);
             } else {
                 result[1] = stringTemp[1];
             }
@@ -97,7 +97,7 @@ public class NameUtils {
                 for (int i = 0; i < stringTemp.length - 1; i++) {
                     nameBuffer.append("_").append(stringTemp[i]);
                 }
-                result[0] = nameBuffer.toString().substring(1);
+                result[0] = nameBuffer.substring(1);
             } else {
                 result[0] = stringTemp[0];
                 result[1] = null;

@@ -18,20 +18,20 @@ import java.util.Optional;
 @EqualsAndHashCode(callSuper = true)
 @JsonIgnoreProperties(value = {"cause","stackTrace","localizedMessage","suppressed"})
 class DefaultError extends Error implements Serializable {
-    protected Integer domain;
-    protected Integer line;
-    protected String resource;
-    protected String debug;
-    protected List<DefaultErrorIssue> issues;
+    private Integer domain;
+    private Integer line;
+    private String resource;
+    private String debug;
+    private List<RestErrorIssue> issues;
 
-    public DefaultError() {
+    protected DefaultError() {
     }
 
-    public DefaultError(String message) {
+    protected DefaultError(String message) {
         super(message);
     }
 
-    public DefaultError(Throwable cause) {
+    protected DefaultError(Throwable cause) {
         super(cause);
         if (this.getCause() != null) {
             StackTraceElement stackTraceElement = this.getCause().getStackTrace()[0];
@@ -41,13 +41,13 @@ class DefaultError extends Error implements Serializable {
         }
     }
 
-    public DefaultError(String message, Integer domain) {
+    protected DefaultError(String message, Integer domain) {
         super(message);
         this.domain = domain;
     }
 
 
-    public DefaultError(String message, Throwable cause) {
+    protected DefaultError(String message, Throwable cause) {
         super(message, cause);
         if (this.getCause() != null) {
             StackTraceElement stackTraceElement = this.getCause().getStackTrace()[0];
@@ -57,7 +57,7 @@ class DefaultError extends Error implements Serializable {
         }
     }
 
-    public DefaultError(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+    protected DefaultError(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
         if (this.getCause() != null) {
             StackTraceElement stackTraceElement = this.getCause().getStackTrace()[0];
@@ -67,7 +67,7 @@ class DefaultError extends Error implements Serializable {
         }
     }
 
-    public DefaultError(String message, Integer domain,Throwable cause) {
+    protected DefaultError(String message, Integer domain,Throwable cause) {
         super(message, cause);
         this.domain = domain;
         if (this.getCause() != null) {
@@ -79,7 +79,7 @@ class DefaultError extends Error implements Serializable {
     }
 
 
-    public DefaultError(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace, String name, Integer domain) {
+    protected DefaultError(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace, String name, Integer domain) {
         super(message, cause, enableSuppression, writableStackTrace);
         this.domain = domain;
         if (this.getCause() != null) {
@@ -104,11 +104,11 @@ class DefaultError extends Error implements Serializable {
         }
     }
 
-    public static class Builder {
+    public static abstract class Builder {
         protected String message;
         protected String debug;
         protected String resource;
-        protected List<DefaultErrorIssue> issues;
+        protected List<RestErrorIssue> issues;
         protected Throwable cause;
 
         public Builder() {
@@ -119,7 +119,7 @@ class DefaultError extends Error implements Serializable {
         }
 
         public DefaultError.Builder message(String message) {
-            if (message != null && message.length() > 0) {
+            if (message != null && !message.isEmpty()) {
                 this.message = message;
             }
             return this;
@@ -145,7 +145,7 @@ class DefaultError extends Error implements Serializable {
             return this;
         }
 
-        public DefaultError.Builder add(DefaultErrorIssue issue) {
+        public DefaultError.Builder add(RestErrorIssue issue) {
             this.issues = Optional.ofNullable(this.issues).orElseGet(ArrayList::new);
             this.issues.add(issue);
             return this;
@@ -156,9 +156,7 @@ class DefaultError extends Error implements Serializable {
             return this;
         }
 
-        public DefaultError build() {
-            return new DefaultError(this);
-        }
+        abstract DefaultError build();
     }
 
 }

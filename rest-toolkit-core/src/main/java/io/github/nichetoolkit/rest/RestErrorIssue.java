@@ -21,6 +21,11 @@ public class RestErrorIssue extends DefaultErrorIssue implements RestStatus {
     public RestErrorIssue() {
     }
 
+    public RestErrorIssue(RestErrorIssue.Builder builder) {
+        super(builder);
+        this.status = builder.status;
+    }
+
     public RestErrorIssue(RestStatus status) {
         super(status.name(),status.getMessage());
         this.status = status.getStatus();
@@ -69,6 +74,41 @@ public class RestErrorIssue extends DefaultErrorIssue implements RestStatus {
     public RestErrorIssue(String field, Object value, RestStatus status, String message) {
         super(field, value, message);
         this.status = status.getStatus();
+    }
+
+    public static class Builder extends DefaultErrorIssue.Builder {
+        protected Integer status;
+
+        public Builder() {
+        }
+
+        public RestErrorIssue.Builder status(Integer status) {
+            this.status = status;
+            return this;
+        }
+
+        @Override
+        public RestErrorIssue.Builder field(String field) {
+            this.field = field;
+            return this;
+        }
+
+        @Override
+        public RestErrorIssue.Builder value(Object value) {
+            this.value = value;
+            return this;
+        }
+
+        @Override
+        public RestErrorIssue.Builder issue(String issue) {
+            this.issue = issue;
+            return this;
+        }
+
+        @Override
+        public RestErrorIssue build() {
+            return new RestErrorIssue(this);
+        }
     }
 
     @Override

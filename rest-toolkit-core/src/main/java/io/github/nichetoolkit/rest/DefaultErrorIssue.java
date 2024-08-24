@@ -11,14 +11,14 @@ import java.io.Serializable;
  */
 @Data
 class DefaultErrorIssue implements Serializable {
-    protected String field;
-    protected Object value;
-    protected String issue;
+    private String field;
+    private Object value;
+    private String issue;
 
-    public DefaultErrorIssue() {
+    protected DefaultErrorIssue() {
     }
 
-    public DefaultErrorIssue(DefaultErrorIssue.Builder builder) {
+    protected DefaultErrorIssue(DefaultErrorIssue.Builder builder) {
         this.field = builder.field;
         this.value = builder.value;
         this.issue = builder.issue;
@@ -28,18 +28,18 @@ class DefaultErrorIssue implements Serializable {
         this.issue = issue;
     }
 
-    public DefaultErrorIssue(String field, String issue) {
+    protected DefaultErrorIssue(String field, String issue) {
         this.field = field;
         this.issue = issue;
     }
 
-    public DefaultErrorIssue(String field, Object value, String issue) {
+    protected DefaultErrorIssue(String field, Object value, String issue) {
         this.field = field;
         this.value = value;
         this.issue = issue;
     }
 
-    public static class Builder {
+    public static abstract class Builder {
         protected String field;
         protected Object value;
         protected String issue;
@@ -62,8 +62,6 @@ class DefaultErrorIssue implements Serializable {
             return this;
         }
 
-        public DefaultErrorIssue build() {
-            return new DefaultErrorIssue(this);
-        }
+        abstract DefaultErrorIssue build();
     }
 }

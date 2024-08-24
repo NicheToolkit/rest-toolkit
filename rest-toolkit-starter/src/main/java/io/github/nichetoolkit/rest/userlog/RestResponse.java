@@ -1,12 +1,14 @@
 package io.github.nichetoolkit.rest.userlog;
 
 import io.github.nichetoolkit.rest.RestResult;
+import lombok.Data;
 
 /**
  * <p>RestResponse</p>
  * @author Cyan (snow22314@outlook.com)
  * @version v1.0.0
  */
+@Data
 public class RestResponse<T extends RestResponse<T>> {
     protected Long time;
     protected Long startTime;
@@ -39,110 +41,6 @@ public class RestResponse<T extends RestResponse<T>> {
         this.resultString = builder.resultString;
         this.restResult = builder.restResult;
         this.data = builder.data;
-    }
-
-    public Long getTime() {
-        return time;
-    }
-
-    public void setTime(Long time) {
-        this.time = time;
-    }
-
-    public Long getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(Long startTime) {
-        this.startTime = startTime;
-    }
-
-    public Long getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(Long endTime) {
-        this.endTime = endTime;
-    }
-
-    public Long getCostTime() {
-        return costTime;
-    }
-
-    public void setCostTime(Long costTime) {
-        this.costTime = costTime;
-    }
-
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public String getError() {
-        return error;
-    }
-
-    public void setError(String error) {
-        this.error = error;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public String getMethod() {
-        return method;
-    }
-
-    public void setMethod(String method) {
-        this.method = method;
-    }
-
-    public String getMediaType() {
-        return mediaType;
-    }
-
-    public void setMediaType(String mediaType) {
-        this.mediaType = mediaType;
-    }
-
-    public String getResult() {
-        return result;
-    }
-
-    public void setResult(String result) {
-        this.result = result;
-    }
-
-    public String getResultString() {
-        return resultString;
-    }
-
-    public void setResultString(String resultString) {
-        this.resultString = resultString;
-    }
-
-    public RestResult getRestResult() {
-        return restResult;
-    }
-
-    public void setRestResult(RestResult restResult) {
-        this.restResult = restResult;
-    }
-
-    public String getData() {
-        return data;
-    }
-
-    public void setData(String data) {
-        this.data = data;
     }
 
     public static class Builder<T extends RestResponse<T>> {

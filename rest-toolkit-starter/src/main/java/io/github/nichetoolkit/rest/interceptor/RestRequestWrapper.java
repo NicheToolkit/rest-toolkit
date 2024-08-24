@@ -3,13 +3,10 @@ package io.github.nichetoolkit.rest.interceptor;
 
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import io.github.nichetoolkit.rest.util.JsonUtils;
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
-import org.checkerframework.checker.units.qual.A;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.lang.NonNull;
-import org.springframework.lang.Nullable;
 import org.springframework.util.StreamUtils;
 import org.springframework.web.method.HandlerMethod;
 
@@ -45,6 +42,7 @@ public class RestRequestWrapper extends HttpServletRequestWrapper implements Clo
 
     private Map<String, Object> paramsMap;
 
+    @Getter
     private List<HandlerMethod> handlerMethods;
 
     public RestRequestWrapper(HttpServletRequest request) {
@@ -70,10 +68,6 @@ public class RestRequestWrapper extends HttpServletRequestWrapper implements Clo
         return cacheBody;
     }
 
-    public List<HandlerMethod> getHandlerMethods() {
-        return handlerMethods;
-    }
-
     @Override
     public BufferedReader getReader()throws IOException {
         if (reader == null) {
@@ -83,7 +77,7 @@ public class RestRequestWrapper extends HttpServletRequestWrapper implements Clo
     }
 
     @Override
-    public ServletInputStream getInputStream() throws IOException {
+    public ServletInputStream getInputStream() {
         if (inputStream != null) {
             return inputStream;
         }
@@ -187,10 +181,7 @@ public class RestRequestWrapper extends HttpServletRequestWrapper implements Clo
         }
         value = value.trim();
         /** 大括号或者中括号开头的都算json字符串 */
-        if (value.startsWith("{") || value.startsWith("[")) {
-            return true;
-        }
-        return false;
+        return value.startsWith("{") || value.startsWith("[");
     }
 
     private void cacheMap() {

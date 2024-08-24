@@ -4,8 +4,6 @@ import io.github.nichetoolkit.rest.actuator.SupplierActuator;
 import lombok.Data;
 import org.springframework.lang.NonNull;
 
-import java.util.Date;
-
 /**
  * <p>IdentityWorkerTime</p>
  * @author Cyan (snow22314@outlook.com)

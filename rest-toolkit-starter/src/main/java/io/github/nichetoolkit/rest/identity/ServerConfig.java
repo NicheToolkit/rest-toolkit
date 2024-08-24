@@ -1,14 +1,14 @@
 package io.github.nichetoolkit.rest.identity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
+import lombok.Data;
 
 /**
  * <p>ServerConfig</p>
  * @author Cyan (snow22314 @ outlook.com)
  * @version v1.0.0
  */
+@Data
 @SuppressWarnings("SameNameButDifferent")
 public class ServerConfig {
     @JsonIgnore
@@ -28,30 +28,6 @@ public class ServerConfig {
     public ServerConfig(String ip, String port, String name) {
         this.ip = ip;
         this.port = port;
-        this.name = name;
-    }
-
-    public String getIp() {
-        return ip;
-    }
-
-    public void setIp(String ip) {
-        this.ip = ip;
-    }
-
-    public String getPort() {
-        return port;
-    }
-
-    public void setPort(String port) {
-        this.port = port;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
         this.name = name;
     }
 

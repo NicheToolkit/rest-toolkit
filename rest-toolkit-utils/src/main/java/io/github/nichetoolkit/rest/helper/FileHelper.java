@@ -46,10 +46,10 @@ public class FileHelper {
             return file;
         }
         if (!file.getParentFile().exists()) {
-           file.getParentFile().mkdirs();
+            file.getParentFile().mkdirs();
         }
         try {
-           file.createNewFile();
+            file.createNewFile();
         } catch (IOException exception) {
             throw new FileCreateException(exception.getMessage());
         }
@@ -57,8 +57,11 @@ public class FileHelper {
     }
 
     public static void copyFile(final File srcFile, final File targetFile) throws FileCopyException {
-        try (FileChannel input = new FileInputStream(srcFile).getChannel();
-             FileChannel output = new FileOutputStream(targetFile).getChannel()){
+        try (
+                FileInputStream fileInputStream = new FileInputStream(srcFile);
+                FileChannel input = fileInputStream.getChannel();
+                FileOutputStream fileOutputStream = new FileOutputStream(targetFile);
+                FileChannel output = fileOutputStream.getChannel()) {
             output.transferFrom(input, 0, input.size());
         } catch (IOException exception) {
             throw new FileCopyException(exception.getMessage());

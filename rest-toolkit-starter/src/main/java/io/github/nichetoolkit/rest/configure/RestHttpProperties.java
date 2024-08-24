@@ -2,6 +2,7 @@ package io.github.nichetoolkit.rest.configure;
 
 import io.github.nichetoolkit.rest.http.config.HttpClientType;
 import io.github.nichetoolkit.rest.http.config.ProxyConfig;
+import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
 import org.springframework.stereotype.Component;
@@ -16,6 +17,7 @@ import java.util.Map;
  * @author Cyan (snow22314@outlook.com)
  * @version v1.0.0
  */
+@Data
 @Component
 @ConfigurationProperties(prefix = "nichetoolkit.rest.http")
 public class RestHttpProperties {
@@ -44,109 +46,5 @@ public class RestHttpProperties {
     private ProxyConfig proxy = new ProxyConfig();
 
     public RestHttpProperties() {
-    }
-
-    public DefaultUriBuilderFactory.EncodingMode getEncodingMode() {
-        return encodingMode;
-    }
-
-    public void setEncodingMode(DefaultUriBuilderFactory.EncodingMode encodingMode) {
-        this.encodingMode = encodingMode;
-    }
-
-    public Integer getMaxCoreSize() {
-        return maxCoreSize;
-    }
-
-    public void setMaxCoreSize(Integer maxCoreSize) {
-        this.maxCoreSize = maxCoreSize;
-    }
-
-    public Integer getMaxIdleSize() {
-        return maxIdleSize;
-    }
-
-    public void setMaxIdleSize(Integer maxIdleSize) {
-        this.maxIdleSize = maxIdleSize;
-    }
-
-    public Charset getCharset() {
-        return charset;
-    }
-
-    public void setCharset(Charset charset) {
-        this.charset = charset;
-    }
-
-    public Integer getRetryTimes() {
-        return retryTimes;
-    }
-
-    public void setRetryTimes(Integer retryTimes) {
-        this.retryTimes = retryTimes;
-    }
-
-    public Map<String, Integer> getKeepAliveHosts() {
-        return keepAliveHosts;
-    }
-
-    public void setKeepAliveHosts(Map<String, Integer> keepAliveHosts) {
-        this.keepAliveHosts = keepAliveHosts;
-    }
-
-    public Long getKeepAliveTime() {
-        return keepAliveTime;
-    }
-
-    public void setKeepAliveTime(Long keepAliveTime) {
-        this.keepAliveTime = keepAliveTime;
-    }
-
-    public Boolean getEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
-    }
-
-    public Integer getConnectTimeout() {
-        return connectTimeout;
-    }
-
-    public void setConnectTimeout(Integer connectTimeout) {
-        this.connectTimeout = connectTimeout;
-    }
-
-    public Integer getReadTimeout() {
-        return readTimeout;
-    }
-
-    public void setReadTimeout(Integer readTimeout) {
-        this.readTimeout = readTimeout;
-    }
-
-    public Integer getRequestTimeout() {
-        return requestTimeout;
-    }
-
-    public void setRequestTimeout(Integer requestTimeout) {
-        this.requestTimeout = requestTimeout;
-    }
-
-    public ProxyConfig getProxy() {
-        return proxy;
-    }
-
-    public void setProxy(ProxyConfig proxy) {
-        this.proxy = proxy;
-    }
-
-    public HttpClientType getHttpType() {
-        return httpType;
-    }
-
-    public void setHttpType(HttpClientType httpType) {
-        this.httpType = httpType;
     }
 }

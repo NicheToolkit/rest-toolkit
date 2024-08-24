@@ -1,5 +1,7 @@
 package io.github.nichetoolkit.rest;
 
+import lombok.Data;
+
 import java.util.Objects;
 
 /**
@@ -7,6 +9,7 @@ import java.util.Objects;
  * @author Cyan (snow22314 @ outlook.com)
  * @version v1.0.0
  */
+@Data
 public class RestEnum {
     private String name;
     private Object value;
@@ -19,31 +22,15 @@ public class RestEnum {
         this.value = value;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Object getValue() {
-        return value;
-    }
-
-    public void setValue(Object value) {
-        this.value = value;
-    }
-
-    public static RestEnum mapKey(RestValue entry) {
+    public static RestEnum mapKey(RestValue<?,?> entry) {
         return new RestEnum(entry.name(),entry.getKey());
     }
 
-    public static RestEnum mapValue(RestValue entry) {
+    public static RestEnum mapValue(RestValue<?,?> entry) {
         return new RestEnum(entry.name(),entry.getValue());
     }
 
-    public static RestEnum mapBean(RestValue entry) {
+    public static RestEnum mapBean(RestValue<?,?> entry) {
         return new RestEnum(String.valueOf(entry.getValue()),entry.getKey());
     }
 

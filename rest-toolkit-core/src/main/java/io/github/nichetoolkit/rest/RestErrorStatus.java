@@ -11,6 +11,8 @@ import lombok.Getter;
 public enum RestErrorStatus implements RestStatus {
 
     SUCCESS(200, "成功"),
+    MISTAKE(400, "失败"),
+    @Deprecated
     FAILED(400, "失败"),
 
     /** httpclient */

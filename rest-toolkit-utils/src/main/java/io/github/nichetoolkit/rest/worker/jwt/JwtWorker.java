@@ -7,6 +7,9 @@ import io.fusionauth.security.CryptoProvider;
 import io.github.nichetoolkit.rest.configure.RestJwtProperties;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import io.github.nichetoolkit.rest.util.JsonUtils;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -23,17 +26,13 @@ import java.util.UUID;
  * @author Cyan (snow22314@outlook.com)
  * @version v1.0.0
  */
+@Data
 @Slf4j
 public class JwtWorker {
 
-    private RestJwtProperties jwtProperties;
-
     private JwtBuilder jwtBuilder;
-
     private Signer signer;
-
     private JwtAlgorithm algorithm;
-
     private Verifier verifier;
 
     private static JwtWorker INSTANCE = null;
@@ -44,7 +43,6 @@ public class JwtWorker {
 
     @Autowired
     public JwtWorker(RestJwtProperties jwtProperties) {
-        this.jwtProperties = jwtProperties;
         this.jwtBuilder = jwtProperties.toBuilder();
         this.algorithm = jwtProperties.getAlgorithm();
         this.signer = jwtProperties.getAlgorithm().getSigner();
@@ -80,38 +78,6 @@ public class JwtWorker {
 
     public JWT parser(String token)  {
         return parse(token,this.verifier);
-    }
-
-    public JwtBuilder getJwtBuilder() {
-        return jwtBuilder;
-    }
-
-    public void setJwtBuilder(JwtBuilder jwtBuilder) {
-        this.jwtBuilder = jwtBuilder;
-    }
-
-    public Signer getSigner() {
-        return signer;
-    }
-
-    public void setSigner(Signer signer) {
-        this.signer = signer;
-    }
-
-    public JwtAlgorithm getAlgorithm() {
-        return algorithm;
-    }
-
-    public void setAlgorithm(JwtAlgorithm algorithm) {
-        this.algorithm = algorithm;
-    }
-
-    public Verifier getVerifier() {
-        return verifier;
-    }
-
-    public void setVerifier(Verifier verifier) {
-        this.verifier = verifier;
     }
 
     public static JwtBuilder builder(String subject) {

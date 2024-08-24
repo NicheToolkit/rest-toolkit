@@ -51,12 +51,10 @@ import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.net.ProxySelector;
 import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
 import java.security.KeyManagementException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
-import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
@@ -73,9 +71,9 @@ import java.util.concurrent.TimeUnit;
 @ConditionalOnProperty(value = "nichetoolkit.rest.http.enabled", havingValue = "true", matchIfMissing = true)
 public class RestHttpAutoConfigure {
 
-    private RestInterceptProperties interceptProperties;
-    private RestHttpInterceptor httpInterceptor;
-    private RestHttpProperties httpProperties;
+    private final RestInterceptProperties interceptProperties;
+    private final RestHttpInterceptor httpInterceptor;
+    private final RestHttpProperties httpProperties;
 
     @Autowired
     public RestHttpAutoConfigure(RestHttpProperties httpProperties,RestHttpInterceptor httpInterceptor,RestInterceptProperties interceptProperties) {
@@ -250,10 +248,10 @@ public class RestHttpAutoConfigure {
     public X509TrustManager x509TrustManager() {
         return new X509TrustManager() {
             @Override
-            public void checkClientTrusted(X509Certificate[] x509Certificates, String s) throws CertificateException {
+            public void checkClientTrusted(X509Certificate[] x509Certificates, String s) {
             }
             @Override
-            public void checkServerTrusted(X509Certificate[] x509Certificates, String s) throws CertificateException {
+            public void checkServerTrusted(X509Certificate[] x509Certificates, String s) {
             }
             @Override
             public X509Certificate[] getAcceptedIssuers() {

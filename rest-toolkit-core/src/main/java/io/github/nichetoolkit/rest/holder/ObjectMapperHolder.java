@@ -1,7 +1,8 @@
 package io.github.nichetoolkit.rest.holder;
 
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonFactoryBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -11,9 +12,14 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 public class ObjectMapperHolder {
 
-    public static ObjectMapper OBJECT_MAPPER = new ObjectMapper();
+    private static ObjectMapper OBJECT_MAPPER;
 
-    @Autowired(required = false)
+    static {
+        JsonFactory jsonFactory = new JsonFactoryBuilder().build();
+        OBJECT_MAPPER = new ObjectMapper(jsonFactory);
+    }
+
+    @Autowired
     public ObjectMapperHolder(ObjectMapper objectMapper) {
         OBJECT_MAPPER = objectMapper;
     }

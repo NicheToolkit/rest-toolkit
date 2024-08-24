@@ -117,7 +117,7 @@ public class DefaultAdvice implements ResponseBodyAdvice<Object>, ApplicationCon
             if (commonExceptionEnabled) {
                 printStackTrace(exception);
             }
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(DefaultResult.fail(RestErrorStatus.UNKNOWN_ERROR,exception));
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(RestResult.mistake(RestErrorStatus.UNKNOWN_ERROR,exception));
         }
     }
 

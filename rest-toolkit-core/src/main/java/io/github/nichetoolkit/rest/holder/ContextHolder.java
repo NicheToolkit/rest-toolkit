@@ -16,6 +16,7 @@ import java.util.Map;
  * @version v1.0.0
  */
 public class ContextHolder {
+
     private static ApplicationContext APPLICATION_CONTEXT;
 
     public static void initApplicationContext(ApplicationContext applicationContext) {

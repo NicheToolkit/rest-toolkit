@@ -4,7 +4,7 @@ import io.github.nichetoolkit.rest.util.GeneralUtils;
 import io.github.nichetoolkit.rest.worker.RadixWorker;
 import io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm;
 import io.github.nichetoolkit.rest.worker.jwt.JwtBuilder;
-import org.springframework.beans.BeanUtils;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
@@ -20,6 +20,7 @@ import java.util.*;
  * @author Cyan (snow22314@outlook.com)
  * @version v1.0.0
  */
+@Data
 @Component
 @ConfigurationProperties(prefix = "nichetoolkit.rest.jwt")
 public class RestJwtProperties {
@@ -48,7 +49,6 @@ public class RestJwtProperties {
     /** 是否开启nbf */
     private boolean notBeforeEnabled = false;
 
-    @Autowired(required = false)
     public RestJwtProperties() {
         this.radixWorker = null;
     }
@@ -78,45 +78,7 @@ public class RestJwtProperties {
         }
     }
 
-    public boolean isEnabled() {
-        return enabled;
-    }
 
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
-
-    public JwtAlgorithm getAlgorithm() {
-        return algorithm;
-    }
-
-    public void setAlgorithm(JwtAlgorithm algorithm) {
-        this.algorithm = algorithm;
-    }
-
-    public String getSecret() {
-        return secret;
-    }
-
-    public void setSecret(String secret) {
-        this.secret = secret;
-    }
-
-    public String getKid() {
-        return kid;
-    }
-
-    public void setKid(String kid) {
-        this.kid = kid;
-    }
-
-    public String getIssuer() {
-        return issuer;
-    }
-
-    public void setIssuer(String issuer) {
-        this.issuer = issuer;
-    }
 
     @SuppressWarnings("MixedMutabilityReturnType")
     public List<String> getAudiences() {
@@ -124,50 +86,6 @@ public class RestJwtProperties {
             return new ArrayList<>(Arrays.asList(this.audiences));
         }
         return Collections.emptyList();
-    }
-
-    public void setAudiences(String[] audiences) {
-        this.audiences = audiences;
-    }
-
-    public Long getExpireTime() {
-        return expireTime;
-    }
-
-    public void setExpireTime(Long expireTime) {
-        this.expireTime = expireTime;
-    }
-
-    public ChronoUnit getExpireUnit() {
-        return expireUnit;
-    }
-
-    public void setExpireUnit(ChronoUnit expireUnit) {
-        this.expireUnit = expireUnit;
-    }
-
-    public Long getIssuedDelayTime() {
-        return issuedDelayTime;
-    }
-
-    public void setIssuedDelayTime(Long issuedDelayTime) {
-        this.issuedDelayTime = issuedDelayTime;
-    }
-
-    public ChronoUnit getIssuedDelayUnit() {
-        return issuedDelayUnit;
-    }
-
-    public void setIssuedDelayUnit(ChronoUnit issuedDelayUnit) {
-        this.issuedDelayUnit = issuedDelayUnit;
-    }
-
-    public boolean isNotBeforeEnabled() {
-        return notBeforeEnabled;
-    }
-
-    public void setNotBeforeEnabled(boolean notBeforeEnabled) {
-        this.notBeforeEnabled = notBeforeEnabled;
     }
 
     public JwtBuilder toBuilder() {

@@ -17,7 +17,7 @@ import java.security.SecureRandom;
 @Slf4j
 public class RadixWorker {
 
-    private RestRadixProperties radixProperties;
+    private final RestRadixProperties radixProperties;
 
     private static RadixWorker INSTANCE = null;
 

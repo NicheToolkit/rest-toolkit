@@ -20,21 +20,25 @@ public class RestContextHolder implements InitializingBean {
 
     private static RestContextHolder INSTANCE = null;
 
+    private final ApplicationContext applicationContext;
+    private final RestHttpProperties httpProperties;
+    private final RestIdentityProperties identityProperties;
+    private final RestInterceptProperties interceptProperties;
+
+    @Autowired
+    public RestContextHolder(ApplicationContext applicationContext, RestHttpProperties httpProperties, RestIdentityProperties identityProperties, RestInterceptProperties interceptProperties) {
+        this.applicationContext = applicationContext;
+        this.httpProperties = httpProperties;
+        this.identityProperties = identityProperties;
+        this.interceptProperties = interceptProperties;
+    }
+
     public static RestContextHolder getInstance() {
         return INSTANCE;
     }
 
-    @Autowired
-    private ApplicationContext applicationContext;
-    @Autowired
-    private RestHttpProperties httpProperties;
-    @Autowired
-    private RestIdentityProperties identityProperties;
-    @Autowired
-    private RestInterceptProperties interceptProperties;
-
     @Override
-    public void afterPropertiesSet() throws Exception {
+    public void afterPropertiesSet() {
         INSTANCE = this;
     }
 

@@ -24,11 +24,10 @@ import org.springframework.context.annotation.Configuration;
 @ConditionalOnProperty(value = "nichetoolkit.rest.logback.enabled", havingValue = "true", matchIfMissing = true)
 public class RestLogbackAutoConfigure {
 
-    @Autowired
-    private RestLogbackProperties logbackProperties;
+    private final RestLogbackProperties logbackProperties;
 
-    public RestLogbackAutoConfigure() {
-        log.debug("================= logback-auto-config initiated ！ ===================");
+    public RestLogbackAutoConfigure(RestLogbackProperties logbackProperties) {
+        this.logbackProperties = logbackProperties;
     }
 
     @Bean

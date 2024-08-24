@@ -52,7 +52,7 @@ public class JsonUtils {
      * @param <T>    目标类型
      * @return String json字符串
      */
-    public static <T> String parseJson(T target, TypeReference typeReference) {
+    public static <T> String parseJson(T target, TypeReference<?> typeReference) {
         try {
             return JsonHelper.parseJson(target,typeReference);
         } catch (JsonParseException exception) {
@@ -156,7 +156,7 @@ public class JsonUtils {
      * @param <T>        Bean类型
      * @return List<T> BeanList
      */
-    public static <Z extends List, T> List<T> parseList(String json, Class<Z> parseClazz, Class<T> clazz) {
+    public static <Z extends List<?>, T> List<T> parseList(String json, Class<Z> parseClazz, Class<T> clazz) {
         CollectionType listType = TypeFactory.defaultInstance().constructCollectionType(parseClazz, clazz);
         return parseList(json, listType);
     }
@@ -208,7 +208,7 @@ public class JsonUtils {
      * @param <T>        Bean类型
      * @return Set<T> BeanSet
      */
-    public static <Z extends Set, T> Set<T> parseSet(String json, Class<Z> parseClazz, Class<T> clazz) {
+    public static <Z extends Set<?>, T> Set<T> parseSet(String json, Class<Z> parseClazz, Class<T> clazz) {
         CollectionType setType = TypeFactory.defaultInstance().constructCollectionType(parseClazz, clazz);
         return parseSet(json, setType);
     }
@@ -236,7 +236,7 @@ public class JsonUtils {
         try {
             return JsonHelper.parseMap(json, mapType);
         } catch (JsonParseMapException exception) {
-            log.error("It is failed during json to parse as map of bean! {}", exception.getMessage());
+            log.error("It is failed during json to parse as map of bean! {}", exception.getMessage(),exception);
             exception.printStackTrace();
             return Collections.emptyMap();
         }
@@ -288,7 +288,7 @@ public class JsonUtils {
      * @param <T>   Bean类型
      * @return List<T> BeanList
      */
-    public static <Z extends List, T> T[] parseArray(String json, Class<T> clazz) {
+    public static <Z extends List<?>, T> T[] parseArray(String json, Class<T> clazz) {
         ArrayType arrayType = TypeFactory.defaultInstance().constructArrayType(clazz);
         return parseArray(json, arrayType);
     }
@@ -304,7 +304,7 @@ public class JsonUtils {
      * @param <K>        value类型
      * @return Map<T, K> BeanMap
      */
-    public static <Z extends Map, T, K> Map<T, K> parseMap(String json, Class<Z> parseClazz, Class<T> keyClazz, Class<K> valueClazz) {
+    public static <Z extends Map<?,?>, T, K> Map<T, K> parseMap(String json, Class<Z> parseClazz, Class<T> keyClazz, Class<K> valueClazz) {
         MapType mapType = TypeFactory.defaultInstance().constructMapType(parseClazz, keyClazz, valueClazz);
         return parseMap(json, mapType);
     }
@@ -336,7 +336,7 @@ public class JsonUtils {
      * @param <K>            value类型
      * @return Map<T, List < K>> BeanMapList
      */
-    public static <H extends List, Y extends Map, T, K> Map<T, List<K>> parseMapList(String json, Class<H> parseListClazz, Class<Y> parseMapClazz, Class<T> keyClazz, Class<K> valueClazz) {
+    public static <H extends List<?>, Y extends Map<?,?>, T, K> Map<T, List<K>> parseMapList(String json, Class<H> parseListClazz, Class<Y> parseMapClazz, Class<T> keyClazz, Class<K> valueClazz) {
         CollectionType collectionType = TypeFactory.defaultInstance().constructCollectionType(parseListClazz, valueClazz);
         MapType mapType = TypeFactory.defaultInstance().constructMapType(parseMapClazz, keyClazz, collectionType.getRawClass());
         return parseMap(json, mapType);
@@ -364,7 +364,7 @@ public class JsonUtils {
      * @param <K>               内层mapValue类型
      * @return Map<Z, Map < T, K>> BeanMapMap
      */
-    public static <Z extends List, Y extends Map, T, K> List<Map<T, K>> parseListMap(String json, Class<Z> wrapKeyClazz, Class<Y> contentMapClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
+    public static <Z extends List<?>, Y extends Map<?,?>, T, K> List<Map<T, K>> parseListMap(String json, Class<Z> wrapKeyClazz, Class<Y> contentMapClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
         MapType contentType = TypeFactory.defaultInstance().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
         CollectionType collectionType = TypeFactory.defaultInstance().constructCollectionType(wrapKeyClazz, contentType.getRawClass());
         return parseList(json, collectionType);
@@ -400,7 +400,7 @@ public class JsonUtils {
      * @param <K>               内层mapValue类型
      * @return Map<Z, Map < T, K>> BeanMapMap
      */
-    public static <H extends Map, Y extends Map, Z, T, K> Map<Z, Map<T, K>> parseMapMap(String json, Class<H> wrapMapClazz, Class<Y> contentMapClazz, Class<Z> wrapKeyClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
+    public static <H extends Map<?,?>, Y extends Map<?,?>, Z, T, K> Map<Z, Map<T, K>> parseMapMap(String json, Class<H> wrapMapClazz, Class<Y> contentMapClazz, Class<Z> wrapKeyClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
         MapType contentType = TypeFactory.defaultInstance().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
         MapType mapType = TypeFactory.defaultInstance().constructMapType(wrapMapClazz, wrapKeyClazz, contentType.getRawClass());
         return parseMap(json, mapType);

@@ -13,6 +13,7 @@ import javax.xml.transform.stream.StreamSource;
 import java.io.*;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 
 /**
  * <p>XmlHelper</p>
@@ -67,7 +68,7 @@ public class XmlHelper {
         if (GeneralUtils.isEmpty(xmlFile) || !xmlFile.exists()) {
             return null;
         }
-        try (InputStream inputStream = new FileInputStream(xmlFile)) {
+        try (InputStream inputStream = Files.newInputStream(xmlFile.toPath())) {
             return JAXB.unmarshal(inputStream, clazz);
         } catch (DataBindingException | IOException exception) {
             throw new XmlReadException(exception.getMessage());

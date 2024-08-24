@@ -11,7 +11,6 @@ import com.fasterxml.jackson.databind.type.ArrayType;
 import com.fasterxml.jackson.databind.type.CollectionType;
 import com.fasterxml.jackson.databind.type.MapType;
 import com.fasterxml.jackson.databind.type.TypeFactory;
-import io.github.nichetoolkit.rest.DefaultResult;
 import io.github.nichetoolkit.rest.RestResult;
 import io.github.nichetoolkit.rest.error.ClassUnsupportedException;
 import io.github.nichetoolkit.rest.error.json.JsonParseBeanException;
@@ -59,7 +58,7 @@ public class JsonHelper {
      * @param <T>    目标类型
      * @return String json字符串
      */
-    public static <T> String parseJson(T target, TypeReference typeReference) throws JsonParseException {
+    public static <T> String parseJson(T target, TypeReference<?> typeReference) throws JsonParseException {
         if (GeneralUtils.isEmpty(target)) {
             return null;
         }
@@ -177,7 +176,7 @@ public class JsonHelper {
      * @param <T>   Bean类型
      * @return List<T> BeanList
      */
-    public static <Z extends List, T> T[] parseArray(String json, Class<T> clazz) throws JsonParseListException {
+    public static <Z extends List<?>, T> T[] parseArray(String json, Class<T> clazz) throws JsonParseListException {
         ArrayType arrayType = TypeFactory.defaultInstance().constructArrayType(clazz);
         return parseArray(json, arrayType);
     }
@@ -226,7 +225,7 @@ public class JsonHelper {
      * @param <T>        Bean类型
      * @return List<T> BeanList
      */
-    public static <Z extends List, T> List<T> parseList(String json, Class<Z> parseClazz, Class<T> clazz) throws JsonParseListException {
+    public static <Z extends List<?>, T> List<T> parseList(String json, Class<Z> parseClazz, Class<T> clazz) throws JsonParseListException {
         CollectionType listType = TypeFactory.defaultInstance().constructCollectionType(parseClazz, clazz);
         return parseList(json, listType);
     }
@@ -280,7 +279,7 @@ public class JsonHelper {
      * @param <T>        Bean类型
      * @return Set<T> BeanSet
      */
-    public static <Z extends Set, T> Set<T> parseSet(String json, Class<Z> parseClazz, Class<T> clazz) throws JsonParseSetException {
+    public static <Z extends Set<?>, T> Set<T> parseSet(String json, Class<Z> parseClazz, Class<T> clazz) throws JsonParseSetException {
         CollectionType setType = TypeFactory.defaultInstance().constructCollectionType(parseClazz, clazz);
         return parseSet(json, setType);
     }
@@ -337,7 +336,7 @@ public class JsonHelper {
      * @param <K>        value类型
      * @return Map<T, K>
      */
-    public static <Z extends Map, T, K> Map<T, K> parseMap(String json, Class<Z> parseClazz, Class<T> keyClazz, Class<K> valueClazz) throws JsonParseMapException {
+    public static <Z extends Map<?,?>, T, K> Map<T, K> parseMap(String json, Class<Z> parseClazz, Class<T> keyClazz, Class<K> valueClazz) throws JsonParseMapException {
         MapType mapType = TypeFactory.defaultInstance().constructMapType(parseClazz, keyClazz, valueClazz);
         return parseMap(json, mapType);
     }
@@ -369,7 +368,7 @@ public class JsonHelper {
      * @param <K>            value类型
      * @return Map<T, List < K>> BeanMapList
      */
-    public static <H extends List, Y extends Map, T, K> Map<T, List<K>> parseMapList(String json, Class<H> parseListClazz, Class<Y> parseMapClazz, Class<T> keyClazz, Class<K> valueClazz) throws JsonParseMapException {
+    public static <H extends List<?>, Y extends Map<?,?>, T, K> Map<T, List<K>> parseMapList(String json, Class<H> parseListClazz, Class<Y> parseMapClazz, Class<T> keyClazz, Class<K> valueClazz) throws JsonParseMapException {
         CollectionType collectionType = TypeFactory.defaultInstance().constructCollectionType(parseListClazz, valueClazz);
         MapType mapType = TypeFactory.defaultInstance().constructMapType(parseMapClazz, keyClazz, collectionType.getRawClass());
         return parseMap(json, mapType);
@@ -384,7 +383,7 @@ public class JsonHelper {
      * @param <K>               内层mapValue类型
      * @return Map<Z, Map < T, K>> BeanMapMap
      */
-    public static <Z extends List, Y extends Map, T, K> List<Map<T, K>> parseListMap(String json, Class<Z> wrapKeyClazz, Class<Y> contentMapClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) throws JsonParseListException {
+    public static <Z extends List<?>, Y extends Map<?,?>, T, K> List<Map<T, K>> parseListMap(String json, Class<Z> wrapKeyClazz, Class<Y> contentMapClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) throws JsonParseListException {
         MapType contentType = TypeFactory.defaultInstance().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
         CollectionType collectionType = TypeFactory.defaultInstance().constructCollectionType(wrapKeyClazz, contentType.getRawClass());
         return parseList(json, collectionType);
@@ -433,7 +432,7 @@ public class JsonHelper {
      * @param <K>               内层mapValue类型
      * @return Map<Z, Map < T, K>> BeanMapMap
      */
-    public static <H extends Map, Y extends Map, Z, T, K> Map<Z, Map<T, K>> parseMapMap(String json, Class<H> wrapMapClazz, Class<Y> contentMapClazz, Class<Z> wrapKeyClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) throws JsonParseMapException {
+    public static <H extends Map<?,?>, Y extends Map<?,?>, Z, T, K> Map<Z, Map<T, K>> parseMapMap(String json, Class<H> wrapMapClazz, Class<Y> contentMapClazz, Class<Z> wrapKeyClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) throws JsonParseMapException {
         MapType contentType = TypeFactory.defaultInstance().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
         MapType mapType = TypeFactory.defaultInstance().constructMapType(wrapMapClazz, wrapKeyClazz, contentType.getRawClass());
         return parseMap(json, mapType);
@@ -478,15 +477,15 @@ public class JsonHelper {
             JsonNode jsonNode = ObjectMapperHolder.objectMapper().readTree(json);
             if (GeneralUtils.isNotEmpty(jsonNode)) {
                 RestResult<String> restResult = new RestResult<>();
-                JsonNode status = jsonNode.get(DefaultResult.STATUS_NAME);
+                JsonNode status = jsonNode.get(RestResult.STATUS_NAME);
                 if (GeneralUtils.isNotEmpty(status)) {
                     restResult.setStatus(status.asInt());
                 }
-                JsonNode message = jsonNode.get(DefaultResult.MESSAGE_NAME);
+                JsonNode message = jsonNode.get(RestResult.MESSAGE_NAME);
                 if (GeneralUtils.isNotEmpty(message)) {
                     restResult.setMessage(message.toString());
                 }
-                JsonNode data = jsonNode.get(DefaultResult.DATA_NAME);
+                JsonNode data = jsonNode.get(RestResult.DATA_NAME);
                 if (GeneralUtils.isNotEmpty(data)) {
                     restResult.setData(data.toString());
                 }

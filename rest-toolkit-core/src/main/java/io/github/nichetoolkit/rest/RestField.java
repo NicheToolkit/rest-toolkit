@@ -28,7 +28,7 @@ public interface RestField extends RestValue<Integer, String> {
 
     @SuppressWarnings("Duplicates")
     static <T extends RestField> T parseField(Collection<T> values, String field) {
-        if (field != null && values != null && values.size() > 0) {
+        if (field != null && values != null && !values.isEmpty()) {
             Map<String, T> valueEnumMap = values.stream().collect(Collectors.toMap(RestField::getField, Function.identity(),(oldValue,newValue) -> newValue, HashMap::new));
             return valueEnumMap.get(field);
         } else {

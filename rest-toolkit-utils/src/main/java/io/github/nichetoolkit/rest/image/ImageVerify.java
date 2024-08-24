@@ -2,6 +2,7 @@ package io.github.nichetoolkit.rest.image;
 
 import io.github.nichetoolkit.rest.constant.UtilConstants;
 import lombok.Builder;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.lang.NonNull;
 
@@ -16,6 +17,7 @@ import java.io.Serializable;
  * @author Cyan (snow22314@outlook.com)
  * @version v1.0.0
  */
+@Data
 @Slf4j
 @SuppressWarnings("SameNameButDifferent")
 public class ImageVerify implements Serializable {
@@ -27,22 +29,6 @@ public class ImageVerify implements Serializable {
 
     public ImageVerify(String content, BufferedImage image) {
         this.content = content;
-        this.image = image;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public BufferedImage getImage() {
-        return image;
-    }
-
-    public void setImage(BufferedImage image) {
         this.image = image;
     }
 

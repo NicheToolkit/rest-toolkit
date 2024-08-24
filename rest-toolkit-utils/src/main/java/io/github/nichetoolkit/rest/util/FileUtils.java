@@ -9,7 +9,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.MediaTypeFactory;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
@@ -177,8 +176,8 @@ public class FileUtils {
     }
 
     public static byte[] read(final File file) {
-        Long fileLength = file.length();
-        byte[] fileContent = new byte[fileLength.intValue()];
+        long fileLength = file.length();
+        byte[] fileContent = new byte[(int) fileLength];
         try (FileInputStream fileInputStream = new FileInputStream(file)) {
             fileInputStream.read(fileContent);
             return fileContent;

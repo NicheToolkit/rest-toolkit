@@ -260,7 +260,7 @@ public class OptionalHelper {
     }
 
     public static void fieldRepeat(Boolean exist, String field, String message) throws RestException {
-        trueable(exist,message,field,(field1,message1) -> new FieldRepeatException(field1,(Object)null,message1));
+        trueable(exist,message,field,(field1,message1) -> new FieldRepeatException(field1, null,message1));
     }
 
 }

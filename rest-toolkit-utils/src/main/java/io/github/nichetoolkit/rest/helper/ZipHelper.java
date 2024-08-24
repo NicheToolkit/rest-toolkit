@@ -5,6 +5,7 @@ import io.github.nichetoolkit.rest.error.often.FileCreateException;
 import io.github.nichetoolkit.rest.error.often.ZipErrorException;
 
 import java.io.*;
+import java.nio.file.Files;
 import java.util.List;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
@@ -19,14 +20,15 @@ import java.util.zip.ZipOutputStream;
 public class ZipHelper {
 
     public static File zipFile(String zipPath, String filename, File file) throws ZipErrorException, FileCreateException {
-        String zipFilePath = zipPath.concat(File.separator).concat(filename).concat(UtilConstants.SUFFIX_REGEX).concat(UtilConstants.ZIP_SUFFIX);
+        String zipFilePath = zipPath.concat(File.separator).concat(filename)
+                .concat(UtilConstants.SUFFIX_REGEX).concat(UtilConstants.ZIP_SUFFIX);
         if (filename.endsWith(UtilConstants.SUFFIX_REGEX.concat(UtilConstants.ZIP_SUFFIX))) {
             zipFilePath = zipPath.concat(File.separator).concat(filename);
         }
         File zipFile = FileHelper.createFile(zipFilePath);
-        try (ZipOutputStream zipOutputStream = new ZipOutputStream(new FileOutputStream(zipFile))) {
+        try (ZipOutputStream zipOutputStream = new ZipOutputStream(Files.newOutputStream(zipFile.toPath()))) {
             zipOutputStream.setComment(filename);
-            try (InputStream inputStream = new FileInputStream(file)) {
+            try (InputStream inputStream = Files.newInputStream(file.toPath())) {
                 zipOutputStream.putNextEntry(new ZipEntry(file.getName()));
                 int temp;
                 while ((temp = inputStream.read()) != -1) {
@@ -43,15 +45,16 @@ public class ZipHelper {
         if (zipFiles.size() == 1) {
             return zipFile(zipPath,filename,zipFiles.stream().findFirst().get());
         }
-        String zipFilePath = zipPath.concat(File.separator).concat(filename).concat(UtilConstants.SUFFIX_REGEX).concat(UtilConstants.ZIP_SUFFIX);
+        String zipFilePath = zipPath.concat(File.separator).concat(filename)
+                .concat(UtilConstants.SUFFIX_REGEX).concat(UtilConstants.ZIP_SUFFIX);
         if (filename.endsWith(UtilConstants.SUFFIX_REGEX.concat(UtilConstants.ZIP_SUFFIX))) {
             zipFilePath = zipPath.concat(File.separator).concat(filename);
         }
         File zipFile = FileHelper.createFile(zipFilePath);
-        try (ZipOutputStream zipOutputStream = new ZipOutputStream(new FileOutputStream(zipFile))) {
+        try (ZipOutputStream zipOutputStream = new ZipOutputStream(Files.newOutputStream(zipFile.toPath()))) {
             zipOutputStream.setComment(filename);
             for (File file : zipFiles) {
-                try (InputStream inputStream = new FileInputStream(file)) {
+                try (InputStream inputStream = Files.newInputStream(file.toPath())) {
                     zipOutputStream.putNextEntry(new ZipEntry(file.getName()));
                     int temp;
                     while ((temp = inputStream.read()) != -1) {

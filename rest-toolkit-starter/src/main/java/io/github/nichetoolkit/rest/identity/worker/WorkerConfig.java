@@ -1,5 +1,7 @@
 package io.github.nichetoolkit.rest.identity.worker;
 
+import lombok.Data;
+
 import java.util.Objects;
 
 /**
@@ -7,27 +9,12 @@ import java.util.Objects;
  * @author Cyan (snow22314 @ outlook.com)
  * @version v1.0.0
  */
+@Data
 public class WorkerConfig {
     private Long workerId;
     private Long centerId;
 
     public WorkerConfig() {
-    }
-
-    public Long getWorkerId() {
-        return workerId;
-    }
-
-    public void setWorkerId(Long workerId) {
-        this.workerId = workerId;
-    }
-
-    public Long getCenterId() {
-        return centerId;
-    }
-
-    public void setCenterId(Long centerId) {
-        this.centerId = centerId;
     }
 
     @Override

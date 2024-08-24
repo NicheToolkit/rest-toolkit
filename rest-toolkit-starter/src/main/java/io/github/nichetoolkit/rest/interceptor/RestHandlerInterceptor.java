@@ -10,13 +10,13 @@ import io.github.nichetoolkit.rest.userlog.stereotype.RestNotelog;
 import io.github.nichetoolkit.rest.userlog.stereotype.RestUserlog;
 import io.github.nichetoolkit.rest.util.*;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
+import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
@@ -50,8 +50,11 @@ public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBody
     protected static final ThreadLocal<Exception> EXCEPTION_HOLDER = new ThreadLocal<>();
     protected static final ThreadLocal<RestResponse> REST_RESPONSE_HOLDER = new ThreadLocal<>();
 
-    @Autowired
-    private RestInterceptProperties interceptProperties;
+    private final RestInterceptProperties interceptProperties;
+
+    public RestHandlerInterceptor(RestInterceptProperties interceptProperties) {
+        this.interceptProperties = interceptProperties;
+    }
 
     @Override
     public void init(FilterConfig filterConfig) {
@@ -118,7 +121,7 @@ public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBody
     }
 
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
+    public boolean preHandle(@NonNull HttpServletRequest request,@NonNull HttpServletResponse response,@NonNull Object handler) {
         Long start = System.currentTimeMillis();
         START_TIME_HOLDER.set(start);
         if (!(handler instanceof HandlerMethod)) {
@@ -130,7 +133,7 @@ public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBody
     }
 
     @Override
-    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception exception) throws Exception {
+    public void afterCompletion(@NonNull HttpServletRequest request,@NonNull HttpServletResponse response,@NonNull Object handler, Exception exception) {
         if ((!interceptProperties.getUserlogEnabled() && !interceptProperties.getLogEnabled()) || !(handler instanceof HandlerMethod)) {
             return;
         }
@@ -195,7 +198,7 @@ public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBody
     }
 
     @Override
-    public void afterConcurrentHandlingStarted(HttpServletRequest request, HttpServletResponse response, Object handler) {
+    public void afterConcurrentHandlingStarted(@NonNull HttpServletRequest request,@NonNull HttpServletResponse response,@NonNull Object handler) {
 
     }
 
@@ -314,7 +317,7 @@ public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBody
         }
     }
 
-    public void applyInterceptService(RestRequest request, RestResponse restResponse, RestUsernote usernote) throws RestException {
+    public void applyInterceptService(RestRequest request, RestResponse restResponse, RestUsernote usernote) {
         RestUsernoteService usernoteService = ContextUtils.getBean(RestUsernoteService.class);
         if (GeneralUtils.isNotEmpty(usernote) && GeneralUtils.isNotEmpty(usernoteService) && interceptProperties.getUserlogEnabled()) {
             usernoteService.usernote(request, restResponse, usernote);

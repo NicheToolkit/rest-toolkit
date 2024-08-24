@@ -29,10 +29,19 @@ import java.io.IOException;
 @Component
 @Order(value = Ordered.HIGHEST_PRECEDENCE + 100)
 public class DefaultRequestLogbackFilter extends OncePerRequestFilter {
-    @Autowired
-    private RestLogbackProperties logbackProperties;
-    @Autowired(required = false)
+    private final RestLogbackProperties logbackProperties;
     private RestLogKey restLogKey;
+
+    @Autowired(required = false)
+    public DefaultRequestLogbackFilter(RestLogbackProperties logbackProperties) {
+        this.logbackProperties = logbackProperties;
+    }
+
+    @Autowired(required = false)
+    public DefaultRequestLogbackFilter(RestLogbackProperties logbackProperties, RestLogKey restLogKey) {
+        this.logbackProperties = logbackProperties;
+        this.restLogKey = restLogKey;
+    }
 
     @Override
     protected void doFilterInternal(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull FilterChain filterChain) throws ServletException, IOException {

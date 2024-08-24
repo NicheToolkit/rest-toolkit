@@ -9,6 +9,8 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 /**
  * <p>StreamHelper</p>
@@ -138,7 +140,7 @@ public class StreamHelper {
     }
 
     public static void write(File file, InputStream inputStream) throws StreamWriteException {
-        try (OutputStream outputStream = new FileOutputStream(file)) {
+        try (OutputStream outputStream = Files.newOutputStream(file.toPath())) {
             write(outputStream, inputStream);
         } catch (IOException exception) {
             throw new StreamWriteException(exception.getMessage());
@@ -146,7 +148,7 @@ public class StreamHelper {
     }
 
     public static void write(final String filename,InputStream inputStream) throws StreamWriteException {
-        try (OutputStream outputStream = new FileOutputStream(filename)) {
+        try (OutputStream outputStream = Files.newOutputStream(Paths.get(filename))) {
             write(outputStream, inputStream);
         } catch (IOException exception) {
             throw new StreamWriteException(exception.getMessage());
@@ -154,7 +156,7 @@ public class StreamHelper {
     }
 
     public static void write(File file, byte[] data) throws StreamWriteException {
-        try ( OutputStream outputStream = new FileOutputStream(file)){
+        try ( OutputStream outputStream = Files.newOutputStream(file.toPath())){
             write(outputStream, data);
         } catch (IOException exception) {
             throw new StreamWriteException(exception.getMessage());
@@ -162,7 +164,7 @@ public class StreamHelper {
     }
 
     public static void write(final String filename, byte[] data) throws StreamWriteException {
-        try (OutputStream outputStream = new FileOutputStream(filename)) {
+        try (OutputStream outputStream = Files.newOutputStream(Paths.get(filename))) {
             write(outputStream, data);
         } catch (IOException exception) {
             throw new StreamWriteException(exception.getMessage());

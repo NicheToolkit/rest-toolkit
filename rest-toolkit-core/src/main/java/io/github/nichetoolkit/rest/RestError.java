@@ -3,8 +3,6 @@ package io.github.nichetoolkit.rest;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import java.util.ArrayList;
-import java.util.Optional;
 import java.util.function.Supplier;
 
 /**
@@ -15,9 +13,9 @@ import java.util.function.Supplier;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @SuppressWarnings("SameNameButDifferent")
-public class RestError extends DefaultError implements RestStatus, Supplier {
-    protected String name;
-    protected Integer status;
+public class RestError extends DefaultError implements RestStatus, Supplier<RestError> {
+    private String name;
+    private Integer status;
 
     public RestError() {
         super(RestErrorStatus.UNKNOWN_ERROR.getMessage());
@@ -395,7 +393,7 @@ public class RestError extends DefaultError implements RestStatus, Supplier {
     }
 
     @Override
-    public Object get() {
+    public RestError get() {
         return new RestError();
     }
 
@@ -464,15 +462,9 @@ public class RestError extends DefaultError implements RestStatus, Supplier {
             return this;
         }
 
+        @Override
         public RestError.Builder add(RestErrorIssue issue) {
             super.add(issue);
-            return this;
-        }
-
-        @Override
-        public RestError.Builder add(DefaultErrorIssue issue) {
-            this.issues = Optional.ofNullable(this.issues).orElseGet(ArrayList::new);
-            this.issues.add(issue);
             return this;
         }
 

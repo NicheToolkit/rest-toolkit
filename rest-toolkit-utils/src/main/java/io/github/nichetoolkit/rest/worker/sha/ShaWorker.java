@@ -26,7 +26,7 @@ public class ShaWorker {
 
     private static final String PASSWORD_KEY = "password";
 
-    private RestShaProperties shaProperties;
+    private final RestShaProperties shaProperties;
 
     private static ShaWorker INSTANCE = null;
 

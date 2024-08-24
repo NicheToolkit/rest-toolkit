@@ -3,7 +3,6 @@ package io.github.nichetoolkit.rest.http.config;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.github.nichetoolkit.rest.RestValue;
-import org.springframework.lang.NonNull;
 
 import java.net.Proxy;
 import java.util.Optional;

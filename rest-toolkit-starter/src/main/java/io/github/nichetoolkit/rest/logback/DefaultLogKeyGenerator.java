@@ -2,13 +2,7 @@ package io.github.nichetoolkit.rest.logback;
 
 import io.github.nichetoolkit.rest.configure.RestLogbackProperties;
 import io.github.nichetoolkit.rest.interceptor.RestRequestWrapper;
-import io.github.nichetoolkit.rest.util.ContextUtils;
-import io.github.nichetoolkit.rest.util.GeneralUtils;
 import lombok.extern.slf4j.Slf4j;
-
-import javax.annotation.PostConstruct;
-import java.util.Collections;
-import java.util.List;
 
 /**
  * <p>DefaultLogKeyGenerator</p>

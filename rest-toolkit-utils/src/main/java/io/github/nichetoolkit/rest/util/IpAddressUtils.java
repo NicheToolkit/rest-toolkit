@@ -104,10 +104,10 @@ public class IpAddressUtils {
             return UtilConstants.LOCALHOST_IPV4;
         }
         String ip = request.getHeader(UtilConstants.X_REAL_IP_HEADER);
-        if (ip == null || ip.length() == 0 || UtilConstants.UNKNOWN_HEADER.equalsIgnoreCase(ip)) {
+        if (ip == null || ip.isEmpty() || UtilConstants.UNKNOWN_HEADER.equalsIgnoreCase(ip)) {
             ip = request.getHeader(UtilConstants.X_FORWARDED_FOR_HEADER);
         }
-        if (ip == null || ip.length() == 0 || UtilConstants.UNKNOWN_HEADER.equalsIgnoreCase(ip)) {
+        if (ip == null || ip.isEmpty() || UtilConstants.UNKNOWN_HEADER.equalsIgnoreCase(ip)) {
             ip = request.getRemoteAddr();
             if (UtilConstants.LOCALHOST_IPV6.equals(ip)) {
                 ip = UtilConstants.LOCALHOST_IPV4;
@@ -115,14 +115,13 @@ public class IpAddressUtils {
         }
         if (UtilConstants.UNKNOWN_HEADER.equalsIgnoreCase(ip)) {
             ip = UtilConstants.LOCALHOST_IPV4;
-            return ip;
         } else {
             int index = ip.indexOf(44);
             if (index >= 0) {
                 ip = ip.substring(0, index);
             }
-            return ip;
         }
+        return ip;
     }
 
     @SuppressWarnings("Duplicates")
@@ -141,7 +140,7 @@ public class IpAddressUtils {
         if (GeneralUtils.isEmpty(xIp) || UtilConstants.UNKNOWN_HEADER.equalsIgnoreCase(xIp)) {
             ip = request.getHeader(UtilConstants.PROXY_CLIENT_IP_HEADER);
         }
-        if (GeneralUtils.isEmpty(ip) || ip.length() == 0 || UtilConstants.UNKNOWN_HEADER.equalsIgnoreCase(ip)) {
+        if (GeneralUtils.isEmpty(ip) || ip.isEmpty() || UtilConstants.UNKNOWN_HEADER.equalsIgnoreCase(ip)) {
             ip = request.getHeader(UtilConstants.WL_PROXY_CLIENT_IP_HEADER);
         }
         if (GeneralUtils.isEmpty(ip) || UtilConstants.UNKNOWN_HEADER.equalsIgnoreCase(ip)) {

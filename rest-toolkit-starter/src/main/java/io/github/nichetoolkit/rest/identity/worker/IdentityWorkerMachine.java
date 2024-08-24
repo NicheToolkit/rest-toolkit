@@ -21,8 +21,8 @@ class IdentityWorkerMachine implements IdentityWorker{
     private final String name;
     private Long lastTime = IdentityWorkerConfig.TIMESTAMP;
     private Long sequence = IdentityWorkerConfig.SEQUENCE;
-    private Long workerId;
-    private Long centerId;
+    private final Long workerId;
+    private final Long centerId;
     private boolean isOffset;
 
     public IdentityWorkerMachine(@NonNull Long workerId, @NonNull Long centerId, Long sequence) {

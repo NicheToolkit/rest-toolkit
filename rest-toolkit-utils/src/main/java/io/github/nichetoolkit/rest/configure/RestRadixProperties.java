@@ -1,17 +1,16 @@
 package io.github.nichetoolkit.rest.configure;
 
 import io.github.nichetoolkit.rest.util.GeneralUtils;
+import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * <p>RestRadixProperties</p>
  * @author Cyan (snow22314 @ outlook.com)
  * @version v1.0.0
  */
+@Data
 @Component
 @ConfigurationProperties(prefix = "nichetoolkit.rest.radix")
 public class RestRadixProperties {
@@ -27,39 +26,6 @@ public class RestRadixProperties {
     private Integer minLength = 6;
 
     public RestRadixProperties() {
-    }
-
-    public boolean isEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
-
-    public String getDigits() {
-        return digits;
-    }
-
-    public void setDigits(String digits) {
-        this.digits = digits;
-    }
-
-    public String getSupply() {
-        return supply;
-    }
-
-
-    public void setSupply(String supply) {
-        this.supply = supply;
-    }
-
-    public Integer getMinLength() {
-        return minLength;
-    }
-
-    public void setMinLength(Integer minLength) {
-        this.minLength = minLength;
     }
 
     public char toSupplyChar() {

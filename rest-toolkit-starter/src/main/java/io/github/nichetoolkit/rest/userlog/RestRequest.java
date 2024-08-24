@@ -1,10 +1,13 @@
 package io.github.nichetoolkit.rest.userlog;
 
+import lombok.Data;
+
 /**
  * <p>RestRequest</p>
  * @author Cyan (snow22314@outlook.com)
  * @version v1.0.0
  */
+@Data
 public class RestRequest<T extends RestRequest<T>> {
     protected String headers;
     protected String ipAddress;
@@ -26,70 +29,6 @@ public class RestRequest<T extends RestRequest<T>> {
         this.params = builder.params;
         this.body = builder.body;
         this.bodyString = builder.bodyString;
-    }
-
-    public String getIpAddress() {
-        return ipAddress;
-    }
-
-    public void setIpAddress(String ipAddress) {
-        this.ipAddress = ipAddress;
-    }
-
-    public String getUserAgent() {
-        return userAgent;
-    }
-
-    public void setUserAgent(String userAgent) {
-        this.userAgent = userAgent;
-    }
-
-    public String getMethod() {
-        return method;
-    }
-
-    public void setMethod(String method) {
-        this.method = method;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getHeaders() {
-        return headers;
-    }
-
-    public void setHeaders(String headers) {
-        this.headers = headers;
-    }
-
-    public String getParams() {
-        return params;
-    }
-
-    public void setParams(String params) {
-        this.params = params;
-    }
-
-    public String getBody() {
-        return body;
-    }
-
-    public void setBody(String body) {
-        this.body = body;
-    }
-
-    public String getBodyString() {
-        return bodyString;
-    }
-
-    public void setBodyString(String bodyString) {
-        this.bodyString = bodyString;
     }
 
     public static class Builder<T extends RestRequest<T>> {

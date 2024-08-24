@@ -42,7 +42,7 @@ public class RsaWorker {
         return INSTANCE;
     }
 
-    private RestRsaProperties rsaProperties;
+    private final RestRsaProperties rsaProperties;
 
     @Autowired
     public RsaWorker(RestRsaProperties rsaProperties) {
@@ -131,7 +131,7 @@ public class RsaWorker {
         if (privateKeyModulus == null) {
             return false;
         }
-        KeyFactory keyFactory = keyFactory(RSA_ALGORITHM);;
+        KeyFactory keyFactory = keyFactory(RSA_ALGORITHM);
         /** 把公钥加载成RSA公钥spec对象，以此获取公钥的指数 */
         try {
             RSAPublicKeySpec rsaPublicKeySpec = keyFactory.getKeySpec(publicKey, RSAPublicKeySpec.class);
