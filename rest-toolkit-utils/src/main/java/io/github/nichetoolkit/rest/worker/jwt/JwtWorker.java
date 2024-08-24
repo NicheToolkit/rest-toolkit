@@ -8,8 +8,6 @@ import io.github.nichetoolkit.rest.configure.RestJwtProperties;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import io.github.nichetoolkit.rest.util.JsonUtils;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -41,8 +39,11 @@ public class JwtWorker {
         return INSTANCE;
     }
 
+    private final RestJwtProperties jwtProperties;
+
     @Autowired
     public JwtWorker(RestJwtProperties jwtProperties) {
+        this.jwtProperties = jwtProperties;
         this.jwtBuilder = jwtProperties.toBuilder();
         this.algorithm = jwtProperties.getAlgorithm();
         this.signer = jwtProperties.getAlgorithm().getSigner();
@@ -51,7 +52,7 @@ public class JwtWorker {
 
     @PostConstruct
     public void jwtWorkerInit() {
-        log.debug("jwt properties: {}", JsonUtils.parseJson(jwtProperties));
+        log.debug("jwt properties: {}", JsonUtils.parseJson(this.jwtProperties));
         INSTANCE = this;
     }
 
