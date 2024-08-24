@@ -33,6 +33,7 @@ import org.apache.http.protocol.HTTP;
 import org.apache.http.ssl.SSLContextBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
@@ -96,6 +97,7 @@ public class RestHttpAutoConfigure {
 
 
     @Configuration
+    @ConditionalOnClass(RestTemplate.class)
     @ConditionalOnProperty(value = "nichetoolkit.rest.http.http-type", havingValue = "default", matchIfMissing = true)
     public class DefaultRestTemplateAutoConfigure {
 
@@ -129,6 +131,7 @@ public class RestHttpAutoConfigure {
 
 
     @Configuration
+    @ConditionalOnClass({RestTemplate.class,OkHttpClient.class})
     @ConditionalOnProperty(value = "nichetoolkit.rest.http.http-type", havingValue = "ok_http_client", matchIfMissing = true)
     public class OkHttpRestTemplateAutoConfigure {
         public OkHttpRestTemplateAutoConfigure() {
@@ -177,6 +180,7 @@ public class RestHttpAutoConfigure {
 
 
     @Configuration
+    @ConditionalOnClass({RestTemplate.class,HttpClient.class})
     @ConditionalOnProperty(value = "nichetoolkit.rest.http.http-type", havingValue = "http_client", matchIfMissing = true)
     public class HttpClientRestTemplateAutoConfigure {
         public HttpClientRestTemplateAutoConfigure() {

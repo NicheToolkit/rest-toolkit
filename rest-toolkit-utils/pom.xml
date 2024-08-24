@@ -73,13 +73,14 @@
         <dependency>
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
+            <optional>true</optional>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-rsa</artifactId>
             <version>${security-rsa.version}</version>
-            <scope>compile</scope>
+            <optional>true</optional>
             <exclusions>
                 <exclusion>
                     <artifactId>spring-core</artifactId>
@@ -95,13 +96,14 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
-            <scope>compile</scope>
+            <optional>true</optional>
         </dependency>
 
         <dependency>
             <groupId>io.fusionauth</groupId>
             <artifactId>fusionauth-jwt</artifactId>
             <version>${fusionauth-jwt.version}</version>
+            <optional>true</optional>
         </dependency>
 
     </dependencies>
