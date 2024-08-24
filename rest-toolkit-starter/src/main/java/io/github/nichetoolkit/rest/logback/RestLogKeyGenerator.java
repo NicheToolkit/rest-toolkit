@@ -5,7 +5,6 @@ import io.github.nichetoolkit.rest.configure.RestLogbackProperties;
 import io.github.nichetoolkit.rest.identity.IdentityUtils;
 import io.github.nichetoolkit.rest.interceptor.RestRequestWrapper;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 
@@ -27,7 +26,7 @@ public abstract class RestLogKeyGenerator implements RestLogKey {
         String logKey = "";
         int prefixLength = 24;
         String token = accessToken(requestWrapper);
-        if (StringUtils.isNotEmpty(token)) {
+        if (GeneralUtils.isNotEmpty(token)) {
             if (token.length() > prefixLength) {
                 logKey = token.substring(token.length() - prefixLength);
             }
@@ -39,7 +38,7 @@ public abstract class RestLogKeyGenerator implements RestLogKey {
         }
         List<String> attributes = logbackProperties.getAttributes();
         String attribute = attributes(requestWrapper, attributes);
-        if (StringUtils.isEmpty(attribute)) {
+        if (GeneralUtils.isEmpty(attribute)) {
             attribute = IdentityUtils.generateString();
         }
         logKey += attribute;
@@ -54,7 +53,7 @@ public abstract class RestLogKeyGenerator implements RestLogKey {
             return null;
         }
         String attributeValue = requestWrapper.getParameter(attribute);
-        if (StringUtils.isEmpty(attribute)) {
+        if (GeneralUtils.isEmpty(attribute)) {
             attributeValue = requestWrapper.getHeader(attribute);
         }
         return attributeValue;
