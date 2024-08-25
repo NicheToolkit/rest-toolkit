@@ -26,7 +26,6 @@
         <dependency>
             <groupId>io.github.nichetoolkit</groupId>
             <artifactId>rest-toolkit-starter</artifactId>
-            <version>${rest-toolkit.version}</version>
         </dependency>
 
         <dependency>
@@ -34,16 +33,14 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>com.squareup.okhttp3</groupId>-->
-<!--            <artifactId>okhttp</artifactId>-->
-<!--            <version>${okhttp3.version}</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
-            <version>${httpclient.version}</version>
         </dependency>
 
         <dependency>
@@ -54,8 +51,8 @@
 
     </dependencies>
 
-    <repositories>
 
+    <repositories>
         <repository>
             <id>sonatype-nexus-central</id>
             <name>sonatype maven centrals</name>
