@@ -28,7 +28,7 @@ public interface RestArithmetic extends RestValue<Long, String> {
 
     @SuppressWarnings("Duplicates")
     static <T extends RestArithmetic> T parseArithmetic(Collection<T> values, Long arithmetic) {
-        if (arithmetic != null && values != null && values.size() > 0) {
+        if (arithmetic != null && values != null && !values.isEmpty()) {
             Map<Long, T> valueEnumMap = values.stream().collect(Collectors.toMap(RestArithmetic::getArithmetic, Function.identity(),(oldValue,newValue) -> newValue, HashMap::new));
             return valueEnumMap.get(arithmetic);
         } else {
@@ -65,8 +65,8 @@ public interface RestArithmetic extends RestValue<Long, String> {
     }
 
     static <T extends RestArithmetic> Long annexKey(Long arithmetic, Collection<T> arithmeticTypes) {
-        Long key = Optional.ofNullable(arithmetic).orElse(0L);
-        if (arithmeticTypes != null && arithmeticTypes.size() > 0) {
+        long key = Optional.ofNullable(arithmetic).orElse(0L);
+        if (arithmeticTypes != null && !arithmeticTypes.isEmpty()) {
             for (T arithmeticType : arithmeticTypes) {
                 Long sourceKey = arithmeticType.getKey();
                 key = key | sourceKey;
@@ -84,8 +84,8 @@ public interface RestArithmetic extends RestValue<Long, String> {
     }
 
     static Long annexLong(Long arithmetic, Collection<Long> arithmeticList) {
-        Long key = Optional.ofNullable(arithmetic).orElse(0L);
-        if (arithmeticList != null && arithmeticList.size() > 0) {
+        long key = Optional.ofNullable(arithmetic).orElse(0L);
+        if (arithmeticList != null && !arithmeticList.isEmpty()) {
             for (Long sourceKey : arithmeticList) {
                 key = key | sourceKey;
             }
@@ -107,7 +107,7 @@ public interface RestArithmetic extends RestValue<Long, String> {
     }
 
     static <T extends RestArithmetic> List<T> deconKey(Collection<T> values, Long arithmetic) {
-        if (arithmetic == null || arithmetic == 0L || values == null || values.size() == 0) {
+        if (arithmetic == null || arithmetic == 0L || values == null || values.isEmpty()) {
             return null;
         }
         List<T> arithmeticTypes = new ArrayList<>();
