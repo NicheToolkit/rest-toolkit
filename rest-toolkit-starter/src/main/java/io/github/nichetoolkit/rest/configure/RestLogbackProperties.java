@@ -11,30 +11,74 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * <p>RestLogbackProperties</p>
- * @author Cyan (snow22314 @ outlook.com)
- * @version v1.0.0
+ * <code>RestLogbackProperties</code>
+ * <p>The type rest logback properties class.</p>
+ * @author Cyan (snow22314@outlook.com)
+ * @see lombok.Data
+ * @see org.springframework.stereotype.Component
+ * @see org.springframework.boot.context.properties.ConfigurationProperties
+ * @since Jdk1.8
  */
 @Data
 @Component
 @ConfigurationProperties(prefix = "nichetoolkit.rest.logback")
 public class RestLogbackProperties {
 
+    /**
+     * <code>enabled</code>
+     * {@link java.lang.Boolean} <p>the <code>enabled</code> field.</p>
+     * @see java.lang.Boolean
+     */
     private Boolean enabled = true;
 
+    /**
+     * <code>logKey</code>
+     * {@link java.lang.String} <p>the <code>logKey</code> field.</p>
+     * @see java.lang.String
+     */
     private String logKey ="logKey";
 
+    /**
+     * <code>attributes</code>
+     * {@link java.lang.String} <p>the <code>attributes</code> field.</p>
+     * @see java.lang.String
+     */
     private String[] attributes = {"t"};
 
+    /**
+     * <code>requestKey</code>
+     * {@link java.lang.String} <p>the <code>requestKey</code> field.</p>
+     * @see java.lang.String
+     */
     private String requestKey = "requestKey";
 
+    /**
+     * <code>headerKey</code>
+     * {@link java.lang.String} <p>the <code>headerKey</code> field.</p>
+     * @see java.lang.String
+     */
     private String headerKey = "X-Request-ID";
 
+    /**
+     * <code>argumentLength</code>
+     * {@link java.lang.Integer} <p>the <code>argumentLength</code> field.</p>
+     * @see java.lang.Integer
+     */
     private Integer argumentLength = 1024;
 
+    /**
+     * <code>RestLogbackProperties</code>
+     * Instantiates a new rest logback properties.
+     */
     public RestLogbackProperties() {
     }
 
+    /**
+     * <code>getAttributes</code>
+     * <p>the attributes getter method.</p>
+     * @return {@link java.util.List} <p>the attributes return object is <code>List</code> type.</p>
+     * @see java.util.List
+     */
     public List<String> getAttributes() {
         if (GeneralUtils.isNotEmpty(this.attributes)) {
             return Arrays.asList(this.attributes);

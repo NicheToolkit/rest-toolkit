@@ -6,12 +6,21 @@ import org.springframework.web.multipart.support.StandardMultipartHttpServletReq
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * <p>RestRequestHelper</p>
+ * <code>RestRequestHelper</code>
+ * <p>The type rest request helper class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @version v1.0.0
+ * @since Jdk1.8
  */
 public class RestRequestHelper {
-    
+
+    /**
+     * <code>getRestRequestWrapper</code>
+     * <p>the rest request wrapper getter method.</p>
+     * @param request {@link javax.servlet.http.HttpServletRequest} <p>the request parameter is <code>HttpServletRequest</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.interceptor.RestRequestWrapper} <p>the rest request wrapper return object is <code>RestRequestWrapper</code> type.</p>
+     * @see javax.servlet.http.HttpServletRequest
+     * @see io.github.nichetoolkit.rest.interceptor.RestRequestWrapper
+     */
     public static RestRequestWrapper getRestRequestWrapper(HttpServletRequest request) {
         RestRequestWrapper requestWrapper = null;
         if (request instanceof RestRequestWrapper) {

@@ -20,35 +20,91 @@ import java.lang.annotation.Annotation;
 import java.util.*;
 
 /**
- * <p>RestRequestWrapper</p>
+ * <code>RestRequestWrapper</code>
+ * <p>The type rest request wrapper class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @version v1.0.0
+ * @see javax.servlet.http.HttpServletRequestWrapper
+ * @see java.io.Closeable
+ * @see lombok.extern.slf4j.Slf4j
+ * @since Jdk1.8
  */
 @Slf4j
 public class RestRequestWrapper extends HttpServletRequestWrapper implements Closeable {
 
+    /**
+     * <code>REQUEST_ID_KEY</code>
+     * {@link java.lang.String} <p>the constant <code>REQUEST_ID_KEY</code> field.</p>
+     * @see java.lang.String
+     */
     private static final String REQUEST_ID_KEY = "_REQUEST_ID_KEY_";
 
+    /**
+     * <code>HANDLER_METHOD_KEY</code>
+     * {@link java.lang.String} <p>the constant <code>HANDLER_METHOD_KEY</code> field.</p>
+     * @see java.lang.String
+     */
     private static final String HANDLER_METHOD_KEY = "HANDLER_METHOD_KEY";
 
 
+    /**
+     * <code>cacheBody</code>
+     * {@link byte} <p>the <code>cacheBody</code> field.</p>
+     */
     private byte[] cacheBody;
 
+    /**
+     * <code>reader</code>
+     * {@link java.io.BufferedReader} <p>the <code>reader</code> field.</p>
+     * @see java.io.BufferedReader
+     */
     private BufferedReader reader;
 
+    /**
+     * <code>inputStream</code>
+     * {@link javax.servlet.ServletInputStream} <p>the <code>inputStream</code> field.</p>
+     * @see javax.servlet.ServletInputStream
+     */
     private ServletInputStream inputStream;
 
+    /**
+     * <code>paramsJson</code>
+     * {@link java.lang.String} <p>the <code>paramsJson</code> field.</p>
+     * @see java.lang.String
+     */
     private String paramsJson;
 
+    /**
+     * <code>paramsMap</code>
+     * {@link java.util.Map} <p>the <code>paramsMap</code> field.</p>
+     * @see java.util.Map
+     */
     private Map<String, Object> paramsMap;
 
+    /**
+     * <code>handlerMethods</code>
+     * {@link java.util.List} <p>the <code>handlerMethods</code> field.</p>
+     * @see java.util.List
+     * @see lombok.Getter
+     */
     @Getter
     private List<HandlerMethod> handlerMethods;
 
+    /**
+     * <code>RestRequestWrapper</code>
+     * Instantiates a new rest request wrapper.
+     * @param request {@link javax.servlet.http.HttpServletRequest} <p>the request parameter is <code>HttpServletRequest</code> type.</p>
+     * @see javax.servlet.http.HttpServletRequest
+     */
     public RestRequestWrapper(HttpServletRequest request) {
         super(request);
     }
 
+    /**
+     * <code>cacheBody</code>
+     * <p>the body method.</p>
+     * @param request {@link javax.servlet.ServletRequest} <p>the request parameter is <code>ServletRequest</code> type.</p>
+     * @see javax.servlet.ServletRequest
+     */
     private void cacheBody(ServletRequest request) {
         if (GeneralUtils.isEmpty(this.cacheBody)) {
             try {
@@ -60,6 +116,11 @@ public class RestRequestWrapper extends HttpServletRequestWrapper implements Clo
         }
     }
 
+    /**
+     * <code>getCacheBody</code>
+     * <p>the cache body method.</p>
+     * @return {@link byte} <p>the cache body return object is <code>byte</code> type.</p>
+     */
     public byte[] getCacheBody() {
         if (cacheBody != null) {
             return cacheBody;
@@ -92,6 +153,14 @@ public class RestRequestWrapper extends HttpServletRequestWrapper implements Clo
         }
     }
 
+    /**
+     * <code>getRequestURI</code>
+     * <p>the request uri getter method.</p>
+     * @param isNoContext {@link boolean} <p>the is no context parameter is <code>boolean</code> type.</p>
+     * @return {@link java.lang.String} <p>the request uri return object is <code>String</code> type.</p>
+     * @see java.lang.String
+     * @see java.lang.SuppressWarnings
+     */
     @SuppressWarnings("AlibabaLowerCamelCaseVariableNaming")
     public String getRequestURI(boolean isNoContext) {
         String url = super.getRequestURI();
@@ -101,6 +170,12 @@ public class RestRequestWrapper extends HttpServletRequestWrapper implements Clo
         return url;
     }
 
+    /**
+     * <code>getParamsJson</code>
+     * <p>the params json getter method.</p>
+     * @return {@link java.lang.String} <p>the params json return object is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
     public String getParamsJson() {
         if (this.paramsJson != null) {
             return this.paramsJson;
@@ -109,6 +184,12 @@ public class RestRequestWrapper extends HttpServletRequestWrapper implements Clo
         return this.paramsJson;
     }
 
+    /**
+     * <code>getParamsMap</code>
+     * <p>the params map getter method.</p>
+     * @return {@link java.util.Map} <p>the params map return object is <code>Map</code> type.</p>
+     * @see java.util.Map
+     */
     public Map<String, Object> getParamsMap() {
         if (this.paramsMap != null) {
             return this.paramsMap;
@@ -118,6 +199,12 @@ public class RestRequestWrapper extends HttpServletRequestWrapper implements Clo
         return Collections.unmodifiableMap(this.paramsMap);
     }
 
+    /**
+     * <code>getRequestId</code>
+     * <p>the request id getter method.</p>
+     * @return {@link java.lang.String} <p>the request id return object is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
     public String getRequestId() {
         Object requestId = getAttribute(REQUEST_ID_KEY);
         if (requestId == null) {
@@ -126,10 +213,23 @@ public class RestRequestWrapper extends HttpServletRequestWrapper implements Clo
         return requestId.toString();
     }
 
+    /**
+     * <code>setRequestId</code>
+     * <p>the request id setter method.</p>
+     * @param requestId {@link java.lang.String} <p>the request id parameter is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
     public void setRequestId(String requestId) {
         setAttribute(REQUEST_ID_KEY, requestId);
     }
 
+    /**
+     * <code>setHandlerMethods</code>
+     * <p>the handler methods setter method.</p>
+     * @param handlerMethod {@link org.springframework.web.method.HandlerMethod} <p>the handler method parameter is <code>HandlerMethod</code> type.</p>
+     * @see org.springframework.web.method.HandlerMethod
+     * @see java.lang.SuppressWarnings
+     */
     @SuppressWarnings(value = "unchecked")
     public void setHandlerMethods(HandlerMethod handlerMethod) {
         if (handlerMethods == null) {
@@ -142,6 +242,12 @@ public class RestRequestWrapper extends HttpServletRequestWrapper implements Clo
         handlerMethods.add(handlerMethod);
     }
 
+    /**
+     * <code>getUrlParams</code>
+     * <p>the url params getter method.</p>
+     * @return {@link java.util.List} <p>the url params return object is <code>List</code> type.</p>
+     * @see java.util.List
+     */
     public List<String> getUrlParams() {
         List<String> paramList = new ArrayList<>(5);
         String queryString = getQueryString();
@@ -156,6 +262,16 @@ public class RestRequestWrapper extends HttpServletRequestWrapper implements Clo
         return paramList;
     }
 
+    /**
+     * <code>getMethodAnnotation</code>
+     * <p>the method annotation getter method.</p>
+     * @param <A>            {@link java.lang.annotation.Annotation} <p>the generic parameter is <code>Annotation</code> type.</p>
+     * @param annotationType {@link java.lang.Class} <p>the annotation type parameter is <code>Class</code> type.</p>
+     * @return {@link A} <p>the method annotation return object is <code>A</code> type.</p>
+     * @see java.lang.annotation.Annotation
+     * @see java.lang.Class
+     * @see java.lang.SuppressWarnings
+     */
     @SuppressWarnings(value = "unchecked")
     public <A extends Annotation> A getMethodAnnotation(Class<A> annotationType) {
         Object attribute = getAttribute(HANDLER_METHOD_KEY);
@@ -175,6 +291,13 @@ public class RestRequestWrapper extends HttpServletRequestWrapper implements Clo
         return  null;
     }
 
+    /**
+     * <code>isSupportedJson</code>
+     * <p>the supported json method.</p>
+     * @param value {@link java.lang.String} <p>the value parameter is <code>String</code> type.</p>
+     * @return {@link boolean} <p>the supported json return object is <code>boolean</code> type.</p>
+     * @see java.lang.String
+     */
     private boolean isSupportedJson(String value) {
         if (GeneralUtils.isEmpty(value)) {
             return false;
@@ -184,6 +307,10 @@ public class RestRequestWrapper extends HttpServletRequestWrapper implements Clo
         return value.startsWith("{") || value.startsWith("[");
     }
 
+    /**
+     * <code>cacheMap</code>
+     * <p>the map method.</p>
+     */
     private void cacheMap() {
         if (this.paramsMap != null) {
             return;
@@ -215,10 +342,27 @@ public class RestRequestWrapper extends HttpServletRequestWrapper implements Clo
         }
     }
 
+    /**
+     * <code>RequestCachingInputStream</code>
+     * <p>The type request caching input stream class.</p>
+     * @author Cyan (snow22314@outlook.com)
+     * @see javax.servlet.ServletInputStream
+     * @since Jdk1.8
+     */
     private static class RequestCachingInputStream extends ServletInputStream {
 
+        /**
+         * <code>inputStream</code>
+         * {@link java.io.ByteArrayInputStream} <p>the <code>inputStream</code> field.</p>
+         * @see java.io.ByteArrayInputStream
+         */
         private final ByteArrayInputStream inputStream;
 
+        /**
+         * <code>RequestCachingInputStream</code>
+         * Instantiates a new request caching input stream.
+         * @param bytes {@link byte} <p>the bytes parameter is <code>byte</code> type.</p>
+         */
         public RequestCachingInputStream(byte[] bytes) {
             inputStream = new ByteArrayInputStream(bytes);
         }

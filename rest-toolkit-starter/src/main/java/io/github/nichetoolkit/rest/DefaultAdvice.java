@@ -30,9 +30,18 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * <p>DefaultAdvice</p>
+ * <code>DefaultAdvice</code>
+ * <p>The type default advice class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @version v1.0.0
+ * @see org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice
+ * @see org.springframework.context.ApplicationContextAware
+ * @see org.springframework.beans.factory.InitializingBean
+ * @see lombok.extern.slf4j.Slf4j
+ * @see org.springframework.core.annotation.Order
+ * @see org.springframework.web.bind.annotation.CrossOrigin
+ * @see org.springframework.web.bind.annotation.ControllerAdvice
+ * @see org.springframework.web.bind.annotation.RestControllerAdvice
+ * @since Jdk1.8
  */
 @Slf4j
 @Order(0)
@@ -40,15 +49,45 @@ import java.util.List;
 @ControllerAdvice
 @RestControllerAdvice
 public class DefaultAdvice implements ResponseBodyAdvice<Object>, ApplicationContextAware, InitializingBean {
+    /**
+     * <code>exceptionProperties</code>
+     * {@link io.github.nichetoolkit.rest.configure.RestExceptionProperties} <p>the <code>exceptionProperties</code> field.</p>
+     * @see io.github.nichetoolkit.rest.configure.RestExceptionProperties
+     */
     private final RestExceptionProperties exceptionProperties;
 
+    /**
+     * <code>applicationContext</code>
+     * {@link org.springframework.context.ApplicationContext} <p>the <code>applicationContext</code> field.</p>
+     * @see org.springframework.context.ApplicationContext
+     * @see org.springframework.lang.Nullable
+     */
     @Nullable
     private ApplicationContext applicationContext;
+    /**
+     * <code>restExceptionAdvices</code>
+     * {@link java.util.List} <p>the <code>restExceptionAdvices</code> field.</p>
+     * @see java.util.List
+     * @see org.springframework.lang.Nullable
+     */
     @Nullable
     private List<RestExceptionAdvice> restExceptionAdvices;
+    /**
+     * <code>restBodyAdvices</code>
+     * {@link java.util.List} <p>the <code>restBodyAdvices</code> field.</p>
+     * @see java.util.List
+     * @see org.springframework.lang.Nullable
+     */
     @Nullable
     private List<RestBodyAdvice> restBodyAdvices;
 
+    /**
+     * <code>DefaultAdvice</code>
+     * Instantiates a new default advice.
+     * @param exceptionProperties {@link io.github.nichetoolkit.rest.configure.RestExceptionProperties} <p>the exception properties parameter is <code>RestExceptionProperties</code> type.</p>
+     * @see io.github.nichetoolkit.rest.configure.RestExceptionProperties
+     * @see org.springframework.beans.factory.annotation.Autowired
+     */
     @Autowired
     public DefaultAdvice(RestExceptionProperties exceptionProperties) {
         this.exceptionProperties = exceptionProperties;
@@ -84,11 +123,23 @@ public class DefaultAdvice implements ResponseBodyAdvice<Object>, ApplicationCon
         }
     }
 
+    /**
+     * <code>getRestExceptionAdvices</code>
+     * <p>the rest exception advices getter method.</p>
+     * @return {@link java.util.List} <p>the rest exception advices return object is <code>List</code> type.</p>
+     * @see java.util.List
+     */
     public List<RestExceptionAdvice> getRestExceptionAdvices() {
         return this.restExceptionAdvices != null && !this.restExceptionAdvices.isEmpty() ? this.restExceptionAdvices : Collections.emptyList();
     }
 
 
+    /**
+     * <code>getRestBodyAdvices</code>
+     * <p>the rest body advices getter method.</p>
+     * @return {@link java.util.List} <p>the rest body advices return object is <code>List</code> type.</p>
+     * @see java.util.List
+     */
     public List<RestBodyAdvice> getRestBodyAdvices() {
         return this.restBodyAdvices != null && !this.restBodyAdvices.isEmpty() ? this.restBodyAdvices : Collections.emptyList();
     }
@@ -99,6 +150,20 @@ public class DefaultAdvice implements ResponseBodyAdvice<Object>, ApplicationCon
         ContextHolder.initApplicationContext(applicationContext);
     }
 
+    /**
+     * <code>exceptionHandle</code>
+     * <p>the handle method.</p>
+     * @param exception {@link java.lang.Exception} <p>the exception parameter is <code>Exception</code> type.</p>
+     * @param request   {@link javax.servlet.http.HttpServletRequest} <p>the request parameter is <code>HttpServletRequest</code> type.</p>
+     * @param response  {@link javax.servlet.http.HttpServletResponse} <p>the response parameter is <code>HttpServletResponse</code> type.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>the handle return object is <code>ResponseEntity</code> type.</p>
+     * @see java.lang.Exception
+     * @see javax.servlet.http.HttpServletRequest
+     * @see javax.servlet.http.HttpServletResponse
+     * @see org.springframework.http.ResponseEntity
+     * @see org.springframework.web.bind.annotation.ResponseBody
+     * @see org.springframework.web.bind.annotation.ExceptionHandler
+     */
     @ResponseBody
     @ExceptionHandler({Exception.class})
     public ResponseEntity<Object> exceptionHandle(Exception exception, HttpServletRequest request, HttpServletResponse response) {
@@ -121,6 +186,12 @@ public class DefaultAdvice implements ResponseBodyAdvice<Object>, ApplicationCon
         }
     }
 
+    /**
+     * <code>printStackTrace</code>
+     * <p>the stack trace method.</p>
+     * @param exception {@link java.lang.Exception} <p>the exception parameter is <code>Exception</code> type.</p>
+     * @see java.lang.Exception
+     */
     private void printStackTrace(Exception exception) {
         try(StringWriter stringWriter = new StringWriter();
             PrintWriter printWriter = new PrintWriter(stringWriter)) {
@@ -134,6 +205,16 @@ public class DefaultAdvice implements ResponseBodyAdvice<Object>, ApplicationCon
         } catch (IOException ignored) {}
     }
 
+    /**
+     * <code>preExceptionHandle</code>
+     * <p>the exception handle method.</p>
+     * @param exception {@link java.lang.Exception} <p>the exception parameter is <code>Exception</code> type.</p>
+     * @param request   {@link javax.servlet.http.HttpServletRequest} <p>the request parameter is <code>HttpServletRequest</code> type.</p>
+     * @param response  {@link javax.servlet.http.HttpServletResponse} <p>the response parameter is <code>HttpServletResponse</code> type.</p>
+     * @see java.lang.Exception
+     * @see javax.servlet.http.HttpServletRequest
+     * @see javax.servlet.http.HttpServletResponse
+     */
     private void preExceptionHandle(Exception exception,HttpServletRequest request, HttpServletResponse response)  {
         if (this.restExceptionAdvices != null && !this.restExceptionAdvices.isEmpty()) {
             for (RestExceptionAdvice advice : this.restExceptionAdvices) {
@@ -142,6 +223,16 @@ public class DefaultAdvice implements ResponseBodyAdvice<Object>, ApplicationCon
         }
     }
 
+    /**
+     * <code>doDefaultExceptionHandle</code>
+     * <p>the default exception handle method.</p>
+     * @param defaultException {@link io.github.nichetoolkit.rest.DefaultException} <p>the default exception parameter is <code>DefaultException</code> type.</p>
+     * @param request          {@link javax.servlet.http.HttpServletRequest} <p>the request parameter is <code>HttpServletRequest</code> type.</p>
+     * @param response         {@link javax.servlet.http.HttpServletResponse} <p>the response parameter is <code>HttpServletResponse</code> type.</p>
+     * @see io.github.nichetoolkit.rest.DefaultException
+     * @see javax.servlet.http.HttpServletRequest
+     * @see javax.servlet.http.HttpServletResponse
+     */
     private void doDefaultExceptionHandle(DefaultException defaultException, HttpServletRequest request, HttpServletResponse response)  {
         RestException restException = (RestException) defaultException;
         if (this.restExceptionAdvices != null && !this.restExceptionAdvices.isEmpty()) {
@@ -151,6 +242,16 @@ public class DefaultAdvice implements ResponseBodyAdvice<Object>, ApplicationCon
         }
     }
 
+    /**
+     * <code>doExceptionHandle</code>
+     * <p>the exception handle method.</p>
+     * @param exception {@link java.lang.Exception} <p>the exception parameter is <code>Exception</code> type.</p>
+     * @param request   {@link javax.servlet.http.HttpServletRequest} <p>the request parameter is <code>HttpServletRequest</code> type.</p>
+     * @param response  {@link javax.servlet.http.HttpServletResponse} <p>the response parameter is <code>HttpServletResponse</code> type.</p>
+     * @see java.lang.Exception
+     * @see javax.servlet.http.HttpServletRequest
+     * @see javax.servlet.http.HttpServletResponse
+     */
     private void doExceptionHandle(Exception exception,HttpServletRequest request, HttpServletResponse response)  {
         if (this.restExceptionAdvices != null && !this.restExceptionAdvices.isEmpty()) {
             for (RestExceptionAdvice advice : this.restExceptionAdvices) {

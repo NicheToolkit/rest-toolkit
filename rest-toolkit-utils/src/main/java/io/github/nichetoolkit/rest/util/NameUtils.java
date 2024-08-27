@@ -6,15 +6,39 @@ import java.util.Map;
 
 
 /**
- * <p>NameUtils</p>
+ * <code>NameUtils</code>
+ * <p>The type name utils class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @version v1.0.0
+ * @since Jdk1.8
  */
 public class NameUtils {
+    /**
+     * <code>UUID</code>
+     * {@link java.lang.String} <p>the constant <code>UUID</code> field.</p>
+     * @see java.lang.String
+     */
     public static final String UUID = "uuid";
+    /**
+     * <code>NAME</code>
+     * {@link java.lang.String} <p>the constant <code>NAME</code> field.</p>
+     * @see java.lang.String
+     */
     public static final String NAME = "name";
+    /**
+     * <code>EXT</code>
+     * {@link java.lang.String} <p>the constant <code>EXT</code> field.</p>
+     * @see java.lang.String
+     */
     public static final String EXT = "ext";
 
+    /**
+     * <code>parseFileName</code>
+     * <p>the file name method.</p>
+     * @param fileNameString {@link java.lang.String} <p>the file name string parameter is <code>String</code> type.</p>
+     * @return {@link java.util.Map} <p>the file name return object is <code>Map</code> type.</p>
+     * @see java.lang.String
+     * @see java.util.Map
+     */
     public static Map<String, String> parseFileName(String fileNameString) {
         Map<String, String> fileNameMap = new HashMap<>();
         String[] result = new String[2];
@@ -40,16 +64,41 @@ public class NameUtils {
         return fileNameMap;
     }
 
+    /**
+     * <code>buildFileName</code>
+     * <p>the file name method.</p>
+     * @param name {@link java.lang.String} <p>the name parameter is <code>String</code> type.</p>
+     * @param ext  {@link java.lang.String} <p>the ext parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>the file name return object is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
     public static String buildFileName(String name, String ext) {
         return name + "." + ext;
     }
 
+    /**
+     * <code>buildFileName</code>
+     * <p>the file name method.</p>
+     * @param fileNameMap {@link java.util.Map} <p>the file name map parameter is <code>Map</code> type.</p>
+     * @return {@link java.lang.String} <p>the file name return object is <code>String</code> type.</p>
+     * @see java.util.Map
+     * @see java.lang.String
+     */
     public static String buildFileName(Map<String, String> fileNameMap) {
         String name = fileNameMap.get(NAME);
         String ext = fileNameMap.get(EXT);
         return buildFileName(name, ext);
     }
 
+    /**
+     * <code>parseAliasName</code>
+     * <p>the alias name method.</p>
+     * @param fileNameString {@link java.lang.String} <p>the file name string parameter is <code>String</code> type.</p>
+     * @return {@link java.util.Map} <p>the alias name return object is <code>Map</code> type.</p>
+     * @see java.lang.String
+     * @see java.util.Map
+     * @see java.lang.SuppressWarnings
+     */
     @SuppressWarnings("UnnecessaryParentheses")
     public static Map<String, String> parseAliasName(String fileNameString) {
         Map<String, String> aliasNameMap = new HashMap<>();
@@ -80,11 +129,27 @@ public class NameUtils {
         return aliasNameMap;
     }
 
+    /**
+     * <code>buildAliasName</code>
+     * <p>the alias name method.</p>
+     * @param name {@link java.lang.String} <p>the name parameter is <code>String</code> type.</p>
+     * @param ext  {@link java.lang.String} <p>the ext parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>the alias name return object is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
     public static String buildAliasName(String name, String ext) {
         String uuid = java.util.UUID.randomUUID().toString().replaceAll("-","");
         return uuid + "_" + name + "." + ext;
     }
 
+    /**
+     * <code>parseSliceName</code>
+     * <p>the slice name method.</p>
+     * @param sliceNameString {@link java.lang.String} <p>the slice name string parameter is <code>String</code> type.</p>
+     * @return {@link java.util.Map} <p>the slice name return object is <code>Map</code> type.</p>
+     * @see java.lang.String
+     * @see java.util.Map
+     */
     public static Map<String, String> parseSliceName(String sliceNameString) {
         Map<String, String> sliceMap = new HashMap<>();
         String[] result = new String[2];
@@ -108,6 +173,13 @@ public class NameUtils {
         return sliceMap;
     }
 
+    /**
+     * <code>parseCamelName</code>
+     * <p>the camel name method.</p>
+     * @param baseString {@link java.lang.String} <p>the base string parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>the camel name return object is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
     public static String parseCamelName(String baseString) {
         StringBuilder caseBuilder = new StringBuilder();
         boolean isUpper = false;

@@ -25,14 +25,25 @@ import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 /**
- * <p>HttpClientInterceptor</p>
+ * <code>RestHttpInterceptor</code>
+ * <p>The type rest http interceptor class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @version v1.0.0
+ * @see org.springframework.http.client.ClientHttpRequestInterceptor
+ * @see lombok.extern.slf4j.Slf4j
+ * @see org.springframework.stereotype.Component
+ * @see java.lang.SuppressWarnings
+ * @since Jdk1.8
  */
 @Slf4j
 @Component
 @SuppressWarnings("SameNameButDifferent")
 public class RestHttpInterceptor implements ClientHttpRequestInterceptor {
+    /**
+     * <code>interceptProperties</code>
+     * {@link io.github.nichetoolkit.rest.configure.RestInterceptProperties} <p>the <code>interceptProperties</code> field.</p>
+     * @see io.github.nichetoolkit.rest.configure.RestInterceptProperties
+     * @see org.springframework.beans.factory.annotation.Autowired
+     */
     @Autowired
     private RestInterceptProperties interceptProperties;
 

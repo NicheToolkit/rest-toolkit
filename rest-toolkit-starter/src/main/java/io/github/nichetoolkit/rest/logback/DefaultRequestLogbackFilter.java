@@ -20,23 +20,53 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * <p>DefaultRequestLogbackFilter</p>
- * 此过滤器需要 尽量放在最前面执行 但是必须放在 OrderedCharacterEncodingFilter 之后
+ * <code>DefaultRequestLogbackFilter</code>
+ * <p>The type default request logback filter class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @version v1.0.0
+ * @see org.springframework.web.filter.OncePerRequestFilter
+ * @see lombok.extern.slf4j.Slf4j
+ * @see org.springframework.stereotype.Component
+ * @see org.springframework.core.annotation.Order
+ * @since Jdk1.8
  */
 @Slf4j
 @Component
 @Order(value = Ordered.HIGHEST_PRECEDENCE + 100)
 public class DefaultRequestLogbackFilter extends OncePerRequestFilter {
+    /**
+     * <code>logbackProperties</code>
+     * {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>the <code>logbackProperties</code> field.</p>
+     * @see io.github.nichetoolkit.rest.configure.RestLogbackProperties
+     */
     private final RestLogbackProperties logbackProperties;
+    /**
+     * <code>restLogKey</code>
+     * {@link io.github.nichetoolkit.rest.RestLogKey} <p>the <code>restLogKey</code> field.</p>
+     * @see io.github.nichetoolkit.rest.RestLogKey
+     */
     private RestLogKey restLogKey;
 
+    /**
+     * <code>DefaultRequestLogbackFilter</code>
+     * Instantiates a new default request logback filter.
+     * @param logbackProperties {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>the logback properties parameter is <code>RestLogbackProperties</code> type.</p>
+     * @see io.github.nichetoolkit.rest.configure.RestLogbackProperties
+     * @see org.springframework.beans.factory.annotation.Autowired
+     */
     @Autowired(required = false)
     public DefaultRequestLogbackFilter(RestLogbackProperties logbackProperties) {
         this.logbackProperties = logbackProperties;
     }
 
+    /**
+     * <code>DefaultRequestLogbackFilter</code>
+     * Instantiates a new default request logback filter.
+     * @param logbackProperties {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>the logback properties parameter is <code>RestLogbackProperties</code> type.</p>
+     * @param restLogKey        {@link io.github.nichetoolkit.rest.RestLogKey} <p>the rest log key parameter is <code>RestLogKey</code> type.</p>
+     * @see io.github.nichetoolkit.rest.configure.RestLogbackProperties
+     * @see io.github.nichetoolkit.rest.RestLogKey
+     * @see org.springframework.beans.factory.annotation.Autowired
+     */
     @Autowired(required = false)
     public DefaultRequestLogbackFilter(RestLogbackProperties logbackProperties, RestLogKey restLogKey) {
         this.logbackProperties = logbackProperties;
@@ -74,6 +104,14 @@ public class DefaultRequestLogbackFilter extends OncePerRequestFilter {
         }
     }
 
+    /**
+     * <code>getRequestId</code>
+     * <p>the request id getter method.</p>
+     * @param requestWrapper {@link io.github.nichetoolkit.rest.interceptor.RestRequestWrapper} <p>the request wrapper parameter is <code>RestRequestWrapper</code> type.</p>
+     * @return {@link java.lang.String} <p>the request id return object is <code>String</code> type.</p>
+     * @see io.github.nichetoolkit.rest.interceptor.RestRequestWrapper
+     * @see java.lang.String
+     */
     private String getRequestId(RestRequestWrapper requestWrapper) {
         String requestId = requestWrapper.getHeader(logbackProperties.getHeaderKey());
         if (GeneralUtils.isEmpty(requestId)) {

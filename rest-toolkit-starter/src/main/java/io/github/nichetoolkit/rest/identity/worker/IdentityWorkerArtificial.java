@@ -6,29 +6,73 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.Objects;
 
 /**
- * <p>IdentityWorkerArtificial</p>
+ * <code>IdentityWorkerArtificial</code>
+ * <p>The type identity worker artificial class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @version v1.0.0
+ * @see lombok.extern.slf4j.Slf4j
+ * @see java.lang.SuppressWarnings
+ * @since Jdk1.8
  */
 @Slf4j
 @SuppressWarnings("SameNameButDifferent")
 class IdentityWorkerArtificial implements IdentityWorker {
+    /**
+     * <code>name</code>
+     * {@link java.lang.String} <p>the <code>name</code> field.</p>
+     * @see java.lang.String
+     */
     private final String name;
+    /**
+     * <code>lastTime</code>
+     * {@link java.lang.Long} <p>the <code>lastTime</code> field.</p>
+     * @see java.lang.Long
+     */
     private Long lastTime = IdentityWorkerConfig.TIMESTAMP;
+    /**
+     * <code>lastTag</code>
+     * {@link java.lang.Long} <p>the <code>lastTag</code> field.</p>
+     * @see java.lang.Long
+     */
     private Long lastTag = IdentityWorkerConfig.DEFAULT_TAG;
+    /**
+     * <code>sequence</code>
+     * {@link java.lang.Long} <p>the <code>sequence</code> field.</p>
+     * @see java.lang.Long
+     */
     private Long sequence = IdentityWorkerConfig.SEQUENCE;
+    /**
+     * <code>offset</code>
+     * {@link java.lang.Long} <p>the <code>offset</code> field.</p>
+     * @see java.lang.Long
+     */
     private Long offset = IdentityWorkerConfig.OFFSET;
 
+    /**
+     * <code>IdentityWorkerArtificial</code>
+     * Instantiates a new identity worker artificial.
+     */
     public IdentityWorkerArtificial() {
         this.name = RestConstants.ARTIFICIAL_WORKER_NAME;
         IDENTITY_WORKER_MAP.put(WorkerType.BASE_WORKER,this);
     }
 
+    /**
+     * <code>IdentityWorkerArtificial</code>
+     * Instantiates a new identity worker artificial.
+     * @param name {@link java.lang.String} <p>the name parameter is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
     public IdentityWorkerArtificial(String name) {
         this.name = name;
         IDENTITY_WORKER_MAP.put(WorkerType.BASE_WORKER,this);
     }
 
+    /**
+     * <code>IdentityWorkerArtificial</code>
+     * Instantiates a new identity worker artificial.
+     * @param offset {@link java.lang.Long} <p>the offset parameter is <code>Long</code> type.</p>
+     * @see java.lang.Long
+     */
     public IdentityWorkerArtificial(Long offset) {
         this.name = RestConstants.ARTIFICIAL_WORKER_NAME;
         if (offset > IdentityWorkerConfig.SEQUENCE) {

@@ -1,15 +1,25 @@
 package io.github.nichetoolkit.rest.identity;
 
 /**
- * <p>IdentityType</p>
+ * <code>IdentityType</code>
+ * <p>The type identity type enumeration.</p>
  * @author Cyan (snow22314@outlook.com)
- * @version v1.0.0
+ * @since Jdk1.8
  */
 public enum IdentityType {
-    /** 自动配置 */
+    /**
+     * <code>AUTO</code>
+     * <p>the Auto identity type field.</p>
+     */
     AUTO,
-    /** 文件配置 */
+    /**
+     * <code>CONFIG</code>
+     * <p>the Config identity type field.</p>
+     */
     CONFIG,
-    /** 服务器配置 */
+    /**
+     * <code>SERVER</code>
+     * <p>the Server identity type field.</p>
+     */
     SERVER
 }

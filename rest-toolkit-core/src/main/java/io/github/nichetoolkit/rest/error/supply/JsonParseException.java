@@ -6,35 +6,92 @@ import io.github.nichetoolkit.rest.RestErrorStatus;
 import io.github.nichetoolkit.rest.RestStatus;
 
 /**
- * <p>JsonParseException</p>
+ * <code>JsonParseException</code>
+ * <p>The type json parse exception class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @version v1.0.0
+ * @see io.github.nichetoolkit.rest.RestErrorException
+ * @since Jdk1.8
  */
 public class JsonParseException extends RestErrorException {
+    /**
+     * <code>JsonParseException</code>
+     * Instantiates a new json parse exception.
+     */
     public JsonParseException() {
         super(RestErrorStatus.JSON_PARSE_ERROR);
     }
 
+    /**
+     * <code>JsonParseException</code>
+     * Instantiates a new json parse exception.
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestStatus
+     */
     public JsonParseException(RestStatus status) {
         super(status, RestError.error(status));
     }
 
+    /**
+     * <code>JsonParseException</code>
+     * Instantiates a new json parse exception.
+     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
+     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
     public JsonParseException(String resource, String message) {
         super(RestErrorStatus.JSON_PARSE_ERROR, RestError.error(resource, RestErrorStatus.JSON_PARSE_ERROR,message));
     }
 
+    /**
+     * <code>JsonParseException</code>
+     * Instantiates a new json parse exception.
+     * @param resource  {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
+     * @param className {@link java.lang.String} <p>the class name parameter is <code>String</code> type.</p>
+     * @param message   {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
     public JsonParseException(String resource, String className, String message) {
         super(RestErrorStatus.JSON_PARSE_ERROR, RestError.error(resource, className, RestErrorStatus.JSON_PARSE_ERROR, message));
     }
 
+    /**
+     * <code>JsonParseException</code>
+     * Instantiates a new json parse exception.
+     * @param resource  {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
+     * @param className {@link java.lang.String} <p>the class name parameter is <code>String</code> type.</p>
+     * @param json      {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
+     * @param message   {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
     public JsonParseException(String resource, String className, String json, String message) {
         super(RestErrorStatus.JSON_PARSE_ERROR, RestError.error(resource, className, json, RestErrorStatus.JSON_PARSE_ERROR, message));
     }
 
+    /**
+     * <code>JsonParseException</code>
+     * Instantiates a new json parse exception.
+     * @param resource  {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
+     * @param className {@link java.lang.String} <p>the class name parameter is <code>String</code> type.</p>
+     * @param status    {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * @param message   {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * @see java.lang.String
+     * @see io.github.nichetoolkit.rest.RestStatus
+     */
     public JsonParseException(String resource, String className, RestStatus status, String message) {
         super(status, RestError.error(resource, className, status, message));
     }
 
+    /**
+     * <code>JsonParseException</code>
+     * Instantiates a new json parse exception.
+     * @param resource  {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
+     * @param className {@link java.lang.String} <p>the class name parameter is <code>String</code> type.</p>
+     * @param json      {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
+     * @param status    {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * @param message   {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * @see java.lang.String
+     * @see io.github.nichetoolkit.rest.RestStatus
+     */
     public JsonParseException(String resource, String className, String json, RestStatus status, String message) {
         super(status, RestError.error(resource,  className, json, status, message));
     }

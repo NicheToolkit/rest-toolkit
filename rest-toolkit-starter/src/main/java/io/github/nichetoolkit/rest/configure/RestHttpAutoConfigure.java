@@ -61,9 +61,15 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 /**
- * <p>RestTemplateConfigure</p>
+ * <code>RestHttpAutoConfigure</code>
+ * <p>The type rest http auto configure class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @version v1.0.0
+ * @see lombok.extern.slf4j.Slf4j
+ * @see org.springframework.boot.autoconfigure.AutoConfiguration
+ * @see java.lang.SuppressWarnings
+ * @see org.springframework.context.annotation.ComponentScan
+ * @see org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
+ * @since Jdk1.8
  */
 @Slf4j
 @AutoConfiguration
@@ -72,10 +78,36 @@ import java.util.concurrent.TimeUnit;
 @ConditionalOnProperty(value = "nichetoolkit.rest.http.enabled", havingValue = "true", matchIfMissing = true)
 public class RestHttpAutoConfigure {
 
+    /**
+     * <code>interceptProperties</code>
+     * {@link io.github.nichetoolkit.rest.configure.RestInterceptProperties} <p>the <code>interceptProperties</code> field.</p>
+     * @see io.github.nichetoolkit.rest.configure.RestInterceptProperties
+     */
     private final RestInterceptProperties interceptProperties;
+    /**
+     * <code>httpInterceptor</code>
+     * {@link io.github.nichetoolkit.rest.interceptor.RestHttpInterceptor} <p>the <code>httpInterceptor</code> field.</p>
+     * @see io.github.nichetoolkit.rest.interceptor.RestHttpInterceptor
+     */
     private final RestHttpInterceptor httpInterceptor;
+    /**
+     * <code>httpProperties</code>
+     * {@link io.github.nichetoolkit.rest.configure.RestHttpProperties} <p>the <code>httpProperties</code> field.</p>
+     * @see io.github.nichetoolkit.rest.configure.RestHttpProperties
+     */
     private final RestHttpProperties httpProperties;
 
+    /**
+     * <code>RestHttpAutoConfigure</code>
+     * Instantiates a new rest http auto configure.
+     * @param httpProperties      {@link io.github.nichetoolkit.rest.configure.RestHttpProperties} <p>the http properties parameter is <code>RestHttpProperties</code> type.</p>
+     * @param httpInterceptor     {@link io.github.nichetoolkit.rest.interceptor.RestHttpInterceptor} <p>the http interceptor parameter is <code>RestHttpInterceptor</code> type.</p>
+     * @param interceptProperties {@link io.github.nichetoolkit.rest.configure.RestInterceptProperties} <p>the intercept properties parameter is <code>RestInterceptProperties</code> type.</p>
+     * @see io.github.nichetoolkit.rest.configure.RestHttpProperties
+     * @see io.github.nichetoolkit.rest.interceptor.RestHttpInterceptor
+     * @see io.github.nichetoolkit.rest.configure.RestInterceptProperties
+     * @see org.springframework.beans.factory.annotation.Autowired
+     */
     @Autowired
     public RestHttpAutoConfigure(RestHttpProperties httpProperties,RestHttpInterceptor httpInterceptor,RestInterceptProperties interceptProperties) {
         log.debug("================= http-auto-config initiated ！ ===================");
@@ -84,6 +116,16 @@ public class RestHttpAutoConfigure {
         this.interceptProperties = interceptProperties;
     }
 
+    /**
+     * <code>restTemplates</code>
+     * <p>the templates method.</p>
+     * @param restTemplate {@link org.springframework.web.client.RestTemplate} <p>the rest template parameter is <code>RestTemplate</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.http.RestTemplates} <p>the templates return object is <code>RestTemplates</code> type.</p>
+     * @see org.springframework.web.client.RestTemplate
+     * @see io.github.nichetoolkit.rest.http.RestTemplates
+     * @see org.springframework.context.annotation.Bean
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
+     */
     @Bean
     @ConditionalOnMissingBean(RestTemplates.class)
     public RestTemplates restTemplates(RestTemplate restTemplate) {
@@ -95,18 +137,46 @@ public class RestHttpAutoConfigure {
         return new RestTemplates(restTemplate);
     }
 
+    /**
+     * <code>DefaultRestTemplateAutoConfigure</code>
+     * <p>The type default rest template auto configure class.</p>
+     * @author Cyan (snow22314@outlook.com)
+     * @see org.springframework.context.annotation.Configuration
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
+     * @since Jdk1.8
+     */
     @Configuration
     @ConditionalOnProperty(value = "nichetoolkit.rest.http.http-type", havingValue = "default", matchIfMissing = true)
     public class DefaultRestTemplateAutoConfigure {
+        /**
+         * <code>DefaultRestTemplateAutoConfigure</code>
+         * Instantiates a new default rest template auto configure.
+         */
         public DefaultRestTemplateAutoConfigure() {
             log.debug("================= default-rest-template-auto-config initiated ！ ===================");
         }
 
+        /**
+         * <code>restTemplate</code>
+         * <p>the template method.</p>
+         * @param simpleClientHttpRequestFactory {@link org.springframework.http.client.SimpleClientHttpRequestFactory} <p>the simple client http request factory parameter is <code>SimpleClientHttpRequestFactory</code> type.</p>
+         * @return {@link org.springframework.web.client.RestTemplate} <p>the template return object is <code>RestTemplate</code> type.</p>
+         * @see org.springframework.http.client.SimpleClientHttpRequestFactory
+         * @see org.springframework.web.client.RestTemplate
+         * @see org.springframework.context.annotation.Bean
+         */
         @Bean(name = HttpClientType.DEFAULT_BEAN)
         public RestTemplate restTemplate(SimpleClientHttpRequestFactory simpleClientHttpRequestFactory) {
             return createRestTemplate(simpleClientHttpRequestFactory);
         }
 
+        /**
+         * <code>simpleClientHttpRequestFactory</code>
+         * <p>the client http request factory method.</p>
+         * @return {@link org.springframework.http.client.SimpleClientHttpRequestFactory} <p>the client http request factory return object is <code>SimpleClientHttpRequestFactory</code> type.</p>
+         * @see org.springframework.http.client.SimpleClientHttpRequestFactory
+         * @see org.springframework.context.annotation.Bean
+         */
         @Bean(name = "simpleClientHttpRequestFactory")
         public SimpleClientHttpRequestFactory simpleClientHttpRequestFactory() {
             SimpleClientHttpRequestFactory simpleClientHttpRequestFactory = new SimpleClientHttpRequestFactory();
@@ -127,19 +197,50 @@ public class RestHttpAutoConfigure {
     }
 
 
+    /**
+     * <code>OkHttpRestTemplateAutoConfigure</code>
+     * <p>The type ok http rest template auto configure class.</p>
+     * @author Cyan (snow22314@outlook.com)
+     * @see org.springframework.context.annotation.Configuration
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnClass
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
+     * @since Jdk1.8
+     */
     @Configuration
     @ConditionalOnClass({RestTemplate.class,OkHttpClient.class})
     @ConditionalOnProperty(value = "nichetoolkit.rest.http.http-type", havingValue = "ok_http_client", matchIfMissing = true)
     public class OkHttpRestTemplateAutoConfigure {
+        /**
+         * <code>OkHttpRestTemplateAutoConfigure</code>
+         * Instantiates a new ok http rest template auto configure.
+         */
         public OkHttpRestTemplateAutoConfigure() {
             log.debug("================= okhttp3-rest-template-auto-config initiated ！ ===================");
         }
 
+        /**
+         * <code>okHttpTemplate</code>
+         * <p>the http template method.</p>
+         * @param okHttp3ClientHttpRequestFactory {@link org.springframework.http.client.OkHttp3ClientHttpRequestFactory} <p>the ok http 3 client http request factory parameter is <code>OkHttp3ClientHttpRequestFactory</code> type.</p>
+         * @return {@link org.springframework.web.client.RestTemplate} <p>the http template return object is <code>RestTemplate</code> type.</p>
+         * @see org.springframework.http.client.OkHttp3ClientHttpRequestFactory
+         * @see org.springframework.web.client.RestTemplate
+         * @see org.springframework.context.annotation.Bean
+         */
         @Bean(name = HttpClientType.OKHTTP3_BEAN)
         public RestTemplate okHttpTemplate(OkHttp3ClientHttpRequestFactory okHttp3ClientHttpRequestFactory) {
             return createRestTemplate(okHttp3ClientHttpRequestFactory);
         }
 
+        /**
+         * <code>okHttp3ClientHttpRequestFactory</code>
+         * <p>the http 3 client http request factory method.</p>
+         * @param okHttpClient {@link okhttp3.OkHttpClient} <p>the ok http client parameter is <code>OkHttpClient</code> type.</p>
+         * @return {@link org.springframework.http.client.OkHttp3ClientHttpRequestFactory} <p>the http 3 client http request factory return object is <code>OkHttp3ClientHttpRequestFactory</code> type.</p>
+         * @see okhttp3.OkHttpClient
+         * @see org.springframework.http.client.OkHttp3ClientHttpRequestFactory
+         * @see org.springframework.context.annotation.Bean
+         */
         @Bean(name = "okHttp3ClientHttpRequestFactory")
         public OkHttp3ClientHttpRequestFactory okHttp3ClientHttpRequestFactory(OkHttpClient okHttpClient) {
             OkHttp3ClientHttpRequestFactory okHttp3ClientHttpRequestFactory = new OkHttp3ClientHttpRequestFactory(okHttpClient);
@@ -151,6 +252,17 @@ public class RestHttpAutoConfigure {
             return okHttp3ClientHttpRequestFactory;
         }
 
+        /**
+         * <code>okHttpClient</code>
+         * <p>the http client method.</p>
+         * @param x509TrustManager {@link javax.net.ssl.X509TrustManager} <p>the x 509 trust manager parameter is <code>X509TrustManager</code> type.</p>
+         * @return {@link okhttp3.OkHttpClient} <p>the http client return object is <code>OkHttpClient</code> type.</p>
+         * @throws HttpConfigError {@link io.github.nichetoolkit.rest.error.network.HttpConfigError} <p>the http config error is <code>HttpConfigError</code> type.</p>
+         * @see javax.net.ssl.X509TrustManager
+         * @see okhttp3.OkHttpClient
+         * @see org.springframework.context.annotation.Bean
+         * @see io.github.nichetoolkit.rest.error.network.HttpConfigError
+         */
         @Bean(name = "okHttpClient")
         public OkHttpClient okHttpClient(X509TrustManager x509TrustManager) throws HttpConfigError {
             OkHttpClient.Builder okHttpClientBuilder = new OkHttpClient().newBuilder();
@@ -174,6 +286,14 @@ public class RestHttpAutoConfigure {
             }
         }
 
+        /**
+         * <code>x509TrustManager</code>
+         * <p>the 509 trust manager method.</p>
+         * @return {@link javax.net.ssl.X509TrustManager} <p>the 509 trust manager return object is <code>X509TrustManager</code> type.</p>
+         * @see javax.net.ssl.X509TrustManager
+         * @see org.springframework.context.annotation.Bean
+         * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
+         */
         @Bean
         @ConditionalOnMissingBean(X509TrustManager.class)
         public X509TrustManager x509TrustManager() {
@@ -193,19 +313,50 @@ public class RestHttpAutoConfigure {
     }
 
 
+    /**
+     * <code>HttpClientRestTemplateAutoConfigure</code>
+     * <p>The type http client rest template auto configure class.</p>
+     * @author Cyan (snow22314@outlook.com)
+     * @see org.springframework.context.annotation.Configuration
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnClass
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
+     * @since Jdk1.8
+     */
     @Configuration
     @ConditionalOnClass({RestTemplate.class,HttpClient.class})
     @ConditionalOnProperty(value = "nichetoolkit.rest.http.http-type", havingValue = "http_client", matchIfMissing = true)
     public class HttpClientRestTemplateAutoConfigure {
+        /**
+         * <code>HttpClientRestTemplateAutoConfigure</code>
+         * Instantiates a new http client rest template auto configure.
+         */
         public HttpClientRestTemplateAutoConfigure() {
             log.debug("================= http-client-rest-template-auto-config initiated ！ ===================");
         }
 
+        /**
+         * <code>httpTemplate</code>
+         * <p>the template method.</p>
+         * @param httpComponentsClientHttpRequestFactory {@link org.springframework.http.client.HttpComponentsClientHttpRequestFactory} <p>the http components client http request factory parameter is <code>HttpComponentsClientHttpRequestFactory</code> type.</p>
+         * @return {@link org.springframework.web.client.RestTemplate} <p>the template return object is <code>RestTemplate</code> type.</p>
+         * @see org.springframework.http.client.HttpComponentsClientHttpRequestFactory
+         * @see org.springframework.web.client.RestTemplate
+         * @see org.springframework.context.annotation.Bean
+         */
         @Bean(name = HttpClientType.HTTPCLIENT_BEAN)
         public RestTemplate httpTemplate(HttpComponentsClientHttpRequestFactory httpComponentsClientHttpRequestFactory) {
             return createRestTemplate(httpComponentsClientHttpRequestFactory);
         }
 
+        /**
+         * <code>httpComponentsClientHttpRequestFactory</code>
+         * <p>the components client http request factory method.</p>
+         * @param httpClient {@link org.apache.http.client.HttpClient} <p>the http client parameter is <code>HttpClient</code> type.</p>
+         * @return {@link org.springframework.http.client.HttpComponentsClientHttpRequestFactory} <p>the components client http request factory return object is <code>HttpComponentsClientHttpRequestFactory</code> type.</p>
+         * @see org.apache.http.client.HttpClient
+         * @see org.springframework.http.client.HttpComponentsClientHttpRequestFactory
+         * @see org.springframework.context.annotation.Bean
+         */
         @Bean(name = "httpComponentsClientHttpRequestFactory")
         public HttpComponentsClientHttpRequestFactory httpComponentsClientHttpRequestFactory(HttpClient httpClient) {
             HttpComponentsClientHttpRequestFactory httpComponentsClientHttpRequestFactory = new HttpComponentsClientHttpRequestFactory(httpClient);
@@ -217,6 +368,17 @@ public class RestHttpAutoConfigure {
             return httpComponentsClientHttpRequestFactory;
         }
 
+        /**
+         * <code>httpClient</code>
+         * <p>the client method.</p>
+         * @param x509TrustManager {@link javax.net.ssl.X509TrustManager} <p>the x 509 trust manager parameter is <code>X509TrustManager</code> type.</p>
+         * @return {@link org.apache.http.client.HttpClient} <p>the client return object is <code>HttpClient</code> type.</p>
+         * @throws HttpConfigError {@link io.github.nichetoolkit.rest.error.network.HttpConfigError} <p>the http config error is <code>HttpConfigError</code> type.</p>
+         * @see javax.net.ssl.X509TrustManager
+         * @see org.apache.http.client.HttpClient
+         * @see org.springframework.context.annotation.Bean
+         * @see io.github.nichetoolkit.rest.error.network.HttpConfigError
+         */
         @Bean(name = "httpClient")
         public HttpClient httpClient(X509TrustManager x509TrustManager) throws HttpConfigError {
             HttpClientBuilder httpClientBuilder = HttpClientBuilder.create();
@@ -260,6 +422,14 @@ public class RestHttpAutoConfigure {
             }
         }
 
+        /**
+         * <code>x509TrustManager</code>
+         * <p>the 509 trust manager method.</p>
+         * @return {@link javax.net.ssl.X509TrustManager} <p>the 509 trust manager return object is <code>X509TrustManager</code> type.</p>
+         * @see javax.net.ssl.X509TrustManager
+         * @see org.springframework.context.annotation.Bean
+         * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
+         */
         @Bean
         @ConditionalOnMissingBean(X509TrustManager.class)
         public X509TrustManager x509TrustManager() {
@@ -277,6 +447,12 @@ public class RestHttpAutoConfigure {
             };
         }
 
+        /**
+         * <code>connectionKeepAliveStrategy</code>
+         * <p>the keep alive strategy method.</p>
+         * @return {@link org.apache.http.conn.ConnectionKeepAliveStrategy} <p>the keep alive strategy return object is <code>ConnectionKeepAliveStrategy</code> type.</p>
+         * @see org.apache.http.conn.ConnectionKeepAliveStrategy
+         */
         public ConnectionKeepAliveStrategy connectionKeepAliveStrategy(){
             return (response, context) -> {
                 HeaderElementIterator iterator = new BasicHeaderElementIterator(response.headerIterator(HTTP.CONN_KEEP_ALIVE));
@@ -303,6 +479,12 @@ public class RestHttpAutoConfigure {
         }
     }
 
+    /**
+     * <code>getDefaultHeaders</code>
+     * <p>the default headers getter method.</p>
+     * @return {@link java.util.List} <p>the default headers return object is <code>List</code> type.</p>
+     * @see java.util.List
+     */
     private List<Header> getDefaultHeaders() {
         List<Header> headers = new ArrayList<>();
         headers.add(new BasicHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.16 Safari/537.36"));
@@ -312,6 +494,14 @@ public class RestHttpAutoConfigure {
         return headers;
     }
 
+    /**
+     * <code>createRestTemplate</code>
+     * <p>the rest template method.</p>
+     * @param factory {@link org.springframework.http.client.ClientHttpRequestFactory} <p>the factory parameter is <code>ClientHttpRequestFactory</code> type.</p>
+     * @return {@link org.springframework.web.client.RestTemplate} <p>the rest template return object is <code>RestTemplate</code> type.</p>
+     * @see org.springframework.http.client.ClientHttpRequestFactory
+     * @see org.springframework.web.client.RestTemplate
+     */
     private RestTemplate createRestTemplate(ClientHttpRequestFactory factory) {
         RestTemplate restTemplate = new RestTemplate(new BufferingClientHttpRequestFactory(factory));
         if (interceptProperties.getEnabled()) {
@@ -326,6 +516,12 @@ public class RestHttpAutoConfigure {
     }
 
 
+    /**
+     * <code>modifyDefaultCharset</code>
+     * <p>the default charset method.</p>
+     * @param restTemplate {@link org.springframework.web.client.RestTemplate} <p>the rest template parameter is <code>RestTemplate</code> type.</p>
+     * @see org.springframework.web.client.RestTemplate
+     */
     private void modifyDefaultCharset(RestTemplate restTemplate) {
         List<HttpMessageConverter<?>> messageConverters = restTemplate.getMessageConverters();
         HttpMessageConverter<?> converterTarget = null;

@@ -17,48 +17,117 @@ import java.time.temporal.ChronoUnit;
 import java.util.*;
 
 /**
- * <p>RestJwtProperties</p>
+ * <code>RestJwtProperties</code>
+ * <p>The type rest jwt properties class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @version v1.0.0
+ * @see lombok.Data
+ * @see org.springframework.stereotype.Component
+ * @see org.springframework.boot.context.properties.ConfigurationProperties
+ * @since Jdk1.8
  */
 @Data
 @Component
 @ConfigurationProperties(prefix = "nichetoolkit.rest.jwt")
 public class RestJwtProperties {
+    /**
+     * <code>radixWorker</code>
+     * {@link io.github.nichetoolkit.rest.worker.RadixWorker} <p>the <code>radixWorker</code> field.</p>
+     * @see io.github.nichetoolkit.rest.worker.RadixWorker
+     * @see com.fasterxml.jackson.annotation.JsonIgnore
+     */
     @JsonIgnore
     private final RadixWorker radixWorker;
 
+    /**
+     * <code>enabled</code>
+     * {@link boolean} <p>the <code>enabled</code> field.</p>
+     */
     private boolean enabled;
-    /** 加密算法 */
+    /**
+     * <code>algorithm</code>
+     * {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>the <code>algorithm</code> field.</p>
+     * @see io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm
+     */
     private JwtAlgorithm algorithm = JwtAlgorithm.HS256;
-    /** 加密密钥 */
+    /**
+     * <code>secret</code>
+     * {@link java.lang.String} <p>the <code>secret</code> field.</p>
+     * @see java.lang.String
+     */
     private String secret;
-    /** 密钥kid */
+    /**
+     * <code>kid</code>
+     * {@link java.lang.String} <p>the <code>kid</code> field.</p>
+     * @see java.lang.String
+     */
     private String kid;
-    /** 发行者 */
+    /**
+     * <code>issuer</code>
+     * {@link java.lang.String} <p>the <code>issuer</code> field.</p>
+     * @see java.lang.String
+     */
     private String issuer;
-    /** 接收者 */
+    /**
+     * <code>audiences</code>
+     * {@link java.lang.String} <p>the <code>audiences</code> field.</p>
+     * @see java.lang.String
+     */
     private String[] audiences;
-    /** 发行时间默认为 发行延时后多久失效 */
+    /**
+     * <code>expireTime</code>
+     * {@link java.lang.Long} <p>the <code>expireTime</code> field.</p>
+     * @see java.lang.Long
+     */
     private Long expireTime = 0L;
-    /** 发行延时后多久失效 */
+    /**
+     * <code>expireUnit</code>
+     * {@link java.time.temporal.ChronoUnit} <p>the <code>expireUnit</code> field.</p>
+     * @see java.time.temporal.ChronoUnit
+     */
     private ChronoUnit expireUnit = ChronoUnit.MILLIS;
-    /** 发行延时时间 */
+    /**
+     * <code>issuedDelayTime</code>
+     * {@link java.lang.Long} <p>the <code>issuedDelayTime</code> field.</p>
+     * @see java.lang.Long
+     */
     private Long issuedDelayTime = 0L;
-    /** 发行延时单位 */
+    /**
+     * <code>issuedDelayUnit</code>
+     * {@link java.time.temporal.ChronoUnit} <p>the <code>issuedDelayUnit</code> field.</p>
+     * @see java.time.temporal.ChronoUnit
+     */
     private ChronoUnit issuedDelayUnit = ChronoUnit.MILLIS;
-    /** 是否开启nbf */
+    /**
+     * <code>notBeforeEnabled</code>
+     * {@link boolean} <p>the <code>notBeforeEnabled</code> field.</p>
+     */
     private boolean notBeforeEnabled = false;
 
+    /**
+     * <code>RestJwtProperties</code>
+     * Instantiates a new rest jwt properties.
+     */
     public RestJwtProperties() {
         this.radixWorker = null;
     }
 
+    /**
+     * <code>RestJwtProperties</code>
+     * Instantiates a new rest jwt properties.
+     * @param radixWorker {@link io.github.nichetoolkit.rest.worker.RadixWorker} <p>the radix worker parameter is <code>RadixWorker</code> type.</p>
+     * @see io.github.nichetoolkit.rest.worker.RadixWorker
+     * @see org.springframework.beans.factory.annotation.Autowired
+     */
     @Autowired(required = false)
     public RestJwtProperties(RadixWorker radixWorker) {
         this.radixWorker = radixWorker;
     }
 
+    /**
+     * <code>algorithmInit</code>
+     * <p>the init method.</p>
+     * @see javax.annotation.PostConstruct
+     */
     @PostConstruct
     public void algorithmInit() {
         if (algorithm == JwtAlgorithm.NONE) {
@@ -80,7 +149,13 @@ public class RestJwtProperties {
     }
 
 
-
+    /**
+     * <code>getAudiences</code>
+     * <p>the audiences getter method.</p>
+     * @return {@link java.util.List} <p>the audiences return object is <code>List</code> type.</p>
+     * @see java.util.List
+     * @see java.lang.SuppressWarnings
+     */
     @SuppressWarnings("MixedMutabilityReturnType")
     public List<String> getAudiences() {
         if (GeneralUtils.isNotEmpty(this.audiences)) {
@@ -89,6 +164,12 @@ public class RestJwtProperties {
         return Collections.emptyList();
     }
 
+    /**
+     * <code>toBuilder</code>
+     * <p>the builder method.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>the builder return object is <code>JwtBuilder</code> type.</p>
+     * @see io.github.nichetoolkit.rest.worker.jwt.JwtBuilder
+     */
     public JwtBuilder toBuilder() {
         if (this.isEnabled()) {
             JwtBuilder builder = JwtBuilder.builder();

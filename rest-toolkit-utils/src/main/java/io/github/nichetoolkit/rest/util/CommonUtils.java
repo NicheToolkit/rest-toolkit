@@ -1,12 +1,22 @@
 package io.github.nichetoolkit.rest.util;
 
 /**
- * <p>CommonUtils</p>
+ * <code>CommonUtils</code>
+ * <p>The type common utils class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @version v1.0.0
+ * @since Jdk1.8
  */
 public class CommonUtils {
 
+    /**
+     * <code>substring</code>
+     * <p>the method.</p>
+     * @param content {@link java.lang.String} <p>the content parameter is <code>String</code> type.</p>
+     * @param limit   {@link java.lang.Integer} <p>the limit parameter is <code>Integer</code> type.</p>
+     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * @see java.lang.String
+     * @see java.lang.Integer
+     */
     public static String substring(String content, Integer limit) {
         if (GeneralUtils.isEmpty(content)) {
             return null;

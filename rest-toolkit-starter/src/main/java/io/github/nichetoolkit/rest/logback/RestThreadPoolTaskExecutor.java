@@ -12,13 +12,15 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 
 /**
- * <p>RestThreadPoolTaskExecutor</p>
+ * <code>RestThreadPoolTaskExecutor</code>
+ * <p>The type rest thread pool task executor class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @version v1.0.0
+ * @see org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor
+ * @see lombok.extern.slf4j.Slf4j
+ * @since Jdk1.8
  */
 @Slf4j
 public class RestThreadPoolTaskExecutor extends ThreadPoolTaskExecutor {
-    /*** 接口请求开启的异步线程会调用下述方法*/
     @Override
     public void execute(@NonNull Runnable runnable) {
         Map<String, String> context = MDC.getCopyOfContextMap();
@@ -36,7 +38,6 @@ public class RestThreadPoolTaskExecutor extends ThreadPoolTaskExecutor {
         });
     }
 
-    /*** 定时任务会调用下述方法*/
     @NotNull
     @Override
     public <T> Future<T> submit(@NonNull Callable<T> callable) {

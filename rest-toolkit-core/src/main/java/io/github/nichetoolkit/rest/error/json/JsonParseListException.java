@@ -4,31 +4,74 @@ import io.github.nichetoolkit.rest.RestErrorStatus;
 import io.github.nichetoolkit.rest.RestStatus;
 
 /**
- * <p>JsonParseListException</p>
+ * <code>JsonParseListException</code>
+ * <p>The type json parse list exception class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @version v1.0.0
+ * @see io.github.nichetoolkit.rest.error.json.JsonParseErrorException
+ * @since Jdk1.8
  */
 public class JsonParseListException extends JsonParseErrorException {
+    /**
+     * <code>JsonParseListException</code>
+     * Instantiates a new json parse list exception.
+     */
     public JsonParseListException() {
         super(RestErrorStatus.JSON_PARSE_LIST);
     }
 
+    /**
+     * <code>JsonParseListException</code>
+     * Instantiates a new json parse list exception.
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestStatus
+     */
     public JsonParseListException(RestStatus status) {
         super(status);
     }
 
+    /**
+     * <code>JsonParseListException</code>
+     * Instantiates a new json parse list exception.
+     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
     public JsonParseListException(String message) {
         super(RestErrorStatus.JSON_PARSE_LIST, message);
     }
 
+    /**
+     * <code>JsonParseListException</code>
+     * Instantiates a new json parse list exception.
+     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
+     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
     public JsonParseListException(String resource, String message) {
         super(RestErrorStatus.JSON_PARSE_LIST, resource, message);
     }
 
+    /**
+     * <code>JsonParseListException</code>
+     * Instantiates a new json parse list exception.
+     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
+     * @param field    {@link java.lang.String} <p>the field parameter is <code>String</code> type.</p>
+     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
     public JsonParseListException(String resource, String field, String message) {
         super(RestErrorStatus.JSON_PARSE_LIST, resource, field, message);
     }
 
+    /**
+     * <code>JsonParseListException</code>
+     * Instantiates a new json parse list exception.
+     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
+     * @param field    {@link java.lang.String} <p>the field parameter is <code>String</code> type.</p>
+     * @param value    {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>
+     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * @see java.lang.String
+     * @see java.lang.Object
+     */
     public JsonParseListException(String resource, String field, Object value, String message) {
         super(RestErrorStatus.JSON_PARSE_LIST, resource, field, value, message);
     }

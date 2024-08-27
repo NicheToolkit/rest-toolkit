@@ -7,12 +7,19 @@ import java.io.File;
 import java.io.FileNotFoundException;
 
 /**
- * <p>PathUtils</p>
+ * <code>PathUtils</code>
+ * <p>The type path utils class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @version v1.0.0
+ * @since Jdk1.8
  */
 public class PathUtils {
 
+    /**
+     * <code>getRootPath</code>
+     * <p>the root path getter method.</p>
+     * @return {@link java.lang.String} <p>the root path return object is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
     public static String getRootPath() {
         File file;
         try {
@@ -26,6 +33,13 @@ public class PathUtils {
         return file.getAbsolutePath();
     }
 
+    /**
+     * <code>getChildPath</code>
+     * <p>the child path getter method.</p>
+     * @param childName {@link java.lang.String} <p>the child name parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>the child path return object is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
     public static String getChildPath(final String childName) {
         String rootPath = getRootPath();
         String staticPath = UtilConstants.STATIC_PREFIX.concat(File.separator).concat(childName).concat(File.separator);

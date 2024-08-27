@@ -16,13 +16,23 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
 /**
- * <p>StreamUtils</p>
+ * <code>StreamUtils</code>
+ * <p>The type stream utils class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @version v1.0.0
+ * @see lombok.extern.slf4j.Slf4j
+ * @since Jdk1.8
  */
 @Slf4j
 public class StreamUtils {
 
+    /**
+     * <code>transfer</code>
+     * <p>the method.</p>
+     * @param multipartFile    {@link org.springframework.web.multipart.MultipartFile} <p>the multipart file parameter is <code>MultipartFile</code> type.</p>
+     * @param transferFilePath {@link java.lang.String} <p>the transfer file path parameter is <code>String</code> type.</p>
+     * @see org.springframework.web.multipart.MultipartFile
+     * @see java.lang.String
+     */
     public static void transfer(MultipartFile multipartFile, String transferFilePath) {
         try {
             StreamHelper.transfer(multipartFile, transferFilePath);
@@ -32,6 +42,14 @@ public class StreamUtils {
         }
     }
 
+    /**
+     * <code>transfer</code>
+     * <p>the method.</p>
+     * @param multipartFile {@link org.springframework.web.multipart.MultipartFile} <p>the multipart file parameter is <code>MultipartFile</code> type.</p>
+     * @param transferFile  {@link java.io.File} <p>the transfer file parameter is <code>File</code> type.</p>
+     * @see org.springframework.web.multipart.MultipartFile
+     * @see java.io.File
+     */
     public static void transfer(MultipartFile multipartFile, File transferFile) {
         try {
             StreamHelper.transfer(multipartFile, transferFile);
@@ -41,6 +59,14 @@ public class StreamUtils {
         }
     }
 
+    /**
+     * <code>transfer</code>
+     * <p>the method.</p>
+     * @param inputStream  {@link java.io.InputStream} <p>the input stream parameter is <code>InputStream</code> type.</p>
+     * @param outputStream {@link java.io.OutputStream} <p>the output stream parameter is <code>OutputStream</code> type.</p>
+     * @see java.io.InputStream
+     * @see java.io.OutputStream
+     */
     public static void transfer(InputStream inputStream, OutputStream outputStream) {
         try {
             StreamHelper.transfer(inputStream, outputStream, false);
@@ -50,6 +76,14 @@ public class StreamUtils {
         }
     }
 
+    /**
+     * <code>read</code>
+     * <p>the method.</p>
+     * @param inputStream {@link java.io.InputStream} <p>the input stream parameter is <code>InputStream</code> type.</p>
+     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * @see java.io.InputStream
+     * @see java.lang.String
+     */
     public static String read(InputStream inputStream) {
         try {
             return StreamHelper.read(inputStream);
@@ -60,6 +94,13 @@ public class StreamUtils {
         }
     }
 
+    /**
+     * <code>bytes</code>
+     * <p>the method.</p>
+     * @param inputStream {@link java.io.InputStream} <p>the input stream parameter is <code>InputStream</code> type.</p>
+     * @return {@link byte} <p>the return object is <code>byte</code> type.</p>
+     * @see java.io.InputStream
+     */
     public static byte[] bytes(InputStream inputStream) {
         try {
             return StreamHelper.bytes(inputStream);
@@ -70,6 +111,14 @@ public class StreamUtils {
         }
     }
 
+    /**
+     * <code>write</code>
+     * <p>the method.</p>
+     * @param outputStream {@link java.io.OutputStream} <p>the output stream parameter is <code>OutputStream</code> type.</p>
+     * @param string       {@link java.lang.String} <p>the string parameter is <code>String</code> type.</p>
+     * @see java.io.OutputStream
+     * @see java.lang.String
+     */
     public static void write(OutputStream outputStream, String string) {
         try {
             StreamHelper.write(outputStream, string);
@@ -79,6 +128,14 @@ public class StreamUtils {
         }
     }
 
+    /**
+     * <code>write</code>
+     * <p>the method.</p>
+     * @param response {@link javax.servlet.http.HttpServletResponse} <p>the response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param file     {@link java.io.File} <p>the file parameter is <code>File</code> type.</p>
+     * @see javax.servlet.http.HttpServletResponse
+     * @see java.io.File
+     */
     public static void write(HttpServletResponse response, File file) {
         try {
             StreamHelper.write(response, file);
@@ -88,6 +145,14 @@ public class StreamUtils {
         }
     }
 
+    /**
+     * <code>write</code>
+     * <p>the method.</p>
+     * @param response {@link javax.servlet.http.HttpServletResponse} <p>the response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param json     {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
+     * @see javax.servlet.http.HttpServletResponse
+     * @see java.lang.String
+     */
     public static void write(HttpServletResponse response, String json) {
         try {
             StreamHelper.write(response, json);
@@ -97,6 +162,13 @@ public class StreamUtils {
         }
     }
 
+    /**
+     * <code>write</code>
+     * <p>the method.</p>
+     * @param response {@link javax.servlet.http.HttpServletResponse} <p>the response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param data     {@link byte} <p>the data parameter is <code>byte</code> type.</p>
+     * @see javax.servlet.http.HttpServletResponse
+     */
     public static void write(HttpServletResponse response, byte[] data) {
         try {
             StreamHelper.write(response, data);
@@ -106,6 +178,16 @@ public class StreamUtils {
         }
     }
 
+    /**
+     * <code>write</code>
+     * <p>the method.</p>
+     * @param response {@link javax.servlet.http.HttpServletResponse} <p>the response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param file     {@link java.io.File} <p>the file parameter is <code>File</code> type.</p>
+     * @param filename {@link java.lang.String} <p>the filename parameter is <code>String</code> type.</p>
+     * @see javax.servlet.http.HttpServletResponse
+     * @see java.io.File
+     * @see java.lang.String
+     */
     public static void write(HttpServletResponse response, File file, String filename) {
         String fileName = new String(filename.trim().getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8);
         try {
@@ -119,6 +201,13 @@ public class StreamUtils {
         write(response, file);
     }
 
+    /**
+     * <code>write</code>
+     * <p>the method.</p>
+     * @param outputStream {@link java.io.OutputStream} <p>the output stream parameter is <code>OutputStream</code> type.</p>
+     * @param data         {@link byte} <p>the data parameter is <code>byte</code> type.</p>
+     * @see java.io.OutputStream
+     */
     public static void write(OutputStream outputStream, byte[] data) {
         try {
             StreamHelper.write(outputStream, data);
@@ -128,6 +217,14 @@ public class StreamUtils {
         }
     }
 
+    /**
+     * <code>write</code>
+     * <p>the method.</p>
+     * @param outputStream {@link java.io.OutputStream} <p>the output stream parameter is <code>OutputStream</code> type.</p>
+     * @param inputStream  {@link java.io.InputStream} <p>the input stream parameter is <code>InputStream</code> type.</p>
+     * @see java.io.OutputStream
+     * @see java.io.InputStream
+     */
     public static void write(OutputStream outputStream, InputStream inputStream) {
         try {
             StreamHelper.write(outputStream, inputStream);
@@ -137,6 +234,14 @@ public class StreamUtils {
         }
     }
 
+    /**
+     * <code>write</code>
+     * <p>the method.</p>
+     * @param file        {@link java.io.File} <p>the file parameter is <code>File</code> type.</p>
+     * @param inputStream {@link java.io.InputStream} <p>the input stream parameter is <code>InputStream</code> type.</p>
+     * @see java.io.File
+     * @see java.io.InputStream
+     */
     public static void write(File file, InputStream inputStream) {
         try {
             StreamHelper.write(file, inputStream);
@@ -146,6 +251,14 @@ public class StreamUtils {
         }
     }
 
+    /**
+     * <code>write</code>
+     * <p>the method.</p>
+     * @param filename    {@link java.lang.String} <p>the filename parameter is <code>String</code> type.</p>
+     * @param inputStream {@link java.io.InputStream} <p>the input stream parameter is <code>InputStream</code> type.</p>
+     * @see java.lang.String
+     * @see java.io.InputStream
+     */
     public static void write(String filename, InputStream inputStream) {
         try {
             StreamHelper.write(filename, inputStream);
@@ -155,6 +268,13 @@ public class StreamUtils {
         }
     }
 
+    /**
+     * <code>write</code>
+     * <p>the method.</p>
+     * @param filename {@link java.lang.String} <p>the filename parameter is <code>String</code> type.</p>
+     * @param data     {@link byte} <p>the data parameter is <code>byte</code> type.</p>
+     * @see java.lang.String
+     */
     public static void write(String filename, byte[] data) {
         try {
             StreamHelper.write(filename, data);
@@ -165,6 +285,13 @@ public class StreamUtils {
     }
 
 
+    /**
+     * <code>write</code>
+     * <p>the method.</p>
+     * @param file {@link java.io.File} <p>the file parameter is <code>File</code> type.</p>
+     * @param data {@link byte} <p>the data parameter is <code>byte</code> type.</p>
+     * @see java.io.File
+     */
     public static void write(File file, byte[] data) {
         try {
             StreamHelper.write(file, data);

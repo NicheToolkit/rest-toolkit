@@ -9,17 +9,36 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * <p>BeanUtils</p>
+ * <code>BeanUtils</code>
+ * <p>The type bean utils class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @version v1.0.0
+ * @since Jdk1.8
  */
 public class BeanUtils {
 
+    /**
+     * <code>copyNullProperties</code>
+     * <p>the null properties method.</p>
+     * @param <S>    {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param <T>    {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param source {@link S} <p>the source parameter is <code>S</code> type.</p>
+     * @param target {@link T} <p>the target parameter is <code>T</code> type.</p>
+     * @return {@link T} <p>the null properties return object is <code>T</code> type.</p>
+     */
     public static <S,T> T copyNullProperties(S source, T target) {
         org.springframework.beans.BeanUtils.copyProperties(source, target);
         return target;
     }
 
+    /**
+     * <code>ignoreProperties</code>
+     * <p>the properties method.</p>
+     * @param source           {@link java.lang.Object} <p>the source parameter is <code>Object</code> type.</p>
+     * @param ignoreProperties {@link java.lang.String} <p>the ignore properties parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>the properties return object is <code>String</code> type.</p>
+     * @see java.lang.Object
+     * @see java.lang.String
+     */
     public static String[] ignoreProperties(Object source, String... ignoreProperties) {
         BeanWrapper src = new BeanWrapperImpl(source);
         PropertyDescriptor[] pds = src.getPropertyDescriptors();
@@ -40,21 +59,64 @@ public class BeanUtils {
         return ignorePropertiesNames;
     }
 
+    /**
+     * <code>copyNonullProperties</code>
+     * <p>the nonull properties method.</p>
+     * @param <S>    {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param <T>    {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param source {@link S} <p>the source parameter is <code>S</code> type.</p>
+     * @param target {@link T} <p>the target parameter is <code>T</code> type.</p>
+     * @return {@link T} <p>the nonull properties return object is <code>T</code> type.</p>
+     */
     public static <S,T> T copyNonullProperties(S source, T target) {
         org.springframework.beans.BeanUtils.copyProperties(source, target,ignoreProperties(source));
         return target;
     }
 
+    /**
+     * <code>copyNonullProperties</code>
+     * <p>the nonull properties method.</p>
+     * @param <S>              {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param <T>              {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param source           {@link S} <p>the source parameter is <code>S</code> type.</p>
+     * @param target           {@link T} <p>the target parameter is <code>T</code> type.</p>
+     * @param ignoreProperties {@link java.lang.String} <p>the ignore properties parameter is <code>String</code> type.</p>
+     * @return {@link T} <p>the nonull properties return object is <code>T</code> type.</p>
+     * @see java.lang.String
+     */
     public static <S,T> T copyNonullProperties(S source, T target, String... ignoreProperties) {
         org.springframework.beans.BeanUtils.copyProperties(source, target,ignoreProperties(source, ignoreProperties));
         return target;
     }
 
+    /**
+     * <code>copyProperties</code>
+     * <p>the properties method.</p>
+     * @param <S>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param <T>      {@link B} <p>the generic parameter is <code>B</code> type.</p>
+     * @param <B>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param source   {@link S} <p>the source parameter is <code>S</code> type.</p>
+     * @param target   {@link T} <p>the target parameter is <code>T</code> type.</p>
+     * @param editable {@link java.lang.Class} <p>the editable parameter is <code>Class</code> type.</p>
+     * @return {@link T} <p>the properties return object is <code>T</code> type.</p>
+     * @see java.lang.Class
+     */
     public static <S,T extends B,B> T copyProperties(S source, T target, Class<B> editable) {
         org.springframework.beans.BeanUtils.copyProperties(source, target, editable);
         return target;
     }
 
+    /**
+     * <code>copyProperties</code>
+     * <p>the properties method.</p>
+     * @param <S>              {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param <T>              {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param source           {@link S} <p>the source parameter is <code>S</code> type.</p>
+     * @param target           {@link T} <p>the target parameter is <code>T</code> type.</p>
+     * @param ignoreProperties {@link java.lang.String} <p>the ignore properties parameter is <code>String</code> type.</p>
+     * @return {@link T} <p>the properties return object is <code>T</code> type.</p>
+     * @see java.lang.String
+     */
     public static <S,T> T copyProperties(S source, T target, String... ignoreProperties) {
         org.springframework.beans.BeanUtils.copyProperties(source, target, ignoreProperties);
         return target;

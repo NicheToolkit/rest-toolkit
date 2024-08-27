@@ -5,15 +5,31 @@ import lombok.Data;
 import java.util.Objects;
 
 /**
- * <p>WorkerConfig</p>
- * @author Cyan (snow22314 @ outlook.com)
- * @version v1.0.0
+ * <code>WorkerConfig</code>
+ * <p>The type worker config class.</p>
+ * @author Cyan (snow22314@outlook.com)
+ * @see lombok.Data
+ * @since Jdk1.8
  */
 @Data
 public class WorkerConfig {
+    /**
+     * <code>workerId</code>
+     * {@link java.lang.Long} <p>the <code>workerId</code> field.</p>
+     * @see java.lang.Long
+     */
     private Long workerId;
+    /**
+     * <code>centerId</code>
+     * {@link java.lang.Long} <p>the <code>centerId</code> field.</p>
+     * @see java.lang.Long
+     */
     private Long centerId;
 
+    /**
+     * <code>WorkerConfig</code>
+     * Instantiates a new worker config.
+     */
     public WorkerConfig() {
     }
 

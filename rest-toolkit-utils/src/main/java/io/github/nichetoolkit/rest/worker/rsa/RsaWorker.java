@@ -27,23 +27,50 @@ import java.security.spec.RSAPublicKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 
 /**
- * <p>SecurityWorker</p>
- *
+ * <code>RsaWorker</code>
+ * <p>The type rsa worker class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @version v1.0.0
+ * @see lombok.extern.slf4j.Slf4j
+ * @since Jdk1.8
  */
 @Slf4j
 public class RsaWorker {
+    /**
+     * <code>RSA_ALGORITHM</code>
+     * {@link java.lang.String} <p>the constant <code>RSA_ALGORITHM</code> field.</p>
+     * @see java.lang.String
+     */
     private static final String RSA_ALGORITHM = "RSA";
 
+    /**
+     * <code>INSTANCE</code>
+     * {@link io.github.nichetoolkit.rest.worker.rsa.RsaWorker} <p>the constant <code>INSTANCE</code> field.</p>
+     */
     private static RsaWorker INSTANCE = null;
 
+    /**
+     * <code>getInstance</code>
+     * <p>the instance getter method.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.rsa.RsaWorker} <p>the instance return object is <code>RsaWorker</code> type.</p>
+     */
     public static RsaWorker getInstance() {
         return INSTANCE;
     }
 
+    /**
+     * <code>rsaProperties</code>
+     * {@link io.github.nichetoolkit.rest.configure.RestRsaProperties} <p>the <code>rsaProperties</code> field.</p>
+     * @see io.github.nichetoolkit.rest.configure.RestRsaProperties
+     */
     private final RestRsaProperties rsaProperties;
 
+    /**
+     * <code>RsaWorker</code>
+     * Instantiates a new rsa worker.
+     * @param rsaProperties {@link io.github.nichetoolkit.rest.configure.RestRsaProperties} <p>the rsa properties parameter is <code>RestRsaProperties</code> type.</p>
+     * @see io.github.nichetoolkit.rest.configure.RestRsaProperties
+     * @see org.springframework.beans.factory.annotation.Autowired
+     */
     @Autowired
     public RsaWorker(RestRsaProperties rsaProperties) {
         this.rsaProperties = rsaProperties;
@@ -56,58 +83,154 @@ public class RsaWorker {
         }
     }
 
+    /**
+     * <code>rsaWorkerInit</code>
+     * <p>the worker init method.</p>
+     * @see javax.annotation.PostConstruct
+     */
     @PostConstruct
     public void rsaWorkerInit() {
         log.debug("rsa properties: {}", JsonUtils.parseJson(this.rsaProperties));
         INSTANCE = this;
     }
 
+    /**
+     * <code>generate</code>
+     * <p>the method.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.rsa.RsaKey} <p>the return object is <code>RsaKey</code> type.</p>
+     * @see io.github.nichetoolkit.rest.worker.rsa.RsaKey
+     */
     public RsaKey generate() {
         return generates(INSTANCE.rsaProperties.getKeySize());
     }
 
+    /**
+     * <code>generate</code>
+     * <p>the method.</p>
+     * @param keySize {@link int} <p>the key size parameter is <code>int</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.rsa.RsaKey} <p>the return object is <code>RsaKey</code> type.</p>
+     * @see io.github.nichetoolkit.rest.worker.rsa.RsaKey
+     */
     public RsaKey generate(int keySize) {
         return generates(keySize);
     }
 
+    /**
+     * <code>verify</code>
+     * <p>the method.</p>
+     * @param rsaKey {@link io.github.nichetoolkit.rest.worker.rsa.RsaKey} <p>the rsa key parameter is <code>RsaKey</code> type.</p>
+     * @return {@link boolean} <p>the return object is <code>boolean</code> type.</p>
+     * @see io.github.nichetoolkit.rest.worker.rsa.RsaKey
+     */
     public boolean verify(RsaKey rsaKey) {
         return verifies(rsaKey);
     }
 
+    /**
+     * <code>verify</code>
+     * <p>the method.</p>
+     * @param publicKeySecret  {@link java.lang.String} <p>the public key secret parameter is <code>String</code> type.</p>
+     * @param privateKeySecret {@link java.lang.String} <p>the private key secret parameter is <code>String</code> type.</p>
+     * @return {@link boolean} <p>the return object is <code>boolean</code> type.</p>
+     * @see java.lang.String
+     */
     public boolean verify(String publicKeySecret, String privateKeySecret) {
         return verifies(publicKeySecret,privateKeySecret);
     }
 
+    /**
+     * <code>verify</code>
+     * <p>the method.</p>
+     * @param publicKey  {@link java.security.PublicKey} <p>the public key parameter is <code>PublicKey</code> type.</p>
+     * @param privateKey {@link java.security.PrivateKey} <p>the private key parameter is <code>PrivateKey</code> type.</p>
+     * @return {@link boolean} <p>the return object is <code>boolean</code> type.</p>
+     * @see java.security.PublicKey
+     * @see java.security.PrivateKey
+     */
     public boolean verify(PublicKey publicKey, PrivateKey privateKey) {
         return verifies(publicKey,privateKey);
     }
 
+    /**
+     * <code>encrypt</code>
+     * <p>the method.</p>
+     * @param source {@link java.lang.String} <p>the source parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
     public String encrypt(String source) {
         return encrypts(source, this.rsaProperties.getPublicKey());
     }
 
+    /**
+     * <code>encrypt</code>
+     * <p>the method.</p>
+     * @param source    {@link java.lang.String} <p>the source parameter is <code>String</code> type.</p>
+     * @param publicKey {@link java.lang.String} <p>the public key parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
     public String encrypt(String source, String publicKey) {
         return encrypts(source, publicKey);
     }
 
+    /**
+     * <code>decrypt</code>
+     * <p>the method.</p>
+     * @param source {@link java.lang.String} <p>the source parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
     public String decrypt(String source) {
         return decrypts(source, INSTANCE.rsaProperties.getPrivateKey());
     }
 
+    /**
+     * <code>decrypt</code>
+     * <p>the method.</p>
+     * @param source     {@link java.lang.String} <p>the source parameter is <code>String</code> type.</p>
+     * @param privateKey {@link java.lang.String} <p>the private key parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
     public String decrypt(String source, String privateKey) {
         return decrypts(source, privateKey);
     }
 
+    /**
+     * <code>verifies</code>
+     * <p>the method.</p>
+     * @param rsaKey {@link io.github.nichetoolkit.rest.worker.rsa.RsaKey} <p>the rsa key parameter is <code>RsaKey</code> type.</p>
+     * @return {@link boolean} <p>the return object is <code>boolean</code> type.</p>
+     * @see io.github.nichetoolkit.rest.worker.rsa.RsaKey
+     */
     public static boolean verifies(RsaKey rsaKey) {
         return verifies(rsaKey.getPublicKey(),rsaKey.getPrivateKey());
     }
 
+    /**
+     * <code>verifies</code>
+     * <p>the method.</p>
+     * @param publicKeySecret  {@link java.lang.String} <p>the public key secret parameter is <code>String</code> type.</p>
+     * @param privateKeySecret {@link java.lang.String} <p>the private key secret parameter is <code>String</code> type.</p>
+     * @return {@link boolean} <p>the return object is <code>boolean</code> type.</p>
+     * @see java.lang.String
+     */
     public static boolean verifies(String publicKeySecret, String privateKeySecret) {
         PublicKey publicKey = publicKey(publicKeySecret);
         PrivateKey privateKey = privateKey(privateKeySecret);
         return verifies(publicKey,privateKey);
     }
 
+    /**
+     * <code>verifies</code>
+     * <p>the method.</p>
+     * @param publicKey  {@link java.security.PublicKey} <p>the public key parameter is <code>PublicKey</code> type.</p>
+     * @param privateKey {@link java.security.PrivateKey} <p>the private key parameter is <code>PrivateKey</code> type.</p>
+     * @return {@link boolean} <p>the return object is <code>boolean</code> type.</p>
+     * @see java.security.PublicKey
+     * @see java.security.PrivateKey
+     */
     public static boolean verifies(PublicKey publicKey, PrivateKey privateKey) {
         if (GeneralUtils.isEmpty(publicKey) || GeneralUtils.isEmpty(privateKey)) {
             return false;
@@ -149,6 +272,13 @@ public class RsaWorker {
     }
 
 
+    /**
+     * <code>privateKey</code>
+     * <p>the key method.</p>
+     * @param privateKey {@link java.security.PrivateKey} <p>the private key parameter is <code>PrivateKey</code> type.</p>
+     * @return {@link byte} <p>the key return object is <code>byte</code> type.</p>
+     * @see java.security.PrivateKey
+     */
     public static byte[] privateKey(PrivateKey privateKey) {
         byte[] bytes = null;
         try {
@@ -162,10 +292,23 @@ public class RsaWorker {
         return bytes;
     }
 
+    /**
+     * <code>generates</code>
+     * <p>the method.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.rsa.RsaKey} <p>the return object is <code>RsaKey</code> type.</p>
+     * @see io.github.nichetoolkit.rest.worker.rsa.RsaKey
+     */
     public static RsaKey generates() {
         return generates(INSTANCE.rsaProperties.getKeySize());
     }
 
+    /**
+     * <code>generates</code>
+     * <p>the method.</p>
+     * @param keySize {@link int} <p>the key size parameter is <code>int</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.rsa.RsaKey} <p>the return object is <code>RsaKey</code> type.</p>
+     * @see io.github.nichetoolkit.rest.worker.rsa.RsaKey
+     */
     public static RsaKey generates(int keySize) {
         RsaKey rsaKey = new RsaKey();
         try {
@@ -192,26 +335,65 @@ public class RsaWorker {
         return rsaKey;
     }
 
+    /**
+     * <code>encrypts</code>
+     * <p>the method.</p>
+     * @param source {@link java.lang.String} <p>the source parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
     public static String encrypts(String source) {
         String publicKey = INSTANCE.rsaProperties.getPublicKey();
         return encrypts(source, publicKey);
     }
 
+    /**
+     * <code>decrypts</code>
+     * <p>the method.</p>
+     * @param source {@link java.lang.String} <p>the source parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
     public static String decrypts(String source) {
         String privateKey = INSTANCE.rsaProperties.getPrivateKey();
         return decrypts(source, privateKey);
     }
 
+    /**
+     * <code>decrypts</code>
+     * <p>the method.</p>
+     * @param source           {@link java.lang.String} <p>the source parameter is <code>String</code> type.</p>
+     * @param privateKeySecret {@link java.lang.String} <p>the private key secret parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
     public static String decrypts(String source, String privateKeySecret) {
         PrivateKey privateKey = privateKey(privateKeySecret);
         return decrypts(source, privateKey, INSTANCE.rsaProperties.getKeySize() / 8);
     }
 
+    /**
+     * <code>decrypts</code>
+     * <p>the method.</p>
+     * @param source           {@link java.lang.String} <p>the source parameter is <code>String</code> type.</p>
+     * @param privateKeySecret {@link java.lang.String} <p>the private key secret parameter is <code>String</code> type.</p>
+     * @param segmentSize      {@link int} <p>the segment size parameter is <code>int</code> type.</p>
+     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
     public static String decrypts(String source, String privateKeySecret, int segmentSize) {
         PrivateKey privateKey = privateKey(privateKeySecret);
         return decrypts(source, privateKey, segmentSize);
     }
 
+    /**
+     * <code>keyFactory</code>
+     * <p>the factory method.</p>
+     * @param algorithm {@link java.lang.String} <p>the algorithm parameter is <code>String</code> type.</p>
+     * @return {@link java.security.KeyFactory} <p>the factory return object is <code>KeyFactory</code> type.</p>
+     * @see java.lang.String
+     * @see java.security.KeyFactory
+     */
     public static KeyFactory keyFactory(String algorithm) {
         KeyFactory keyFactory = null;
         try {
@@ -222,6 +404,14 @@ public class RsaWorker {
         return keyFactory;
     }
 
+    /**
+     * <code>privateKey</code>
+     * <p>the key method.</p>
+     * @param privateKeySecret {@link java.lang.String} <p>the private key secret parameter is <code>String</code> type.</p>
+     * @return {@link java.security.PrivateKey} <p>the key return object is <code>PrivateKey</code> type.</p>
+     * @see java.lang.String
+     * @see java.security.PrivateKey
+     */
     public static PrivateKey privateKey(String privateKeySecret) {
         byte[] decodeBase64 = Base64.decodeBase64(privateKeySecret);
         PKCS8EncodedKeySpec pkcs8EncodedKeySpec = new PKCS8EncodedKeySpec(decodeBase64);
@@ -235,6 +425,16 @@ public class RsaWorker {
         return privateKey;
     }
 
+    /**
+     * <code>decrypts</code>
+     * <p>the method.</p>
+     * @param source      {@link java.lang.String} <p>the source parameter is <code>String</code> type.</p>
+     * @param privateKey  {@link java.security.PrivateKey} <p>the private key parameter is <code>PrivateKey</code> type.</p>
+     * @param segmentSize {@link int} <p>the segment size parameter is <code>int</code> type.</p>
+     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * @see java.lang.String
+     * @see java.security.PrivateKey
+     */
     public static String decrypts(String source, PrivateKey privateKey, int segmentSize) {
         if (GeneralUtils.isEmpty(privateKey)) {
             return null;
@@ -250,16 +450,41 @@ public class RsaWorker {
         return Base64.encodeBase64String(targetBytes);
     }
 
+    /**
+     * <code>encrypts</code>
+     * <p>the method.</p>
+     * @param source          {@link java.lang.String} <p>the source parameter is <code>String</code> type.</p>
+     * @param publicKeySecret {@link java.lang.String} <p>the public key secret parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
     public static String encrypts(String source, String publicKeySecret) {
         PublicKey publicKey = publicKey(publicKeySecret);
         return encrypts(source, publicKey, INSTANCE.rsaProperties.getKeySize() / 8 - 11);
     }
 
+    /**
+     * <code>encrypts</code>
+     * <p>the method.</p>
+     * @param source          {@link java.lang.String} <p>the source parameter is <code>String</code> type.</p>
+     * @param publicKeySecret {@link java.lang.String} <p>the public key secret parameter is <code>String</code> type.</p>
+     * @param segmentSize     {@link int} <p>the segment size parameter is <code>int</code> type.</p>
+     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
     public static String encrypts(String source, String publicKeySecret, int segmentSize) {
         PublicKey publicKey = publicKey(publicKeySecret);
         return encrypts(source, publicKey, segmentSize);
     }
 
+    /**
+     * <code>publicKey</code>
+     * <p>the key method.</p>
+     * @param publicKeySecret {@link java.lang.String} <p>the public key secret parameter is <code>String</code> type.</p>
+     * @return {@link java.security.PublicKey} <p>the key return object is <code>PublicKey</code> type.</p>
+     * @see java.lang.String
+     * @see java.security.PublicKey
+     */
     public static PublicKey publicKey(String publicKeySecret) {
         byte[] decodeBase64 = Base64.decodeBase64(publicKeySecret);
         X509EncodedKeySpec x509EncodedKeySpec = new X509EncodedKeySpec(decodeBase64);
@@ -273,6 +498,16 @@ public class RsaWorker {
         return publicKey;
     }
 
+    /**
+     * <code>encrypts</code>
+     * <p>the method.</p>
+     * @param source      {@link java.lang.String} <p>the source parameter is <code>String</code> type.</p>
+     * @param publicKey   {@link java.security.PublicKey} <p>the public key parameter is <code>PublicKey</code> type.</p>
+     * @param segmentSize {@link int} <p>the segment size parameter is <code>int</code> type.</p>
+     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * @see java.lang.String
+     * @see java.security.PublicKey
+     */
     public static String encrypts(String source, PublicKey publicKey, int segmentSize) {
         if (GeneralUtils.isEmpty(publicKey)) {
             return null;
@@ -288,6 +523,16 @@ public class RsaWorker {
         return Base64.encodeBase64String(targetBytes);
     }
 
+    /**
+     * <code>dofinal</code>
+     * <p>the method.</p>
+     * @param cipher      {@link javax.crypto.Cipher} <p>the cipher parameter is <code>Cipher</code> type.</p>
+     * @param source      {@link java.lang.String} <p>the source parameter is <code>String</code> type.</p>
+     * @param segmentSize {@link int} <p>the segment size parameter is <code>int</code> type.</p>
+     * @return {@link byte} <p>the return object is <code>byte</code> type.</p>
+     * @see javax.crypto.Cipher
+     * @see java.lang.String
+     */
     private static byte[] dofinal(Cipher cipher, String source, int segmentSize) {
         byte[] targetBytes = null;
         byte[] sourceBytes = source.getBytes(StandardCharsets.UTF_8);
@@ -303,6 +548,15 @@ public class RsaWorker {
         return targetBytes;
     }
 
+    /**
+     * <code>segmentDofinal</code>
+     * <p>the dofinal method.</p>
+     * @param cipher      {@link javax.crypto.Cipher} <p>the cipher parameter is <code>Cipher</code> type.</p>
+     * @param sourceBytes {@link byte} <p>the source bytes parameter is <code>byte</code> type.</p>
+     * @param segmentSize {@link int} <p>the segment size parameter is <code>int</code> type.</p>
+     * @return {@link byte} <p>the dofinal return object is <code>byte</code> type.</p>
+     * @see javax.crypto.Cipher
+     */
     private static byte[] segmentDofinal(Cipher cipher, byte[] sourceBytes, int segmentSize) {
         int length = sourceBytes.length;
         int offSet = 0;

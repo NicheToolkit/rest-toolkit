@@ -36,9 +36,19 @@ import java.util.Map;
 import java.util.Optional;
 
 /**
- * <p>RestHandlerInterceptor</p>
+ * <code>RestHandlerInterceptor</code>
+ * <p>The type rest handler interceptor class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @version v1.0.0
+ * @see org.springframework.web.servlet.AsyncHandlerInterceptor
+ * @see io.github.nichetoolkit.rest.RestBodyAdvice
+ * @see io.github.nichetoolkit.rest.RestExceptionAdvice
+ * @see javax.servlet.Filter
+ * @see lombok.extern.slf4j.Slf4j
+ * @see javax.servlet.annotation.WebFilter
+ * @see org.springframework.stereotype.Component
+ * @see java.lang.SuppressWarnings
+ * @see org.springframework.core.annotation.Order
+ * @since Jdk1.8
  */
 @Slf4j
 @WebFilter
@@ -46,12 +56,38 @@ import java.util.Optional;
 @SuppressWarnings("SameNameButDifferent")
 @Order(1000)
 public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBodyAdvice, RestExceptionAdvice, Filter {
+    /**
+     * <code>START_TIME_HOLDER</code>
+     * {@link java.lang.ThreadLocal} <p>the constant <code>START_TIME_HOLDER</code> field.</p>
+     * @see java.lang.ThreadLocal
+     */
     protected static final ThreadLocal<Long> START_TIME_HOLDER = new ThreadLocal<>();
+    /**
+     * <code>EXCEPTION_HOLDER</code>
+     * {@link java.lang.ThreadLocal} <p>the constant <code>EXCEPTION_HOLDER</code> field.</p>
+     * @see java.lang.ThreadLocal
+     */
     protected static final ThreadLocal<Exception> EXCEPTION_HOLDER = new ThreadLocal<>();
+    /**
+     * <code>REST_RESPONSE_HOLDER</code>
+     * {@link java.lang.ThreadLocal} <p>the constant <code>REST_RESPONSE_HOLDER</code> field.</p>
+     * @see java.lang.ThreadLocal
+     */
     protected static final ThreadLocal<RestResponse> REST_RESPONSE_HOLDER = new ThreadLocal<>();
 
+    /**
+     * <code>interceptProperties</code>
+     * {@link io.github.nichetoolkit.rest.configure.RestInterceptProperties} <p>the <code>interceptProperties</code> field.</p>
+     * @see io.github.nichetoolkit.rest.configure.RestInterceptProperties
+     */
     private final RestInterceptProperties interceptProperties;
 
+    /**
+     * <code>RestHandlerInterceptor</code>
+     * Instantiates a new rest handler interceptor.
+     * @param interceptProperties {@link io.github.nichetoolkit.rest.configure.RestInterceptProperties} <p>the intercept properties parameter is <code>RestInterceptProperties</code> type.</p>
+     * @see io.github.nichetoolkit.rest.configure.RestInterceptProperties
+     */
     public RestHandlerInterceptor(RestInterceptProperties interceptProperties) {
         this.interceptProperties = interceptProperties;
     }
@@ -219,6 +255,21 @@ public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBody
         }
     }
 
+    /**
+     * <code>applyInterceptRest</code>
+     * <p>the intercept rest method.</p>
+     * @param request      {@link javax.servlet.http.HttpServletRequest} <p>the request parameter is <code>HttpServletRequest</code> type.</p>
+     * @param response     {@link javax.servlet.http.HttpServletResponse} <p>the response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param throwable    {@link java.lang.Throwable} <p>the throwable parameter is <code>Throwable</code> type.</p>
+     * @param restResponse {@link io.github.nichetoolkit.rest.userlog.RestResponse} <p>the rest response parameter is <code>RestResponse</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.userlog.RestRequest} <p>the intercept rest return object is <code>RestRequest</code> type.</p>
+     * @see javax.servlet.http.HttpServletRequest
+     * @see javax.servlet.http.HttpServletResponse
+     * @see java.lang.Throwable
+     * @see org.springframework.lang.Nullable
+     * @see io.github.nichetoolkit.rest.userlog.RestResponse
+     * @see io.github.nichetoolkit.rest.userlog.RestRequest
+     */
     public RestRequest applyInterceptRest(HttpServletRequest request, HttpServletResponse response, @Nullable Throwable throwable, RestResponse restResponse) {
         applyRestResponseTime(response, throwable, restResponse);
         RestRequest.Builder requestBuilder = new RestRequest.Builder();
@@ -235,6 +286,16 @@ public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBody
     }
 
 
+    /**
+     * <code>applyRestResponseTime</code>
+     * <p>the rest response time method.</p>
+     * @param response     {@link javax.servlet.http.HttpServletResponse} <p>the response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param throwable    {@link java.lang.Throwable} <p>the throwable parameter is <code>Throwable</code> type.</p>
+     * @param restResponse {@link io.github.nichetoolkit.rest.userlog.RestResponse} <p>the rest response parameter is <code>RestResponse</code> type.</p>
+     * @see javax.servlet.http.HttpServletResponse
+     * @see java.lang.Throwable
+     * @see io.github.nichetoolkit.rest.userlog.RestResponse
+     */
     public void applyRestResponseTime(HttpServletResponse response, Throwable throwable, RestResponse restResponse) {
         Long startTime = START_TIME_HOLDER.get();
         Long endTime = System.currentTimeMillis();
@@ -261,6 +322,16 @@ public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBody
         }
     }
 
+    /**
+     * <code>applyRestResponseError</code>
+     * <p>the rest response error method.</p>
+     * @param response     {@link javax.servlet.http.HttpServletResponse} <p>the response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param throwable    {@link java.lang.Throwable} <p>the throwable parameter is <code>Throwable</code> type.</p>
+     * @param restResponse {@link io.github.nichetoolkit.rest.userlog.RestResponse} <p>the rest response parameter is <code>RestResponse</code> type.</p>
+     * @see javax.servlet.http.HttpServletResponse
+     * @see java.lang.Throwable
+     * @see io.github.nichetoolkit.rest.userlog.RestResponse
+     */
     public void applyRestResponseError(HttpServletResponse response, Throwable throwable, RestResponse restResponse) {
         if (!RestErrorStatus.SUCCESS.getStatus().equals(response.getStatus())) {
             Exception exception = EXCEPTION_HOLDER.get();
@@ -285,6 +356,14 @@ public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBody
         }
     }
 
+    /**
+     * <code>applyRestRequestHeader</code>
+     * <p>the rest request header method.</p>
+     * @param request {@link javax.servlet.http.HttpServletRequest} <p>the request parameter is <code>HttpServletRequest</code> type.</p>
+     * @return {@link java.util.Map} <p>the rest request header return object is <code>Map</code> type.</p>
+     * @see javax.servlet.http.HttpServletRequest
+     * @see java.util.Map
+     */
     public Map<String, String> applyRestRequestHeader(HttpServletRequest request) {
         Map<String, String> headerMap = new HashMap<>();
         Enumeration<String> headerNames = request.getHeaderNames();
@@ -295,6 +374,14 @@ public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBody
         return headerMap;
     }
 
+    /**
+     * <code>applyRestRequestBody</code>
+     * <p>the rest request body method.</p>
+     * @param request     {@link javax.servlet.http.HttpServletRequest} <p>the request parameter is <code>HttpServletRequest</code> type.</p>
+     * @param restRequest {@link io.github.nichetoolkit.rest.userlog.RestRequest} <p>the rest request parameter is <code>RestRequest</code> type.</p>
+     * @see javax.servlet.http.HttpServletRequest
+     * @see io.github.nichetoolkit.rest.userlog.RestRequest
+     */
     public void applyRestRequestBody(HttpServletRequest request, RestRequest restRequest) {
         String contentType = request.getContentType();
         if (StringUtils.hasText(contentType) && contentType.contains(MediaType.APPLICATION_JSON_VALUE)) {
@@ -317,6 +404,16 @@ public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBody
         }
     }
 
+    /**
+     * <code>applyInterceptService</code>
+     * <p>the intercept service method.</p>
+     * @param request      {@link io.github.nichetoolkit.rest.userlog.RestRequest} <p>the request parameter is <code>RestRequest</code> type.</p>
+     * @param restResponse {@link io.github.nichetoolkit.rest.userlog.RestResponse} <p>the rest response parameter is <code>RestResponse</code> type.</p>
+     * @param usernote     {@link io.github.nichetoolkit.rest.userlog.RestUsernote} <p>the usernote parameter is <code>RestUsernote</code> type.</p>
+     * @see io.github.nichetoolkit.rest.userlog.RestRequest
+     * @see io.github.nichetoolkit.rest.userlog.RestResponse
+     * @see io.github.nichetoolkit.rest.userlog.RestUsernote
+     */
     public void applyInterceptService(RestRequest request, RestResponse restResponse, RestUsernote usernote) {
         RestUsernoteService usernoteService = ContextUtils.getBean(RestUsernoteService.class);
         if (GeneralUtils.isNotEmpty(usernote) && GeneralUtils.isNotEmpty(usernoteService) && interceptProperties.getUserlogEnabled()) {
@@ -324,6 +421,16 @@ public class RestHandlerInterceptor implements AsyncHandlerInterceptor, RestBody
         }
     }
 
+    /**
+     * <code>applyInterceptRequestLog</code>
+     * <p>the intercept request log method.</p>
+     * @param request  {@link io.github.nichetoolkit.rest.userlog.RestRequest} <p>the request parameter is <code>RestRequest</code> type.</p>
+     * @param response {@link io.github.nichetoolkit.rest.userlog.RestResponse} <p>the response parameter is <code>RestResponse</code> type.</p>
+     * @param usernote {@link io.github.nichetoolkit.rest.userlog.RestUsernote} <p>the usernote parameter is <code>RestUsernote</code> type.</p>
+     * @see io.github.nichetoolkit.rest.userlog.RestRequest
+     * @see io.github.nichetoolkit.rest.userlog.RestResponse
+     * @see io.github.nichetoolkit.rest.userlog.RestUsernote
+     */
     public void applyInterceptRequestLog(RestRequest request, RestResponse response, RestUsernote usernote) {
         if (interceptProperties.getLogEnabled()) {
             if (GeneralUtils.isNotEmpty(request) || GeneralUtils.isNotEmpty(response) || GeneralUtils.isNotEmpty(usernote)) {

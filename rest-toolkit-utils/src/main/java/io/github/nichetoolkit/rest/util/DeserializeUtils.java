@@ -10,18 +10,22 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * <p>DeserializeUtils</p>
- *
+ * <code>DeserializeUtils</code>
+ * <p>The type deserialize utils class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @version v1.0.0
+ * @see lombok.extern.slf4j.Slf4j
+ * @since Jdk1.8
  */
 @Slf4j
 public class DeserializeUtils {
 
     /**
-     * JsonParser 反序列化Map方法
-     * @param parser JsonParser对象
-     * @return Map<String, Object>
+     * <code>deserializerBean</code>
+     * <p>the bean method.</p>
+     * @param parser {@link com.fasterxml.jackson.core.JsonParser} <p>the parser parameter is <code>JsonParser</code> type.</p>
+     * @return {@link java.util.Map} <p>the bean return object is <code>Map</code> type.</p>
+     * @see com.fasterxml.jackson.core.JsonParser
+     * @see java.util.Map
      */
     public static Map<String, Object> deserializerBean(JsonParser parser) {
         try {
@@ -34,9 +38,12 @@ public class DeserializeUtils {
     }
 
     /**
-     * JsonParser 反序列化List方法
-     * @param parser JsonParser对象
-     * @return List<Map<String, Object>>
+     * <code>deserializerList</code>
+     * <p>the list method.</p>
+     * @param parser {@link com.fasterxml.jackson.core.JsonParser} <p>the parser parameter is <code>JsonParser</code> type.</p>
+     * @return {@link java.util.List} <p>the list return object is <code>List</code> type.</p>
+     * @see com.fasterxml.jackson.core.JsonParser
+     * @see java.util.List
      */
     public static List<Object> deserializerList(JsonParser parser) {
         try {
@@ -49,9 +56,12 @@ public class DeserializeUtils {
     }
 
     /**
-     * JsonParser 反序列化BeanList方法
-     * @param parser JsonParser对象
-     * @return List<Map<String, Object>>
+     * <code>deserializerBeanList</code>
+     * <p>the bean list method.</p>
+     * @param parser {@link com.fasterxml.jackson.core.JsonParser} <p>the parser parameter is <code>JsonParser</code> type.</p>
+     * @return {@link java.util.List} <p>the bean list return object is <code>List</code> type.</p>
+     * @see com.fasterxml.jackson.core.JsonParser
+     * @see java.util.List
      */
     public static List<Map<String, Object>> deserializerBeanList(JsonParser parser) {
         try {
@@ -66,9 +76,12 @@ public class DeserializeUtils {
 
 
     /**
-     * JsonParser 反序列化Map方法
-     * @param parser JsonParser对象
-     * @return List<Map<String, Object>>
+     * <code>deserializerMap</code>
+     * <p>the map method.</p>
+     * @param parser {@link com.fasterxml.jackson.core.JsonParser} <p>the parser parameter is <code>JsonParser</code> type.</p>
+     * @return {@link java.util.Map} <p>the map return object is <code>Map</code> type.</p>
+     * @see com.fasterxml.jackson.core.JsonParser
+     * @see java.util.Map
      */
     public static Map<String, Object> deserializerMap(JsonParser parser) {
         try {
@@ -82,9 +95,12 @@ public class DeserializeUtils {
 
 
     /**
-     * JsonParser 反序列化BeanMap方法
-     * @param parser JsonParser对象
-     * @return List<Map<String, Object>>
+     * <code>deserializerBeanMap</code>
+     * <p>the bean map method.</p>
+     * @param parser {@link com.fasterxml.jackson.core.JsonParser} <p>the parser parameter is <code>JsonParser</code> type.</p>
+     * @return {@link java.util.Map} <p>the bean map return object is <code>Map</code> type.</p>
+     * @see com.fasterxml.jackson.core.JsonParser
+     * @see java.util.Map
      */
     public static Map<String,Map<String, Object>> deserializerBeanMap(JsonParser parser){
         try {

@@ -11,24 +11,76 @@ import org.springframework.lang.NonNull;
 import java.util.Objects;
 
 /**
- * <p>IdentityWorkerMachine</p>
+ * <code>IdentityWorkerMachine</code>
+ * <p>The type identity worker machine class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @version v1.0.0
+ * @see lombok.extern.slf4j.Slf4j
+ * @see java.lang.SuppressWarnings
+ * @since Jdk1.8
  */
 @Slf4j
 @SuppressWarnings("SameNameButDifferent")
 class IdentityWorkerMachine implements IdentityWorker{
+    /**
+     * <code>name</code>
+     * {@link java.lang.String} <p>the <code>name</code> field.</p>
+     * @see java.lang.String
+     */
     private final String name;
+    /**
+     * <code>lastTime</code>
+     * {@link java.lang.Long} <p>the <code>lastTime</code> field.</p>
+     * @see java.lang.Long
+     */
     private Long lastTime = IdentityWorkerConfig.TIMESTAMP;
+    /**
+     * <code>sequence</code>
+     * {@link java.lang.Long} <p>the <code>sequence</code> field.</p>
+     * @see java.lang.Long
+     */
     private Long sequence = IdentityWorkerConfig.SEQUENCE;
+    /**
+     * <code>workerId</code>
+     * {@link java.lang.Long} <p>the <code>workerId</code> field.</p>
+     * @see java.lang.Long
+     */
     private final Long workerId;
+    /**
+     * <code>centerId</code>
+     * {@link java.lang.Long} <p>the <code>centerId</code> field.</p>
+     * @see java.lang.Long
+     */
     private final Long centerId;
+    /**
+     * <code>isOffset</code>
+     * {@link boolean} <p>the <code>isOffset</code> field.</p>
+     */
     private boolean isOffset;
 
+    /**
+     * <code>IdentityWorkerMachine</code>
+     * Instantiates a new identity worker machine.
+     * @param workerId {@link java.lang.Long} <p>the worker id parameter is <code>Long</code> type.</p>
+     * @param centerId {@link java.lang.Long} <p>the center id parameter is <code>Long</code> type.</p>
+     * @param sequence {@link java.lang.Long} <p>the sequence parameter is <code>Long</code> type.</p>
+     * @see java.lang.Long
+     * @see org.springframework.lang.NonNull
+     */
     public IdentityWorkerMachine(@NonNull Long workerId, @NonNull Long centerId, Long sequence) {
         this(RestConstants.MACHINE_WORKER_NAME,workerId,centerId,sequence);
     }
 
+    /**
+     * <code>IdentityWorkerMachine</code>
+     * Instantiates a new identity worker machine.
+     * @param mame     {@link java.lang.String} <p>the mame parameter is <code>String</code> type.</p>
+     * @param workerId {@link java.lang.Long} <p>the worker id parameter is <code>Long</code> type.</p>
+     * @param centerId {@link java.lang.Long} <p>the center id parameter is <code>Long</code> type.</p>
+     * @param sequence {@link java.lang.Long} <p>the sequence parameter is <code>Long</code> type.</p>
+     * @see java.lang.String
+     * @see java.lang.Long
+     * @see org.springframework.lang.NonNull
+     */
     public IdentityWorkerMachine(String mame, @NonNull Long workerId, @NonNull Long centerId, Long sequence) {
         this.name = mame;
         if (workerId > IdentityWorkerConfig.MAX_WORKER_ID || workerId < IdentityWorkerConfig.MIN_WORKER_ID) {
@@ -48,6 +100,14 @@ class IdentityWorkerMachine implements IdentityWorker{
         IDENTITY_WORKER_MAP.put(WorkerType.COMMON_WORKER,this);
     }
 
+    /**
+     * <code>IdentityWorkerMachine</code>
+     * Instantiates a new identity worker machine.
+     * @param workerId {@link java.lang.Long} <p>the worker id parameter is <code>Long</code> type.</p>
+     * @param centerId {@link java.lang.Long} <p>the center id parameter is <code>Long</code> type.</p>
+     * @see java.lang.Long
+     * @see org.springframework.lang.NonNull
+     */
     public IdentityWorkerMachine(@NonNull Long workerId, @NonNull Long centerId) {
         this(workerId,centerId,null);
     }

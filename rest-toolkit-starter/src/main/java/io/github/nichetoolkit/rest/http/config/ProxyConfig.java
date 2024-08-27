@@ -7,19 +7,46 @@ import java.net.InetSocketAddress;
 import java.net.Proxy;
 
 /**
- * <p>ProxyConfig</p>
+ * <code>ProxyConfig</code>
+ * <p>The type proxy config class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @version v1.0.0
+ * @see lombok.Data
+ * @since Jdk1.8
  */
 @Data
 public class ProxyConfig {
+    /**
+     * <code>type</code>
+     * {@link io.github.nichetoolkit.rest.http.config.ProxyType} <p>the <code>type</code> field.</p>
+     * @see io.github.nichetoolkit.rest.http.config.ProxyType
+     */
     private ProxyType type = ProxyType.SOCKS;
+    /**
+     * <code>hostname</code>
+     * {@link java.lang.String} <p>the <code>hostname</code> field.</p>
+     * @see java.lang.String
+     */
     private String hostname;
+    /**
+     * <code>port</code>
+     * {@link java.lang.Integer} <p>the <code>port</code> field.</p>
+     * @see java.lang.Integer
+     */
     private Integer port;
 
+    /**
+     * <code>ProxyConfig</code>
+     * Instantiates a new proxy config.
+     */
     public ProxyConfig() {
     }
 
+    /**
+     * <code>toProxy</code>
+     * <p>the proxy method.</p>
+     * @return {@link java.net.Proxy} <p>the proxy return object is <code>Proxy</code> type.</p>
+     * @see java.net.Proxy
+     */
     public Proxy toProxy() {
         if (GeneralUtils.isNotEmpty(this.hostname) && GeneralUtils.isNotEmpty(this.port)) {
             return new Proxy(this.type.getValue(), new InetSocketAddress(this.hostname, this.port));

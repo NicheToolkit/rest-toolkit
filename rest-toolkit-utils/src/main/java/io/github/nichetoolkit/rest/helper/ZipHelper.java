@@ -13,12 +13,27 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
 /**
- * <p>ZipHelper</p>
+ * <code>ZipHelper</code>
+ * <p>The type zip helper class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @version v1.0.0
+ * @since Jdk1.8
  */
 public class ZipHelper {
 
+    /**
+     * <code>zipFile</code>
+     * <p>the file method.</p>
+     * @param zipPath  {@link java.lang.String} <p>the zip path parameter is <code>String</code> type.</p>
+     * @param filename {@link java.lang.String} <p>the filename parameter is <code>String</code> type.</p>
+     * @param file     {@link java.io.File} <p>the file parameter is <code>File</code> type.</p>
+     * @return {@link java.io.File} <p>the file return object is <code>File</code> type.</p>
+     * @throws ZipErrorException   {@link io.github.nichetoolkit.rest.error.often.ZipErrorException} <p>the zip error exception is <code>ZipErrorException</code> type.</p>
+     * @throws FileCreateException {@link io.github.nichetoolkit.rest.error.often.FileCreateException} <p>the file create exception is <code>FileCreateException</code> type.</p>
+     * @see java.lang.String
+     * @see java.io.File
+     * @see io.github.nichetoolkit.rest.error.often.ZipErrorException
+     * @see io.github.nichetoolkit.rest.error.often.FileCreateException
+     */
     public static File zipFile(String zipPath, String filename, File file) throws ZipErrorException, FileCreateException {
         String zipFilePath = zipPath.concat(File.separator).concat(filename)
                 .concat(UtilConstants.SUFFIX_REGEX).concat(UtilConstants.ZIP_SUFFIX);
@@ -41,6 +56,21 @@ public class ZipHelper {
         return zipFile;
     }
 
+    /**
+     * <code>zipFiles</code>
+     * <p>the files method.</p>
+     * @param zipPath  {@link java.lang.String} <p>the zip path parameter is <code>String</code> type.</p>
+     * @param filename {@link java.lang.String} <p>the filename parameter is <code>String</code> type.</p>
+     * @param zipFiles {@link java.util.List} <p>the zip files parameter is <code>List</code> type.</p>
+     * @return {@link java.io.File} <p>the files return object is <code>File</code> type.</p>
+     * @throws ZipErrorException   {@link io.github.nichetoolkit.rest.error.often.ZipErrorException} <p>the zip error exception is <code>ZipErrorException</code> type.</p>
+     * @throws FileCreateException {@link io.github.nichetoolkit.rest.error.often.FileCreateException} <p>the file create exception is <code>FileCreateException</code> type.</p>
+     * @see java.lang.String
+     * @see java.util.List
+     * @see java.io.File
+     * @see io.github.nichetoolkit.rest.error.often.ZipErrorException
+     * @see io.github.nichetoolkit.rest.error.often.FileCreateException
+     */
     public static File zipFiles(String zipPath, String filename, List<File> zipFiles) throws ZipErrorException, FileCreateException {
         if (zipFiles.size() == 1) {
             return zipFile(zipPath,filename,zipFiles.stream().findFirst().get());
@@ -68,6 +98,14 @@ public class ZipHelper {
         return zipFile;
     }
 
+    /**
+     * <code>gzip</code>
+     * <p>the method.</p>
+     * @param data {@link byte} <p>the data parameter is <code>byte</code> type.</p>
+     * @return {@link byte} <p>the return object is <code>byte</code> type.</p>
+     * @throws ZipErrorException {@link io.github.nichetoolkit.rest.error.often.ZipErrorException} <p>the zip error exception is <code>ZipErrorException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.error.often.ZipErrorException
+     */
     public static byte[] gzip(byte[] data) throws ZipErrorException {
         byte[] bytes;
         try (ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -81,6 +119,14 @@ public class ZipHelper {
         return bytes;
     }
 
+    /**
+     * <code>ungzip</code>
+     * <p>the method.</p>
+     * @param data {@link byte} <p>the data parameter is <code>byte</code> type.</p>
+     * @return {@link byte} <p>the return object is <code>byte</code> type.</p>
+     * @throws ZipErrorException {@link io.github.nichetoolkit.rest.error.often.ZipErrorException} <p>the zip error exception is <code>ZipErrorException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.error.often.ZipErrorException
+     */
     public static byte[] ungzip(byte[] data) throws ZipErrorException {
         byte[] bytes;
         try (ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(data);

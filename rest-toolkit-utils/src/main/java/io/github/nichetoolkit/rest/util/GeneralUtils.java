@@ -13,13 +13,22 @@ import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * <p>GeneralUtils</p>
+ * <code>GeneralUtils</code>
+ * <p>The type general utils class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @version v1.0.0
+ * @see lombok.extern.slf4j.Slf4j
+ * @since Jdk1.8
  */
 @Slf4j
 public class GeneralUtils {
 
+    /**
+     * <code>isNotEmpty</code>
+     * <p>the not empty method.</p>
+     * @param object {@link java.lang.Object} <p>the object parameter is <code>Object</code> type.</p>
+     * @return {@link boolean} <p>the not empty return object is <code>boolean</code> type.</p>
+     * @see java.lang.Object
+     */
     public static boolean isNotEmpty(Object object) {
         if (object == null) {
             return false;
@@ -56,6 +65,13 @@ public class GeneralUtils {
         }
     }
 
+    /**
+     * <code>isValid</code>
+     * <p>the valid method.</p>
+     * @param object {@link java.lang.Object} <p>the object parameter is <code>Object</code> type.</p>
+     * @return {@link boolean} <p>the valid return object is <code>boolean</code> type.</p>
+     * @see java.lang.Object
+     */
     public static boolean isValid(Object object) {
         if (object == null) {
             return false;
@@ -92,6 +108,13 @@ public class GeneralUtils {
         }
     }
 
+    /**
+     * <code>isEmpty</code>
+     * <p>the empty method.</p>
+     * @param object {@link java.lang.Object} <p>the object parameter is <code>Object</code> type.</p>
+     * @return {@link boolean} <p>the empty return object is <code>boolean</code> type.</p>
+     * @see java.lang.Object
+     */
     public static boolean isEmpty(Object object) {
         if (object == null) {
             return true;
@@ -128,6 +151,13 @@ public class GeneralUtils {
         }
     }
 
+    /**
+     * <code>isInvalid</code>
+     * <p>the invalid method.</p>
+     * @param object {@link java.lang.Object} <p>the object parameter is <code>Object</code> type.</p>
+     * @return {@link boolean} <p>the invalid return object is <code>boolean</code> type.</p>
+     * @see java.lang.Object
+     */
     public static boolean isInvalid(Object object) {
         if (object == null) {
             return true;
@@ -164,6 +194,15 @@ public class GeneralUtils {
         }
     }
 
+    /**
+     * <code>transforms</code>
+     * <p>the method.</p>
+     * @param value    {@link java.lang.Long} <p>the value parameter is <code>Long</code> type.</p>
+     * @param multiple {@link java.lang.Long} <p>the multiple parameter is <code>Long</code> type.</p>
+     * @return {@link java.lang.Double} <p>the return object is <code>Double</code> type.</p>
+     * @see java.lang.Long
+     * @see java.lang.Double
+     */
     public static Double transforms(Long value, Long multiple) {
         if (GeneralUtils.isValid(value)) {
             return value.doubleValue() / multiple.doubleValue();
@@ -171,6 +210,15 @@ public class GeneralUtils {
         return null;
     }
 
+    /**
+     * <code>transforms</code>
+     * <p>the method.</p>
+     * @param value    {@link java.lang.Double} <p>the value parameter is <code>Double</code> type.</p>
+     * @param multiple {@link java.lang.Long} <p>the multiple parameter is <code>Long</code> type.</p>
+     * @return {@link java.lang.Long} <p>the return object is <code>Long</code> type.</p>
+     * @see java.lang.Double
+     * @see java.lang.Long
+     */
     public static Long transforms(Double value, Long multiple) {
         if (GeneralUtils.isValid(value)) {
             return (long) (value * multiple);
@@ -178,6 +226,14 @@ public class GeneralUtils {
         return null;
     }
 
+    /**
+     * <code>transform</code>
+     * <p>the method.</p>
+     * @param value {@link java.lang.Long} <p>the value parameter is <code>Long</code> type.</p>
+     * @return {@link java.math.BigDecimal} <p>the return object is <code>BigDecimal</code> type.</p>
+     * @see java.lang.Long
+     * @see java.math.BigDecimal
+     */
     public static BigDecimal transform(Long value) {
         if (GeneralUtils.isValid(value)) {
             return BigDecimal.valueOf(value);
@@ -185,6 +241,15 @@ public class GeneralUtils {
         return null;
     }
 
+    /**
+     * <code>transform</code>
+     * <p>the method.</p>
+     * @param value    {@link java.lang.Long} <p>the value parameter is <code>Long</code> type.</p>
+     * @param multiple {@link java.lang.Long} <p>the multiple parameter is <code>Long</code> type.</p>
+     * @return {@link java.math.BigDecimal} <p>the return object is <code>BigDecimal</code> type.</p>
+     * @see java.lang.Long
+     * @see java.math.BigDecimal
+     */
     public static BigDecimal transform(Long value, Long multiple) {
         if (GeneralUtils.isValid(value)) {
             return BigDecimal.valueOf(value).divide(new BigDecimal(multiple),2, RoundingMode.HALF_UP);
@@ -192,6 +257,17 @@ public class GeneralUtils {
         return null;
     }
 
+    /**
+     * <code>transform</code>
+     * <p>the method.</p>
+     * @param value    {@link java.lang.Long} <p>the value parameter is <code>Long</code> type.</p>
+     * @param multiple {@link java.lang.Long} <p>the multiple parameter is <code>Long</code> type.</p>
+     * @param scale    {@link java.lang.Integer} <p>the scale parameter is <code>Integer</code> type.</p>
+     * @return {@link java.math.BigDecimal} <p>the return object is <code>BigDecimal</code> type.</p>
+     * @see java.lang.Long
+     * @see java.lang.Integer
+     * @see java.math.BigDecimal
+     */
     public static BigDecimal transform(Long value, Long multiple, Integer scale) {
         if (GeneralUtils.isValid(value)) {
             return BigDecimal.valueOf(value).divide(new BigDecimal(multiple),scale, RoundingMode.HALF_UP);
@@ -199,6 +275,14 @@ public class GeneralUtils {
         return null;
     }
 
+    /**
+     * <code>transform</code>
+     * <p>the method.</p>
+     * @param value {@link java.math.BigDecimal} <p>the value parameter is <code>BigDecimal</code> type.</p>
+     * @return {@link java.lang.Long} <p>the return object is <code>Long</code> type.</p>
+     * @see java.math.BigDecimal
+     * @see java.lang.Long
+     */
     public static Long transform(BigDecimal value) {
         if (GeneralUtils.isValid(value)) {
             return (long) value.doubleValue();
@@ -206,6 +290,15 @@ public class GeneralUtils {
         return null;
     }
 
+    /**
+     * <code>transform</code>
+     * <p>the method.</p>
+     * @param value    {@link java.math.BigDecimal} <p>the value parameter is <code>BigDecimal</code> type.</p>
+     * @param multiple {@link java.lang.Long} <p>the multiple parameter is <code>Long</code> type.</p>
+     * @return {@link java.lang.Long} <p>the return object is <code>Long</code> type.</p>
+     * @see java.math.BigDecimal
+     * @see java.lang.Long
+     */
     public static Long transform(BigDecimal value, Long multiple) {
         if (GeneralUtils.isValid(value)) {
             return (long) (value.doubleValue() * multiple);
@@ -213,6 +306,14 @@ public class GeneralUtils {
         return null;
     }
 
+    /**
+     * <code>toDouble</code>
+     * <p>the double method.</p>
+     * @param value {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>
+     * @return {@link java.lang.Double} <p>the double return object is <code>Double</code> type.</p>
+     * @see java.lang.Object
+     * @see java.lang.Double
+     */
     public static Double toDouble(Object value) {
         if (GeneralUtils.isValid(value)) {
             String trim = value.toString().trim();
@@ -224,6 +325,14 @@ public class GeneralUtils {
     }
 
 
+    /**
+     * <code>toBigInteger</code>
+     * <p>the big integer method.</p>
+     * @param value {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>
+     * @return {@link java.math.BigInteger} <p>the big integer return object is <code>BigInteger</code> type.</p>
+     * @see java.lang.Object
+     * @see java.math.BigInteger
+     */
     public static BigInteger toBigInteger(Object value) {
         if (GeneralUtils.isValid(value)) {
             String trim = value.toString().trim();
@@ -234,6 +343,14 @@ public class GeneralUtils {
         return null;
     }
 
+    /**
+     * <code>toBigDecimal</code>
+     * <p>the big decimal method.</p>
+     * @param value {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>
+     * @return {@link java.math.BigDecimal} <p>the big decimal return object is <code>BigDecimal</code> type.</p>
+     * @see java.lang.Object
+     * @see java.math.BigDecimal
+     */
     public static BigDecimal toBigDecimal(Object value) {
         if (GeneralUtils.isValid(value)) {
             String trim = value.toString().trim();
@@ -244,6 +361,14 @@ public class GeneralUtils {
         return null;
     }
 
+    /**
+     * <code>toInteger</code>
+     * <p>the integer method.</p>
+     * @param value {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>
+     * @return {@link java.lang.Integer} <p>the integer return object is <code>Integer</code> type.</p>
+     * @see java.lang.Object
+     * @see java.lang.Integer
+     */
     public static Integer toInteger(Object value) {
         if (GeneralUtils.isValid(value)) {
             String trim = value.toString().trim();
@@ -254,6 +379,14 @@ public class GeneralUtils {
         return null;
     }
 
+    /**
+     * <code>toLong</code>
+     * <p>the long method.</p>
+     * @param value {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>
+     * @return {@link java.lang.Long} <p>the long return object is <code>Long</code> type.</p>
+     * @see java.lang.Object
+     * @see java.lang.Long
+     */
     public static Long toLong(Object value) {
         if (GeneralUtils.isValid(value)) {
             String trim = value.toString().trim();
@@ -264,6 +397,14 @@ public class GeneralUtils {
         return null;
     }
 
+    /**
+     * <code>toTime</code>
+     * <p>the time method.</p>
+     * @param value {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>
+     * @return {@link java.lang.Long} <p>the time return object is <code>Long</code> type.</p>
+     * @see java.lang.Object
+     * @see java.lang.Long
+     */
     public static Long toTime(Object value) {
         if (GeneralUtils.isValid(value)) {
             String trim = value.toString().trim();
@@ -278,6 +419,13 @@ public class GeneralUtils {
     }
 
 
+    /**
+     * <code>isBigInteger</code>
+     * <p>the big integer method.</p>
+     * @param value {@link java.lang.String} <p>the value parameter is <code>String</code> type.</p>
+     * @return {@link boolean} <p>the big integer return object is <code>boolean</code> type.</p>
+     * @see java.lang.String
+     */
     public static boolean isBigInteger(String value) {
         try {
             new BigInteger(value);
@@ -288,6 +436,13 @@ public class GeneralUtils {
         }
     }
 
+    /**
+     * <code>isBigDecimal</code>
+     * <p>the big decimal method.</p>
+     * @param value {@link java.lang.String} <p>the value parameter is <code>String</code> type.</p>
+     * @return {@link boolean} <p>the big decimal return object is <code>boolean</code> type.</p>
+     * @see java.lang.String
+     */
     public static boolean isBigDecimal(String value) {
         try {
             new BigDecimal(value);
@@ -298,6 +453,13 @@ public class GeneralUtils {
         }
     }
 
+    /**
+     * <code>isInteger</code>
+     * <p>the integer method.</p>
+     * @param value {@link java.lang.String} <p>the value parameter is <code>String</code> type.</p>
+     * @return {@link boolean} <p>the integer return object is <code>boolean</code> type.</p>
+     * @see java.lang.String
+     */
     public static boolean isInteger(String value) {
         try {
             Integer.valueOf(value);
@@ -308,6 +470,13 @@ public class GeneralUtils {
         }
     }
 
+    /**
+     * <code>isLong</code>
+     * <p>the long method.</p>
+     * @param value {@link java.lang.String} <p>the value parameter is <code>String</code> type.</p>
+     * @return {@link boolean} <p>the long return object is <code>boolean</code> type.</p>
+     * @see java.lang.String
+     */
     public static boolean isLong(String value) {
         try {
             Long.valueOf(value);
@@ -318,6 +487,13 @@ public class GeneralUtils {
         }
     }
 
+    /**
+     * <code>isDouble</code>
+     * <p>the double method.</p>
+     * @param value {@link java.lang.String} <p>the value parameter is <code>String</code> type.</p>
+     * @return {@link boolean} <p>the double return object is <code>boolean</code> type.</p>
+     * @see java.lang.String
+     */
     public static boolean isDouble(String value) {
         try {
             Double.valueOf(value);
@@ -328,6 +504,13 @@ public class GeneralUtils {
         }
     }
 
+    /**
+     * <code>randomHex</code>
+     * <p>the hex method.</p>
+     * @param size {@link int} <p>the size parameter is <code>int</code> type.</p>
+     * @return {@link java.lang.String} <p>the hex return object is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
     public static String randomHex(int size) {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < size; i++) {
@@ -336,6 +519,13 @@ public class GeneralUtils {
         return result.toString().toUpperCase();
     }
 
+    /**
+     * <code>underline</code>
+     * <p>the method.</p>
+     * @param underline {@link java.lang.String} <p>the underline parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
     public static String underline(String underline) {
         final int size;
         final char[] chars;
@@ -353,6 +543,12 @@ public class GeneralUtils {
         return stringBuilder.charAt(0) == '_' ? stringBuilder.substring(1) : stringBuilder.toString();
     }
 
+    /**
+     * <code>uuid</code>
+     * <p>the method.</p>
+     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
     public static String uuid() {
         ThreadLocalRandom random = ThreadLocalRandom.current();
         long lsb = random.nextLong();
@@ -366,6 +562,14 @@ public class GeneralUtils {
         return new String(buf, StandardCharsets.UTF_8);
     }
 
+    /**
+     * <code>format</code>
+     * <p>the method.</p>
+     * @param val    {@link long} <p>the val parameter is <code>long</code> type.</p>
+     * @param buf    {@link byte} <p>the buf parameter is <code>byte</code> type.</p>
+     * @param offset {@link int} <p>the offset parameter is <code>int</code> type.</p>
+     * @param len    {@link int} <p>the len parameter is <code>int</code> type.</p>
+     */
     private static void format(long val, byte[] buf, int offset, int len) {
         int charPos = offset + len;
         int radix = 1 << 4;

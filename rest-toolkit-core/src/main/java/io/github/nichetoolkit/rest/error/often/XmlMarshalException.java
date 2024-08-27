@@ -5,23 +5,48 @@ import io.github.nichetoolkit.rest.RestStatus;
 import io.github.nichetoolkit.rest.error.natives.XmlErrorException;
 
 /**
- * <p>XmlMarshalException</p>
+ * <code>XmlMarshalException</code>
+ * <p>The type xml marshal exception class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @version v1.0.0
+ * @see io.github.nichetoolkit.rest.error.natives.XmlErrorException
+ * @since Jdk1.8
  */
 public class XmlMarshalException extends XmlErrorException {
+    /**
+     * <code>XmlMarshalException</code>
+     * Instantiates a new xml marshal exception.
+     */
     public XmlMarshalException() {
         super(RestErrorStatus.XML_MARSHAL_ERROR);
     }
 
+    /**
+     * <code>XmlMarshalException</code>
+     * Instantiates a new xml marshal exception.
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestStatus
+     */
     public XmlMarshalException(RestStatus status) {
         super(status);
     }
 
+    /**
+     * <code>XmlMarshalException</code>
+     * Instantiates a new xml marshal exception.
+     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
     public XmlMarshalException(String message) {
         super(RestErrorStatus.XML_MARSHAL_ERROR, message);
     }
 
+    /**
+     * <code>XmlMarshalException</code>
+     * Instantiates a new xml marshal exception.
+     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
+     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
     public XmlMarshalException(String resource, String message) {
         super(RestErrorStatus.XML_MARSHAL_ERROR, resource, message);
     }

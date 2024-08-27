@@ -5,25 +5,58 @@ import io.github.nichetoolkit.rest.RestException;
 import java.util.Objects;
 
 /**
- * <p>MapPredicateActuator</p>
+ * <code>MapPredicateActuator</code>
+ * <p>The type map predicate actuator interface.</p>
+ * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+ * @param <U> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+ * @param <S> {@link java.lang.Object} <p>the parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
- * @version v1.0.0
+ * @see java.lang.FunctionalInterface
+ * @since Jdk1.8
  */
 @FunctionalInterface
 public interface MapPredicateActuator<T, U, S> {
 
+    /**
+     * <code>actuate</code>
+     * <p>the method.</p>
+     * @param t      {@link T} <p>the t parameter is <code>T</code> type.</p>
+     * @param u      {@link U} <p>the u parameter is <code>U</code> type.</p>
+     * @param sArray {@link S} <p>the s array parameter is <code>S</code> type.</p>
+     * @return {@link boolean} <p>the return object is <code>boolean</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.SuppressWarnings
+     * @see io.github.nichetoolkit.rest.RestException
+     */
     @SuppressWarnings(value = "unchecked")
     boolean actuate(T t, U u, S... sArray) throws RestException;
 
+    /**
+     * <code>and</code>
+     * <p>the method.</p>
+     * @param other {@link io.github.nichetoolkit.rest.actuator.MapPredicateActuator} <p>the other parameter is <code>MapPredicateActuator</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.actuator.MapPredicateActuator} <p>the return object is <code>MapPredicateActuator</code> type.</p>
+     */
     default MapPredicateActuator<T, U, S> and(MapPredicateActuator<? super T, ? super U, ? super S> other) {
         Objects.requireNonNull(other);
         return (T t, U u, S... sArray) -> actuate(t, u, sArray) && other.actuate(t, u, sArray);
     }
 
+    /**
+     * <code>negate</code>
+     * <p>the method.</p>
+     * @return {@link io.github.nichetoolkit.rest.actuator.MapPredicateActuator} <p>the return object is <code>MapPredicateActuator</code> type.</p>
+     */
     default MapPredicateActuator<T, U, S> negate() {
         return (T t, U u, S... sArray) -> !actuate(t, u, sArray);
     }
 
+    /**
+     * <code>or</code>
+     * <p>the method.</p>
+     * @param other {@link io.github.nichetoolkit.rest.actuator.MapPredicateActuator} <p>the other parameter is <code>MapPredicateActuator</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.actuator.MapPredicateActuator} <p>the return object is <code>MapPredicateActuator</code> type.</p>
+     */
     default MapPredicateActuator<T, U, S> or(MapPredicateActuator<? super T, ? super U, ? super S> other) {
         Objects.requireNonNull(other);
         return (T t, U u, S... sArray) -> actuate(t, u, sArray) || other.actuate(t, u, sArray);

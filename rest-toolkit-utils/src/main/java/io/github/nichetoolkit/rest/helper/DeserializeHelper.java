@@ -8,12 +8,23 @@ import java.io.IOException;
 import java.util.*;
 
 /**
- * <p>DeserializeHelper</p>
+ * <code>DeserializeHelper</code>
+ * <p>The type deserialize helper class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @version v1.0.0
+ * @since Jdk1.8
  */
 public class DeserializeHelper {
 
+    /**
+     * <code>deserializerBean</code>
+     * <p>the bean method.</p>
+     * @param parser {@link com.fasterxml.jackson.core.JsonParser} <p>the parser parameter is <code>JsonParser</code> type.</p>
+     * @return {@link java.util.Map} <p>the bean return object is <code>Map</code> type.</p>
+     * @throws JsonDeserializeException {@link io.github.nichetoolkit.rest.error.supply.JsonDeserializeException} <p>the json deserialize exception is <code>JsonDeserializeException</code> type.</p>
+     * @see com.fasterxml.jackson.core.JsonParser
+     * @see java.util.Map
+     * @see io.github.nichetoolkit.rest.error.supply.JsonDeserializeException
+     */
     public static Map<String, Object> deserializerBean(JsonParser parser) throws JsonDeserializeException {
         try {
             JsonNode jsonNode = parser.getCodec().readTree(parser);
@@ -28,6 +39,16 @@ public class DeserializeHelper {
 
     }
 
+    /**
+     * <code>deserializerList</code>
+     * <p>the list method.</p>
+     * @param parser {@link com.fasterxml.jackson.core.JsonParser} <p>the parser parameter is <code>JsonParser</code> type.</p>
+     * @return {@link java.util.List} <p>the list return object is <code>List</code> type.</p>
+     * @throws JsonDeserializeException {@link io.github.nichetoolkit.rest.error.supply.JsonDeserializeException} <p>the json deserialize exception is <code>JsonDeserializeException</code> type.</p>
+     * @see com.fasterxml.jackson.core.JsonParser
+     * @see java.util.List
+     * @see io.github.nichetoolkit.rest.error.supply.JsonDeserializeException
+     */
     public static List<Object> deserializerList(JsonParser parser) throws JsonDeserializeException {
         try {
             List<Object> resultList = new ArrayList<>();
@@ -44,6 +65,16 @@ public class DeserializeHelper {
 
     }
 
+    /**
+     * <code>deserializerBeanList</code>
+     * <p>the bean list method.</p>
+     * @param parser {@link com.fasterxml.jackson.core.JsonParser} <p>the parser parameter is <code>JsonParser</code> type.</p>
+     * @return {@link java.util.List} <p>the bean list return object is <code>List</code> type.</p>
+     * @throws JsonDeserializeException {@link io.github.nichetoolkit.rest.error.supply.JsonDeserializeException} <p>the json deserialize exception is <code>JsonDeserializeException</code> type.</p>
+     * @see com.fasterxml.jackson.core.JsonParser
+     * @see java.util.List
+     * @see io.github.nichetoolkit.rest.error.supply.JsonDeserializeException
+     */
     public static List<Map<String, Object>> deserializerBeanList(JsonParser parser) throws JsonDeserializeException {
         try {
             List<Map<String, Object>> resultList = new ArrayList<>();
@@ -62,6 +93,16 @@ public class DeserializeHelper {
 
     }
 
+    /**
+     * <code>deserializerMap</code>
+     * <p>the map method.</p>
+     * @param parser {@link com.fasterxml.jackson.core.JsonParser} <p>the parser parameter is <code>JsonParser</code> type.</p>
+     * @return {@link java.util.Map} <p>the map return object is <code>Map</code> type.</p>
+     * @throws JsonDeserializeException {@link io.github.nichetoolkit.rest.error.supply.JsonDeserializeException} <p>the json deserialize exception is <code>JsonDeserializeException</code> type.</p>
+     * @see com.fasterxml.jackson.core.JsonParser
+     * @see java.util.Map
+     * @see io.github.nichetoolkit.rest.error.supply.JsonDeserializeException
+     */
     public static Map<String, Object> deserializerMap(JsonParser parser) throws JsonDeserializeException {
         try {
             JsonNode jsonNode = parser.getCodec().readTree(parser);
@@ -80,6 +121,16 @@ public class DeserializeHelper {
 
     }
 
+    /**
+     * <code>deserializerBeanMap</code>
+     * <p>the bean map method.</p>
+     * @param parser {@link com.fasterxml.jackson.core.JsonParser} <p>the parser parameter is <code>JsonParser</code> type.</p>
+     * @return {@link java.util.Map} <p>the bean map return object is <code>Map</code> type.</p>
+     * @throws JsonDeserializeException {@link io.github.nichetoolkit.rest.error.supply.JsonDeserializeException} <p>the json deserialize exception is <code>JsonDeserializeException</code> type.</p>
+     * @see com.fasterxml.jackson.core.JsonParser
+     * @see java.util.Map
+     * @see io.github.nichetoolkit.rest.error.supply.JsonDeserializeException
+     */
     public static Map<String, Map<String, Object>> deserializerBeanMap(JsonParser parser) throws JsonDeserializeException {
         try {
             JsonNode jsonNode = parser.getCodec().readTree(parser);
@@ -100,6 +151,14 @@ public class DeserializeHelper {
 
     }
 
+    /**
+     * <code>buildBeanMap</code>
+     * <p>the bean map method.</p>
+     * @param jsonNode {@link com.fasterxml.jackson.databind.JsonNode} <p>the json node parameter is <code>JsonNode</code> type.</p>
+     * @param beanMap  {@link java.util.Map} <p>the bean map parameter is <code>Map</code> type.</p>
+     * @see com.fasterxml.jackson.databind.JsonNode
+     * @see java.util.Map
+     */
     public static void buildBeanMap(JsonNode jsonNode, Map<String, Object> beanMap) {
         for (Iterator<Map.Entry<String, JsonNode>> iter = jsonNode.fields(); iter.hasNext(); ) {
             Map.Entry<String, JsonNode> entry = iter.next();

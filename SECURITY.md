@@ -5,13 +5,13 @@
 Use this section to tell people about which versions of your project are
 currently being supported with security updates.
 
-| Version | Supported          |
-| ------- | ------------------ |
-| Spring boot 2.7.6+   | :white_check_mark: |
-| < 2.7.6   | :x:                |
-| Maven 3.6.0+   | :white_check_mark: |
-| < 3.6.0   | :x:                |
-| JDK 1.8  | :white_check_mark: |
+| Version             | Supported          |
+|---------------------| ------------------ |
+| Spring boot 2.7.18+ | :white_check_mark: |
+| < 2.7.18            | :x:                |
+| Maven 3.6.3+        | :white_check_mark: |
+| < 3.6.3             | :x:                |
+| JDK 1.8             | :white_check_mark: |
 ## Reporting a Vulnerability
 
 Use this section to tell people how to report a vulnerability.

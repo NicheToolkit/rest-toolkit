@@ -1,20 +1,37 @@
 package io.github.nichetoolkit.rest.constant;
 
 /**
- * <p>MillisecondConstants</p>
+ * <code>MillisecondConstants</code>
+ * <p>The type millisecond constants class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @version v1.0.0
+ * @since Jdk1.8
  */
 public class MillisecondConstants {
-    /** mill seconds of one second */
+    /**
+     * <code>SECOND</code>
+     * {@link java.lang.Long} <p>the constant <code>SECOND</code> field.</p>
+     * @see java.lang.Long
+     */
     public static final Long SECOND = 1000L;
 
-    /** mill seconds of one minute */
+    /**
+     * <code>MINUTE</code>
+     * {@link java.lang.Long} <p>the constant <code>MINUTE</code> field.</p>
+     * @see java.lang.Long
+     */
     public static final Long MINUTE = SECOND * 60;
 
-    /** mill seconds of one hour */
+    /**
+     * <code>HOUR</code>
+     * {@link java.lang.Long} <p>the constant <code>HOUR</code> field.</p>
+     * @see java.lang.Long
+     */
     public static final Long HOUR = MINUTE * 60;
 
-    /** mill seconds of one day */
+    /**
+     * <code>DAY</code>
+     * {@link java.lang.Long} <p>the constant <code>DAY</code> field.</p>
+     * @see java.lang.Long
+     */
     public static final Long DAY = HOUR * 24;
 }

@@ -9,24 +9,55 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * <p>IpAddressUtils</p>
+ * <code>IpAddressUtils</code>
+ * <p>The type ip address utils class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @version v1.0.0
+ * @since Jdk1.8
  */
 public class IpAddressUtils {
 
+    /**
+     * <code>getHttpServletRequest</code>
+     * <p>the http servlet request getter method.</p>
+     * @return {@link javax.servlet.http.HttpServletRequest} <p>the http servlet request return object is <code>HttpServletRequest</code> type.</p>
+     * @see javax.servlet.http.HttpServletRequest
+     */
     private static HttpServletRequest getHttpServletRequest() {
         return ContextUtils.getBean(HttpServletRequest.class);
     }
 
+    /**
+     * <code>ipAddress</code>
+     * <p>the address method.</p>
+     * @return {@link java.lang.String} <p>the address return object is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
     public static String ipAddress() {
         return ipAddress(getHttpServletRequest());
     }
 
+    /**
+     * <code>ipAddress</code>
+     * <p>the address method.</p>
+     * @param httpServletRequest {@link javax.servlet.http.HttpServletRequest} <p>the http servlet request parameter is <code>HttpServletRequest</code> type.</p>
+     * @return {@link java.lang.String} <p>the address return object is <code>String</code> type.</p>
+     * @see javax.servlet.http.HttpServletRequest
+     * @see java.lang.String
+     */
     public static String ipAddress(HttpServletRequest httpServletRequest) {
         return ipAddress(httpServletRequest,Collections.emptyList());
     }
 
+    /**
+     * <code>ipAddress</code>
+     * <p>the address method.</p>
+     * @param httpServletRequest {@link javax.servlet.http.HttpServletRequest} <p>the http servlet request parameter is <code>HttpServletRequest</code> type.</p>
+     * @param ignoredIpAddresses {@link java.util.List} <p>the ignored ip addresses parameter is <code>List</code> type.</p>
+     * @return {@link java.lang.String} <p>the address return object is <code>String</code> type.</p>
+     * @see javax.servlet.http.HttpServletRequest
+     * @see java.util.List
+     * @see java.lang.String
+     */
     public static String ipAddress(HttpServletRequest httpServletRequest, List<String> ignoredIpAddresses) {
         if (GeneralUtils.isEmpty(httpServletRequest)) {
             return UtilConstants.LOCALHOST_IPV4;
@@ -42,10 +73,27 @@ public class IpAddressUtils {
         return ipAddressList.get(ipAddressList.size() - 1);
     }
 
+    /**
+     * <code>ipAddress</code>
+     * <p>the address method.</p>
+     * @param ip {@link java.lang.String} <p>the ip parameter is <code>String</code> type.</p>
+     * @return {@link java.util.List} <p>the address return object is <code>List</code> type.</p>
+     * @see java.lang.String
+     * @see java.util.List
+     */
     public static List<String> ipAddress(String ip) {
         return ipAddress(ip,Collections.emptyList());
     }
 
+    /**
+     * <code>ipAddress</code>
+     * <p>the address method.</p>
+     * @param ip                 {@link java.lang.String} <p>the ip parameter is <code>String</code> type.</p>
+     * @param ignoredIpAddresses {@link java.util.List} <p>the ignored ip addresses parameter is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>the address return object is <code>List</code> type.</p>
+     * @see java.lang.String
+     * @see java.util.List
+     */
     public static List<String> ipAddress(String ip, List<String> ignoredIpAddresses) {
         if (GeneralUtils.isEmpty(ip)) {
             return Collections.emptyList();
@@ -67,10 +115,25 @@ public class IpAddressUtils {
         return ipAddressList;
     }
 
+    /**
+     * <code>remoteIpAddress</code>
+     * <p>the ip address method.</p>
+     * @return {@link java.lang.String} <p>the ip address return object is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
     public static String remoteIpAddress() {
         return remoteIpAddress(getHttpServletRequest());
     }
 
+    /**
+     * <code>remoteIpAddress</code>
+     * <p>the ip address method.</p>
+     * @param request {@link javax.servlet.http.HttpServletRequest} <p>the request parameter is <code>HttpServletRequest</code> type.</p>
+     * @return {@link java.lang.String} <p>the ip address return object is <code>String</code> type.</p>
+     * @see javax.servlet.http.HttpServletRequest
+     * @see java.lang.String
+     * @see java.lang.SuppressWarnings
+     */
     @SuppressWarnings({"Duplicates", "unused"})
     public static String remoteIpAddress(HttpServletRequest request) {
         if (GeneralUtils.isEmpty(request)) {
@@ -95,10 +158,24 @@ public class IpAddressUtils {
         return ip;
     }
 
+    /**
+     * <code>userIpAddress</code>
+     * <p>the ip address method.</p>
+     * @return {@link java.lang.String} <p>the ip address return object is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
     public static String userIpAddress() {
         return userIpAddress(getHttpServletRequest());
     }
 
+    /**
+     * <code>userIpAddress</code>
+     * <p>the ip address method.</p>
+     * @param request {@link javax.servlet.http.HttpServletRequest} <p>the request parameter is <code>HttpServletRequest</code> type.</p>
+     * @return {@link java.lang.String} <p>the ip address return object is <code>String</code> type.</p>
+     * @see javax.servlet.http.HttpServletRequest
+     * @see java.lang.String
+     */
     public static String userIpAddress(HttpServletRequest request) {
         if (GeneralUtils.isEmpty(request)) {
             return UtilConstants.LOCALHOST_IPV4;
@@ -124,6 +201,15 @@ public class IpAddressUtils {
         return ip;
     }
 
+    /**
+     * <code>baseIpAddress</code>
+     * <p>the ip address method.</p>
+     * @param request {@link javax.servlet.http.HttpServletRequest} <p>the request parameter is <code>HttpServletRequest</code> type.</p>
+     * @return {@link java.lang.String} <p>the ip address return object is <code>String</code> type.</p>
+     * @see javax.servlet.http.HttpServletRequest
+     * @see java.lang.String
+     * @see java.lang.SuppressWarnings
+     */
     @SuppressWarnings("Duplicates")
     public static String baseIpAddress(HttpServletRequest request) {
         String ip;

@@ -9,12 +9,21 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * <p>RestInterceptHolder</p>
+ * <code>RestInterceptHolder</code>
+ * <p>The type rest intercept holder class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @version v1.0.0
+ * @since Jdk1.8
  */
 public class RestInterceptHolder {
 
+    /**
+     * <code>getRequestParam</code>
+     * <p>the request param getter method.</p>
+     * @param request {@link javax.servlet.http.HttpServletRequest} <p>the request parameter is <code>HttpServletRequest</code> type.</p>
+     * @return {@link java.lang.String} <p>the request param return object is <code>String</code> type.</p>
+     * @see javax.servlet.http.HttpServletRequest
+     * @see java.lang.String
+     */
     public static String getRequestParam(HttpServletRequest request) {
         Map<String, String[]> parameterMap = request.getParameterMap();
         Map<String, Object> requestMap = new HashMap<>();
@@ -24,6 +33,16 @@ public class RestInterceptHolder {
         return JsonUtils.parseJson(requestMap);
     }
 
+    /**
+     * <code>getRequestBody</code>
+     * <p>the request body getter method.</p>
+     * @param request {@link javax.servlet.http.HttpServletRequest} <p>the request parameter is <code>HttpServletRequest</code> type.</p>
+     * @return {@link java.lang.String} <p>the request body return object is <code>String</code> type.</p>
+     * @throws IOException {@link java.io.IOException} <p>the io exception is <code>IOException</code> type.</p>
+     * @see javax.servlet.http.HttpServletRequest
+     * @see java.lang.String
+     * @see java.io.IOException
+     */
     public static String getRequestBody(HttpServletRequest request) throws IOException {
         StringBuilder stringBuilder = new StringBuilder();
         BufferedReader bufferedReader = request.getReader();
