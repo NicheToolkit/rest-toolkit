@@ -6,29 +6,29 @@ import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
 
 /**
- * <code>RestBodyAdvice</code>
- * <p>The type rest body advice interface.</p>
+ * <code>RestResponseAdvice</code>
+ * <p>The type rest response advice interface.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
-public interface RestBodyAdvice {
+public interface RestResponseAdvice {
 
     /**
      * <code>supports</code>
      * <p>the method.</p>
      * @param params {@link org.springframework.core.MethodParameter} <p>the params parameter is <code>MethodParameter</code> type.</p>
      * @param clazz  {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @return {@link boolean} <p>the return object is <code>boolean</code> type.</p>
+     * @return boolean <p>the return object is <code>boolean</code> type.</p>
      * @see org.springframework.core.MethodParameter
      * @see java.lang.Class
      */
-    default boolean supports(MethodParameter params, Class clazz) {
+    default boolean supports(MethodParameter params, Class<?> clazz) {
         return true;
     }
 
     /**
-     * <code>doRestBodyHandle</code>
-     * <p>the rest body handle method.</p>
+     * <code>doResponseBodyHandle</code>
+     * <p>the response body handle method.</p>
      * @param resultBody {@link java.lang.Object} <p>the result body parameter is <code>Object</code> type.</p>
      * @param params     {@link org.springframework.core.MethodParameter} <p>the params parameter is <code>MethodParameter</code> type.</p>
      * @param mediaType  {@link org.springframework.http.MediaType} <p>the media type parameter is <code>MediaType</code> type.</p>
@@ -42,7 +42,7 @@ public interface RestBodyAdvice {
      * @see org.springframework.http.server.ServerHttpRequest
      * @see org.springframework.http.server.ServerHttpResponse
      */
-    default void doRestBodyHandle(Object resultBody, MethodParameter params, MediaType mediaType, Class clazz, ServerHttpRequest request, ServerHttpResponse response)  {
+    default void doResponseBodyHandle(Object resultBody, MethodParameter params, MediaType mediaType, Class<?> clazz, ServerHttpRequest request, ServerHttpResponse response)  {
     }
 
 }

@@ -30,10 +30,20 @@ public class DefaultMessageConverter extends MessageConverter {
      * <code>logbackProperties</code>
      * {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>the <code>logbackProperties</code> field.</p>
      * @see io.github.nichetoolkit.rest.configure.RestLogbackProperties
+     */
+    protected final RestLogbackProperties logbackProperties;
+
+    /**
+     * <code>DefaultMessageConverter</code>
+     * Instantiates a new default message converter.
+     * @param logbackProperties {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>the logback properties parameter is <code>RestLogbackProperties</code> type.</p>
+     * @see io.github.nichetoolkit.rest.configure.RestLogbackProperties
      * @see org.springframework.beans.factory.annotation.Autowired
      */
     @Autowired
-    protected RestLogbackProperties logbackProperties;
+    public DefaultMessageConverter(RestLogbackProperties logbackProperties) {
+        this.logbackProperties = logbackProperties;
+    }
 
     @Override
     public String convert(ILoggingEvent event) {

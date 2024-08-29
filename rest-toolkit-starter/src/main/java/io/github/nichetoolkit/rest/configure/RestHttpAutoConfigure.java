@@ -4,7 +4,7 @@ import io.github.nichetoolkit.rest.error.network.HttpConfigError;
 import io.github.nichetoolkit.rest.http.HttpThreadFactory;
 import io.github.nichetoolkit.rest.http.RestTemplates;
 import io.github.nichetoolkit.rest.http.config.HttpClientType;
-import io.github.nichetoolkit.rest.interceptor.RestHttpInterceptor;
+import io.github.nichetoolkit.rest.interceptor.DefaultClientHttpInterceptor;
 import io.github.nichetoolkit.rest.util.ContextUtils;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import io.github.nichetoolkit.rest.util.JsonUtils;
@@ -78,38 +78,23 @@ import java.util.concurrent.TimeUnit;
 @ConditionalOnProperty(value = "nichetoolkit.rest.http.enabled", havingValue = "true", matchIfMissing = true)
 public class RestHttpAutoConfigure {
 
-    /**
-     * <code>interceptProperties</code>
-     * {@link io.github.nichetoolkit.rest.configure.RestInterceptProperties} <p>the <code>interceptProperties</code> field.</p>
-     * @see io.github.nichetoolkit.rest.configure.RestInterceptProperties
-     */
     private final RestInterceptProperties interceptProperties;
-    /**
-     * <code>httpInterceptor</code>
-     * {@link io.github.nichetoolkit.rest.interceptor.RestHttpInterceptor} <p>the <code>httpInterceptor</code> field.</p>
-     * @see io.github.nichetoolkit.rest.interceptor.RestHttpInterceptor
-     */
-    private final RestHttpInterceptor httpInterceptor;
-    /**
-     * <code>httpProperties</code>
-     * {@link io.github.nichetoolkit.rest.configure.RestHttpProperties} <p>the <code>httpProperties</code> field.</p>
-     * @see io.github.nichetoolkit.rest.configure.RestHttpProperties
-     */
+    private final DefaultClientHttpInterceptor httpInterceptor;
     private final RestHttpProperties httpProperties;
 
     /**
      * <code>RestHttpAutoConfigure</code>
      * Instantiates a new rest http auto configure.
      * @param httpProperties      {@link io.github.nichetoolkit.rest.configure.RestHttpProperties} <p>the http properties parameter is <code>RestHttpProperties</code> type.</p>
-     * @param httpInterceptor     {@link io.github.nichetoolkit.rest.interceptor.RestHttpInterceptor} <p>the http interceptor parameter is <code>RestHttpInterceptor</code> type.</p>
+     * @param httpInterceptor     {@link io.github.nichetoolkit.rest.interceptor.DefaultClientHttpInterceptor} <p>the http interceptor parameter is <code>DefaultClientHttpInterceptor</code> type.</p>
      * @param interceptProperties {@link io.github.nichetoolkit.rest.configure.RestInterceptProperties} <p>the intercept properties parameter is <code>RestInterceptProperties</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestHttpProperties
-     * @see io.github.nichetoolkit.rest.interceptor.RestHttpInterceptor
+     * @see io.github.nichetoolkit.rest.interceptor.DefaultClientHttpInterceptor
      * @see io.github.nichetoolkit.rest.configure.RestInterceptProperties
      * @see org.springframework.beans.factory.annotation.Autowired
      */
     @Autowired
-    public RestHttpAutoConfigure(RestHttpProperties httpProperties,RestHttpInterceptor httpInterceptor,RestInterceptProperties interceptProperties) {
+    public RestHttpAutoConfigure(RestHttpProperties httpProperties, DefaultClientHttpInterceptor httpInterceptor, RestInterceptProperties interceptProperties) {
         log.debug("================= http-auto-config initiated ！ ===================");
         this.httpProperties = httpProperties;
         this.httpInterceptor = httpInterceptor;
@@ -479,12 +464,6 @@ public class RestHttpAutoConfigure {
         }
     }
 
-    /**
-     * <code>getDefaultHeaders</code>
-     * <p>the default headers getter method.</p>
-     * @return {@link java.util.List} <p>the default headers return object is <code>List</code> type.</p>
-     * @see java.util.List
-     */
     private List<Header> getDefaultHeaders() {
         List<Header> headers = new ArrayList<>();
         headers.add(new BasicHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.16 Safari/537.36"));
@@ -494,14 +473,6 @@ public class RestHttpAutoConfigure {
         return headers;
     }
 
-    /**
-     * <code>createRestTemplate</code>
-     * <p>the rest template method.</p>
-     * @param factory {@link org.springframework.http.client.ClientHttpRequestFactory} <p>the factory parameter is <code>ClientHttpRequestFactory</code> type.</p>
-     * @return {@link org.springframework.web.client.RestTemplate} <p>the rest template return object is <code>RestTemplate</code> type.</p>
-     * @see org.springframework.http.client.ClientHttpRequestFactory
-     * @see org.springframework.web.client.RestTemplate
-     */
     private RestTemplate createRestTemplate(ClientHttpRequestFactory factory) {
         RestTemplate restTemplate = new RestTemplate(new BufferingClientHttpRequestFactory(factory));
         if (interceptProperties.getEnabled()) {
@@ -516,12 +487,6 @@ public class RestHttpAutoConfigure {
     }
 
 
-    /**
-     * <code>modifyDefaultCharset</code>
-     * <p>the default charset method.</p>
-     * @param restTemplate {@link org.springframework.web.client.RestTemplate} <p>the rest template parameter is <code>RestTemplate</code> type.</p>
-     * @see org.springframework.web.client.RestTemplate
-     */
     private void modifyDefaultCharset(RestTemplate restTemplate) {
         List<HttpMessageConverter<?>> messageConverters = restTemplate.getMessageConverters();
         HttpMessageConverter<?> converterTarget = null;

@@ -22,11 +22,6 @@ class IdentityWorkerTime implements SupplierActuator {
      * @see java.lang.Long
      */
     public static final Long EPOCH = 1288834974657L;
-    /**
-     * <code>time</code>
-     * {@link java.lang.Long} <p>the <code>time</code> field.</p>
-     * @see java.lang.Long
-     */
     private Long time;
 
     /**

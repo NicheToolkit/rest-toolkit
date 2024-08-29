@@ -25,100 +25,28 @@ import java.util.Map;
 @Component
 @ConfigurationProperties(prefix = "nichetoolkit.rest.http")
 public class RestHttpProperties {
-    /**
-     * <code>enabled</code>
-     * {@link java.lang.Boolean} <p>the <code>enabled</code> field.</p>
-     * @see java.lang.Boolean
-     */
     private Boolean enabled = false;
 
-    /**
-     * <code>connectTimeout</code>
-     * {@link java.lang.Integer} <p>the <code>connectTimeout</code> field.</p>
-     * @see java.lang.Integer
-     */
     private Integer connectTimeout = 2000;
-    /**
-     * <code>readTimeout</code>
-     * {@link java.lang.Integer} <p>the <code>readTimeout</code> field.</p>
-     * @see java.lang.Integer
-     */
     private Integer readTimeout = 30000;
-    /**
-     * <code>requestTimeout</code>
-     * {@link java.lang.Integer} <p>the <code>requestTimeout</code> field.</p>
-     * @see java.lang.Integer
-     */
     private Integer requestTimeout= 200;
 
-    /**
-     * <code>maxCoreSize</code>
-     * {@link java.lang.Integer} <p>the <code>maxCoreSize</code> field.</p>
-     * @see java.lang.Integer
-     */
     private Integer maxCoreSize = 5;
-    /**
-     * <code>maxIdleSize</code>
-     * {@link java.lang.Integer} <p>the <code>maxIdleSize</code> field.</p>
-     * @see java.lang.Integer
-     */
     private Integer maxIdleSize = 10;
 
-    /**
-     * <code>httpType</code>
-     * {@link io.github.nichetoolkit.rest.http.config.HttpClientType} <p>the <code>httpType</code> field.</p>
-     * @see io.github.nichetoolkit.rest.http.config.HttpClientType
-     */
     private HttpClientType httpType = HttpClientType.DEFAULT;
 
-    /**
-     * <code>charset</code>
-     * {@link java.nio.charset.Charset} <p>the <code>charset</code> field.</p>
-     * @see java.nio.charset.Charset
-     */
     private Charset charset = StandardCharsets.UTF_8;
 
-    /**
-     * <code>encodingMode</code>
-     * {@link org.springframework.web.util.DefaultUriBuilderFactory.EncodingMode} <p>the <code>encodingMode</code> field.</p>
-     * @see org.springframework.web.util.DefaultUriBuilderFactory.EncodingMode
-     */
     private DefaultUriBuilderFactory.EncodingMode encodingMode = DefaultUriBuilderFactory.EncodingMode.NONE;
 
-    /**
-     * <code>retryTimes</code>
-     * {@link java.lang.Integer} <p>the <code>retryTimes</code> field.</p>
-     * @see java.lang.Integer
-     */
     private Integer retryTimes = 0;
 
-    /**
-     * <code>keepAliveHosts</code>
-     * {@link java.util.Map} <p>the <code>keepAliveHosts</code> field.</p>
-     * @see java.util.Map
-     */
     private Map<String,Integer> keepAliveHosts;
 
-    /**
-     * <code>keepAliveTime</code>
-     * {@link java.lang.Long} <p>the <code>keepAliveTime</code> field.</p>
-     * @see java.lang.Long
-     */
     private Long keepAliveTime = 600000L;
 
-    /**
-     * <code>proxy</code>
-     * {@link io.github.nichetoolkit.rest.http.config.ProxyConfig} <p>the <code>proxy</code> field.</p>
-     * @see io.github.nichetoolkit.rest.http.config.ProxyConfig
-     * @see org.springframework.boot.context.properties.NestedConfigurationProperty
-     */
     @NestedConfigurationProperty
     private ProxyConfig proxy = new ProxyConfig();
 
-    /**
-     * <code>RestHttpProperties</code>
-     * Instantiates a new rest http properties.
-     */
-    public RestHttpProperties() {
-    }
 }

@@ -12,15 +12,15 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 
 /**
- * <code>RestThreadPoolTaskExecutor</code>
- * <p>The type rest thread pool task executor class.</p>
+ * <code>DefaultThreadPoolTaskExecutor</code>
+ * <p>The type default thread pool task executor class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor
  * @see lombok.extern.slf4j.Slf4j
  * @since Jdk1.8
  */
 @Slf4j
-public class RestThreadPoolTaskExecutor extends ThreadPoolTaskExecutor {
+public class DefaultThreadPoolTaskExecutor extends ThreadPoolTaskExecutor {
     @Override
     public void execute(@NonNull Runnable runnable) {
         Map<String, String> context = MDC.getCopyOfContextMap();

@@ -27,9 +27,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * <p>RestTestController</p>
+ * <code>RestTestController</code>
+ * <p>The type rest test controller class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @version v1.0.0
+ * @see lombok.extern.slf4j.Slf4j
+ * @see io.github.nichetoolkit.rest.userlog.stereotype.RestNotelog
+ * @see org.springframework.web.bind.annotation.RestController
+ * @see java.lang.SuppressWarnings
+ * @see org.springframework.web.bind.annotation.RequestMapping
+ * @since Jdk1.8
  */
 @Slf4j
 @RestNotelog
@@ -47,6 +53,15 @@ public class RestTestController {
     @Autowired
     private JwtWorker jwtWorker;
 
+    /**
+     * <code>test</code>
+     * <p>the method.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>the return object is <code>ResponseEntity</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see org.springframework.http.ResponseEntity
+     * @see org.springframework.web.bind.annotation.GetMapping
+     * @see io.github.nichetoolkit.rest.RestException
+     */
     @GetMapping("/test")
     public ResponseEntity<RestResult> test() throws RestException {
         Object test = null;
@@ -54,6 +69,15 @@ public class RestTestController {
         return RestResult.ok("11111");
     }
 
+    /**
+     * <code>generalIdentity</code>
+     * <p>the identity method.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>the identity return object is <code>ResponseEntity</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see org.springframework.http.ResponseEntity
+     * @see org.springframework.web.bind.annotation.GetMapping
+     * @see io.github.nichetoolkit.rest.RestException
+     */
     @GetMapping("/identity")
     public ResponseEntity<RestResult<String>> generalIdentity() throws RestException {
 //        Long identity = IdentityUtils.generateLong();
@@ -61,6 +85,15 @@ public class RestTestController {
         return RestResult.ok(RestErrorStatus.SUCCESS, identity);
     }
 
+    /**
+     * <code>generalUuid</code>
+     * <p>the uuid method.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>the uuid return object is <code>ResponseEntity</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see org.springframework.http.ResponseEntity
+     * @see org.springframework.web.bind.annotation.GetMapping
+     * @see io.github.nichetoolkit.rest.RestException
+     */
     @GetMapping("/uuid")
     public ResponseEntity<RestResult<String>> generalUuid() throws RestException {
 //        String uuid = UUID.randomUUID().toString().replaceAll("-", "");
@@ -68,6 +101,15 @@ public class RestTestController {
         return RestResult.ok(RestErrorStatus.SUCCESS, uuid);
     }
 
+    /**
+     * <code>generalImage</code>
+     * <p>the image method.</p>
+     * @param response {@link javax.servlet.http.HttpServletResponse} <p>the response parameter is <code>HttpServletResponse</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see javax.servlet.http.HttpServletResponse
+     * @see org.springframework.web.bind.annotation.GetMapping
+     * @see io.github.nichetoolkit.rest.RestException
+     */
     @GetMapping("/image")
     public void generalImage(HttpServletResponse response) throws RestException {
         ImageVerify imageVerify = ImageUtils.randoms();
@@ -80,6 +122,15 @@ public class RestTestController {
         }
     }
 
+    /**
+     * <code>generalRadix</code>
+     * <p>the radix method.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>the radix return object is <code>ResponseEntity</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see org.springframework.http.ResponseEntity
+     * @see org.springframework.web.bind.annotation.GetMapping
+     * @see io.github.nichetoolkit.rest.RestException
+     */
     @GetMapping("/radix")
     public ResponseEntity<RestResult<Map<String, Object>>> generalRadix() throws RestException {
         Long subject = IdentityUtils.generateLong();
@@ -92,6 +143,15 @@ public class RestTestController {
         return RestResult.ok(RestErrorStatus.SUCCESS, result);
     }
 
+    /**
+     * <code>generalSha</code>
+     * <p>the sha method.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>the sha return object is <code>ResponseEntity</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see org.springframework.http.ResponseEntity
+     * @see org.springframework.web.bind.annotation.GetMapping
+     * @see io.github.nichetoolkit.rest.RestException
+     */
     @GetMapping("/sha")
     public ResponseEntity<RestResult<Map<String, Object>>> generalSha() throws RestException {
         String password = GeneralUtils.uuid();
@@ -103,6 +163,15 @@ public class RestTestController {
         return RestResult.ok(RestErrorStatus.SUCCESS, result);
     }
 
+    /**
+     * <code>generalJwt</code>
+     * <p>the jwt method.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>the jwt return object is <code>ResponseEntity</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see org.springframework.http.ResponseEntity
+     * @see org.springframework.web.bind.annotation.GetMapping
+     * @see io.github.nichetoolkit.rest.RestException
+     */
     @GetMapping("/jwt")
     public ResponseEntity<RestResult<Map<String, Object>>> generalJwt() throws RestException {
         String uniqueId = GeneralUtils.uuid();

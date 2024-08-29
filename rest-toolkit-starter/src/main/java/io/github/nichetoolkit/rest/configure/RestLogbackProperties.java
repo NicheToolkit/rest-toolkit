@@ -5,7 +5,6 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -24,54 +23,17 @@ import java.util.List;
 @ConfigurationProperties(prefix = "nichetoolkit.rest.logback")
 public class RestLogbackProperties {
 
-    /**
-     * <code>enabled</code>
-     * {@link java.lang.Boolean} <p>the <code>enabled</code> field.</p>
-     * @see java.lang.Boolean
-     */
     private Boolean enabled = true;
 
-    /**
-     * <code>logKey</code>
-     * {@link java.lang.String} <p>the <code>logKey</code> field.</p>
-     * @see java.lang.String
-     */
-    private String logKey ="logKey";
+    private String loggingKey ="loggingKey";
 
-    /**
-     * <code>attributes</code>
-     * {@link java.lang.String} <p>the <code>attributes</code> field.</p>
-     * @see java.lang.String
-     */
     private String[] attributes = {"t"};
 
-    /**
-     * <code>requestKey</code>
-     * {@link java.lang.String} <p>the <code>requestKey</code> field.</p>
-     * @see java.lang.String
-     */
     private String requestKey = "requestKey";
 
-    /**
-     * <code>headerKey</code>
-     * {@link java.lang.String} <p>the <code>headerKey</code> field.</p>
-     * @see java.lang.String
-     */
     private String headerKey = "X-Request-ID";
 
-    /**
-     * <code>argumentLength</code>
-     * {@link java.lang.Integer} <p>the <code>argumentLength</code> field.</p>
-     * @see java.lang.Integer
-     */
     private Integer argumentLength = 1024;
-
-    /**
-     * <code>RestLogbackProperties</code>
-     * Instantiates a new rest logback properties.
-     */
-    public RestLogbackProperties() {
-    }
 
     /**
      * <code>getAttributes</code>

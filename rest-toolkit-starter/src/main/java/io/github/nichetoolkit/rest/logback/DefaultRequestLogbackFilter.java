@@ -1,8 +1,8 @@
 package io.github.nichetoolkit.rest.logback;
 
-import io.github.nichetoolkit.rest.RestLogKey;
+import io.github.nichetoolkit.rest.RestLoggingKeyAdvice;
 import io.github.nichetoolkit.rest.configure.RestLogbackProperties;
-import io.github.nichetoolkit.rest.interceptor.RestRequestWrapper;
+import io.github.nichetoolkit.rest.HttpRequestWrapper;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
@@ -33,18 +33,8 @@ import java.io.IOException;
 @Component
 @Order(value = Ordered.HIGHEST_PRECEDENCE + 100)
 public class DefaultRequestLogbackFilter extends OncePerRequestFilter {
-    /**
-     * <code>logbackProperties</code>
-     * {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>the <code>logbackProperties</code> field.</p>
-     * @see io.github.nichetoolkit.rest.configure.RestLogbackProperties
-     */
     private final RestLogbackProperties logbackProperties;
-    /**
-     * <code>restLogKey</code>
-     * {@link io.github.nichetoolkit.rest.RestLogKey} <p>the <code>restLogKey</code> field.</p>
-     * @see io.github.nichetoolkit.rest.RestLogKey
-     */
-    private RestLogKey restLogKey;
+    private RestLoggingKeyAdvice loggingKeyAdvice;
 
     /**
      * <code>DefaultRequestLogbackFilter</code>
@@ -62,33 +52,33 @@ public class DefaultRequestLogbackFilter extends OncePerRequestFilter {
      * <code>DefaultRequestLogbackFilter</code>
      * Instantiates a new default request logback filter.
      * @param logbackProperties {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>the logback properties parameter is <code>RestLogbackProperties</code> type.</p>
-     * @param restLogKey        {@link io.github.nichetoolkit.rest.RestLogKey} <p>the rest log key parameter is <code>RestLogKey</code> type.</p>
+     * @param loggingKeyAdvice  {@link io.github.nichetoolkit.rest.RestLoggingKeyAdvice} <p>the logging key advice parameter is <code>RestLoggingKeyAdvice</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestLogbackProperties
-     * @see io.github.nichetoolkit.rest.RestLogKey
+     * @see io.github.nichetoolkit.rest.RestLoggingKeyAdvice
      * @see org.springframework.beans.factory.annotation.Autowired
      */
     @Autowired(required = false)
-    public DefaultRequestLogbackFilter(RestLogbackProperties logbackProperties, RestLogKey restLogKey) {
+    public DefaultRequestLogbackFilter(RestLogbackProperties logbackProperties, RestLoggingKeyAdvice loggingKeyAdvice) {
         this.logbackProperties = logbackProperties;
-        this.restLogKey = restLogKey;
+        this.loggingKeyAdvice = loggingKeyAdvice;
     }
 
     @Override
     protected void doFilterInternal(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull FilterChain filterChain) throws ServletException, IOException {
-        RestRequestWrapper requestWrapper = new RestRequestWrapper(request);
+        HttpRequestWrapper requestWrapper = new HttpRequestWrapper(request);
         if (logbackProperties.getEnabled()) {
-            String logPrefixKey = logbackProperties.getLogKey();
-            String logKey = null;
-            if(GeneralUtils.isNotEmpty(restLogKey)) {
-                logKey = restLogKey.logKey(requestWrapper);
+            String logPrefixKey = logbackProperties.getLoggingKey();
+            String loggingKey = null;
+            if(GeneralUtils.isNotEmpty(loggingKeyAdvice)) {
+                loggingKey = loggingKeyAdvice.doLoggingKeyHandle(requestWrapper);
             }
-            if (GeneralUtils.isEmpty(logKey)) {
-                logKey = requestWrapper.getSession().getId();
+            if (GeneralUtils.isEmpty(loggingKey)) {
+                loggingKey = requestWrapper.getSession().getId();
             }
-            if (GeneralUtils.isNotEmpty(logKey)) {
-                logKey = "[".concat(logKey).concat("]");
-                MDC.put(logPrefixKey, logKey);
-                request.setAttribute(logPrefixKey, logKey);
+            if (GeneralUtils.isNotEmpty(loggingKey)) {
+                loggingKey = "[".concat(loggingKey).concat("]");
+                MDC.put(logPrefixKey, loggingKey);
+                request.setAttribute(logPrefixKey, loggingKey);
             }
             String requestId = getRequestId(requestWrapper);
             log.info("request id: {}, request uri: {}", requestId, request.getRequestURI());
@@ -104,15 +94,7 @@ public class DefaultRequestLogbackFilter extends OncePerRequestFilter {
         }
     }
 
-    /**
-     * <code>getRequestId</code>
-     * <p>the request id getter method.</p>
-     * @param requestWrapper {@link io.github.nichetoolkit.rest.interceptor.RestRequestWrapper} <p>the request wrapper parameter is <code>RestRequestWrapper</code> type.</p>
-     * @return {@link java.lang.String} <p>the request id return object is <code>String</code> type.</p>
-     * @see io.github.nichetoolkit.rest.interceptor.RestRequestWrapper
-     * @see java.lang.String
-     */
-    private String getRequestId(RestRequestWrapper requestWrapper) {
+    private String getRequestId(HttpRequestWrapper requestWrapper) {
         String requestId = requestWrapper.getHeader(logbackProperties.getHeaderKey());
         if (GeneralUtils.isEmpty(requestId)) {
             requestId = GeneralUtils.uuid();

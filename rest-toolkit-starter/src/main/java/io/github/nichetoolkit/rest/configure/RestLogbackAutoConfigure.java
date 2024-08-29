@@ -1,8 +1,9 @@
 package io.github.nichetoolkit.rest.configure;
 
 
-import io.github.nichetoolkit.rest.RestLogKey;
-import io.github.nichetoolkit.rest.logback.DefaultLogKeyGenerator;
+import io.github.nichetoolkit.rest.HttpRequestWrapper;
+import io.github.nichetoolkit.rest.RestLoggingKeyAdvice;
+import io.github.nichetoolkit.rest.RestLoggingKeyGenerator;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
@@ -10,7 +11,6 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
 
 /**
  * <code>RestLogbackAutoConfigure</code>
@@ -30,11 +30,6 @@ import org.springframework.context.annotation.Configuration;
 @ConditionalOnProperty(value = "nichetoolkit.rest.logback.enabled", havingValue = "true", matchIfMissing = true)
 public class RestLogbackAutoConfigure {
 
-    /**
-     * <code>logbackProperties</code>
-     * {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>the <code>logbackProperties</code> field.</p>
-     * @see io.github.nichetoolkit.rest.configure.RestLogbackProperties
-     */
     private final RestLogbackProperties logbackProperties;
 
     /**
@@ -42,23 +37,30 @@ public class RestLogbackAutoConfigure {
      * Instantiates a new rest logback auto configure.
      * @param logbackProperties {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>the logback properties parameter is <code>RestLogbackProperties</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestLogbackProperties
+     * @see org.springframework.beans.factory.annotation.Autowired
      */
+    @Autowired
     public RestLogbackAutoConfigure(RestLogbackProperties logbackProperties) {
         this.logbackProperties = logbackProperties;
     }
 
     /**
-     * <code>restLogKey</code>
-     * <p>the log key method.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestLogKey} <p>the log key return object is <code>RestLogKey</code> type.</p>
-     * @see io.github.nichetoolkit.rest.RestLogKey
+     * <code>loggingKeyGenerator</code>
+     * <p>the key generator method.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestLoggingKeyAdvice} <p>the key generator return object is <code>RestLoggingKeyAdvice</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestLoggingKeyAdvice
      * @see org.springframework.context.annotation.Bean
      * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
      */
     @Bean
-    @ConditionalOnMissingBean(RestLogKey.class)
-    public RestLogKey restLogKey() {
-        return new DefaultLogKeyGenerator(logbackProperties);
+    @ConditionalOnMissingBean(RestLoggingKeyAdvice.class)
+    public RestLoggingKeyAdvice loggingKeyGenerator() {
+        return new RestLoggingKeyGenerator(logbackProperties) {
+            @Override
+            public String doAccessTokenHandle(HttpRequestWrapper requestWrapper) {
+                return null;
+            }
+        };
     }
 
 

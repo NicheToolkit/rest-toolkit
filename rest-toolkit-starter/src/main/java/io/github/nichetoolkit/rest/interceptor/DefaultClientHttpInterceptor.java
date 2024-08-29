@@ -25,8 +25,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 /**
- * <code>RestHttpInterceptor</code>
- * <p>The type rest http interceptor class.</p>
+ * <code>DefaultClientHttpInterceptor</code>
+ * <p>The type default client http interceptor class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see org.springframework.http.client.ClientHttpRequestInterceptor
  * @see lombok.extern.slf4j.Slf4j
@@ -37,15 +37,20 @@ import java.util.Map;
 @Slf4j
 @Component
 @SuppressWarnings("SameNameButDifferent")
-public class RestHttpInterceptor implements ClientHttpRequestInterceptor {
+public class DefaultClientHttpInterceptor implements ClientHttpRequestInterceptor {
+    private final RestInterceptProperties interceptProperties;
+
     /**
-     * <code>interceptProperties</code>
-     * {@link io.github.nichetoolkit.rest.configure.RestInterceptProperties} <p>the <code>interceptProperties</code> field.</p>
+     * <code>DefaultClientHttpInterceptor</code>
+     * Instantiates a new default client http interceptor.
+     * @param interceptProperties {@link io.github.nichetoolkit.rest.configure.RestInterceptProperties} <p>the intercept properties parameter is <code>RestInterceptProperties</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestInterceptProperties
      * @see org.springframework.beans.factory.annotation.Autowired
      */
     @Autowired
-    private RestInterceptProperties interceptProperties;
+    public DefaultClientHttpInterceptor(RestInterceptProperties interceptProperties) {
+        this.interceptProperties = interceptProperties;
+    }
 
     @Override
     @NonNull

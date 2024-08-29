@@ -44,27 +44,9 @@ public enum IdentityErrorStatus implements RestStatus {
      */
     IDENTITY_WORKER_UNAVAILABLE(10535,"IdentityWorker不可用"),
     ;
-    /**
-     * <code>status</code>
-     * {@link java.lang.Integer} <p>the <code>status</code> field.</p>
-     * @see java.lang.Integer
-     */
     private final Integer status;
-    /**
-     * <code>message</code>
-     * {@link java.lang.String} <p>the <code>message</code> field.</p>
-     * @see java.lang.String
-     */
     private final String message;
 
-    /**
-     * <code>IdentityErrorStatus</code>
-     * Instantiates a new identity error status.
-     * @param status  {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @see java.lang.Integer
-     * @see java.lang.String
-     */
     IdentityErrorStatus(Integer status, String message) {
         this.status = status;
         this.message = message;

@@ -31,24 +31,10 @@ import javax.annotation.PostConstruct;
 @SuppressWarnings("SameNameButDifferent")
 public class IdentityManager implements ApplicationRunner {
 
-    /**
-     * <code>identityProperties</code>
-     * {@link io.github.nichetoolkit.rest.configure.RestIdentityProperties} <p>the <code>identityProperties</code> field.</p>
-     * @see io.github.nichetoolkit.rest.configure.RestIdentityProperties
-     */
     private final RestIdentityProperties identityProperties;
 
-    /**
-     * <code>environment</code>
-     * {@link org.springframework.core.env.Environment} <p>the <code>environment</code> field.</p>
-     * @see org.springframework.core.env.Environment
-     */
     private final Environment environment;
 
-    /**
-     * <code>INSTANCE</code>
-     * {@link io.github.nichetoolkit.rest.identity.IdentityManager} <p>the constant <code>INSTANCE</code> field.</p>
-     */
     private static IdentityManager INSTANCE = null;
 
     /**

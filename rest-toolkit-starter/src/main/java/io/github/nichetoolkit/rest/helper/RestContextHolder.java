@@ -22,35 +22,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class RestContextHolder implements InitializingBean {
 
-    /**
-     * <code>INSTANCE</code>
-     * {@link io.github.nichetoolkit.rest.helper.RestContextHolder} <p>the constant <code>INSTANCE</code> field.</p>
-     */
     private static RestContextHolder INSTANCE = null;
 
-    /**
-     * <code>applicationContext</code>
-     * {@link org.springframework.context.ApplicationContext} <p>the <code>applicationContext</code> field.</p>
-     * @see org.springframework.context.ApplicationContext
-     */
     private final ApplicationContext applicationContext;
-    /**
-     * <code>httpProperties</code>
-     * {@link io.github.nichetoolkit.rest.configure.RestHttpProperties} <p>the <code>httpProperties</code> field.</p>
-     * @see io.github.nichetoolkit.rest.configure.RestHttpProperties
-     */
     private final RestHttpProperties httpProperties;
-    /**
-     * <code>identityProperties</code>
-     * {@link io.github.nichetoolkit.rest.configure.RestIdentityProperties} <p>the <code>identityProperties</code> field.</p>
-     * @see io.github.nichetoolkit.rest.configure.RestIdentityProperties
-     */
     private final RestIdentityProperties identityProperties;
-    /**
-     * <code>interceptProperties</code>
-     * {@link io.github.nichetoolkit.rest.configure.RestInterceptProperties} <p>the <code>interceptProperties</code> field.</p>
-     * @see io.github.nichetoolkit.rest.configure.RestInterceptProperties
-     */
     private final RestInterceptProperties interceptProperties;
 
     /**

@@ -9,12 +9,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * <code>RestInterceptHolder</code>
- * <p>The type rest intercept holder class.</p>
+ * <code>RestRequestInterceptHolder</code>
+ * <p>The type rest request intercept holder class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
-public class RestInterceptHolder {
+public class RestRequestInterceptHolder {
 
     /**
      * <code>getRequestParam</code>

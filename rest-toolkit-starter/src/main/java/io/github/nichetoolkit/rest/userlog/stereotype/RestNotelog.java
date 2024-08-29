@@ -14,12 +14,12 @@ import java.lang.annotation.Target;
  * @see java.lang.annotation.Annotation
  * @see java.lang.annotation.Target
  * @see java.lang.annotation.Retention
- * @see io.github.nichetoolkit.rest.userlog.stereotype.RestLog
+ * @see io.github.nichetoolkit.rest.userlog.stereotype.RestLogging
  * @since Jdk1.8
  */
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-@RestLog
+@RestLogging
 public @interface RestNotelog {
     /**
      * <code>value</code>
@@ -40,9 +40,9 @@ public @interface RestNotelog {
     String notelog() default "";
 
     /**
-     * <code>logKey</code>
+     * <code>loggingKey</code>
      * <p>the key method.</p>
-     * @return {@link int} <p>the key return object is <code>int</code> type.</p>
+     * @return int <p>the key return object is <code>int</code> type.</p>
      */
-    int logKey() default 0;
+    int loggingKey() default 0;
 }

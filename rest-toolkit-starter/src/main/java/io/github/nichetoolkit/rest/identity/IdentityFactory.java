@@ -23,17 +23,8 @@ import java.security.SecureRandom;
 @SuppressWarnings("SameNameButDifferent")
 public class IdentityFactory {
 
-    /**
-     * <code>properties</code>
-     * {@link io.github.nichetoolkit.rest.configure.RestIdentityProperties} <p>the <code>properties</code> field.</p>
-     * @see io.github.nichetoolkit.rest.configure.RestIdentityProperties
-     */
     private final RestIdentityProperties properties;
 
-    /**
-     * <code>INSTANCE</code>
-     * {@link io.github.nichetoolkit.rest.identity.IdentityFactory} <p>the constant <code>INSTANCE</code> field.</p>
-     */
     private static IdentityFactory INSTANCE = null;
 
     /**

@@ -16,35 +16,10 @@ import java.util.Objects;
 @Slf4j
 @SuppressWarnings("SameNameButDifferent")
 class IdentityWorkerArtificial implements IdentityWorker {
-    /**
-     * <code>name</code>
-     * {@link java.lang.String} <p>the <code>name</code> field.</p>
-     * @see java.lang.String
-     */
     private final String name;
-    /**
-     * <code>lastTime</code>
-     * {@link java.lang.Long} <p>the <code>lastTime</code> field.</p>
-     * @see java.lang.Long
-     */
     private Long lastTime = IdentityWorkerConfig.TIMESTAMP;
-    /**
-     * <code>lastTag</code>
-     * {@link java.lang.Long} <p>the <code>lastTag</code> field.</p>
-     * @see java.lang.Long
-     */
     private Long lastTag = IdentityWorkerConfig.DEFAULT_TAG;
-    /**
-     * <code>sequence</code>
-     * {@link java.lang.Long} <p>the <code>sequence</code> field.</p>
-     * @see java.lang.Long
-     */
     private Long sequence = IdentityWorkerConfig.SEQUENCE;
-    /**
-     * <code>offset</code>
-     * {@link java.lang.Long} <p>the <code>offset</code> field.</p>
-     * @see java.lang.Long
-     */
     private Long offset = IdentityWorkerConfig.OFFSET;
 
     /**

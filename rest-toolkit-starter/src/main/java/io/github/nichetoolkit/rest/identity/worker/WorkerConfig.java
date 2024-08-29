@@ -13,17 +13,7 @@ import java.util.Objects;
  */
 @Data
 public class WorkerConfig {
-    /**
-     * <code>workerId</code>
-     * {@link java.lang.Long} <p>the <code>workerId</code> field.</p>
-     * @see java.lang.Long
-     */
     private Long workerId;
-    /**
-     * <code>centerId</code>
-     * {@link java.lang.Long} <p>the <code>centerId</code> field.</p>
-     * @see java.lang.Long
-     */
     private Long centerId;
 
     /**

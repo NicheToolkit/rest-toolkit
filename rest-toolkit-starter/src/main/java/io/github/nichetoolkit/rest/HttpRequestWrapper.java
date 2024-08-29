@@ -1,4 +1,4 @@
-package io.github.nichetoolkit.rest.interceptor;
+package io.github.nichetoolkit.rest;
 
 
 import io.github.nichetoolkit.rest.util.GeneralUtils;
@@ -20,8 +20,8 @@ import java.lang.annotation.Annotation;
 import java.util.*;
 
 /**
- * <code>RestRequestWrapper</code>
- * <p>The type rest request wrapper class.</p>
+ * <code>HttpRequestWrapper</code>
+ * <p>The type http request wrapper class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see javax.servlet.http.HttpServletRequestWrapper
  * @see java.io.Closeable
@@ -29,82 +29,36 @@ import java.util.*;
  * @since Jdk1.8
  */
 @Slf4j
-public class RestRequestWrapper extends HttpServletRequestWrapper implements Closeable {
+public class HttpRequestWrapper extends HttpServletRequestWrapper implements Closeable {
 
-    /**
-     * <code>REQUEST_ID_KEY</code>
-     * {@link java.lang.String} <p>the constant <code>REQUEST_ID_KEY</code> field.</p>
-     * @see java.lang.String
-     */
     private static final String REQUEST_ID_KEY = "_REQUEST_ID_KEY_";
 
-    /**
-     * <code>HANDLER_METHOD_KEY</code>
-     * {@link java.lang.String} <p>the constant <code>HANDLER_METHOD_KEY</code> field.</p>
-     * @see java.lang.String
-     */
     private static final String HANDLER_METHOD_KEY = "HANDLER_METHOD_KEY";
 
 
-    /**
-     * <code>cacheBody</code>
-     * {@link byte} <p>the <code>cacheBody</code> field.</p>
-     */
     private byte[] cacheBody;
 
-    /**
-     * <code>reader</code>
-     * {@link java.io.BufferedReader} <p>the <code>reader</code> field.</p>
-     * @see java.io.BufferedReader
-     */
     private BufferedReader reader;
 
-    /**
-     * <code>inputStream</code>
-     * {@link javax.servlet.ServletInputStream} <p>the <code>inputStream</code> field.</p>
-     * @see javax.servlet.ServletInputStream
-     */
     private ServletInputStream inputStream;
 
-    /**
-     * <code>paramsJson</code>
-     * {@link java.lang.String} <p>the <code>paramsJson</code> field.</p>
-     * @see java.lang.String
-     */
     private String paramsJson;
 
-    /**
-     * <code>paramsMap</code>
-     * {@link java.util.Map} <p>the <code>paramsMap</code> field.</p>
-     * @see java.util.Map
-     */
     private Map<String, Object> paramsMap;
 
-    /**
-     * <code>handlerMethods</code>
-     * {@link java.util.List} <p>the <code>handlerMethods</code> field.</p>
-     * @see java.util.List
-     * @see lombok.Getter
-     */
     @Getter
     private List<HandlerMethod> handlerMethods;
 
     /**
-     * <code>RestRequestWrapper</code>
-     * Instantiates a new rest request wrapper.
+     * <code>HttpRequestWrapper</code>
+     * Instantiates a new http request wrapper.
      * @param request {@link javax.servlet.http.HttpServletRequest} <p>the request parameter is <code>HttpServletRequest</code> type.</p>
      * @see javax.servlet.http.HttpServletRequest
      */
-    public RestRequestWrapper(HttpServletRequest request) {
+    public HttpRequestWrapper(HttpServletRequest request) {
         super(request);
     }
 
-    /**
-     * <code>cacheBody</code>
-     * <p>the body method.</p>
-     * @param request {@link javax.servlet.ServletRequest} <p>the request parameter is <code>ServletRequest</code> type.</p>
-     * @see javax.servlet.ServletRequest
-     */
     private void cacheBody(ServletRequest request) {
         if (GeneralUtils.isEmpty(this.cacheBody)) {
             try {
@@ -119,7 +73,7 @@ public class RestRequestWrapper extends HttpServletRequestWrapper implements Clo
     /**
      * <code>getCacheBody</code>
      * <p>the cache body method.</p>
-     * @return {@link byte} <p>the cache body return object is <code>byte</code> type.</p>
+     * @return byte <p>the cache body return object is <code>byte</code> type.</p>
      */
     public byte[] getCacheBody() {
         if (cacheBody != null) {
@@ -156,7 +110,7 @@ public class RestRequestWrapper extends HttpServletRequestWrapper implements Clo
     /**
      * <code>getRequestURI</code>
      * <p>the request uri getter method.</p>
-     * @param isNoContext {@link boolean} <p>the is no context parameter is <code>boolean</code> type.</p>
+     * @param isNoContext boolean <p>the is no context parameter is <code>boolean</code> type.</p>
      * @return {@link java.lang.String} <p>the request uri return object is <code>String</code> type.</p>
      * @see java.lang.String
      * @see java.lang.SuppressWarnings
@@ -267,7 +221,7 @@ public class RestRequestWrapper extends HttpServletRequestWrapper implements Clo
      * <p>the method annotation getter method.</p>
      * @param <A>            {@link java.lang.annotation.Annotation} <p>the generic parameter is <code>Annotation</code> type.</p>
      * @param annotationType {@link java.lang.Class} <p>the annotation type parameter is <code>Class</code> type.</p>
-     * @return {@link A} <p>the method annotation return object is <code>A</code> type.</p>
+     * @return A <p>the method annotation return object is <code>A</code> type.</p>
      * @see java.lang.annotation.Annotation
      * @see java.lang.Class
      * @see java.lang.SuppressWarnings
@@ -291,13 +245,6 @@ public class RestRequestWrapper extends HttpServletRequestWrapper implements Clo
         return  null;
     }
 
-    /**
-     * <code>isSupportedJson</code>
-     * <p>the supported json method.</p>
-     * @param value {@link java.lang.String} <p>the value parameter is <code>String</code> type.</p>
-     * @return {@link boolean} <p>the supported json return object is <code>boolean</code> type.</p>
-     * @see java.lang.String
-     */
     private boolean isSupportedJson(String value) {
         if (GeneralUtils.isEmpty(value)) {
             return false;
@@ -307,10 +254,6 @@ public class RestRequestWrapper extends HttpServletRequestWrapper implements Clo
         return value.startsWith("{") || value.startsWith("[");
     }
 
-    /**
-     * <code>cacheMap</code>
-     * <p>the map method.</p>
-     */
     private void cacheMap() {
         if (this.paramsMap != null) {
             return;
@@ -342,26 +285,14 @@ public class RestRequestWrapper extends HttpServletRequestWrapper implements Clo
         }
     }
 
-    /**
-     * <code>RequestCachingInputStream</code>
-     * <p>The type request caching input stream class.</p>
-     * @author Cyan (snow22314@outlook.com)
-     * @see javax.servlet.ServletInputStream
-     * @since Jdk1.8
-     */
     private static class RequestCachingInputStream extends ServletInputStream {
 
-        /**
-         * <code>inputStream</code>
-         * {@link java.io.ByteArrayInputStream} <p>the <code>inputStream</code> field.</p>
-         * @see java.io.ByteArrayInputStream
-         */
         private final ByteArrayInputStream inputStream;
 
         /**
          * <code>RequestCachingInputStream</code>
          * Instantiates a new request caching input stream.
-         * @param bytes {@link byte} <p>the bytes parameter is <code>byte</code> type.</p>
+         * @param bytes byte <p>the bytes parameter is <code>byte</code> type.</p>
          */
         public RequestCachingInputStream(byte[] bytes) {
             inputStream = new ByteArrayInputStream(bytes);

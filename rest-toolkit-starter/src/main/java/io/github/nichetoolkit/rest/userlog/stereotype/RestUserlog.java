@@ -1,6 +1,6 @@
 package io.github.nichetoolkit.rest.userlog.stereotype;
 
-import io.github.nichetoolkit.rest.userlog.LogType;
+import io.github.nichetoolkit.rest.userlog.LoggingType;
 import org.springframework.core.annotation.AliasFor;
 
 import java.lang.annotation.ElementType;
@@ -54,31 +54,31 @@ public @interface RestUserlog {
     String userlog() default "";
 
     /**
-     * <code>logKey</code>
+     * <code>loggingKey</code>
      * <p>the key method.</p>
-     * @return {@link int} <p>the key return object is <code>int</code> type.</p>
+     * @return int <p>the key return object is <code>int</code> type.</p>
      * @see org.springframework.core.annotation.AliasFor
      */
     @AliasFor(
             annotation = io.github.nichetoolkit.rest.userlog.stereotype.RestNotelog.class,
-            attribute = "logKey"
+            attribute = "loggingKey"
     )
-    int logKey() default 0;
+    int loggingKey() default 0;
 
     /**
-     * <code>logValue</code>
+     * <code>loggingValue</code>
      * <p>the value method.</p>
      * @return {@link java.lang.String} <p>the value return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
-    String logValue() default "";
+    String loggingValue() default "";
 
     /**
-     * <code>logType</code>
+     * <code>loggingType</code>
      * <p>the type method.</p>
-     * @return {@link io.github.nichetoolkit.rest.userlog.LogType} <p>the type return object is <code>LogType</code> type.</p>
-     * @see io.github.nichetoolkit.rest.userlog.LogType
+     * @return {@link io.github.nichetoolkit.rest.userlog.LoggingType} <p>the type return object is <code>LoggingType</code> type.</p>
+     * @see io.github.nichetoolkit.rest.userlog.LoggingType
      */
-    LogType logType() default LogType.NONE;
+    LoggingType loggingType() default LoggingType.NONE;
 
 }
