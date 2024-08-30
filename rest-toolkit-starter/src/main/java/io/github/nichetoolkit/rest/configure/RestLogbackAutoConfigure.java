@@ -4,7 +4,6 @@ package io.github.nichetoolkit.rest.configure;
 import ch.qos.logback.classic.pattern.MessageConverter;
 import io.github.nichetoolkit.rest.RestHttpRequest;
 import io.github.nichetoolkit.rest.RestLoggingKey;
-import io.github.nichetoolkit.rest.RestLoggingKeyAdvice;
 import io.github.nichetoolkit.rest.RestLoggingKeyGenerator;
 import io.github.nichetoolkit.rest.logback.DefaultMessageConverter;
 import lombok.extern.slf4j.Slf4j;

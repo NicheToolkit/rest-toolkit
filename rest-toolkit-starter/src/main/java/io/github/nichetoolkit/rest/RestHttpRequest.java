@@ -250,7 +250,7 @@ public class RestHttpRequest extends HttpServletRequestWrapper implements Closea
             return false;
         }
         value = value.trim();
-        /** 大括号或者中括号开头的都算json字符串 */
+        /* 大括号或者中括号开头的都算json字符串 */
         return value.startsWith("{") || value.startsWith("[");
     }
 
@@ -272,7 +272,7 @@ public class RestHttpRequest extends HttpServletRequestWrapper implements Closea
             this.paramsMap = new HashMap<>(parameterMap.size());
         }
         for (Map.Entry<String, String[]> entry : parameterMap.entrySet()) {
-            /** url中的请求参数不能覆盖请求体中的请求参数 */
+            /* url中的请求参数不能覆盖请求体中的请求参数 */
             if (!this.paramsMap.containsKey(entry.getKey())) {
                 if (entry.getValue().length == 0) {
                     this.paramsMap.put(entry.getKey(), "");

@@ -2,7 +2,6 @@ package io.github.nichetoolkit.rest.logback;
 
 import io.github.nichetoolkit.rest.RestAccessToken;
 import io.github.nichetoolkit.rest.RestLoggingKey;
-import io.github.nichetoolkit.rest.RestLoggingKeyAdvice;
 import io.github.nichetoolkit.rest.configure.RestLogbackProperties;
 import io.github.nichetoolkit.rest.RestHttpRequest;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
