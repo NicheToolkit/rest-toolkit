@@ -3,6 +3,7 @@ package io.github.nichetoolkit.rest.configure;
 
 import ch.qos.logback.classic.pattern.MessageConverter;
 import io.github.nichetoolkit.rest.RestHttpRequest;
+import io.github.nichetoolkit.rest.RestLoggingKey;
 import io.github.nichetoolkit.rest.RestLoggingKeyAdvice;
 import io.github.nichetoolkit.rest.RestLoggingKeyGenerator;
 import io.github.nichetoolkit.rest.logback.DefaultMessageConverter;
@@ -47,16 +48,16 @@ public class RestLogbackAutoConfigure {
     /**
      * <code>loggingKeyGenerator</code>
      * <p>the key generator method.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestLoggingKeyAdvice} <p>the key generator return object is <code>RestLoggingKeyAdvice</code> type.</p>
-     * @see io.github.nichetoolkit.rest.RestLoggingKeyAdvice
+     * @return {@link io.github.nichetoolkit.rest.RestLoggingKey} <p>the key generator return object is <code>RestLoggingKey</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestLoggingKey
      * @see org.springframework.context.annotation.Bean
      * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
      * @see org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
      */
     @Bean
-    @ConditionalOnMissingBean(RestLoggingKeyAdvice.class)
+    @ConditionalOnMissingBean(RestLoggingKey.class)
     @ConditionalOnProperty(value = "nichetoolkit.rest.logback.enabled", havingValue = "true", matchIfMissing = true)
-    public RestLoggingKeyAdvice loggingKeyGenerator() {
+    public RestLoggingKey loggingKeyGenerator() {
         return new RestLoggingKeyGenerator(logbackProperties) {
             @Override
             public String doAccessTokenHandle(RestHttpRequest requestWrapper) {

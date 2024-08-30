@@ -3,7 +3,6 @@ package io.github.nichetoolkit.rest.interceptor;
 import io.github.nichetoolkit.rest.*;
 import io.github.nichetoolkit.rest.configure.RestInterceptProperties;
 import io.github.nichetoolkit.rest.constant.RestConstants;
-import io.github.nichetoolkit.rest.helper.RestRequestHelper;
 import io.github.nichetoolkit.rest.userlog.*;
 import io.github.nichetoolkit.rest.userlog.stereotype.RestLogging;
 import io.github.nichetoolkit.rest.userlog.stereotype.RestNotelog;
@@ -160,8 +159,8 @@ public class DefaultHandlerInterceptor implements AsyncHandlerInterceptor, RestR
         if (!(handler instanceof HandlerMethod)) {
             return true;
         }
-        RestHttpRequest requestWrapper = RestRequestHelper.getRestRequestWrapper(request);
-        requestWrapper.setHandlerMethods((HandlerMethod) handler);
+        RestHttpRequest httpRequest = RestHttpRequest.getHttpRequest(request);
+        httpRequest.setHandlerMethods((HandlerMethod) handler);
         return true;
     }
 
@@ -237,18 +236,18 @@ public class DefaultHandlerInterceptor implements AsyncHandlerInterceptor, RestR
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        RestHttpRequest requestWrapper = null;
+        RestHttpRequest httpRequest = null;
         if (servletRequest instanceof HttpServletRequest) {
             String contentType = servletRequest.getContentType();
             if (GeneralUtils.isNotEmpty(contentType) && contentType.contains(MediaType.APPLICATION_JSON_VALUE)) {
-                requestWrapper = new RestHttpRequest((HttpServletRequest) servletRequest);
+                httpRequest = new RestHttpRequest((HttpServletRequest) servletRequest);
             }
         }
-        if (null == requestWrapper) {
+        if (null == httpRequest) {
             filterChain.doFilter(servletRequest, servletResponse);
         } else {
-            filterChain.doFilter(requestWrapper, servletResponse);
-            requestWrapper.close();
+            filterChain.doFilter(httpRequest, servletResponse);
+            httpRequest.close();
         }
     }
 
@@ -383,8 +382,8 @@ public class DefaultHandlerInterceptor implements AsyncHandlerInterceptor, RestR
         String contentType = request.getContentType();
         if (StringUtils.hasText(contentType) && contentType.contains(MediaType.APPLICATION_JSON_VALUE)) {
             if (request instanceof RestHttpRequest) {
-                RestHttpRequest requestWrapper = (RestHttpRequest) request;
-                String body = new String(requestWrapper.getCacheBody(), StandardCharsets.UTF_8);
+                RestHttpRequest httpRequest = (RestHttpRequest) request;
+                String body = new String(httpRequest.getCacheBody(), StandardCharsets.UTF_8);
                 restRequest.setBody(body);
                 Integer bodyLength = interceptProperties.getBodyLength();
                 String bodyString;
@@ -396,7 +395,7 @@ public class DefaultHandlerInterceptor implements AsyncHandlerInterceptor, RestR
                 restRequest.setBodyString(bodyString);
             } else {
                 restRequest.setBody("the request of content type without 'application/json' is ignored.");
-                log.debug("the request is not 'RestRequestWrapper' type!");
+                log.debug("the request is not 'RestHttpRequest' type!");
             }
         }
     }
@@ -404,17 +403,17 @@ public class DefaultHandlerInterceptor implements AsyncHandlerInterceptor, RestR
     /**
      * <code>applyInterceptAdvice</code>
      * <p>the intercept advice method.</p>
-     * @param request      {@link io.github.nichetoolkit.rest.userlog.RestRequestPack} <p>the request parameter is <code>RestRequestPack</code> type.</p>
-     * @param restResponse {@link io.github.nichetoolkit.rest.userlog.RestResponsePack} <p>the rest response parameter is <code>RestResponsePack</code> type.</p>
-     * @param usernote     {@link io.github.nichetoolkit.rest.userlog.RestUsernotePack} <p>the usernote parameter is <code>RestUsernotePack</code> type.</p>
+     * @param requestPack  {@link io.github.nichetoolkit.rest.userlog.RestRequestPack} <p>the request pack parameter is <code>RestRequestPack</code> type.</p>
+     * @param responsePack {@link io.github.nichetoolkit.rest.userlog.RestResponsePack} <p>the response pack parameter is <code>RestResponsePack</code> type.</p>
+     * @param usernotePack {@link io.github.nichetoolkit.rest.userlog.RestUsernotePack} <p>the usernote pack parameter is <code>RestUsernotePack</code> type.</p>
      * @see io.github.nichetoolkit.rest.userlog.RestRequestPack
      * @see io.github.nichetoolkit.rest.userlog.RestResponsePack
      * @see io.github.nichetoolkit.rest.userlog.RestUsernotePack
      */
-    public void applyInterceptAdvice(RestRequestPack request, RestResponsePack restResponse, RestUsernotePack usernote) {
+    public void applyInterceptAdvice(RestRequestPack requestPack, RestResponsePack responsePack, RestUsernotePack usernotePack) {
         RestUsernoteAdvice usernoteAdvice = ContextUtils.getBean(RestUsernoteAdvice.class);
-        if (GeneralUtils.isNotEmpty(usernote) && GeneralUtils.isNotEmpty(usernoteAdvice) && interceptProperties.getUserlogEnabled()) {
-            usernoteAdvice.doUsernoteHandle(request, restResponse, usernote);
+        if (GeneralUtils.isNotEmpty(usernotePack) && GeneralUtils.isNotEmpty(usernoteAdvice) && interceptProperties.getUserlogEnabled()) {
+            usernoteAdvice.doUsernoteHandle(requestPack, responsePack, usernotePack);
         }
     }
 

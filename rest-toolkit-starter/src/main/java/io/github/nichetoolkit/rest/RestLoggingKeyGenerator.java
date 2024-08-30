@@ -13,12 +13,12 @@ import java.util.List;
  * <p>The type rest logging key generator class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestLoggingKeyAdvice
- * @see io.github.nichetoolkit.rest.RestRequestAdvice
+ * @see io.github.nichetoolkit.rest.RestAccessTokenAdvice
  * @see lombok.extern.slf4j.Slf4j
  * @since Jdk1.8
  */
 @Slf4j
-public abstract class RestLoggingKeyGenerator implements RestLoggingKeyAdvice, RestRequestAdvice {
+public abstract class RestLoggingKeyGenerator implements RestLoggingKeyAdvice, RestAccessTokenAdvice {
     /**
      * <code>logbackProperties</code>
      * {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>the <code>logbackProperties</code> field.</p>
@@ -37,22 +37,22 @@ public abstract class RestLoggingKeyGenerator implements RestLoggingKeyAdvice, R
     }
 
     @Override
-    public String doLoggingKeyHandle(RestHttpRequest requestWrapper) {
+    public String doLoggingKeyHandle(RestHttpRequest httpRequest) {
         String loggingKey = "";
         int prefixLength = 24;
-        String accessToken = doAccessTokenHandle(requestWrapper);
+        String accessToken = doAccessTokenHandle(httpRequest);
         if (GeneralUtils.isNotEmpty(accessToken)) {
             if (accessToken.length() > prefixLength) {
                 loggingKey = accessToken.substring(accessToken.length() - prefixLength);
             }
         } else {
-            loggingKey = requestWrapper.getSession().getId();
+            loggingKey = httpRequest.getSession().getId();
             if (loggingKey.length() > prefixLength) {
                 loggingKey = loggingKey.substring(loggingKey.length() - prefixLength);
             }
         }
         List<String> attributes = logbackProperties.getAttributes();
-        String attribute = doAttributesHandle(requestWrapper, attributes);
+        String attribute = doAttributesHandle(httpRequest, attributes);
         if (GeneralUtils.isEmpty(attribute)) {
             attribute = IdentityUtils.generateString();
         }
@@ -61,26 +61,5 @@ public abstract class RestLoggingKeyGenerator implements RestLoggingKeyAdvice, R
         return loggingKey;
     }
 
-   abstract public String doAccessTokenHandle(RestHttpRequest requestWrapper);
-
-    public String doAttributeHandle(RestHttpRequest requestWrapper, String attribute) {
-        if (GeneralUtils.isEmpty(attribute)) {
-            return null;
-        }
-        String attributeValue = requestWrapper.getParameter(attribute);
-        if (GeneralUtils.isEmpty(attribute)) {
-            attributeValue = requestWrapper.getHeader(attribute);
-        }
-        return attributeValue;
-    }
-
-    public String doAttributesHandle(RestHttpRequest requestWrapper, Collection<String> attributes) {
-        for (String attribute : attributes) {
-            String attributeValue = doAttributeHandle(requestWrapper, attribute);
-            if (GeneralUtils.isNotEmpty(attributeValue)) {
-                return attributeValue;
-            }
-        }
-        return null;
-    }
+    abstract public String doAccessTokenHandle(RestHttpRequest httpRequest);
 }

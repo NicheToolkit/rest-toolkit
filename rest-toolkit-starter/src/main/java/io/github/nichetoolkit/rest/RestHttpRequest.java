@@ -9,6 +9,7 @@ import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.lang.NonNull;
 import org.springframework.util.StreamUtils;
 import org.springframework.web.method.HandlerMethod;
+import org.springframework.web.multipart.support.StandardMultipartHttpServletRequest;
 
 import javax.servlet.ReadListener;
 import javax.servlet.ServletInputStream;
@@ -34,7 +35,6 @@ public class RestHttpRequest extends HttpServletRequestWrapper implements Closea
     private static final String REQUEST_ID_KEY = "_REQUEST_ID_KEY_";
 
     private static final String HANDLER_METHOD_KEY = "HANDLER_METHOD_KEY";
-
 
     private byte[] cacheBody;
 
@@ -327,5 +327,27 @@ public class RestHttpRequest extends HttpServletRequestWrapper implements Closea
         public void setReadListener(ReadListener readlistener) {
         }
 
+    }
+
+    /**
+     * <code>getHttpRequest</code>
+     * <p>the http request getter method.</p>
+     * @param request {@link javax.servlet.http.HttpServletRequest} <p>the request parameter is <code>HttpServletRequest</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestHttpRequest} <p>the http request return object is <code>RestHttpRequest</code> type.</p>
+     * @see javax.servlet.http.HttpServletRequest
+     */
+    public static RestHttpRequest getHttpRequest(HttpServletRequest request) {
+        RestHttpRequest httpRequest = null;
+        if (request instanceof RestHttpRequest) {
+            httpRequest = (RestHttpRequest) request;
+        } else if (request instanceof StandardMultipartHttpServletRequest) {
+            if (((StandardMultipartHttpServletRequest) request).getRequest() instanceof RestHttpRequest) {
+                httpRequest = (RestHttpRequest) ((StandardMultipartHttpServletRequest) request).getRequest();
+            }
+        }
+        if (httpRequest == null) {
+            httpRequest = new RestHttpRequest(request);
+        }
+        return httpRequest;
     }
 }

@@ -1,5 +1,7 @@
 package io.github.nichetoolkit.rest.logback;
 
+import io.github.nichetoolkit.rest.RestAccessToken;
+import io.github.nichetoolkit.rest.RestLoggingKey;
 import io.github.nichetoolkit.rest.RestLoggingKeyAdvice;
 import io.github.nichetoolkit.rest.configure.RestLogbackProperties;
 import io.github.nichetoolkit.rest.RestHttpRequest;
@@ -34,7 +36,7 @@ import java.io.IOException;
 @Order(value = Ordered.HIGHEST_PRECEDENCE + 100)
 public class DefaultRequestLogbackFilter extends OncePerRequestFilter {
     private final RestLogbackProperties logbackProperties;
-    private RestLoggingKeyAdvice loggingKeyAdvice;
+    private RestLoggingKey loggingKey;
 
     /**
      * <code>DefaultRequestLogbackFilter</code>
@@ -52,54 +54,56 @@ public class DefaultRequestLogbackFilter extends OncePerRequestFilter {
      * <code>DefaultRequestLogbackFilter</code>
      * Instantiates a new default request logback filter.
      * @param logbackProperties {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>the logback properties parameter is <code>RestLogbackProperties</code> type.</p>
-     * @param loggingKeyAdvice  {@link io.github.nichetoolkit.rest.RestLoggingKeyAdvice} <p>the logging key advice parameter is <code>RestLoggingKeyAdvice</code> type.</p>
+     * @param loggingKey        {@link io.github.nichetoolkit.rest.RestLoggingKey} <p>the logging key parameter is <code>RestLoggingKey</code> type.</p>
+     * @param accessToken       {@link io.github.nichetoolkit.rest.RestAccessToken} <p>the access token parameter is <code>RestAccessToken</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestLogbackProperties
-     * @see io.github.nichetoolkit.rest.RestLoggingKeyAdvice
+     * @see io.github.nichetoolkit.rest.RestLoggingKey
+     * @see io.github.nichetoolkit.rest.RestAccessToken
      * @see org.springframework.beans.factory.annotation.Autowired
      */
     @Autowired(required = false)
-    public DefaultRequestLogbackFilter(RestLogbackProperties logbackProperties, RestLoggingKeyAdvice loggingKeyAdvice) {
+    public DefaultRequestLogbackFilter(RestLogbackProperties logbackProperties, RestLoggingKey loggingKey, RestAccessToken accessToken) {
         this.logbackProperties = logbackProperties;
-        this.loggingKeyAdvice = loggingKeyAdvice;
+        this.loggingKey = loggingKey;
     }
 
     @Override
     protected void doFilterInternal(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull FilterChain filterChain) throws ServletException, IOException {
-        RestHttpRequest requestWrapper = new RestHttpRequest(request);
+        RestHttpRequest httpRequest = new RestHttpRequest(request);
         if (logbackProperties.getEnabled()) {
             String logPrefixKey = logbackProperties.getLoggingKey();
             String loggingKey = null;
-            if(GeneralUtils.isNotEmpty(loggingKeyAdvice)) {
-                loggingKey = loggingKeyAdvice.doLoggingKeyHandle(requestWrapper);
+            if(GeneralUtils.isNotEmpty(this.loggingKey)) {
+                loggingKey = this.loggingKey.loggingKey(httpRequest);
             }
             if (GeneralUtils.isEmpty(loggingKey)) {
-                loggingKey = requestWrapper.getSession().getId();
+                loggingKey = httpRequest.getSession().getId();
             }
             if (GeneralUtils.isNotEmpty(loggingKey)) {
                 loggingKey = "[".concat(loggingKey).concat("]");
                 MDC.put(logPrefixKey, loggingKey);
                 request.setAttribute(logPrefixKey, loggingKey);
             }
-            String requestId = getRequestId(requestWrapper);
+            String requestId = getRequestId(httpRequest);
             log.info("request id: {}, request uri: {}", requestId, request.getRequestURI());
             MDC.put(logbackProperties.getRequestKey(), requestId);
             try {
-                filterChain.doFilter(requestWrapper, response);
+                filterChain.doFilter(httpRequest, response);
             } finally {
                 MDC.remove(logPrefixKey);
                 MDC.clear();
             }
         } else {
-            filterChain.doFilter(requestWrapper, response);
+            filterChain.doFilter(httpRequest, response);
         }
     }
 
-    private String getRequestId(RestHttpRequest requestWrapper) {
-        String requestId = requestWrapper.getHeader(logbackProperties.getHeaderKey());
+    private String getRequestId(RestHttpRequest httpRequest) {
+        String requestId = httpRequest.getHeader(logbackProperties.getHeaderKey());
         if (GeneralUtils.isEmpty(requestId)) {
             requestId = GeneralUtils.uuid();
         }
-        requestWrapper.setRequestId(requestId);
+        httpRequest.setRequestId(requestId);
         return requestId;
     }
 }
