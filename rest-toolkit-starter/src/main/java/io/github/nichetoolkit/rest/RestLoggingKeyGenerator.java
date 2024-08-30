@@ -12,12 +12,12 @@ import java.util.List;
  * <p>The type rest logging key generator class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestLoggingKeyAdvice
- * @see io.github.nichetoolkit.rest.RestAccessTokenAdvice
+ * @see RestAccessValueAdvice
  * @see lombok.extern.slf4j.Slf4j
  * @since Jdk1.8
  */
 @Slf4j
-public abstract class RestLoggingKeyGenerator implements RestLoggingKeyAdvice, RestAccessTokenAdvice {
+public abstract class RestLoggingKeyGenerator implements RestLoggingKeyAdvice, RestAccessValueAdvice {
     /**
      * <code>logbackProperties</code>
      * {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>the <code>logbackProperties</code> field.</p>
@@ -44,10 +44,17 @@ public abstract class RestLoggingKeyGenerator implements RestLoggingKeyAdvice, R
             if (accessToken.length() > prefixLength) {
                 loggingKey = accessToken.substring(accessToken.length() - prefixLength);
             }
-        } else {
-            loggingKey = httpRequest.getSession().getId();
-            if (loggingKey.length() > prefixLength) {
-                loggingKey = loggingKey.substring(loggingKey.length() - prefixLength);
+        }
+        String accessAuth = doAccessAuthHandle(httpRequest);
+        if (GeneralUtils.isEmpty(loggingKey) && GeneralUtils.isNotEmpty(accessAuth)) {
+            if (accessAuth.length() > prefixLength) {
+                loggingKey = accessAuth.substring(accessAuth.length() - prefixLength);
+            }
+        }
+        String sessionId = httpRequest.getSession().getId();
+        if (GeneralUtils.isEmpty(loggingKey) && GeneralUtils.isNotEmpty(sessionId)) {
+            if (sessionId.length() > prefixLength) {
+                loggingKey = sessionId.substring(sessionId.length() - prefixLength);
             }
         }
         List<String> attributes = logbackProperties.getAttributes();
@@ -61,4 +68,6 @@ public abstract class RestLoggingKeyGenerator implements RestLoggingKeyAdvice, R
     }
 
     abstract public String doAccessTokenHandle(RestHttpRequest httpRequest);
+
+    abstract public String doAccessAuthHandle(RestHttpRequest httpRequest);
 }

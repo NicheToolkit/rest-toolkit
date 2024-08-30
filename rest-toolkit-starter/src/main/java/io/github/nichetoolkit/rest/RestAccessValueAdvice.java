@@ -5,16 +5,22 @@ import io.github.nichetoolkit.rest.util.GeneralUtils;
 import java.util.Collection;
 
 /**
- * <code>RestAccessTokenAdvice</code>
- * <p>The type rest access token advice interface.</p>
+ * <code>RestAttributeAdvice</code>
+ * <p>The type rest attribute advice interface.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
-public interface RestAccessTokenAdvice extends RestAccessToken {
+public interface RestAccessValueAdvice extends RestAccessValue {
 
     @Override
    default String accessToken(RestHttpRequest httpRequest) {
         return doAccessTokenHandle(httpRequest);
+    }
+
+
+    @Override
+    default String accessAuth(RestHttpRequest httpRequest) {
+        return doAccessAuthHandle(httpRequest);
     }
 
     /**
@@ -26,6 +32,16 @@ public interface RestAccessTokenAdvice extends RestAccessToken {
      * @see java.lang.String
      */
     String doAccessTokenHandle(RestHttpRequest httpRequest);
+
+    /**
+     * <code>doAccessAuthHandle</code>
+     * <p>the access auth handle method.</p>
+     * @param httpRequest {@link io.github.nichetoolkit.rest.RestHttpRequest} <p>the http request parameter is <code>RestHttpRequest</code> type.</p>
+     * @return {@link java.lang.String} <p>the access auth handle return object is <code>String</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestHttpRequest
+     * @see java.lang.String
+     */
+    String doAccessAuthHandle(RestHttpRequest httpRequest);
 
     /**
      * <code>doAttributeHandle</code>

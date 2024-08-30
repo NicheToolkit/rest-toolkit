@@ -67,7 +67,7 @@ public class DefaultLogbackFilter extends OncePerRequestFilter {
     protected void doFilterInternal(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull FilterChain filterChain) throws ServletException, IOException {
         RestHttpRequest httpRequest = new RestHttpRequest(request);
         if (logbackProperties.getEnabled()) {
-            String logPrefixKey = logbackProperties.getLoggingKey();
+            String loggingPrefixKey = logbackProperties.getLoggingKey();
             String loggingKey = null;
             if(GeneralUtils.isNotEmpty(this.loggingKey)) {
                 loggingKey = this.loggingKey.loggingKey(httpRequest);
@@ -77,8 +77,8 @@ public class DefaultLogbackFilter extends OncePerRequestFilter {
             }
             if (GeneralUtils.isNotEmpty(loggingKey)) {
                 loggingKey = "[".concat(loggingKey).concat("]");
-                MDC.put(logPrefixKey, loggingKey);
-                request.setAttribute(logPrefixKey, loggingKey);
+                MDC.put(loggingPrefixKey, loggingKey);
+                request.setAttribute(loggingPrefixKey, loggingKey);
             }
             String requestId = getRequestId(httpRequest);
             log.info("request id: {}, request uri: {}", requestId, request.getRequestURI());
@@ -86,7 +86,7 @@ public class DefaultLogbackFilter extends OncePerRequestFilter {
             try {
                 filterChain.doFilter(httpRequest, response);
             } finally {
-                MDC.remove(logPrefixKey);
+                MDC.remove(loggingPrefixKey);
                 MDC.clear();
             }
         } else {

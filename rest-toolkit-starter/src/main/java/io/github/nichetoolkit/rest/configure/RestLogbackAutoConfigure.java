@@ -62,6 +62,11 @@ public class RestLogbackAutoConfigure {
             public String doAccessTokenHandle(RestHttpRequest requestWrapper) {
                 return null;
             }
+
+            @Override
+            public String doAccessAuthHandle(RestHttpRequest httpRequest) {
+                return null;
+            }
         };
     }
 
