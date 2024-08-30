@@ -1,6 +1,6 @@
 package io.github.nichetoolkit.rest.util;
 
-import io.github.nichetoolkit.rest.holder.ContextHolder;
+import io.github.nichetoolkit.rest.holder.ApplicationContextHolder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 
@@ -26,7 +26,7 @@ public class ContextUtils {
      */
     public static Object getBean(String name){
         try {
-            return ContextHolder.getBean(name);
+            return ApplicationContextHolder.getBean(name);
         } catch (BeansException ex) {
             log.warn("bean of name is {} no found, error: {}",name,ex.getMessage());
             return null;
@@ -43,7 +43,7 @@ public class ContextUtils {
      */
     public static <T> T getBean(Class<T> clazz){
         try {
-            return ContextHolder.getBean(clazz);
+            return ApplicationContextHolder.getBean(clazz);
         } catch (BeansException ex) {
             log.warn("bean of type is {} no found, error: {}",clazz.getName(),ex.getMessage());
             return null;
@@ -62,7 +62,7 @@ public class ContextUtils {
      */
     public static <T> T getBean(String name, Class<T> clazz){
         try {
-            return ContextHolder.getBean(name, clazz);
+            return ApplicationContextHolder.getBean(name, clazz);
         } catch (BeansException ex) {
             log.warn("bean of type is {} and name is {} no found, error: {}",clazz.getName(),name,ex.getMessage());
             return null;
@@ -80,7 +80,7 @@ public class ContextUtils {
      */
     public static <T> List<T> getBeans(Class<T> clazz){
         try {
-            return ContextHolder.getBeans(clazz);
+            return ApplicationContextHolder.getBeans(clazz);
         } catch (BeansException ex) {
             log.warn("beans of type is {} no found, error: {}",clazz.getName(),ex.getMessage());
             return null;

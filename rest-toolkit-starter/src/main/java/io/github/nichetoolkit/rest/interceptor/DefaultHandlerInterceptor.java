@@ -160,7 +160,7 @@ public class DefaultHandlerInterceptor implements AsyncHandlerInterceptor, RestR
         if (!(handler instanceof HandlerMethod)) {
             return true;
         }
-        HttpRequestWrapper requestWrapper = RestRequestHelper.getRestRequestWrapper(request);
+        RestHttpRequest requestWrapper = RestRequestHelper.getRestRequestWrapper(request);
         requestWrapper.setHandlerMethods((HandlerMethod) handler);
         return true;
     }
@@ -237,11 +237,11 @@ public class DefaultHandlerInterceptor implements AsyncHandlerInterceptor, RestR
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        HttpRequestWrapper requestWrapper = null;
+        RestHttpRequest requestWrapper = null;
         if (servletRequest instanceof HttpServletRequest) {
             String contentType = servletRequest.getContentType();
             if (GeneralUtils.isNotEmpty(contentType) && contentType.contains(MediaType.APPLICATION_JSON_VALUE)) {
-                requestWrapper = new HttpRequestWrapper((HttpServletRequest) servletRequest);
+                requestWrapper = new RestHttpRequest((HttpServletRequest) servletRequest);
             }
         }
         if (null == requestWrapper) {
@@ -382,8 +382,8 @@ public class DefaultHandlerInterceptor implements AsyncHandlerInterceptor, RestR
     public void applyRequestBody(HttpServletRequest request, RestRequestPack restRequest) {
         String contentType = request.getContentType();
         if (StringUtils.hasText(contentType) && contentType.contains(MediaType.APPLICATION_JSON_VALUE)) {
-            if (request instanceof HttpRequestWrapper) {
-                HttpRequestWrapper requestWrapper = (HttpRequestWrapper) request;
+            if (request instanceof RestHttpRequest) {
+                RestHttpRequest requestWrapper = (RestHttpRequest) request;
                 String body = new String(requestWrapper.getCacheBody(), StandardCharsets.UTF_8);
                 restRequest.setBody(body);
                 Integer bodyLength = interceptProperties.getBodyLength();

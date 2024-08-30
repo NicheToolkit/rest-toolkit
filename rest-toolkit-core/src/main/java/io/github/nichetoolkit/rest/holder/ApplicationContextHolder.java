@@ -1,9 +1,14 @@
 package io.github.nichetoolkit.rest.holder;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactoryUtils;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.core.annotation.AnnotationAwareOrderComparator;
+import org.springframework.core.annotation.Order;
+import org.springframework.lang.NonNull;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,13 +16,15 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * <code>ContextHolder</code>
+ * <code>ApplicationContextHolder</code>
  * <p>The type context holder class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
-public class ContextHolder {
-
+@Slf4j
+@Order(1)
+@Component
+public class ApplicationContextHolder implements ApplicationContextAware {
     /**
      * <code>APPLICATION_CONTEXT</code>
      * {@link org.springframework.context.ApplicationContext} <p>the constant <code>APPLICATION_CONTEXT</code> field.</p>
@@ -25,13 +32,13 @@ public class ContextHolder {
      */
     private static ApplicationContext APPLICATION_CONTEXT;
 
-    /**
-     * <code>initApplicationContext</code>
-     * <p>the application context method.</p>
-     * @param applicationContext {@link org.springframework.context.ApplicationContext} <p>the application context parameter is <code>ApplicationContext</code> type.</p>
-     * @see org.springframework.context.ApplicationContext
-     */
-    public static void initApplicationContext(ApplicationContext applicationContext) {
+    @Override
+    public void setApplicationContext(@NonNull ApplicationContext applicationContext) throws BeansException {
+        log.debug("the application context holder initiated!");
+        APPLICATION_CONTEXT = applicationContext;
+    }
+
+    public static void initApplicationContext(@NonNull ApplicationContext applicationContext) {
         APPLICATION_CONTEXT = applicationContext;
     }
 
@@ -108,7 +115,7 @@ public class ContextHolder {
      * @see java.util.List
      */
     public static <T> List<T> getBeans(Class<T> clazz) {
-        return getBeans(APPLICATION_CONTEXT,clazz);
+        return getBeans(APPLICATION_CONTEXT, clazz);
     }
 
 
@@ -132,4 +139,6 @@ public class ContextHolder {
         }
         return Collections.emptyList();
     }
+
+
 }

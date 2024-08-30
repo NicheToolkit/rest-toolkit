@@ -37,7 +37,7 @@ public abstract class RestLoggingKeyGenerator implements RestLoggingKeyAdvice, R
     }
 
     @Override
-    public String doLoggingKeyHandle(HttpRequestWrapper requestWrapper) {
+    public String doLoggingKeyHandle(RestHttpRequest requestWrapper) {
         String loggingKey = "";
         int prefixLength = 24;
         String accessToken = doAccessTokenHandle(requestWrapper);
@@ -61,9 +61,9 @@ public abstract class RestLoggingKeyGenerator implements RestLoggingKeyAdvice, R
         return loggingKey;
     }
 
-   abstract public String doAccessTokenHandle(HttpRequestWrapper requestWrapper);
+   abstract public String doAccessTokenHandle(RestHttpRequest requestWrapper);
 
-    public String doAttributeHandle(HttpRequestWrapper requestWrapper, String attribute) {
+    public String doAttributeHandle(RestHttpRequest requestWrapper, String attribute) {
         if (GeneralUtils.isEmpty(attribute)) {
             return null;
         }
@@ -74,7 +74,7 @@ public abstract class RestLoggingKeyGenerator implements RestLoggingKeyAdvice, R
         return attributeValue;
     }
 
-    public String doAttributesHandle(HttpRequestWrapper requestWrapper, Collection<String> attributes) {
+    public String doAttributesHandle(RestHttpRequest requestWrapper, Collection<String> attributes) {
         for (String attribute : attributes) {
             String attributeValue = doAttributeHandle(requestWrapper, attribute);
             if (GeneralUtils.isNotEmpty(attributeValue)) {

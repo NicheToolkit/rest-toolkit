@@ -1,6 +1,6 @@
 package io.github.nichetoolkit.rest.helper;
 
-import io.github.nichetoolkit.rest.HttpRequestWrapper;
+import io.github.nichetoolkit.rest.RestHttpRequest;
 import org.springframework.web.multipart.support.StandardMultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,21 +17,21 @@ public class RestRequestHelper {
      * <code>getRestRequestWrapper</code>
      * <p>the rest request wrapper getter method.</p>
      * @param request {@link javax.servlet.http.HttpServletRequest} <p>the request parameter is <code>HttpServletRequest</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.HttpRequestWrapper} <p>the rest request wrapper return object is <code>HttpRequestWrapper</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestHttpRequest} <p>the rest request wrapper return object is <code>RestHttpRequest</code> type.</p>
      * @see javax.servlet.http.HttpServletRequest
-     * @see io.github.nichetoolkit.rest.HttpRequestWrapper
+     * @see io.github.nichetoolkit.rest.RestHttpRequest
      */
-    public static HttpRequestWrapper getRestRequestWrapper(HttpServletRequest request) {
-        HttpRequestWrapper requestWrapper = null;
-        if (request instanceof HttpRequestWrapper) {
-            requestWrapper = (HttpRequestWrapper) request;
+    public static RestHttpRequest getRestRequestWrapper(HttpServletRequest request) {
+        RestHttpRequest requestWrapper = null;
+        if (request instanceof RestHttpRequest) {
+            requestWrapper = (RestHttpRequest) request;
         } else if (request instanceof StandardMultipartHttpServletRequest) {
-            if (((StandardMultipartHttpServletRequest) request).getRequest() instanceof HttpRequestWrapper) {
-                requestWrapper = (HttpRequestWrapper) ((StandardMultipartHttpServletRequest) request).getRequest();
+            if (((StandardMultipartHttpServletRequest) request).getRequest() instanceof RestHttpRequest) {
+                requestWrapper = (RestHttpRequest) ((StandardMultipartHttpServletRequest) request).getRequest();
             }
         }
         if (requestWrapper == null) {
-            requestWrapper = new HttpRequestWrapper(request);
+            requestWrapper = new RestHttpRequest(request);
         }
         return requestWrapper;
     }

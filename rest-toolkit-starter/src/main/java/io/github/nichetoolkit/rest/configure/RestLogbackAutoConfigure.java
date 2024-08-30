@@ -1,9 +1,11 @@
 package io.github.nichetoolkit.rest.configure;
 
 
-import io.github.nichetoolkit.rest.HttpRequestWrapper;
+import ch.qos.logback.classic.pattern.MessageConverter;
+import io.github.nichetoolkit.rest.RestHttpRequest;
 import io.github.nichetoolkit.rest.RestLoggingKeyAdvice;
 import io.github.nichetoolkit.rest.RestLoggingKeyGenerator;
+import io.github.nichetoolkit.rest.logback.DefaultMessageConverter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
@@ -20,14 +22,12 @@ import org.springframework.context.annotation.ComponentScan;
  * @see org.springframework.boot.autoconfigure.AutoConfiguration
  * @see java.lang.SuppressWarnings
  * @see org.springframework.context.annotation.ComponentScan
- * @see org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
  * @since Jdk1.8
  */
 @Slf4j
 @AutoConfiguration
 @SuppressWarnings("SameNameButDifferent")
 @ComponentScan(basePackages = {"io.github.nichetoolkit.rest"})
-@ConditionalOnProperty(value = "nichetoolkit.rest.logback.enabled", havingValue = "true", matchIfMissing = true)
 public class RestLogbackAutoConfigure {
 
     private final RestLogbackProperties logbackProperties;
@@ -57,10 +57,24 @@ public class RestLogbackAutoConfigure {
     public RestLoggingKeyAdvice loggingKeyGenerator() {
         return new RestLoggingKeyGenerator(logbackProperties) {
             @Override
-            public String doAccessTokenHandle(HttpRequestWrapper requestWrapper) {
+            public String doAccessTokenHandle(RestHttpRequest requestWrapper) {
                 return null;
             }
         };
+    }
+
+    /**
+     * <code>messageConverter</code>
+     * <p>the converter method.</p>
+     * @return {@link io.github.nichetoolkit.rest.logback.DefaultMessageConverter} <p>the converter return object is <code>DefaultMessageConverter</code> type.</p>
+     * @see io.github.nichetoolkit.rest.logback.DefaultMessageConverter
+     * @see org.springframework.context.annotation.Bean
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
+     */
+    @Bean
+    @ConditionalOnMissingBean(MessageConverter.class)
+    public DefaultMessageConverter messageConverter() {
+        return new DefaultMessageConverter(logbackProperties);
     }
 
 

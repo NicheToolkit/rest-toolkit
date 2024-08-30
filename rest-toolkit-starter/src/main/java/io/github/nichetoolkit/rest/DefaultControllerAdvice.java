@@ -1,7 +1,7 @@
 package io.github.nichetoolkit.rest;
 
 import io.github.nichetoolkit.rest.configure.RestExceptionProperties;
-import io.github.nichetoolkit.rest.holder.ContextHolder;
+import io.github.nichetoolkit.rest.holder.ApplicationContextHolder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.InitializingBean;
@@ -48,7 +48,6 @@ import java.util.List;
 @RestControllerAdvice
 public class DefaultControllerAdvice implements ResponseBodyAdvice<Object>, ApplicationContextAware, InitializingBean {
     private final RestExceptionProperties exceptionProperties;
-
     @Nullable
     private ApplicationContext applicationContext;
     @Nullable
@@ -90,11 +89,11 @@ public class DefaultControllerAdvice implements ResponseBodyAdvice<Object>, Appl
     public void afterPropertiesSet() {
         if (this.exceptionAdvices == null) {
             Assert.notNull(this.applicationContext, "No ApplicationContext");
-            this.exceptionAdvices = ContextHolder.getBeans(this.applicationContext, RestExceptionAdvice.class);
+            this.exceptionAdvices = ApplicationContextHolder.getBeans(this.applicationContext, RestExceptionAdvice.class);
         }
         if (this.responseAdvices == null) {
             Assert.notNull(this.applicationContext, "No ApplicationContext");
-            this.responseAdvices = ContextHolder.getBeans(this.applicationContext, RestResponseAdvice.class);
+            this.responseAdvices = ApplicationContextHolder.getBeans(this.applicationContext, RestResponseAdvice.class);
         }
     }
 
@@ -122,7 +121,7 @@ public class DefaultControllerAdvice implements ResponseBodyAdvice<Object>, Appl
     @Override
     public void setApplicationContext(@NonNull ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
-        ContextHolder.initApplicationContext(applicationContext);
+        ApplicationContextHolder.initApplicationContext(applicationContext);
     }
 
     /**

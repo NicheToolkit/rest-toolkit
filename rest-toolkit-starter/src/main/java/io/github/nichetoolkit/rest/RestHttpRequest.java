@@ -20,8 +20,8 @@ import java.lang.annotation.Annotation;
 import java.util.*;
 
 /**
- * <code>HttpRequestWrapper</code>
- * <p>The type http request wrapper class.</p>
+ * <code>RestHttpRequest</code>
+ * <p>The type rest http request class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see javax.servlet.http.HttpServletRequestWrapper
  * @see java.io.Closeable
@@ -29,7 +29,7 @@ import java.util.*;
  * @since Jdk1.8
  */
 @Slf4j
-public class HttpRequestWrapper extends HttpServletRequestWrapper implements Closeable {
+public class RestHttpRequest extends HttpServletRequestWrapper implements Closeable {
 
     private static final String REQUEST_ID_KEY = "_REQUEST_ID_KEY_";
 
@@ -50,12 +50,12 @@ public class HttpRequestWrapper extends HttpServletRequestWrapper implements Clo
     private List<HandlerMethod> handlerMethods;
 
     /**
-     * <code>HttpRequestWrapper</code>
-     * Instantiates a new http request wrapper.
+     * <code>RestHttpRequest</code>
+     * Instantiates a new rest http request.
      * @param request {@link javax.servlet.http.HttpServletRequest} <p>the request parameter is <code>HttpServletRequest</code> type.</p>
      * @see javax.servlet.http.HttpServletRequest
      */
-    public HttpRequestWrapper(HttpServletRequest request) {
+    public RestHttpRequest(HttpServletRequest request) {
         super(request);
     }
 

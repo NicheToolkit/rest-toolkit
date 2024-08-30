@@ -3,15 +3,14 @@ package io.github.nichetoolkit.rest.logback;
 import ch.qos.logback.classic.pattern.MessageConverter;
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import io.github.nichetoolkit.rest.configure.RestLogbackProperties;
+import io.github.nichetoolkit.rest.holder.ApplicationContextHolder;
 import io.github.nichetoolkit.rest.util.CommonUtils;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import io.github.nichetoolkit.rest.util.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.helpers.MessageFormatter;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
-import org.springframework.stereotype.Component;
 
 /**
  * <code>DefaultMessageConverter</code>
@@ -19,13 +18,10 @@ import org.springframework.stereotype.Component;
  * @author Cyan (snow22314@outlook.com)
  * @see ch.qos.logback.classic.pattern.MessageConverter
  * @see lombok.extern.slf4j.Slf4j
- * @see org.springframework.stereotype.Component
  * @since Jdk1.8
  */
 @Slf4j
-@Component
 public class DefaultMessageConverter extends MessageConverter {
-
     /**
      * <code>logbackProperties</code>
      * {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>the <code>logbackProperties</code> field.</p>
@@ -36,11 +32,17 @@ public class DefaultMessageConverter extends MessageConverter {
     /**
      * <code>DefaultMessageConverter</code>
      * Instantiates a new default message converter.
+     */
+    public DefaultMessageConverter() {
+        this.logbackProperties = ApplicationContextHolder.getBean(RestLogbackProperties.class);
+    }
+
+    /**
+     * <code>DefaultMessageConverter</code>
+     * Instantiates a new default message converter.
      * @param logbackProperties {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>the logback properties parameter is <code>RestLogbackProperties</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestLogbackProperties
-     * @see org.springframework.beans.factory.annotation.Autowired
      */
-    @Autowired
     public DefaultMessageConverter(RestLogbackProperties logbackProperties) {
         this.logbackProperties = logbackProperties;
     }
@@ -93,19 +95,23 @@ public class DefaultMessageConverter extends MessageConverter {
                 argument = toString;
             }
         }
+        Integer argumentLength = 1024;
+        if (GeneralUtils.isNotEmpty(logbackProperties)) {
+            argumentLength = logbackProperties.getArgumentLength();
+        }
         if (argument instanceof String) {
-            if (argument.toString().length() < logbackProperties.getArgumentLength()){
+            if (argument.toString().length() < argumentLength){
                 return argument;
             } else {
-                return CommonUtils.substring(((String) argument), logbackProperties.getArgumentLength());
+                return CommonUtils.substring(((String) argument), argumentLength);
             }
         }
         String argumentJson = JsonUtils.parseJson(argument);
         if (GeneralUtils.isNotEmpty(argumentJson)) {
-            if (argumentJson.length() < logbackProperties.getArgumentLength()) {
+            if (argumentJson.length() < argumentLength) {
                 return argumentJson;
             } else {
-                return CommonUtils.substring(argumentJson, logbackProperties.getArgumentLength());
+                return CommonUtils.substring(argumentJson, argumentLength);
             }
         }
         return argument;

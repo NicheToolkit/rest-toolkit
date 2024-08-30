@@ -2,7 +2,7 @@ package io.github.nichetoolkit.rest.logback;
 
 import io.github.nichetoolkit.rest.RestLoggingKeyAdvice;
 import io.github.nichetoolkit.rest.configure.RestLogbackProperties;
-import io.github.nichetoolkit.rest.HttpRequestWrapper;
+import io.github.nichetoolkit.rest.RestHttpRequest;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
@@ -65,7 +65,7 @@ public class DefaultRequestLogbackFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull FilterChain filterChain) throws ServletException, IOException {
-        HttpRequestWrapper requestWrapper = new HttpRequestWrapper(request);
+        RestHttpRequest requestWrapper = new RestHttpRequest(request);
         if (logbackProperties.getEnabled()) {
             String logPrefixKey = logbackProperties.getLoggingKey();
             String loggingKey = null;
@@ -94,7 +94,7 @@ public class DefaultRequestLogbackFilter extends OncePerRequestFilter {
         }
     }
 
-    private String getRequestId(HttpRequestWrapper requestWrapper) {
+    private String getRequestId(RestHttpRequest requestWrapper) {
         String requestId = requestWrapper.getHeader(logbackProperties.getHeaderKey());
         if (GeneralUtils.isEmpty(requestId)) {
             requestId = GeneralUtils.uuid();
