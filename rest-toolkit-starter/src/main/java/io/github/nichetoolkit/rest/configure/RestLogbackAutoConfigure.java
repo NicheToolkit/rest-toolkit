@@ -51,9 +51,11 @@ public class RestLogbackAutoConfigure {
      * @see io.github.nichetoolkit.rest.RestLoggingKeyAdvice
      * @see org.springframework.context.annotation.Bean
      * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
      */
     @Bean
     @ConditionalOnMissingBean(RestLoggingKeyAdvice.class)
+    @ConditionalOnProperty(value = "nichetoolkit.rest.logback.enabled", havingValue = "true", matchIfMissing = true)
     public RestLoggingKeyAdvice loggingKeyGenerator() {
         return new RestLoggingKeyGenerator(logbackProperties) {
             @Override
@@ -76,6 +78,5 @@ public class RestLogbackAutoConfigure {
     public DefaultMessageConverter messageConverter() {
         return new DefaultMessageConverter(logbackProperties);
     }
-
 
 }
