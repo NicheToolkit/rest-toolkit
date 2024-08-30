@@ -1,6 +1,5 @@
 package io.github.nichetoolkit.rest.logback;
 
-import io.github.nichetoolkit.rest.RestAccessToken;
 import io.github.nichetoolkit.rest.RestLoggingKey;
 import io.github.nichetoolkit.rest.configure.RestLogbackProperties;
 import io.github.nichetoolkit.rest.RestHttpRequest;
@@ -33,7 +32,7 @@ import java.io.IOException;
 @Slf4j
 @Component
 @Order(value = Ordered.HIGHEST_PRECEDENCE + 100)
-public class DefaultRequestLogbackFilter extends OncePerRequestFilter {
+public class DefaultLogbackFilter extends OncePerRequestFilter {
     private final RestLogbackProperties logbackProperties;
     private RestLoggingKey loggingKey;
 
@@ -45,7 +44,7 @@ public class DefaultRequestLogbackFilter extends OncePerRequestFilter {
      * @see org.springframework.beans.factory.annotation.Autowired
      */
     @Autowired(required = false)
-    public DefaultRequestLogbackFilter(RestLogbackProperties logbackProperties) {
+    public DefaultLogbackFilter(RestLogbackProperties logbackProperties) {
         this.logbackProperties = logbackProperties;
     }
 
@@ -54,14 +53,12 @@ public class DefaultRequestLogbackFilter extends OncePerRequestFilter {
      * Instantiates a new default request logback filter.
      * @param logbackProperties {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>the logback properties parameter is <code>RestLogbackProperties</code> type.</p>
      * @param loggingKey        {@link io.github.nichetoolkit.rest.RestLoggingKey} <p>the logging key parameter is <code>RestLoggingKey</code> type.</p>
-     * @param accessToken       {@link io.github.nichetoolkit.rest.RestAccessToken} <p>the access token parameter is <code>RestAccessToken</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestLogbackProperties
      * @see io.github.nichetoolkit.rest.RestLoggingKey
-     * @see io.github.nichetoolkit.rest.RestAccessToken
      * @see org.springframework.beans.factory.annotation.Autowired
      */
     @Autowired(required = false)
-    public DefaultRequestLogbackFilter(RestLogbackProperties logbackProperties, RestLoggingKey loggingKey, RestAccessToken accessToken) {
+    public DefaultLogbackFilter(RestLogbackProperties logbackProperties, RestLoggingKey loggingKey) {
         this.logbackProperties = logbackProperties;
         this.loggingKey = loggingKey;
     }
