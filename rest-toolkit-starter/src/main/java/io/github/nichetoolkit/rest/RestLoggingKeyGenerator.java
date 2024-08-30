@@ -12,7 +12,7 @@ import java.util.List;
  * <p>The type rest logging key generator class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestLoggingKeyAdvice
- * @see RestAccessValueAdvice
+ * @see io.github.nichetoolkit.rest.RestAccessValueAdvice
  * @see lombok.extern.slf4j.Slf4j
  * @since Jdk1.8
  */

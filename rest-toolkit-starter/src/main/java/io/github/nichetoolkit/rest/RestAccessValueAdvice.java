@@ -5,8 +5,8 @@ import io.github.nichetoolkit.rest.util.GeneralUtils;
 import java.util.Collection;
 
 /**
- * <code>RestAttributeAdvice</code>
- * <p>The type rest attribute advice interface.</p>
+ * <code>RestAccessValueAdvice</code>
+ * <p>The type rest access value advice interface.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */

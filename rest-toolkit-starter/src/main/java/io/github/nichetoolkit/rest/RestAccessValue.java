@@ -1,8 +1,8 @@
 package io.github.nichetoolkit.rest;
 
 /**
- * <code>RestAccessToken</code>
- * <p>The type rest access token interface.</p>
+ * <code>RestAccessValue</code>
+ * <p>The type rest access value interface.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
