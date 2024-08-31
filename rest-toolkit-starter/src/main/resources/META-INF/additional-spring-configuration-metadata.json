@@ -244,10 +244,10 @@
       "description": "logback request key."
     },
     {
-      "name": "nichetoolkit.rest.logback.header-key",
+      "name": "nichetoolkit.rest.logback.request-header",
       "type": "java.lang.String",
       "sourceType": "java.lang.String",
-      "description": "logback header key."
+      "description": "logback request header."
     },
     {
       "name": "nichetoolkit.rest.logback.argument-length",

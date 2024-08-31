@@ -20,8 +20,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * <code>DefaultRequestLogbackFilter</code>
- * <p>The type default request logback filter class.</p>
+ * <code>DefaultLogbackFilter</code>
+ * <p>The type default logback filter class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see org.springframework.web.filter.OncePerRequestFilter
  * @see lombok.extern.slf4j.Slf4j
@@ -37,8 +37,8 @@ public class DefaultLogbackFilter extends OncePerRequestFilter {
     private RestLoggingKey loggingKey;
 
     /**
-     * <code>DefaultRequestLogbackFilter</code>
-     * Instantiates a new default request logback filter.
+     * <code>DefaultLogbackFilter</code>
+     * Instantiates a new default logback filter.
      * @param logbackProperties {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>the logback properties parameter is <code>RestLogbackProperties</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestLogbackProperties
      * @see org.springframework.beans.factory.annotation.Autowired
@@ -49,8 +49,8 @@ public class DefaultLogbackFilter extends OncePerRequestFilter {
     }
 
     /**
-     * <code>DefaultRequestLogbackFilter</code>
-     * Instantiates a new default request logback filter.
+     * <code>DefaultLogbackFilter</code>
+     * Instantiates a new default logback filter.
      * @param logbackProperties {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>the logback properties parameter is <code>RestLogbackProperties</code> type.</p>
      * @param loggingKey        {@link io.github.nichetoolkit.rest.RestLoggingKey} <p>the logging key parameter is <code>RestLoggingKey</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestLogbackProperties
@@ -67,26 +67,27 @@ public class DefaultLogbackFilter extends OncePerRequestFilter {
     protected void doFilterInternal(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull FilterChain filterChain) throws ServletException, IOException {
         RestHttpRequest httpRequest = new RestHttpRequest(request);
         if (logbackProperties.getEnabled()) {
-            String loggingPrefixKey = logbackProperties.getLoggingKey();
-            String loggingKey = null;
+            String loggingKey = logbackProperties.getLoggingKey();
+            String loggingKeyValue = null;
             if(GeneralUtils.isNotEmpty(this.loggingKey)) {
-                loggingKey = this.loggingKey.loggingKey(httpRequest);
+                loggingKeyValue = this.loggingKey.loggingKey(httpRequest);
             }
-            if (GeneralUtils.isEmpty(loggingKey)) {
-                loggingKey = httpRequest.getSession().getId();
+            if (GeneralUtils.isEmpty(loggingKeyValue)) {
+                loggingKeyValue = httpRequest.getSession().getId();
             }
-            if (GeneralUtils.isNotEmpty(loggingKey)) {
-                loggingKey = "[".concat(loggingKey).concat("]");
-                MDC.put(loggingPrefixKey, loggingKey);
-                request.setAttribute(loggingPrefixKey, loggingKey);
+            if (GeneralUtils.isNotEmpty(loggingKeyValue)) {
+                loggingKeyValue = "[".concat(loggingKeyValue).concat("]");
+                MDC.put(loggingKey, loggingKeyValue);
+                request.setAttribute(loggingKey, loggingKeyValue);
             }
-            String requestId = getRequestId(httpRequest);
-            log.info("request id: {}, request uri: {}", requestId, request.getRequestURI());
-            MDC.put(logbackProperties.getRequestKey(), requestId);
+            String requestKey = logbackProperties.getRequestKey();
+            String requestIdValue = getRequestId(httpRequest);
+            log.debug("request id: {}, request uri: {}", requestIdValue, request.getRequestURI());
+            MDC.put(requestKey, requestIdValue);
             try {
                 filterChain.doFilter(httpRequest, response);
             } finally {
-                MDC.remove(loggingPrefixKey);
+                MDC.remove(loggingKey);
                 MDC.clear();
             }
         } else {
@@ -95,7 +96,8 @@ public class DefaultLogbackFilter extends OncePerRequestFilter {
     }
 
     private String getRequestId(RestHttpRequest httpRequest) {
-        String requestId = httpRequest.getHeader(logbackProperties.getHeaderKey());
+        String requestHeader = logbackProperties.getRequestHeader();
+        String requestId = httpRequest.getHeader(requestHeader);
         if (GeneralUtils.isEmpty(requestId)) {
             requestId = GeneralUtils.uuid();
         }

@@ -31,7 +31,7 @@ public class RestLogbackProperties {
 
     private String requestKey = "requestKey";
 
-    private String headerKey = "X-Request-ID";
+    private String requestHeader = "X-Request-ID";
 
     private Integer argumentLength = 1024;
 

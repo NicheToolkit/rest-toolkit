@@ -57,7 +57,7 @@ public interface RestAccessValueAdvice extends RestAccessValue {
             return null;
         }
         String attributeValue = httpRequest.getParameter(attribute);
-        if (GeneralUtils.isEmpty(attribute)) {
+        if (GeneralUtils.isEmpty(attributeValue)) {
             attributeValue = httpRequest.getHeader(attribute);
         }
         return attributeValue;
