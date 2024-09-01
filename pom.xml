@@ -126,7 +126,7 @@
         <!-- fix spring-web:5.3.31 CVE-2016-1000027 9.8 vulnerability
                                    CVE-2024-22243 8.1 Vulnerability
                                    CVE-2024-22259 8.1 Vulnerability  -->
-        <springframework.version>5.3.34</springframework.version>
+        <spring-framework.version>5.3.34</spring-framework.version>
         <!-- fix snakeyaml:1.30 CVE-2022-25857 7.5 vulnerability
                                 CVE-2022-38751 6.5 vulnerability
                                 CVE-2022-38752 6.5 vulnerability
@@ -138,7 +138,7 @@
         <!-- fix tomcat-embed-core:9.0.83 CVE-2024-23672 7.5 vulnerability
                                           CVE-2024-24549 6.5 vulnerability -->
         <!-- fix tomcat-embed-websocket:9.0.83 CVE-2024-23672 7.5 vulnerability -->
-        <tomcat-embed.version>9.0.86</tomcat-embed.version>
+        <tomcat.version>9.0.86</tomcat.version>
         <!-- fix okio:2.8.0 CVE-2023-3635 7.5 vulnerability       -->
         <squareup.version>3.4.0</squareup.version>
 
@@ -156,66 +156,6 @@
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-parent</artifactId>
-                <version>${spring-boot.version}</version>
-                <type>pom</type>
-            </dependency>
-
-            <dependency>
-                <groupId>ch.qos.logback</groupId>
-                <artifactId>logback-classic</artifactId>
-                <version>${logback.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-core</artifactId>
-                <version>${springframework.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-context</artifactId>
-                <version>${springframework.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-web</artifactId>
-                <version>${springframework.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.tomcat.embed</groupId>
-                <artifactId>tomcat-embed-core</artifactId>
-                <version>${tomcat-embed.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.tomcat.embed</groupId>
-                <artifactId>tomcat-embed-websocket</artifactId>
-                <version>${tomcat-embed.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.yaml</groupId>
-                <artifactId>snakeyaml</artifactId>
-                <version>${snakeyaml.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.squareup.okio</groupId>
-                <artifactId>okio</artifactId>
-                <version>${squareup.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>io.github.nichetoolkit</groupId>
-                <artifactId>rest-toolkit-parent</artifactId>
-                <version>${rest-toolkit.version}</version>
-                <type>pom</type>
-            </dependency>
-
             <dependency>
                 <groupId>io.github.nichetoolkit</groupId>
                 <artifactId>rest-toolkit-core</artifactId>
@@ -256,6 +196,60 @@
                 <groupId>io.fusionauth</groupId>
                 <artifactId>fusionauth-jwt</artifactId>
                 <version>${fusionauth-jwt.version}</version>
+            </dependency>
+
+            <!--  fix CEV dependencies -->
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${spring-framework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-web</artifactId>
+                <version>${spring-framework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.tomcat.embed</groupId>
+                <artifactId>tomcat-embed-core</artifactId>
+                <version>${tomcat.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.tomcat.embed</groupId>
+                <artifactId>tomcat-embed-websocket</artifactId>
+                <version>${tomcat.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.yaml</groupId>
+                <artifactId>snakeyaml</artifactId>
+                <version>${snakeyaml.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.squareup.okio</groupId>
+                <artifactId>okio</artifactId>
+                <version>${squareup.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
