@@ -1,5 +1,6 @@
 package io.github.nichetoolkit.rest.userlog;
 
+import io.github.nichetoolkit.rest.RestErrorStatus;
 import io.github.nichetoolkit.rest.RestResult;
 import lombok.Data;
 
@@ -112,6 +113,15 @@ public class RestResponsePack {
         this.resultString = builder.resultString;
         this.restResult = builder.restResult;
         this.data = builder.data;
+    }
+
+    /**
+     * <code>isSuccess</code>
+     * <p>the success method.</p>
+     * @return boolean <p>the success return object is <code>boolean</code> type.</p>
+     */
+    public boolean isSuccess() {
+        return RestErrorStatus.SUCCESS.getStatus().equals(this.status);
     }
 
     /**
