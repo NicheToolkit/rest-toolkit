@@ -11,7 +11,7 @@
         <module>rest-toolkit-core</module>
         <module>rest-toolkit-utils</module>
         <module>rest-toolkit-starter</module>
-        <!--        <module>rest-toolkit-test-web</module>-->
+        <module>rest-toolkit-test-web</module>
     </modules>
 
     <name>rest-toolkit-parent</name>
@@ -141,6 +141,10 @@
         <tomcat.version>9.0.86</tomcat.version>
         <!-- fix okio:2.8.0 CVE-2023-3635 7.5 vulnerability       -->
         <squareup.version>3.4.0</squareup.version>
+        <!-- fix postgresql:42.3.8 CVE-2024-1597 10.0 vulnerability    -->
+        <postgresql.version>42.3.9</postgresql.version>
+        <!-- fix json-path:2.7.0 CVE-2023-51074 5.3 vulnerability    -->
+        <jsonpath.version>2.9.0</jsonpath.version>
 
         <spring-boot-maven-plugin.version>2.7.18</spring-boot-maven-plugin.version>
         <maven-gpg-plugin.version>3.2.5</maven-gpg-plugin.version>
@@ -256,6 +260,18 @@
                 <groupId>com.squareup.okio</groupId>
                 <artifactId>okio</artifactId>
                 <version>${squareup.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>${postgresql.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.jayway.jsonpath</groupId>
+                <artifactId>json-path</artifactId>
+                <version>${jsonpath.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
