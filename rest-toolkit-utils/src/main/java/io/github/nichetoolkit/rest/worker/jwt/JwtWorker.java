@@ -563,7 +563,7 @@ public class JwtWorker {
      * <p>the method.</p>
      * @param token     {@link java.lang.String} <p>the token parameter is <code>String</code> type.</p>
      * @param algorithm {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>the algorithm parameter is <code>JwtAlgorithm</code> type.</p>
-     * @param bytes     {@link byte} <p>the bytes parameter is <code>byte</code> type.</p>
+     * @param bytes     byte <p>the bytes parameter is <code>byte</code> type.</p>
      * @return {@link io.fusionauth.jwt.domain.JWT} <p>the return object is <code>JWT</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm
@@ -678,7 +678,7 @@ public class JwtWorker {
      * <p>the method.</p>
      * @param token          {@link java.lang.String} <p>the token parameter is <code>String</code> type.</p>
      * @param algorithm      {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>the algorithm parameter is <code>JwtAlgorithm</code> type.</p>
-     * @param bytes          {@link byte} <p>the bytes parameter is <code>byte</code> type.</p>
+     * @param bytes          byte <p>the bytes parameter is <code>byte</code> type.</p>
      * @param cryptoProvider {@link io.fusionauth.security.CryptoProvider} <p>the crypto provider parameter is <code>CryptoProvider</code> type.</p>
      * @return {@link io.fusionauth.jwt.domain.JWT} <p>the return object is <code>JWT</code> type.</p>
      * @see java.lang.String

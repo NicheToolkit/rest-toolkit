@@ -31,9 +31,27 @@ public enum ProxyType implements RestValue<String, Proxy.Type> {
      */
     SOCKS("socks",Proxy.Type.SOCKS),
     ;
+    /**
+     * <code>key</code>
+     * {@link java.lang.String} <p>the <code>key</code> field.</p>
+     * @see java.lang.String
+     */
     private final String key;
+    /**
+     * <code>value</code>
+     * {@link java.net.Proxy.Type} <p>the <code>value</code> field.</p>
+     * @see java.net.Proxy.Type
+     */
     private final Proxy.Type value;
 
+    /**
+     * <code>ProxyType</code>
+     * Instantiates a new proxy type.
+     * @param key   {@link java.lang.String} <p>the key parameter is <code>String</code> type.</p>
+     * @param value {@link java.net.Proxy.Type} <p>the value parameter is <code>Type</code> type.</p>
+     * @see java.lang.String
+     * @see java.net.Proxy.Type
+     */
     ProxyType(String key, Proxy.Type value) {
         this.key = key;
         this.value = value;

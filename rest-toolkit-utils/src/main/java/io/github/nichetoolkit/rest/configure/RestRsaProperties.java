@@ -21,7 +21,7 @@ import org.springframework.stereotype.Component;
 public class RestRsaProperties {
     /**
      * <code>enabled</code>
-     * {@link boolean} <p>the <code>enabled</code> field.</p>
+     * <p>the <code>enabled</code> field.</p>
      */
     private boolean enabled;
     /**
@@ -44,7 +44,7 @@ public class RestRsaProperties {
     private String privateKey;
     /**
      * <code>autoVerify</code>
-     * {@link boolean} <p>the <code>autoVerify</code> field.</p>
+     * <p>the <code>autoVerify</code> field.</p>
      */
     private boolean autoVerify = true;
 

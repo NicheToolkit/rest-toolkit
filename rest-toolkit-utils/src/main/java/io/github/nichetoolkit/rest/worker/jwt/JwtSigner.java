@@ -33,7 +33,7 @@ public interface JwtSigner extends RestAlgorithm<Algorithm> {
     /**
      * <code>signer</code>
      * <p>the method.</p>
-     * @param secret {@link byte} <p>the secret parameter is <code>byte</code> type.</p>
+     * @param secret byte <p>the secret parameter is <code>byte</code> type.</p>
      * @return {@link io.fusionauth.jwt.Signer} <p>the return object is <code>Signer</code> type.</p>
      * @see io.fusionauth.jwt.Signer
      */
@@ -56,7 +56,7 @@ public interface JwtSigner extends RestAlgorithm<Algorithm> {
     /**
      * <code>signer</code>
      * <p>the method.</p>
-     * @param secret {@link byte} <p>the secret parameter is <code>byte</code> type.</p>
+     * @param secret byte <p>the secret parameter is <code>byte</code> type.</p>
      * @param kid    {@link java.lang.String} <p>the kid parameter is <code>String</code> type.</p>
      * @return {@link io.fusionauth.jwt.Signer} <p>the return object is <code>Signer</code> type.</p>
      * @see java.lang.String
@@ -96,7 +96,7 @@ public interface JwtSigner extends RestAlgorithm<Algorithm> {
     /**
      * <code>signer</code>
      * <p>the method.</p>
-     * @param secret         {@link byte} <p>the secret parameter is <code>byte</code> type.</p>
+     * @param secret         byte <p>the secret parameter is <code>byte</code> type.</p>
      * @param kid            {@link java.lang.String} <p>the kid parameter is <code>String</code> type.</p>
      * @param cryptoProvider {@link io.fusionauth.security.CryptoProvider} <p>the crypto provider parameter is <code>CryptoProvider</code> type.</p>
      * @return {@link io.fusionauth.jwt.Signer} <p>the return object is <code>Signer</code> type.</p>
@@ -228,7 +228,7 @@ public interface JwtSigner extends RestAlgorithm<Algorithm> {
     /**
      * <code>verifier</code>
      * <p>the method.</p>
-     * @param bytes {@link byte} <p>the bytes parameter is <code>byte</code> type.</p>
+     * @param bytes byte <p>the bytes parameter is <code>byte</code> type.</p>
      * @return {@link io.fusionauth.jwt.Verifier} <p>the return object is <code>Verifier</code> type.</p>
      * @see io.fusionauth.jwt.Verifier
      */
@@ -281,7 +281,7 @@ public interface JwtSigner extends RestAlgorithm<Algorithm> {
     /**
      * <code>verifier</code>
      * <p>the method.</p>
-     * @param bytes          {@link byte} <p>the bytes parameter is <code>byte</code> type.</p>
+     * @param bytes          byte <p>the bytes parameter is <code>byte</code> type.</p>
      * @param cryptoProvider {@link io.fusionauth.security.CryptoProvider} <p>the crypto provider parameter is <code>CryptoProvider</code> type.</p>
      * @return {@link io.fusionauth.jwt.Verifier} <p>the return object is <code>Verifier</code> type.</p>
      * @see io.fusionauth.security.CryptoProvider

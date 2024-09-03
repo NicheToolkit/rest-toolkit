@@ -35,8 +35,17 @@ import java.security.spec.X509EncodedKeySpec;
  */
 @Slf4j
 public class RsaWorker {
+    /**
+     * <code>RSA_ALGORITHM</code>
+     * {@link java.lang.String} <p>the constant <code>RSA_ALGORITHM</code> field.</p>
+     * @see java.lang.String
+     */
     private static final String RSA_ALGORITHM = "RSA";
 
+    /**
+     * <code>INSTANCE</code>
+     * {@link io.github.nichetoolkit.rest.worker.rsa.RsaWorker} <p>the constant <code>INSTANCE</code> field.</p>
+     */
     private static RsaWorker INSTANCE = null;
 
     /**
@@ -48,6 +57,11 @@ public class RsaWorker {
         return INSTANCE;
     }
 
+    /**
+     * <code>rsaProperties</code>
+     * {@link io.github.nichetoolkit.rest.configure.RestRsaProperties} <p>the <code>rsaProperties</code> field.</p>
+     * @see io.github.nichetoolkit.rest.configure.RestRsaProperties
+     */
     private final RestRsaProperties rsaProperties;
 
     /**
@@ -665,11 +679,30 @@ public class RsaWorker {
         return Base64.encodeBase64String(targetBytes);
     }
 
+    /**
+     * <code>dofinal</code>
+     * <p>the method.</p>
+     * @param cipher      {@link javax.crypto.Cipher} <p>the cipher parameter is <code>Cipher</code> type.</p>
+     * @param source      {@link java.lang.String} <p>the source parameter is <code>String</code> type.</p>
+     * @param segmentSize int <p>the segment size parameter is <code>int</code> type.</p>
+     * @return byte <p>the return object is <code>byte</code> type.</p>
+     * @see javax.crypto.Cipher
+     * @see java.lang.String
+     */
     private static byte[] dofinal(Cipher cipher, String source, int segmentSize) {
         byte[] sourceBytes = source.getBytes(StandardCharsets.UTF_8);
         return dofinal(cipher, sourceBytes, segmentSize);
     }
 
+    /**
+     * <code>dofinal</code>
+     * <p>the method.</p>
+     * @param cipher      {@link javax.crypto.Cipher} <p>the cipher parameter is <code>Cipher</code> type.</p>
+     * @param sourceBytes byte <p>the source bytes parameter is <code>byte</code> type.</p>
+     * @param segmentSize int <p>the segment size parameter is <code>int</code> type.</p>
+     * @return byte <p>the return object is <code>byte</code> type.</p>
+     * @see javax.crypto.Cipher
+     */
     private static byte[] dofinal(Cipher cipher, byte[] sourceBytes, int segmentSize) {
         byte[] targetBytes = null;
         try {
@@ -684,6 +717,15 @@ public class RsaWorker {
         return targetBytes;
     }
 
+    /**
+     * <code>segmentDofinal</code>
+     * <p>the dofinal method.</p>
+     * @param cipher      {@link javax.crypto.Cipher} <p>the cipher parameter is <code>Cipher</code> type.</p>
+     * @param sourceBytes byte <p>the source bytes parameter is <code>byte</code> type.</p>
+     * @param segmentSize int <p>the segment size parameter is <code>int</code> type.</p>
+     * @return byte <p>the dofinal return object is <code>byte</code> type.</p>
+     * @see javax.crypto.Cipher
+     */
     private static byte[] segmentDofinal(Cipher cipher, byte[] sourceBytes, int segmentSize) {
         int length = sourceBytes.length;
         int offSet = 0;

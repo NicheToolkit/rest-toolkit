@@ -21,11 +21,40 @@ import java.util.Objects;
 @Slf4j
 @SuppressWarnings("SameNameButDifferent")
 class IdentityWorkerMachine implements IdentityWorker{
+    /**
+     * <code>name</code>
+     * {@link java.lang.String} <p>the <code>name</code> field.</p>
+     * @see java.lang.String
+     */
     private final String name;
+    /**
+     * <code>lastTime</code>
+     * {@link java.lang.Long} <p>the <code>lastTime</code> field.</p>
+     * @see java.lang.Long
+     */
     private Long lastTime = IdentityWorkerConfig.TIMESTAMP;
+    /**
+     * <code>sequence</code>
+     * {@link java.lang.Long} <p>the <code>sequence</code> field.</p>
+     * @see java.lang.Long
+     */
     private Long sequence = IdentityWorkerConfig.SEQUENCE;
+    /**
+     * <code>workerId</code>
+     * {@link java.lang.Long} <p>the <code>workerId</code> field.</p>
+     * @see java.lang.Long
+     */
     private final Long workerId;
+    /**
+     * <code>centerId</code>
+     * {@link java.lang.Long} <p>the <code>centerId</code> field.</p>
+     * @see java.lang.Long
+     */
     private final Long centerId;
+    /**
+     * <code>isOffset</code>
+     * <p>the <code>isOffset</code> field.</p>
+     */
     private boolean isOffset;
 
     /**

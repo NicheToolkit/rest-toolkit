@@ -30,7 +30,7 @@ public interface RestArithmetic extends RestValue<Long, String> {
      * @param <T>        {@link io.github.nichetoolkit.rest.RestArithmetic} <p>the generic parameter is <code>RestArithmetic</code> type.</p>
      * @param clazz      {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
      * @param arithmetic {@link java.lang.Long} <p>the arithmetic parameter is <code>Long</code> type.</p>
-     * @return {@link T} <p>the arithmetic return object is <code>T</code> type.</p>
+     * @return T <p>the arithmetic return object is <code>T</code> type.</p>
      * @see java.lang.Class
      * @see java.lang.Long
      * @see java.lang.SuppressWarnings
@@ -51,7 +51,7 @@ public interface RestArithmetic extends RestValue<Long, String> {
      * @param <T>        {@link io.github.nichetoolkit.rest.RestArithmetic} <p>the generic parameter is <code>RestArithmetic</code> type.</p>
      * @param values     {@link java.util.Collection} <p>the values parameter is <code>Collection</code> type.</p>
      * @param arithmetic {@link java.lang.Long} <p>the arithmetic parameter is <code>Long</code> type.</p>
-     * @return {@link T} <p>the arithmetic return object is <code>T</code> type.</p>
+     * @return T <p>the arithmetic return object is <code>T</code> type.</p>
      * @see java.util.Collection
      * @see java.lang.Long
      * @see java.lang.SuppressWarnings
@@ -71,7 +71,7 @@ public interface RestArithmetic extends RestValue<Long, String> {
      * <p>the key method.</p>
      * @param key            {@link java.lang.Long} <p>the key parameter is <code>Long</code> type.</p>
      * @param arithmeticType {@link io.github.nichetoolkit.rest.RestArithmetic} <p>the arithmetic type parameter is <code>RestArithmetic</code> type.</p>
-     * @return {@link boolean} <p>the key return object is <code>boolean</code> type.</p>
+     * @return boolean <p>the key return object is <code>boolean</code> type.</p>
      * @see java.lang.Long
      * @see org.springframework.lang.NonNull
      */
@@ -85,7 +85,7 @@ public interface RestArithmetic extends RestValue<Long, String> {
      * <p>the long method.</p>
      * @param key        {@link java.lang.Long} <p>the key parameter is <code>Long</code> type.</p>
      * @param arithmetic {@link java.lang.Long} <p>the arithmetic parameter is <code>Long</code> type.</p>
-     * @return {@link boolean} <p>the long return object is <code>boolean</code> type.</p>
+     * @return boolean <p>the long return object is <code>boolean</code> type.</p>
      * @see java.lang.Long
      * @see org.springframework.lang.NonNull
      */
@@ -112,7 +112,7 @@ public interface RestArithmetic extends RestValue<Long, String> {
      * <code>annexKey</code>
      * <p>the key method.</p>
      * @param <T>             {@link io.github.nichetoolkit.rest.RestArithmetic} <p>the generic parameter is <code>RestArithmetic</code> type.</p>
-     * @param arithmeticTypes {@link T} <p>the arithmetic types parameter is <code>T</code> type.</p>
+     * @param arithmeticTypes T <p>the arithmetic types parameter is <code>T</code> type.</p>
      * @return {@link java.lang.Long} <p>the key return object is <code>Long</code> type.</p>
      * @see java.lang.Long
      * @see java.lang.SuppressWarnings
@@ -127,7 +127,7 @@ public interface RestArithmetic extends RestValue<Long, String> {
      * <p>the key method.</p>
      * @param <T>             {@link io.github.nichetoolkit.rest.RestArithmetic} <p>the generic parameter is <code>RestArithmetic</code> type.</p>
      * @param arithmetic      {@link java.lang.Long} <p>the arithmetic parameter is <code>Long</code> type.</p>
-     * @param arithmeticTypes {@link T} <p>the arithmetic types parameter is <code>T</code> type.</p>
+     * @param arithmeticTypes T <p>the arithmetic types parameter is <code>T</code> type.</p>
      * @return {@link java.lang.Long} <p>the key return object is <code>Long</code> type.</p>
      * @see java.lang.Long
      * @see java.lang.SuppressWarnings

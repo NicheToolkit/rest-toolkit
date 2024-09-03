@@ -242,8 +242,8 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
      * @param message            {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
      * @param name               {@link java.lang.String} <p>the name parameter is <code>String</code> type.</p>
      * @param cause              {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
-     * @param enableSuppression  {@link boolean} <p>the enable suppression parameter is <code>boolean</code> type.</p>
-     * @param writableStackTrace {@link boolean} <p>the writable stack trace parameter is <code>boolean</code> type.</p>
+     * @param enableSuppression  boolean <p>the enable suppression parameter is <code>boolean</code> type.</p>
+     * @param writableStackTrace boolean <p>the writable stack trace parameter is <code>boolean</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      * @see java.lang.Throwable
@@ -277,8 +277,8 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
      * Instantiates a new rest error.
      * @param message            {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
      * @param cause              {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
-     * @param enableSuppression  {@link boolean} <p>the enable suppression parameter is <code>boolean</code> type.</p>
-     * @param writableStackTrace {@link boolean} <p>the writable stack trace parameter is <code>boolean</code> type.</p>
+     * @param enableSuppression  boolean <p>the enable suppression parameter is <code>boolean</code> type.</p>
+     * @param writableStackTrace boolean <p>the writable stack trace parameter is <code>boolean</code> type.</p>
      * @param name               {@link java.lang.String} <p>the name parameter is <code>String</code> type.</p>
      * @param domain             {@link java.lang.Integer} <p>the domain parameter is <code>Integer</code> type.</p>
      * @param status             {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
@@ -312,8 +312,8 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
      * @param status             {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
      * @param message            {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
      * @param cause              {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
-     * @param enableSuppression  {@link boolean} <p>the enable suppression parameter is <code>boolean</code> type.</p>
-     * @param writableStackTrace {@link boolean} <p>the writable stack trace parameter is <code>boolean</code> type.</p>
+     * @param enableSuppression  boolean <p>the enable suppression parameter is <code>boolean</code> type.</p>
+     * @param writableStackTrace boolean <p>the writable stack trace parameter is <code>boolean</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      * @see java.lang.Throwable

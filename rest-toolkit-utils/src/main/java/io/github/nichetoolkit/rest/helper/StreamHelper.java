@@ -58,7 +58,7 @@ public class StreamHelper {
      * <p>the method.</p>
      * @param inputStream  {@link java.io.InputStream} <p>the input stream parameter is <code>InputStream</code> type.</p>
      * @param outputStream {@link java.io.OutputStream} <p>the output stream parameter is <code>OutputStream</code> type.</p>
-     * @param isClose      {@link boolean} <p>the is close parameter is <code>boolean</code> type.</p>
+     * @param isClose      boolean <p>the is close parameter is <code>boolean</code> type.</p>
      * @throws StreamTransferException {@link io.github.nichetoolkit.rest.error.often.StreamTransferException} <p>the stream transfer exception is <code>StreamTransferException</code> type.</p>
      * @see java.io.InputStream
      * @see java.io.OutputStream
@@ -111,7 +111,7 @@ public class StreamHelper {
      * <code>bytes</code>
      * <p>the method.</p>
      * @param inputStream {@link java.io.InputStream} <p>the input stream parameter is <code>InputStream</code> type.</p>
-     * @return {@link byte} <p>the return object is <code>byte</code> type.</p>
+     * @return byte <p>the return object is <code>byte</code> type.</p>
      * @throws StreamReadException {@link io.github.nichetoolkit.rest.error.often.StreamReadException} <p>the stream read exception is <code>StreamReadException</code> type.</p>
      * @see java.io.InputStream
      * @see io.github.nichetoolkit.rest.error.often.StreamReadException
@@ -195,7 +195,7 @@ public class StreamHelper {
      * <code>write</code>
      * <p>the method.</p>
      * @param response {@link javax.servlet.http.HttpServletResponse} <p>the response parameter is <code>HttpServletResponse</code> type.</p>
-     * @param data     {@link byte} <p>the data parameter is <code>byte</code> type.</p>
+     * @param data     byte <p>the data parameter is <code>byte</code> type.</p>
      * @throws StreamWriteException {@link io.github.nichetoolkit.rest.error.often.StreamWriteException} <p>the stream write exception is <code>StreamWriteException</code> type.</p>
      * @see javax.servlet.http.HttpServletResponse
      * @see io.github.nichetoolkit.rest.error.often.StreamWriteException
@@ -213,7 +213,7 @@ public class StreamHelper {
      * <code>write</code>
      * <p>the method.</p>
      * @param outputStream {@link java.io.OutputStream} <p>the output stream parameter is <code>OutputStream</code> type.</p>
-     * @param data         {@link byte} <p>the data parameter is <code>byte</code> type.</p>
+     * @param data         byte <p>the data parameter is <code>byte</code> type.</p>
      * @throws StreamWriteException {@link io.github.nichetoolkit.rest.error.often.StreamWriteException} <p>the stream write exception is <code>StreamWriteException</code> type.</p>
      * @see java.io.OutputStream
      * @see io.github.nichetoolkit.rest.error.often.StreamWriteException
@@ -288,7 +288,7 @@ public class StreamHelper {
      * <code>write</code>
      * <p>the method.</p>
      * @param file {@link java.io.File} <p>the file parameter is <code>File</code> type.</p>
-     * @param data {@link byte} <p>the data parameter is <code>byte</code> type.</p>
+     * @param data byte <p>the data parameter is <code>byte</code> type.</p>
      * @throws StreamWriteException {@link io.github.nichetoolkit.rest.error.often.StreamWriteException} <p>the stream write exception is <code>StreamWriteException</code> type.</p>
      * @see java.io.File
      * @see io.github.nichetoolkit.rest.error.often.StreamWriteException
@@ -305,7 +305,7 @@ public class StreamHelper {
      * <code>write</code>
      * <p>the method.</p>
      * @param filename {@link java.lang.String} <p>the filename parameter is <code>String</code> type.</p>
-     * @param data     {@link byte} <p>the data parameter is <code>byte</code> type.</p>
+     * @param data     byte <p>the data parameter is <code>byte</code> type.</p>
      * @throws StreamWriteException {@link io.github.nichetoolkit.rest.error.often.StreamWriteException} <p>the stream write exception is <code>StreamWriteException</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.error.often.StreamWriteException

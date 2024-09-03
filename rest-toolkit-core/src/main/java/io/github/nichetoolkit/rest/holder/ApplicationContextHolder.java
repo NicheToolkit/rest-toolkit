@@ -17,8 +17,12 @@ import java.util.Map;
 
 /**
  * <code>ApplicationContextHolder</code>
- * <p>The type context holder class.</p>
+ * <p>The type application context holder class.</p>
  * @author Cyan (snow22314@outlook.com)
+ * @see org.springframework.context.ApplicationContextAware
+ * @see lombok.extern.slf4j.Slf4j
+ * @see org.springframework.core.annotation.Order
+ * @see org.springframework.stereotype.Component
  * @since Jdk1.8
  */
 @Slf4j
@@ -38,6 +42,13 @@ public class ApplicationContextHolder implements ApplicationContextAware {
         APPLICATION_CONTEXT = applicationContext;
     }
 
+    /**
+     * <code>initApplicationContext</code>
+     * <p>the application context method.</p>
+     * @param applicationContext {@link org.springframework.context.ApplicationContext} <p>the application context parameter is <code>ApplicationContext</code> type.</p>
+     * @see org.springframework.context.ApplicationContext
+     * @see org.springframework.lang.NonNull
+     */
     public static void initApplicationContext(@NonNull ApplicationContext applicationContext) {
         APPLICATION_CONTEXT = applicationContext;
     }
@@ -74,7 +85,7 @@ public class ApplicationContextHolder implements ApplicationContextAware {
      * <p>the bean getter method.</p>
      * @param <T>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @return {@link T} <p>the bean return object is <code>T</code> type.</p>
+     * @return T <p>the bean return object is <code>T</code> type.</p>
      * @throws BeansException {@link org.springframework.beans.BeansException} <p>the beans exception is <code>BeansException</code> type.</p>
      * @see java.lang.Class
      * @see org.springframework.beans.BeansException
@@ -92,7 +103,7 @@ public class ApplicationContextHolder implements ApplicationContextAware {
      * @param <T>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param name  {@link java.lang.String} <p>the name parameter is <code>String</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @return {@link T} <p>the bean return object is <code>T</code> type.</p>
+     * @return T <p>the bean return object is <code>T</code> type.</p>
      * @throws BeansException {@link org.springframework.beans.BeansException} <p>the beans exception is <code>BeansException</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Class

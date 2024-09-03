@@ -30,6 +30,11 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan(basePackages = {"io.github.nichetoolkit.rest"})
 public class RestLogbackAutoConfigure {
 
+    /**
+     * <code>logbackProperties</code>
+     * {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>the <code>logbackProperties</code> field.</p>
+     * @see io.github.nichetoolkit.rest.configure.RestLogbackProperties
+     */
     private final RestLogbackProperties logbackProperties;
 
     /**

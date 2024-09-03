@@ -28,7 +28,7 @@ public class OptionalHelper {
      * <code>nullable</code>
      * <p>the method.</p>
      * @param <T>              {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param object           {@link T} <p>the object parameter is <code>T</code> type.</p>
+     * @param object           T <p>the object parameter is <code>T</code> type.</p>
      * @param supplierActuator {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>the supplier actuator parameter is <code>SupplierActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
@@ -46,7 +46,7 @@ public class OptionalHelper {
      * <code>nullable</code>
      * <p>the method.</p>
      * @param <T>              {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param object           {@link T} <p>the object parameter is <code>T</code> type.</p>
+     * @param object           T <p>the object parameter is <code>T</code> type.</p>
      * @param message          {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
      * @param functionActuator {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the function actuator parameter is <code>FunctionActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
@@ -67,7 +67,7 @@ public class OptionalHelper {
      * <code>nullable</code>
      * <p>the method.</p>
      * @param <T>                {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param object             {@link T} <p>the object parameter is <code>T</code> type.</p>
+     * @param object             T <p>the object parameter is <code>T</code> type.</p>
      * @param message            {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
      * @param field              {@link java.lang.String} <p>the field parameter is <code>String</code> type.</p>
      * @param biFunctionActuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>the bi function actuator parameter is <code>BiFunctionActuator</code> type.</p>
@@ -265,7 +265,7 @@ public class OptionalHelper {
      * <code>fieldable</code>
      * <p>the method.</p>
      * @param <T>    {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param object {@link T} <p>the object parameter is <code>T</code> type.</p>
+     * @param object T <p>the object parameter is <code>T</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -277,7 +277,7 @@ public class OptionalHelper {
      * <code>fieldable</code>
      * <p>the method.</p>
      * @param <T>     {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param object  {@link T} <p>the object parameter is <code>T</code> type.</p>
+     * @param object  T <p>the object parameter is <code>T</code> type.</p>
      * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
@@ -291,7 +291,7 @@ public class OptionalHelper {
      * <code>fieldable</code>
      * <p>the method.</p>
      * @param <T>     {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param object  {@link T} <p>the object parameter is <code>T</code> type.</p>
+     * @param object  T <p>the object parameter is <code>T</code> type.</p>
      * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
      * @param field   {@link java.lang.String} <p>the field parameter is <code>String</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
@@ -306,7 +306,7 @@ public class OptionalHelper {
      * <code>idable</code>
      * <p>the method.</p>
      * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param id  {@link T} <p>the id parameter is <code>T</code> type.</p>
+     * @param id  T <p>the id parameter is <code>T</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -318,7 +318,7 @@ public class OptionalHelper {
      * <code>idable</code>
      * <p>the method.</p>
      * @param <T>     {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param id      {@link T} <p>the id parameter is <code>T</code> type.</p>
+     * @param id      T <p>the id parameter is <code>T</code> type.</p>
      * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
@@ -333,7 +333,7 @@ public class OptionalHelper {
      * <code>idable</code>
      * <p>the method.</p>
      * @param <T>     {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param id      {@link T} <p>the id parameter is <code>T</code> type.</p>
+     * @param id      T <p>the id parameter is <code>T</code> type.</p>
      * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
      * @param field   {@link java.lang.String} <p>the field parameter is <code>String</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>

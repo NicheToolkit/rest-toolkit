@@ -19,7 +19,7 @@ public interface RestValue<K, V> extends RestKey<K> {
     /**
      * <code>getValue</code>
      * <p>the value getter method.</p>
-     * @return {@link V} <p>the value return object is <code>V</code> type.</p>
+     * @return V <p>the value return object is <code>V</code> type.</p>
      */
     V getValue();
 
@@ -131,7 +131,7 @@ public interface RestValue<K, V> extends RestKey<K> {
      * @param <K>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param <V>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @param key   {@link K} <p>the key parameter is <code>K</code> type.</p>
+     * @param key   K <p>the key parameter is <code>K</code> type.</p>
      * @return {@link java.lang.Boolean} <p>the return object is <code>Boolean</code> type.</p>
      * @see java.lang.Class
      * @see java.lang.Boolean
@@ -147,8 +147,8 @@ public interface RestValue<K, V> extends RestKey<K> {
      * @param <K>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param <V>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @param key   {@link K} <p>the key parameter is <code>K</code> type.</p>
-     * @return {@link T} <p>the key return object is <code>T</code> type.</p>
+     * @param key   K <p>the key parameter is <code>K</code> type.</p>
+     * @return T <p>the key return object is <code>T</code> type.</p>
      * @see java.lang.Class
      * @see java.lang.SuppressWarnings
      */
@@ -168,8 +168,8 @@ public interface RestValue<K, V> extends RestKey<K> {
      * @param <K>    {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param <V>    {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param values {@link java.util.Collection} <p>the values parameter is <code>Collection</code> type.</p>
-     * @param key    {@link K} <p>the key parameter is <code>K</code> type.</p>
-     * @return {@link T} <p>the key return object is <code>T</code> type.</p>
+     * @param key    K <p>the key parameter is <code>K</code> type.</p>
+     * @return T <p>the key return object is <code>T</code> type.</p>
      * @see java.util.Collection
      * @see java.lang.SuppressWarnings
      */
@@ -189,8 +189,8 @@ public interface RestValue<K, V> extends RestKey<K> {
      * @param <K>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param <V>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @param value {@link V} <p>the value parameter is <code>V</code> type.</p>
-     * @return {@link T} <p>the value return object is <code>T</code> type.</p>
+     * @param value V <p>the value parameter is <code>V</code> type.</p>
+     * @return T <p>the value return object is <code>T</code> type.</p>
      * @see java.lang.Class
      * @see java.lang.SuppressWarnings
      */
@@ -210,8 +210,8 @@ public interface RestValue<K, V> extends RestKey<K> {
      * @param <K>    {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param <V>    {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param values {@link java.util.Collection} <p>the values parameter is <code>Collection</code> type.</p>
-     * @param value  {@link V} <p>the value parameter is <code>V</code> type.</p>
-     * @return {@link T} <p>the value return object is <code>T</code> type.</p>
+     * @param value  V <p>the value parameter is <code>V</code> type.</p>
+     * @return T <p>the value return object is <code>T</code> type.</p>
      * @see java.util.Collection
      * @see java.lang.SuppressWarnings
      */

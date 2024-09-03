@@ -17,7 +17,7 @@ public interface PredicateActuator<T> {
     /**
      * <code>actuate</code>
      * <p>the method.</p>
-     * @param m {@link T} <p>the m parameter is <code>T</code> type.</p>
+     * @param m T <p>the m parameter is <code>T</code> type.</p>
      * @return {@link java.lang.Boolean} <p>the return object is <code>Boolean</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Boolean

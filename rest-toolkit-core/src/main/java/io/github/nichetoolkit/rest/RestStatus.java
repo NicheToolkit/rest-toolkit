@@ -120,7 +120,7 @@ public interface RestStatus {
      * @param <T>    {@link io.github.nichetoolkit.rest.RestStatus} <p>the generic parameter is <code>RestStatus</code> type.</p>
      * @param clazz  {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
      * @param status {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @return {@link T} <p>the status return object is <code>T</code> type.</p>
+     * @return T <p>the status return object is <code>T</code> type.</p>
      * @see java.lang.Class
      * @see java.lang.Integer
      * @see java.lang.SuppressWarnings

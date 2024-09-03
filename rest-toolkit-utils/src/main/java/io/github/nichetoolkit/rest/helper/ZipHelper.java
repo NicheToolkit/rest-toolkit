@@ -101,8 +101,8 @@ public class ZipHelper {
     /**
      * <code>gzip</code>
      * <p>the method.</p>
-     * @param data {@link byte} <p>the data parameter is <code>byte</code> type.</p>
-     * @return {@link byte} <p>the return object is <code>byte</code> type.</p>
+     * @param data byte <p>the data parameter is <code>byte</code> type.</p>
+     * @return byte <p>the return object is <code>byte</code> type.</p>
      * @throws ZipErrorException {@link io.github.nichetoolkit.rest.error.often.ZipErrorException} <p>the zip error exception is <code>ZipErrorException</code> type.</p>
      * @see io.github.nichetoolkit.rest.error.often.ZipErrorException
      */
@@ -122,8 +122,8 @@ public class ZipHelper {
     /**
      * <code>ungzip</code>
      * <p>the method.</p>
-     * @param data {@link byte} <p>the data parameter is <code>byte</code> type.</p>
-     * @return {@link byte} <p>the return object is <code>byte</code> type.</p>
+     * @param data byte <p>the data parameter is <code>byte</code> type.</p>
+     * @return byte <p>the return object is <code>byte</code> type.</p>
      * @throws ZipErrorException {@link io.github.nichetoolkit.rest.error.often.ZipErrorException} <p>the zip error exception is <code>ZipErrorException</code> type.</p>
      * @see io.github.nichetoolkit.rest.error.often.ZipErrorException
      */

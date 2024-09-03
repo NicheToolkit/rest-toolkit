@@ -23,16 +23,46 @@ import java.util.List;
 @ConfigurationProperties(prefix = "nichetoolkit.rest.logback")
 public class RestLogbackProperties {
 
+    /**
+     * <code>enabled</code>
+     * {@link java.lang.Boolean} <p>the <code>enabled</code> field.</p>
+     * @see java.lang.Boolean
+     */
     private Boolean enabled = true;
 
+    /**
+     * <code>loggingKey</code>
+     * {@link java.lang.String} <p>the <code>loggingKey</code> field.</p>
+     * @see java.lang.String
+     */
     private String loggingKey ="loggingKey";
 
+    /**
+     * <code>attributes</code>
+     * {@link java.lang.String} <p>the <code>attributes</code> field.</p>
+     * @see java.lang.String
+     */
     private String[] attributes = {"t"};
 
+    /**
+     * <code>requestKey</code>
+     * {@link java.lang.String} <p>the <code>requestKey</code> field.</p>
+     * @see java.lang.String
+     */
     private String requestKey = "requestKey";
 
+    /**
+     * <code>requestHeader</code>
+     * {@link java.lang.String} <p>the <code>requestHeader</code> field.</p>
+     * @see java.lang.String
+     */
     private String requestHeader = "X-Request-ID";
 
+    /**
+     * <code>argumentLength</code>
+     * {@link java.lang.Integer} <p>the <code>argumentLength</code> field.</p>
+     * @see java.lang.Integer
+     */
     private Integer argumentLength = 1024;
 
     /**

@@ -35,7 +35,7 @@ class DefaultResult<T,S extends DefaultResult<T,S>> implements Serializable {
     private String message;
     /**
      * <code>data</code>
-     * {@link T} <p>the <code>data</code> field.</p>
+     * <p>the <code>data</code> field.</p>
      * @see com.fasterxml.jackson.annotation.JsonInclude
      */
     @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -90,7 +90,7 @@ class DefaultResult<T,S extends DefaultResult<T,S>> implements Serializable {
      * Instantiates a new default result.
      * @param status  {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
      * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param data    {@link T} <p>the data parameter is <code>T</code> type.</p>
+     * @param data    T <p>the data parameter is <code>T</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      */
@@ -103,7 +103,7 @@ class DefaultResult<T,S extends DefaultResult<T,S>> implements Serializable {
     /**
      * <code>isSuccess</code>
      * <p>the success method.</p>
-     * @return {@link boolean} <p>the success return object is <code>boolean</code> type.</p>
+     * @return boolean <p>the success return object is <code>boolean</code> type.</p>
      * @see com.fasterxml.jackson.annotation.JsonIgnore
      */
     @JsonIgnore
@@ -134,7 +134,7 @@ class DefaultResult<T,S extends DefaultResult<T,S>> implements Serializable {
         protected String message;
         /**
          * <code>data</code>
-         * {@link T} <p>the <code>data</code> field.</p>
+         * <p>the <code>data</code> field.</p>
          */
         protected T data;
         /**
@@ -215,7 +215,7 @@ class DefaultResult<T,S extends DefaultResult<T,S>> implements Serializable {
         /**
          * <code>data</code>
          * <p>the method.</p>
-         * @param data {@link T} <p>the data parameter is <code>T</code> type.</p>
+         * @param data T <p>the data parameter is <code>T</code> type.</p>
          * @return {@link io.github.nichetoolkit.rest.DefaultResult.Builder} <p>the return object is <code>Builder</code> type.</p>
          */
         public DefaultResult.Builder<T,S> data(T data) {

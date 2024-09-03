@@ -26,13 +26,13 @@ public class RestRadixProperties {
     private static final String DEFAULT_DIGITS = "qwe8as2dzx9c7p5ik3mjufr4vyltn6bgh";
     /**
      * <code>DEFAULT_SUPPLY</code>
-     * {@link char} <p>the constant <code>DEFAULT_SUPPLY</code> field.</p>
+     * <p>the constant <code>DEFAULT_SUPPLY</code> field.</p>
      */
     private static final char DEFAULT_SUPPLY = 'o';
 
     /**
      * <code>enabled</code>
-     * {@link boolean} <p>the <code>enabled</code> field.</p>
+     * <p>the <code>enabled</code> field.</p>
      */
     private boolean enabled;
     /**
@@ -64,7 +64,7 @@ public class RestRadixProperties {
     /**
      * <code>toSupplyChar</code>
      * <p>the supply char method.</p>
-     * @return {@link char} <p>the supply char return object is <code>char</code> type.</p>
+     * @return char <p>the supply char return object is <code>char</code> type.</p>
      */
     public char toSupplyChar() {
         if (GeneralUtils.isNotEmpty(this.supply)) {
@@ -76,7 +76,7 @@ public class RestRadixProperties {
     /**
      * <code>toDigitsChar</code>
      * <p>the digits char method.</p>
-     * @return {@link char} <p>the digits char return object is <code>char</code> type.</p>
+     * @return char <p>the digits char return object is <code>char</code> type.</p>
      */
     public char[] toDigitsChar() {
         if (GeneralUtils.isNotEmpty(this.digits)) {

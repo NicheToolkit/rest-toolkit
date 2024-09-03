@@ -9,13 +9,30 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 
+/**
+ * <code>RadixWorkerTest</code>
+ * <p>The type radix worker test class.</p>
+ * @author Cyan (snow22314@outlook.com)
+ * @see Slf4j
+ * @see SpringBootTest
+ * @since Jdk1.8
+ */
 @Slf4j
 @SpringBootTest
 class RadixWorkerTest {
 
+    /**
+     * <code>radixWorker</code>
+     * <p>the <code>radixWorker</code> field.</p>
+     * @see Autowired
+     */
     @Autowired
     private RadixWorker radixWorker;
 
+    /**
+     * <code>test</code>
+     * <p>the method.</p>
+     */
     @Test
     void test() {
         /* the generate long value as default subject  */

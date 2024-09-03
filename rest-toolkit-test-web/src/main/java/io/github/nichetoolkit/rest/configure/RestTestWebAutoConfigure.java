@@ -8,10 +8,10 @@ import org.springframework.context.annotation.Configuration;
  * <code>RestTestWebAutoConfigure</code>
  * <p>The type rest test web auto configure class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @see lombok.extern.slf4j.Slf4j
- * @see org.springframework.context.annotation.Configuration
- * @see java.lang.SuppressWarnings
- * @see org.springframework.context.annotation.ComponentScan
+ * @see Slf4j
+ * @see Configuration
+ * @see SuppressWarnings
+ * @see ComponentScan
  * @since Jdk1.8
  */
 @Slf4j

@@ -37,8 +37,17 @@ import java.util.Map;
 @SuppressWarnings({"SameNameButDifferent", "TypeParameterUnusedInFormals"})
 public class RestTemplates {
 
+    /**
+     * <code>restTemplate</code>
+     * {@link org.springframework.web.client.RestTemplate} <p>the <code>restTemplate</code> field.</p>
+     * @see org.springframework.web.client.RestTemplate
+     */
     private final RestTemplate restTemplate;
 
+    /**
+     * <code>INSTANCE</code>
+     * {@link io.github.nichetoolkit.rest.http.RestTemplates} <p>the constant <code>INSTANCE</code> field.</p>
+     */
     private static RestTemplates INSTANCE;
 
     /**
@@ -4796,6 +4805,17 @@ public class RestTemplates {
     }
 
 
+    /**
+     * <code>postString</code>
+     * <p>the string method.</p>
+     * @param url        {@link java.lang.String} <p>the url parameter is <code>String</code> type.</p>
+     * @param httpEntity {@link org.springframework.http.HttpEntity} <p>the http entity parameter is <code>HttpEntity</code> type.</p>
+     * @return {@link java.lang.String} <p>the string return object is <code>String</code> type.</p>
+     * @throws HttpErrorException {@link io.github.nichetoolkit.rest.error.network.HttpErrorException} <p>the http error exception is <code>HttpErrorException</code> type.</p>
+     * @see java.lang.String
+     * @see org.springframework.http.HttpEntity
+     * @see io.github.nichetoolkit.rest.error.network.HttpErrorException
+     */
     private static String postString(String url, HttpEntity httpEntity) throws HttpErrorException {
         try {
             return INSTANCE.restTemplate.postForObject(url, httpEntity, String.class);
@@ -4805,6 +4825,19 @@ public class RestTemplates {
         }
     }
 
+    /**
+     * <code>postString</code>
+     * <p>the string method.</p>
+     * @param url        {@link java.lang.String} <p>the url parameter is <code>String</code> type.</p>
+     * @param httpEntity {@link org.springframework.http.HttpEntity} <p>the http entity parameter is <code>HttpEntity</code> type.</p>
+     * @param params     {@link org.springframework.util.MultiValueMap} <p>the params parameter is <code>MultiValueMap</code> type.</p>
+     * @return {@link java.lang.String} <p>the string return object is <code>String</code> type.</p>
+     * @throws HttpErrorException {@link io.github.nichetoolkit.rest.error.network.HttpErrorException} <p>the http error exception is <code>HttpErrorException</code> type.</p>
+     * @see java.lang.String
+     * @see org.springframework.http.HttpEntity
+     * @see org.springframework.util.MultiValueMap
+     * @see io.github.nichetoolkit.rest.error.network.HttpErrorException
+     */
     private static String postString(String url, HttpEntity httpEntity, MultiValueMap<String, String> params) throws HttpErrorException {
         try {
             UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url).queryParams(params);
@@ -4815,6 +4848,18 @@ public class RestTemplates {
         }
     }
 
+    /**
+     * <code>postEntityResult</code>
+     * <p>the entity result method.</p>
+     * @param url        {@link java.lang.String} <p>the url parameter is <code>String</code> type.</p>
+     * @param httpEntity {@link org.springframework.http.HttpEntity} <p>the http entity parameter is <code>HttpEntity</code> type.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>the entity result return object is <code>ResponseEntity</code> type.</p>
+     * @throws HttpErrorException {@link io.github.nichetoolkit.rest.error.network.HttpErrorException} <p>the http error exception is <code>HttpErrorException</code> type.</p>
+     * @see java.lang.String
+     * @see org.springframework.http.HttpEntity
+     * @see org.springframework.http.ResponseEntity
+     * @see io.github.nichetoolkit.rest.error.network.HttpErrorException
+     */
     private static ResponseEntity<RestResult> postEntityResult(String url, HttpEntity httpEntity) throws HttpErrorException {
         try {
             return INSTANCE.restTemplate.postForEntity(url, httpEntity, RestResult.class);
@@ -4824,6 +4869,20 @@ public class RestTemplates {
         }
     }
 
+    /**
+     * <code>postEntityResult</code>
+     * <p>the entity result method.</p>
+     * @param url        {@link java.lang.String} <p>the url parameter is <code>String</code> type.</p>
+     * @param httpEntity {@link org.springframework.http.HttpEntity} <p>the http entity parameter is <code>HttpEntity</code> type.</p>
+     * @param params     {@link org.springframework.util.MultiValueMap} <p>the params parameter is <code>MultiValueMap</code> type.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>the entity result return object is <code>ResponseEntity</code> type.</p>
+     * @throws HttpErrorException {@link io.github.nichetoolkit.rest.error.network.HttpErrorException} <p>the http error exception is <code>HttpErrorException</code> type.</p>
+     * @see java.lang.String
+     * @see org.springframework.http.HttpEntity
+     * @see org.springframework.util.MultiValueMap
+     * @see org.springframework.http.ResponseEntity
+     * @see io.github.nichetoolkit.rest.error.network.HttpErrorException
+     */
     private static ResponseEntity<RestResult> postEntityResult(String url, HttpEntity httpEntity, MultiValueMap<String, String> params) throws HttpErrorException {
         try {
             UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url).queryParams(params);
@@ -4834,6 +4893,21 @@ public class RestTemplates {
         }
     }
 
+    /**
+     * <code>postEntityObject</code>
+     * <p>the entity object method.</p>
+     * @param <T>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param url        {@link java.lang.String} <p>the url parameter is <code>String</code> type.</p>
+     * @param httpEntity {@link org.springframework.http.HttpEntity} <p>the http entity parameter is <code>HttpEntity</code> type.</p>
+     * @param clazz      {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>the entity object return object is <code>ResponseEntity</code> type.</p>
+     * @throws HttpErrorException {@link io.github.nichetoolkit.rest.error.network.HttpErrorException} <p>the http error exception is <code>HttpErrorException</code> type.</p>
+     * @see java.lang.String
+     * @see org.springframework.http.HttpEntity
+     * @see java.lang.Class
+     * @see org.springframework.http.ResponseEntity
+     * @see io.github.nichetoolkit.rest.error.network.HttpErrorException
+     */
     private static <T> ResponseEntity<T> postEntityObject(String url, HttpEntity httpEntity, Class<T> clazz) throws HttpErrorException {
         try {
             return INSTANCE.restTemplate.postForEntity(url, httpEntity, clazz);
@@ -4843,6 +4917,23 @@ public class RestTemplates {
         }
     }
 
+    /**
+     * <code>postEntityObject</code>
+     * <p>the entity object method.</p>
+     * @param <T>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param url        {@link java.lang.String} <p>the url parameter is <code>String</code> type.</p>
+     * @param httpEntity {@link org.springframework.http.HttpEntity} <p>the http entity parameter is <code>HttpEntity</code> type.</p>
+     * @param params     {@link org.springframework.util.MultiValueMap} <p>the params parameter is <code>MultiValueMap</code> type.</p>
+     * @param clazz      {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>the entity object return object is <code>ResponseEntity</code> type.</p>
+     * @throws HttpErrorException {@link io.github.nichetoolkit.rest.error.network.HttpErrorException} <p>the http error exception is <code>HttpErrorException</code> type.</p>
+     * @see java.lang.String
+     * @see org.springframework.http.HttpEntity
+     * @see org.springframework.util.MultiValueMap
+     * @see java.lang.Class
+     * @see org.springframework.http.ResponseEntity
+     * @see io.github.nichetoolkit.rest.error.network.HttpErrorException
+     */
     private static <T> ResponseEntity<T> postEntityObject(String url, HttpEntity httpEntity, MultiValueMap<String, String> params, Class<T> clazz) throws HttpErrorException {
         try {
             UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url).queryParams(params);
@@ -5414,6 +5505,15 @@ public class RestTemplates {
         return RestResults.result(response, HttpMethod.GET, url, clazz);
     }
 
+    /**
+     * <code>getString</code>
+     * <p>the string getter method.</p>
+     * @param url {@link java.lang.String} <p>the url parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>the string return object is <code>String</code> type.</p>
+     * @throws HttpErrorException {@link io.github.nichetoolkit.rest.error.network.HttpErrorException} <p>the http error exception is <code>HttpErrorException</code> type.</p>
+     * @see java.lang.String
+     * @see io.github.nichetoolkit.rest.error.network.HttpErrorException
+     */
     private static String getString(String url) throws HttpErrorException {
         try {
             return INSTANCE.restTemplate.getForObject(url, String.class);
@@ -5423,6 +5523,17 @@ public class RestTemplates {
         }
     }
 
+    /**
+     * <code>getString</code>
+     * <p>the string getter method.</p>
+     * @param url    {@link java.lang.String} <p>the url parameter is <code>String</code> type.</p>
+     * @param params {@link org.springframework.util.MultiValueMap} <p>the params parameter is <code>MultiValueMap</code> type.</p>
+     * @return {@link java.lang.String} <p>the string return object is <code>String</code> type.</p>
+     * @throws HttpErrorException {@link io.github.nichetoolkit.rest.error.network.HttpErrorException} <p>the http error exception is <code>HttpErrorException</code> type.</p>
+     * @see java.lang.String
+     * @see org.springframework.util.MultiValueMap
+     * @see io.github.nichetoolkit.rest.error.network.HttpErrorException
+     */
     private static String getString(String url, MultiValueMap<String, String> params) throws HttpErrorException {
         try {
             UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url).queryParams(params);
@@ -5434,6 +5545,19 @@ public class RestTemplates {
     }
 
 
+    /**
+     * <code>getEntityObject</code>
+     * <p>the entity object getter method.</p>
+     * @param <T>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param url   {@link java.lang.String} <p>the url parameter is <code>String</code> type.</p>
+     * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>the entity object return object is <code>ResponseEntity</code> type.</p>
+     * @throws HttpErrorException {@link io.github.nichetoolkit.rest.error.network.HttpErrorException} <p>the http error exception is <code>HttpErrorException</code> type.</p>
+     * @see java.lang.String
+     * @see java.lang.Class
+     * @see org.springframework.http.ResponseEntity
+     * @see io.github.nichetoolkit.rest.error.network.HttpErrorException
+     */
     private static <T> ResponseEntity<T> getEntityObject(String url, Class<T> clazz) throws HttpErrorException {
         try {
             return INSTANCE.restTemplate.getForEntity(url, clazz);
@@ -5443,6 +5567,21 @@ public class RestTemplates {
         }
     }
 
+    /**
+     * <code>getEntityObject</code>
+     * <p>the entity object getter method.</p>
+     * @param <T>    {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param url    {@link java.lang.String} <p>the url parameter is <code>String</code> type.</p>
+     * @param params {@link org.springframework.util.MultiValueMap} <p>the params parameter is <code>MultiValueMap</code> type.</p>
+     * @param clazz  {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>the entity object return object is <code>ResponseEntity</code> type.</p>
+     * @throws HttpErrorException {@link io.github.nichetoolkit.rest.error.network.HttpErrorException} <p>the http error exception is <code>HttpErrorException</code> type.</p>
+     * @see java.lang.String
+     * @see org.springframework.util.MultiValueMap
+     * @see java.lang.Class
+     * @see org.springframework.http.ResponseEntity
+     * @see io.github.nichetoolkit.rest.error.network.HttpErrorException
+     */
     private static <T> ResponseEntity<T> getEntityObject(String url, MultiValueMap<String, String> params, Class<T> clazz) throws HttpErrorException {
         try {
             UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url).queryParams(params);
@@ -5453,6 +5592,16 @@ public class RestTemplates {
         }
     }
 
+    /**
+     * <code>getEntityResult</code>
+     * <p>the entity result getter method.</p>
+     * @param url {@link java.lang.String} <p>the url parameter is <code>String</code> type.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>the entity result return object is <code>ResponseEntity</code> type.</p>
+     * @throws HttpErrorException {@link io.github.nichetoolkit.rest.error.network.HttpErrorException} <p>the http error exception is <code>HttpErrorException</code> type.</p>
+     * @see java.lang.String
+     * @see org.springframework.http.ResponseEntity
+     * @see io.github.nichetoolkit.rest.error.network.HttpErrorException
+     */
     private static ResponseEntity<RestResult> getEntityResult(String url) throws HttpErrorException {
         try {
             return INSTANCE.restTemplate.getForEntity(url, RestResult.class);
@@ -5462,6 +5611,18 @@ public class RestTemplates {
         }
     }
 
+    /**
+     * <code>getEntityResult</code>
+     * <p>the entity result getter method.</p>
+     * @param url    {@link java.lang.String} <p>the url parameter is <code>String</code> type.</p>
+     * @param params {@link org.springframework.util.MultiValueMap} <p>the params parameter is <code>MultiValueMap</code> type.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>the entity result return object is <code>ResponseEntity</code> type.</p>
+     * @throws HttpErrorException {@link io.github.nichetoolkit.rest.error.network.HttpErrorException} <p>the http error exception is <code>HttpErrorException</code> type.</p>
+     * @see java.lang.String
+     * @see org.springframework.util.MultiValueMap
+     * @see org.springframework.http.ResponseEntity
+     * @see io.github.nichetoolkit.rest.error.network.HttpErrorException
+     */
     private static ResponseEntity<RestResult> getEntityResult(String url, MultiValueMap<String, String> params) throws HttpErrorException {
         try {
             UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url).queryParams(params);
@@ -5714,6 +5875,22 @@ public class RestTemplates {
         return RestResults.result(response, httpMethod, url, clazz);
     }
 
+    /**
+     * <code>exchangeEntityString</code>
+     * <p>the entity string method.</p>
+     * @param url        {@link java.lang.String} <p>the url parameter is <code>String</code> type.</p>
+     * @param httpMethod {@link org.springframework.http.HttpMethod} <p>the http method parameter is <code>HttpMethod</code> type.</p>
+     * @param httpEntity {@link org.springframework.http.HttpEntity} <p>the http entity parameter is <code>HttpEntity</code> type.</p>
+     * @param params     {@link org.springframework.util.MultiValueMap} <p>the params parameter is <code>MultiValueMap</code> type.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>the entity string return object is <code>ResponseEntity</code> type.</p>
+     * @throws HttpErrorException {@link io.github.nichetoolkit.rest.error.network.HttpErrorException} <p>the http error exception is <code>HttpErrorException</code> type.</p>
+     * @see java.lang.String
+     * @see org.springframework.http.HttpMethod
+     * @see org.springframework.http.HttpEntity
+     * @see org.springframework.util.MultiValueMap
+     * @see org.springframework.http.ResponseEntity
+     * @see io.github.nichetoolkit.rest.error.network.HttpErrorException
+     */
     private static ResponseEntity<String> exchangeEntityString(String url, HttpMethod httpMethod, HttpEntity httpEntity, MultiValueMap<String, String> params) throws HttpErrorException {
         try {
             UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url).queryParams(params);
@@ -5724,6 +5901,22 @@ public class RestTemplates {
         }
     }
 
+    /**
+     * <code>exchangeEntityResult</code>
+     * <p>the entity result method.</p>
+     * @param url        {@link java.lang.String} <p>the url parameter is <code>String</code> type.</p>
+     * @param httpMethod {@link org.springframework.http.HttpMethod} <p>the http method parameter is <code>HttpMethod</code> type.</p>
+     * @param httpEntity {@link org.springframework.http.HttpEntity} <p>the http entity parameter is <code>HttpEntity</code> type.</p>
+     * @param params     {@link org.springframework.util.MultiValueMap} <p>the params parameter is <code>MultiValueMap</code> type.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>the entity result return object is <code>ResponseEntity</code> type.</p>
+     * @throws HttpErrorException {@link io.github.nichetoolkit.rest.error.network.HttpErrorException} <p>the http error exception is <code>HttpErrorException</code> type.</p>
+     * @see java.lang.String
+     * @see org.springframework.http.HttpMethod
+     * @see org.springframework.http.HttpEntity
+     * @see org.springframework.util.MultiValueMap
+     * @see org.springframework.http.ResponseEntity
+     * @see io.github.nichetoolkit.rest.error.network.HttpErrorException
+     */
     private static ResponseEntity<RestResult> exchangeEntityResult(String url, HttpMethod httpMethod, HttpEntity httpEntity, MultiValueMap<String, String> params) throws HttpErrorException {
         try {
             UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url).queryParams(params);
@@ -5734,6 +5927,25 @@ public class RestTemplates {
         }
     }
 
+    /**
+     * <code>exchangeEntityObject</code>
+     * <p>the entity object method.</p>
+     * @param <T>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param url        {@link java.lang.String} <p>the url parameter is <code>String</code> type.</p>
+     * @param httpMethod {@link org.springframework.http.HttpMethod} <p>the http method parameter is <code>HttpMethod</code> type.</p>
+     * @param httpEntity {@link org.springframework.http.HttpEntity} <p>the http entity parameter is <code>HttpEntity</code> type.</p>
+     * @param params     {@link org.springframework.util.MultiValueMap} <p>the params parameter is <code>MultiValueMap</code> type.</p>
+     * @param clazz      {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>the entity object return object is <code>ResponseEntity</code> type.</p>
+     * @throws HttpErrorException {@link io.github.nichetoolkit.rest.error.network.HttpErrorException} <p>the http error exception is <code>HttpErrorException</code> type.</p>
+     * @see java.lang.String
+     * @see org.springframework.http.HttpMethod
+     * @see org.springframework.http.HttpEntity
+     * @see org.springframework.util.MultiValueMap
+     * @see java.lang.Class
+     * @see org.springframework.http.ResponseEntity
+     * @see io.github.nichetoolkit.rest.error.network.HttpErrorException
+     */
     private static <T> ResponseEntity<T> exchangeEntityObject(String url, HttpMethod httpMethod, HttpEntity httpEntity, MultiValueMap<String, String> params, Class<T> clazz) throws HttpErrorException {
         try {
             UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url).queryParams(params);

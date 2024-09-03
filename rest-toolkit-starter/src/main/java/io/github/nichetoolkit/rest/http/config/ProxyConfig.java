@@ -15,8 +15,23 @@ import java.net.Proxy;
  */
 @Data
 public class ProxyConfig {
+    /**
+     * <code>type</code>
+     * {@link io.github.nichetoolkit.rest.http.config.ProxyType} <p>the <code>type</code> field.</p>
+     * @see io.github.nichetoolkit.rest.http.config.ProxyType
+     */
     private ProxyType type = ProxyType.SOCKS;
+    /**
+     * <code>hostname</code>
+     * {@link java.lang.String} <p>the <code>hostname</code> field.</p>
+     * @see java.lang.String
+     */
     private String hostname;
+    /**
+     * <code>port</code>
+     * {@link java.lang.Integer} <p>the <code>port</code> field.</p>
+     * @see java.lang.Integer
+     */
     private Integer port;
 
     /**

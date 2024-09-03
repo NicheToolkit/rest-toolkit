@@ -47,11 +47,34 @@ import java.util.List;
 @CrossOrigin
 @RestControllerAdvice
 public class DefaultControllerAdvice implements ResponseBodyAdvice<Object>, ApplicationContextAware, InitializingBean {
+    /**
+     * <code>exceptionProperties</code>
+     * {@link io.github.nichetoolkit.rest.configure.RestExceptionProperties} <p>the <code>exceptionProperties</code> field.</p>
+     * @see io.github.nichetoolkit.rest.configure.RestExceptionProperties
+     */
     private final RestExceptionProperties exceptionProperties;
+    /**
+     * <code>applicationContext</code>
+     * {@link org.springframework.context.ApplicationContext} <p>the <code>applicationContext</code> field.</p>
+     * @see org.springframework.context.ApplicationContext
+     * @see org.springframework.lang.Nullable
+     */
     @Nullable
     private ApplicationContext applicationContext;
+    /**
+     * <code>exceptionAdvices</code>
+     * {@link java.util.List} <p>the <code>exceptionAdvices</code> field.</p>
+     * @see java.util.List
+     * @see org.springframework.lang.Nullable
+     */
     @Nullable
     private List<RestExceptionAdvice> exceptionAdvices;
+    /**
+     * <code>responseAdvices</code>
+     * {@link java.util.List} <p>the <code>responseAdvices</code> field.</p>
+     * @see java.util.List
+     * @see org.springframework.lang.Nullable
+     */
     @Nullable
     private List<RestResponseAdvice> responseAdvices;
 
@@ -160,6 +183,12 @@ public class DefaultControllerAdvice implements ResponseBodyAdvice<Object>, Appl
         }
     }
 
+    /**
+     * <code>printStackTrace</code>
+     * <p>the stack trace method.</p>
+     * @param exception {@link java.lang.Exception} <p>the exception parameter is <code>Exception</code> type.</p>
+     * @see java.lang.Exception
+     */
     private void printStackTrace(Exception exception) {
         try (StringWriter stringWriter = new StringWriter();
              PrintWriter printWriter = new PrintWriter(stringWriter)) {
@@ -174,6 +203,16 @@ public class DefaultControllerAdvice implements ResponseBodyAdvice<Object>, Appl
         }
     }
 
+    /**
+     * <code>preExceptionHandle</code>
+     * <p>the exception handle method.</p>
+     * @param exception {@link java.lang.Exception} <p>the exception parameter is <code>Exception</code> type.</p>
+     * @param request   {@link javax.servlet.http.HttpServletRequest} <p>the request parameter is <code>HttpServletRequest</code> type.</p>
+     * @param response  {@link javax.servlet.http.HttpServletResponse} <p>the response parameter is <code>HttpServletResponse</code> type.</p>
+     * @see java.lang.Exception
+     * @see javax.servlet.http.HttpServletRequest
+     * @see javax.servlet.http.HttpServletResponse
+     */
     private void preExceptionHandle(Exception exception, HttpServletRequest request, HttpServletResponse response) {
         if (this.exceptionAdvices != null && !this.exceptionAdvices.isEmpty()) {
             for (RestExceptionAdvice advice : this.exceptionAdvices) {
@@ -182,6 +221,16 @@ public class DefaultControllerAdvice implements ResponseBodyAdvice<Object>, Appl
         }
     }
 
+    /**
+     * <code>doRestExceptionHandle</code>
+     * <p>the rest exception handle method.</p>
+     * @param restException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception parameter is <code>RestException</code> type.</p>
+     * @param request       {@link javax.servlet.http.HttpServletRequest} <p>the request parameter is <code>HttpServletRequest</code> type.</p>
+     * @param response      {@link javax.servlet.http.HttpServletResponse} <p>the response parameter is <code>HttpServletResponse</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
+     * @see javax.servlet.http.HttpServletRequest
+     * @see javax.servlet.http.HttpServletResponse
+     */
     private void doRestExceptionHandle(RestException restException, HttpServletRequest request, HttpServletResponse response) {
         if (this.exceptionAdvices != null && !this.exceptionAdvices.isEmpty()) {
             for (RestExceptionAdvice advice : this.exceptionAdvices) {
@@ -190,6 +239,16 @@ public class DefaultControllerAdvice implements ResponseBodyAdvice<Object>, Appl
         }
     }
 
+    /**
+     * <code>doExceptionHandle</code>
+     * <p>the exception handle method.</p>
+     * @param exception {@link java.lang.Exception} <p>the exception parameter is <code>Exception</code> type.</p>
+     * @param request   {@link javax.servlet.http.HttpServletRequest} <p>the request parameter is <code>HttpServletRequest</code> type.</p>
+     * @param response  {@link javax.servlet.http.HttpServletResponse} <p>the response parameter is <code>HttpServletResponse</code> type.</p>
+     * @see java.lang.Exception
+     * @see javax.servlet.http.HttpServletRequest
+     * @see javax.servlet.http.HttpServletResponse
+     */
     private void doExceptionHandle(Exception exception, HttpServletRequest request, HttpServletResponse response) {
         if (this.exceptionAdvices != null && !this.exceptionAdvices.isEmpty()) {
             for (RestExceptionAdvice advice : this.exceptionAdvices) {

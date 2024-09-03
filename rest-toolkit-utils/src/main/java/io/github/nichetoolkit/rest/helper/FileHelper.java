@@ -153,7 +153,7 @@ public class FileHelper {
      * <code>deleteFile</code>
      * <p>the file method.</p>
      * @param path {@link java.lang.String} <p>the path parameter is <code>String</code> type.</p>
-     * @return {@link boolean} <p>the file return object is <code>boolean</code> type.</p>
+     * @return boolean <p>the file return object is <code>boolean</code> type.</p>
      * @see java.lang.String
      */
     public static boolean deleteFile(final String path) {
@@ -165,7 +165,7 @@ public class FileHelper {
      * <code>deleteFile</code>
      * <p>the file method.</p>
      * @param file {@link java.io.File} <p>the file parameter is <code>File</code> type.</p>
-     * @return {@link boolean} <p>the file return object is <code>boolean</code> type.</p>
+     * @return boolean <p>the file return object is <code>boolean</code> type.</p>
      * @see java.io.File
      */
     public static boolean deleteFile(final File file) {
@@ -180,7 +180,7 @@ public class FileHelper {
      * <code>clearFile</code>
      * <p>the file method.</p>
      * @param path {@link java.lang.String} <p>the path parameter is <code>String</code> type.</p>
-     * @return {@link boolean} <p>the file return object is <code>boolean</code> type.</p>
+     * @return boolean <p>the file return object is <code>boolean</code> type.</p>
      * @see java.lang.String
      */
     public static boolean clearFile(final String path) {

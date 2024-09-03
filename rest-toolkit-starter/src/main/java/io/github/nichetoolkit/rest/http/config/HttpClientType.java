@@ -30,7 +30,17 @@ public enum HttpClientType implements RestValue<String,String> {
      */
     OK_HTTP_CLIENT("okHttp3",HttpClientType.OKHTTP3_BEAN),
     ;
+    /**
+     * <code>key</code>
+     * {@link java.lang.String} <p>the <code>key</code> field.</p>
+     * @see java.lang.String
+     */
     private final String key;
+    /**
+     * <code>value</code>
+     * {@link java.lang.String} <p>the <code>value</code> field.</p>
+     * @see java.lang.String
+     */
     private final String value;
 
     /**
@@ -52,6 +62,13 @@ public enum HttpClientType implements RestValue<String,String> {
      */
     public static final String OKHTTP3_BEAN = "okHttpTemplate";
 
+    /**
+     * <code>HttpClientType</code>
+     * Instantiates a new http client type.
+     * @param key   {@link java.lang.String} <p>the key parameter is <code>String</code> type.</p>
+     * @param value {@link java.lang.String} <p>the value parameter is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
     HttpClientType(String key, String value) {
         this.key = key;
         this.value = value;

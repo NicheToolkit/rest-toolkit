@@ -17,7 +17,7 @@ public interface ConsumerActuator<T>{
     /**
      * <code>actuate</code>
      * <p>the method.</p>
-     * @param t {@link T} <p>the t parameter is <code>T</code> type.</p>
+     * @param t T <p>the t parameter is <code>T</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */

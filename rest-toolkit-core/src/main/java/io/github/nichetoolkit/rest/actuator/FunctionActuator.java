@@ -18,8 +18,8 @@ public interface FunctionActuator<T,R> {
     /**
      * <code>actuate</code>
      * <p>the method.</p>
-     * @param t {@link T} <p>the t parameter is <code>T</code> type.</p>
-     * @return {@link R} <p>the return object is <code>R</code> type.</p>
+     * @param t T <p>the t parameter is <code>T</code> type.</p>
+     * @return R <p>the return object is <code>R</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */

@@ -154,10 +154,34 @@ public enum LoggingType implements RestField {
     EXTEND(99, "extend", "扩展操作"),
     ;
 
+    /**
+     * <code>key</code>
+     * {@link java.lang.Integer} <p>the <code>key</code> field.</p>
+     * @see java.lang.Integer
+     */
     private final Integer key;
+    /**
+     * <code>value</code>
+     * {@link java.lang.String} <p>the <code>value</code> field.</p>
+     * @see java.lang.String
+     */
     private final String value;
+    /**
+     * <code>field</code>
+     * {@link java.lang.String} <p>the <code>field</code> field.</p>
+     * @see java.lang.String
+     */
     private final String field;
 
+    /**
+     * <code>LoggingType</code>
+     * Instantiates a new logging type.
+     * @param key   {@link java.lang.Integer} <p>the key parameter is <code>Integer</code> type.</p>
+     * @param value {@link java.lang.String} <p>the value parameter is <code>String</code> type.</p>
+     * @param field {@link java.lang.String} <p>the field parameter is <code>String</code> type.</p>
+     * @see java.lang.Integer
+     * @see java.lang.String
+     */
     LoggingType(Integer key, String value, String field) {
         this.key = key;
         this.value = value;

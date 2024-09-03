@@ -263,8 +263,8 @@ public class RestException extends DefaultException {
      * Instantiates a new rest exception.
      * @param message            {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
      * @param cause              {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
-     * @param enableSuppression  {@link boolean} <p>the enable suppression parameter is <code>boolean</code> type.</p>
-     * @param writableStackTrace {@link boolean} <p>the writable stack trace parameter is <code>boolean</code> type.</p>
+     * @param enableSuppression  boolean <p>the enable suppression parameter is <code>boolean</code> type.</p>
+     * @param writableStackTrace boolean <p>the writable stack trace parameter is <code>boolean</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Throwable
      */
@@ -277,8 +277,8 @@ public class RestException extends DefaultException {
      * Instantiates a new rest exception.
      * @param status             {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
      * @param cause              {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
-     * @param enableSuppression  {@link boolean} <p>the enable suppression parameter is <code>boolean</code> type.</p>
-     * @param writableStackTrace {@link boolean} <p>the writable stack trace parameter is <code>boolean</code> type.</p>
+     * @param enableSuppression  boolean <p>the enable suppression parameter is <code>boolean</code> type.</p>
+     * @param writableStackTrace boolean <p>the writable stack trace parameter is <code>boolean</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.Throwable
      */
@@ -292,8 +292,8 @@ public class RestException extends DefaultException {
      * @param status             {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
      * @param message            {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
      * @param cause              {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
-     * @param enableSuppression  {@link boolean} <p>the enable suppression parameter is <code>boolean</code> type.</p>
-     * @param writableStackTrace {@link boolean} <p>the writable stack trace parameter is <code>boolean</code> type.</p>
+     * @param enableSuppression  boolean <p>the enable suppression parameter is <code>boolean</code> type.</p>
+     * @param writableStackTrace boolean <p>the writable stack trace parameter is <code>boolean</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      * @see java.lang.Throwable
@@ -308,8 +308,8 @@ public class RestException extends DefaultException {
      * @param status             {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
      * @param restStatus         {@link io.github.nichetoolkit.rest.RestStatus} <p>the rest status parameter is <code>RestStatus</code> type.</p>
      * @param cause              {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
-     * @param enableSuppression  {@link boolean} <p>the enable suppression parameter is <code>boolean</code> type.</p>
-     * @param writableStackTrace {@link boolean} <p>the writable stack trace parameter is <code>boolean</code> type.</p>
+     * @param enableSuppression  boolean <p>the enable suppression parameter is <code>boolean</code> type.</p>
+     * @param writableStackTrace boolean <p>the writable stack trace parameter is <code>boolean</code> type.</p>
      * @see java.lang.Integer
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.Throwable
@@ -324,8 +324,8 @@ public class RestException extends DefaultException {
      * @param message            {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
      * @param status             {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
      * @param cause              {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
-     * @param enableSuppression  {@link boolean} <p>the enable suppression parameter is <code>boolean</code> type.</p>
-     * @param writableStackTrace {@link boolean} <p>the writable stack trace parameter is <code>boolean</code> type.</p>
+     * @param enableSuppression  boolean <p>the enable suppression parameter is <code>boolean</code> type.</p>
+     * @param writableStackTrace boolean <p>the writable stack trace parameter is <code>boolean</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.Throwable
@@ -340,8 +340,8 @@ public class RestException extends DefaultException {
      * @param status             {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
      * @param error              {@link io.github.nichetoolkit.rest.RestError} <p>the error parameter is <code>RestError</code> type.</p>
      * @param cause              {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
-     * @param enableSuppression  {@link boolean} <p>the enable suppression parameter is <code>boolean</code> type.</p>
-     * @param writableStackTrace {@link boolean} <p>the writable stack trace parameter is <code>boolean</code> type.</p>
+     * @param enableSuppression  boolean <p>the enable suppression parameter is <code>boolean</code> type.</p>
+     * @param writableStackTrace boolean <p>the writable stack trace parameter is <code>boolean</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see io.github.nichetoolkit.rest.RestError
      * @see java.lang.Throwable

@@ -146,8 +146,8 @@ public class RestErrorException extends RestException {
      * Instantiates a new rest error exception.
      * @param error              {@link io.github.nichetoolkit.rest.RestError} <p>the error parameter is <code>RestError</code> type.</p>
      * @param cause              {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
-     * @param enableSuppression  {@link boolean} <p>the enable suppression parameter is <code>boolean</code> type.</p>
-     * @param writableStackTrace {@link boolean} <p>the writable stack trace parameter is <code>boolean</code> type.</p>
+     * @param enableSuppression  boolean <p>the enable suppression parameter is <code>boolean</code> type.</p>
+     * @param writableStackTrace boolean <p>the writable stack trace parameter is <code>boolean</code> type.</p>
      * @see java.lang.Throwable
      */
     public RestErrorException(RestError error, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
@@ -160,8 +160,8 @@ public class RestErrorException extends RestException {
      * @param status             {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
      * @param error              {@link io.github.nichetoolkit.rest.RestError} <p>the error parameter is <code>RestError</code> type.</p>
      * @param cause              {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
-     * @param enableSuppression  {@link boolean} <p>the enable suppression parameter is <code>boolean</code> type.</p>
-     * @param writableStackTrace {@link boolean} <p>the writable stack trace parameter is <code>boolean</code> type.</p>
+     * @param enableSuppression  boolean <p>the enable suppression parameter is <code>boolean</code> type.</p>
+     * @param writableStackTrace boolean <p>the writable stack trace parameter is <code>boolean</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.Throwable
      */
@@ -175,8 +175,8 @@ public class RestErrorException extends RestException {
      * @param message            {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
      * @param error              {@link io.github.nichetoolkit.rest.RestError} <p>the error parameter is <code>RestError</code> type.</p>
      * @param cause              {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
-     * @param enableSuppression  {@link boolean} <p>the enable suppression parameter is <code>boolean</code> type.</p>
-     * @param writableStackTrace {@link boolean} <p>the writable stack trace parameter is <code>boolean</code> type.</p>
+     * @param enableSuppression  boolean <p>the enable suppression parameter is <code>boolean</code> type.</p>
+     * @param writableStackTrace boolean <p>the writable stack trace parameter is <code>boolean</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Throwable
      */
@@ -190,8 +190,8 @@ public class RestErrorException extends RestException {
      * @param status             {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
      * @param error              {@link io.github.nichetoolkit.rest.RestError} <p>the error parameter is <code>RestError</code> type.</p>
      * @param cause              {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
-     * @param enableSuppression  {@link boolean} <p>the enable suppression parameter is <code>boolean</code> type.</p>
-     * @param writableStackTrace {@link boolean} <p>the writable stack trace parameter is <code>boolean</code> type.</p>
+     * @param enableSuppression  boolean <p>the enable suppression parameter is <code>boolean</code> type.</p>
+     * @param writableStackTrace boolean <p>the writable stack trace parameter is <code>boolean</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.Throwable
      */

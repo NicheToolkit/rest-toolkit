@@ -49,6 +49,12 @@ public class RestUsernotePack {
     public RestUsernotePack() {
     }
 
+    /**
+     * <code>RestUsernotePack</code>
+     * Instantiates a new rest usernote pack.
+     * @param builder {@link io.github.nichetoolkit.rest.userlog.RestUsernotePack.Builder} <p>the builder parameter is <code>Builder</code> type.</p>
+     * @see io.github.nichetoolkit.rest.userlog.RestUsernotePack.Builder
+     */
     private RestUsernotePack(Builder builder) {
         this.notelog = builder.notelog;
         this.userlog = builder.userlog;

@@ -33,7 +33,17 @@ import java.io.IOException;
 @Component
 @Order(value = Ordered.HIGHEST_PRECEDENCE + 100)
 public class DefaultLogbackFilter extends OncePerRequestFilter {
+    /**
+     * <code>logbackProperties</code>
+     * {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>the <code>logbackProperties</code> field.</p>
+     * @see io.github.nichetoolkit.rest.configure.RestLogbackProperties
+     */
     private final RestLogbackProperties logbackProperties;
+    /**
+     * <code>loggingKey</code>
+     * {@link io.github.nichetoolkit.rest.RestLoggingKey} <p>the <code>loggingKey</code> field.</p>
+     * @see io.github.nichetoolkit.rest.RestLoggingKey
+     */
     private RestLoggingKey loggingKey;
 
     /**
@@ -95,6 +105,14 @@ public class DefaultLogbackFilter extends OncePerRequestFilter {
         }
     }
 
+    /**
+     * <code>getRequestId</code>
+     * <p>the request id getter method.</p>
+     * @param httpRequest {@link io.github.nichetoolkit.rest.RestHttpRequest} <p>the http request parameter is <code>RestHttpRequest</code> type.</p>
+     * @return {@link java.lang.String} <p>the request id return object is <code>String</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestHttpRequest
+     * @see java.lang.String
+     */
     private String getRequestId(RestHttpRequest httpRequest) {
         String requestHeader = logbackProperties.getRequestHeader();
         String requestId = httpRequest.getHeader(requestHeader);

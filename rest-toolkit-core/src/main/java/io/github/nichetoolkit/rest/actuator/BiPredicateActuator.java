@@ -19,9 +19,9 @@ public interface BiPredicateActuator<T, U> {
     /**
      * <code>actuate</code>
      * <p>the method.</p>
-     * @param t {@link T} <p>the t parameter is <code>T</code> type.</p>
-     * @param u {@link U} <p>the u parameter is <code>U</code> type.</p>
-     * @return {@link boolean} <p>the return object is <code>boolean</code> type.</p>
+     * @param t T <p>the t parameter is <code>T</code> type.</p>
+     * @param u U <p>the u parameter is <code>U</code> type.</p>
+     * @return boolean <p>the return object is <code>boolean</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */

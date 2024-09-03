@@ -9,13 +9,30 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 
+/**
+ * <code>ShaWorkerTest</code>
+ * <p>The type sha worker test class.</p>
+ * @author Cyan (snow22314@outlook.com)
+ * @see Slf4j
+ * @see SpringBootTest
+ * @since Jdk1.8
+ */
 @Slf4j
 @SpringBootTest
 class ShaWorkerTest{
 
+    /**
+     * <code>shaWorker</code>
+     * <p>the <code>shaWorker</code> field.</p>
+     * @see Autowired
+     */
     @Autowired
     private ShaWorker shaWorker;
 
+    /**
+     * <code>test</code>
+     * <p>the method.</p>
+     */
     @Test
     void test() {
         /* the uuid as default password  */

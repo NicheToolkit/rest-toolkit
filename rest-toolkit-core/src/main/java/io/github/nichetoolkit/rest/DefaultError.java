@@ -125,8 +125,8 @@ class DefaultError extends Error implements Serializable {
      * Instantiates a new default error.
      * @param message            {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
      * @param cause              {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
-     * @param enableSuppression  {@link boolean} <p>the enable suppression parameter is <code>boolean</code> type.</p>
-     * @param writableStackTrace {@link boolean} <p>the writable stack trace parameter is <code>boolean</code> type.</p>
+     * @param enableSuppression  boolean <p>the enable suppression parameter is <code>boolean</code> type.</p>
+     * @param writableStackTrace boolean <p>the writable stack trace parameter is <code>boolean</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Throwable
      */
@@ -167,8 +167,8 @@ class DefaultError extends Error implements Serializable {
      * Instantiates a new default error.
      * @param message            {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
      * @param cause              {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
-     * @param enableSuppression  {@link boolean} <p>the enable suppression parameter is <code>boolean</code> type.</p>
-     * @param writableStackTrace {@link boolean} <p>the writable stack trace parameter is <code>boolean</code> type.</p>
+     * @param enableSuppression  boolean <p>the enable suppression parameter is <code>boolean</code> type.</p>
+     * @param writableStackTrace boolean <p>the writable stack trace parameter is <code>boolean</code> type.</p>
      * @param name               {@link java.lang.String} <p>the name parameter is <code>String</code> type.</p>
      * @param domain             {@link java.lang.Integer} <p>the domain parameter is <code>Integer</code> type.</p>
      * @see java.lang.String

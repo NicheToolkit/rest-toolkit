@@ -19,9 +19,9 @@ public interface ComparatorActuator<T>{
     /**
      * <code>compare</code>
      * <p>the method.</p>
-     * @param o1 {@link T} <p>the o 1 parameter is <code>T</code> type.</p>
-     * @param o2 {@link T} <p>the o 2 parameter is <code>T</code> type.</p>
-     * @return {@link int} <p>the return object is <code>int</code> type.</p>
+     * @param o1 T <p>the o 1 parameter is <code>T</code> type.</p>
+     * @param o2 T <p>the o 2 parameter is <code>T</code> type.</p>
+     * @return int <p>the return object is <code>int</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */

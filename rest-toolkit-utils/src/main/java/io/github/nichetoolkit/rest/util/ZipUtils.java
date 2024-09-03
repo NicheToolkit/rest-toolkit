@@ -64,8 +64,8 @@ public class ZipUtils {
     /**
      * <code>gzip</code>
      * <p>the method.</p>
-     * @param bytes {@link byte} <p>the bytes parameter is <code>byte</code> type.</p>
-     * @return {@link byte} <p>the return object is <code>byte</code> type.</p>
+     * @param bytes byte <p>the bytes parameter is <code>byte</code> type.</p>
+     * @return byte <p>the return object is <code>byte</code> type.</p>
      */
     public static byte[] gzip(byte[] bytes) {
         try {
@@ -80,8 +80,8 @@ public class ZipUtils {
     /**
      * <code>ungzip</code>
      * <p>the method.</p>
-     * @param bytes {@link byte} <p>the bytes parameter is <code>byte</code> type.</p>
-     * @return {@link byte} <p>the return object is <code>byte</code> type.</p>
+     * @param bytes byte <p>the bytes parameter is <code>byte</code> type.</p>
+     * @return byte <p>the return object is <code>byte</code> type.</p>
      */
     public static byte[] ungzip(byte[] bytes) {
         try {

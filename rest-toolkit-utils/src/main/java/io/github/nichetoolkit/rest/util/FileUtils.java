@@ -243,7 +243,7 @@ public class FileUtils {
      * <code>clear</code>
      * <p>the method.</p>
      * @param root {@link java.io.File} <p>the root parameter is <code>File</code> type.</p>
-     * @return {@link boolean} <p>the return object is <code>boolean</code> type.</p>
+     * @return boolean <p>the return object is <code>boolean</code> type.</p>
      * @see java.io.File
      */
     public static boolean clear(final File root) {
@@ -265,7 +265,7 @@ public class FileUtils {
      * <code>clear</code>
      * <p>the method.</p>
      * @param path {@link java.lang.String} <p>the path parameter is <code>String</code> type.</p>
-     * @return {@link boolean} <p>the return object is <code>boolean</code> type.</p>
+     * @return boolean <p>the return object is <code>boolean</code> type.</p>
      * @see java.lang.String
      */
     public static boolean clear(final String path) {
@@ -302,7 +302,7 @@ public class FileUtils {
      * <code>write</code>
      * <p>the method.</p>
      * @param file {@link java.io.File} <p>the file parameter is <code>File</code> type.</p>
-     * @param data {@link byte} <p>the data parameter is <code>byte</code> type.</p>
+     * @param data byte <p>the data parameter is <code>byte</code> type.</p>
      * @see java.io.File
      */
     public static void write(final File file, byte[] data) {
@@ -322,7 +322,7 @@ public class FileUtils {
      * <code>read</code>
      * <p>the method.</p>
      * @param file {@link java.io.File} <p>the file parameter is <code>File</code> type.</p>
-     * @return {@link byte} <p>the return object is <code>byte</code> type.</p>
+     * @return byte <p>the return object is <code>byte</code> type.</p>
      * @see java.io.File
      */
     public static byte[] read(final File file) {

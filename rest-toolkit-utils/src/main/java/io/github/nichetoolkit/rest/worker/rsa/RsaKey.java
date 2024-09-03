@@ -28,7 +28,7 @@ public class RsaKey implements Serializable {
     private String privateKey;
     /**
      * <code>keySize</code>
-     * {@link int} <p>the <code>keySize</code> field.</p>
+     * <p>the <code>keySize</code> field.</p>
      */
     private int keySize;
 

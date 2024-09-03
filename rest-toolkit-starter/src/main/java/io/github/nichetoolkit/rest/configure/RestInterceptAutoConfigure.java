@@ -29,7 +29,17 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @ComponentScan(basePackages = {"io.github.nichetoolkit.rest"})
 @ConditionalOnProperty(value = "nichetoolkit.rest.intercept.enabled", havingValue = "true", matchIfMissing = true)
 public class RestInterceptAutoConfigure implements WebMvcConfigurer {
+    /**
+     * <code>handlerInterceptor</code>
+     * {@link io.github.nichetoolkit.rest.interceptor.DefaultHandlerInterceptor} <p>the <code>handlerInterceptor</code> field.</p>
+     * @see io.github.nichetoolkit.rest.interceptor.DefaultHandlerInterceptor
+     */
     private final DefaultHandlerInterceptor handlerInterceptor;
+    /**
+     * <code>interceptProperties</code>
+     * {@link io.github.nichetoolkit.rest.configure.RestInterceptProperties} <p>the <code>interceptProperties</code> field.</p>
+     * @see io.github.nichetoolkit.rest.configure.RestInterceptProperties
+     */
     private final RestInterceptProperties interceptProperties;
 
     /**

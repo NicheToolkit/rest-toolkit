@@ -118,8 +118,8 @@ public class RadixWorker {
      * <code>encrypts</code>
      * <p>the method.</p>
      * @param source {@link java.lang.Long} <p>the source parameter is <code>Long</code> type.</p>
-     * @param digits {@link char} <p>the digits parameter is <code>char</code> type.</p>
-     * @param supply {@link char} <p>the supply parameter is <code>char</code> type.</p>
+     * @param digits char <p>the digits parameter is <code>char</code> type.</p>
+     * @param supply char <p>the supply parameter is <code>char</code> type.</p>
      * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
      * @see java.lang.Long
      * @see java.lang.String
@@ -132,9 +132,9 @@ public class RadixWorker {
      * <code>encrypts</code>
      * <p>the method.</p>
      * @param source    {@link java.lang.Long} <p>the source parameter is <code>Long</code> type.</p>
-     * @param digits    {@link char} <p>the digits parameter is <code>char</code> type.</p>
-     * @param supply    {@link char} <p>the supply parameter is <code>char</code> type.</p>
-     * @param minLength {@link int} <p>the min length parameter is <code>int</code> type.</p>
+     * @param digits    char <p>the digits parameter is <code>char</code> type.</p>
+     * @param supply    char <p>the supply parameter is <code>char</code> type.</p>
+     * @param minLength int <p>the min length parameter is <code>int</code> type.</p>
      * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
      * @see java.lang.Long
      * @see java.lang.String
@@ -193,8 +193,8 @@ public class RadixWorker {
      * <code>decrypts</code>
      * <p>the method.</p>
      * @param target {@link java.lang.String} <p>the target parameter is <code>String</code> type.</p>
-     * @param digits {@link char} <p>the digits parameter is <code>char</code> type.</p>
-     * @param supply {@link char} <p>the supply parameter is <code>char</code> type.</p>
+     * @param digits char <p>the digits parameter is <code>char</code> type.</p>
+     * @param supply char <p>the supply parameter is <code>char</code> type.</p>
      * @return {@link java.lang.Long} <p>the return object is <code>Long</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Long

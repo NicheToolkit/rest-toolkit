@@ -260,7 +260,7 @@ public class DateUtils {
      * <code>getDateInt</code>
      * <p>the date int getter method.</p>
      * @param date  {@link java.util.Date} <p>the date parameter is <code>Date</code> type.</p>
-     * @param field {@link int} <p>the field parameter is <code>int</code> type.</p>
+     * @param field int <p>the field parameter is <code>int</code> type.</p>
      * @return {@link java.lang.Integer} <p>the date int return object is <code>Integer</code> type.</p>
      * @see java.util.Date
      * @see java.lang.Integer
@@ -282,7 +282,7 @@ public class DateUtils {
      * <code>addYears</code>
      * <p>the years method.</p>
      * @param date   {@link java.util.Date} <p>the date parameter is <code>Date</code> type.</p>
-     * @param amount {@link int} <p>the amount parameter is <code>int</code> type.</p>
+     * @param amount int <p>the amount parameter is <code>int</code> type.</p>
      * @return {@link java.util.Date} <p>the years return object is <code>Date</code> type.</p>
      * @see java.util.Date
      */
@@ -294,7 +294,7 @@ public class DateUtils {
      * <code>addMonths</code>
      * <p>the months method.</p>
      * @param date   {@link java.util.Date} <p>the date parameter is <code>Date</code> type.</p>
-     * @param amount {@link int} <p>the amount parameter is <code>int</code> type.</p>
+     * @param amount int <p>the amount parameter is <code>int</code> type.</p>
      * @return {@link java.util.Date} <p>the months return object is <code>Date</code> type.</p>
      * @see java.util.Date
      */
@@ -306,7 +306,7 @@ public class DateUtils {
      * <code>addDays</code>
      * <p>the days method.</p>
      * @param date   {@link java.util.Date} <p>the date parameter is <code>Date</code> type.</p>
-     * @param amount {@link int} <p>the amount parameter is <code>int</code> type.</p>
+     * @param amount int <p>the amount parameter is <code>int</code> type.</p>
      * @return {@link java.util.Date} <p>the days return object is <code>Date</code> type.</p>
      * @see java.util.Date
      */
@@ -318,7 +318,7 @@ public class DateUtils {
      * <code>addHours</code>
      * <p>the hours method.</p>
      * @param date   {@link java.util.Date} <p>the date parameter is <code>Date</code> type.</p>
-     * @param amount {@link int} <p>the amount parameter is <code>int</code> type.</p>
+     * @param amount int <p>the amount parameter is <code>int</code> type.</p>
      * @return {@link java.util.Date} <p>the hours return object is <code>Date</code> type.</p>
      * @see java.util.Date
      */
@@ -330,7 +330,7 @@ public class DateUtils {
      * <code>addMinutes</code>
      * <p>the minutes method.</p>
      * @param date   {@link java.util.Date} <p>the date parameter is <code>Date</code> type.</p>
-     * @param amount {@link int} <p>the amount parameter is <code>int</code> type.</p>
+     * @param amount int <p>the amount parameter is <code>int</code> type.</p>
      * @return {@link java.util.Date} <p>the minutes return object is <code>Date</code> type.</p>
      * @see java.util.Date
      */
@@ -342,7 +342,7 @@ public class DateUtils {
      * <code>addSeconds</code>
      * <p>the seconds method.</p>
      * @param date   {@link java.util.Date} <p>the date parameter is <code>Date</code> type.</p>
-     * @param amount {@link int} <p>the amount parameter is <code>int</code> type.</p>
+     * @param amount int <p>the amount parameter is <code>int</code> type.</p>
      * @return {@link java.util.Date} <p>the seconds return object is <code>Date</code> type.</p>
      * @see java.util.Date
      */
@@ -367,8 +367,8 @@ public class DateUtils {
      * <code>add</code>
      * <p>the method.</p>
      * @param date   {@link java.util.Date} <p>the date parameter is <code>Date</code> type.</p>
-     * @param field  {@link int} <p>the field parameter is <code>int</code> type.</p>
-     * @param amount {@link int} <p>the amount parameter is <code>int</code> type.</p>
+     * @param field  int <p>the field parameter is <code>int</code> type.</p>
+     * @param amount int <p>the amount parameter is <code>int</code> type.</p>
      * @return {@link java.util.Date} <p>the return object is <code>Date</code> type.</p>
      * @see java.util.Date
      */

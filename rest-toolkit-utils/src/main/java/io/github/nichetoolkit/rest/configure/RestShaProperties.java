@@ -23,7 +23,7 @@ public class RestShaProperties {
 
     /**
      * <code>enabled</code>
-     * {@link boolean} <p>the <code>enabled</code> field.</p>
+     * <p>the <code>enabled</code> field.</p>
      */
     private boolean enabled;
 

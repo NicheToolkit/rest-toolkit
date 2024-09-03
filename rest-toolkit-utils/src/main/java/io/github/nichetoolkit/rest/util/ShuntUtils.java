@@ -14,8 +14,8 @@ public class ShuntUtils {
      * <code>shunt</code>
      * <p>the method.</p>
      * @param <T>             {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param key             {@link boolean} <p>the key parameter is <code>boolean</code> type.</p>
-     * @param data            {@link T} <p>the data parameter is <code>T</code> type.</p>
+     * @param key             boolean <p>the key parameter is <code>boolean</code> type.</p>
+     * @param data            T <p>the data parameter is <code>T</code> type.</p>
      * @param falseCollection {@link java.util.Collection} <p>the false collection parameter is <code>Collection</code> type.</p>
      * @param trueCollection  {@link java.util.Collection} <p>the true collection parameter is <code>Collection</code> type.</p>
      * @see java.util.Collection
@@ -33,8 +33,8 @@ public class ShuntUtils {
      * <p>the method.</p>
      * @param <K>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param key      {@link K} <p>the key parameter is <code>K</code> type.</p>
-     * @param data     {@link T} <p>the data parameter is <code>T</code> type.</p>
+     * @param key      K <p>the key parameter is <code>K</code> type.</p>
+     * @param data     T <p>the data parameter is <code>T</code> type.</p>
      * @param shuntMap {@link java.util.Map} <p>the shunt map parameter is <code>Map</code> type.</p>
      * @see java.util.Map
      */
@@ -55,7 +55,7 @@ public class ShuntUtils {
      * <p>the method.</p>
      * @param <K>            {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param <T>            {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param key            {@link K} <p>the key parameter is <code>K</code> type.</p>
+     * @param key            K <p>the key parameter is <code>K</code> type.</p>
      * @param dataCollection {@link java.util.Collection} <p>the data collection parameter is <code>Collection</code> type.</p>
      * @param shuntMap       {@link java.util.Map} <p>the shunt map parameter is <code>Map</code> type.</p>
      * @see java.util.Collection
@@ -78,8 +78,8 @@ public class ShuntUtils {
      * <p>the null method.</p>
      * @param <K>             {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param <T>             {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param key             {@link K} <p>the key parameter is <code>K</code> type.</p>
-     * @param data            {@link T} <p>the data parameter is <code>T</code> type.</p>
+     * @param key             K <p>the key parameter is <code>K</code> type.</p>
+     * @param data            T <p>the data parameter is <code>T</code> type.</p>
      * @param falseCollection {@link java.util.Collection} <p>the false collection parameter is <code>Collection</code> type.</p>
      * @param trueMap         {@link java.util.Map} <p>the true map parameter is <code>Map</code> type.</p>
      * @see java.util.Collection
@@ -100,8 +100,8 @@ public class ShuntUtils {
      * <p>the null method.</p>
      * @param <K>             {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param <T>             {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param key             {@link K} <p>the key parameter is <code>K</code> type.</p>
-     * @param data            {@link T} <p>the data parameter is <code>T</code> type.</p>
+     * @param key             K <p>the key parameter is <code>K</code> type.</p>
+     * @param data            T <p>the data parameter is <code>T</code> type.</p>
      * @param falseCollection {@link java.util.Collection} <p>the false collection parameter is <code>Collection</code> type.</p>
      * @param trueCollection  {@link java.util.Collection} <p>the true collection parameter is <code>Collection</code> type.</p>
      * @see java.util.Collection
@@ -122,7 +122,7 @@ public class ShuntUtils {
      * @param <T>             {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param srcKey          {@link java.lang.Long} <p>the src key parameter is <code>Long</code> type.</p>
      * @param targetKey       {@link java.lang.Long} <p>the target key parameter is <code>Long</code> type.</p>
-     * @param data            {@link T} <p>the data parameter is <code>T</code> type.</p>
+     * @param data            T <p>the data parameter is <code>T</code> type.</p>
      * @param equalCollection {@link java.util.Collection} <p>the equal collection parameter is <code>Collection</code> type.</p>
      * @param unequalMap      {@link java.util.Map} <p>the unequal map parameter is <code>Map</code> type.</p>
      * @see java.lang.Long
@@ -143,9 +143,9 @@ public class ShuntUtils {
      * <p>the contrast method.</p>
      * @param <K>               {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param <T>               {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param srcKey            {@link K} <p>the src key parameter is <code>K</code> type.</p>
-     * @param targetKey         {@link K} <p>the target key parameter is <code>K</code> type.</p>
-     * @param data              {@link T} <p>the data parameter is <code>T</code> type.</p>
+     * @param srcKey            K <p>the src key parameter is <code>K</code> type.</p>
+     * @param targetKey         K <p>the target key parameter is <code>K</code> type.</p>
+     * @param data              T <p>the data parameter is <code>T</code> type.</p>
      * @param equalCollection   {@link java.util.Collection} <p>the equal collection parameter is <code>Collection</code> type.</p>
      * @param unequalCollection {@link java.util.Collection} <p>the unequal collection parameter is <code>Collection</code> type.</p>
      * @see java.util.Collection
@@ -163,9 +163,9 @@ public class ShuntUtils {
      * <p>the contain method.</p>
      * @param <K>                 {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param <T>                 {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param srcKey              {@link K} <p>the src key parameter is <code>K</code> type.</p>
+     * @param srcKey              K <p>the src key parameter is <code>K</code> type.</p>
      * @param targetKeyCollection {@link java.util.Collection} <p>the target key collection parameter is <code>Collection</code> type.</p>
-     * @param data                {@link T} <p>the data parameter is <code>T</code> type.</p>
+     * @param data                T <p>the data parameter is <code>T</code> type.</p>
      * @param shuntMap            {@link java.util.Map} <p>the shunt map parameter is <code>Map</code> type.</p>
      * @see java.util.Collection
      * @see java.util.Map

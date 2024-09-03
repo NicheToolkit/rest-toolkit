@@ -38,6 +38,11 @@ import java.util.Map;
 @Component
 @SuppressWarnings("SameNameButDifferent")
 public class DefaultClientHttpInterceptor implements ClientHttpRequestInterceptor {
+    /**
+     * <code>interceptProperties</code>
+     * {@link io.github.nichetoolkit.rest.configure.RestInterceptProperties} <p>the <code>interceptProperties</code> field.</p>
+     * @see io.github.nichetoolkit.rest.configure.RestInterceptProperties
+     */
     private final RestInterceptProperties interceptProperties;
 
     /**

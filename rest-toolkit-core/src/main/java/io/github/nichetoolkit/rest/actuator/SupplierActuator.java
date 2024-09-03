@@ -16,7 +16,7 @@ public interface SupplierActuator<T> {
     /**
      * <code>get</code>
      * <p>the method.</p>
-     * @return {@link T} <p>the return object is <code>T</code> type.</p>
+     * @return T <p>the return object is <code>T</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */

@@ -28,9 +28,29 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @since Jdk1.8
  */
 public class HttpThreadFactory implements ThreadFactory {
+    /**
+     * <code>poolNumber</code>
+     * {@link java.util.concurrent.atomic.AtomicInteger} <p>the constant <code>poolNumber</code> field.</p>
+     * @see java.util.concurrent.atomic.AtomicInteger
+     */
     private static final AtomicInteger poolNumber = new AtomicInteger(1);
+    /**
+     * <code>group</code>
+     * {@link java.lang.ThreadGroup} <p>the <code>group</code> field.</p>
+     * @see java.lang.ThreadGroup
+     */
     private final ThreadGroup group;
+    /**
+     * <code>threadNumber</code>
+     * {@link java.util.concurrent.atomic.AtomicInteger} <p>the <code>threadNumber</code> field.</p>
+     * @see java.util.concurrent.atomic.AtomicInteger
+     */
     private final AtomicInteger threadNumber = new AtomicInteger(1);
+    /**
+     * <code>namePrefix</code>
+     * {@link java.lang.String} <p>the <code>namePrefix</code> field.</p>
+     * @see java.lang.String
+     */
     private final String namePrefix;
 
     /**

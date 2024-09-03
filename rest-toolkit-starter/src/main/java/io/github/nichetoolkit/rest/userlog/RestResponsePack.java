@@ -99,6 +99,12 @@ public class RestResponsePack {
     public RestResponsePack() {
     }
 
+    /**
+     * <code>RestResponsePack</code>
+     * Instantiates a new rest response pack.
+     * @param builder {@link io.github.nichetoolkit.rest.userlog.RestResponsePack.Builder} <p>the builder parameter is <code>Builder</code> type.</p>
+     * @see io.github.nichetoolkit.rest.userlog.RestResponsePack.Builder
+     */
     private RestResponsePack(Builder builder) {
         this.time = builder.time;
         this.startTime = builder.startTime;

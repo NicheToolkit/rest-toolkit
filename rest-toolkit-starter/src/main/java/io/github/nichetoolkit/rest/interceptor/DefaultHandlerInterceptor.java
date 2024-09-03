@@ -75,6 +75,11 @@ public class DefaultHandlerInterceptor implements AsyncHandlerInterceptor, RestR
      */
     protected static final ThreadLocal<RestResponsePack> REST_RESPONSE_HOLDER = new ThreadLocal<>();
 
+    /**
+     * <code>interceptProperties</code>
+     * {@link io.github.nichetoolkit.rest.configure.RestInterceptProperties} <p>the <code>interceptProperties</code> field.</p>
+     * @see io.github.nichetoolkit.rest.configure.RestInterceptProperties
+     */
     private final RestInterceptProperties interceptProperties;
 
     /**

@@ -40,7 +40,7 @@ public class RestJwtProperties {
 
     /**
      * <code>enabled</code>
-     * {@link boolean} <p>the <code>enabled</code> field.</p>
+     * <p>the <code>enabled</code> field.</p>
      */
     private boolean enabled;
     /**
@@ -99,7 +99,7 @@ public class RestJwtProperties {
     private ChronoUnit issuedDelayUnit = ChronoUnit.MILLIS;
     /**
      * <code>notBeforeEnabled</code>
-     * {@link boolean} <p>the <code>notBeforeEnabled</code> field.</p>
+     * <p>the <code>notBeforeEnabled</code> field.</p>
      */
     private boolean notBeforeEnabled = false;
 

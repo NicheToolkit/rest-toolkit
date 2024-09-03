@@ -32,20 +32,60 @@ import java.util.*;
 @Slf4j
 public class RestHttpRequest extends HttpServletRequestWrapper implements Closeable {
 
+    /**
+     * <code>REQUEST_ID_KEY</code>
+     * {@link java.lang.String} <p>the constant <code>REQUEST_ID_KEY</code> field.</p>
+     * @see java.lang.String
+     */
     private static final String REQUEST_ID_KEY = "_REQUEST_ID_KEY_";
 
+    /**
+     * <code>HANDLER_METHOD_KEY</code>
+     * {@link java.lang.String} <p>the constant <code>HANDLER_METHOD_KEY</code> field.</p>
+     * @see java.lang.String
+     */
     private static final String HANDLER_METHOD_KEY = "HANDLER_METHOD_KEY";
 
+    /**
+     * <code>cacheBody</code>
+     * <p>the <code>cacheBody</code> field.</p>
+     */
     private byte[] cacheBody;
 
+    /**
+     * <code>reader</code>
+     * {@link java.io.BufferedReader} <p>the <code>reader</code> field.</p>
+     * @see java.io.BufferedReader
+     */
     private BufferedReader reader;
 
+    /**
+     * <code>inputStream</code>
+     * {@link javax.servlet.ServletInputStream} <p>the <code>inputStream</code> field.</p>
+     * @see javax.servlet.ServletInputStream
+     */
     private ServletInputStream inputStream;
 
+    /**
+     * <code>paramsJson</code>
+     * {@link java.lang.String} <p>the <code>paramsJson</code> field.</p>
+     * @see java.lang.String
+     */
     private String paramsJson;
 
+    /**
+     * <code>paramsMap</code>
+     * {@link java.util.Map} <p>the <code>paramsMap</code> field.</p>
+     * @see java.util.Map
+     */
     private Map<String, Object> paramsMap;
 
+    /**
+     * <code>handlerMethods</code>
+     * {@link java.util.List} <p>the <code>handlerMethods</code> field.</p>
+     * @see java.util.List
+     * @see lombok.Getter
+     */
     @Getter
     private List<HandlerMethod> handlerMethods;
 
@@ -59,6 +99,12 @@ public class RestHttpRequest extends HttpServletRequestWrapper implements Closea
         super(request);
     }
 
+    /**
+     * <code>cacheBody</code>
+     * <p>the body method.</p>
+     * @param request {@link javax.servlet.ServletRequest} <p>the request parameter is <code>ServletRequest</code> type.</p>
+     * @see javax.servlet.ServletRequest
+     */
     private void cacheBody(ServletRequest request) {
         if (GeneralUtils.isEmpty(this.cacheBody)) {
             try {
@@ -245,6 +291,13 @@ public class RestHttpRequest extends HttpServletRequestWrapper implements Closea
         return  null;
     }
 
+    /**
+     * <code>isSupportedJson</code>
+     * <p>the supported json method.</p>
+     * @param value {@link java.lang.String} <p>the value parameter is <code>String</code> type.</p>
+     * @return boolean <p>the supported json return object is <code>boolean</code> type.</p>
+     * @see java.lang.String
+     */
     private boolean isSupportedJson(String value) {
         if (GeneralUtils.isEmpty(value)) {
             return false;
@@ -254,6 +307,10 @@ public class RestHttpRequest extends HttpServletRequestWrapper implements Closea
         return value.startsWith("{") || value.startsWith("[");
     }
 
+    /**
+     * <code>cacheMap</code>
+     * <p>the map method.</p>
+     */
     private void cacheMap() {
         if (this.paramsMap != null) {
             return;
@@ -285,8 +342,20 @@ public class RestHttpRequest extends HttpServletRequestWrapper implements Closea
         }
     }
 
+    /**
+     * <code>RequestCachingInputStream</code>
+     * <p>The type request caching input stream class.</p>
+     * @author Cyan (snow22314@outlook.com)
+     * @see javax.servlet.ServletInputStream
+     * @since Jdk1.8
+     */
     private static class RequestCachingInputStream extends ServletInputStream {
 
+        /**
+         * <code>inputStream</code>
+         * {@link java.io.ByteArrayInputStream} <p>the <code>inputStream</code> field.</p>
+         * @see java.io.ByteArrayInputStream
+         */
         private final ByteArrayInputStream inputStream;
 
         /**

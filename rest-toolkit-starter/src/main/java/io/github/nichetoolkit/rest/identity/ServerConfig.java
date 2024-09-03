@@ -39,8 +39,23 @@ public class ServerConfig {
     @JsonIgnore
     public static final String APP_NAME = "spring.application.name";
 
+    /**
+     * <code>ip</code>
+     * {@link java.lang.String} <p>the <code>ip</code> field.</p>
+     * @see java.lang.String
+     */
     private String ip;
+    /**
+     * <code>port</code>
+     * {@link java.lang.String} <p>the <code>port</code> field.</p>
+     * @see java.lang.String
+     */
     private String port;
+    /**
+     * <code>name</code>
+     * {@link java.lang.String} <p>the <code>name</code> field.</p>
+     * @see java.lang.String
+     */
     private String name;
 
     /**

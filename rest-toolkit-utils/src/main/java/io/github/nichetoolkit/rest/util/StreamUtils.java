@@ -98,7 +98,7 @@ public class StreamUtils {
      * <code>bytes</code>
      * <p>the method.</p>
      * @param inputStream {@link java.io.InputStream} <p>the input stream parameter is <code>InputStream</code> type.</p>
-     * @return {@link byte} <p>the return object is <code>byte</code> type.</p>
+     * @return byte <p>the return object is <code>byte</code> type.</p>
      * @see java.io.InputStream
      */
     public static byte[] bytes(InputStream inputStream) {
@@ -166,7 +166,7 @@ public class StreamUtils {
      * <code>write</code>
      * <p>the method.</p>
      * @param response {@link javax.servlet.http.HttpServletResponse} <p>the response parameter is <code>HttpServletResponse</code> type.</p>
-     * @param data     {@link byte} <p>the data parameter is <code>byte</code> type.</p>
+     * @param data     byte <p>the data parameter is <code>byte</code> type.</p>
      * @see javax.servlet.http.HttpServletResponse
      */
     public static void write(HttpServletResponse response, byte[] data) {
@@ -205,7 +205,7 @@ public class StreamUtils {
      * <code>write</code>
      * <p>the method.</p>
      * @param outputStream {@link java.io.OutputStream} <p>the output stream parameter is <code>OutputStream</code> type.</p>
-     * @param data         {@link byte} <p>the data parameter is <code>byte</code> type.</p>
+     * @param data         byte <p>the data parameter is <code>byte</code> type.</p>
      * @see java.io.OutputStream
      */
     public static void write(OutputStream outputStream, byte[] data) {
@@ -272,7 +272,7 @@ public class StreamUtils {
      * <code>write</code>
      * <p>the method.</p>
      * @param filename {@link java.lang.String} <p>the filename parameter is <code>String</code> type.</p>
-     * @param data     {@link byte} <p>the data parameter is <code>byte</code> type.</p>
+     * @param data     byte <p>the data parameter is <code>byte</code> type.</p>
      * @see java.lang.String
      */
     public static void write(String filename, byte[] data) {
@@ -289,7 +289,7 @@ public class StreamUtils {
      * <code>write</code>
      * <p>the method.</p>
      * @param file {@link java.io.File} <p>the file parameter is <code>File</code> type.</p>
-     * @param data {@link byte} <p>the data parameter is <code>byte</code> type.</p>
+     * @param data byte <p>the data parameter is <code>byte</code> type.</p>
      * @see java.io.File
      */
     public static void write(File file, byte[] data) {

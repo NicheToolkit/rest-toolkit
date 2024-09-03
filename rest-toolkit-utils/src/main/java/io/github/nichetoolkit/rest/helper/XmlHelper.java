@@ -90,7 +90,7 @@ public class XmlHelper {
      * @param <T>     {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param xmlFile {@link org.springframework.web.multipart.MultipartFile} <p>the xml file parameter is <code>MultipartFile</code> type.</p>
      * @param clazz   {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @return {@link T} <p>the return object is <code>T</code> type.</p>
+     * @return T <p>the return object is <code>T</code> type.</p>
      * @throws XmlReadException {@link io.github.nichetoolkit.rest.error.often.XmlReadException} <p>the xml read exception is <code>XmlReadException</code> type.</p>
      * @see org.springframework.web.multipart.MultipartFile
      * @see java.lang.Class
@@ -113,7 +113,7 @@ public class XmlHelper {
      * @param <T>     {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param xmlFile {@link java.io.File} <p>the xml file parameter is <code>File</code> type.</p>
      * @param clazz   {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @return {@link T} <p>the return object is <code>T</code> type.</p>
+     * @return T <p>the return object is <code>T</code> type.</p>
      * @throws XmlReadException {@link io.github.nichetoolkit.rest.error.often.XmlReadException} <p>the xml read exception is <code>XmlReadException</code> type.</p>
      * @see java.io.File
      * @see java.lang.Class
@@ -137,7 +137,7 @@ public class XmlHelper {
      * @param unmarshaller {@link javax.xml.bind.Unmarshaller} <p>the unmarshaller parameter is <code>Unmarshaller</code> type.</p>
      * @param inputStream  {@link java.io.InputStream} <p>the input stream parameter is <code>InputStream</code> type.</p>
      * @param clazz        {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @return {@link T} <p>the return object is <code>T</code> type.</p>
+     * @return T <p>the return object is <code>T</code> type.</p>
      * @throws XmlReadException {@link io.github.nichetoolkit.rest.error.often.XmlReadException} <p>the xml read exception is <code>XmlReadException</code> type.</p>
      * @see javax.xml.bind.Unmarshaller
      * @see java.io.InputStream
@@ -162,7 +162,7 @@ public class XmlHelper {
      * @param <T>         {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param inputStream {@link java.io.InputStream} <p>the input stream parameter is <code>InputStream</code> type.</p>
      * @param clazz       {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @return {@link T} <p>the return object is <code>T</code> type.</p>
+     * @return T <p>the return object is <code>T</code> type.</p>
      * @throws XmlReadException {@link io.github.nichetoolkit.rest.error.often.XmlReadException} <p>the xml read exception is <code>XmlReadException</code> type.</p>
      * @see java.io.InputStream
      * @see java.lang.Class
@@ -184,7 +184,7 @@ public class XmlHelper {
      * <p>the method.</p>
      * @param <T>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param marshaller {@link javax.xml.bind.Marshaller} <p>the marshaller parameter is <code>Marshaller</code> type.</p>
-     * @param xmlObject  {@link T} <p>the xml object parameter is <code>T</code> type.</p>
+     * @param xmlObject  T <p>the xml object parameter is <code>T</code> type.</p>
      * @param filename   {@link java.lang.String} <p>the filename parameter is <code>String</code> type.</p>
      * @param response   {@link javax.servlet.http.HttpServletResponse} <p>the response parameter is <code>HttpServletResponse</code> type.</p>
      * @throws XmlWriteException {@link io.github.nichetoolkit.rest.error.often.XmlWriteException} <p>the xml write exception is <code>XmlWriteException</code> type.</p>
@@ -211,7 +211,7 @@ public class XmlHelper {
      * <p>the method.</p>
      * @param <T>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param marshaller {@link javax.xml.bind.Marshaller} <p>the marshaller parameter is <code>Marshaller</code> type.</p>
-     * @param xmlObject  {@link T} <p>the xml object parameter is <code>T</code> type.</p>
+     * @param xmlObject  T <p>the xml object parameter is <code>T</code> type.</p>
      * @param response   {@link javax.servlet.http.HttpServletResponse} <p>the response parameter is <code>HttpServletResponse</code> type.</p>
      * @throws XmlWriteException {@link io.github.nichetoolkit.rest.error.often.XmlWriteException} <p>the xml write exception is <code>XmlWriteException</code> type.</p>
      * @see javax.xml.bind.Marshaller
@@ -235,7 +235,7 @@ public class XmlHelper {
      * <p>the method.</p>
      * @param <T>          {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param marshaller   {@link javax.xml.bind.Marshaller} <p>the marshaller parameter is <code>Marshaller</code> type.</p>
-     * @param xmlObject    {@link T} <p>the xml object parameter is <code>T</code> type.</p>
+     * @param xmlObject    T <p>the xml object parameter is <code>T</code> type.</p>
      * @param outputStream {@link java.io.OutputStream} <p>the output stream parameter is <code>OutputStream</code> type.</p>
      * @throws XmlWriteException {@link io.github.nichetoolkit.rest.error.often.XmlWriteException} <p>the xml write exception is <code>XmlWriteException</code> type.</p>
      * @see javax.xml.bind.Marshaller
@@ -257,7 +257,7 @@ public class XmlHelper {
      * <code>write</code>
      * <p>the method.</p>
      * @param <T>       {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param xmlObject {@link T} <p>the xml object parameter is <code>T</code> type.</p>
+     * @param xmlObject T <p>the xml object parameter is <code>T</code> type.</p>
      * @param filename  {@link java.lang.String} <p>the filename parameter is <code>String</code> type.</p>
      * @param response  {@link javax.servlet.http.HttpServletResponse} <p>the response parameter is <code>HttpServletResponse</code> type.</p>
      * @throws XmlWriteException {@link io.github.nichetoolkit.rest.error.often.XmlWriteException} <p>the xml write exception is <code>XmlWriteException</code> type.</p>
@@ -282,7 +282,7 @@ public class XmlHelper {
      * <code>write</code>
      * <p>the method.</p>
      * @param <T>       {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param xmlObject {@link T} <p>the xml object parameter is <code>T</code> type.</p>
+     * @param xmlObject T <p>the xml object parameter is <code>T</code> type.</p>
      * @param response  {@link javax.servlet.http.HttpServletResponse} <p>the response parameter is <code>HttpServletResponse</code> type.</p>
      * @throws XmlWriteException {@link io.github.nichetoolkit.rest.error.often.XmlWriteException} <p>the xml write exception is <code>XmlWriteException</code> type.</p>
      * @see javax.servlet.http.HttpServletResponse

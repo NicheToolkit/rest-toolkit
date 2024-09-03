@@ -38,7 +38,7 @@ public class ContextUtils {
      * <p>the bean method.</p>
      * @param <T>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @return {@link T} <p>the bean return object is <code>T</code> type.</p>
+     * @return T <p>the bean return object is <code>T</code> type.</p>
      * @see java.lang.Class
      */
     public static <T> T getBean(Class<T> clazz){
@@ -56,7 +56,7 @@ public class ContextUtils {
      * @param <T>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param name  {@link java.lang.String} <p>the name parameter is <code>String</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @return {@link T} <p>the bean return object is <code>T</code> type.</p>
+     * @return T <p>the bean return object is <code>T</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Class
      */

@@ -67,6 +67,12 @@ public class RestRequestPack {
     public RestRequestPack() {
     }
 
+    /**
+     * <code>RestRequestPack</code>
+     * Instantiates a new rest request pack.
+     * @param builder {@link io.github.nichetoolkit.rest.userlog.RestRequestPack.Builder} <p>the builder parameter is <code>Builder</code> type.</p>
+     * @see io.github.nichetoolkit.rest.userlog.RestRequestPack.Builder
+     */
     private RestRequestPack(Builder builder) {
         this.ipAddress = builder.ipAddress;
         this.userAgent = builder.userAgent;

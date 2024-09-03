@@ -27,7 +27,7 @@ public class CheckUtils {
      * <code>checkNullObject</code>
      * <p>the null object method.</p>
      * @param <T>              {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param object           {@link T} <p>the object parameter is <code>T</code> type.</p>
+     * @param object           T <p>the object parameter is <code>T</code> type.</p>
      * @param logMessage       {@link java.lang.String} <p>the log message parameter is <code>String</code> type.</p>
      * @param exceptionMessage {@link java.lang.String} <p>the exception message parameter is <code>String</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
@@ -45,7 +45,7 @@ public class CheckUtils {
      * <code>checkNullObject</code>
      * <p>the null object method.</p>
      * @param <T>     {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param object  {@link T} <p>the object parameter is <code>T</code> type.</p>
+     * @param object  T <p>the object parameter is <code>T</code> type.</p>
      * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
@@ -59,7 +59,7 @@ public class CheckUtils {
      * <code>checkNullObject</code>
      * <p>the null object method.</p>
      * @param <T>    {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param object {@link T} <p>the object parameter is <code>T</code> type.</p>
+     * @param object T <p>the object parameter is <code>T</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -74,7 +74,7 @@ public class CheckUtils {
      * <code>checkNullId</code>
      * <p>the null id method.</p>
      * @param <T>              {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param id               {@link T} <p>the id parameter is <code>T</code> type.</p>
+     * @param id               T <p>the id parameter is <code>T</code> type.</p>
      * @param logMessage       {@link java.lang.String} <p>the log message parameter is <code>String</code> type.</p>
      * @param exceptionMessage {@link java.lang.String} <p>the exception message parameter is <code>String</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
@@ -92,7 +92,7 @@ public class CheckUtils {
      * <code>checkNullId</code>
      * <p>the null id method.</p>
      * @param <T>     {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param id      {@link T} <p>the id parameter is <code>T</code> type.</p>
+     * @param id      T <p>the id parameter is <code>T</code> type.</p>
      * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
@@ -106,7 +106,7 @@ public class CheckUtils {
      * <code>checkNullId</code>
      * <p>the null id method.</p>
      * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param id  {@link T} <p>the id parameter is <code>T</code> type.</p>
+     * @param id  T <p>the id parameter is <code>T</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */

@@ -30,7 +30,7 @@ public interface RestField extends RestValue<Integer, String> {
      * @param <T>   {@link io.github.nichetoolkit.rest.RestField} <p>the generic parameter is <code>RestField</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
      * @param field {@link java.lang.String} <p>the field parameter is <code>String</code> type.</p>
-     * @return {@link T} <p>the field return object is <code>T</code> type.</p>
+     * @return T <p>the field return object is <code>T</code> type.</p>
      * @see java.lang.Class
      * @see java.lang.String
      * @see java.lang.SuppressWarnings
@@ -51,7 +51,7 @@ public interface RestField extends RestValue<Integer, String> {
      * @param <T>    {@link io.github.nichetoolkit.rest.RestField} <p>the generic parameter is <code>RestField</code> type.</p>
      * @param values {@link java.util.Collection} <p>the values parameter is <code>Collection</code> type.</p>
      * @param field  {@link java.lang.String} <p>the field parameter is <code>String</code> type.</p>
-     * @return {@link T} <p>the field return object is <code>T</code> type.</p>
+     * @return T <p>the field return object is <code>T</code> type.</p>
      * @see java.util.Collection
      * @see java.lang.String
      * @see java.lang.SuppressWarnings

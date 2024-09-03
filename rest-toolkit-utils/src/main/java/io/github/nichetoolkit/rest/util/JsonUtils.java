@@ -37,7 +37,7 @@ public class JsonUtils {
      * <code>parseJson</code>
      * <p>the json method.</p>
      * @param <T>    {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param target {@link T} <p>the target parameter is <code>T</code> type.</p>
+     * @param target T <p>the target parameter is <code>T</code> type.</p>
      * @return {@link java.lang.String} <p>the json return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
@@ -55,7 +55,7 @@ public class JsonUtils {
      * <code>parseJson</code>
      * <p>the json method.</p>
      * @param <T>           {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param target        {@link T} <p>the target parameter is <code>T</code> type.</p>
+     * @param target        T <p>the target parameter is <code>T</code> type.</p>
      * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>the type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link java.lang.String} <p>the json return object is <code>String</code> type.</p>
      * @see com.fasterxml.jackson.core.type.TypeReference
@@ -75,7 +75,7 @@ public class JsonUtils {
      * <code>parseJsonIgnoreNull</code>
      * <p>the json ignore null method.</p>
      * @param <T>    {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param target {@link T} <p>the target parameter is <code>T</code> type.</p>
+     * @param target T <p>the target parameter is <code>T</code> type.</p>
      * @return {@link java.lang.String} <p>the json ignore null return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
@@ -95,7 +95,7 @@ public class JsonUtils {
      * @param <T>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param json  {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @return {@link T} <p>the bean return object is <code>T</code> type.</p>
+     * @return T <p>the bean return object is <code>T</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Class
      */
@@ -116,7 +116,7 @@ public class JsonUtils {
      * @param <T>           {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param json          {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
      * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>the type reference parameter is <code>TypeReference</code> type.</p>
-     * @return {@link T} <p>the bean return object is <code>T</code> type.</p>
+     * @return T <p>the bean return object is <code>T</code> type.</p>
      * @see java.lang.String
      * @see com.fasterxml.jackson.core.type.TypeReference
      */
@@ -136,7 +136,7 @@ public class JsonUtils {
      * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param json     {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
      * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>the java type parameter is <code>JavaType</code> type.</p>
-     * @return {@link T} <p>the bean return object is <code>T</code> type.</p>
+     * @return T <p>the bean return object is <code>T</code> type.</p>
      * @see java.lang.String
      * @see com.fasterxml.jackson.databind.JavaType
      */
@@ -158,7 +158,7 @@ public class JsonUtils {
      * @param json       {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
      * @param clazz      {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
      * @param innerClazz {@link java.lang.Class} <p>the inner clazz parameter is <code>Class</code> type.</p>
-     * @return {@link T} <p>the bean return object is <code>T</code> type.</p>
+     * @return T <p>the bean return object is <code>T</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Class
      */
@@ -373,7 +373,7 @@ public class JsonUtils {
      * @param <T>       {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param json      {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
      * @param arrayType {@link com.fasterxml.jackson.databind.type.ArrayType} <p>the array type parameter is <code>ArrayType</code> type.</p>
-     * @return {@link T} <p>the array return object is <code>T</code> type.</p>
+     * @return T <p>the array return object is <code>T</code> type.</p>
      * @see java.lang.String
      * @see com.fasterxml.jackson.databind.type.ArrayType
      */
@@ -393,7 +393,7 @@ public class JsonUtils {
      * @param <T>           {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param json          {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
      * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>the type reference parameter is <code>TypeReference</code> type.</p>
-     * @return {@link T} <p>the array return object is <code>T</code> type.</p>
+     * @return T <p>the array return object is <code>T</code> type.</p>
      * @see java.lang.String
      * @see com.fasterxml.jackson.core.type.TypeReference
      */
@@ -414,7 +414,7 @@ public class JsonUtils {
      * @param <T>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param json  {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @return {@link T} <p>the array return object is <code>T</code> type.</p>
+     * @return T <p>the array return object is <code>T</code> type.</p>
      * @see java.util.List
      * @see java.lang.String
      * @see java.lang.Class
@@ -680,7 +680,7 @@ public class JsonUtils {
      * @param <T>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param value {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @return {@link T} <p>the convert return object is <code>T</code> type.</p>
+     * @return T <p>the convert return object is <code>T</code> type.</p>
      * @see java.lang.Object
      * @see java.lang.Class
      */

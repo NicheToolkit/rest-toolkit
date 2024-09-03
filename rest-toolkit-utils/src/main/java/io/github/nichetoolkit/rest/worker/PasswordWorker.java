@@ -79,7 +79,7 @@ public class PasswordWorker {
     /**
      * <code>mustLengthQuest</code>
      * <p>the length quest method.</p>
-     * @return {@link boolean} <p>the length quest return object is <code>boolean</code> type.</p>
+     * @return boolean <p>the length quest return object is <code>boolean</code> type.</p>
      */
     public boolean mustLengthQuest() {
         /** 密码长度 8-16位 */
@@ -89,7 +89,7 @@ public class PasswordWorker {
     /**
      * <code>mustContentQuest</code>
      * <p>the content quest method.</p>
-     * @return {@link boolean} <p>the content quest return object is <code>boolean</code> type.</p>
+     * @return boolean <p>the content quest return object is <code>boolean</code> type.</p>
      */
     public boolean mustContentQuest() {
         /** 包含 大小写字母 数字*/
@@ -138,7 +138,7 @@ public class PasswordWorker {
     /**
      * <code>getCharSize</code>
      * <p>the char size getter method.</p>
-     * @return {@link int} <p>the char size return object is <code>int</code> type.</p>
+     * @return int <p>the char size return object is <code>int</code> type.</p>
      */
     public int getCharSize() {
         if (this.charSize == null) {

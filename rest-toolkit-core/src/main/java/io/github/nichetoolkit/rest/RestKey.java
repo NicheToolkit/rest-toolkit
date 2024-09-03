@@ -27,7 +27,7 @@ public interface RestKey<K> {
     /**
      * <code>getKey</code>
      * <p>the key getter method.</p>
-     * @return {@link K} <p>the key return object is <code>K</code> type.</p>
+     * @return K <p>the key return object is <code>K</code> type.</p>
      */
     K getKey();
 
@@ -65,8 +65,8 @@ public interface RestKey<K> {
      * @param <T>   {@link io.github.nichetoolkit.rest.RestKey} <p>the generic parameter is <code>RestKey</code> type.</p>
      * @param <K>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @param key   {@link K} <p>the key parameter is <code>K</code> type.</p>
-     * @return {@link T} <p>the key return object is <code>T</code> type.</p>
+     * @param key   K <p>the key parameter is <code>K</code> type.</p>
+     * @return T <p>the key return object is <code>T</code> type.</p>
      * @see java.lang.Class
      * @see java.lang.SuppressWarnings
      */

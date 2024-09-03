@@ -21,11 +21,33 @@ import org.springframework.stereotype.Component;
 @Component
 @ConfigurationProperties(prefix = "nichetoolkit.rest.identity")
 public class RestIdentityProperties {
+    /**
+     * <code>enabled</code>
+     * {@link java.lang.Boolean} <p>the <code>enabled</code> field.</p>
+     * @see java.lang.Boolean
+     */
     private Boolean enabled = false;
 
+    /**
+     * <code>type</code>
+     * {@link io.github.nichetoolkit.rest.identity.IdentityType} <p>the <code>type</code> field.</p>
+     * @see io.github.nichetoolkit.rest.identity.IdentityType
+     */
     private IdentityType type = IdentityType.AUTO;
+    /**
+     * <code>config</code>
+     * {@link io.github.nichetoolkit.rest.configure.RestIdentityProperties.Config} <p>the <code>config</code> field.</p>
+     * @see io.github.nichetoolkit.rest.configure.RestIdentityProperties.Config
+     * @see org.springframework.boot.context.properties.NestedConfigurationProperty
+     */
     @NestedConfigurationProperty
     private Config config = new Config();
+    /**
+     * <code>server</code>
+     * {@link io.github.nichetoolkit.rest.configure.RestIdentityProperties.Server} <p>the <code>server</code> field.</p>
+     * @see io.github.nichetoolkit.rest.configure.RestIdentityProperties.Server
+     * @see org.springframework.boot.context.properties.NestedConfigurationProperty
+     */
     @NestedConfigurationProperty
     private Server server = new Server();
 
@@ -38,8 +60,23 @@ public class RestIdentityProperties {
      */
     @Data
     public static class Server {
+        /**
+         * <code>sequence</code>
+         * {@link java.lang.Long} <p>the <code>sequence</code> field.</p>
+         * @see java.lang.Long
+         */
         private Long sequence = 1L;
+        /**
+         * <code>url</code>
+         * {@link java.lang.String} <p>the <code>url</code> field.</p>
+         * @see java.lang.String
+         */
         private String url;
+        /**
+         * <code>api</code>
+         * {@link java.lang.String} <p>the <code>api</code> field.</p>
+         * @see java.lang.String
+         */
         private String api;
 
         /**
@@ -69,8 +106,23 @@ public class RestIdentityProperties {
      */
     @Data
     public static class Config {
+        /**
+         * <code>workerId</code>
+         * {@link java.lang.Long} <p>the <code>workerId</code> field.</p>
+         * @see java.lang.Long
+         */
         private Long workerId = 1L;
+        /**
+         * <code>centerId</code>
+         * {@link java.lang.Long} <p>the <code>centerId</code> field.</p>
+         * @see java.lang.Long
+         */
         private Long centerId = 2L;
+        /**
+         * <code>sequence</code>
+         * {@link java.lang.Long} <p>the <code>sequence</code> field.</p>
+         * @see java.lang.Long
+         */
         private Long sequence = 1L;
     }
 }

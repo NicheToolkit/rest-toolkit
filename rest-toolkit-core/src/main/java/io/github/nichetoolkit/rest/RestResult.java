@@ -113,7 +113,7 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
      * Instantiates a new rest result.
      * @param status  {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
      * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param data    {@link T} <p>the data parameter is <code>T</code> type.</p>
+     * @param data    T <p>the data parameter is <code>T</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      */
@@ -136,7 +136,7 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
      * <code>success</code>
      * <p>the method.</p>
      * @param <T>  {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param data {@link T} <p>the data parameter is <code>T</code> type.</p>
+     * @param data T <p>the data parameter is <code>T</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>the return object is <code>RestResult</code> type.</p>
      */
     public static <T> RestResult<T> success(T data) {
@@ -160,7 +160,7 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
      * <p>the method.</p>
      * @param <T>     {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param data    {@link T} <p>the data parameter is <code>T</code> type.</p>
+     * @param data    T <p>the data parameter is <code>T</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>the return object is <code>RestResult</code> type.</p>
      * @see java.lang.String
      */
@@ -185,7 +185,7 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
      * <p>the method.</p>
      * @param <T>    {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param data   {@link T} <p>the data parameter is <code>T</code> type.</p>
+     * @param data   T <p>the data parameter is <code>T</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>the return object is <code>RestResult</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
@@ -210,7 +210,7 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
      * <p>the method.</p>
      * @param <T>     {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param data    {@link T} <p>the data parameter is <code>T</code> type.</p>
+     * @param data    T <p>the data parameter is <code>T</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>the return object is <code>RestResult</code> type.</p>
      * @see java.lang.String
      */
@@ -224,7 +224,7 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
      * @param <T>     {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param status  {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
      * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param data    {@link T} <p>the data parameter is <code>T</code> type.</p>
+     * @param data    T <p>the data parameter is <code>T</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>the return object is <code>RestResult</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
@@ -292,7 +292,7 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
      * <p>the method.</p>
      * @param <T>    {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param data   {@link T} <p>the data parameter is <code>T</code> type.</p>
+     * @param data   T <p>the data parameter is <code>T</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>the return object is <code>RestResult</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
@@ -326,7 +326,7 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
      * <code>ok</code>
      * <p>the method.</p>
      * @param <T>  {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param data {@link T} <p>the data parameter is <code>T</code> type.</p>
+     * @param data T <p>the data parameter is <code>T</code> type.</p>
      * @return {@link org.springframework.http.ResponseEntity} <p>the return object is <code>ResponseEntity</code> type.</p>
      * @see org.springframework.http.ResponseEntity
      */
@@ -352,7 +352,7 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
      * <p>the method.</p>
      * @param <T>     {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param data    {@link T} <p>the data parameter is <code>T</code> type.</p>
+     * @param data    T <p>the data parameter is <code>T</code> type.</p>
      * @return {@link org.springframework.http.ResponseEntity} <p>the return object is <code>ResponseEntity</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.ResponseEntity
@@ -379,7 +379,7 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
      * <p>the method.</p>
      * @param <T>    {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param data   {@link T} <p>the data parameter is <code>T</code> type.</p>
+     * @param data   T <p>the data parameter is <code>T</code> type.</p>
      * @return {@link org.springframework.http.ResponseEntity} <p>the return object is <code>ResponseEntity</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see org.springframework.http.ResponseEntity
@@ -406,7 +406,7 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
      * <p>the method.</p>
      * @param <T>     {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param data    {@link T} <p>the data parameter is <code>T</code> type.</p>
+     * @param data    T <p>the data parameter is <code>T</code> type.</p>
      * @return {@link org.springframework.http.ResponseEntity} <p>the return object is <code>ResponseEntity</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.ResponseEntity
@@ -421,7 +421,7 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
      * @param <T>     {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param status  {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
      * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param data    {@link T} <p>the data parameter is <code>T</code> type.</p>
+     * @param data    T <p>the data parameter is <code>T</code> type.</p>
      * @return {@link org.springframework.http.ResponseEntity} <p>the return object is <code>ResponseEntity</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
@@ -464,7 +464,7 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
      * <p>the method.</p>
      * @param <T>    {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param data   {@link T} <p>the data parameter is <code>T</code> type.</p>
+     * @param data   T <p>the data parameter is <code>T</code> type.</p>
      * @return {@link org.springframework.http.ResponseEntity} <p>the return object is <code>ResponseEntity</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see org.springframework.http.ResponseEntity

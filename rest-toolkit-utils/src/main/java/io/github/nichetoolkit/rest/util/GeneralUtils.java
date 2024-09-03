@@ -26,7 +26,7 @@ public class GeneralUtils {
      * <code>isNotEmpty</code>
      * <p>the not empty method.</p>
      * @param object {@link java.lang.Object} <p>the object parameter is <code>Object</code> type.</p>
-     * @return {@link boolean} <p>the not empty return object is <code>boolean</code> type.</p>
+     * @return boolean <p>the not empty return object is <code>boolean</code> type.</p>
      * @see java.lang.Object
      */
     public static boolean isNotEmpty(Object object) {
@@ -69,7 +69,7 @@ public class GeneralUtils {
      * <code>isValid</code>
      * <p>the valid method.</p>
      * @param object {@link java.lang.Object} <p>the object parameter is <code>Object</code> type.</p>
-     * @return {@link boolean} <p>the valid return object is <code>boolean</code> type.</p>
+     * @return boolean <p>the valid return object is <code>boolean</code> type.</p>
      * @see java.lang.Object
      */
     public static boolean isValid(Object object) {
@@ -112,7 +112,7 @@ public class GeneralUtils {
      * <code>isEmpty</code>
      * <p>the empty method.</p>
      * @param object {@link java.lang.Object} <p>the object parameter is <code>Object</code> type.</p>
-     * @return {@link boolean} <p>the empty return object is <code>boolean</code> type.</p>
+     * @return boolean <p>the empty return object is <code>boolean</code> type.</p>
      * @see java.lang.Object
      */
     public static boolean isEmpty(Object object) {
@@ -155,7 +155,7 @@ public class GeneralUtils {
      * <code>isInvalid</code>
      * <p>the invalid method.</p>
      * @param object {@link java.lang.Object} <p>the object parameter is <code>Object</code> type.</p>
-     * @return {@link boolean} <p>the invalid return object is <code>boolean</code> type.</p>
+     * @return boolean <p>the invalid return object is <code>boolean</code> type.</p>
      * @see java.lang.Object
      */
     public static boolean isInvalid(Object object) {
@@ -423,7 +423,7 @@ public class GeneralUtils {
      * <code>isBigInteger</code>
      * <p>the big integer method.</p>
      * @param value {@link java.lang.String} <p>the value parameter is <code>String</code> type.</p>
-     * @return {@link boolean} <p>the big integer return object is <code>boolean</code> type.</p>
+     * @return boolean <p>the big integer return object is <code>boolean</code> type.</p>
      * @see java.lang.String
      */
     public static boolean isBigInteger(String value) {
@@ -440,7 +440,7 @@ public class GeneralUtils {
      * <code>isBigDecimal</code>
      * <p>the big decimal method.</p>
      * @param value {@link java.lang.String} <p>the value parameter is <code>String</code> type.</p>
-     * @return {@link boolean} <p>the big decimal return object is <code>boolean</code> type.</p>
+     * @return boolean <p>the big decimal return object is <code>boolean</code> type.</p>
      * @see java.lang.String
      */
     public static boolean isBigDecimal(String value) {
@@ -457,7 +457,7 @@ public class GeneralUtils {
      * <code>isInteger</code>
      * <p>the integer method.</p>
      * @param value {@link java.lang.String} <p>the value parameter is <code>String</code> type.</p>
-     * @return {@link boolean} <p>the integer return object is <code>boolean</code> type.</p>
+     * @return boolean <p>the integer return object is <code>boolean</code> type.</p>
      * @see java.lang.String
      */
     public static boolean isInteger(String value) {
@@ -474,7 +474,7 @@ public class GeneralUtils {
      * <code>isLong</code>
      * <p>the long method.</p>
      * @param value {@link java.lang.String} <p>the value parameter is <code>String</code> type.</p>
-     * @return {@link boolean} <p>the long return object is <code>boolean</code> type.</p>
+     * @return boolean <p>the long return object is <code>boolean</code> type.</p>
      * @see java.lang.String
      */
     public static boolean isLong(String value) {
@@ -491,7 +491,7 @@ public class GeneralUtils {
      * <code>isDouble</code>
      * <p>the double method.</p>
      * @param value {@link java.lang.String} <p>the value parameter is <code>String</code> type.</p>
-     * @return {@link boolean} <p>the double return object is <code>boolean</code> type.</p>
+     * @return boolean <p>the double return object is <code>boolean</code> type.</p>
      * @see java.lang.String
      */
     public static boolean isDouble(String value) {
@@ -507,7 +507,7 @@ public class GeneralUtils {
     /**
      * <code>randomHex</code>
      * <p>the hex method.</p>
-     * @param size {@link int} <p>the size parameter is <code>int</code> type.</p>
+     * @param size int <p>the size parameter is <code>int</code> type.</p>
      * @return {@link java.lang.String} <p>the hex return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
@@ -565,10 +565,10 @@ public class GeneralUtils {
     /**
      * <code>format</code>
      * <p>the method.</p>
-     * @param val    {@link long} <p>the val parameter is <code>long</code> type.</p>
-     * @param buf    {@link byte} <p>the buf parameter is <code>byte</code> type.</p>
-     * @param offset {@link int} <p>the offset parameter is <code>int</code> type.</p>
-     * @param len    {@link int} <p>the len parameter is <code>int</code> type.</p>
+     * @param val    long <p>the val parameter is <code>long</code> type.</p>
+     * @param buf    byte <p>the buf parameter is <code>byte</code> type.</p>
+     * @param offset int <p>the offset parameter is <code>int</code> type.</p>
+     * @param len    int <p>the len parameter is <code>int</code> type.</p>
      */
     private static void format(long val, byte[] buf, int offset, int len) {
         int charPos = offset + len;

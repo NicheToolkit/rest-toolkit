@@ -125,7 +125,7 @@ public interface UtilConstants {
 
     /**
      * <code>STYLE_ARRAY</code>
-     * {@link int} <p>the constant <code>STYLE_ARRAY</code> field.</p>
+     * <p>the constant <code>STYLE_ARRAY</code> field.</p>
      */
     int[] STYLE_ARRAY = { Font.PLAIN, Font.BOLD, Font.ITALIC};
 
@@ -250,7 +250,7 @@ public interface UtilConstants {
 
     /**
      * <code>UUID_DIGITS</code>
-     * {@link byte} <p>the constant <code>UUID_DIGITS</code> field.</p>
+     * <p>the constant <code>UUID_DIGITS</code> field.</p>
      */
     byte[] UUID_DIGITS = {
             '0', '1', '2', '3', '4', '5',
