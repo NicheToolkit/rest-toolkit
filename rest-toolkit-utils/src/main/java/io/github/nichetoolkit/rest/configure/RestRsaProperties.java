@@ -29,7 +29,7 @@ public class RestRsaProperties {
      * {@link java.lang.Integer} <p>the <code>keySize</code> field.</p>
      * @see java.lang.Integer
      */
-    private Integer keySize = 2048;
+    private Integer keySize = 1024;
     /**
      * <code>publicKey</code>
      * {@link java.lang.String} <p>the <code>publicKey</code> field.</p>

@@ -10,12 +10,16 @@
     {
       "name": "nichetoolkit.rest.error.console-log.rest-exception-enabled",
       "type": "java.lang.Boolean",
-      "description": "rest exception enabled."
+      "sourceType": "java.lang.Boolean",
+      "description": "the switch of rest exception in console log.",
+      "defaultValue": false
     },
     {
       "name": "nichetoolkit.rest.error.console-log.common-exception-enabled",
       "type": "java.lang.Boolean",
-      "description": "common exception enabled."
+      "sourceType": "java.lang.Boolean",
+      "description": "the switch of common exception in console log.",
+      "defaultValue": true
     }
   ],
   "hints": [
@@ -24,11 +28,11 @@
       "values": [
         {
           "value": false,
-          "description": "rest exception enabled close."
+          "description": "the switch of rest exception closed in console logs."
         },
         {
           "value": true,
-          "description": "rest exception enabled open."
+          "description": "the switch of rest exception opened in console logs."
         }
       ]
     },
@@ -37,11 +41,11 @@
       "values": [
         {
           "value": false,
-          "description": "common exception enabled close."
+          "description": "the switch of common exception closed in console logs."
         },
         {
           "value": true,
-          "description": "common exception enabled open."
+          "description": "the switch of common exception opened in console logs."
         }
       ]
     }

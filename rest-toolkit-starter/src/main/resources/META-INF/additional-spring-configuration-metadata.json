@@ -26,234 +26,239 @@
       "name": "nichetoolkit.rest.identity.enabled",
       "type": "java.lang.Boolean",
       "sourceType": "java.lang.Boolean",
-      "description": "identity enabled.",
-      "defaultValue": "false"
+      "description": "the switch of identity worker.",
+      "defaultValue": false
     },
     {
       "name": "nichetoolkit.rest.identity.type",
       "type": "io.github.nichetoolkit.rest.identity.IdentityType",
       "sourceType": "io.github.nichetoolkit.rest.identity.IdentityType",
-      "description": "identity init type.",
+      "description": "the identity type of identity worker.",
       "defaultValue": "AUTO"
     },
     {
       "name": "nichetoolkit.rest.identity.config.worker-id",
       "type": "java.lang.Long",
       "sourceType": "java.lang.Long",
-      "description": "worker-id."
+      "description": "the worker id config of identity worker."
     },
     {
       "name": "nichetoolkit.rest.identity.config.center-id",
       "type": "java.lang.Long",
       "sourceType": "java.lang.Long",
-      "description": "center-id."
+      "description": "the center id config of identity worker."
     },
     {
       "name": "nichetoolkit.rest.identity.server.url",
       "type": "java.lang.String",
       "sourceType": "java.lang.String",
-      "description": "server url."
+      "description": "the server url of identity worker."
     },
     {
       "name": "nichetoolkit.rest.identity.server.api",
       "type": "java.lang.String",
       "sourceType": "java.lang.String",
-      "description": "server api."
+      "description": "the server api of identity worker."
     },
     {
       "name": "nichetoolkit.rest.intercept.enabled",
       "type": "java.lang.Boolean",
       "sourceType": "java.lang.Boolean",
-      "description": "intercept enabled.",
-      "defaultValue": "false"
+      "description": "the switch of intercept configuration.",
+      "defaultValue": false
     },
     {
       "name": "nichetoolkit.rest.intercept.logging-enabled",
       "type": "java.lang.Boolean",
       "sourceType": "java.lang.Boolean",
-      "description": "intercept logging enabled.",
-      "defaultValue": "false"
+      "description": "`the logging switch of intercept configuration.",
+      "defaultValue": false
     },
     {
       "name": "nichetoolkit.rest.intercept.userlog-enabled",
       "type": "java.lang.Boolean",
       "sourceType": "java.lang.Boolean",
-      "description": "intercept userlog enabled.",
-      "defaultValue": "false"
+      "description": "the userlog switch of intercept configuration.",
+      "defaultValue": false
     },
     {
       "name": "nichetoolkit.rest.intercept.bean-enabled",
       "type": "java.lang.Boolean",
       "sourceType": "java.lang.Boolean",
-      "description": "intercept bean enabled.",
-      "defaultValue": "false"
+      "description": "the bean switch of intercept configuration.",
+      "defaultValue": false
     },
     {
       "name": "nichetoolkit.rest.intercept.body-length",
       "type": "java.lang.Integer",
       "sourceType": "java.lang.Integer",
-      "description": "intercept log body length limit.",
-      "defaultValue": "1024"
+      "description": "the response body length of intercept configuration.",
+      "defaultValue": 1024
     },
     {
       "name": "nichetoolkit.rest.intercept.error-length",
       "type": "java.lang.Integer",
       "sourceType": "java.lang.Integer",
-      "description": "intercept log error length limit.",
-      "defaultValue": "1024"
+      "description": "the error length of intercept configuration.",
+      "defaultValue": 1024
     },
     {
       "name": "nichetoolkit.rest.intercept.message-length",
       "type": "java.lang.Integer",
       "sourceType": "java.lang.Integer",
-      "description": "intercept log message length limit.",
-      "defaultValue": "1024"
+      "description": "the message length of intercept configuration.",
+      "defaultValue": 1024
     },
     {
       "name": "nichetoolkit.rest.intercept.result-length",
       "type": "java.lang.Integer",
       "sourceType": "java.lang.Integer",
-      "description": "intercept log result length limit.",
-      "defaultValue": "1024"
+      "description": "the result length of intercept configuration.",
+      "defaultValue": 1024
     },
     {
       "name": "nichetoolkit.rest.http.enabled",
       "type": "java.lang.Boolean",
       "sourceType": "java.lang.Boolean",
-      "description": "http enabled.",
-      "defaultValue": "true"
+      "description": "the switch of http client configuration.",
+      "defaultValue": true
     },
     {
       "name": "nichetoolkit.rest.http.connect-timeout",
       "type": "java.lang.Integer",
       "sourceType": "java.lang.Integer",
-      "description": "http connect timeout.",
-      "defaultValue": "2000"
+      "description": "the connect timeout of http client configuration.",
+      "defaultValue": 2000
     },
     {
       "name": "nichetoolkit.rest.http.read-timeout",
       "type": "java.lang.Integer",
       "sourceType": "java.lang.Integer",
-      "description": "http read timeout.",
-      "defaultValue": "30000"
+      "description": "the read timeout of http client configuration.",
+      "defaultValue": 30000
     },
     {
       "name": "nichetoolkit.rest.http.request-timeout",
       "type": "java.lang.Integer",
       "sourceType": "java.lang.Integer",
-      "description": "http request timeout.",
-      "defaultValue": "200"
+      "description": "the request timeout of http client configuration.",
+      "defaultValue": 200
     },
     {
       "name": "nichetoolkit.rest.http.max-core-size",
       "type": "java.lang.Integer",
       "sourceType": "java.lang.Integer",
-      "description": "http max core size.",
-      "defaultValue": "5"
+      "description": "the max core thread size of http client configuration.",
+      "defaultValue": 5
     },
     {
       "name": "nichetoolkit.rest.http.max-idle-size",
       "type": "java.lang.Integer",
       "sourceType": "java.lang.Integer",
-      "description": "http max idle size.",
-      "defaultValue": "10"
+      "description": "the max idle thread size of http client configuration.",
+      "defaultValue": 10
     },
     {
       "name": "nichetoolkit.rest.http.http-type",
       "type": "io.github.nichetoolkit.rest.http.config.HttpClientType",
       "sourceType": "io.github.nichetoolkit.rest.http.config.HttpClientType",
-      "description": "http type.",
+      "description": "the http type of http client configuration.",
       "defaultValue": "default"
     },
     {
       "name": "nichetoolkit.rest.http.charset",
       "type": "java.nio.charset.Charset",
       "sourceType": "java.nio.charset.Charset",
-      "description": "http charset.",
-      "defaultValue": "UTF_8"
+      "description": "the charset encoding of http client configuration.",
+      "defaultValue": "utf_8"
     },
     {
       "name": "nichetoolkit.rest.http.encoding-mode",
       "type": "org.springframework.web.util.DefaultUriBuilderFactory.EncodingMode",
       "sourceType": "org.springframework.web.util.DefaultUriBuilderFactory.EncodingMode",
-      "description": "http encoding mode.",
-      "defaultValue": "NONE"
+      "description": "the encoding mode of http client configuration.",
+      "defaultValue": "none"
     },
     {
       "name": "nichetoolkit.rest.http.retry-times",
       "type": "java.lang.Integer",
       "sourceType": "java.lang.Integer",
-      "description": "http retry times.",
-      "defaultValue": "0"
+      "description": "the retry times of http client configuration.",
+      "defaultValue": 0
     },
     {
       "name": "nichetoolkit.rest.http.keep-alive-hosts",
       "type": "java.util.Map",
       "sourceType": "java.util.Map",
-      "description": "http keep alive hosts."
+      "description": "the keep alive hosts of http client configuration."
     },
     {
       "name": "nichetoolkit.rest.http.keep-alive-time",
-      "type": "java.util.Map",
-      "sourceType": "java.util.Map",
-      "description": "http keep alive hosts.",
-      "defaultValue": "600000L"
+      "type": "java.lang.Long",
+      "sourceType": "java.lang.Long",
+      "description": "the keep alive time of http client configuration.",
+      "defaultValue": 600000
     },
     {
       "name": "nichetoolkit.rest.http.proxy.type",
       "type": "io.github.nichetoolkit.rest.http.config.ProxyType",
       "sourceType": "io.github.nichetoolkit.rest.http.config.ProxyType",
-      "description": "http keep alive hosts.",
+      "description": "the proxy type of http client configuration.",
       "defaultValue": "socks"
     },
     {
       "name": "nichetoolkit.rest.http.proxy.hostname",
       "type": "java.lang.String",
       "sourceType": "java.lang.String",
-      "description": "http proxy hostname."
+      "description": "the proxy hostname of http client configuration."
     },
     {
       "name": "nichetoolkit.rest.http.proxy.port",
       "type": "java.lang.Integer",
       "sourceType": "java.lang.Integer",
-      "description": "http proxy port."
+      "description": "the proxy port of http client configuration."
     },
     {
       "name": "nichetoolkit.rest.logback.enabled",
       "type": "java.lang.Boolean",
       "sourceType": "java.lang.Boolean",
-      "description": "logback enabled.",
-      "defaultValue": "true"
+      "description": "the switch of logback configuration.",
+      "defaultValue": true
     },
     {
       "name": "nichetoolkit.rest.logback.logging-key",
       "type": "java.lang.String",
       "sourceType": "java.lang.String",
-      "description": "logback logging key."
+      "description": "the logging key of logback configuration.",
+      "defaultValue": "loggingKey"
     },
     {
       "name": "nichetoolkit.rest.logback.attributes",
       "type": "java.lang.String[]",
       "sourceType": "java.lang.String[]",
-      "description": "logback attributes."
+      "description": "the attributes key of logback configuration.",
+      "defaultValue": "t"
     },
     {
       "name": "nichetoolkit.rest.logback.request-key",
       "type": "java.lang.String",
       "sourceType": "java.lang.String",
-      "description": "logback request key."
+      "description": "the request key of logback configuration.",
+      "defaultValue": "requestKey"
     },
     {
       "name": "nichetoolkit.rest.logback.request-header",
       "type": "java.lang.String",
       "sourceType": "java.lang.String",
-      "description": "logback request header."
+      "description": "`the request header key of logback configuration.",
+      "defaultValue": "X-Request-ID"
     },
     {
       "name": "nichetoolkit.rest.logback.argument-length",
       "type": "java.lang.Integer",
       "sourceType": "java.lang.Integer",
-      "description": "logback argument length."
+      "description": "`the argument length of logback configuration.",
+      "defaultValue": 1024
     }
   ],
   "hints": [
@@ -262,11 +267,11 @@
       "values": [
         {
           "value": false,
-          "description": "identity close."
+          "description": "the switch of identity worker closed."
         },
         {
           "value": true,
-          "description": "identity open."
+          "description": "the switch of identity worker opened."
         }
       ]
     },
@@ -275,11 +280,11 @@
       "values": [
         {
           "value": false,
-          "description": "intercept close."
+          "description": "the switch of intercept configuration closed."
         },
         {
           "value": true,
-          "description": "intercept open."
+          "description": "the switch of intercept configuration opened."
         }
       ]
     },
@@ -288,11 +293,11 @@
       "values": [
         {
           "value": false,
-          "description": "intercept log close."
+          "description": "the switch of logging intercept configuration closed."
         },
         {
           "value": true,
-          "description": "intercept log open."
+          "description": "the switch of logging intercept configuration opened."
         }
       ]
     },
@@ -301,11 +306,11 @@
       "values": [
         {
           "value": false,
-          "description": "intercept userlog close."
+          "description": "the switch of userlog intercept configuration closed."
         },
         {
           "value": true,
-          "description": "intercept userlog open."
+          "description": "the switch of userlog intercept configuration opened."
         }
       ]
     },
@@ -314,11 +319,11 @@
       "values": [
         {
           "value": false,
-          "description": "intercept bean close."
+          "description": "the switch of bean intercept configuration closed."
         },
         {
           "value": true,
-          "description": "intercept bean open."
+          "description": "the switch of bean intercept configuration opened."
         }
       ]
     },
@@ -327,11 +332,11 @@
       "values": [
         {
           "value": false,
-          "description": "http close."
+          "description": "the switch of http client configuration closed."
         },
         {
           "value": true,
-          "description": "http open."
+          "description": "the switch of http client configuration opened."
         }
       ]
     },
@@ -340,11 +345,11 @@
       "values": [
         {
           "value": false,
-          "description": "logback close."
+          "description": "the switch of logback configuration closed."
         },
         {
           "value": true,
-          "description": "logback open."
+          "description": "the switch of logback configuration opened."
         }
       ]
     }

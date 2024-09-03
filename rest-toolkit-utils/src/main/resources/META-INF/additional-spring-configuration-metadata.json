@@ -26,155 +26,155 @@
       "name": "nichetoolkit.rest.radix.enabled",
       "type": "java.lang.Boolean",
       "sourceType": "java.lang.Boolean",
-      "description": "radix enabled.",
-      "defaultValue": "false"
+      "description": "the switch of radix worker.",
+      "defaultValue": false
     },
     {
       "name": "nichetoolkit.rest.radix.digits",
       "type": "java.lang.String",
       "sourceType": "java.lang.String",
-      "description": "radix digits.",
+      "description": "the digits character of radix worker.",
       "defaultValue": "qwe8as2dzx9c7p5ik3mjufr4vyltn6bgh"
     },
     {
       "name": "nichetoolkit.rest.radix.supply",
       "type": "java.lang.String",
       "sourceType": "java.lang.String",
-      "description": "radix supply.",
+      "description": "the supply character of radix worker.",
       "defaultValue": "o"
     },
     {
       "name": "nichetoolkit.rest.radix.min-length",
       "type": "java.lang.Integer",
       "sourceType": "java.lang.Integer",
-      "description": "radix min length.",
-      "defaultValue": "6"
+      "description": "the min length of radix worker.",
+      "defaultValue": 6
     },
     {
       "name": "nichetoolkit.rest.sha.enabled",
       "type": "java.lang.Boolean",
       "sourceType": "java.lang.Boolean",
-      "description": "sha enabled.",
-      "defaultValue": "false"
+      "description": "the switch of sha worker.",
+      "defaultValue": false
     },
     {
       "name": "nichetoolkit.rest.sha.secret",
       "type": "java.lang.String",
       "sourceType": "java.lang.String",
-      "description": "sha secret."
+      "description": "the secret key of sha worker."
     },
     {
       "name": "nichetoolkit.rest.sha.algorithm",
       "type": "io.github.nichetoolkit.rest.worker.sha.ShaAlgorithm",
       "sourceType": "io.github.nichetoolkit.rest.worker.sha.ShaAlgorithm",
-      "description": "algorithm type.",
-      "defaultValue": "SHA256"
+      "description": "the algorithm type of sha worker.",
+      "defaultValue": "sha256"
     },
     {
       "name": "nichetoolkit.rest.jwt.enabled",
       "type": "java.lang.Boolean",
       "sourceType": "java.lang.Boolean",
-      "description": "jwt enabled.",
-      "defaultValue": "false"
+      "description": "the switch of jwt worker.",
+      "defaultValue": false
     },
     {
       "name": "nichetoolkit.rest.jwt.algorithm",
       "type": "io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm",
       "sourceType": "io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm",
-      "description": "algorithm type.",
-      "defaultValue": "HS256"
+      "description": "the algorithm type of jwt worker.",
+      "defaultValue": "hs256"
     },
     {
       "name": "nichetoolkit.rest.jwt.secret",
       "type": "java.lang.String",
       "sourceType": "java.lang.String",
-      "description": "secret key."
+      "description": "the secret of jwt worker."
     },
     {
       "name": "nichetoolkit.rest.jwt.kid",
       "type": "java.lang.String",
       "sourceType": "java.lang.String",
-      "description": "kid."
+      "description": "the kid of jwt worker."
     },
     {
       "name": "nichetoolkit.rest.jwt.issuer",
       "type": "java.lang.String",
       "sourceType": "java.lang.String",
-      "description": "issuer."
+      "description": "the issuer of jwt worker."
     },
     {
       "name": "nichetoolkit.rest.jwt.audiences",
       "type": "java.lang.String[]",
       "sourceType": "java.lang.String[]",
-      "description": "audiences."
+      "description": "the audiences of jwt worker."
     },
     {
       "name": "nichetoolkit.rest.jwt.expire-time",
       "type": "java.lang.Long",
       "sourceType": "java.lang.Long",
-      "description": "expire time.",
-      "defaultValue": "0"
+      "description": "the expire time of jwt worker.",
+      "defaultValue": 0
     },
     {
       "name": "nichetoolkit.rest.jwt.expire-unit",
       "type": "java.time.temporal.ChronoUnit",
       "sourceType": "java.lang.Long",
-      "description": "expire unit.",
-      "defaultValue": "MILLIS"
+      "description": "the expire-unit of jwt worker.",
+      "defaultValue": "millis"
     },
     {
       "name": "nichetoolkit.rest.jwt.issued-delay-time",
       "type": "java.lang.Long",
       "sourceType": "java.lang.Long",
-      "description": "issued delay time.",
-      "defaultValue": "0"
+      "description": "the issued delay time of jwt worker.",
+      "defaultValue": 0
     },
     {
       "name": "nichetoolkit.rest.jwt.issued-delay-unit",
       "type": "java.time.temporal.ChronoUnit",
       "sourceType": "java.lang.Long",
-      "description": "issued delay unit.",
-      "defaultValue": "MILLIS"
+      "description": "the issued delay unit of jwt worker.",
+      "defaultValue": "millis"
     },
     {
       "name": "nichetoolkit.rest.jwt.not-before-enabled",
       "type": "java.lang.Boolean",
       "sourceType": "java.lang.Boolean",
-      "description": "not before enabled.",
-      "defaultValue": "false"
+      "description": "the not before switch of jwt worker.",
+      "defaultValue": false
     },
     {
       "name": "nichetoolkit.rest.rsa.enabled",
       "type": "java.lang.Boolean",
       "sourceType": "java.lang.Boolean",
-      "description": "sha enabled.",
-      "defaultValue": "false"
+      "description": "the switch of rsa worker.",
+      "defaultValue": false
     },
     {
       "name": "nichetoolkit.rest.rsa.key-size",
       "type": "java.lang.Integer",
       "sourceType": "java.lang.Integer",
-      "description": "sha key size.",
-      "defaultValue": "2048"
+      "description": "the key size of rsa worker.",
+      "defaultValue": 1024
     },
     {
       "name": "nichetoolkit.rest.rsa.public-key",
       "type": "java.lang.String",
       "sourceType": "java.lang.String",
-      "description": "rsa public key."
+      "description": "the public key of rsa worker."
     },
     {
       "name": "nichetoolkit.rest.rsa.private-key",
       "type": "java.lang.String",
       "sourceType": "java.lang.String",
-      "description": "rsa private key."
+      "description": "the private key of rsa worker."
     },
     {
       "name": "nichetoolkit.rest.rsa.auto-verify",
       "type": "java.lang.Boolean",
       "sourceType": "java.lang.Boolean",
-      "description": "rsa auto verify.",
-      "defaultValue": "true"
+      "description": "the auto verify switch of rsa worker.",
+      "defaultValue": true
     }
   ],
   "hints": [
@@ -183,11 +183,11 @@
       "values": [
         {
           "value": false,
-          "description": "radix close."
+          "description": "the switch of radix worker closed."
         },
         {
           "value": true,
-          "description": "radix open."
+          "description": "the switch of radix worker opened."
         }
       ]
     },
@@ -196,11 +196,11 @@
       "values": [
         {
           "value": false,
-          "description": "sha close."
+          "description": "the switch of sha worker closed."
         },
         {
           "value": true,
-          "description": "sha open."
+          "description": "the switch of sha worker opened."
         }
       ]
     },
@@ -209,11 +209,11 @@
       "values": [
         {
           "value": false,
-          "description": "jwt close."
+          "description": "the switch of jwt worker closed."
         },
         {
           "value": true,
-          "description": "jwt open."
+          "description": "the switch of jwt worker opened."
         }
       ]
     },
@@ -222,11 +222,11 @@
       "values": [
         {
           "value": false,
-          "description": "jwt not before close."
+          "description": "the not before switch of jwt worker closed."
         },
         {
           "value": true,
-          "description": "jwt not before open."
+          "description": "the not before switch of jwt worker opened."
         }
       ]
     },
@@ -235,11 +235,11 @@
       "values": [
         {
           "value": false,
-          "description": "rsa close."
+          "description": "the switch of rsa worker closed."
         },
         {
           "value": true,
-          "description": "rsa open."
+          "description": "the switch of rsa worker opened."
         }
       ]
     }

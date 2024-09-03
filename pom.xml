@@ -5,7 +5,7 @@
 
     <groupId>io.github.nichetoolkit</groupId>
     <artifactId>rest-toolkit-parent</artifactId>
-    <version>1.0.7-SNAPSHOT</version>
+    <version>1.1.0-SNAPSHOT</version>
 
     <modules>
         <module>rest-toolkit-core</module>
@@ -151,11 +151,11 @@
         <nexus-staging-maven-plugin.version>1.7.0</nexus-staging-maven-plugin.version>
         <maven-release-plugin.version>3.1.1</maven-release-plugin.version>
 
-        <rest-toolkit.version>1.0.7-SNAPSHOT</rest-toolkit.version>
+        <rest-toolkit.version>1.1.0-SNAPSHOT</rest-toolkit.version>
 
         <guava.version>33.3.0-jre</guava.version>
+        <bcprov.version>1.78.1</bcprov.version>
         <fusionauth-jwt.version>5.3.3</fusionauth-jwt.version>
-        <security-rsa.version>1.1.5</security-rsa.version>
     </properties>
 
     <dependencyManagement>
@@ -181,21 +181,13 @@
                 <artifactId>guava</artifactId>
                 <version>${guava.version}</version>
             </dependency>
+
             <dependency>
-                <groupId>org.springframework.security</groupId>
-                <artifactId>spring-security-rsa</artifactId>
-                <version>${security-rsa.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <artifactId>spring-core</artifactId>
-                        <groupId>org.springframework</groupId>
-                    </exclusion>
-                    <exclusion>
-                        <artifactId>spring-security-crypto</artifactId>
-                        <groupId>org.springframework.security</groupId>
-                    </exclusion>
-                </exclusions>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcprov-jdk18on</artifactId>
+                <version>${bcprov.version}</version>
             </dependency>
+
             <dependency>
                 <groupId>io.fusionauth</groupId>
                 <artifactId>fusionauth-jwt</artifactId>
