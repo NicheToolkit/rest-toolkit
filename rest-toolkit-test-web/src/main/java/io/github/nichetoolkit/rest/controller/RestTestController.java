@@ -27,79 +27,26 @@ import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * <code>RestTestController</code>
- * <p>The type rest test controller class.</p>
- * @author Cyan (snow22314@outlook.com)
- * @see Slf4j
- * @see RestNotelog
- * @see RestController
- * @see SuppressWarnings
- * @see RequestMapping
- * @since Jdk1.8
- */
 @Slf4j
 @RestNotelog
 @RestController
 @SuppressWarnings("SameNameButDifferent")
-@RequestMapping("/v1.0.0/rest")
+@RequestMapping("/v1.1.0/rest")
 public class RestTestController {
 
-    /**
-     * <code>radixWorker</code>
-     * <p>the <code>radixWorker</code> field.</p>
-     * @see Autowired
-     */
-    @Autowired
-    private RadixWorker radixWorker;
+    private final RadixWorker radixWorker;
 
-    /**
-     * <code>shaWorker</code>
-     * <p>the <code>shaWorker</code> field.</p>
-     * @see Autowired
-     */
-    @Autowired
-    private ShaWorker shaWorker;
+    private final ShaWorker shaWorker;
 
-    /**
-     * <code>jwtWorker</code>
-     * <p>the <code>jwtWorker</code> field.</p>
-     * @see Autowired
-     */
-    @Autowired
-    private JwtWorker jwtWorker;
+    private final JwtWorker jwtWorker;
 
-    /**
-     * <code>rsaWorker</code>
-     * <p>the <code>rsaWorker</code> field.</p>
-     * @see Autowired
-     */
     @Autowired
-    private RsaWorker rsaWorker;
-
-    /**
-     * <code>test</code>
-     * <p>the method.</p>
-     * @return ResponseEntity <p>the return object is <code>ResponseEntity</code> type.</p>
-     * @throws RestException RestException <p>the rest exception is <code>RestException</code> type.</p>
-     * @see GetMapping
-     * @see RestException
-     */
-    @GetMapping("/test")
-    public ResponseEntity<RestResult> test() throws RestException {
-        Object test = null;
-        test.toString();
-        return RestResult.ok("11111");
+    public RestTestController(RadixWorker radixWorker, ShaWorker shaWorker, JwtWorker jwtWorker) {
+        this.radixWorker = radixWorker;
+        this.shaWorker = shaWorker;
+        this.jwtWorker = jwtWorker;
     }
 
-    /**
-     * <code>generalIdentity</code>
-     * <p>the identity method.</p>
-     * @return ResponseEntity <p>the identity return object is <code>ResponseEntity</code> type.</p>
-     * @throws RestException RestException <p>the rest exception is <code>RestException</code> type.</p>
-     * @see GetMapping
-     * @see RestException
-     */
     @GetMapping("/identity")
     public ResponseEntity<RestResult<String>> generalIdentity() throws RestException {
 //        Long identity = IdentityUtils.generateLong();
@@ -107,14 +54,6 @@ public class RestTestController {
         return RestResult.ok(RestErrorStatus.SUCCESS, identity);
     }
 
-    /**
-     * <code>generalUuid</code>
-     * <p>the uuid method.</p>
-     * @return ResponseEntity <p>the uuid return object is <code>ResponseEntity</code> type.</p>
-     * @throws RestException RestException <p>the rest exception is <code>RestException</code> type.</p>
-     * @see GetMapping
-     * @see RestException
-     */
     @GetMapping("/uuid")
     public ResponseEntity<RestResult<String>> generalUuid() throws RestException {
 //        String uuid = UUID.randomUUID().toString().replaceAll("-", "");
@@ -122,14 +61,6 @@ public class RestTestController {
         return RestResult.ok(RestErrorStatus.SUCCESS, uuid);
     }
 
-    /**
-     * <code>generalImage</code>
-     * <p>the image method.</p>
-     * @param response HttpServletResponse <p>the response parameter is <code>HttpServletResponse</code> type.</p>
-     * @throws RestException RestException <p>the rest exception is <code>RestException</code> type.</p>
-     * @see GetMapping
-     * @see RestException
-     */
     @GetMapping("/image")
     public void generalImage(HttpServletResponse response) throws RestException {
         ImageVerify imageVerify = ImageUtils.randoms();
@@ -142,14 +73,6 @@ public class RestTestController {
         }
     }
 
-    /**
-     * <code>generalRadix</code>
-     * <p>the radix method.</p>
-     * @return ResponseEntity <p>the radix return object is <code>ResponseEntity</code> type.</p>
-     * @throws RestException RestException <p>the rest exception is <code>RestException</code> type.</p>
-     * @see GetMapping
-     * @see RestException
-     */
     @GetMapping("/radix")
     public ResponseEntity<RestResult<Map<String, Object>>> generalRadix() throws RestException {
         Long subject = IdentityUtils.generateLong();
@@ -162,14 +85,6 @@ public class RestTestController {
         return RestResult.ok(RestErrorStatus.SUCCESS, result);
     }
 
-    /**
-     * <code>generalSha</code>
-     * <p>the sha method.</p>
-     * @return ResponseEntity <p>the sha return object is <code>ResponseEntity</code> type.</p>
-     * @throws RestException RestException <p>the rest exception is <code>RestException</code> type.</p>
-     * @see GetMapping
-     * @see RestException
-     */
     @GetMapping("/sha")
     public ResponseEntity<RestResult<Map<String, Object>>> generalSha() throws RestException {
         String password = GeneralUtils.uuid();
@@ -181,14 +96,6 @@ public class RestTestController {
         return RestResult.ok(RestErrorStatus.SUCCESS, result);
     }
 
-    /**
-     * <code>generalJwt</code>
-     * <p>the jwt method.</p>
-     * @return ResponseEntity <p>the jwt return object is <code>ResponseEntity</code> type.</p>
-     * @throws RestException RestException <p>the rest exception is <code>RestException</code> type.</p>
-     * @see GetMapping
-     * @see RestException
-     */
     @GetMapping("/jwt")
     public ResponseEntity<RestResult<Map<String, Object>>> generalJwt() throws RestException {
         String uniqueId = GeneralUtils.uuid();
