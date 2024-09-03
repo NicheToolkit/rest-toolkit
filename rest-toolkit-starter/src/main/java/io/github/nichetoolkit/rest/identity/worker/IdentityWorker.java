@@ -4,6 +4,7 @@ package io.github.nichetoolkit.rest.identity.worker;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * <code>IdentityWorker</code>
@@ -17,7 +18,7 @@ public interface IdentityWorker {
      * {@link java.util.Map} <p>the constant <code>IDENTITY_WORKER_MAP</code> field.</p>
      * @see java.util.Map
      */
-    Map<WorkerType,IdentityWorker> IDENTITY_WORKER_MAP = new HashMap<>();
+    ConcurrentHashMap<WorkerType,IdentityWorker> IDENTITY_WORKER_MAP = new ConcurrentHashMap<>();
 
     /**
      * <code>generate</code>
