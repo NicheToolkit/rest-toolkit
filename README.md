@@ -28,6 +28,10 @@
 > [Maven](https://maven.apache.org/) 3.6.3+\
 > [JDK](https://www.oracle.com/java/technologies/downloads/#java8) 1.8
 
+## Wiki Reference
+
+[Wiki Reference](https://github.com/NicheToolkit/rest-toolkit/wiki): https://github.com/NicheToolkit/rest-toolkit/wiki
+
 ## Instructions
 
 ### Maven Usages
@@ -687,7 +691,7 @@ public class RestLoggingController {
 
 [Apache License](https://www.apache.org/licenses/LICENSE-2.0)
 
-## Dependencies
+## Dependencies Reference
 
 [Spring Boot](https://github.com/spring-projects/spring-boot)
 
