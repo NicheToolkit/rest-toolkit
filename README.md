@@ -679,7 +679,7 @@ public class RestLoggingController {
 }
 ```
 
-## Examples
+## Test Example
 
 [rest-toolkit-test-web](https://github.com/NicheToolkit/rest-toolkit/tree/master/rest-toolkit-test-web)
 
@@ -698,6 +698,8 @@ public class RestLoggingController {
 [Okhttp](https://github.com/square/okhttp)
 
 [Httpclient](http://hc.apache.org/httpcomponents-client)
+
+[Bcprov-jdk18on](https://github.com/bcgit/bc-java)
 
 [Fusionauth-jwt](https://github.com/FusionAuth/fusionauth-jwt)
 
