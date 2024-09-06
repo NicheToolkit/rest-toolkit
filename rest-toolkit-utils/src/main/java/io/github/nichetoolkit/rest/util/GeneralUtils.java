@@ -32,11 +32,19 @@ public class GeneralUtils {
     public static boolean isNotEmpty(Object object) {
         if (object == null) {
             return false;
+        } else if (object instanceof Character) {
+            return ((Character) object) != Character.MIN_VALUE;
+        } else if (object instanceof Byte) {
+            return Byte.parseByte(object.toString()) != 0;
         } else if (object instanceof Short) {
             return Short.parseShort(object.toString()) != 0;
         } else if (object instanceof Integer) {
             return Integer.parseInt(object.toString()) != 0;
-        } else if (object instanceof Long) {
+        } else if (object instanceof Float) {
+            return Float.parseFloat(object.toString()) != 0F;
+        }  else if (object instanceof Double) {
+            return Double.parseDouble(object.toString()) != 0D;
+        }  else if (object instanceof Long) {
             return Long.parseLong(object.toString()) != 0L;
         } else if (object instanceof String) {
             return !((String) object).trim().isEmpty();
@@ -75,22 +83,30 @@ public class GeneralUtils {
     public static boolean isValid(Object object) {
         if (object == null) {
             return false;
-        } else if (object instanceof Short) {
-            return true;
-        } else if (object instanceof Integer) {
-            return true;
-        } else if (object instanceof Long) {
-            return true;
+//        } else if (object instanceof Character) {
+//            return true;
+//        } else if (object instanceof Byte) {
+//            return true;
+//        } else if (object instanceof Short) {
+//            return true;
+//        } else if (object instanceof Integer) {
+//            return true;
+//        } else if (object instanceof Float) {
+//            return true;
+//        } else if (object instanceof Double) {
+//            return true;
+//        } else if (object instanceof Long) {
+//            return true;
         } else if (object instanceof String) {
             return !((String) object).trim().isEmpty();
         } else if (object instanceof StringBuffer) {
             return !((StringBuffer) object).toString().trim().isEmpty();
-        } else if (object instanceof Boolean) {
-            return true;
-        } else if (object instanceof BigInteger) {
-            return true;
-        } else if (object instanceof BigDecimal) {
-            return true;
+//        } else if (object instanceof Boolean) {
+//            return true;
+//        } else if (object instanceof BigInteger) {
+//            return true;
+//        } else if (object instanceof BigDecimal) {
+//            return true;
         } else if (object instanceof List) {
             return !((List<?>) object).isEmpty();
         } else if (object instanceof Set) {
@@ -118,10 +134,18 @@ public class GeneralUtils {
     public static boolean isEmpty(Object object) {
         if (object == null) {
             return true;
+        } else if (object instanceof Character) {
+            return ((Character) object) == Character.MIN_VALUE;
+        } else if (object instanceof Byte) {
+            return Byte.parseByte(object.toString()) == 0;
         } else if (object instanceof Short) {
             return Short.parseShort(object.toString()) == 0;
         } else if (object instanceof Integer) {
             return Integer.parseInt(object.toString()) == 0;
+        } else if (object instanceof Float) {
+            return Float.parseFloat(object.toString()) == 0F;
+        } else if (object instanceof Double) {
+            return Double.parseDouble(object.toString()) == 0D;
         } else if (object instanceof Long) {
             return Long.parseLong(object.toString()) == 0L;
         } else if (object instanceof String) {
@@ -161,22 +185,30 @@ public class GeneralUtils {
     public static boolean isInvalid(Object object) {
         if (object == null) {
             return true;
-        } else if (object instanceof Short) {
-            return false;
-        } else if (object instanceof Integer) {
-            return false;
-        } else if (object instanceof Long) {
-            return false;
+//        } else if (object instanceof Character) {
+//            return false;
+//        } else if (object instanceof Byte) {
+//            return false;
+//        } else if (object instanceof Short) {
+//            return false;
+//        } else if (object instanceof Integer) {
+//            return false;
+//        } else if (object instanceof Float) {
+//            return false;
+//        } else if (object instanceof Double) {
+//            return false;
+//        } else if (object instanceof Long) {
+//            return false;
         } else if (object instanceof String) {
             return ((String) object).trim().isEmpty();
         } else if (object instanceof StringBuffer) {
             return ((StringBuffer) object).toString().trim().isEmpty();
-        } else if (object instanceof Boolean) {
-            return false;
-        } else if (object instanceof BigInteger) {
-            return false;
-        } else if (object instanceof BigDecimal) {
-            return false;
+//        } else if (object instanceof Boolean) {
+//            return false;
+//        } else if (object instanceof BigInteger) {
+//            return false;
+//        } else if (object instanceof BigDecimal) {
+//            return false;
         } else if (object instanceof List) {
             return ((List<?>) object).isEmpty();
         } else if (object instanceof Set) {

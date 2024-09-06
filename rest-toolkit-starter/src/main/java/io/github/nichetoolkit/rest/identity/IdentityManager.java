@@ -3,11 +3,11 @@ package io.github.nichetoolkit.rest.identity;
 import io.github.nichetoolkit.rest.RestException;
 import io.github.nichetoolkit.rest.http.RestTemplates;
 import io.github.nichetoolkit.rest.configure.RestIdentityProperties;
-import io.github.nichetoolkit.rest.helper.OptionalHelper;
 import io.github.nichetoolkit.rest.identity.error.IdentityWorkerException;
 import io.github.nichetoolkit.rest.identity.worker.IdentityWorker;
 import io.github.nichetoolkit.rest.identity.worker.WorkerConfig;
 import io.github.nichetoolkit.rest.util.JsonUtils;
+import io.github.nichetoolkit.rest.util.OptionalUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -99,7 +99,7 @@ public class IdentityManager implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
         if (IdentityType.SERVER == identityProperties.getType()) {
             WorkerConfig workerConfig = workerConfig();
-            OptionalHelper.nullable(workerConfig,"the worker config is parse error",IdentityWorkerException::new);
+            OptionalUtils.nullable(workerConfig,"the worker config is parse error",IdentityWorkerException::new);
             log.debug("worker config: {}", JsonUtils.parseJson(workerConfig));
             IdentityManager.config(workerConfig);
         }

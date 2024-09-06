@@ -8,9 +8,9 @@ import io.github.nichetoolkit.rest.RestResult;
 import io.github.nichetoolkit.rest.constant.RestConstants;
 import io.github.nichetoolkit.rest.error.network.HttpErrorException;
 import io.github.nichetoolkit.rest.error.network.HttpResultDataNullException;
-import io.github.nichetoolkit.rest.helper.OptionalHelper;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import io.github.nichetoolkit.rest.util.JsonUtils;
+import io.github.nichetoolkit.rest.util.OptionalUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
@@ -293,7 +293,7 @@ public class RestTemplates {
      * @see org.springframework.http.MediaType
      * @see org.springframework.http.HttpEntity
      */
-    public static HttpEntity httpEntity(MediaType mediaType) {
+    public static HttpEntity<?> httpEntity(MediaType mediaType) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(mediaType);
         return new HttpEntity<>(null, headers);
@@ -309,7 +309,7 @@ public class RestTemplates {
      * @see java.lang.Object
      * @see org.springframework.http.HttpEntity
      */
-    public static HttpEntity httpEntity(MediaType mediaType, Object body) {
+    public static HttpEntity<?> httpEntity(MediaType mediaType, Object body) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(mediaType);
         return new HttpEntity<>(body, headers);
@@ -325,7 +325,7 @@ public class RestTemplates {
      * @see org.springframework.http.HttpHeaders
      * @see org.springframework.http.HttpEntity
      */
-    public static HttpEntity httpEntity(MediaType mediaType, HttpHeaders headers) {
+    public static HttpEntity<?> httpEntity(MediaType mediaType, HttpHeaders headers) {
         headers.setContentType(mediaType);
         return new HttpEntity<>(null, headers);
     }
@@ -342,7 +342,7 @@ public class RestTemplates {
      * @see org.springframework.http.HttpHeaders
      * @see org.springframework.http.HttpEntity
      */
-    public static HttpEntity httpEntity(MediaType mediaType, Object body, HttpHeaders headers) {
+    public static HttpEntity<?> httpEntity(MediaType mediaType, Object body, HttpHeaders headers) {
         headers.setContentType(mediaType);
         return new HttpEntity<>(body, headers);
     }
@@ -353,7 +353,7 @@ public class RestTemplates {
      * @return {@link org.springframework.http.HttpEntity} <p>the data http entity return object is <code>HttpEntity</code> type.</p>
      * @see org.springframework.http.HttpEntity
      */
-    public static HttpEntity formDataHttpEntity() {
+    public static HttpEntity<?> formDataHttpEntity() {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.MULTIPART_FORM_DATA);
         return new HttpEntity<>(null, headers);
@@ -367,7 +367,7 @@ public class RestTemplates {
      * @see java.lang.Object
      * @see org.springframework.http.HttpEntity
      */
-    public static HttpEntity formDataHttpEntity(Object body) {
+    public static HttpEntity<?> formDataHttpEntity(Object body) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.MULTIPART_FORM_DATA);
         return new HttpEntity<>(body, headers);
@@ -381,7 +381,7 @@ public class RestTemplates {
      * @see org.springframework.http.HttpHeaders
      * @see org.springframework.http.HttpEntity
      */
-    public static HttpEntity formDataHttpEntity(HttpHeaders headers) {
+    public static HttpEntity<?> formDataHttpEntity(HttpHeaders headers) {
         headers.setContentType(MediaType.MULTIPART_FORM_DATA);
         return new HttpEntity<>(null, headers);
     }
@@ -396,7 +396,7 @@ public class RestTemplates {
      * @see org.springframework.http.HttpHeaders
      * @see org.springframework.http.HttpEntity
      */
-    public static HttpEntity formDataHttpEntity(Object body, HttpHeaders headers) {
+    public static HttpEntity<?> formDataHttpEntity(Object body, HttpHeaders headers) {
         headers.setContentType(MediaType.MULTIPART_FORM_DATA);
         return new HttpEntity<>(body, headers);
     }
@@ -407,7 +407,7 @@ public class RestTemplates {
      * @return {@link org.springframework.http.HttpEntity} <p>the http entity return object is <code>HttpEntity</code> type.</p>
      * @see org.springframework.http.HttpEntity
      */
-    public static HttpEntity jsonHttpEntity() {
+    public static HttpEntity<?> jsonHttpEntity() {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         return new HttpEntity<>(null, headers);
@@ -4127,7 +4127,7 @@ public class RestTemplates {
      * @see org.springframework.http.ResponseEntity
      * @see io.github.nichetoolkit.rest.RestException
      */
-    public static <T> ResponseEntity<T> postEntity(String url, HttpEntity httpEntity, Class<T> clazz) throws RestException {
+    public static <T> ResponseEntity<T> postEntity(String url, HttpEntity<?> httpEntity, Class<T> clazz) throws RestException {
         return postEntityObject(url, httpEntity, clazz);
     }
 
@@ -5653,9 +5653,9 @@ public class RestTemplates {
      * @see io.github.nichetoolkit.rest.RestException
      */
     @SuppressWarnings(value = "unchecked")
-    public static <T> T exchangeObject(String url, HttpMethod httpMethod, HttpEntity httpEntity, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
+    public static <T> T exchangeObject(String url, HttpMethod httpMethod, HttpEntity<?> httpEntity, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
         ResponseEntity<T> response = (ResponseEntity<T>) exchangeEntityObject(url, httpMethod, httpEntity, params, TypeFactory.rawClass(TypeFactory.defaultInstance().constructType(typeReference)));
-        OptionalHelper.falseable(GeneralUtils.isNotEmpty(response) && GeneralUtils.isNotEmpty(response.getBody()),"the response entity body is null! ", HttpResultDataNullException::new);
+        OptionalUtils.falseable(GeneralUtils.isNotEmpty(response) && GeneralUtils.isNotEmpty(response.getBody()),"the response entity body is null! ", HttpResultDataNullException::new);
         return response.getBody();
     }
 
@@ -5681,7 +5681,7 @@ public class RestTemplates {
     @SuppressWarnings(value = "unchecked")
     public static <T> T exchangeObject(String url, HttpMethod httpMethod, HttpEntity httpEntity, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
         ResponseEntity<T> response = (ResponseEntity<T>) exchangeEntityObject(url, httpMethod, httpEntity, params, TypeFactory.rawClass(javaType));
-        OptionalHelper.falseable(GeneralUtils.isNotEmpty(response) && GeneralUtils.isNotEmpty(response.getBody()),"the response entity body is null! ", HttpResultDataNullException::new);
+        OptionalUtils.falseable(GeneralUtils.isNotEmpty(response) && GeneralUtils.isNotEmpty(response.getBody()),"the response entity body is null! ", HttpResultDataNullException::new);
         return response.getBody();
     }
 
@@ -5705,7 +5705,7 @@ public class RestTemplates {
      */
     public static <T> T exchangeObject(String url, HttpMethod httpMethod, HttpEntity httpEntity, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
         ResponseEntity<T> response = exchangeEntityObject(url, httpMethod, httpEntity, params, clazz);
-        OptionalHelper.falseable(GeneralUtils.isNotEmpty(response) && GeneralUtils.isNotEmpty(response.getBody()),"the response entity body is null! ", HttpResultDataNullException::new);
+        OptionalUtils.falseable(GeneralUtils.isNotEmpty(response) && GeneralUtils.isNotEmpty(response.getBody()),"the response entity body is null! ", HttpResultDataNullException::new);
         return response.getBody();
     }
 
@@ -5726,7 +5726,7 @@ public class RestTemplates {
      */
     public static String exchangeString(String url, HttpMethod httpMethod, HttpEntity httpEntity, MultiValueMap<String, String> params) throws RestException {
         ResponseEntity<String> response = exchangeEntityString(url, httpMethod,httpEntity,params);
-        OptionalHelper.falseable(GeneralUtils.isNotEmpty(response) && GeneralUtils.isNotEmpty(response.getBody()),"the response entity body is null! ", HttpResultDataNullException::new);
+        OptionalUtils.falseable(GeneralUtils.isNotEmpty(response) && GeneralUtils.isNotEmpty(response.getBody()),"the response entity body is null! ", HttpResultDataNullException::new);
         return response.getBody();
     }
 
