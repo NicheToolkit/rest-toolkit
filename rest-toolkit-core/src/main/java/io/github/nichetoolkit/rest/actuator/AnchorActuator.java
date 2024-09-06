@@ -27,8 +27,10 @@ public interface AnchorActuator {
      * <p>the then method.</p>
      * @param after {@link io.github.nichetoolkit.rest.actuator.AnchorActuator} <p>the after parameter is <code>AnchorActuator</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.actuator.AnchorActuator} <p>the then return object is <code>AnchorActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
      */
-    default AnchorActuator andThen(AnchorActuator after) {
+    default AnchorActuator andThen(AnchorActuator after) throws RestException {
         Objects.requireNonNull(after);
         return () -> { actuate(); after.actuate(); };
     }

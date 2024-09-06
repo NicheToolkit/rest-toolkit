@@ -31,8 +31,10 @@ public interface BiConsumerActuator<T, U> {
      * <p>the then method.</p>
      * @param after {@link io.github.nichetoolkit.rest.actuator.BiConsumerActuator} <p>the after parameter is <code>BiConsumerActuator</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.actuator.BiConsumerActuator} <p>the then return object is <code>BiConsumerActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
      */
-    default BiConsumerActuator<T, U> andThen(BiConsumerActuator<? super T, ? super U> after) {
+    default BiConsumerActuator<T, U> andThen(BiConsumerActuator<? super T, ? super U> after) throws RestException  {
         Objects.requireNonNull(after);
         return (l, r) -> {
             actuate(l, r);

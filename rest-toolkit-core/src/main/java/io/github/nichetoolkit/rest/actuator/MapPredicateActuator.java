@@ -36,8 +36,10 @@ public interface MapPredicateActuator<T, U, S> {
      * <p>the method.</p>
      * @param other {@link io.github.nichetoolkit.rest.actuator.MapPredicateActuator} <p>the other parameter is <code>MapPredicateActuator</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.actuator.MapPredicateActuator} <p>the return object is <code>MapPredicateActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
      */
-    default MapPredicateActuator<T, U, S> and(MapPredicateActuator<? super T, ? super U, ? super S> other) {
+    default MapPredicateActuator<T, U, S> and(MapPredicateActuator<? super T, ? super U, ? super S> other) throws RestException  {
         Objects.requireNonNull(other);
         return (T t, U u, S... sArray) -> actuate(t, u, sArray) && other.actuate(t, u, sArray);
     }
@@ -46,8 +48,10 @@ public interface MapPredicateActuator<T, U, S> {
      * <code>negate</code>
      * <p>the method.</p>
      * @return {@link io.github.nichetoolkit.rest.actuator.MapPredicateActuator} <p>the return object is <code>MapPredicateActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
      */
-    default MapPredicateActuator<T, U, S> negate() {
+    default MapPredicateActuator<T, U, S> negate() throws RestException  {
         return (T t, U u, S... sArray) -> !actuate(t, u, sArray);
     }
 
@@ -56,8 +60,10 @@ public interface MapPredicateActuator<T, U, S> {
      * <p>the method.</p>
      * @param other {@link io.github.nichetoolkit.rest.actuator.MapPredicateActuator} <p>the other parameter is <code>MapPredicateActuator</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.actuator.MapPredicateActuator} <p>the return object is <code>MapPredicateActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
      */
-    default MapPredicateActuator<T, U, S> or(MapPredicateActuator<? super T, ? super U, ? super S> other) {
+    default MapPredicateActuator<T, U, S> or(MapPredicateActuator<? super T, ? super U, ? super S> other) throws RestException  {
         Objects.requireNonNull(other);
         return (T t, U u, S... sArray) -> actuate(t, u, sArray) || other.actuate(t, u, sArray);
     }

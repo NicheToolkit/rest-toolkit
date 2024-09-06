@@ -204,7 +204,7 @@ public class FileUtils {
         String originalFilename = file.getOriginalFilename();
         final String path = cachePath + File.separator + originalFilename;
         File cacheFile = new File(path);
-        StreamUtils.transfer(file,cacheFile);
+        IoStreamUtils.transfer(file,cacheFile);
         return cacheFile;
     }
 

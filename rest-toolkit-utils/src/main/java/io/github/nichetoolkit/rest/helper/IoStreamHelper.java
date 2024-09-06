@@ -18,7 +18,7 @@ import java.nio.file.Paths;
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
-public class StreamHelper {
+public class IoStreamHelper {
 
     /**
      * <code>transfer</code>

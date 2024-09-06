@@ -29,8 +29,10 @@ public interface ConsumerActuator<T>{
      * <p>the then method.</p>
      * @param after {@link io.github.nichetoolkit.rest.actuator.ConsumerActuator} <p>the after parameter is <code>ConsumerActuator</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.actuator.ConsumerActuator} <p>the then return object is <code>ConsumerActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
      */
-    default ConsumerActuator<T> andThen(ConsumerActuator<? super T> after) {
+    default ConsumerActuator<T> andThen(ConsumerActuator<? super T> after)  throws RestException  {
         Objects.requireNonNull(after);
         return (T t) -> { actuate(t); after.actuate(t); };
     }

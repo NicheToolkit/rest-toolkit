@@ -31,8 +31,10 @@ public interface FunctionActuator<T,R> {
      * @param <V>    {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param before {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the before parameter is <code>FunctionActuator</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the return object is <code>FunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
      */
-    default <V> FunctionActuator<V, R> compose(FunctionActuator<? super V, ? extends T> before) {
+    default <V> FunctionActuator<V, R> compose(FunctionActuator<? super V, ? extends T> before) throws RestException  {
         Objects.requireNonNull(before);
         return (V v) -> actuate(before.actuate(v));
     }
@@ -43,8 +45,10 @@ public interface FunctionActuator<T,R> {
      * @param <V>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param after {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the after parameter is <code>FunctionActuator</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the then return object is <code>FunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
      */
-    default <V> FunctionActuator<T, V> andThen(FunctionActuator<? super R, ? extends V> after) {
+    default <V> FunctionActuator<T, V> andThen(FunctionActuator<? super R, ? extends V> after) throws RestException  {
         Objects.requireNonNull(after);
         return (T t) -> after.actuate(actuate(t));
     }

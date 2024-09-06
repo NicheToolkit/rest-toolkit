@@ -38,9 +38,11 @@ public interface MapFunctionActuator<T, U, S, R> {
      * @param <V>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param after {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the after parameter is <code>FunctionActuator</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.actuator.MapFunctionActuator} <p>the then return object is <code>MapFunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
+     * @see io.github.nichetoolkit.rest.RestException
      */
-    default <V> MapFunctionActuator<T, U, S, V> andThen(FunctionActuator<? super R, ? extends V> after) {
+    default <V> MapFunctionActuator<T, U, S, V> andThen(FunctionActuator<? super R, ? extends V> after)  throws RestException  {
         Objects.requireNonNull(after);
         return (T t, U u, S... sArray) -> after.actuate(actuate(t, u, sArray));
     }

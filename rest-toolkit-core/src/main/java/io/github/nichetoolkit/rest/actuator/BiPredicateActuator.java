@@ -32,8 +32,10 @@ public interface BiPredicateActuator<T, U> {
      * <p>the method.</p>
      * @param other {@link io.github.nichetoolkit.rest.actuator.BiPredicateActuator} <p>the other parameter is <code>BiPredicateActuator</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.actuator.BiPredicateActuator} <p>the return object is <code>BiPredicateActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
      */
-    default BiPredicateActuator<T, U> and(BiPredicateActuator<? super T, ? super U> other) {
+    default BiPredicateActuator<T, U> and(BiPredicateActuator<? super T, ? super U> other)  throws RestException  {
         Objects.requireNonNull(other);
         return (T t, U u) -> actuate(t, u) && other.actuate(t, u);
     }
@@ -42,8 +44,10 @@ public interface BiPredicateActuator<T, U> {
      * <code>negate</code>
      * <p>the method.</p>
      * @return {@link io.github.nichetoolkit.rest.actuator.BiPredicateActuator} <p>the return object is <code>BiPredicateActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
      */
-    default BiPredicateActuator<T, U> negate() {
+    default BiPredicateActuator<T, U> negate()  throws RestException  {
         return (T t, U u) -> !actuate(t, u);
     }
 
@@ -52,8 +56,10 @@ public interface BiPredicateActuator<T, U> {
      * <p>the method.</p>
      * @param other {@link io.github.nichetoolkit.rest.actuator.BiPredicateActuator} <p>the other parameter is <code>BiPredicateActuator</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.actuator.BiPredicateActuator} <p>the return object is <code>BiPredicateActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
      */
-    default BiPredicateActuator<T, U> or(BiPredicateActuator<? super T, ? super U> other) {
+    default BiPredicateActuator<T, U> or(BiPredicateActuator<? super T, ? super U> other) throws RestException {
         Objects.requireNonNull(other);
         return (T t, U u) -> actuate(t, u) || other.actuate(t, u);
     }

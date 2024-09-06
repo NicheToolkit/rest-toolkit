@@ -35,8 +35,10 @@ public interface MapConsumerActuator<T, U, S> {
      * <p>the then method.</p>
      * @param after {@link io.github.nichetoolkit.rest.actuator.MapConsumerActuator} <p>the after parameter is <code>MapConsumerActuator</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.actuator.MapConsumerActuator} <p>the then return object is <code>MapConsumerActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
      */
-    default MapConsumerActuator<T, U, S> andThen(MapConsumerActuator<? super T, ? super U, ? super S> after) {
+    default MapConsumerActuator<T, U, S> andThen(MapConsumerActuator<? super T, ? super U, ? super S> after)  throws RestException  {
         Objects.requireNonNull(after);
         return (l, r ,s) -> {
             actuate(l, r, s);

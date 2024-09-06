@@ -1,5 +1,7 @@
 package io.github.nichetoolkit.rest.actuator;
 
+import io.github.nichetoolkit.rest.RestException;
+
 import java.util.Objects;
 
 /**
@@ -18,9 +20,11 @@ public interface BinaryOperatorActuator<T> extends BiFunctionActuator<T,T,T>{
      * @param <T>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param comparator {@link io.github.nichetoolkit.rest.actuator.ComparatorActuator} <p>the comparator parameter is <code>ComparatorActuator</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>the by return object is <code>BinaryOperatorActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.ComparatorActuator
+     * @see io.github.nichetoolkit.rest.RestException
      */
-    static <T> BinaryOperatorActuator<T> minBy(ComparatorActuator<? super T> comparator) {
+    static <T> BinaryOperatorActuator<T> minBy(ComparatorActuator<? super T> comparator)  throws RestException {
         Objects.requireNonNull(comparator);
         return (a, b) -> comparator.compare(a, b) <= 0 ? a : b;
     }
@@ -31,9 +35,11 @@ public interface BinaryOperatorActuator<T> extends BiFunctionActuator<T,T,T>{
      * @param <T>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param comparator {@link io.github.nichetoolkit.rest.actuator.ComparatorActuator} <p>the comparator parameter is <code>ComparatorActuator</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>the by return object is <code>BinaryOperatorActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.ComparatorActuator
+     * @see io.github.nichetoolkit.rest.RestException
      */
-    static <T> BinaryOperatorActuator<T> maxBy(ComparatorActuator<? super T> comparator) {
+    static <T> BinaryOperatorActuator<T> maxBy(ComparatorActuator<? super T> comparator) throws RestException  {
         Objects.requireNonNull(comparator);
         return (a, b) -> comparator.compare(a, b) >= 0 ? a : b;
     }

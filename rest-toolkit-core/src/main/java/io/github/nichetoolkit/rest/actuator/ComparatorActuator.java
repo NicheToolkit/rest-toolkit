@@ -35,8 +35,10 @@ public interface ComparatorActuator<T>{
      * <p>the comparing method.</p>
      * @param other {@link io.github.nichetoolkit.rest.actuator.ComparatorActuator} <p>the other parameter is <code>ComparatorActuator</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.actuator.ComparatorActuator} <p>the comparing return object is <code>ComparatorActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
      */
-    default ComparatorActuator<T> thenComparing(ComparatorActuator<? super T> other) {
+    default ComparatorActuator<T> thenComparing(ComparatorActuator<? super T> other) throws RestException  {
         Objects.requireNonNull(other);
         return (ComparatorActuator<T> & Serializable) (c1, c2) -> {
             int res = compare(c1, c2);
@@ -51,12 +53,13 @@ public interface ComparatorActuator<T>{
      * @param keyExtractor  {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the key extractor parameter is <code>FunctionActuator</code> type.</p>
      * @param keyComparator {@link io.github.nichetoolkit.rest.actuator.ComparatorActuator} <p>the key comparator parameter is <code>ComparatorActuator</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.actuator.ComparatorActuator} <p>the comparing return object is <code>ComparatorActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
+     * @see io.github.nichetoolkit.rest.RestException
      */
     default <U> ComparatorActuator<T> thenComparing(
             FunctionActuator<? super T, ? extends U> keyExtractor,
-            ComparatorActuator<? super U> keyComparator)
-    {
+            ComparatorActuator<? super U> keyComparator) throws RestException {
         return thenComparing(comparing(keyExtractor, keyComparator));
     }
 
@@ -69,11 +72,13 @@ public interface ComparatorActuator<T>{
      * @param keyExtractor  {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the key extractor parameter is <code>FunctionActuator</code> type.</p>
      * @param keyComparator {@link io.github.nichetoolkit.rest.actuator.ComparatorActuator} <p>the key comparator parameter is <code>ComparatorActuator</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.actuator.ComparatorActuator} <p>the return object is <code>ComparatorActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
+     * @see io.github.nichetoolkit.rest.RestException
      */
     static <T, U> ComparatorActuator<T> comparing(
             FunctionActuator<? super T, ? extends U> keyExtractor,
-            ComparatorActuator<? super U> keyComparator)
+            ComparatorActuator<? super U> keyComparator) throws RestException
     {
         Objects.requireNonNull(keyExtractor);
         Objects.requireNonNull(keyComparator);
