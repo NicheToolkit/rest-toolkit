@@ -8,23 +8,25 @@ import java.util.Objects;
  * <code>RestEnum</code>
  * <p>The type rest enum class.</p>
  * @author Cyan (snow22314@outlook.com)
+ * @see io.github.nichetoolkit.rest.RestPack
  * @see lombok.Data
  * @since Jdk1.8
  */
 @Data
-public class RestEnum {
+public class RestEnum extends RestPack {
+
     /**
-     * <code>name</code>
-     * {@link java.lang.String} <p>the <code>name</code> field.</p>
-     * @see java.lang.String
+     * <code>ordinal</code>
+     * {@link java.lang.Integer} <p>the <code>ordinal</code> field.</p>
+     * @see java.lang.Integer
      */
-    private String name;
+    private Integer ordinal;
     /**
-     * <code>value</code>
-     * {@link java.lang.Object} <p>the <code>value</code> field.</p>
+     * <code>key</code>
+     * {@link java.lang.Object} <p>the <code>key</code> field.</p>
      * @see java.lang.Object
      */
-    private Object value;
+    private Object key;
 
     /**
      * <code>RestEnum</code>
@@ -37,59 +39,78 @@ public class RestEnum {
      * <code>RestEnum</code>
      * Instantiates a new rest enum.
      * @param name  {@link java.lang.String} <p>the name parameter is <code>String</code> type.</p>
+     * @param key   {@link java.lang.Object} <p>the key parameter is <code>Object</code> type.</p>
      * @param value {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Object
      */
-    public RestEnum(String name, Object value) {
-        this.name = name;
-        this.value = value;
+    public RestEnum(String name, Object key, Object value) {
+        super(name, value);
+        this.ordinal = null;
+        this.key = key;
     }
 
     /**
-     * <code>mapKey</code>
-     * <p>the key method.</p>
-     * @param entry {@link io.github.nichetoolkit.rest.RestValue} <p>the entry parameter is <code>RestValue</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestEnum} <p>the key return object is <code>RestEnum</code> type.</p>
-     * @see io.github.nichetoolkit.rest.RestValue
+     * <code>RestEnum</code>
+     * Instantiates a new rest enum.
+     * @param name    {@link java.lang.String} <p>the name parameter is <code>String</code> type.</p>
+     * @param ordinal {@link java.lang.Integer} <p>the ordinal parameter is <code>Integer</code> type.</p>
+     * @param key     {@link java.lang.Object} <p>the key parameter is <code>Object</code> type.</p>
+     * @param value   {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>
+     * @see java.lang.String
+     * @see java.lang.Integer
+     * @see java.lang.Object
      */
-    public static RestEnum mapKey(RestValue<?,?> entry) {
-        return new RestEnum(entry.name(),entry.getKey());
+    public RestEnum(String name, Integer ordinal, Object key, Object value) {
+        super(name, value);
+        this.ordinal = ordinal;
+        this.key = key;
     }
 
     /**
-     * <code>mapValue</code>
+     * <code>fromValue</code>
      * <p>the value method.</p>
      * @param entry {@link io.github.nichetoolkit.rest.RestValue} <p>the entry parameter is <code>RestValue</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestEnum} <p>the value return object is <code>RestEnum</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestValue
      */
-    public static RestEnum mapValue(RestValue<?,?> entry) {
-        return new RestEnum(entry.name(),entry.getValue());
+    public static RestEnum fromValue(RestValue<?, ?> entry) {
+        return new RestEnum(entry.name(), entry.getKey(), entry.getValue());
     }
 
     /**
-     * <code>mapBean</code>
-     * <p>the bean method.</p>
-     * @param entry {@link io.github.nichetoolkit.rest.RestValue} <p>the entry parameter is <code>RestValue</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestEnum} <p>the bean return object is <code>RestEnum</code> type.</p>
-     * @see io.github.nichetoolkit.rest.RestValue
+     * <code>fromStereo</code>
+     * <p>the stereo method.</p>
+     * @param stereo {@link io.github.nichetoolkit.rest.RestStereo} <p>the stereo parameter is <code>RestStereo</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestEnum} <p>the stereo return object is <code>RestEnum</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestStereo
      */
-    public static RestEnum mapBean(RestValue<?,?> entry) {
-        return new RestEnum(String.valueOf(entry.getValue()),entry.getKey());
+    public static RestEnum fromStereo(RestStereo stereo) {
+        return new RestEnum(stereo.name(), stereo.type(), stereo.getKey(), stereo.getValue());
+    }
+
+    /**
+     * <code>fromEnum</code>
+     * <p>the enum method.</p>
+     * @param entry {@link java.lang.Enum} <p>the entry parameter is <code>Enum</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestEnum} <p>the enum return object is <code>RestEnum</code> type.</p>
+     * @see java.lang.Enum
+     */
+    public static RestEnum fromEnum(Enum<?> entry) {
+        return new RestEnum(entry.name(), entry.ordinal(), entry.name().toLowerCase(), entry.ordinal());
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof RestEnum)) return false;
-        RestEnum ogsEnum = (RestEnum) o;
-        return Objects.equals(name, ogsEnum.name) &&
-                Objects.equals(value, ogsEnum.value);
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        RestEnum restEnum = (RestEnum) o;
+        return Objects.equals(key, restEnum.key);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, value);
+        return Objects.hash(super.hashCode(), key);
     }
 }

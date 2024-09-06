@@ -2,11 +2,9 @@ package io.github.nichetoolkit.rest.userlog.stereotype;
 
 import io.github.nichetoolkit.rest.userlog.LoggingType;
 import org.springframework.core.annotation.AliasFor;
+import org.springframework.stereotype.Indexed;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import java.lang.annotation.*;
 
 /**
  * <code>RestUserlog</code>
@@ -15,11 +13,15 @@ import java.lang.annotation.Target;
  * @see java.lang.annotation.Annotation
  * @see java.lang.annotation.Target
  * @see java.lang.annotation.Retention
+ * @see java.lang.annotation.Documented
+ * @see org.springframework.stereotype.Indexed
  * @see io.github.nichetoolkit.rest.userlog.stereotype.RestNotelog
  * @since Jdk1.8
  */
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
+@Documented
+@Indexed
 @RestNotelog
 public @interface RestUserlog {
     /**

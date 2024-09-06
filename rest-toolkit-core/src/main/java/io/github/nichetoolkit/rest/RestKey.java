@@ -1,9 +1,6 @@
 package io.github.nichetoolkit.rest;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -39,7 +36,7 @@ public interface RestKey<K> {
      * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
      * @return {@link java.util.List} <p>the return object is <code>List</code> type.</p>
      * @see java.lang.Class
-     * @see java.util.List
+     * @see java.lang.Class
      */
     static <T extends RestKey<K>,K> List<T> values(Class<T> clazz) {
         return Arrays.asList(clazz.getEnumConstants());
@@ -53,7 +50,7 @@ public interface RestKey<K> {
      * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
      * @return {@link java.util.List} <p>the return object is <code>List</code> type.</p>
      * @see java.lang.Class
-     * @see java.util.List
+     * @see java.lang.Class
      */
     static <T extends RestKey<K>,K> List<K> keys(Class<T> clazz) {
         return values(clazz).stream().map(RestKey::getKey).distinct().collect(Collectors.toList());
@@ -68,7 +65,7 @@ public interface RestKey<K> {
      * @param key   K <p>the key parameter is <code>K</code> type.</p>
      * @return T <p>the key return object is <code>T</code> type.</p>
      * @see java.lang.Class
-     * @see java.lang.SuppressWarnings
+     * @see java.lang.Class
      */
     @SuppressWarnings("Duplicates")
     static <T extends RestKey<K>, K> T parseKey(Class<T> clazz, K key) {

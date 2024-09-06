@@ -12,16 +12,17 @@ import java.util.stream.Stream;
  * @param <V> {@link java.lang.Object} <p>the parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestKey
+ * @see java.util.Map.Entry
  * @since Jdk1.8
  */
-public interface RestValue<K, V> extends RestKey<K> {
+public interface RestValue<K, V> extends RestKey<K>, RestEntry<K, V> {
 
-    /**
-     * <code>getValue</code>
-     * <p>the value getter method.</p>
-     * @return V <p>the value return object is <code>V</code> type.</p>
-     */
     V getValue();
+
+
+    default V setValue(V value) {
+        throw new UnsupportedOperationException();
+    }
 
     /**
      * <code>entry</code>
@@ -63,9 +64,8 @@ public interface RestValue<K, V> extends RestKey<K> {
         return lists(clazz).stream().map(RestValue::entry).distinct().collect(Collectors.toList());
     }
 
-
     /**
-     * <code>mapKey</code>
+     * <code>nameKey</code>
      * <p>the key method.</p>
      * @param <T>   {@link io.github.nichetoolkit.rest.RestValue} <p>the generic parameter is <code>RestValue</code> type.</p>
      * @param <K>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
@@ -75,12 +75,12 @@ public interface RestValue<K, V> extends RestKey<K> {
      * @see java.lang.Class
      * @see java.util.List
      */
-    static <T extends RestValue<K, V>, K, V> List<RestEnum> mapKey(Class<T> clazz) {
-        return lists(clazz).stream().map(RestEnum::mapKey).distinct().collect(Collectors.toList());
+    static <T extends RestValue<K, V>, K, V> List<RestPack> nameKey(Class<T> clazz) {
+        return lists(clazz).stream().map(RestPack::nameKey).distinct().collect(Collectors.toList());
     }
 
     /**
-     * <code>mapValue</code>
+     * <code>nameValue</code>
      * <p>the value method.</p>
      * @param <T>   {@link io.github.nichetoolkit.rest.RestValue} <p>the generic parameter is <code>RestValue</code> type.</p>
      * @param <K>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
@@ -90,23 +90,53 @@ public interface RestValue<K, V> extends RestKey<K> {
      * @see java.lang.Class
      * @see java.util.List
      */
-    static <T extends RestValue<K, V>, K, V> List<RestEnum> mapValue(Class<T> clazz) {
-        return lists(clazz).stream().map(RestEnum::mapValue).distinct().collect(Collectors.toList());
+    static <T extends RestValue<K, V>, K, V> List<RestPack> nameValue(Class<T> clazz) {
+        return lists(clazz).stream().map(RestPack::nameValue).distinct().collect(Collectors.toList());
     }
 
     /**
-     * <code>mapBean</code>
-     * <p>the bean method.</p>
+     * <code>keyValue</code>
+     * <p>the value method.</p>
      * @param <T>   {@link io.github.nichetoolkit.rest.RestValue} <p>the generic parameter is <code>RestValue</code> type.</p>
      * @param <K>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param <V>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @return {@link java.util.List} <p>the bean return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>the value return object is <code>List</code> type.</p>
      * @see java.lang.Class
      * @see java.util.List
      */
-    static <T extends RestValue<K, V>, K, V> List<RestEnum> mapBean(Class<T> clazz) {
-        return lists(clazz).stream().map(RestEnum::mapBean).distinct().collect(Collectors.toList());
+    static <T extends RestValue<K, V>, K, V> List<RestPack> keyValue(Class<T> clazz) {
+        return lists(clazz).stream().map(RestPack::keyValue).distinct().collect(Collectors.toList());
+    }
+
+    /**
+     * <code>valueKey</code>
+     * <p>the key method.</p>
+     * @param <T>   {@link io.github.nichetoolkit.rest.RestValue} <p>the generic parameter is <code>RestValue</code> type.</p>
+     * @param <K>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param <V>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
+     * @return {@link java.util.List} <p>the key return object is <code>List</code> type.</p>
+     * @see java.lang.Class
+     * @see java.util.List
+     */
+    static <T extends RestValue<K, V>, K, V> List<RestPack> valueKey(Class<T> clazz) {
+        return lists(clazz).stream().map(RestPack::valueKey).distinct().collect(Collectors.toList());
+    }
+
+    /**
+     * <code>packEnum</code>
+     * <p>the enum method.</p>
+     * @param <T>   {@link io.github.nichetoolkit.rest.RestValue} <p>the generic parameter is <code>RestValue</code> type.</p>
+     * @param <K>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param <V>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
+     * @return {@link java.util.List} <p>the enum return object is <code>List</code> type.</p>
+     * @see java.lang.Class
+     * @see java.util.List
+     */
+    static <T extends RestValue<K, V>, K, V> List<RestEnum> packEnum(Class<T> clazz) {
+        return lists(clazz).stream().map(RestEnum::fromValue).distinct().collect(Collectors.toList());
     }
 
     /**
@@ -155,7 +185,7 @@ public interface RestValue<K, V> extends RestKey<K> {
     @SuppressWarnings("Duplicates")
     static <T extends RestValue<K, V>, K, V> T parseKey(Class<T> clazz, K key) {
         if (key != null && clazz.isEnum()) {
-            Map<K, T> keyEnumMap = Stream.of(clazz.getEnumConstants()).collect(Collectors.toMap(RestValue::getKey, Function.identity(),(oldValue,newValue) -> newValue, HashMap::new));
+            Map<K, T> keyEnumMap = Stream.of(clazz.getEnumConstants()).collect(Collectors.toMap(RestValue::getKey, Function.identity(), (oldValue, newValue) -> newValue, HashMap::new));
             return keyEnumMap.get(key);
         }
         return null;
@@ -176,7 +206,7 @@ public interface RestValue<K, V> extends RestKey<K> {
     @SuppressWarnings("Duplicates")
     static <T extends RestValue<K, V>, K, V> T parseKey(Collection<T> values, K key) {
         if (key != null && values != null && !values.isEmpty()) {
-            Map<K, T> keyEnumMap = values.stream().collect(Collectors.toMap(RestKey::getKey, Function.identity(),(oldValue,newValue) -> newValue, HashMap::new));
+            Map<K, T> keyEnumMap = values.stream().collect(Collectors.toMap(RestKey::getKey, Function.identity(), (oldValue, newValue) -> newValue, HashMap::new));
             return keyEnumMap.get(key);
         }
         return null;
@@ -197,7 +227,7 @@ public interface RestValue<K, V> extends RestKey<K> {
     @SuppressWarnings("Duplicates")
     static <T extends RestValue<K, V>, K, V> T parseValue(Class<T> clazz, V value) {
         if (value != null && clazz.isEnum()) {
-            Map<V, T> valueEnumMap = Stream.of(clazz.getEnumConstants()).collect(Collectors.toMap(RestValue::getValue, Function.identity(),(oldValue,newValue) -> newValue, HashMap::new));
+            Map<V, T> valueEnumMap = Stream.of(clazz.getEnumConstants()).collect(Collectors.toMap(RestValue::getValue, Function.identity(), (oldValue, newValue) -> newValue, HashMap::new));
             return valueEnumMap.get(value);
         }
         return null;

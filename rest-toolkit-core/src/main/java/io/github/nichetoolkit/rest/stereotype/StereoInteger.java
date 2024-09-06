@@ -1,13 +1,12 @@
-package io.github.nichetoolkit.rest.userlog.stereotype;
-
+package io.github.nichetoolkit.rest.stereotype;
 
 import org.springframework.stereotype.Indexed;
 
 import java.lang.annotation.*;
 
 /**
- * <code>RestLogging</code>
- * <p>The type rest logging interface.</p>
+ * <code>StereoInteger</code>
+ * <p>The type stereo integer interface.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.lang.annotation.Annotation
  * @see java.lang.annotation.Target
@@ -16,9 +15,15 @@ import java.lang.annotation.*;
  * @see org.springframework.stereotype.Indexed
  * @since Jdk1.8
  */
-@Target({ElementType.METHOD,ElementType.TYPE})
+@Target({ElementType.TYPE_USE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Indexed
-public @interface RestLogging {
+public @interface StereoInteger {
+    /**
+     * <code>value</code>
+     * <p>the method.</p>
+     * @return int <p>the return object is <code>int</code> type.</p>
+     */
+    int value() default 0;
 }
