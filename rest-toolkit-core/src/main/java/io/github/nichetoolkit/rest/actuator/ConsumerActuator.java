@@ -11,6 +11,7 @@ import java.util.function.Consumer;
  * <p>The type consumer actuator interface.</p>
  * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
+ * @see java.util.function.Consumer
  * @see java.lang.FunctionalInterface
  * @since Jdk1.8
  */

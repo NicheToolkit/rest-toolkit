@@ -4,25 +4,65 @@ import io.github.nichetoolkit.rest.RestException;
 
 import java.util.concurrent.atomic.AtomicReference;
 
+/**
+ * <code>DefaultAbstractShortCircuitTask</code>
+ * <p>The type default abstract short circuit task class.</p>
+ * @param <P_IN>  {@link java.lang.Object} <p>the parameter can be of any type.</p>
+ * @param <P_OUT> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+ * @param <R>     {@link java.lang.Object} <p>the parameter can be of any type.</p>
+ * @param <K>     {@link io.github.nichetoolkit.rest.stream.DefaultAbstractShortCircuitTask} <p>the generic parameter is <code>DefaultAbstractShortCircuitTask</code> type.</p>
+ * @author Cyan (snow22314@outlook.com)
+ * @see io.github.nichetoolkit.rest.stream.DefaultAbstractTask
+ * @since Jdk1.8
+ */
 abstract class DefaultAbstractShortCircuitTask<P_IN, P_OUT, R,
         K extends DefaultAbstractShortCircuitTask<P_IN, P_OUT, R, K>>
         extends DefaultAbstractTask<P_IN, P_OUT, R, K> {
+    /**
+     * <code>sharedResult</code>
+     * {@link java.util.concurrent.atomic.AtomicReference} <p>the <code>sharedResult</code> field.</p>
+     * @see java.util.concurrent.atomic.AtomicReference
+     */
     protected final AtomicReference<R> sharedResult;
 
+    /**
+     * <code>canceled</code>
+     * <p>the <code>canceled</code> field.</p>
+     */
     protected volatile boolean canceled;
 
+    /**
+     * <code>DefaultAbstractShortCircuitTask</code>
+     * Instantiates a new default abstract short circuit task.
+     * @param helper      {@link io.github.nichetoolkit.rest.stream.DefaultPipelineHelper} <p>the helper parameter is <code>DefaultPipelineHelper</code> type.</p>
+     * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the spliterator parameter is <code>DefaultSpliterator</code> type.</p>
+     * @see io.github.nichetoolkit.rest.stream.DefaultPipelineHelper
+     * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
+     */
     protected DefaultAbstractShortCircuitTask(DefaultPipelineHelper<P_OUT> helper,
                                               DefaultSpliterator<P_IN> spliterator) {
         super(helper, spliterator);
         sharedResult = new AtomicReference<>(null);
     }
 
+    /**
+     * <code>DefaultAbstractShortCircuitTask</code>
+     * Instantiates a new default abstract short circuit task.
+     * @param parent      K <p>the parent parameter is <code>K</code> type.</p>
+     * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the spliterator parameter is <code>DefaultSpliterator</code> type.</p>
+     * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
+     */
     protected DefaultAbstractShortCircuitTask(K parent,
                                               DefaultSpliterator<P_IN> spliterator) {
         super(parent, spliterator);
         sharedResult = parent.sharedResult;
     }
 
+    /**
+     * <code>getEmptyResult</code>
+     * <p>the empty result getter method.</p>
+     * @return R <p>the empty result return object is <code>R</code> type.</p>
+     */
     protected abstract R getEmptyResult();
 
     @Override
@@ -64,6 +104,11 @@ abstract class DefaultAbstractShortCircuitTask<P_IN, P_OUT, R,
     }
 
 
+    /**
+     * <code>shortCircuit</code>
+     * <p>the circuit method.</p>
+     * @param result R <p>the result parameter is <code>R</code> type.</p>
+     */
     protected void shortCircuit(R result) {
         if (result != null)
             sharedResult.compareAndSet(null, result);
@@ -92,10 +137,19 @@ abstract class DefaultAbstractShortCircuitTask<P_IN, P_OUT, R,
             return super.getLocalResult();
     }
 
+    /**
+     * <code>cancel</code>
+     * <p>the method.</p>
+     */
     protected void cancel() {
         canceled = true;
     }
 
+    /**
+     * <code>taskCanceled</code>
+     * <p>the canceled method.</p>
+     * @return boolean <p>the canceled return object is <code>boolean</code> type.</p>
+     */
     protected boolean taskCanceled() {
         boolean cancel = canceled;
         if (!cancel) {
@@ -106,6 +160,11 @@ abstract class DefaultAbstractShortCircuitTask<P_IN, P_OUT, R,
         return cancel;
     }
 
+    /**
+     * <code>cancelLaterNodes</code>
+     * <p>the later nodes method.</p>
+     * @see java.lang.SuppressWarnings
+     */
     @SuppressWarnings("unchecked")
     protected void cancelLaterNodes() {
         // Go up the tree, cancel right siblings of this node and all parents

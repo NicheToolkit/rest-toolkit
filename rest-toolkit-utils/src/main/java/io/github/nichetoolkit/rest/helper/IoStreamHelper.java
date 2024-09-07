@@ -13,8 +13,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 /**
- * <code>StreamHelper</code>
- * <p>The type stream helper class.</p>
+ * <code>IoStreamHelper</code>
+ * <p>The type io stream helper class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */

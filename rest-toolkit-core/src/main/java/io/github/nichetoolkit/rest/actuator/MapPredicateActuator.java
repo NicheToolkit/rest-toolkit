@@ -47,7 +47,7 @@ public interface MapPredicateActuator<T, U, S> {
     }
 
     /**
-     * <code>negate</code>
+     * <code>negates</code>
      * <p>the method.</p>
      * @return {@link io.github.nichetoolkit.rest.actuator.MapPredicateActuator} <p>the return object is <code>MapPredicateActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>

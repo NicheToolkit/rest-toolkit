@@ -15,8 +15,8 @@ import org.springframework.boot.test.context.SpringBootTest;
  * <code>JwtWorkerTest</code>
  * <p>The type jwt worker test class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @see Slf4j
- * @see SpringBootTest
+ * @see lombok.extern.slf4j.Slf4j
+ * @see org.springframework.boot.test.context.SpringBootTest
  * @since Jdk1.8
  */
 @Slf4j
@@ -25,8 +25,9 @@ class JwtWorkerTest {
 
     /**
      * <code>jwtWorker</code>
-     * <p>the <code>jwtWorker</code> field.</p>
-     * @see Autowired
+     * {@link io.github.nichetoolkit.rest.worker.jwt.JwtWorker} <p>the <code>jwtWorker</code> field.</p>
+     * @see io.github.nichetoolkit.rest.worker.jwt.JwtWorker
+     * @see org.springframework.beans.factory.annotation.Autowired
      */
     @Autowired
     private JwtWorker jwtWorker;
@@ -34,6 +35,7 @@ class JwtWorkerTest {
     /**
      * <code>test</code>
      * <p>the method.</p>
+     * @see org.junit.jupiter.api.Test
      */
     @Test
     void test() {

@@ -18,8 +18,8 @@ import java.nio.charset.StandardCharsets;
  * <code>RsaWorkerTest</code>
  * <p>The type rsa worker test class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @see Slf4j
- * @see SpringBootTest
+ * @see lombok.extern.slf4j.Slf4j
+ * @see org.springframework.boot.test.context.SpringBootTest
  * @since Jdk1.8
  */
 @Slf4j
@@ -28,8 +28,9 @@ class RsaWorkerTest {
 
     /**
      * <code>rsaWorker</code>
-     * <p>the <code>rsaWorker</code> field.</p>
-     * @see Autowired
+     * {@link io.github.nichetoolkit.rest.worker.rsa.RsaWorker} <p>the <code>rsaWorker</code> field.</p>
+     * @see io.github.nichetoolkit.rest.worker.rsa.RsaWorker
+     * @see org.springframework.beans.factory.annotation.Autowired
      */
     @Autowired
     private RsaWorker rsaWorker;
@@ -37,6 +38,7 @@ class RsaWorkerTest {
     /**
      * <code>rsaKey</code>
      * <p>the key method.</p>
+     * @see org.junit.jupiter.api.Test
      */
     @Test
     void rsaKey() {
@@ -48,6 +50,7 @@ class RsaWorkerTest {
     /**
      * <code>test</code>
      * <p>the method.</p>
+     * @see org.junit.jupiter.api.Test
      */
     @Test
     void test() {

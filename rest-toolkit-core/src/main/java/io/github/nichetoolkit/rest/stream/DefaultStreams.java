@@ -6,16 +6,44 @@ import io.github.nichetoolkit.rest.actuator.ConsumerActuator;
 import java.util.Comparator;
 import java.util.Objects;
 
+/**
+ * <code>DefaultStreams</code>
+ * <p>The type default streams class.</p>
+ * @author Cyan (snow22314@outlook.com)
+ * @since Jdk1.8
+ */
 public final class DefaultStreams {
+    /**
+     * <code>DefaultStreams</code>
+     * Instantiates a new default streams.
+     */
     /* copy form jdk Streams  */
     private DefaultStreams() {
         throw new Error("no instances");
     }
 
+    /**
+     * <code>NONE</code>
+     * {@link java.lang.Object} <p>the <code>NONE</code> field.</p>
+     * @see java.lang.Object
+     */
     static final Object NONE = new Object();
 
+    /**
+     * <code>AbstractStreamBuilderImpl</code>
+     * <p>The type abstract stream builder class.</p>
+     * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param <S> {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the generic parameter is <code>DefaultSpliterator</code> type.</p>
+     * @author Cyan (snow22314@outlook.com)
+     * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
+     * @since Jdk1.8
+     */
     private static abstract class AbstractStreamBuilderImpl<T, S extends DefaultSpliterator<T>> implements DefaultSpliterator<T> {
 
+        /**
+         * <code>count</code>
+         * <p>the <code>count</code> field.</p>
+         */
         int count;
 
         @Override
@@ -35,17 +63,44 @@ public final class DefaultStreams {
         }
     }
 
+    /**
+     * <code>StreamBuilderImpl</code>
+     * <p>The type stream builder class.</p>
+     * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @author Cyan (snow22314@outlook.com)
+     * @see io.github.nichetoolkit.rest.stream.DefaultStreams.AbstractStreamBuilderImpl
+     * @see io.github.nichetoolkit.rest.stream.RestStream.Builder
+     * @since Jdk1.8
+     */
     static final class StreamBuilderImpl<T>
             extends AbstractStreamBuilderImpl<T, DefaultSpliterator<T>>
             implements RestStream.Builder<T> {
 
+        /**
+         * <code>first</code>
+         * <p>the <code>first</code> field.</p>
+         */
         T first;
 
+        /**
+         * <code>buffer</code>
+         * <p>the Buffer field.</p>
+         * @see io.github.nichetoolkit.rest.stream.DefaultSpinedBuffer
+         */
         DefaultSpinedBuffer<T> buffer;
 
+        /**
+         * <code>StreamBuilderImpl</code>
+         * Instantiates a new stream builder.
+         */
         StreamBuilderImpl() {
         }
 
+        /**
+         * <code>StreamBuilderImpl</code>
+         * Instantiates a new stream builder.
+         * @param t T <p>the t parameter is <code>T</code> type.</p>
+         */
         StreamBuilderImpl(T t) {
             first = t;
             count = -2;
@@ -109,15 +164,48 @@ public final class DefaultStreams {
         }
     }
 
+    /**
+     * <code>ConcatSpliterator</code>
+     * <p>The type concat spliterator class.</p>
+     * @param <T>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param <T_SPLITR> {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the generic parameter is <code>DefaultSpliterator</code> type.</p>
+     * @author Cyan (snow22314@outlook.com)
+     * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
+     * @since Jdk1.8
+     */
     abstract static class ConcatSpliterator<T, T_SPLITR extends DefaultSpliterator<T>>
             implements DefaultSpliterator<T> {
+        /**
+         * <code>aSpliterator</code>
+         * <p>the <code>aSpliterator</code> field.</p>
+         */
         protected final T_SPLITR aSpliterator;
+        /**
+         * <code>bSpliterator</code>
+         * <p>the <code>bSpliterator</code> field.</p>
+         */
         protected final T_SPLITR bSpliterator;
-        // True when no split has occurred, otherwise false
+        /**
+         * <code>beforeSplit</code>
+         * <p>the <code>beforeSplit</code> field.</p>
+         */
+// True when no split has occurred, otherwise false
         boolean beforeSplit;
-        // Never read after splitting
+        /**
+         * <code>unsized</code>
+         * <p>the <code>unsized</code> field.</p>
+         */
+// Never read after splitting
         final boolean unsized;
 
+        /**
+         * <code>ConcatSpliterator</code>
+         * Instantiates a new concat spliterator.
+         * @param aSpliterator T_SPLITR <p>the a spliterator parameter is <code>T_SPLITR</code> type.</p>
+         * @param bSpliterator T_SPLITR <p>the b spliterator parameter is <code>T_SPLITR</code> type.</p>
+         * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+         * @see io.github.nichetoolkit.rest.RestException
+         */
         public ConcatSpliterator(T_SPLITR aSpliterator, T_SPLITR bSpliterator) throws RestException {
             this.aSpliterator = aSpliterator;
             this.bSpliterator = bSpliterator;
@@ -186,15 +274,49 @@ public final class DefaultStreams {
             return bSpliterator.getComparator();
         }
 
+        /**
+         * <code>OfRef</code>
+         * <p>The type of ref class.</p>
+         * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+         * @author Cyan (snow22314@outlook.com)
+         * @since Jdk1.8
+         */
         static class OfRef<T> extends ConcatSpliterator<T, DefaultSpliterator<T>> {
+            /**
+             * <code>OfRef</code>
+             * Instantiates a new of ref.
+             * @param aSpliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the a spliterator parameter is <code>DefaultSpliterator</code> type.</p>
+             * @param bSpliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the b spliterator parameter is <code>DefaultSpliterator</code> type.</p>
+             * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+             * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
+             * @see io.github.nichetoolkit.rest.RestException
+             */
             OfRef(DefaultSpliterator<T> aSpliterator, DefaultSpliterator<T> bSpliterator) throws RestException {
                 super(aSpliterator, bSpliterator);
             }
         }
 
+        /**
+         * <code>OfPrimitive</code>
+         * <p>The type of primitive class.</p>
+         * @param <T>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
+         * @param <T_CONS>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
+         * @param <T_SPLITR> {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator.OfPrimitive} <p>the generic parameter is <code>OfPrimitive</code> type.</p>
+         * @author Cyan (snow22314@outlook.com)
+         * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator.OfPrimitive
+         * @since Jdk1.8
+         */
         private static abstract class OfPrimitive<T, T_CONS, T_SPLITR extends DefaultSpliterator.OfPrimitive<T, T_CONS, T_SPLITR>>
                 extends ConcatSpliterator<T, T_SPLITR>
                 implements DefaultSpliterator.OfPrimitive<T, T_CONS, T_SPLITR> {
+            /**
+             * <code>OfPrimitive</code>
+             * Instantiates a new of primitive.
+             * @param aSpliterator T_SPLITR <p>the a spliterator parameter is <code>T_SPLITR</code> type.</p>
+             * @param bSpliterator T_SPLITR <p>the b spliterator parameter is <code>T_SPLITR</code> type.</p>
+             * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+             * @see io.github.nichetoolkit.rest.RestException
+             */
             private OfPrimitive(T_SPLITR aSpliterator, T_SPLITR bSpliterator) throws RestException {
                 super(aSpliterator, bSpliterator);
             }
@@ -223,6 +345,14 @@ public final class DefaultStreams {
 
     }
 
+    /**
+     * <code>composeWithExceptions</code>
+     * <p>the with exceptions method.</p>
+     * @param a {@link java.lang.Runnable} <p>the a parameter is <code>Runnable</code> type.</p>
+     * @param b {@link java.lang.Runnable} <p>the b parameter is <code>Runnable</code> type.</p>
+     * @return {@link java.lang.Runnable} <p>the with exceptions return object is <code>Runnable</code> type.</p>
+     * @see java.lang.Runnable
+     */
     static Runnable composeWithExceptions(Runnable a, Runnable b) {
         return () -> {
             try {
@@ -242,6 +372,17 @@ public final class DefaultStreams {
         };
     }
 
+    /**
+     * <code>composedClose</code>
+     * <p>the close method.</p>
+     * @param a {@link io.github.nichetoolkit.rest.stream.DefaultBaseStream} <p>the a parameter is <code>DefaultBaseStream</code> type.</p>
+     * @param b {@link io.github.nichetoolkit.rest.stream.DefaultBaseStream} <p>the b parameter is <code>DefaultBaseStream</code> type.</p>
+     * @return {@link java.lang.Runnable} <p>the close return object is <code>Runnable</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.stream.DefaultBaseStream
+     * @see java.lang.Runnable
+     * @see io.github.nichetoolkit.rest.RestException
+     */
     static Runnable composedClose(DefaultBaseStream<?, ?> a, DefaultBaseStream<?, ?> b) throws RestException {
         return () -> {
             try {

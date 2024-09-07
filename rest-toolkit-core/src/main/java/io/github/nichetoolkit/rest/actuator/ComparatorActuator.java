@@ -12,6 +12,7 @@ import java.util.Objects;
  * <p>The type comparator actuator interface.</p>
  * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
+ * @see java.util.Comparator
  * @see java.lang.FunctionalInterface
  * @since Jdk1.8
  */
@@ -19,7 +20,7 @@ import java.util.Objects;
 public interface ComparatorActuator<T> extends Comparator<T> {
 
     /**
-     * <code>compare</code>
+     * <code>actuate</code>
      * <p>the method.</p>
      * @param o1 T <p>the o 1 parameter is <code>T</code> type.</p>
      * @param o2 T <p>the o 2 parameter is <code>T</code> type.</p>

@@ -12,7 +12,7 @@ import java.util.stream.Stream;
  * @param <V> {@link java.lang.Object} <p>the parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestKey
- * @see java.util.Map.Entry
+ * @see io.github.nichetoolkit.rest.RestEntry
  * @since Jdk1.8
  */
 public interface RestValue<K, V> extends RestKey<K>, RestEntry<K, V> {

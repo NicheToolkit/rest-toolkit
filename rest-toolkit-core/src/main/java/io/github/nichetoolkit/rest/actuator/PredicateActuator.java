@@ -11,6 +11,7 @@ import java.util.function.Predicate;
  * <p>The type predicate actuator interface.</p>
  * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
+ * @see java.util.function.Predicate
  * @see java.lang.FunctionalInterface
  * @since Jdk1.8
  */
@@ -19,10 +20,9 @@ public interface PredicateActuator<T> extends Predicate<T> {
     /**
      * <code>actuate</code>
      * <p>the method.</p>
-     * @param t T <p>the m parameter is <code>T</code> type.</p>
-     * @return {@link java.lang.Boolean} <p>the return object is <code>Boolean</code> type.</p>
+     * @param t T <p>the t parameter is <code>T</code> type.</p>
+     * @return boolean <p>the return object is <code>boolean</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
-     * @see java.lang.Boolean
      * @see io.github.nichetoolkit.rest.RestException
      */
     boolean actuate(T t) throws RestException;
@@ -50,7 +50,7 @@ public interface PredicateActuator<T> extends Predicate<T> {
     }
 
     /**
-     * <code>negate</code>
+     * <code>negates</code>
      * <p>the method.</p>
      * @return {@link io.github.nichetoolkit.rest.actuator.PredicateActuator} <p>the return object is <code>PredicateActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>

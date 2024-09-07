@@ -15,8 +15,8 @@ import java.util.concurrent.ConcurrentHashMap;
 public interface IdentityWorker {
     /**
      * <code>IDENTITY_WORKER_MAP</code>
-     * {@link java.util.Map} <p>the constant <code>IDENTITY_WORKER_MAP</code> field.</p>
-     * @see java.util.Map
+     * {@link java.util.concurrent.ConcurrentHashMap} <p>the constant <code>IDENTITY_WORKER_MAP</code> field.</p>
+     * @see java.util.concurrent.ConcurrentHashMap
      */
     ConcurrentHashMap<WorkerType,IdentityWorker> IDENTITY_WORKER_MAP = new ConcurrentHashMap<>();
 

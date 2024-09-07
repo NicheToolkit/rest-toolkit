@@ -13,8 +13,8 @@ import org.springframework.boot.test.context.SpringBootTest;
  * <code>RadixWorkerTest</code>
  * <p>The type radix worker test class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @see Slf4j
- * @see SpringBootTest
+ * @see lombok.extern.slf4j.Slf4j
+ * @see org.springframework.boot.test.context.SpringBootTest
  * @since Jdk1.8
  */
 @Slf4j
@@ -23,8 +23,9 @@ class RadixWorkerTest {
 
     /**
      * <code>radixWorker</code>
-     * <p>the <code>radixWorker</code> field.</p>
-     * @see Autowired
+     * {@link io.github.nichetoolkit.rest.worker.RadixWorker} <p>the <code>radixWorker</code> field.</p>
+     * @see io.github.nichetoolkit.rest.worker.RadixWorker
+     * @see org.springframework.beans.factory.annotation.Autowired
      */
     @Autowired
     private RadixWorker radixWorker;
@@ -32,6 +33,7 @@ class RadixWorkerTest {
     /**
      * <code>test</code>
      * <p>the method.</p>
+     * @see org.junit.jupiter.api.Test
      */
     @Test
     void test() {

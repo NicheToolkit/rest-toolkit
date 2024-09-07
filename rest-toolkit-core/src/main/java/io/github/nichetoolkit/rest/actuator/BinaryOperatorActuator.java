@@ -11,6 +11,7 @@ import java.util.function.BinaryOperator;
  * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
+ * @see java.util.function.BinaryOperator
  * @since Jdk1.8
  */
 public interface BinaryOperatorActuator<T> extends BiFunctionActuator<T,T,T>, BinaryOperator<T> {

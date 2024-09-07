@@ -61,9 +61,9 @@ public class RestPack {
     /**
      * <code>nameType</code>
      * <p>the type method.</p>
-     * @param entry {@link RestStereo} <p>the entry parameter is <code>RestEntry</code> type.</p>
+     * @param entry {@link io.github.nichetoolkit.rest.RestStereo} <p>the entry parameter is <code>RestStereo</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestPack} <p>the type return object is <code>RestPack</code> type.</p>
-     * @see RestStereo
+     * @see io.github.nichetoolkit.rest.RestStereo
      */
     public static RestPack nameType(RestStereo entry) {
         return new RestPack(entry.name(), entry.type());
@@ -94,9 +94,9 @@ public class RestPack {
     /**
      * <code>keyType</code>
      * <p>the type method.</p>
-     * @param entry {@link RestStereo} <p>the entry parameter is <code>RestEntry</code> type.</p>
+     * @param entry {@link io.github.nichetoolkit.rest.RestStereo} <p>the entry parameter is <code>RestStereo</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestPack} <p>the type return object is <code>RestPack</code> type.</p>
-     * @see RestStereo
+     * @see io.github.nichetoolkit.rest.RestStereo
      */
     public static RestPack keyType(RestStereo entry) {
         return new RestPack(String.valueOf(entry.key()), entry.value());
@@ -138,9 +138,9 @@ public class RestPack {
     /**
      * <code>valueType</code>
      * <p>the type method.</p>
-     * @param entry {@link RestStereo} <p>the entry parameter is <code>RestEntry</code> type.</p>
+     * @param entry {@link io.github.nichetoolkit.rest.RestStereo} <p>the entry parameter is <code>RestStereo</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestPack} <p>the type return object is <code>RestPack</code> type.</p>
-     * @see RestStereo
+     * @see io.github.nichetoolkit.rest.RestStereo
      */
     public static RestPack valueType(RestStereo entry) {
         return new RestPack(String.valueOf(entry.getValue()), entry.type());
@@ -149,9 +149,9 @@ public class RestPack {
     /**
      * <code>typeName</code>
      * <p>the name method.</p>
-     * @param entry {@link RestStereo} <p>the entry parameter is <code>RestEntry</code> type.</p>
+     * @param entry {@link io.github.nichetoolkit.rest.RestStereo} <p>the entry parameter is <code>RestStereo</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestPack} <p>the name return object is <code>RestPack</code> type.</p>
-     * @see RestStereo
+     * @see io.github.nichetoolkit.rest.RestStereo
      */
     public static RestPack typeName(RestStereo entry) {
         return new RestPack(String.valueOf(entry.type()), entry.name());
@@ -160,9 +160,9 @@ public class RestPack {
     /**
      * <code>typeKey</code>
      * <p>the key method.</p>
-     * @param entry {@link RestStereo} <p>the entry parameter is <code>RestEntry</code> type.</p>
+     * @param entry {@link io.github.nichetoolkit.rest.RestStereo} <p>the entry parameter is <code>RestStereo</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestPack} <p>the key return object is <code>RestPack</code> type.</p>
-     * @see RestStereo
+     * @see io.github.nichetoolkit.rest.RestStereo
      */
     public static RestPack typeKey(RestStereo entry) {
         return new RestPack(String.valueOf(entry.type()), entry.key());
@@ -172,9 +172,9 @@ public class RestPack {
     /**
      * <code>typeValue</code>
      * <p>the value method.</p>
-     * @param entry {@link RestStereo} <p>the entry parameter is <code>RestEntry</code> type.</p>
+     * @param entry {@link io.github.nichetoolkit.rest.RestStereo} <p>the entry parameter is <code>RestStereo</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestPack} <p>the value return object is <code>RestPack</code> type.</p>
-     * @see RestStereo
+     * @see io.github.nichetoolkit.rest.RestStereo
      */
     public static RestPack typeValue(RestStereo entry) {
         return new RestPack(String.valueOf(entry.type()), entry.value());

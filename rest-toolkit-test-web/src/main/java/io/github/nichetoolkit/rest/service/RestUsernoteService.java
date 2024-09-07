@@ -10,9 +10,13 @@ import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 /**
- * <p>RestUsernoteService</p>
+ * <code>RestUsernoteService</code>
+ * <p>The type rest usernote service class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @version v1.0.0
+ * @see io.github.nichetoolkit.rest.RestUsernoteAdvice
+ * @see lombok.extern.slf4j.Slf4j
+ * @see org.springframework.stereotype.Service
+ * @since Jdk1.8
  */
 @Slf4j
 @Service

@@ -7,11 +7,30 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.IntFunction;
 
+/**
+ * <code>DefaultDistinctOps</code>
+ * <p>The type default distinct ops class.</p>
+ * @author Cyan (snow22314@outlook.com)
+ * @since Jdk1.8
+ */
 final class DefaultDistinctOps {
 
+    /**
+     * <code>DefaultDistinctOps</code>
+     * Instantiates a new default distinct ops.
+     */
     private DefaultDistinctOps() {
     }
 
+    /**
+     * <code>makeRef</code>
+     * <p>the ref method.</p>
+     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param upstream {@link io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline} <p>the upstream parameter is <code>DefaultAbstractPipeline</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultReferencePipeline} <p>the ref return object is <code>DefaultReferencePipeline</code> type.</p>
+     * @see io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline
+     * @see io.github.nichetoolkit.rest.stream.DefaultReferencePipeline
+     */
     static <T> DefaultReferencePipeline<T, T> makeRef(DefaultAbstractPipeline<?, T, ?> upstream) {
         return new DefaultReferencePipeline.StatefulOp<T, T>(upstream, DefaultStreamShape.REFERENCE,
                 DefaultStreamOpFlag.IS_DISTINCT | DefaultStreamOpFlag.NOT_SIZED) {

@@ -12,11 +12,12 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * <code>RestEntry</code>
- * <p>The type rest entry interface.</p>
+ * <code>RestStereo</code>
+ * <p>The type rest stereo interface.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestValue
  * @see io.github.nichetoolkit.rest.stereotype.StereoEnum
+ * @see java.lang.SuppressWarnings
  * @since Jdk1.8
  */
 @SuppressWarnings("all")
@@ -58,7 +59,7 @@ public interface RestStereo extends RestValue<String,Long>, StereoEnum {
     /**
      * <code>names</code>
      * <p>the method.</p>
-     * @param <T>   {@link RestStereo} <p>the generic parameter is <code>RestEntry</code> type.</p>
+     * @param <T>   {@link io.github.nichetoolkit.rest.RestStereo} <p>the generic parameter is <code>RestStereo</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
      * @return {@link java.util.List} <p>the return object is <code>List</code> type.</p>
      * @see java.lang.Class
@@ -71,7 +72,7 @@ public interface RestStereo extends RestValue<String,Long>, StereoEnum {
     /**
      * <code>keys</code>
      * <p>the method.</p>
-     * @param <T>   {@link RestStereo} <p>the generic parameter is <code>RestEntry</code> type.</p>
+     * @param <T>   {@link io.github.nichetoolkit.rest.RestStereo} <p>the generic parameter is <code>RestStereo</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
      * @return {@link java.util.List} <p>the return object is <code>List</code> type.</p>
      * @see java.lang.Class
@@ -84,7 +85,7 @@ public interface RestStereo extends RestValue<String,Long>, StereoEnum {
     /**
      * <code>types</code>
      * <p>the method.</p>
-     * @param <T>   {@link RestStereo} <p>the generic parameter is <code>RestEntry</code> type.</p>
+     * @param <T>   {@link io.github.nichetoolkit.rest.RestStereo} <p>the generic parameter is <code>RestStereo</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
      * @return {@link java.util.List} <p>the return object is <code>List</code> type.</p>
      * @see java.lang.Class
@@ -97,7 +98,7 @@ public interface RestStereo extends RestValue<String,Long>, StereoEnum {
     /**
      * <code>values</code>
      * <p>the method.</p>
-     * @param <T>   {@link RestStereo} <p>the generic parameter is <code>RestEntry</code> type.</p>
+     * @param <T>   {@link io.github.nichetoolkit.rest.RestStereo} <p>the generic parameter is <code>RestStereo</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
      * @return {@link java.util.List} <p>the return object is <code>List</code> type.</p>
      * @see java.lang.Class
@@ -110,7 +111,7 @@ public interface RestStereo extends RestValue<String,Long>, StereoEnum {
     /**
      * <code>nameType</code>
      * <p>the type method.</p>
-     * @param <T>   {@link RestStereo} <p>the generic parameter is <code>RestEntry</code> type.</p>
+     * @param <T>   {@link io.github.nichetoolkit.rest.RestStereo} <p>the generic parameter is <code>RestStereo</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
      * @return {@link java.util.List} <p>the type return object is <code>List</code> type.</p>
      * @see java.lang.Class
@@ -123,7 +124,7 @@ public interface RestStereo extends RestValue<String,Long>, StereoEnum {
     /**
      * <code>typeName</code>
      * <p>the name method.</p>
-     * @param <T>   {@link RestStereo} <p>the generic parameter is <code>RestEntry</code> type.</p>
+     * @param <T>   {@link io.github.nichetoolkit.rest.RestStereo} <p>the generic parameter is <code>RestStereo</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
      * @return {@link java.util.List} <p>the name return object is <code>List</code> type.</p>
      * @see java.lang.Class
@@ -136,7 +137,7 @@ public interface RestStereo extends RestValue<String,Long>, StereoEnum {
     /**
      * <code>typeKey</code>
      * <p>the key method.</p>
-     * @param <T>   {@link RestStereo} <p>the generic parameter is <code>RestEntry</code> type.</p>
+     * @param <T>   {@link io.github.nichetoolkit.rest.RestStereo} <p>the generic parameter is <code>RestStereo</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
      * @return {@link java.util.List} <p>the key return object is <code>List</code> type.</p>
      * @see java.lang.Class
@@ -149,7 +150,7 @@ public interface RestStereo extends RestValue<String,Long>, StereoEnum {
     /**
      * <code>keyType</code>
      * <p>the type method.</p>
-     * @param <T>   {@link RestStereo} <p>the generic parameter is <code>RestEntry</code> type.</p>
+     * @param <T>   {@link io.github.nichetoolkit.rest.RestStereo} <p>the generic parameter is <code>RestStereo</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
      * @return {@link java.util.List} <p>the type return object is <code>List</code> type.</p>
      * @see java.lang.Class
@@ -162,7 +163,7 @@ public interface RestStereo extends RestValue<String,Long>, StereoEnum {
     /**
      * <code>typeValue</code>
      * <p>the value method.</p>
-     * @param <T>   {@link RestStereo} <p>the generic parameter is <code>RestEntry</code> type.</p>
+     * @param <T>   {@link io.github.nichetoolkit.rest.RestStereo} <p>the generic parameter is <code>RestStereo</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
      * @return {@link java.util.List} <p>the value return object is <code>List</code> type.</p>
      * @see java.lang.Class
@@ -175,7 +176,7 @@ public interface RestStereo extends RestValue<String,Long>, StereoEnum {
     /**
      * <code>valueType</code>
      * <p>the type method.</p>
-     * @param <T>   {@link RestStereo} <p>the generic parameter is <code>RestEntry</code> type.</p>
+     * @param <T>   {@link io.github.nichetoolkit.rest.RestStereo} <p>the generic parameter is <code>RestStereo</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
      * @return {@link java.util.List} <p>the type return object is <code>List</code> type.</p>
      * @see java.lang.Class
@@ -188,7 +189,7 @@ public interface RestStereo extends RestValue<String,Long>, StereoEnum {
     /**
      * <code>packEnum</code>
      * <p>the enum method.</p>
-     * @param <T>   {@link RestStereo} <p>the generic parameter is <code>RestEntry</code> type.</p>
+     * @param <T>   {@link io.github.nichetoolkit.rest.RestStereo} <p>the generic parameter is <code>RestStereo</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
      * @return {@link java.util.List} <p>the enum return object is <code>List</code> type.</p>
      * @see java.lang.Class
@@ -201,7 +202,7 @@ public interface RestStereo extends RestValue<String,Long>, StereoEnum {
     /**
      * <code>parseName</code>
      * <p>the name method.</p>
-     * @param <T>   {@link RestStereo} <p>the generic parameter is <code>RestEntry</code> type.</p>
+     * @param <T>   {@link io.github.nichetoolkit.rest.RestStereo} <p>the generic parameter is <code>RestStereo</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
      * @param name  {@link java.lang.String} <p>the name parameter is <code>String</code> type.</p>
      * @return T <p>the name return object is <code>T</code> type.</p>
@@ -222,7 +223,7 @@ public interface RestStereo extends RestValue<String,Long>, StereoEnum {
     /**
      * <code>parseName</code>
      * <p>the name method.</p>
-     * @param <T>    {@link RestStereo} <p>the generic parameter is <code>RestEntry</code> type.</p>
+     * @param <T>    {@link io.github.nichetoolkit.rest.RestStereo} <p>the generic parameter is <code>RestStereo</code> type.</p>
      * @param values {@link java.util.Collection} <p>the values parameter is <code>Collection</code> type.</p>
      * @param name   {@link java.lang.String} <p>the name parameter is <code>String</code> type.</p>
      * @return T <p>the name return object is <code>T</code> type.</p>
@@ -243,7 +244,7 @@ public interface RestStereo extends RestValue<String,Long>, StereoEnum {
     /**
      * <code>parseType</code>
      * <p>the type method.</p>
-     * @param <T>   {@link RestStereo} <p>the generic parameter is <code>RestEntry</code> type.</p>
+     * @param <T>   {@link io.github.nichetoolkit.rest.RestStereo} <p>the generic parameter is <code>RestStereo</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
      * @param type  {@link java.lang.Integer} <p>the type parameter is <code>Integer</code> type.</p>
      * @return T <p>the type return object is <code>T</code> type.</p>
@@ -262,7 +263,7 @@ public interface RestStereo extends RestValue<String,Long>, StereoEnum {
     /**
      * <code>parseType</code>
      * <p>the type method.</p>
-     * @param <T>    {@link RestStereo} <p>the generic parameter is <code>RestEntry</code> type.</p>
+     * @param <T>    {@link io.github.nichetoolkit.rest.RestStereo} <p>the generic parameter is <code>RestStereo</code> type.</p>
      * @param values {@link java.util.Collection} <p>the values parameter is <code>Collection</code> type.</p>
      * @param type   {@link java.lang.Integer} <p>the type parameter is <code>Integer</code> type.</p>
      * @return T <p>the type return object is <code>T</code> type.</p>

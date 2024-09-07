@@ -4,20 +4,80 @@ import io.github.nichetoolkit.rest.RestException;
 
 import java.util.Iterator;
 
+/**
+ * <code>DefaultBaseStream</code>
+ * <p>The type default base stream interface.</p>
+ * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+ * @param <S> {@link io.github.nichetoolkit.rest.stream.DefaultBaseStream} <p>the generic parameter is <code>DefaultBaseStream</code> type.</p>
+ * @author Cyan (snow22314@outlook.com)
+ * @see java.lang.AutoCloseable
+ * @since Jdk1.8
+ */
 interface DefaultBaseStream<T, S extends DefaultBaseStream<T, S>> extends AutoCloseable {
 
+    /**
+     * <code>iterator</code>
+     * <p>the method.</p>
+     * @return {@link java.util.Iterator} <p>the return object is <code>Iterator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see java.util.Iterator
+     * @see io.github.nichetoolkit.rest.RestException
+     */
     Iterator<T> iterator() throws RestException;
 
+    /**
+     * <code>spliterator</code>
+     * <p>the method.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the return object is <code>DefaultSpliterator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
+     * @see io.github.nichetoolkit.rest.RestException
+     */
     DefaultSpliterator<T> spliterator() throws RestException;
 
+    /**
+     * <code>isParallel</code>
+     * <p>the parallel method.</p>
+     * @return boolean <p>the parallel return object is <code>boolean</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
+     */
     boolean isParallel() throws RestException;
 
+    /**
+     * <code>sequential</code>
+     * <p>the method.</p>
+     * @return S <p>the return object is <code>S</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
+     */
     S sequential() throws RestException;
 
+    /**
+     * <code>parallel</code>
+     * <p>the method.</p>
+     * @return S <p>the return object is <code>S</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
+     */
     S parallel() throws RestException;
 
+    /**
+     * <code>unordered</code>
+     * <p>the method.</p>
+     * @return S <p>the return object is <code>S</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
+     */
     S unordered() throws RestException;
 
+    /**
+     * <code>onClose</code>
+     * <p>the close method.</p>
+     * @param closeHandler {@link java.lang.Runnable} <p>the close handler parameter is <code>Runnable</code> type.</p>
+     * @return S <p>the close return object is <code>S</code> type.</p>
+     * @see java.lang.Runnable
+     */
     S onClose(Runnable closeHandler);
 
     void close();

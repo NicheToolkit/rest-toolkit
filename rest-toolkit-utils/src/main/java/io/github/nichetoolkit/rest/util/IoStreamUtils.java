@@ -16,8 +16,8 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
 /**
- * <code>StreamUtils</code>
- * <p>The type stream utils class.</p>
+ * <code>IoStreamUtils</code>
+ * <p>The type io stream utils class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
  * @since Jdk1.8

@@ -27,6 +27,17 @@ import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * <code>RestTestController</code>
+ * <p>The type rest test controller class.</p>
+ * @author Cyan (snow22314@outlook.com)
+ * @see lombok.extern.slf4j.Slf4j
+ * @see io.github.nichetoolkit.rest.userlog.stereotype.RestNotelog
+ * @see org.springframework.web.bind.annotation.RestController
+ * @see java.lang.SuppressWarnings
+ * @see org.springframework.web.bind.annotation.RequestMapping
+ * @since Jdk1.8
+ */
 @Slf4j
 @RestNotelog
 @RestController
@@ -34,12 +45,38 @@ import java.util.Map;
 @RequestMapping("/v1.1.0/rest")
 public class RestTestController {
 
+    /**
+     * <code>radixWorker</code>
+     * {@link io.github.nichetoolkit.rest.worker.RadixWorker} <p>the <code>radixWorker</code> field.</p>
+     * @see io.github.nichetoolkit.rest.worker.RadixWorker
+     */
     private final RadixWorker radixWorker;
 
+    /**
+     * <code>shaWorker</code>
+     * {@link io.github.nichetoolkit.rest.worker.sha.ShaWorker} <p>the <code>shaWorker</code> field.</p>
+     * @see io.github.nichetoolkit.rest.worker.sha.ShaWorker
+     */
     private final ShaWorker shaWorker;
 
+    /**
+     * <code>jwtWorker</code>
+     * {@link io.github.nichetoolkit.rest.worker.jwt.JwtWorker} <p>the <code>jwtWorker</code> field.</p>
+     * @see io.github.nichetoolkit.rest.worker.jwt.JwtWorker
+     */
     private final JwtWorker jwtWorker;
 
+    /**
+     * <code>RestTestController</code>
+     * Instantiates a new rest test controller.
+     * @param radixWorker {@link io.github.nichetoolkit.rest.worker.RadixWorker} <p>the radix worker parameter is <code>RadixWorker</code> type.</p>
+     * @param shaWorker   {@link io.github.nichetoolkit.rest.worker.sha.ShaWorker} <p>the sha worker parameter is <code>ShaWorker</code> type.</p>
+     * @param jwtWorker   {@link io.github.nichetoolkit.rest.worker.jwt.JwtWorker} <p>the jwt worker parameter is <code>JwtWorker</code> type.</p>
+     * @see io.github.nichetoolkit.rest.worker.RadixWorker
+     * @see io.github.nichetoolkit.rest.worker.sha.ShaWorker
+     * @see io.github.nichetoolkit.rest.worker.jwt.JwtWorker
+     * @see org.springframework.beans.factory.annotation.Autowired
+     */
     @Autowired
     public RestTestController(RadixWorker radixWorker, ShaWorker shaWorker, JwtWorker jwtWorker) {
         this.radixWorker = radixWorker;
@@ -47,6 +84,15 @@ public class RestTestController {
         this.jwtWorker = jwtWorker;
     }
 
+    /**
+     * <code>generalIdentity</code>
+     * <p>the identity method.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>the identity return object is <code>ResponseEntity</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see org.springframework.http.ResponseEntity
+     * @see org.springframework.web.bind.annotation.GetMapping
+     * @see io.github.nichetoolkit.rest.RestException
+     */
     @GetMapping("/identity")
     public ResponseEntity<RestResult<String>> generalIdentity() throws RestException {
 //        Long identity = IdentityUtils.generateLong();
@@ -54,6 +100,15 @@ public class RestTestController {
         return RestResult.ok(RestErrorStatus.SUCCESS, identity);
     }
 
+    /**
+     * <code>generalUuid</code>
+     * <p>the uuid method.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>the uuid return object is <code>ResponseEntity</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see org.springframework.http.ResponseEntity
+     * @see org.springframework.web.bind.annotation.GetMapping
+     * @see io.github.nichetoolkit.rest.RestException
+     */
     @GetMapping("/uuid")
     public ResponseEntity<RestResult<String>> generalUuid() throws RestException {
 //        String uuid = UUID.randomUUID().toString().replaceAll("-", "");
@@ -61,6 +116,15 @@ public class RestTestController {
         return RestResult.ok(RestErrorStatus.SUCCESS, uuid);
     }
 
+    /**
+     * <code>generalImage</code>
+     * <p>the image method.</p>
+     * @param response {@link javax.servlet.http.HttpServletResponse} <p>the response parameter is <code>HttpServletResponse</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see javax.servlet.http.HttpServletResponse
+     * @see org.springframework.web.bind.annotation.GetMapping
+     * @see io.github.nichetoolkit.rest.RestException
+     */
     @GetMapping("/image")
     public void generalImage(HttpServletResponse response) throws RestException {
         ImageVerify imageVerify = ImageUtils.randoms();
@@ -73,6 +137,15 @@ public class RestTestController {
         }
     }
 
+    /**
+     * <code>generalRadix</code>
+     * <p>the radix method.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>the radix return object is <code>ResponseEntity</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see org.springframework.http.ResponseEntity
+     * @see org.springframework.web.bind.annotation.GetMapping
+     * @see io.github.nichetoolkit.rest.RestException
+     */
     @GetMapping("/radix")
     public ResponseEntity<RestResult<Map<String, Object>>> generalRadix() throws RestException {
         Long subject = IdentityUtils.generateLong();
@@ -85,6 +158,15 @@ public class RestTestController {
         return RestResult.ok(RestErrorStatus.SUCCESS, result);
     }
 
+    /**
+     * <code>generalSha</code>
+     * <p>the sha method.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>the sha return object is <code>ResponseEntity</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see org.springframework.http.ResponseEntity
+     * @see org.springframework.web.bind.annotation.GetMapping
+     * @see io.github.nichetoolkit.rest.RestException
+     */
     @GetMapping("/sha")
     public ResponseEntity<RestResult<Map<String, Object>>> generalSha() throws RestException {
         String password = GeneralUtils.uuid();
@@ -96,6 +178,15 @@ public class RestTestController {
         return RestResult.ok(RestErrorStatus.SUCCESS, result);
     }
 
+    /**
+     * <code>generalJwt</code>
+     * <p>the jwt method.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>the jwt return object is <code>ResponseEntity</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see org.springframework.http.ResponseEntity
+     * @see org.springframework.web.bind.annotation.GetMapping
+     * @see io.github.nichetoolkit.rest.RestException
+     */
     @GetMapping("/jwt")
     public ResponseEntity<RestResult<Map<String, Object>>> generalJwt() throws RestException {
         String uniqueId = GeneralUtils.uuid();

@@ -14,6 +14,7 @@ import java.lang.annotation.*;
  * @see java.lang.annotation.Retention
  * @see java.lang.annotation.Documented
  * @see org.springframework.stereotype.Indexed
+ * @see io.github.nichetoolkit.rest.stereotype.StereoValue
  * @since Jdk1.8
  */
 @Target({ElementType.TYPE_USE})
@@ -27,6 +28,7 @@ public @interface StereoEntry {
      * <p>the method.</p>
      * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
      * @see java.lang.String
+     * @see org.springframework.core.annotation.AliasFor
      */
     @AliasFor(
             annotation = StereoValue.class,
@@ -45,6 +47,7 @@ public @interface StereoEntry {
      * <code>value</code>
      * <p>the method.</p>
      * @return long <p>the return object is <code>long</code> type.</p>
+     * @see org.springframework.core.annotation.AliasFor
      */
     @AliasFor(
             annotation = StereoValue.class,

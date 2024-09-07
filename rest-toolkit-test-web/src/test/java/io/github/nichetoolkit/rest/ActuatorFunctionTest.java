@@ -6,10 +6,28 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 
+/**
+ * <code>ActuatorFunctionTest</code>
+ * <p>The type actuator function test class.</p>
+ * @author Cyan (snow22314@outlook.com)
+ * @see lombok.extern.slf4j.Slf4j
+ * @see org.springframework.boot.test.context.SpringBootTest
+ * @since Jdk1.8
+ */
 @Slf4j
 @SpringBootTest
 class ActuatorFunctionTest {
 
+    /**
+     * <code>handle</code>
+     * <p>the method.</p>
+     * @param before {@link io.github.nichetoolkit.rest.actuator.AnchorActuator} <p>the before parameter is <code>AnchorActuator</code> type.</p>
+     * @param after  {@link io.github.nichetoolkit.rest.actuator.AnchorActuator} <p>the after parameter is <code>AnchorActuator</code> type.</p>
+     * @param over   {@link io.github.nichetoolkit.rest.actuator.AnchorActuator} <p>the over parameter is <code>AnchorActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.actuator.AnchorActuator
+     * @see io.github.nichetoolkit.rest.RestException
+     */
     void handle(AnchorActuator before, AnchorActuator after, AnchorActuator over) throws RestException{
         before.actuate();
         log.info("the handle method invoke!");
@@ -17,6 +35,13 @@ class ActuatorFunctionTest {
         over.actuate();
     }
 
+    /**
+     * <code>test</code>
+     * <p>the method.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see org.junit.jupiter.api.Test
+     * @see io.github.nichetoolkit.rest.RestException
+     */
     @Test
     void test() throws RestException {
         handle(

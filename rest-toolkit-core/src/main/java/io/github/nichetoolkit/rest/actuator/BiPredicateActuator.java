@@ -12,6 +12,7 @@ import java.util.function.BiPredicate;
  * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
  * @param <U> {@link java.lang.Object} <p>the parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
+ * @see java.util.function.BiPredicate
  * @see java.lang.FunctionalInterface
  * @since Jdk1.8
  */
@@ -52,7 +53,7 @@ public interface BiPredicateActuator<T, U> extends BiPredicate<T,U> {
     }
 
     /**
-     * <code>negate</code>
+     * <code>negates</code>
      * <p>the method.</p>
      * @return {@link io.github.nichetoolkit.rest.actuator.BiPredicateActuator} <p>the return object is <code>BiPredicateActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>

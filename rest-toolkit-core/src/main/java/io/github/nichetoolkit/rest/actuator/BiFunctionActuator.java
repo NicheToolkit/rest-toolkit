@@ -13,6 +13,7 @@ import java.util.function.BiFunction;
  * @param <U> {@link java.lang.Object} <p>the parameter can be of any type.</p>
  * @param <R> {@link java.lang.Object} <p>the parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
+ * @see java.util.function.BiFunction
  * @see java.lang.FunctionalInterface
  * @since Jdk1.8
  */
