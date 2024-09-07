@@ -29,7 +29,7 @@ import io.github.nichetoolkit.rest.actuator.ConsumerActuator;
 
 import java.util.function.*;
 
-interface DefaultNode<T> {
+public interface DefaultNode<T> {
 
     DefaultSpliterator<T> spliterator() throws RestException;
 

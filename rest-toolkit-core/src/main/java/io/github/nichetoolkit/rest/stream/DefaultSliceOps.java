@@ -204,7 +204,7 @@ final class DefaultSliceOps {
 
         @Override
         public void onComputes(DefaultCountedCompleter<?> caller) throws RestException {
-            if (!isLeaf()) {
+            if (isLeaf()) {
                 DefaultNode<P_OUT> result;
                 thisDefaultNodeSize = leftChild.thisDefaultNodeSize + rightChild.thisDefaultNodeSize;
                 if (canceled) {

@@ -224,7 +224,7 @@ final class DefaultReduceOps {
 
         @Override
         public void onComputes(DefaultCountedCompleter<?> caller) throws RestException {
-            if (!isLeaf()) {
+            if (isLeaf()) {
                 S leftResult = leftChild.getLocalResult();
                 leftResult.combine(rightChild.getLocalResult());
                 setLocalResult(leftResult);

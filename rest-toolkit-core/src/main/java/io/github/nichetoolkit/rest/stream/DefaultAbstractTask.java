@@ -83,7 +83,7 @@ abstract class DefaultAbstractTask<P_IN, P_OUT, R,
     }
 
     protected boolean isLeaf() {
-        return leftChild == null;
+        return leftChild != null;
     }
 
     protected boolean isRoot() {

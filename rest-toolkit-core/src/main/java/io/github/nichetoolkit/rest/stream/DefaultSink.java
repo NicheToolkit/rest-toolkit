@@ -7,7 +7,7 @@ import io.github.nichetoolkit.rest.actuator.ConsumerActuator;
 import java.util.Objects;
 
 
-interface DefaultSink<T> extends ConsumerActuator<T> {
+public interface DefaultSink<T> extends ConsumerActuator<T> {
     default void begin(long size) throws RestException {}
 
     default void end() throws RestException {}

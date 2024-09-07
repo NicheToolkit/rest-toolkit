@@ -5,7 +5,7 @@ import io.github.nichetoolkit.rest.actuator.ConsumerActuator;
 
 import java.util.*;
 
-interface DefaultSpliterator<T> {
+public interface DefaultSpliterator<T> {
 
     boolean tryAdvance(ConsumerActuator<? super T> action) throws RestException;
 

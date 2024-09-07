@@ -964,7 +964,7 @@ final class DefaultNodes {
 
         @Override
         public void onComputes(DefaultCountedCompleter<?> caller) throws RestException {
-            if (!isLeaf())
+            if (isLeaf())
                 setLocalResult(concFactory.actuate(leftChild.getLocalResult(), rightChild.getLocalResult()));
             super.onCompletion(caller);
         }

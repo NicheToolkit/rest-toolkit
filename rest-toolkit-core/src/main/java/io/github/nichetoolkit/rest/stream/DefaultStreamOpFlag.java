@@ -9,13 +9,13 @@ import java.util.Map;
 enum DefaultStreamOpFlag {
 
     DISTINCT(0,
-             set(Type.SPLITERATOR).set(Type.STREAM).setAndClear(Type.OP)),
+             set(Type.SPLITERATOR).set(Type.STREAM).setAndClear()),
 
     SORTED(1,
-           set(Type.SPLITERATOR).set(Type.STREAM).setAndClear(Type.OP)),
+           set(Type.SPLITERATOR).set(Type.STREAM).setAndClear()),
 
     ORDERED(2,
-            set(Type.SPLITERATOR).set(Type.STREAM).setAndClear(Type.OP).clear(Type.TERMINAL_OP)
+            set(Type.SPLITERATOR).set(Type.STREAM).setAndClear().clear(Type.TERMINAL_OP)
                     .clear(Type.UPSTREAM_TERMINAL_OP)),
 
     SIZED(3,
@@ -66,8 +66,8 @@ enum DefaultStreamOpFlag {
             return mask(t, CLEAR_BITS);
         }
 
-        MaskBuilder setAndClear(Type t) {
-            return mask(t, PRESERVE_BITS);
+        MaskBuilder setAndClear() {
+            return mask(Type.OP, PRESERVE_BITS);
         }
 
         Map<Type, Integer> build() {

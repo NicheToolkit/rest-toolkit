@@ -7,7 +7,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.IntFunction;
 
-
 final class DefaultDistinctOps {
 
     private DefaultDistinctOps() {
@@ -29,12 +28,10 @@ final class DefaultDistinctOps {
                                                      DefaultSpliterator<P_IN> spliterator,
                                                      IntFunction<T[]> generator) throws RestException {
                 if (DefaultStreamOpFlag.DISTINCT.isKnown(helper.getStreamAndOpFlags())) {
-                    // No-op
                     return helper.evaluate(spliterator, false, generator);
                 } else if (DefaultStreamOpFlag.ORDERED.isKnown(helper.getStreamAndOpFlags())) {
                     return reduce(helper, spliterator);
                 } else {
-                    // Holder of null state since ConcurrentHashMap does not support null values
                     AtomicBoolean seenNull = new AtomicBoolean(false);
                     ConcurrentHashMap<T, Boolean> map = new ConcurrentHashMap<>();
                     DefaultTerminalOp<T, Void> forEachOp = DefaultForEachOps.makeRef(t -> {
@@ -57,13 +54,10 @@ final class DefaultDistinctOps {
             @Override
             <P_IN> DefaultSpliterator<T> opEvaluateParallelLazy(DefaultPipelineHelper<T> helper, DefaultSpliterator<P_IN> spliterator) throws RestException {
                 if (DefaultStreamOpFlag.DISTINCT.isKnown(helper.getStreamAndOpFlags())) {
-                    // No-op
                     return helper.wrapSpliterator(spliterator);
                 } else if (DefaultStreamOpFlag.ORDERED.isKnown(helper.getStreamAndOpFlags())) {
-                    // Not lazy, barrier required to preserve order
                     return reduce(helper, spliterator).spliterator();
                 } else {
-                    // Lazy
                     return new DefaultStreamSpliterators.DistinctSpliterator<>(helper.wrapSpliterator(spliterator));
                 }
             }

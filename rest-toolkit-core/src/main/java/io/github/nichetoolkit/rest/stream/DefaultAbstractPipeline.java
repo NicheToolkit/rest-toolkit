@@ -80,9 +80,6 @@ abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends DefaultBaseStream<
         this.depth = previousStage.depth + 1;
     }
 
-
-    // Terminal evaluation methods
-
     final <R> R evaluate(DefaultTerminalOp<E_OUT, R> terminalOp) throws RestException {
         assert getOutputShape() == terminalOp.inputShape();
         if (linkedOrConsumed)
