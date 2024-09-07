@@ -149,7 +149,7 @@ abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends DefaultBaseStream<
     }
 
     @Override
-    public void closed() throws RestException {
+    public void close() {
         linkedOrConsumed = true;
         sourceSupplier = null;
         sourceSpliterator = null;
@@ -163,7 +163,7 @@ abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends DefaultBaseStream<
     @NonNull
     @Override
     @SuppressWarnings("unchecked")
-    public S onClose(@NonNull Runnable closeHandler) throws RestException {
+    public S onClose(@NonNull Runnable closeHandler) {
         Objects.requireNonNull(closeHandler);
         Runnable existingHandler = sourceStage.sourceCloseAction;
         sourceStage.sourceCloseAction =
@@ -172,8 +172,6 @@ abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends DefaultBaseStream<
                         : DefaultStreams.composeWithExceptions(existingHandler, closeHandler);
         return (S) this;
     }
-
-    // Primitive specialization use co-variant overrides, hence is not final
 
     @NonNull
     @Override

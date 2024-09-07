@@ -82,6 +82,11 @@ public interface RestStream<T> extends DefaultBaseStream<T, RestStream<T>> {
         return stream(values);
     }
 
+    static <T> RestStream<T> stream(Collection<T> collection) throws RestException {
+        DefaultSpliterator<T> spliterator = DefaultSpliterators.spliterator(collection, 0);
+        return DefaultStreamSupport.stream(spliterator, false);
+    }
+
     static <T> RestStream<T> stream(T[] array) throws RestException {
         return stream(array, 0, array.length);
     }

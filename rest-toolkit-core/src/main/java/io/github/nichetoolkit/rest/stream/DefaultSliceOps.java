@@ -36,7 +36,7 @@ final class DefaultSliceOps {
     }
 
     public static <T> RestStream<T> makeRef(DefaultAbstractPipeline<?, T, ?> upstream,
-                                        long skip, long limit) throws RestException {
+                                            long skip, long limit) throws RestException {
         if (skip < 0)
             throw new IllegalArgumentException("Skip must be non-negative: " + skip);
 

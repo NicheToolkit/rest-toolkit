@@ -1,6 +1,7 @@
 
 package io.github.nichetoolkit.rest.stream;
 
+import io.github.nichetoolkit.rest.RestError;
 import io.github.nichetoolkit.rest.RestException;
 import io.github.nichetoolkit.rest.actuator.ConsumerActuator;
 
@@ -8,10 +9,7 @@ import java.util.*;
 
 public final class DefaultSpliterators {
 
-    // Suppresses default constructor, ensuring non-instantiability.
     private DefaultSpliterators() {}
-
-    // Empty spliterators
 
     @SuppressWarnings("unchecked")
     public static <T> DefaultSpliterator<T> emptySpliterator() {
@@ -21,32 +19,23 @@ public final class DefaultSpliterators {
     private static final DefaultSpliterator<Object> EMPTY_SPLITERATOR =
             new EmptySpliterator.OfRef<>();
 
-
-
     public static <T> DefaultSpliterator<T> spliterator(T[] array, int startInclusive, int endExclusive) {
         return spliterator(array, startInclusive, endExclusive,
                 DefaultSpliterator.ORDERED | DefaultSpliterator.IMMUTABLE);
     }
 
-    // Array-based spliterators
-
-
-    public static <T> DefaultSpliterator<T> spliterator(Object[] array,
-                                                 int additionalCharacteristics) {
-        return new ArraySpliterator<>(Objects.requireNonNull(array),
-                                      additionalCharacteristics);
+    public static <T> DefaultSpliterator<T> spliterator(Object[] array, int additionalCharacteristics) {
+        return new ArraySpliterator<>(Objects.requireNonNull(array), additionalCharacteristics);
     }
 
-    public static <T> DefaultSpliterator<T> spliterator(Object[] array, int fromIndex, int toIndex,
-                                                 int additionalCharacteristics) {
+    public static <T> DefaultSpliterator<T> spliterator(Object[] array, int fromIndex, int toIndex, int additionalCharacteristics) {
         checkFromToBounds(Objects.requireNonNull(array).length, fromIndex, toIndex);
         return new ArraySpliterator<>(array, fromIndex, toIndex, additionalCharacteristics);
     }
 
     private static void checkFromToBounds(int arrayLength, int origin, int fence) {
         if (origin > fence) {
-            throw new ArrayIndexOutOfBoundsException(
-                    "origin(" + origin + ") > fence(" + fence + ")");
+            throw new ArrayIndexOutOfBoundsException("origin(" + origin + ") > fence(" + fence + ")");
         }
         if (origin < 0) {
             throw new ArrayIndexOutOfBoundsException(origin);
@@ -56,12 +45,9 @@ public final class DefaultSpliterators {
         }
     }
 
-
     public static <T> DefaultSpliterator<T> spliterator(Collection<T> collection) {
         return DefaultSpliterators.spliterator(collection, 0);
     }
-
-    // Iterator-based spliterators
 
     public static <T> DefaultSpliterator<T> spliterator(Collection<? extends T> c,
                                                  int characteristics) {
@@ -81,11 +67,10 @@ public final class DefaultSpliterators {
         return new IteratorSpliterator<>(Objects.requireNonNull(iterator), characteristics);
     }
 
-    // Iterators from Spliterators
-
     public static<T> Iterator<T> iterator(DefaultSpliterator<? extends T> spliterator) {
         Objects.requireNonNull(spliterator);
-        class Adapter implements DefaultIterator<T>, ConsumerActuator<T> {
+
+        class Adapter implements Iterator<T>, ConsumerActuator<T> {
             boolean valueReady = false;
             T nextElement;
 
@@ -96,15 +81,20 @@ public final class DefaultSpliterators {
             }
 
             @Override
-            public boolean hasNexts() throws RestException {
-                if (!valueReady)
-                    spliterator.tryAdvance(this);
+            public boolean hasNext() {
+                if (!valueReady) {
+                    try {
+                        spliterator.tryAdvance(this);
+                    } catch (RestException e) {
+                        throw new RestError(e);
+                    }
+                }
                 return valueReady;
             }
 
             @Override
-            public T nexts() throws RestException {
-                if (!valueReady && !hasNexts())
+            public T next() {
+                if (!valueReady && !hasNext())
                     throw new NoSuchElementException();
                 else {
                     valueReady = false;

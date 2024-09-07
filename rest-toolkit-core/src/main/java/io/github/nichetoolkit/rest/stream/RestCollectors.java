@@ -1,33 +1,8 @@
-/*
- * Copyright (c) 2012, 2013, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
- *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
- *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
- *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
- *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
- */
 package io.github.nichetoolkit.rest.stream;
 
 import io.github.nichetoolkit.rest.RestException;
 import io.github.nichetoolkit.rest.actuator.*;
 import org.springframework.lang.NonNull;
-
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -50,10 +25,13 @@ public final class RestCollectors {
             RestCollector.Characteristics.IDENTITY_FINISH));
     static final Set<RestCollector.Characteristics> CH_NOID = Collections.emptySet();
 
-    private RestCollectors() { }
+    private RestCollectors() {
+    }
 
     private static <T> BinaryOperatorActuator<T> throwingMerger() {
-        return (u,v) -> { throw new IllegalStateException(String.format("Duplicate key %s", u)); };
+        return (u, v) -> {
+            throw new IllegalStateException(String.format("Duplicate key %s", u));
+        };
     }
 
     @SuppressWarnings("unchecked")
@@ -71,7 +49,7 @@ public final class RestCollectors {
         CollectorImpl(SupplierActuator<A> supplier,
                       BiConsumerActuator<A, T> accumulator,
                       BinaryOperatorActuator<A> combiner,
-                      FunctionActuator<A,R> finisher,
+                      FunctionActuator<A, R> finisher,
                       Set<Characteristics> characteristics) {
             this.supplier = supplier;
             this.accumulator = accumulator;
@@ -116,22 +94,31 @@ public final class RestCollectors {
     public static <T, C extends Collection<T>>
     RestCollector<T, ?, C> toCollection(SupplierActuator<C> collectionFactory) {
         return new CollectorImpl<>(collectionFactory, Collection::add,
-                                   (r1, r2) -> { r1.addAll(r2); return r1; },
-                                   CH_ID);
+                (r1, r2) -> {
+                    r1.addAll(r2);
+                    return r1;
+                },
+                CH_ID);
     }
 
     public static <T>
     RestCollector<T, ?, List<T>> toList() {
         return new CollectorImpl<>((SupplierActuator<List<T>>) ArrayList::new, List::add,
-                                   (left, right) -> { left.addAll(right); return left; },
-                                   CH_ID);
+                (left, right) -> {
+                    left.addAll(right);
+                    return left;
+                },
+                CH_ID);
     }
 
     public static <T>
     RestCollector<T, ?, Set<T>> toSet() {
         return new CollectorImpl<>((SupplierActuator<Set<T>>) HashSet::new, Set::add,
-                                   (left, right) -> { left.addAll(right); return left; },
-                                   CH_UNORDERED_ID);
+                (left, right) -> {
+                    left.addAll(right);
+                    return left;
+                },
+                CH_UNORDERED_ID);
     }
 
     public static RestCollector<CharSequence, ?, String> joining() {
@@ -149,31 +136,31 @@ public final class RestCollectors {
     }
 
     public static RestCollector<CharSequence, ?, String> joining(CharSequence delimiter,
-                                                             CharSequence prefix,
-                                                             CharSequence suffix) {
+                                                                 CharSequence prefix,
+                                                                 CharSequence suffix) {
         return new CollectorImpl<>(
                 () -> new StringJoiner(delimiter, prefix, suffix),
                 StringJoiner::add, StringJoiner::merge,
                 StringJoiner::toString, CH_NOID);
     }
 
-    private static <K, V, M extends Map<K,V>>
+    private static <K, V, M extends Map<K, V>>
     BinaryOperatorActuator<M> mapMerger(BinaryOperatorActuator<V> mergeFunction) {
         return (m1, m2) -> {
-            for (Map.Entry<K,V> e : m2.entrySet())
-                merge(m1,e.getKey(), e.getValue(), mergeFunction);
+            for (Map.Entry<K, V> e : m2.entrySet())
+                merge(m1, e.getKey(), e.getValue(), mergeFunction);
             return m1;
         };
     }
 
-    public static <V,K> V merge(Map<K,V> map,K key, V value, BiFunctionActuator<? super V, ? super V, ? extends V> remappingFunction) throws RestException {
+    public static <V, K> V merge(Map<K, V> map, K key, V value, BiFunctionActuator<? super V, ? super V, ? extends V> remappingFunction) throws RestException {
         /* copy from jdk Map<K,V>  */
         Objects.requireNonNull(remappingFunction);
         Objects.requireNonNull(value);
         V oldValue = map.get(key);
         V newValue = (oldValue == null) ? value :
                 remappingFunction.actuate(oldValue, value);
-        if(newValue == null) {
+        if (newValue == null) {
             map.remove(key);
         } else {
             map.put(key, newValue);
@@ -183,16 +170,16 @@ public final class RestCollectors {
 
     public static <T, U, A, R>
     RestCollector<T, ?, R> mapping(FunctionActuator<? super T, ? extends U> mapper,
-                                   RestCollector<? super U, A, R> downstream) {
+                                   RestCollector<? super U, A, R> downstream) throws RestException {
         BiConsumerActuator<A, ? super U> downstreamAccumulator = downstream.accumulator();
         return new CollectorImpl<>(downstream.supplier(),
-                                   (r, t) -> downstreamAccumulator.actuate(r, mapper.actuate(t)),
-                                   downstream.combiner(), downstream.finisher(),
-                                   downstream.characteristics());
+                (r, t) -> downstreamAccumulator.actuate(r, mapper.actuate(t)),
+                downstream.combiner(), downstream.finisher(),
+                downstream.characteristics());
     }
 
-    public static<T,A,R,RR> RestCollector<T,A,RR> collectingAndThen(RestCollector<T,A,R> downstream,
-                                                                FunctionActuator<R,RR> finisher) throws RestException {
+    public static <T, A, R, RR> RestCollector<T, A, RR> collectingAndThen(RestCollector<T, A, R> downstream,
+                                                                          FunctionActuator<R, RR> finisher) throws RestException {
         Set<RestCollector.Characteristics> characteristics = downstream.characteristics();
         if (characteristics.contains(RestCollector.Characteristics.IDENTITY_FINISH)) {
             if (characteristics.size() == 1)
@@ -204,10 +191,10 @@ public final class RestCollectors {
             }
         }
         return new CollectorImpl<>(downstream.supplier(),
-                                   downstream.accumulator(),
-                                   downstream.combiner(),
-                                   downstream.finisher().andThen(finisher),
-                                   characteristics);
+                downstream.accumulator(),
+                downstream.combiner(),
+                downstream.finisher().andThen(finisher),
+                characteristics);
     }
 
     public static <T> RestCollector<T, ?, Long>
@@ -249,14 +236,17 @@ public final class RestCollectors {
         return new CollectorImpl<>(
                 boxSupplier(identity),
                 (a, t) -> a[0] = op.actuate(a[0], t),
-                (a, b) -> { a[0] = op.actuate(a[0], b[0]); return a; },
+                (a, b) -> {
+                    a[0] = op.actuate(a[0], b[0]);
+                    return a;
+                },
                 a -> a[0],
                 CH_NOID);
     }
 
     @SuppressWarnings("unchecked")
     private static <T> SupplierActuator<T[]> boxSupplier(T identity) {
-        return () -> (T[]) new Object[] { identity };
+        return () -> (T[]) new Object[]{identity};
     }
 
     public static <T> RestCollector<T, ?, Optional<T>>
@@ -269,8 +259,7 @@ public final class RestCollectors {
             public void actuate(T t) throws RestException {
                 if (present) {
                     value = op.actuate(value, t);
-                }
-                else {
+                } else {
                     value = t;
                     present = true;
                 }
@@ -288,12 +277,15 @@ public final class RestCollectors {
 
     public static <T, U>
     RestCollector<T, ?, U> reducing(U identity,
-                                FunctionActuator<? super T, ? extends U> mapper,
-                                BinaryOperatorActuator<U> op) throws RestException {
+                                    FunctionActuator<? super T, ? extends U> mapper,
+                                    BinaryOperatorActuator<U> op) throws RestException {
         return new CollectorImpl<>(
                 boxSupplier(identity),
                 (a, t) -> a[0] = op.actuate(a[0], mapper.actuate(t)),
-                (a, b) -> { a[0] = op.actuate(a[0], b[0]); return a; },
+                (a, b) -> {
+                    a[0] = op.actuate(a[0], b[0]);
+                    return a;
+                },
                 a -> a[0], CH_NOID);
     }
 
@@ -310,13 +302,13 @@ public final class RestCollectors {
 
     public static <T, K, D, A, M extends Map<K, D>>
     RestCollector<T, ?, M> groupingBy(FunctionActuator<? super T, ? extends K> classifier,
-                                  SupplierActuator<M> mapFactory,
+                                      SupplierActuator<M> mapFactory,
                                       RestCollector<? super T, A, D> downstream) throws RestException {
         SupplierActuator<A> downstreamSupplier = downstream.supplier();
         BiConsumerActuator<A, ? super T> downstreamAccumulator = downstream.accumulator();
         BiConsumerActuator<Map<K, A>, T> accumulator = (m, t) -> {
             K key = Objects.requireNonNull(classifier.actuate(t), "element cannot be mapped to a null key");
-            A container = computeIfAbsent(m,key, k -> downstreamSupplier.actuate());
+            A container = computeIfAbsent(m, key, k -> downstreamSupplier.actuate());
             downstreamAccumulator.actuate(container, t);
         };
         BinaryOperatorActuator<Map<K, A>> merger = RestCollectors.mapMerger(downstream.combiner());
@@ -325,12 +317,11 @@ public final class RestCollectors {
 
         if (downstream.characteristics().contains(RestCollector.Characteristics.IDENTITY_FINISH)) {
             return new CollectorImpl<>(mangledFactory, accumulator, merger, CH_ID);
-        }
-        else {
+        } else {
             @SuppressWarnings("unchecked")
             FunctionActuator<A, A> downstreamFinisher = (FunctionActuator<A, A>) downstream.finisher();
             FunctionActuator<Map<K, A>, M> finisher = intermediate -> {
-                replaceAll(intermediate,(k, v) -> downstreamFinisher.actuate(v));
+                replaceAll(intermediate, (k, v) -> downstreamFinisher.actuate(v));
                 @SuppressWarnings("unchecked")
                 M castResult = (M) intermediate;
                 return castResult;
@@ -339,7 +330,7 @@ public final class RestCollectors {
         }
     }
 
-    public static <K,V> void replaceAll(Map<K,V> map,BiFunctionActuator<? super K, ? super V, ? extends V> function) throws RestException {
+    public static <K, V> void replaceAll(Map<K, V> map, BiFunctionActuator<? super K, ? super V, ? extends V> function) throws RestException {
         /* copy from jdk Map<K,V>  */
         Objects.requireNonNull(function);
         for (Map.Entry<K, V> entry : map.entrySet()) {
@@ -348,7 +339,7 @@ public final class RestCollectors {
             try {
                 k = entry.getKey();
                 v = entry.getValue();
-            } catch(IllegalStateException ise) {
+            } catch (IllegalStateException ise) {
                 // this usually means the entry is no longer in the map.
                 throw new ConcurrentModificationException(ise);
             }
@@ -358,7 +349,7 @@ public final class RestCollectors {
 
             try {
                 entry.setValue(v);
-            } catch(IllegalStateException ise) {
+            } catch (IllegalStateException ise) {
                 // this usually means the entry is no longer in the map.
                 throw new ConcurrentModificationException(ise);
             }
@@ -366,8 +357,8 @@ public final class RestCollectors {
     }
 
 
-    public static <K,V> V computeIfAbsent(Map<K,V> map,K key,
-                              FunctionActuator<? super K, ? extends V> mappingFunction) throws RestException {
+    public static <K, V> V computeIfAbsent(Map<K, V> map, K key,
+                                           FunctionActuator<? super K, ? extends V> mappingFunction) throws RestException {
         /* copy from jdk Map<K,V>  */
         Objects.requireNonNull(mappingFunction);
         V v;
@@ -396,8 +387,8 @@ public final class RestCollectors {
 
     public static <T, K, A, D, M extends ConcurrentMap<K, D>>
     RestCollector<T, ?, M> groupingByConcurrent(FunctionActuator<? super T, ? extends K> classifier,
-                                            SupplierActuator<M> mapFactory,
-                                                RestCollector<? super T, A, D> downstream) throws RestException  {
+                                                SupplierActuator<M> mapFactory,
+                                                RestCollector<? super T, A, D> downstream) throws RestException {
         SupplierActuator<A> downstreamSupplier = downstream.supplier();
         BiConsumerActuator<A, ? super T> downstreamAccumulator = downstream.accumulator();
         BinaryOperatorActuator<ConcurrentMap<K, A>> merger = RestCollectors.mapMerger(downstream.combiner());
@@ -407,14 +398,13 @@ public final class RestCollectors {
         if (downstream.characteristics().contains(RestCollector.Characteristics.CONCURRENT)) {
             accumulator = (m, t) -> {
                 K key = Objects.requireNonNull(classifier.actuate(t), "element cannot be mapped to a null key");
-                A resultContainer = computeIfAbsent(m,key, k -> downstreamSupplier.actuate());
+                A resultContainer = computeIfAbsent(m, key, k -> downstreamSupplier.actuate());
                 downstreamAccumulator.actuate(resultContainer, t);
             };
-        }
-        else {
+        } else {
             accumulator = (m, t) -> {
                 K key = Objects.requireNonNull(classifier.actuate(t), "element cannot be mapped to a null key");
-                A resultContainer = computeIfAbsent(m,key, k -> downstreamSupplier.actuate());
+                A resultContainer = computeIfAbsent(m, key, k -> downstreamSupplier.actuate());
                 synchronized (resultContainer) {
                     downstreamAccumulator.actuate(resultContainer, t);
                 }
@@ -423,12 +413,11 @@ public final class RestCollectors {
 
         if (downstream.characteristics().contains(RestCollector.Characteristics.IDENTITY_FINISH)) {
             return new CollectorImpl<>(mangledFactory, accumulator, merger, CH_CONCURRENT_ID);
-        }
-        else {
+        } else {
             @SuppressWarnings("unchecked")
             FunctionActuator<A, A> downstreamFinisher = (FunctionActuator<A, A>) downstream.finisher();
             FunctionActuator<ConcurrentMap<K, A>, M> finisher = intermediate -> {
-                replaceAll(intermediate,(k, v) -> downstreamFinisher.actuate(v));
+                replaceAll(intermediate, (k, v) -> downstreamFinisher.actuate(v));
                 @SuppressWarnings("unchecked")
                 M castResult = (M) intermediate;
                 return castResult;
@@ -444,60 +433,59 @@ public final class RestCollectors {
 
     public static <T, D, A>
     RestCollector<T, ?, Map<Boolean, D>> partitioningBy(PredicateActuator<? super T> predicate,
-                                                        RestCollector<? super T, A, D> downstream) throws RestException  {
+                                                        RestCollector<? super T, A, D> downstream) throws RestException {
         BiConsumerActuator<A, ? super T> downstreamAccumulator = downstream.accumulator();
         BiConsumerActuator<Partition<A>, T> accumulator = (result, t) ->
                 downstreamAccumulator.actuate(predicate.actuate(t) ? result.forTrue : result.forFalse, t);
         BinaryOperatorActuator<A> op = downstream.combiner();
         BinaryOperatorActuator<Partition<A>> merger = (left, right) ->
                 new Partition<>(op.actuate(left.forTrue, right.forTrue),
-                                op.actuate(left.forFalse, right.forFalse));
+                        op.actuate(left.forFalse, right.forFalse));
         SupplierActuator<Partition<A>> supplier = () ->
                 new Partition<>(downstream.supplier().actuate(),
-                                downstream.supplier().actuate());
+                        downstream.supplier().actuate());
         if (downstream.characteristics().contains(RestCollector.Characteristics.IDENTITY_FINISH)) {
             return new CollectorImpl<>(supplier, accumulator, merger, CH_ID);
-        }
-        else {
+        } else {
             FunctionActuator<Partition<A>, Map<Boolean, D>> finisher = par ->
                     new Partition<>(downstream.finisher().actuate(par.forTrue),
-                                    downstream.finisher().actuate(par.forFalse));
+                            downstream.finisher().actuate(par.forFalse));
             return new CollectorImpl<>(supplier, accumulator, merger, finisher, CH_NOID);
         }
     }
 
     public static <T, K, U>
-    RestCollector<T, ?, Map<K,U>> toMap(FunctionActuator<? super T, ? extends K> keyMapper,
-                                    FunctionActuator<? super T, ? extends U> valueMapper) throws RestException {
+    RestCollector<T, ?, Map<K, U>> toMap(FunctionActuator<? super T, ? extends K> keyMapper,
+                                         FunctionActuator<? super T, ? extends U> valueMapper) throws RestException {
         return toMap(keyMapper, valueMapper, throwingMerger(), HashMap::new);
     }
 
     public static <T, K, U>
-    RestCollector<T, ?, Map<K,U>> toMap(FunctionActuator<? super T, ? extends K> keyMapper,
-                                    FunctionActuator<? super T, ? extends U> valueMapper,
-                                    BinaryOperatorActuator<U> mergeFunction) throws RestException  {
+    RestCollector<T, ?, Map<K, U>> toMap(FunctionActuator<? super T, ? extends K> keyMapper,
+                                         FunctionActuator<? super T, ? extends U> valueMapper,
+                                         BinaryOperatorActuator<U> mergeFunction) throws RestException {
         return toMap(keyMapper, valueMapper, mergeFunction, HashMap::new);
     }
 
     public static <T, K, U, M extends Map<K, U>>
     RestCollector<T, ?, M> toMap(FunctionActuator<? super T, ? extends K> keyMapper,
-                                FunctionActuator<? super T, ? extends U> valueMapper,
-                                BinaryOperatorActuator<U> mergeFunction,
-                                SupplierActuator<M> mapSupplier) throws RestException {
+                                 FunctionActuator<? super T, ? extends U> valueMapper,
+                                 BinaryOperatorActuator<U> mergeFunction,
+                                 SupplierActuator<M> mapSupplier) throws RestException {
         BiConsumerActuator<M, T> accumulator
-                = (map, element) -> merge(map,keyMapper.actuate(element),
-                                              valueMapper.actuate(element), mergeFunction);
+                = (map, element) -> merge(map, keyMapper.actuate(element),
+                valueMapper.actuate(element), mergeFunction);
         return new CollectorImpl<>(mapSupplier, accumulator, mapMerger(mergeFunction), CH_ID);
     }
 
     public static <T, K, U>
-    RestCollector<T, ?, ConcurrentMap<K,U>> toConcurrentMap(FunctionActuator<? super T, ? extends K> keyMapper,
-                                                        FunctionActuator<? super T, ? extends U> valueMapper) throws RestException {
+    RestCollector<T, ?, ConcurrentMap<K, U>> toConcurrentMap(FunctionActuator<? super T, ? extends K> keyMapper,
+                                                             FunctionActuator<? super T, ? extends U> valueMapper) throws RestException {
         return toConcurrentMap(keyMapper, valueMapper, throwingMerger(), ConcurrentHashMap::new);
     }
 
     public static <T, K, U>
-    RestCollector<T, ?, ConcurrentMap<K,U>>
+    RestCollector<T, ?, ConcurrentMap<K, U>>
     toConcurrentMap(FunctionActuator<? super T, ? extends K> keyMapper,
                     FunctionActuator<? super T, ? extends U> valueMapper,
                     BinaryOperatorActuator<U> mergeFunction) throws RestException {
@@ -506,12 +494,12 @@ public final class RestCollectors {
 
     public static <T, K, U, M extends ConcurrentMap<K, U>>
     RestCollector<T, ?, M> toConcurrentMap(FunctionActuator<? super T, ? extends K> keyMapper,
-                                       FunctionActuator<? super T, ? extends U> valueMapper,
-                                       BinaryOperatorActuator<U> mergeFunction,
-                                       SupplierActuator<M> mapSupplier) throws RestException {
+                                           FunctionActuator<? super T, ? extends U> valueMapper,
+                                           BinaryOperatorActuator<U> mergeFunction,
+                                           SupplierActuator<M> mapSupplier) throws RestException {
         BiConsumerActuator<M, T> accumulator
-                = (map, element) -> merge(map,keyMapper.actuate(element),
-                                              valueMapper.actuate(element), mergeFunction);
+                = (map, element) -> merge(map, keyMapper.actuate(element),
+                valueMapper.actuate(element), mergeFunction);
         return new CollectorImpl<>(mapSupplier, accumulator, mapMerger(mergeFunction), CH_CONCURRENT_ID);
     }
 

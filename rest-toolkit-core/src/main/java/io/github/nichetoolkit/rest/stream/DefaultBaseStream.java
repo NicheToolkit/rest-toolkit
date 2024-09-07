@@ -25,17 +25,8 @@ interface DefaultBaseStream<T, S extends DefaultBaseStream<T, S>> extends AutoCl
     S unordered() throws RestException;
 
 
-    S onClose(Runnable closeHandler) throws RestException;
+    S onClose(Runnable closeHandler);
 
+    void close();
 
-    void closed() throws RestException;
-
-    @Override
-    default void close() {
-        try {
-            closed();
-        } catch (RestException e) {
-            throw new RestError(e);
-        }
-    }
 }

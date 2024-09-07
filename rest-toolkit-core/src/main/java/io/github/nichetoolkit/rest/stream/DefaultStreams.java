@@ -6,7 +6,7 @@ import io.github.nichetoolkit.rest.actuator.ConsumerActuator;
 import java.util.Comparator;
 import java.util.Objects;
 
-final class DefaultStreams {
+public final class DefaultStreams {
     /* copy form jdk Streams  */
     private DefaultStreams() {
         throw new Error("no instances");
