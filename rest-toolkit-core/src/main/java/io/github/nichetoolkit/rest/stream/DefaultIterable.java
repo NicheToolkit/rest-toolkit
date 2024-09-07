@@ -7,7 +7,7 @@ import io.github.nichetoolkit.rest.actuator.ConsumerActuator;
 import java.util.Iterator;
 import java.util.Objects;
 
-public interface DefaultIterable<T> {
+interface DefaultIterable<T> {
 
     Iterator<T> iterator() throws RestException;
 
