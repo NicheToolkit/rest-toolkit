@@ -1,8 +1,10 @@
 package io.github.nichetoolkit.rest.actuator;
 
+import io.github.nichetoolkit.rest.RestError;
 import io.github.nichetoolkit.rest.RestException;
 
 import java.io.Serializable;
+import java.util.Comparator;
 import java.util.Objects;
 
 /**
@@ -14,7 +16,7 @@ import java.util.Objects;
  * @since Jdk1.8
  */
 @FunctionalInterface
-public interface ComparatorActuator<T>{
+public interface ComparatorActuator<T> extends Comparator<T> {
 
     /**
      * <code>compare</code>
@@ -25,10 +27,20 @@ public interface ComparatorActuator<T>{
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
-    int compare(T o1, T o2) throws RestException;
+    int actuate(T o1, T o2) throws RestException;
+
+    @Override
+    default int compare(T o1, T o2) {
+        try {
+            return actuate(o1,o2);
+        } catch (RestException e) {
+            throw new RestError(e);
+        }
+    }
 
     @Override
     boolean equals(Object obj);
+
 
     /**
      * <code>thenComparing</code>

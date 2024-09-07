@@ -1,16 +1,19 @@
 package io.github.nichetoolkit.rest.stream;
 
+import io.github.nichetoolkit.rest.RestException;
+import io.github.nichetoolkit.rest.actuator.BiConsumerActuator;
+import io.github.nichetoolkit.rest.actuator.BiFunctionActuator;
+import io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator;
+import io.github.nichetoolkit.rest.actuator.SupplierActuator;
+
 import java.util.*;
-import java.util.concurrent.CountedCompleter;
-import java.util.function.*;
-import java.util.stream.*;
 
 final class DefaultReduceOps {
 
     private DefaultReduceOps() { }
 
     public static <T, U> DefaultTerminalOp<T, U>
-    makeRef(U seed, BiFunction<U, ? super T, U> reducer, BinaryOperator<U> combiner) {
+    makeRef(U seed, BiFunctionActuator<U, ? super T, U> reducer, BinaryOperatorActuator<U> combiner) {
         Objects.requireNonNull(reducer);
         Objects.requireNonNull(combiner);
         class ReducingSink extends Box<U> implements AccumulatingSink<T, U, ReducingSink> {
@@ -20,13 +23,13 @@ final class DefaultReduceOps {
             }
 
             @Override
-            public void accept(T t) {
-                state = reducer.apply(state, t);
+            public void actuate(T t) throws RestException {
+                state = reducer.actuate(state, t);
             }
 
             @Override
-            public void combine(ReducingSink other) {
-                state = combiner.apply(state, other.state);
+            public void combine(ReducingSink other) throws RestException {
+                state = combiner.actuate(state, other.state);
             }
         }
         return new ReduceOp<T, U, ReducingSink>(DefaultStreamShape.REFERENCE) {
@@ -38,7 +41,7 @@ final class DefaultReduceOps {
     }
 
     public static <T> DefaultTerminalOp<T, Optional<T>>
-    makeRef(BinaryOperator<T> operator) {
+    makeRef(BinaryOperatorActuator<T> operator) {
         Objects.requireNonNull(operator);
         class ReducingSink
                 implements AccumulatingSink<T, Optional<T>, ReducingSink> {
@@ -51,24 +54,24 @@ final class DefaultReduceOps {
             }
 
             @Override
-            public void accept(T t) {
+            public void actuate(T t) throws RestException {
                 if (empty) {
                     empty = false;
                     state = t;
                 } else {
-                    state = operator.apply(state, t);
+                    state = operator.actuate(state, t);
                 }
             }
 
             @Override
-            public Optional<T> get() {
+            public Optional<T> actuate() {
                 return empty ? Optional.empty() : Optional.of(state);
             }
 
             @Override
-            public void combine(ReducingSink other) {
+            public void combine(ReducingSink other) throws RestException {
                 if (!other.empty)
-                    accept(other.state);
+                    actuate(other.state);
             }
         }
         return new ReduceOp<T, Optional<T>, ReducingSink>(DefaultStreamShape.REFERENCE) {
@@ -80,25 +83,25 @@ final class DefaultReduceOps {
     }
 
     public static <T, I> DefaultTerminalOp<T, I>
-    makeRef(Collector<? super T, I, ?> collector) {
-        Supplier<I> supplier = Objects.requireNonNull(collector).supplier();
-        BiConsumer<I, ? super T> accumulator = collector.accumulator();
-        BinaryOperator<I> combiner = collector.combiner();
+    makeRef(RestCollector<? super T, I, ?> collector) {
+        SupplierActuator<I> supplier = Objects.requireNonNull(collector).supplier();
+        BiConsumerActuator<I, ? super T> accumulator = collector.accumulator();
+        BinaryOperatorActuator<I> combiner = collector.combiner();
         class ReducingSink extends Box<I>
                 implements AccumulatingSink<T, I, ReducingSink> {
             @Override
-            public void begin(long size) {
-                state = supplier.get();
+            public void begin(long size) throws RestException {
+                state = supplier.actuate();
             }
 
             @Override
-            public void accept(T t) {
-                accumulator.accept(state, t);
+            public void actuate(T t) throws RestException {
+                accumulator.actuate(state, t);
             }
 
             @Override
-            public void combine(ReducingSink other) {
-                state = combiner.apply(state, other.state);
+            public void combine(ReducingSink other) throws RestException {
+                state = combiner.actuate(state, other.state);
             }
         }
         return new ReduceOp<T, I, ReducingSink>(DefaultStreamShape.REFERENCE) {
@@ -109,7 +112,7 @@ final class DefaultReduceOps {
 
             @Override
             public int getOpFlags() {
-                return collector.characteristics().contains(Collector.Characteristics.UNORDERED)
+                return collector.characteristics().contains(RestCollector.Characteristics.UNORDERED)
                        ? DefaultStreamOpFlag.NOT_ORDERED
                        : 0;
             }
@@ -117,27 +120,27 @@ final class DefaultReduceOps {
     }
 
     public static <T, R> DefaultTerminalOp<T, R>
-    makeRef(Supplier<R> seedFactory,
-            BiConsumer<R, ? super T> accumulator,
-            BiConsumer<R,R> reducer) {
+    makeRef(SupplierActuator<R> seedFactory,
+            BiConsumerActuator<R, ? super T> accumulator,
+            BiConsumerActuator<R,R> reducer) {
         Objects.requireNonNull(seedFactory);
         Objects.requireNonNull(accumulator);
         Objects.requireNonNull(reducer);
         class ReducingSink extends Box<R>
                 implements AccumulatingSink<T, R, ReducingSink> {
             @Override
-            public void begin(long size) {
-                state = seedFactory.get();
+            public void begin(long size) throws RestException {
+                state = seedFactory.actuate();
             }
 
             @Override
-            public void accept(T t) {
-                accumulator.accept(state, t);
+            public void actuate(T t) throws RestException {
+                accumulator.actuate(state, t);
             }
 
             @Override
-            public void combine(ReducingSink other) {
-                reducer.accept(state, other.state);
+            public void combine(ReducingSink other) throws RestException {
+                reducer.actuate(state, other.state);
             }
         }
         return new ReduceOp<T, R, ReducingSink>(DefaultStreamShape.REFERENCE) {
@@ -148,339 +151,9 @@ final class DefaultReduceOps {
         };
     }
 
-    public static DefaultTerminalOp<Integer, Integer>
-    makeInt(int identity, IntBinaryOperator operator) {
-        Objects.requireNonNull(operator);
-        class ReducingSink
-                implements AccumulatingSink<Integer, Integer, ReducingSink>, DefaultSink.OfInt {
-            private int state;
-
-            @Override
-            public void begin(long size) {
-                state = identity;
-            }
-
-            @Override
-            public void accept(int t) {
-                state = operator.applyAsInt(state, t);
-            }
-
-            @Override
-            public Integer get() {
-                return state;
-            }
-
-            @Override
-            public void combine(ReducingSink other) {
-                accept(other.state);
-            }
-        }
-        return new ReduceOp<Integer, Integer, ReducingSink>(DefaultStreamShape.INT_VALUE) {
-            @Override
-            public ReducingSink makeSink() {
-                return new ReducingSink();
-            }
-        };
-    }
-
-    public static DefaultTerminalOp<Integer, OptionalInt>
-    makeInt(IntBinaryOperator operator) {
-        Objects.requireNonNull(operator);
-        class ReducingSink
-                implements AccumulatingSink<Integer, OptionalInt, ReducingSink>, DefaultSink.OfInt {
-            private boolean empty;
-            private int state;
-
-            public void begin(long size) {
-                empty = true;
-                state = 0;
-            }
-
-            @Override
-            public void accept(int t) {
-                if (empty) {
-                    empty = false;
-                    state = t;
-                }
-                else {
-                    state = operator.applyAsInt(state, t);
-                }
-            }
-
-            @Override
-            public OptionalInt get() {
-                return empty ? OptionalInt.empty() : OptionalInt.of(state);
-            }
-
-            @Override
-            public void combine(ReducingSink other) {
-                if (!other.empty)
-                    accept(other.state);
-            }
-        }
-        return new ReduceOp<Integer, OptionalInt, ReducingSink>(DefaultStreamShape.INT_VALUE) {
-            @Override
-            public ReducingSink makeSink() {
-                return new ReducingSink();
-            }
-        };
-    }
-
-    public static <R> DefaultTerminalOp<Integer, R>
-    makeInt(Supplier<R> supplier,
-            ObjIntConsumer<R> accumulator,
-            BinaryOperator<R> combiner) {
-        Objects.requireNonNull(supplier);
-        Objects.requireNonNull(accumulator);
-        Objects.requireNonNull(combiner);
-        class ReducingSink extends Box<R>
-                implements AccumulatingSink<Integer, R, ReducingSink>, DefaultSink.OfInt {
-            @Override
-            public void begin(long size) {
-                state = supplier.get();
-            }
-
-            @Override
-            public void accept(int t) {
-                accumulator.accept(state, t);
-            }
-
-            @Override
-            public void combine(ReducingSink other) {
-                state = combiner.apply(state, other.state);
-            }
-        }
-        return new ReduceOp<Integer, R, ReducingSink>(DefaultStreamShape.INT_VALUE) {
-            @Override
-            public ReducingSink makeSink() {
-                return new ReducingSink();
-            }
-        };
-    }
-
-    public static DefaultTerminalOp<Long, Long>
-    makeLong(long identity, LongBinaryOperator operator) {
-        Objects.requireNonNull(operator);
-        class ReducingSink
-                implements AccumulatingSink<Long, Long, ReducingSink>, DefaultSink.OfLong {
-            private long state;
-
-            @Override
-            public void begin(long size) {
-                state = identity;
-            }
-
-            @Override
-            public void accept(long t) {
-                state = operator.applyAsLong(state, t);
-            }
-
-            @Override
-            public Long get() {
-                return state;
-            }
-
-            @Override
-            public void combine(ReducingSink other) {
-                accept(other.state);
-            }
-        }
-        return new ReduceOp<Long, Long, ReducingSink>(DefaultStreamShape.LONG_VALUE) {
-            @Override
-            public ReducingSink makeSink() {
-                return new ReducingSink();
-            }
-        };
-    }
-
-    public static DefaultTerminalOp<Long, OptionalLong>
-    makeLong(LongBinaryOperator operator) {
-        Objects.requireNonNull(operator);
-        class ReducingSink
-                implements AccumulatingSink<Long, OptionalLong, ReducingSink>, DefaultSink.OfLong {
-            private boolean empty;
-            private long state;
-
-            public void begin(long size) {
-                empty = true;
-                state = 0;
-            }
-
-            @Override
-            public void accept(long t) {
-                if (empty) {
-                    empty = false;
-                    state = t;
-                }
-                else {
-                    state = operator.applyAsLong(state, t);
-                }
-            }
-
-            @Override
-            public OptionalLong get() {
-                return empty ? OptionalLong.empty() : OptionalLong.of(state);
-            }
-
-            @Override
-            public void combine(ReducingSink other) {
-                if (!other.empty)
-                    accept(other.state);
-            }
-        }
-        return new ReduceOp<Long, OptionalLong, ReducingSink>(DefaultStreamShape.LONG_VALUE) {
-            @Override
-            public ReducingSink makeSink() {
-                return new ReducingSink();
-            }
-        };
-    }
-
-    public static <R> DefaultTerminalOp<Long, R>
-    makeLong(Supplier<R> supplier,
-             ObjLongConsumer<R> accumulator,
-             BinaryOperator<R> combiner) {
-        Objects.requireNonNull(supplier);
-        Objects.requireNonNull(accumulator);
-        Objects.requireNonNull(combiner);
-        class ReducingSink extends Box<R>
-                implements AccumulatingSink<Long, R, ReducingSink>, DefaultSink.OfLong {
-            @Override
-            public void begin(long size) {
-                state = supplier.get();
-            }
-
-            @Override
-            public void accept(long t) {
-                accumulator.accept(state, t);
-            }
-
-            @Override
-            public void combine(ReducingSink other) {
-                state = combiner.apply(state, other.state);
-            }
-        }
-        return new ReduceOp<Long, R, ReducingSink>(DefaultStreamShape.LONG_VALUE) {
-            @Override
-            public ReducingSink makeSink() {
-                return new ReducingSink();
-            }
-        };
-    }
-
-    public static DefaultTerminalOp<Double, Double>
-    makeDouble(double identity, DoubleBinaryOperator operator) {
-        Objects.requireNonNull(operator);
-        class ReducingSink
-                implements AccumulatingSink<Double, Double, ReducingSink>, DefaultSink.OfDouble {
-            private double state;
-
-            @Override
-            public void begin(long size) {
-                state = identity;
-            }
-
-            @Override
-            public void accept(double t) {
-                state = operator.applyAsDouble(state, t);
-            }
-
-            @Override
-            public Double get() {
-                return state;
-            }
-
-            @Override
-            public void combine(ReducingSink other) {
-                accept(other.state);
-            }
-        }
-        return new ReduceOp<Double, Double, ReducingSink>(DefaultStreamShape.DOUBLE_VALUE) {
-            @Override
-            public ReducingSink makeSink() {
-                return new ReducingSink();
-            }
-        };
-    }
-
-    public static DefaultTerminalOp<Double, OptionalDouble>
-    makeDouble(DoubleBinaryOperator operator) {
-        Objects.requireNonNull(operator);
-        class ReducingSink
-                implements AccumulatingSink<Double, OptionalDouble, ReducingSink>, DefaultSink.OfDouble {
-            private boolean empty;
-            private double state;
-
-            public void begin(long size) {
-                empty = true;
-                state = 0;
-            }
-
-            @Override
-            public void accept(double t) {
-                if (empty) {
-                    empty = false;
-                    state = t;
-                }
-                else {
-                    state = operator.applyAsDouble(state, t);
-                }
-            }
-
-            @Override
-            public OptionalDouble get() {
-                return empty ? OptionalDouble.empty() : OptionalDouble.of(state);
-            }
-
-            @Override
-            public void combine(ReducingSink other) {
-                if (!other.empty)
-                    accept(other.state);
-            }
-        }
-        return new ReduceOp<Double, OptionalDouble, ReducingSink>(DefaultStreamShape.DOUBLE_VALUE) {
-            @Override
-            public ReducingSink makeSink() {
-                return new ReducingSink();
-            }
-        };
-    }
-
-    public static <R> DefaultTerminalOp<Double, R>
-    makeDouble(Supplier<R> supplier,
-               ObjDoubleConsumer<R> accumulator,
-               BinaryOperator<R> combiner) {
-        Objects.requireNonNull(supplier);
-        Objects.requireNonNull(accumulator);
-        Objects.requireNonNull(combiner);
-        class ReducingSink extends Box<R>
-                implements AccumulatingSink<Double, R, ReducingSink>, DefaultSink.OfDouble {
-            @Override
-            public void begin(long size) {
-                state = supplier.get();
-            }
-
-            @Override
-            public void accept(double t) {
-                accumulator.accept(state, t);
-            }
-
-            @Override
-            public void combine(ReducingSink other) {
-                state = combiner.apply(state, other.state);
-            }
-        }
-        return new ReduceOp<Double, R, ReducingSink>(DefaultStreamShape.DOUBLE_VALUE) {
-            @Override
-            public ReducingSink makeSink() {
-                return new ReducingSink();
-            }
-        };
-    }
-
     private interface AccumulatingSink<T, R, K extends AccumulatingSink<T, R, K>>
             extends DefaultTerminalSink<T, R> {
-        void combine(K other);
+        void combine(K other) throws RestException;
     }
 
     private static abstract class Box<U> {
@@ -488,7 +161,7 @@ final class DefaultReduceOps {
 
         Box() {} // Avoid creation of special accessor
 
-        public U get() {
+        public U actuate() {
             return state;
         }
     }
@@ -510,14 +183,14 @@ final class DefaultReduceOps {
 
         @Override
         public <P_IN> R evaluateSequential(DefaultPipelineHelper<T> helper,
-                                           Spliterator<P_IN> spliterator) {
-            return helper.wrapAndCopyInto(makeSink(), spliterator).get();
+                                           DefaultSpliterator<P_IN> spliterator) throws RestException {
+            return helper.wrapAndCopyInto(makeSink(), spliterator).actuate();
         }
 
         @Override
         public <P_IN> R evaluateParallel(DefaultPipelineHelper<T> helper,
-                                         Spliterator<P_IN> spliterator) {
-            return new ReduceTask<>(this, helper, spliterator).invoke().get();
+                                         DefaultSpliterator<P_IN> spliterator) throws RestException {
+            return new ReduceTask<>(this, helper, spliterator).invoke().actuate();
         }
     }
 
@@ -528,29 +201,29 @@ final class DefaultReduceOps {
 
         ReduceTask(ReduceOp<P_OUT, R, S> op,
                    DefaultPipelineHelper<P_OUT> helper,
-                   Spliterator<P_IN> spliterator) {
+                   DefaultSpliterator<P_IN> spliterator) {
             super(helper, spliterator);
             this.op = op;
         }
 
         ReduceTask(ReduceTask<P_IN, P_OUT, R, S> parent,
-                   Spliterator<P_IN> spliterator) {
+                   DefaultSpliterator<P_IN> spliterator) {
             super(parent, spliterator);
             this.op = parent.op;
         }
 
         @Override
-        protected ReduceTask<P_IN, P_OUT, R, S> makeChild(Spliterator<P_IN> spliterator) {
+        protected ReduceTask<P_IN, P_OUT, R, S> makeChild(DefaultSpliterator<P_IN> spliterator) {
             return new ReduceTask<>(this, spliterator);
         }
 
         @Override
-        protected S doLeaf() {
+        protected S doLeaf() throws RestException {
             return helper.wrapAndCopyInto(op.makeSink(), spliterator);
         }
 
         @Override
-        public void onCompletion(CountedCompleter<?> caller) {
+        public void onComputes(DefaultCountedCompleter<?> caller) throws RestException {
             if (!isLeaf()) {
                 S leftResult = leftChild.getLocalResult();
                 leftResult.combine(rightChild.getLocalResult());

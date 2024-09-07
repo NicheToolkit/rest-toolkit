@@ -1,8 +1,10 @@
 package io.github.nichetoolkit.rest.actuator;
 
+import io.github.nichetoolkit.rest.RestError;
 import io.github.nichetoolkit.rest.RestException;
 
 import java.util.Objects;
+import java.util.function.Predicate;
 
 /**
  * <code>MapPredicateActuator</code>
@@ -51,7 +53,7 @@ public interface MapPredicateActuator<T, U, S> {
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
-    default MapPredicateActuator<T, U, S> negate() throws RestException  {
+    default MapPredicateActuator<T, U, S> negates() throws RestException  {
         return (T t, U u, S... sArray) -> !actuate(t, u, sArray);
     }
 

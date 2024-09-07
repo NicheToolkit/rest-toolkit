@@ -24,27 +24,19 @@
  */
 package io.github.nichetoolkit.rest.stream;
 
+import io.github.nichetoolkit.rest.RestException;
+import io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator;
+import io.github.nichetoolkit.rest.actuator.ConsumerActuator;
+
 import java.util.*;
-import java.util.concurrent.CountedCompleter;
 import java.util.function.*;
 
-/**
- * Factory methods for constructing implementations of {@link DefaultNode} and
- * {@link DefaultNode.Builder} and their primitive specializations.  Fork/Join tasks
- * for collecting output from a {@link DefaultPipelineHelper} to a {@link DefaultNode} and
- * flattening {@link DefaultNode}s.
- *
- * @since 1.8
- */
 final class DefaultNodes {
 
     private DefaultNodes() {
         throw new Error("no instances");
     }
 
-    /**
-     * The maximum size of an array that can be allocated.
-     */
     static final long MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8;
 
     // IllegalArgumentException messages
@@ -52,260 +44,53 @@ final class DefaultNodes {
 
     @SuppressWarnings("rawtypes")
     private static final DefaultNode EMPTY_NODE = new EmptyDefaultNode.OfRef();
-    private static final DefaultNode.OfInt EMPTY_INT_NODE = new EmptyDefaultNode.OfInt();
-    private static final DefaultNode.OfLong EMPTY_LONG_NODE = new EmptyDefaultNode.OfLong();
-    private static final DefaultNode.OfDouble EMPTY_DOUBLE_NODE = new EmptyDefaultNode.OfDouble();
+//    private static final DefaultNode.OfInt EMPTY_INT_NODE = new EmptyDefaultNode.OfInt();
+//    private static final DefaultNode.OfLong EMPTY_LONG_NODE = new EmptyDefaultNode.OfLong();
+//    private static final DefaultNode.OfDouble EMPTY_DOUBLE_NODE = new EmptyDefaultNode.OfDouble();
 
     // General shape-based node creation methods
 
-    /**
-     * Produces an empty node whose count is zero, has no children and no content.
-     *
-     * @param <T> the type of elements of the created node
-     * @param shape the shape of the node to be created
-     * @return an empty node.
-     */
     @SuppressWarnings("unchecked")
     static <T> DefaultNode<T> emptyDefaultNode(DefaultStreamShape shape) {
-        switch (shape) {
-            case REFERENCE:    return (DefaultNode<T>) EMPTY_NODE;
-            case INT_VALUE:    return (DefaultNode<T>) EMPTY_INT_NODE;
-            case LONG_VALUE:   return (DefaultNode<T>) EMPTY_LONG_NODE;
-            case DOUBLE_VALUE: return (DefaultNode<T>) EMPTY_DOUBLE_NODE;
-            default:
-                throw new IllegalStateException("Unknown shape " + shape);
+        if (Objects.requireNonNull(shape) == DefaultStreamShape.REFERENCE) {
+            return (DefaultNode<T>) EMPTY_NODE;
         }
+        throw new IllegalStateException("Unknown shape " + shape);
     }
 
-    /**
-     * Produces a concatenated {@link DefaultNode} that has two or more children.
-     * <p>The count of the concatenated node is equal to the sum of the count
-     * of each child. Traversal of the concatenated node traverses the content
-     * of each child in encounter order of the list of children. Splitting a
-     * spliterator obtained from the concatenated node preserves the encounter
-     * order of the list of children.
-     *
-     * <p>The result may be a concatenated node, the input sole node if the size
-     * of the list is 1, or an empty node.
-     *
-     * @param <T> the type of elements of the concatenated node
-     * @param shape the shape of the concatenated node to be created
-     * @param left the left input node
-     * @param right the right input node
-     * @return a {@code DefaultNode} covering the elements of the input nodes
-     * @throws IllegalStateException if all {@link DefaultNode} elements of the list
-     * are an not instance of type supported by this factory.
-     */
-    @SuppressWarnings("unchecked")
     static <T> DefaultNode<T> conc(DefaultStreamShape shape, DefaultNode<T> left, DefaultNode<T> right) {
-        switch (shape) {
-            case REFERENCE:
-                return new ConcDefaultNode<>(left, right);
-            case INT_VALUE:
-                return (DefaultNode<T>) new ConcDefaultNode.OfInt((DefaultNode.OfInt) left, (DefaultNode.OfInt) right);
-            case LONG_VALUE:
-                return (DefaultNode<T>) new ConcDefaultNode.OfLong((DefaultNode.OfLong) left, (DefaultNode.OfLong) right);
-            case DOUBLE_VALUE:
-                return (DefaultNode<T>) new ConcDefaultNode.OfDouble((DefaultNode.OfDouble) left, (DefaultNode.OfDouble) right);
-            default:
-                throw new IllegalStateException("Unknown shape " + shape);
+        if (Objects.requireNonNull(shape) == DefaultStreamShape.REFERENCE) {
+            return new ConcDefaultNode<>(left, right);
         }
+        throw new IllegalStateException("Unknown shape " + shape);
     }
 
-    // Reference-based node methods
-
-    /**
-     * Produces a {@link DefaultNode} describing an array.
-     *
-     * <p>The node will hold a reference to the array and will not make a copy.
-     *
-     * @param <T> the type of elements held by the node
-     * @param array the array
-     * @return a node holding an array
-     */
     static <T> DefaultNode<T> node(T[] array) {
         return new ArrayDefaultNode<>(array);
     }
 
-    /**
-     * Produces a {@link DefaultNode} describing a {@link Collection}.
-     * <p>
-     * The node will hold a reference to the collection and will not make a copy.
-     *
-     * @param <T> the type of elements held by the node
-     * @param c the collection
-     * @return a node holding a collection
-     */
     static <T> DefaultNode<T> node(Collection<T> c) {
         return new CollectionDefaultNode<>(c);
     }
 
-    /**
-     * Produces a {@link DefaultNode.Builder}.
-     *
-     * @param exactSizeIfKnown -1 if a variable size builder is requested,
-     * otherwise the exact capacity desired.  A fixed capacity builder will
-     * fail if the wrong number of elements are added to the builder.
-     * @param generator the array factory
-     * @param <T> the type of elements of the node builder
-     * @return a {@code DefaultNode.Builder}
-     */
     static <T> DefaultNode.Builder<T> builder(long exactSizeIfKnown, IntFunction<T[]> generator) {
         return (exactSizeIfKnown >= 0 && exactSizeIfKnown < MAX_ARRAY_SIZE)
-               ? new FixedDefaultNodeBuilder<>(exactSizeIfKnown, generator)
-               : builder();
+                ? new FixedDefaultNodeBuilder<>(exactSizeIfKnown, generator)
+                : builder();
     }
 
-    /**
-     * Produces a variable size @{link DefaultNode.Builder}.
-     *
-     * @param <T> the type of elements of the node builder
-     * @return a {@code DefaultNode.Builder}
-     */
     static <T> DefaultNode.Builder<T> builder() {
         return new SpinedDefaultNodeBuilder<>();
     }
 
-    // Int nodes
-
-    /**
-     * Produces a {@link DefaultNode.OfInt} describing an int[] array.
-     *
-     * <p>The node will hold a reference to the array and will not make a copy.
-     *
-     * @param array the array
-     * @return a node holding an array
-     */
-    static DefaultNode.OfInt node(int[] array) {
-        return new IntArrayDefaultNode(array);
-    }
-
-    /**
-     * Produces a {@link DefaultNode.Builder.OfInt}.
-     *
-     * @param exactSizeIfKnown -1 if a variable size builder is requested,
-     * otherwise the exact capacity desired.  A fixed capacity builder will
-     * fail if the wrong number of elements are added to the builder.
-     * @return a {@code DefaultNode.Builder.OfInt}
-     */
-    static DefaultNode.Builder.OfInt intBuilder(long exactSizeIfKnown) {
-        return (exactSizeIfKnown >= 0 && exactSizeIfKnown < MAX_ARRAY_SIZE)
-               ? new IntFixedDefaultNodeBuilder(exactSizeIfKnown)
-               : intBuilder();
-    }
-
-    /**
-     * Produces a variable size @{link DefaultNode.Builder.OfInt}.
-     *
-     * @return a {@code DefaultNode.Builder.OfInt}
-     */
-    static DefaultNode.Builder.OfInt intBuilder() {
-        return new IntSpinedDefaultNodeBuilder();
-    }
-
-    // Long nodes
-
-    /**
-     * Produces a {@link DefaultNode.OfLong} describing a long[] array.
-     * <p>
-     * The node will hold a reference to the array and will not make a copy.
-     *
-     * @param array the array
-     * @return a node holding an array
-     */
-    static DefaultNode.OfLong node(final long[] array) {
-        return new LongArrayDefaultNode(array);
-    }
-
-    /**
-     * Produces a {@link DefaultNode.Builder.OfLong}.
-     *
-     * @param exactSizeIfKnown -1 if a variable size builder is requested,
-     * otherwise the exact capacity desired.  A fixed capacity builder will
-     * fail if the wrong number of elements are added to the builder.
-     * @return a {@code DefaultNode.Builder.OfLong}
-     */
-    static DefaultNode.Builder.OfLong longBuilder(long exactSizeIfKnown) {
-        return (exactSizeIfKnown >= 0 && exactSizeIfKnown < MAX_ARRAY_SIZE)
-               ? new LongFixedDefaultNodeBuilder(exactSizeIfKnown)
-               : longBuilder();
-    }
-
-    /**
-     * Produces a variable size @{link DefaultNode.Builder.OfLong}.
-     *
-     * @return a {@code DefaultNode.Builder.OfLong}
-     */
-    static DefaultNode.Builder.OfLong longBuilder() {
-        return new LongSpinedDefaultNodeBuilder();
-    }
-
-    // Double nodes
-
-    /**
-     * Produces a {@link DefaultNode.OfDouble} describing a double[] array.
-     *
-     * <p>The node will hold a reference to the array and will not make a copy.
-     *
-     * @param array the array
-     * @return a node holding an array
-     */
-    static DefaultNode.OfDouble node(final double[] array) {
-        return new DoubleArrayDefaultNode(array);
-    }
-
-    /**
-     * Produces a {@link DefaultNode.Builder.OfDouble}.
-     *
-     * @param exactSizeIfKnown -1 if a variable size builder is requested,
-     * otherwise the exact capacity desired.  A fixed capacity builder will
-     * fail if the wrong number of elements are added to the builder.
-     * @return a {@code DefaultNode.Builder.OfDouble}
-     */
-    static DefaultNode.Builder.OfDouble doubleBuilder(long exactSizeIfKnown) {
-        return (exactSizeIfKnown >= 0 && exactSizeIfKnown < MAX_ARRAY_SIZE)
-               ? new DoubleFixedDefaultNodeBuilder(exactSizeIfKnown)
-               : doubleBuilder();
-    }
-
-    /**
-     * Produces a variable size @{link DefaultNode.Builder.OfDouble}.
-     *
-     * @return a {@code DefaultNode.Builder.OfDouble}
-     */
-    static DefaultNode.Builder.OfDouble doubleBuilder() {
-        return new DoubleSpinedDefaultNodeBuilder();
-    }
-
     // Parallel evaluation of pipelines to nodes
 
-    /**
-     * Collect, in parallel, elements output from a pipeline and describe those
-     * elements with a {@link DefaultNode}.
-     *
-     * @implSpec
-     * If the exact size of the output from the pipeline is known and the source
-     * {@link Spliterator} has the {@link Spliterator#SUBSIZED} characteristic,
-     * then a flat {@link DefaultNode} will be returned whose content is an array,
-     * since the size is known the array can be constructed in advance and
-     * output elements can be placed into the array concurrently by leaf
-     * tasks at the correct offsets.  If the exact size is not known, output
-     * elements are collected into a conc-node whose shape mirrors that
-     * of the computation. This conc-node can then be flattened in
-     * parallel to produce a flat {@code DefaultNode} if desired.
-     *
-     * @param helper the pipeline helper describing the pipeline
-     * @param flattenTree whether a conc node should be flattened into a node
-     *                    describing an array before returning
-     * @param generator the array generator
-     * @return a {@link DefaultNode} describing the output elements
-     */
     public static <P_IN, P_OUT> DefaultNode<P_OUT> collect(DefaultPipelineHelper<P_OUT> helper,
-                                                           Spliterator<P_IN> spliterator,
+                                                           DefaultSpliterator<P_IN> spliterator,
                                                            boolean flattenTree,
-                                                           IntFunction<P_OUT[]> generator) {
+                                                           IntFunction<P_OUT[]> generator) throws RestException {
         long size = helper.exactOutputSizeIfKnown(spliterator);
-        if (size >= 0 && spliterator.hasCharacteristics(Spliterator.SUBSIZED)) {
+        if (size >= 0 && spliterator.hasCharacteristics(DefaultSpliterator.SUBSIZED)) {
             if (size >= MAX_ARRAY_SIZE)
                 throw new IllegalArgumentException(BAD_SIZE);
             P_OUT[] array = generator.apply((int) size);
@@ -317,138 +102,9 @@ final class DefaultNodes {
         }
     }
 
-    /**
-     * Collect, in parallel, elements output from an int-valued pipeline and
-     * describe those elements with a {@link DefaultNode.OfInt}.
-     *
-     * @implSpec
-     * If the exact size of the output from the pipeline is known and the source
-     * {@link Spliterator} has the {@link Spliterator#SUBSIZED} characteristic,
-     * then a flat {@link DefaultNode} will be returned whose content is an array,
-     * since the size is known the array can be constructed in advance and
-     * output elements can be placed into the array concurrently by leaf
-     * tasks at the correct offsets.  If the exact size is not known, output
-     * elements are collected into a conc-node whose shape mirrors that
-     * of the computation. This conc-node can then be flattened in
-     * parallel to produce a flat {@code DefaultNode.OfInt} if desired.
-     *
-     * @param <P_IN> the type of elements from the source Spliterator
-     * @param helper the pipeline helper describing the pipeline
-     * @param flattenTree whether a conc node should be flattened into a node
-     *                    describing an array before returning
-     * @return a {@link DefaultNode.OfInt} describing the output elements
-     */
-    public static <P_IN> DefaultNode.OfInt collectInt(DefaultPipelineHelper<Integer> helper,
-                                                      Spliterator<P_IN> spliterator,
-                                                      boolean flattenTree) {
-        long size = helper.exactOutputSizeIfKnown(spliterator);
-        if (size >= 0 && spliterator.hasCharacteristics(Spliterator.SUBSIZED)) {
-            if (size >= MAX_ARRAY_SIZE)
-                throw new IllegalArgumentException(BAD_SIZE);
-            int[] array = new int[(int) size];
-            new SizedCollectorTask.OfInt<>(spliterator, helper, array).invoke();
-            return node(array);
-        }
-        else {
-            DefaultNode.OfInt node = new CollectorTask.OfInt<>(helper, spliterator).invoke();
-            return flattenTree ? flattenInt(node) : node;
-        }
-    }
-
-    /**
-     * Collect, in parallel, elements output from a long-valued pipeline and
-     * describe those elements with a {@link DefaultNode.OfLong}.
-     *
-     * @implSpec
-     * If the exact size of the output from the pipeline is known and the source
-     * {@link Spliterator} has the {@link Spliterator#SUBSIZED} characteristic,
-     * then a flat {@link DefaultNode} will be returned whose content is an array,
-     * since the size is known the array can be constructed in advance and
-     * output elements can be placed into the array concurrently by leaf
-     * tasks at the correct offsets.  If the exact size is not known, output
-     * elements are collected into a conc-node whose shape mirrors that
-     * of the computation. This conc-node can then be flattened in
-     * parallel to produce a flat {@code DefaultNode.OfLong} if desired.
-     *
-     * @param <P_IN> the type of elements from the source Spliterator
-     * @param helper the pipeline helper describing the pipeline
-     * @param flattenTree whether a conc node should be flattened into a node
-     *                    describing an array before returning
-     * @return a {@link DefaultNode.OfLong} describing the output elements
-     */
-    public static <P_IN> DefaultNode.OfLong collectLong(DefaultPipelineHelper<Long> helper,
-                                                        Spliterator<P_IN> spliterator,
-                                                        boolean flattenTree) {
-        long size = helper.exactOutputSizeIfKnown(spliterator);
-        if (size >= 0 && spliterator.hasCharacteristics(Spliterator.SUBSIZED)) {
-            if (size >= MAX_ARRAY_SIZE)
-                throw new IllegalArgumentException(BAD_SIZE);
-            long[] array = new long[(int) size];
-            new SizedCollectorTask.OfLong<>(spliterator, helper, array).invoke();
-            return node(array);
-        }
-        else {
-            DefaultNode.OfLong node = new CollectorTask.OfLong<>(helper, spliterator).invoke();
-            return flattenTree ? flattenLong(node) : node;
-        }
-    }
-
-    /**
-     * Collect, in parallel, elements output from n double-valued pipeline and
-     * describe those elements with a {@link DefaultNode.OfDouble}.
-     *
-     * @implSpec
-     * If the exact size of the output from the pipeline is known and the source
-     * {@link Spliterator} has the {@link Spliterator#SUBSIZED} characteristic,
-     * then a flat {@link DefaultNode} will be returned whose content is an array,
-     * since the size is known the array can be constructed in advance and
-     * output elements can be placed into the array concurrently by leaf
-     * tasks at the correct offsets.  If the exact size is not known, output
-     * elements are collected into a conc-node whose shape mirrors that
-     * of the computation. This conc-node can then be flattened in
-     * parallel to produce a flat {@code DefaultNode.OfDouble} if desired.
-     *
-     * @param <P_IN> the type of elements from the source Spliterator
-     * @param helper the pipeline helper describing the pipeline
-     * @param flattenTree whether a conc node should be flattened into a node
-     *                    describing an array before returning
-     * @return a {@link DefaultNode.OfDouble} describing the output elements
-     */
-    public static <P_IN> DefaultNode.OfDouble collectDouble(DefaultPipelineHelper<Double> helper,
-                                                            Spliterator<P_IN> spliterator,
-                                                            boolean flattenTree) {
-        long size = helper.exactOutputSizeIfKnown(spliterator);
-        if (size >= 0 && spliterator.hasCharacteristics(Spliterator.SUBSIZED)) {
-            if (size >= MAX_ARRAY_SIZE)
-                throw new IllegalArgumentException(BAD_SIZE);
-            double[] array = new double[(int) size];
-            new SizedCollectorTask.OfDouble<>(spliterator, helper, array).invoke();
-            return node(array);
-        }
-        else {
-            DefaultNode.OfDouble node = new CollectorTask.OfDouble<>(helper, spliterator).invoke();
-            return flattenTree ? flattenDouble(node) : node;
-        }
-    }
-
 //     Parallel flattening of nodes
 
-    /**
-     * Flatten, in parallel, a {@link DefaultNode}.  A flattened node is one that has
-     * no children.  If the node is already flat, it is simply returned.
-     *
-     * @implSpec
-     * If a new node is to be created, the generator is used to create an array
-     * whose length is {@link DefaultNode#count()}.  Then the node tree is traversed
-     * and leaf node elements are placed in the array concurrently by leaf tasks
-     * at the correct offsets.
-     *
-     * @param <T> type of elements contained by the node
-     * @param node the node to flatten
-     * @param generator the array factory used to create array instances
-     * @return a flat {@code DefaultNode}
-     */
-    public static <T> DefaultNode<T> flatten(DefaultNode<T> node, IntFunction<T[]> generator) {
+    public static <T> DefaultNode<T> flatten(DefaultNode<T> node, IntFunction<T[]> generator) throws RestException {
         if (node.getChildCount() > 0) {
             long size = node.count();
             if (size >= MAX_ARRAY_SIZE)
@@ -461,172 +117,44 @@ final class DefaultNodes {
         }
     }
 
-    /**
-     * Flatten, in parallel, a {@link DefaultNode.OfInt}.  A flattened node is one that
-     * has no children.  If the node is already flat, it is simply returned.
-     *
-     * @implSpec
-     * If a new node is to be created, a new int[] array is created whose length
-     * is {@link DefaultNode#count()}.  Then the node tree is traversed and leaf node
-     * elements are placed in the array concurrently by leaf tasks at the
-     * correct offsets.
-     *
-     * @param node the node to flatten
-     * @return a flat {@code DefaultNode.OfInt}
-     */
-    public static DefaultNode.OfInt flattenInt(DefaultNode.OfInt node) {
-        if (node.getChildCount() > 0) {
-            long size = node.count();
-            if (size >= MAX_ARRAY_SIZE)
-                throw new IllegalArgumentException(BAD_SIZE);
-            int[] array = new int[(int) size];
-            new ToArrayTask.OfInt(node, array, 0).invoke();
-            return node(array);
-        } else {
-            return node;
-        }
-    }
-
-    /**
-     * Flatten, in parallel, a {@link DefaultNode.OfLong}.  A flattened node is one that
-     * has no children.  If the node is already flat, it is simply returned.
-     *
-     * @implSpec
-     * If a new node is to be created, a new long[] array is created whose length
-     * is {@link DefaultNode#count()}.  Then the node tree is traversed and leaf node
-     * elements are placed in the array concurrently by leaf tasks at the
-     * correct offsets.
-     *
-     * @param node the node to flatten
-     * @return a flat {@code DefaultNode.OfLong}
-     */
-    public static DefaultNode.OfLong flattenLong(DefaultNode.OfLong node) {
-        if (node.getChildCount() > 0) {
-            long size = node.count();
-            if (size >= MAX_ARRAY_SIZE)
-                throw new IllegalArgumentException(BAD_SIZE);
-            long[] array = new long[(int) size];
-            new ToArrayTask.OfLong(node, array, 0).invoke();
-            return node(array);
-        } else {
-            return node;
-        }
-    }
-
-    /**
-     * Flatten, in parallel, a {@link DefaultNode.OfDouble}.  A flattened node is one that
-     * has no children.  If the node is already flat, it is simply returned.
-     *
-     * @implSpec
-     * If a new node is to be created, a new double[] array is created whose length
-     * is {@link DefaultNode#count()}.  Then the node tree is traversed and leaf node
-     * elements are placed in the array concurrently by leaf tasks at the
-     * correct offsets.
-     *
-     * @param node the node to flatten
-     * @return a flat {@code DefaultNode.OfDouble}
-     */
-    public static DefaultNode.OfDouble flattenDouble(DefaultNode.OfDouble node) {
-        if (node.getChildCount() > 0) {
-            long size = node.count();
-            if (size >= MAX_ARRAY_SIZE)
-                throw new IllegalArgumentException(BAD_SIZE);
-            double[] array = new double[(int) size];
-            new ToArrayTask.OfDouble(node, array, 0).invoke();
-            return node(array);
-        } else {
-            return node;
-        }
-    }
-
 //     Implementations
 
     private static abstract class EmptyDefaultNode<T, T_ARR, T_CONS> implements DefaultNode<T> {
-        EmptyDefaultNode() { }
+        EmptyDefaultNode() {
+        }
 
         @Override
         public T[] asArray(IntFunction<T[]> generator) {
             return generator.apply(0);
         }
 
-        public void copyInto(T_ARR array, int offset) { }
+        public void copyInto(T_ARR array, int offset) {
+        }
 
         @Override
         public long count() {
             return 0;
         }
 
-        public void forEach(T_CONS consumer) { }
+        public void forEach(T_CONS consumer) {
+        }
 
-        private static class OfRef<T> extends DefaultNodes.EmptyDefaultNode<T, T[], Consumer<? super T>> {
+        private static class OfRef<T> extends DefaultNodes.EmptyDefaultNode<T, T[], ConsumerActuator<? super T>> {
             private OfRef() {
                 super();
             }
 
             @Override
-            public Spliterator<T> spliterator() {
-                return Spliterators.emptySpliterator();
-            }
-        }
-
-        private static final class OfInt
-                extends DefaultNodes.EmptyDefaultNode<Integer, int[], IntConsumer>
-                implements DefaultNode.OfInt {
-
-            OfInt() { } // Avoid creation of special accessor
-
-            @Override
-            public Spliterator.OfInt spliterator() {
-                return Spliterators.emptyIntSpliterator();
-            }
-
-            @Override
-            public int[] asPrimitiveArray() {
-                return EMPTY_INT_ARRAY;
-            }
-        }
-
-        private static final class OfLong
-                extends DefaultNodes.EmptyDefaultNode<Long, long[], LongConsumer>
-                implements DefaultNode.OfLong {
-
-            OfLong() { } // Avoid creation of special accessor
-
-            @Override
-            public Spliterator.OfLong spliterator() {
-                return Spliterators.emptyLongSpliterator();
-            }
-
-            @Override
-            public long[] asPrimitiveArray() {
-                return EMPTY_LONG_ARRAY;
-            }
-        }
-
-        private static final class OfDouble
-                extends DefaultNodes.EmptyDefaultNode<Double, double[], DoubleConsumer>
-                implements DefaultNode.OfDouble {
-
-            OfDouble() { } // Avoid creation of special accessor
-
-            @Override
-            public Spliterator.OfDouble spliterator() {
-                return Spliterators.emptyDoubleSpliterator();
-            }
-
-            @Override
-            public double[] asPrimitiveArray() {
-                return EMPTY_DOUBLE_ARRAY;
+            public DefaultSpliterator<T> spliterator() {
+                return DefaultSpliterators.emptySpliterator();
             }
         }
     }
 
-    /** DefaultNode class for a reference array */
     private static class ArrayDefaultNode<T> implements DefaultNode<T> {
         final T[] array;
         int curSize;
 
-        @SuppressWarnings("unchecked")
         ArrayDefaultNode(long size, IntFunction<T[]> generator) {
             if (size >= MAX_ARRAY_SIZE)
                 throw new IllegalArgumentException(BAD_SIZE);
@@ -642,8 +170,8 @@ final class DefaultNodes {
         // DefaultNode
 
         @Override
-        public Spliterator<T> spliterator() {
-            return Arrays.spliterator(array, 0, curSize);
+        public DefaultSpliterator<T> spliterator() {
+            return DefaultSpliterators.spliterator(array, 0, curSize);
         }
 
         @Override
@@ -666,9 +194,9 @@ final class DefaultNodes {
         }
 
         @Override
-        public void forEach(Consumer<? super T> consumer) {
+        public void forEach(ConsumerActuator<? super T> consumer) throws RestException {
             for (int i = 0; i < curSize; i++) {
-                consumer.accept(array[i]);
+                consumer.actuate(array[i]);
             }
         }
 
@@ -677,11 +205,10 @@ final class DefaultNodes {
         @Override
         public String toString() {
             return String.format("ArrayDefaultNode[%d][%s]",
-                                 array.length - curSize, Arrays.toString(array));
+                    array.length - curSize, Arrays.toString(array));
         }
     }
 
-    /** DefaultNode class for a Collection */
     private static final class CollectionDefaultNode<T> implements DefaultNode<T> {
         private final Collection<T> c;
 
@@ -692,8 +219,9 @@ final class DefaultNodes {
         // DefaultNode
 
         @Override
-        public Spliterator<T> spliterator() {
-            return c.stream().spliterator();
+        public DefaultSpliterator<T> spliterator() throws RestException {
+            DefaultSpliterator<T> spliterator = DefaultSpliterators.spliterator(c, 0);
+            return DefaultStreamSupport.stream(spliterator, false).spliterator();
         }
 
         @Override
@@ -703,7 +231,6 @@ final class DefaultNodes {
         }
 
         @Override
-        @SuppressWarnings("unchecked")
         public T[] asArray(IntFunction<T[]> generator) {
             return c.toArray(generator.apply(c.size()));
         }
@@ -714,7 +241,7 @@ final class DefaultNodes {
         }
 
         @Override
-        public void forEach(Consumer<? super T> consumer) {
+        public void forEach(ConsumerActuator<? super T> consumer) {
             c.forEach(consumer);
         }
 
@@ -726,9 +253,6 @@ final class DefaultNodes {
         }
     }
 
-    /**
-     * DefaultNode class for an internal node with two or more children
-     */
     private static abstract class AbstractConcDefaultNode<T, T_NODE extends DefaultNode<T>> implements DefaultNode<T> {
         protected final T_NODE left;
         protected final T_NODE right;
@@ -737,10 +261,6 @@ final class DefaultNodes {
         AbstractConcDefaultNode(T_NODE left, T_NODE right) {
             this.left = left;
             this.right = right;
-            // The DefaultNode count will be required when the DefaultNode spliterator is
-            // obtained and it is cheaper to aggressively calculate bottom up
-            // as the tree is built rather than later on from the top down
-            // traversing the tree
             this.size = left.count() + right.count();
         }
 
@@ -771,7 +291,7 @@ final class DefaultNodes {
         }
 
         @Override
-        public Spliterator<T> spliterator() {
+        public DefaultSpliterator<T> spliterator() {
             return new DefaultNodes.InternalDefaultNodeSpliterator.OfRef<>(this);
         }
 
@@ -795,13 +315,13 @@ final class DefaultNodes {
         }
 
         @Override
-        public void forEach(Consumer<? super T> consumer) {
+        public void forEach(ConsumerActuator<? super T> consumer) throws RestException {
             left.forEach(consumer);
             right.forEach(consumer);
         }
 
         @Override
-        public DefaultNode<T> truncate(long from, long to, IntFunction<T[]> generator) {
+        public DefaultNode<T> truncate(long from, long to, IntFunction<T[]> generator) throws RestException {
             if (from == 0 && to == count())
                 return this;
             long leftCount = left.count();
@@ -811,7 +331,7 @@ final class DefaultNodes {
                 return left.truncate(from, to, generator);
             else {
                 return DefaultNodes.conc(getShape(), left.truncate(from, leftCount, generator),
-                                  right.truncate(0, to - leftCount, generator));
+                        right.truncate(0, to - leftCount, generator));
             }
         }
 
@@ -825,8 +345,8 @@ final class DefaultNodes {
         }
 
         private abstract static class OfPrimitive<E, T_CONS, T_ARR,
-                                                  T_SPLITR extends Spliterator.OfPrimitive<E, T_CONS, T_SPLITR>,
-                                                  T_NODE extends DefaultNode.OfPrimitive<E, T_CONS, T_ARR, T_SPLITR, T_NODE>>
+                T_SPLITR extends DefaultSpliterator.OfPrimitive<E, T_CONS, T_SPLITR>,
+                T_NODE extends DefaultNode.OfPrimitive<E, T_CONS, T_ARR, T_SPLITR, T_NODE>>
                 extends AbstractConcDefaultNode<E, T_NODE>
                 implements DefaultNode.OfPrimitive<E, T_CONS, T_ARR, T_SPLITR, T_NODE> {
 
@@ -835,7 +355,7 @@ final class DefaultNodes {
             }
 
             @Override
-            public void forEach(T_CONS consumer) {
+            public void forEach(T_CONS consumer) throws RestException {
                 left.forEach(consumer);
                 right.forEach(consumer);
             }
@@ -866,55 +386,12 @@ final class DefaultNodes {
                     return String.format("%s[size=%d]", this.getClass().getName(), count());
             }
         }
-
-        static final class OfInt
-                extends OfPrimitive<Integer, IntConsumer, int[], Spliterator.OfInt, DefaultNode.OfInt>
-                implements DefaultNode.OfInt {
-
-            OfInt(OfInt left, OfInt right) {
-                super(left, right);
-            }
-
-            @Override
-            public Spliterator.OfInt spliterator() {
-                return new InternalDefaultNodeSpliterator.OfInt(this);
-            }
-        }
-
-        static final class OfLong
-                extends OfPrimitive<Long, LongConsumer, long[], Spliterator.OfLong, DefaultNode.OfLong>
-                implements DefaultNode.OfLong {
-
-            OfLong(OfLong left, OfLong right) {
-                super(left, right);
-            }
-
-            @Override
-            public Spliterator.OfLong spliterator() {
-                return new InternalDefaultNodeSpliterator.OfLong(this);
-            }
-        }
-
-        static final class OfDouble
-                extends OfPrimitive<Double, DoubleConsumer, double[], Spliterator.OfDouble, DefaultNode.OfDouble>
-                implements DefaultNode.OfDouble {
-
-            OfDouble(OfDouble left, OfDouble right) {
-                super(left, right);
-            }
-
-            @Override
-            public Spliterator.OfDouble spliterator() {
-                return new InternalDefaultNodeSpliterator.OfDouble(this);
-            }
-        }
     }
 
-    /** Abstract class for spliterator for all internal node classes */
     private static abstract class InternalDefaultNodeSpliterator<T,
-                                                          S extends Spliterator<T>,
-                                                          N extends DefaultNode<T>>
-            implements Spliterator<T> {
+            S extends DefaultSpliterator<T>,
+            N extends DefaultNode<T>>
+            implements DefaultSpliterator<T> {
         // DefaultNode we are pointing to
         // null if full traversal has occurred
         N curDefaultNode;
@@ -939,12 +416,8 @@ final class DefaultNodes {
             this.curDefaultNode = curDefaultNode;
         }
 
-        /**
-         * Initiate a stack containing, in left-to-right order, the child nodes
-         * covered by this spliterator
-         */
         @SuppressWarnings("unchecked")
-        protected final Deque<N> initStack() {
+        protected final Deque<N> initStack() throws RestException {
             // Bias size to the case where leaf nodes are close to this node
             // 8 is the minimum initial capacity for the ArrayDeque implementation
             Deque<N> stack = new ArrayDeque<>(8);
@@ -953,12 +426,8 @@ final class DefaultNodes {
             return stack;
         }
 
-        /**
-         * Depth first search, in left-to-right order, of the node tree, using
-         * an explicit stack, to find the next non-empty leaf node.
-         */
         @SuppressWarnings("unchecked")
-        protected final N findNextLeafDefaultNode(Deque<N> stack) {
+        protected final N findNextLeafDefaultNode(Deque<N> stack) throws RestException {
             N n;
             while ((n = stack.pollFirst()) != null) {
                 if (n.getChildCount() == 0) {
@@ -974,9 +443,9 @@ final class DefaultNodes {
         }
 
         @SuppressWarnings("unchecked")
-        protected final boolean initTryAdvance() {
+        protected final boolean initTryAdvance() throws RestException {
             if (curDefaultNode == null)
-                return false;
+                return true;
 
             if (tryAdvanceSpliterator == null) {
                 if (lastDefaultNodeSpliterator == null) {
@@ -989,18 +458,17 @@ final class DefaultNodes {
                         // A non-empty leaf node was not found
                         // No elements to traverse
                         curDefaultNode = null;
-                        return false;
+                        return true;
                     }
-                }
-                else
+                } else
                     tryAdvanceSpliterator = lastDefaultNodeSpliterator;
             }
-            return true;
+            return false;
         }
 
         @Override
         @SuppressWarnings("unchecked")
-        public final S trySplit() {
+        public final S trySplit() throws RestException {
             if (curDefaultNode == null || tryAdvanceSpliterator != null)
                 return null; // Cannot split if fully or partially traversed
             else if (lastDefaultNodeSpliterator != null)
@@ -1012,8 +480,7 @@ final class DefaultNodes {
                 if (curDefaultNode.getChildCount() == 0) {
                     lastDefaultNodeSpliterator = (S) curDefaultNode.spliterator();
                     return (S) lastDefaultNodeSpliterator.trySplit();
-                }
-                else {
+                } else {
                     curChildIndex = 0;
                     return (S) curDefaultNode.getChild(curChildIndex++).spliterator();
                 }
@@ -1021,7 +488,7 @@ final class DefaultNodes {
         }
 
         @Override
-        public final long estimateSize() {
+        public final long estimateSize() throws RestException {
             if (curDefaultNode == null)
                 return 0;
 
@@ -1039,19 +506,19 @@ final class DefaultNodes {
 
         @Override
         public final int characteristics() {
-            return Spliterator.SIZED;
+            return DefaultSpliterator.SIZED;
         }
 
         private static final class OfRef<T>
-                extends DefaultNodes.InternalDefaultNodeSpliterator<T, Spliterator<T>, DefaultNode<T>> {
+                extends DefaultNodes.InternalDefaultNodeSpliterator<T, DefaultSpliterator<T>, DefaultNode<T>> {
 
             OfRef(DefaultNode<T> curDefaultNode) {
                 super(curDefaultNode);
             }
 
             @Override
-            public boolean tryAdvance(Consumer<? super T> consumer) {
-                if (!initTryAdvance())
+            public boolean tryAdvance(ConsumerActuator<? super T> consumer) throws RestException {
+                if (initTryAdvance())
                     return false;
 
                 boolean hasNext = tryAdvanceSpliterator.tryAdvance(consumer);
@@ -1072,7 +539,7 @@ final class DefaultNodes {
             }
 
             @Override
-            public void forEachRemaining(Consumer<? super T> consumer) {
+            public void forEachRemaining(ConsumerActuator<? super T> consumer) throws RestException {
                 if (curDefaultNode == null)
                     return;
 
@@ -1084,28 +551,27 @@ final class DefaultNodes {
                             leaf.forEach(consumer);
                         }
                         curDefaultNode = null;
-                    }
-                    else
+                    } else
                         lastDefaultNodeSpliterator.forEachRemaining(consumer);
-                }
-                else
-                    while(tryAdvance(consumer)) { }
+                } else
+                    while (tryAdvance(consumer)) {
+                    }
             }
         }
 
         private static abstract class OfPrimitive<T, T_CONS, T_ARR,
-                                                  T_SPLITR extends Spliterator.OfPrimitive<T, T_CONS, T_SPLITR>,
-                                                  N extends DefaultNode.OfPrimitive<T, T_CONS, T_ARR, T_SPLITR, N>>
+                T_SPLITR extends DefaultSpliterator.OfPrimitive<T, T_CONS, T_SPLITR>,
+                N extends DefaultNode.OfPrimitive<T, T_CONS, T_ARR, T_SPLITR, N>>
                 extends DefaultNodes.InternalDefaultNodeSpliterator<T, T_SPLITR, N>
-                implements Spliterator.OfPrimitive<T, T_CONS, T_SPLITR> {
+                implements DefaultSpliterator.OfPrimitive<T, T_CONS, T_SPLITR> {
 
             OfPrimitive(N cur) {
                 super(cur);
             }
 
             @Override
-            public boolean tryAdvance(T_CONS consumer) {
-                if (!initTryAdvance())
+            public boolean tryAdvance(T_CONS consumer) throws RestException {
+                if (initTryAdvance())
                     return false;
 
                 boolean hasNext = tryAdvanceSpliterator.tryAdvance(consumer);
@@ -1126,7 +592,7 @@ final class DefaultNodes {
             }
 
             @Override
-            public void forEachRemaining(T_CONS consumer) {
+            public void forEachRemaining(T_CONS consumer) throws RestException {
                 if (curDefaultNode == null)
                     return;
 
@@ -1138,46 +604,16 @@ final class DefaultNodes {
                             leaf.forEach(consumer);
                         }
                         curDefaultNode = null;
-                    }
-                    else
+                    } else
                         lastDefaultNodeSpliterator.forEachRemaining(consumer);
-                }
-                else
-                    while(tryAdvance(consumer)) { }
+                } else
+                    while (tryAdvance(consumer)) {
+                    }
             }
         }
 
-        private static final class OfInt
-                extends OfPrimitive<Integer, IntConsumer, int[], Spliterator.OfInt, DefaultNode.OfInt>
-                implements Spliterator.OfInt {
-
-            OfInt(DefaultNode.OfInt cur) {
-                super(cur);
-            }
-        }
-
-        private static final class OfLong
-                extends OfPrimitive<Long, LongConsumer, long[], Spliterator.OfLong, DefaultNode.OfLong>
-                implements Spliterator.OfLong {
-
-            OfLong(DefaultNode.OfLong cur) {
-                super(cur);
-            }
-        }
-
-        private static final class OfDouble
-                extends OfPrimitive<Double, DoubleConsumer, double[], Spliterator.OfDouble, DefaultNode.OfDouble>
-                implements Spliterator.OfDouble {
-
-            OfDouble(DefaultNode.OfDouble cur) {
-                super(cur);
-            }
-        }
     }
 
-    /**
-     * Fixed-sized builder class for reference nodes
-     */
     private static final class FixedDefaultNodeBuilder<T>
             extends ArrayDefaultNode<T>
             implements DefaultNode.Builder<T> {
@@ -1191,7 +627,7 @@ final class DefaultNodes {
         public DefaultNode<T> build() {
             if (curSize < array.length)
                 throw new IllegalStateException(String.format("Current size %d is less than fixed size %d",
-                                                              curSize, array.length));
+                        curSize, array.length));
             return this;
         }
 
@@ -1199,17 +635,17 @@ final class DefaultNodes {
         public void begin(long size) {
             if (size != array.length)
                 throw new IllegalStateException(String.format("Begin size %d is not equal to fixed size %d",
-                                                              size, array.length));
+                        size, array.length));
             curSize = 0;
         }
 
         @Override
-        public void accept(T t) {
+        public void actuate(T t) {
             if (curSize < array.length) {
                 array[curSize++] = t;
             } else {
                 throw new IllegalStateException(String.format("Accept exceeded fixed size of %d",
-                                                              array.length));
+                        array.length));
             }
         }
 
@@ -1217,34 +653,32 @@ final class DefaultNodes {
         public void end() {
             if (curSize < array.length)
                 throw new IllegalStateException(String.format("End size %d is less than fixed size %d",
-                                                              curSize, array.length));
+                        curSize, array.length));
         }
 
         @Override
         public String toString() {
             return String.format("FixedDefaultNodeBuilder[%d][%s]",
-                                 array.length - curSize, Arrays.toString(array));
+                    array.length - curSize, Arrays.toString(array));
         }
     }
 
-    /**
-     * Variable-sized builder class for reference nodes
-     */
     private static final class SpinedDefaultNodeBuilder<T>
             extends DefaultSpinedBuffer<T>
             implements DefaultNode<T>, DefaultNode.Builder<T> {
         private boolean building = false;
 
-        SpinedDefaultNodeBuilder() {} // Avoid creation of special accessor
+        SpinedDefaultNodeBuilder() {
+        } // Avoid creation of special accessor
 
         @Override
-        public Spliterator<T> spliterator() {
+        public DefaultSpliterator<T> spliterator() {
             assert !building : "during building";
             return super.spliterator();
         }
 
         @Override
-        public void forEach(Consumer<? super T> consumer) {
+        public void forEach(ConsumerActuator<? super T> consumer) throws RestException {
             assert !building : "during building";
             super.forEach(consumer);
         }
@@ -1259,9 +693,9 @@ final class DefaultNodes {
         }
 
         @Override
-        public void accept(T t) {
+        public void actuate(T t) {
             assert building : "not building";
-            super.accept(t);
+            super.actuate(t);
         }
 
         @Override
@@ -1289,527 +723,12 @@ final class DefaultNodes {
             return this;
         }
     }
-
-    //
-
-    private static final int[] EMPTY_INT_ARRAY = new int[0];
-    private static final long[] EMPTY_LONG_ARRAY = new long[0];
-    private static final double[] EMPTY_DOUBLE_ARRAY = new double[0];
-
-    private static class IntArrayDefaultNode implements DefaultNode.OfInt {
-        final int[] array;
-        int curSize;
-
-        IntArrayDefaultNode(long size) {
-            if (size >= MAX_ARRAY_SIZE)
-                throw new IllegalArgumentException(BAD_SIZE);
-            this.array = new int[(int) size];
-            this.curSize = 0;
-        }
-
-        IntArrayDefaultNode(int[] array) {
-            this.array = array;
-            this.curSize = array.length;
-        }
-
-        // DefaultNode
-
-        @Override
-        public Spliterator.OfInt spliterator() {
-            return Arrays.spliterator(array, 0, curSize);
-        }
-
-        @Override
-        public int[] asPrimitiveArray() {
-            if (array.length == curSize) {
-                return array;
-            } else {
-                return Arrays.copyOf(array, curSize);
-            }
-        }
-
-        @Override
-        public void copyInto(int[] dest, int destOffset) {
-            System.arraycopy(array, 0, dest, destOffset, curSize);
-        }
-
-        @Override
-        public long count() {
-            return curSize;
-        }
-
-        @Override
-        public void forEach(IntConsumer consumer) {
-            for (int i = 0; i < curSize; i++) {
-                consumer.accept(array[i]);
-            }
-        }
-
-        @Override
-        public String toString() {
-            return String.format("IntArrayDefaultNode[%d][%s]",
-                                 array.length - curSize, Arrays.toString(array));
-        }
-    }
-
-    private static class LongArrayDefaultNode implements DefaultNode.OfLong {
-        final long[] array;
-        int curSize;
-
-        LongArrayDefaultNode(long size) {
-            if (size >= MAX_ARRAY_SIZE)
-                throw new IllegalArgumentException(BAD_SIZE);
-            this.array = new long[(int) size];
-            this.curSize = 0;
-        }
-
-        LongArrayDefaultNode(long[] array) {
-            this.array = array;
-            this.curSize = array.length;
-        }
-
-        @Override
-        public Spliterator.OfLong spliterator() {
-            return Arrays.spliterator(array, 0, curSize);
-        }
-
-        @Override
-        public long[] asPrimitiveArray() {
-            if (array.length == curSize) {
-                return array;
-            } else {
-                return Arrays.copyOf(array, curSize);
-            }
-        }
-
-        @Override
-        public void copyInto(long[] dest, int destOffset) {
-            System.arraycopy(array, 0, dest, destOffset, curSize);
-        }
-
-        @Override
-        public long count() {
-            return curSize;
-        }
-
-        @Override
-        public void forEach(LongConsumer consumer) {
-            for (int i = 0; i < curSize; i++) {
-                consumer.accept(array[i]);
-            }
-        }
-
-        @Override
-        public String toString() {
-            return String.format("LongArrayDefaultNode[%d][%s]",
-                                 array.length - curSize, Arrays.toString(array));
-        }
-    }
-
-    private static class DoubleArrayDefaultNode implements DefaultNode.OfDouble {
-        final double[] array;
-        int curSize;
-
-        DoubleArrayDefaultNode(long size) {
-            if (size >= MAX_ARRAY_SIZE)
-                throw new IllegalArgumentException(BAD_SIZE);
-            this.array = new double[(int) size];
-            this.curSize = 0;
-        }
-
-        DoubleArrayDefaultNode(double[] array) {
-            this.array = array;
-            this.curSize = array.length;
-        }
-
-        @Override
-        public Spliterator.OfDouble spliterator() {
-            return Arrays.spliterator(array, 0, curSize);
-        }
-
-        @Override
-        public double[] asPrimitiveArray() {
-            if (array.length == curSize) {
-                return array;
-            } else {
-                return Arrays.copyOf(array, curSize);
-            }
-        }
-
-        @Override
-        public void copyInto(double[] dest, int destOffset) {
-            System.arraycopy(array, 0, dest, destOffset, curSize);
-        }
-
-        @Override
-        public long count() {
-            return curSize;
-        }
-
-        @Override
-        public void forEach(DoubleConsumer consumer) {
-            for (int i = 0; i < curSize; i++) {
-                consumer.accept(array[i]);
-            }
-        }
-
-        @Override
-        public String toString() {
-            return String.format("DoubleArrayDefaultNode[%d][%s]",
-                                 array.length - curSize, Arrays.toString(array));
-        }
-    }
-
-    private static final class IntFixedDefaultNodeBuilder
-            extends IntArrayDefaultNode
-            implements DefaultNode.Builder.OfInt {
-
-        IntFixedDefaultNodeBuilder(long size) {
-            super(size);
-            assert size < MAX_ARRAY_SIZE;
-        }
-
-        @Override
-        public DefaultNode.OfInt build() {
-            if (curSize < array.length) {
-                throw new IllegalStateException(String.format("Current size %d is less than fixed size %d",
-                                                              curSize, array.length));
-            }
-
-            return this;
-        }
-
-        @Override
-        public void begin(long size) {
-            if (size != array.length) {
-                throw new IllegalStateException(String.format("Begin size %d is not equal to fixed size %d",
-                                                              size, array.length));
-            }
-
-            curSize = 0;
-        }
-
-        @Override
-        public void accept(int i) {
-            if (curSize < array.length) {
-                array[curSize++] = i;
-            } else {
-                throw new IllegalStateException(String.format("Accept exceeded fixed size of %d",
-                                                              array.length));
-            }
-        }
-
-        @Override
-        public void end() {
-            if (curSize < array.length) {
-                throw new IllegalStateException(String.format("End size %d is less than fixed size %d",
-                                                              curSize, array.length));
-            }
-        }
-
-        @Override
-        public String toString() {
-            return String.format("IntFixedDefaultNodeBuilder[%d][%s]",
-                                 array.length - curSize, Arrays.toString(array));
-        }
-    }
-
-    private static final class LongFixedDefaultNodeBuilder
-            extends LongArrayDefaultNode
-            implements DefaultNode.Builder.OfLong {
-
-        LongFixedDefaultNodeBuilder(long size) {
-            super(size);
-            assert size < MAX_ARRAY_SIZE;
-        }
-
-        @Override
-        public DefaultNode.OfLong build() {
-            if (curSize < array.length) {
-                throw new IllegalStateException(String.format("Current size %d is less than fixed size %d",
-                                                              curSize, array.length));
-            }
-
-            return this;
-        }
-
-        @Override
-        public void begin(long size) {
-            if (size != array.length) {
-                throw new IllegalStateException(String.format("Begin size %d is not equal to fixed size %d",
-                                                              size, array.length));
-            }
-
-            curSize = 0;
-        }
-
-        @Override
-        public void accept(long i) {
-            if (curSize < array.length) {
-                array[curSize++] = i;
-            } else {
-                throw new IllegalStateException(String.format("Accept exceeded fixed size of %d",
-                                                              array.length));
-            }
-        }
-
-        @Override
-        public void end() {
-            if (curSize < array.length) {
-                throw new IllegalStateException(String.format("End size %d is less than fixed size %d",
-                                                              curSize, array.length));
-            }
-        }
-
-        @Override
-        public String toString() {
-            return String.format("LongFixedDefaultNodeBuilder[%d][%s]",
-                                 array.length - curSize, Arrays.toString(array));
-        }
-    }
-
-    private static final class DoubleFixedDefaultNodeBuilder
-            extends DoubleArrayDefaultNode
-            implements DefaultNode.Builder.OfDouble {
-
-        DoubleFixedDefaultNodeBuilder(long size) {
-            super(size);
-            assert size < MAX_ARRAY_SIZE;
-        }
-
-        @Override
-        public DefaultNode.OfDouble build() {
-            if (curSize < array.length) {
-                throw new IllegalStateException(String.format("Current size %d is less than fixed size %d",
-                                                              curSize, array.length));
-            }
-
-            return this;
-        }
-
-        @Override
-        public void begin(long size) {
-            if (size != array.length) {
-                throw new IllegalStateException(String.format("Begin size %d is not equal to fixed size %d",
-                                                              size, array.length));
-            }
-
-            curSize = 0;
-        }
-
-        @Override
-        public void accept(double i) {
-            if (curSize < array.length) {
-                array[curSize++] = i;
-            } else {
-                throw new IllegalStateException(String.format("Accept exceeded fixed size of %d",
-                                                              array.length));
-            }
-        }
-
-        @Override
-        public void end() {
-            if (curSize < array.length) {
-                throw new IllegalStateException(String.format("End size %d is less than fixed size %d",
-                                                              curSize, array.length));
-            }
-        }
-
-        @Override
-        public String toString() {
-            return String.format("DoubleFixedDefaultNodeBuilder[%d][%s]",
-                                 array.length - curSize, Arrays.toString(array));
-        }
-    }
-
-    private static final class IntSpinedDefaultNodeBuilder
-            extends DefaultSpinedBuffer.OfInt
-            implements DefaultNode.OfInt, DefaultNode.Builder.OfInt {
-        private boolean building = false;
-
-        IntSpinedDefaultNodeBuilder() {} // Avoid creation of special accessor
-
-        @Override
-        public Spliterator.OfInt spliterator() {
-            assert !building : "during building";
-            return super.spliterator();
-        }
-
-        @Override
-        public void forEach(IntConsumer consumer) {
-            assert !building : "during building";
-            super.forEach(consumer);
-        }
-
-        //
-        @Override
-        public void begin(long size) {
-            assert !building : "was already building";
-            building = true;
-            clear();
-            ensureCapacity(size);
-        }
-
-        @Override
-        public void accept(int i) {
-            assert building : "not building";
-            super.accept(i);
-        }
-
-        @Override
-        public void end() {
-            assert building : "was not building";
-            building = false;
-            // @@@ check begin(size) and size
-        }
-
-        @Override
-        public void copyInto(int[] array, int offset) throws IndexOutOfBoundsException {
-            assert !building : "during building";
-            super.copyInto(array, offset);
-        }
-
-        @Override
-        public int[] asPrimitiveArray() {
-            assert !building : "during building";
-            return super.asPrimitiveArray();
-        }
-
-        @Override
-        public DefaultNode.OfInt build() {
-            assert !building : "during building";
-            return this;
-        }
-    }
-
-    private static final class LongSpinedDefaultNodeBuilder
-            extends DefaultSpinedBuffer.OfLong
-            implements DefaultNode.OfLong, DefaultNode.Builder.OfLong {
-        private boolean building = false;
-
-        LongSpinedDefaultNodeBuilder() {} // Avoid creation of special accessor
-
-        @Override
-        public Spliterator.OfLong spliterator() {
-            assert !building : "during building";
-            return super.spliterator();
-        }
-
-        @Override
-        public void forEach(LongConsumer consumer) {
-            assert !building : "during building";
-            super.forEach(consumer);
-        }
-
-        //
-        @Override
-        public void begin(long size) {
-            assert !building : "was already building";
-            building = true;
-            clear();
-            ensureCapacity(size);
-        }
-
-        @Override
-        public void accept(long i) {
-            assert building : "not building";
-            super.accept(i);
-        }
-
-        @Override
-        public void end() {
-            assert building : "was not building";
-            building = false;
-            // @@@ check begin(size) and size
-        }
-
-        @Override
-        public void copyInto(long[] array, int offset) {
-            assert !building : "during building";
-            super.copyInto(array, offset);
-        }
-
-        @Override
-        public long[] asPrimitiveArray() {
-            assert !building : "during building";
-            return super.asPrimitiveArray();
-        }
-
-        @Override
-        public DefaultNode.OfLong build() {
-            assert !building : "during building";
-            return this;
-        }
-    }
-
-    private static final class DoubleSpinedDefaultNodeBuilder
-            extends DefaultSpinedBuffer.OfDouble
-            implements DefaultNode.OfDouble, DefaultNode.Builder.OfDouble {
-        private boolean building = false;
-
-        DoubleSpinedDefaultNodeBuilder() {} // Avoid creation of special accessor
-
-        @Override
-        public Spliterator.OfDouble spliterator() {
-            assert !building : "during building";
-            return super.spliterator();
-        }
-
-        @Override
-        public void forEach(DoubleConsumer consumer) {
-            assert !building : "during building";
-            super.forEach(consumer);
-        }
-
-        //
-        @Override
-        public void begin(long size) {
-            assert !building : "was already building";
-            building = true;
-            clear();
-            ensureCapacity(size);
-        }
-
-        @Override
-        public void accept(double i) {
-            assert building : "not building";
-            super.accept(i);
-        }
-
-        @Override
-        public void end() {
-            assert building : "was not building";
-            building = false;
-            // @@@ check begin(size) and size
-        }
-
-        @Override
-        public void copyInto(double[] array, int offset) {
-            assert !building : "during building";
-            super.copyInto(array, offset);
-        }
-
-        @Override
-        public double[] asPrimitiveArray() {
-            assert !building : "during building";
-            return super.asPrimitiveArray();
-        }
-
-        @Override
-        public DefaultNode.OfDouble build() {
-            assert !building : "during building";
-            return this;
-        }
-    }
-
-    /*
-     * This and subclasses are not intended to be serializable
-     */
+    
     private static abstract class SizedCollectorTask<P_IN, P_OUT, T_SINK extends DefaultSink<P_OUT>,
-                                                     K extends DefaultNodes.SizedCollectorTask<P_IN, P_OUT, T_SINK, K>>
-            extends CountedCompleter<Void>
+            K extends DefaultNodes.SizedCollectorTask<P_IN, P_OUT, T_SINK, K>>
+            extends DefaultCountedCompleter<Void>
             implements DefaultSink<P_OUT> {
-        protected final Spliterator<P_IN> spliterator;
+        protected final DefaultSpliterator<P_IN> spliterator;
         protected final DefaultPipelineHelper<P_OUT> helper;
         protected final long targetSize;
         protected long offset;
@@ -1817,10 +736,10 @@ final class DefaultNodes {
         // For DefaultSink implementation
         protected int index, fence;
 
-        SizedCollectorTask(Spliterator<P_IN> spliterator,
+        SizedCollectorTask(DefaultSpliterator<P_IN> spliterator,
                            DefaultPipelineHelper<P_OUT> helper,
-                           int arrayLength) {
-            assert spliterator.hasCharacteristics(Spliterator.SUBSIZED);
+                           int arrayLength) throws RestException {
+            assert spliterator.hasCharacteristics(DefaultSpliterator.SUBSIZED);
             this.spliterator = spliterator;
             this.helper = helper;
             this.targetSize = DefaultAbstractTask.suggestTargetSize(spliterator.estimateSize());
@@ -1828,10 +747,10 @@ final class DefaultNodes {
             this.length = arrayLength;
         }
 
-        SizedCollectorTask(K parent, Spliterator<P_IN> spliterator,
-                           long offset, long length, int arrayLength) {
+        SizedCollectorTask(K parent, DefaultSpliterator<P_IN> spliterator,
+                           long offset, long length, int arrayLength) throws RestException {
             super(parent);
-            assert spliterator.hasCharacteristics(Spliterator.SUBSIZED);
+            assert spliterator.hasCharacteristics(DefaultSpliterator.SUBSIZED);
             this.spliterator = spliterator;
             this.helper = parent.helper;
             this.targetSize = parent.targetSize;
@@ -1841,21 +760,21 @@ final class DefaultNodes {
             if (offset < 0 || length < 0 || (offset + length - 1 >= arrayLength)) {
                 throw new IllegalArgumentException(
                         String.format("offset and length interval [%d, %d + %d) is not within array size interval [0, %d)",
-                                      offset, offset, length, arrayLength));
+                                offset, offset, length, arrayLength));
             }
         }
 
         @Override
-        public void compute() {
+        public void computes() throws RestException {
             SizedCollectorTask<P_IN, P_OUT, T_SINK, K> task = this;
-            Spliterator<P_IN> rightSplit = spliterator, leftSplit;
+            DefaultSpliterator<P_IN> rightSplit = spliterator, leftSplit;
             while (rightSplit.estimateSize() > task.targetSize &&
-                   (leftSplit = rightSplit.trySplit()) != null) {
+                    (leftSplit = rightSplit.trySplit()) != null) {
                 task.setPendingCount(1);
                 long leftSplitSize = leftSplit.estimateSize();
                 task.makeChild(leftSplit, task.offset, leftSplitSize).fork();
                 task = task.makeChild(rightSplit, task.offset + leftSplitSize,
-                                      task.length - leftSplitSize);
+                        task.length - leftSplitSize);
             }
 
             assert task.offset + task.length < MAX_ARRAY_SIZE;
@@ -1865,7 +784,7 @@ final class DefaultNodes {
             task.propagateCompletion();
         }
 
-        abstract K makeChild(Spliterator<P_IN> spliterator, long offset, long size);
+        abstract K makeChild(DefaultSpliterator<P_IN> spliterator, long offset, long size) throws RestException;
 
         @Override
         public void begin(long size) {
@@ -1883,118 +802,25 @@ final class DefaultNodes {
                 implements DefaultSink<P_OUT> {
             private final P_OUT[] array;
 
-            OfRef(Spliterator<P_IN> spliterator, DefaultPipelineHelper<P_OUT> helper, P_OUT[] array) {
+            OfRef(DefaultSpliterator<P_IN> spliterator, DefaultPipelineHelper<P_OUT> helper, P_OUT[] array) throws RestException {
                 super(spliterator, helper, array.length);
                 this.array = array;
             }
 
-            OfRef(DefaultNodes.SizedCollectorTask.OfRef<P_IN, P_OUT> parent, Spliterator<P_IN> spliterator,
-                  long offset, long length) {
+            OfRef(DefaultNodes.SizedCollectorTask.OfRef<P_IN, P_OUT> parent, DefaultSpliterator<P_IN> spliterator,
+                  long offset, long length) throws RestException {
                 super(parent, spliterator, offset, length, parent.array.length);
                 this.array = parent.array;
             }
 
             @Override
-            DefaultNodes.SizedCollectorTask.OfRef<P_IN, P_OUT> makeChild(Spliterator<P_IN> spliterator,
-                                                                         long offset, long size) {
+            DefaultNodes.SizedCollectorTask.OfRef<P_IN, P_OUT> makeChild(DefaultSpliterator<P_IN> spliterator,
+                                                                         long offset, long size) throws RestException {
                 return new DefaultNodes.SizedCollectorTask.OfRef<>(this, spliterator, offset, size);
             }
 
             @Override
-            public void accept(P_OUT value) {
-                if (index >= fence) {
-                    throw new IndexOutOfBoundsException(Integer.toString(index));
-                }
-                array[index++] = value;
-            }
-        }
-
-        static final class OfInt<P_IN>
-                extends DefaultNodes.SizedCollectorTask<P_IN, Integer, DefaultSink.OfInt, OfInt<P_IN>>
-                implements DefaultSink.OfInt {
-            private final int[] array;
-
-            OfInt(Spliterator<P_IN> spliterator, DefaultPipelineHelper<Integer> helper, int[] array) {
-                super(spliterator, helper, array.length);
-                this.array = array;
-            }
-
-            OfInt(DefaultNodes.SizedCollectorTask.OfInt<P_IN> parent, Spliterator<P_IN> spliterator,
-                  long offset, long length) {
-                super(parent, spliterator, offset, length, parent.array.length);
-                this.array = parent.array;
-            }
-
-            @Override
-            DefaultNodes.SizedCollectorTask.OfInt<P_IN> makeChild(Spliterator<P_IN> spliterator,
-                                                                  long offset, long size) {
-                return new DefaultNodes.SizedCollectorTask.OfInt<>(this, spliterator, offset, size);
-            }
-
-            @Override
-            public void accept(int value) {
-                if (index >= fence) {
-                    throw new IndexOutOfBoundsException(Integer.toString(index));
-                }
-                array[index++] = value;
-            }
-        }
-
-        static final class OfLong<P_IN>
-                extends DefaultNodes.SizedCollectorTask<P_IN, Long, DefaultSink.OfLong, OfLong<P_IN>>
-                implements DefaultSink.OfLong {
-            private final long[] array;
-
-            OfLong(Spliterator<P_IN> spliterator, DefaultPipelineHelper<Long> helper, long[] array) {
-                super(spliterator, helper, array.length);
-                this.array = array;
-            }
-
-            OfLong(DefaultNodes.SizedCollectorTask.OfLong<P_IN> parent, Spliterator<P_IN> spliterator,
-                   long offset, long length) {
-                super(parent, spliterator, offset, length, parent.array.length);
-                this.array = parent.array;
-            }
-
-            @Override
-            DefaultNodes.SizedCollectorTask.OfLong<P_IN> makeChild(Spliterator<P_IN> spliterator,
-                                                                   long offset, long size) {
-                return new DefaultNodes.SizedCollectorTask.OfLong<>(this, spliterator, offset, size);
-            }
-
-            @Override
-            public void accept(long value) {
-                if (index >= fence) {
-                    throw new IndexOutOfBoundsException(Integer.toString(index));
-                }
-                array[index++] = value;
-            }
-        }
-
-        static final class OfDouble<P_IN>
-                extends DefaultNodes.SizedCollectorTask<P_IN, Double, DefaultSink.OfDouble, OfDouble<P_IN>>
-                implements DefaultSink.OfDouble {
-            private final double[] array;
-
-            OfDouble(Spliterator<P_IN> spliterator, DefaultPipelineHelper<Double> helper, double[] array) {
-                super(spliterator, helper, array.length);
-                this.array = array;
-            }
-
-            OfDouble(DefaultNodes.SizedCollectorTask.OfDouble<P_IN> parent, Spliterator<P_IN> spliterator,
-                     long offset, long length) {
-                super(parent, spliterator, offset, length, parent.array.length);
-                this.array = parent.array;
-            }
-
-            @Override
-            DefaultNodes.SizedCollectorTask.OfDouble<P_IN> makeChild(Spliterator<P_IN> spliterator,
-                                                                     long offset, long size) {
-                return new DefaultNodes.SizedCollectorTask.OfDouble<>(this, spliterator, offset, size);
-            }
-
-            @Override
-            public void accept(double value) {
+            public void actuate(P_OUT value) {
                 if (index >= fence) {
                     throw new IndexOutOfBoundsException(Integer.toString(index));
                 }
@@ -2004,8 +830,8 @@ final class DefaultNodes {
     }
 
     private static abstract class ToArrayTask<T, T_NODE extends DefaultNode<T>,
-                                              K extends DefaultNodes.ToArrayTask<T, T_NODE, K>>
-            extends CountedCompleter<Void> {
+            K extends DefaultNodes.ToArrayTask<T, T_NODE, K>>
+            extends DefaultCountedCompleter<Void> {
         protected final T_NODE node;
         protected final int offset;
 
@@ -2025,22 +851,21 @@ final class DefaultNodes {
         abstract K makeChild(int childIndex, int offset);
 
         @Override
-        public void compute() {
+        public void computes() {
             ToArrayTask<T, T_NODE, K> task = this;
             while (true) {
                 if (task.node.getChildCount() == 0) {
                     task.copyDefaultNodeToArray();
                     task.propagateCompletion();
                     return;
-                }
-                else {
+                } else {
                     task.setPendingCount(task.node.getChildCount() - 1);
 
                     int size = 0;
                     int i = 0;
-                    for (;i < task.node.getChildCount() - 1; i++) {
+                    for (; i < task.node.getChildCount() - 1; i++) {
                         K leftTask = task.makeChild(i, task.offset + size);
-                        size += leftTask.node.count();
+                        size += (int) leftTask.node.count();
                         leftTask.fork();
                     }
                     task = task.makeChild(i, task.offset + size);
@@ -2074,8 +899,8 @@ final class DefaultNodes {
         }
 
         private static class OfPrimitive<T, T_CONS, T_ARR,
-                                         T_SPLITR extends Spliterator.OfPrimitive<T, T_CONS, T_SPLITR>,
-                                         T_NODE extends DefaultNode.OfPrimitive<T, T_CONS, T_ARR, T_SPLITR, T_NODE>>
+                T_SPLITR extends DefaultSpliterator.OfPrimitive<T, T_CONS, T_SPLITR>,
+                T_NODE extends DefaultNode.OfPrimitive<T, T_CONS, T_ARR, T_SPLITR, T_NODE>>
                 extends DefaultNodes.ToArrayTask<T, T_NODE, OfPrimitive<T, T_CONS, T_ARR, T_SPLITR, T_NODE>> {
             private final T_ARR array;
 
@@ -2099,39 +924,18 @@ final class DefaultNodes {
                 node.copyInto(array, offset);
             }
         }
-
-        private static final class OfInt
-                extends OfPrimitive<Integer, IntConsumer, int[], Spliterator.OfInt, DefaultNode.OfInt> {
-            private OfInt(DefaultNode.OfInt node, int[] array, int offset) {
-                super(node, array, offset);
-            }
-        }
-
-        private static final class OfLong
-                extends OfPrimitive<Long, LongConsumer, long[], Spliterator.OfLong, DefaultNode.OfLong> {
-            private OfLong(DefaultNode.OfLong node, long[] array, int offset) {
-                super(node, array, offset);
-            }
-        }
-
-        private static final class OfDouble
-                extends OfPrimitive<Double, DoubleConsumer, double[], Spliterator.OfDouble, DefaultNode.OfDouble> {
-            private OfDouble(DefaultNode.OfDouble node, double[] array, int offset) {
-                super(node, array, offset);
-            }
-        }
     }
 
     private static class CollectorTask<P_IN, P_OUT, T_NODE extends DefaultNode<P_OUT>, T_BUILDER extends DefaultNode.Builder<P_OUT>>
             extends DefaultAbstractTask<P_IN, P_OUT, T_NODE, CollectorTask<P_IN, P_OUT, T_NODE, T_BUILDER>> {
         protected final DefaultPipelineHelper<P_OUT> helper;
         protected final LongFunction<T_BUILDER> builderFactory;
-        protected final BinaryOperator<T_NODE> concFactory;
+        protected final BinaryOperatorActuator<T_NODE> concFactory;
 
         CollectorTask(DefaultPipelineHelper<P_OUT> helper,
-                      Spliterator<P_IN> spliterator,
+                      DefaultSpliterator<P_IN> spliterator,
                       LongFunction<T_BUILDER> builderFactory,
-                      BinaryOperator<T_NODE> concFactory) {
+                      BinaryOperatorActuator<T_NODE> concFactory) {
             super(helper, spliterator);
             this.helper = helper;
             this.builderFactory = builderFactory;
@@ -2139,7 +943,7 @@ final class DefaultNodes {
         }
 
         CollectorTask(CollectorTask<P_IN, P_OUT, T_NODE, T_BUILDER> parent,
-                      Spliterator<P_IN> spliterator) {
+                      DefaultSpliterator<P_IN> spliterator) {
             super(parent, spliterator);
             helper = parent.helper;
             builderFactory = parent.builderFactory;
@@ -2147,21 +951,21 @@ final class DefaultNodes {
         }
 
         @Override
-        protected CollectorTask<P_IN, P_OUT, T_NODE, T_BUILDER> makeChild(Spliterator<P_IN> spliterator) {
+        protected CollectorTask<P_IN, P_OUT, T_NODE, T_BUILDER> makeChild(DefaultSpliterator<P_IN> spliterator) {
             return new CollectorTask<>(this, spliterator);
         }
 
         @Override
         @SuppressWarnings("unchecked")
-        protected T_NODE doLeaf() {
+        protected T_NODE doLeaf() throws RestException {
             T_BUILDER builder = builderFactory.apply(helper.exactOutputSizeIfKnown(spliterator));
             return (T_NODE) helper.wrapAndCopyInto(builder, spliterator).build();
         }
 
         @Override
-        public void onCompletion(CountedCompleter<?> caller) {
+        public void onComputes(DefaultCountedCompleter<?> caller) throws RestException {
             if (!isLeaf())
-                setLocalResult(concFactory.apply(leftChild.getLocalResult(), rightChild.getLocalResult()));
+                setLocalResult(concFactory.actuate(leftChild.getLocalResult(), rightChild.getLocalResult()));
             super.onCompletion(caller);
         }
 
@@ -2169,30 +973,10 @@ final class DefaultNodes {
                 extends DefaultNodes.CollectorTask<P_IN, P_OUT, DefaultNode<P_OUT>, DefaultNode.Builder<P_OUT>> {
             OfRef(DefaultPipelineHelper<P_OUT> helper,
                   IntFunction<P_OUT[]> generator,
-                  Spliterator<P_IN> spliterator) {
+                  DefaultSpliterator<P_IN> spliterator) {
                 super(helper, spliterator, s -> builder(s, generator), ConcDefaultNode::new);
             }
         }
 
-        private static final class OfInt<P_IN>
-                extends DefaultNodes.CollectorTask<P_IN, Integer, DefaultNode.OfInt, DefaultNode.Builder.OfInt> {
-            OfInt(DefaultPipelineHelper<Integer> helper, Spliterator<P_IN> spliterator) {
-                super(helper, spliterator, DefaultNodes::intBuilder, ConcDefaultNode.OfInt::new);
-            }
-        }
-
-        private static final class OfLong<P_IN>
-                extends DefaultNodes.CollectorTask<P_IN, Long, DefaultNode.OfLong, DefaultNode.Builder.OfLong> {
-            OfLong(DefaultPipelineHelper<Long> helper, Spliterator<P_IN> spliterator) {
-                super(helper, spliterator, DefaultNodes::longBuilder, ConcDefaultNode.OfLong::new);
-            }
-        }
-
-        private static final class OfDouble<P_IN>
-                extends DefaultNodes.CollectorTask<P_IN, Double, DefaultNode.OfDouble, DefaultNode.Builder.OfDouble> {
-            OfDouble(DefaultPipelineHelper<Double> helper, Spliterator<P_IN> spliterator) {
-                super(helper, spliterator, DefaultNodes::doubleBuilder, ConcDefaultNode.OfDouble::new);
-            }
-        }
     }
 }

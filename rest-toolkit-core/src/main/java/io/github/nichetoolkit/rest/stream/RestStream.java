@@ -1,139 +1,101 @@
-/*
- * Copyright (c) 2012, 2013, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
- *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
- *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
- *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
- *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
- */
 package io.github.nichetoolkit.rest.stream;
+
+import io.github.nichetoolkit.rest.RestException;
+import io.github.nichetoolkit.rest.actuator.*;
 
 import java.util.*;
 import java.util.function.*;
-import java.util.stream.*;
 
-public interface RestStream<T> extends BaseStream<T, RestStream<T>> {
+public interface RestStream<T> extends DefaultBaseStream<T, RestStream<T>> {
 
     /* copy form jdk Stream  */
 
-    RestStream<T> filter(Predicate<? super T> predicate);
+    RestStream<T> filter(PredicateActuator<? super T> predicate) throws RestException;
 
-    <R> RestStream<R> map(Function<? super T, ? extends R> mapper);
+    <R> RestStream<R> map(FunctionActuator<? super T, ? extends R> mapper) throws RestException;
 
-//    IntStream mapToInt(ToIntFunction<? super T> mapper);
-//
-//    LongStream mapToLong(ToLongFunction<? super T> mapper);
-//
-//    DoubleStream mapToDouble(ToDoubleFunction<? super T> mapper);
+    <R> RestStream<R> flatMap(FunctionActuator<? super T, ? extends RestStream<? extends R>> mapper) throws RestException;
 
-    <R> RestStream<R> flatMap(Function<? super T, ? extends RestStream<? extends R>> mapper);
+    RestStream<T> distinct() throws RestException;
 
-//    IntStream flatMapToInt(Function<? super T, ? extends IntStream> mapper);
-//
-//    LongStream flatMapToLong(Function<? super T, ? extends LongStream> mapper);
-//
-//    DoubleStream flatMapToDouble(Function<? super T, ? extends DoubleStream> mapper);
+    RestStream<T> sorted() throws RestException;
 
-    RestStream<T> distinct();
+    RestStream<T> sorted(ComparatorActuator<? super T> comparator) throws RestException;
 
-    RestStream<T> sorted();
+    RestStream<T> peek(ConsumerActuator<? super T> action) throws RestException;
 
-    RestStream<T> sorted(Comparator<? super T> comparator);
+    RestStream<T> limit(long maxSize) throws RestException;
 
-    RestStream<T> peek(Consumer<? super T> action);
+    RestStream<T> skip(long n) throws RestException;
 
-    RestStream<T> limit(long maxSize);
+    void forEach(ConsumerActuator<? super T> action) throws RestException;
 
-    RestStream<T> skip(long n);
+    void forEachOrdered(ConsumerActuator<? super T> action) throws RestException;
 
-    void forEach(Consumer<? super T> action);
+    Object[] toArray() throws RestException;
 
-    void forEachOrdered(Consumer<? super T> action);
+    <A> A[] toArray(IntFunction<A[]> generator) throws RestException;
 
-    Object[] toArray();
+    T reduce(T identity, BinaryOperatorActuator<T> accumulator) throws RestException;
 
-    <A> A[] toArray(IntFunction<A[]> generator);
-
-    T reduce(T identity, BinaryOperator<T> accumulator);
-
-    Optional<T> reduce(BinaryOperator<T> accumulator);
+    Optional<T> reduce(BinaryOperatorActuator<T> accumulator) throws RestException;
 
     <U> U reduce(U identity,
-                 BiFunction<U, ? super T, U> accumulator,
-                 BinaryOperator<U> combiner);
+                 BiFunctionActuator<U, ? super T, U> accumulator,
+                 BinaryOperatorActuator<U> combiner) throws RestException;
 
-    <R> R collect(Supplier<R> supplier,
-                  BiConsumer<R, ? super T> accumulator,
-                  BiConsumer<R, R> combiner);
+    <R> R collect(SupplierActuator<R> supplier,
+                  BiConsumerActuator<R, ? super T> accumulator,
+                  BiConsumerActuator<R, R> combiner) throws RestException;
 
-    <R, A> R collect(Collector<? super T, A, R> collector);
+    <R, A> R collect(RestCollector<? super T, A, R> collector) throws RestException;
 
-    Optional<T> min(Comparator<? super T> comparator);
+    Optional<T> min(ComparatorActuator<? super T> comparator) throws RestException;
 
-    Optional<T> max(Comparator<? super T> comparator);
+    Optional<T> max(ComparatorActuator<? super T> comparator) throws RestException;
 
-//    long count();
+    boolean anyMatch(PredicateActuator<? super T> predicate) throws RestException;
 
-    boolean anyMatch(Predicate<? super T> predicate);
+    boolean allMatch(PredicateActuator<? super T> predicate) throws RestException;
 
-    boolean allMatch(Predicate<? super T> predicate);
+    boolean noneMatch(PredicateActuator<? super T> predicate) throws RestException;
 
-    boolean noneMatch(Predicate<? super T> predicate);
+    Optional<T> findFirst() throws RestException;
 
-    Optional<T> findFirst();
+    Optional<T> findAny() throws RestException;
 
-    Optional<T> findAny();
-
-    // Static factories
-
-    static<T> Builder<T> builder() {
+    static <T> Builder<T> builder() throws RestException {
         return new DefaultStreams.StreamBuilderImpl<>();
     }
 
-    static<T> RestStream<T> empty() {
-        return RestStreamSupport.stream(Spliterators.<T>emptySpliterator(), false);
+    static <T> RestStream<T> empty() throws RestException {
+        return DefaultStreamSupport.stream(DefaultSpliterators.emptySpliterator(), false);
     }
 
-    static<T> RestStream<T> of(T t) {
-        return RestStreamSupport.stream(new DefaultStreams.StreamBuilderImpl<>(t), false);
+    static <T> RestStream<T> of(T t) throws RestException {
+        return DefaultStreamSupport.stream(new DefaultStreams.StreamBuilderImpl<>(t), false);
     }
 
     @SafeVarargs
-    @SuppressWarnings("varargs") // Creating a stream from an array is safe
-    static<T> RestStream<T> of(T... values) {
+    @SuppressWarnings("varargs")
+    static <T> RestStream<T> of(T... values) throws RestException {
         return stream(values);
     }
 
-    static <T> RestStream<T> stream(T[] array) {
+    static <T> RestStream<T> stream(T[] array) throws RestException {
         return stream(array, 0, array.length);
     }
 
-    static <T> RestStream<T> stream(T[] array, int startInclusive, int endExclusive) {
-        return RestStreamSupport.stream(spliterator(array, startInclusive, endExclusive), false);
+    static <T> RestStream<T> stream(T[] array, int startInclusive, int endExclusive) throws RestException {
+        return DefaultStreamSupport.stream(spliterator(array, startInclusive, endExclusive), false);
     }
 
-    static <T> Spliterator<T> spliterator(T[] array, int startInclusive, int endExclusive) {
-        return Spliterators.spliterator(array, startInclusive, endExclusive,
-                Spliterator.ORDERED | Spliterator.IMMUTABLE);
+    static <T> DefaultSpliterator<T> spliterator(T[] array, int startInclusive, int endExclusive) throws RestException {
+        return DefaultSpliterators.spliterator(array, startInclusive, endExclusive,
+                DefaultSpliterator.ORDERED | DefaultSpliterator.IMMUTABLE);
     }
 
-    static<T> RestStream<T> iterate(final T seed, final UnaryOperator<T> f) {
+    static <T> RestStream<T> iterate(final T seed, final UnaryOperator<T> f) throws RestException {
         Objects.requireNonNull(f);
         final Iterator<T> iterator = new Iterator<T>() {
             @SuppressWarnings("unchecked")
@@ -149,39 +111,41 @@ public interface RestStream<T> extends BaseStream<T, RestStream<T>> {
                 return t = (t == DefaultStreams.NONE) ? seed : f.apply(t);
             }
         };
-        return RestStreamSupport.stream(Spliterators.spliteratorUnknownSize(
+        return DefaultStreamSupport.stream(DefaultSpliterators.spliteratorUnknownSize(
                 iterator,
-                Spliterator.ORDERED | Spliterator.IMMUTABLE), false);
+                DefaultSpliterator.ORDERED | DefaultSpliterator.IMMUTABLE), false);
     }
 
-    static<T> RestStream<T> generate(Supplier<T> s) {
+    static <T> RestStream<T> generate(SupplierActuator<T> s) throws RestException {
         Objects.requireNonNull(s);
-        return RestStreamSupport.stream(
+        return DefaultStreamSupport.stream(
                 new DefaultStreamSpliterators.InfiniteSupplyingSpliterator.OfRef<>(Long.MAX_VALUE, s), false);
     }
 
-    static <T> RestStream<T> concat(RestStream<? extends T> a, RestStream<? extends T> b) {
+    static <T> RestStream<T> concat(RestStream<? extends T> a, RestStream<? extends T> b) throws RestException {
         Objects.requireNonNull(a);
         Objects.requireNonNull(b);
 
         @SuppressWarnings("unchecked")
-        Spliterator<T> split = new DefaultStreams.ConcatSpliterator.OfRef<>(
-                (Spliterator<T>) a.spliterator(), (Spliterator<T>) b.spliterator());
-        RestStream<T> stream = RestStreamSupport.stream(split, a.isParallel() || b.isParallel());
+        DefaultSpliterator<T> split = new DefaultStreams.ConcatSpliterator.OfRef<>(
+                (DefaultSpliterator<T>) a.spliterator(), (DefaultSpliterator<T>) b.spliterator());
+        RestStream<T> stream = DefaultStreamSupport.stream(split, a.isParallel() || b.isParallel());
         return stream.onClose(DefaultStreams.composedClose(a, b));
     }
 
-    interface Builder<T> extends Consumer<T> {
-
-        @Override
-        void accept(T t);
+    interface Builder<T> extends ConsumerActuator<T> {
 
         default Builder<T> add(T t) {
             accept(t);
             return this;
         }
 
-        RestStream<T> build();
+        default Builder<T> apd(T t) throws RestException {
+            actuate(t);
+            return this;
+        }
+
+        RestStream<T> build() throws RestException;
 
     }
 }

@@ -426,7 +426,7 @@ public final class OptionalUtils<T> {
      * @see io.github.nichetoolkit.rest.RestException
      */
     public T nullElseGet(SupplierActuator<? extends T> other) throws RestException {
-        return value != null ? value : other.get();
+        return value != null ? value : other.actuate();
     }
 
     /**
@@ -439,7 +439,7 @@ public final class OptionalUtils<T> {
      * @see io.github.nichetoolkit.rest.RestException
      */
     public T emptyElseGet(SupplierActuator<? extends T> other) throws RestException {
-        return GeneralUtils.isNotEmpty(value) ? value : other.get();
+        return GeneralUtils.isNotEmpty(value) ? value : other.actuate();
     }
 
     /**
@@ -452,7 +452,7 @@ public final class OptionalUtils<T> {
      * @see io.github.nichetoolkit.rest.RestException
      */
     public T validElseGet(SupplierActuator<? extends T> other) throws RestException {
-        return GeneralUtils.isValid(value) ? value : other.get();
+        return GeneralUtils.isValid(value) ? value : other.actuate();
     }
 
 
@@ -460,18 +460,20 @@ public final class OptionalUtils<T> {
      * <code>nullElseThrow</code>
      * <p>the else throw method.</p>
      * @param <X>               {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param exceptionSupplier {@link java.util.function.Supplier} <p>the exception supplier parameter is <code>Supplier</code> type.</p>
+     * @param exceptionSupplier {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>the exception supplier parameter is <code>SupplierActuator</code> type.</p>
      * @return T <p>the else throw return object is <code>T</code> type.</p>
-     * @throws X X <p>the x is <code>X</code> type.</p>
+     * @throws X             X <p>the x is <code>X</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Throwable
-     * @see java.util.function.Supplier
+     * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
      * @see X
+     * @see io.github.nichetoolkit.rest.RestException
      */
-    public <X extends Throwable> T nullElseThrow(Supplier<? extends X> exceptionSupplier) throws X {
+    public <X extends Throwable> T nullElseThrow(SupplierActuator<? extends X> exceptionSupplier) throws X, RestException {
         if (value != null) {
             return value;
         } else {
-            throw exceptionSupplier.get();
+            throw exceptionSupplier.actuate();
         }
     }
 
@@ -479,18 +481,20 @@ public final class OptionalUtils<T> {
      * <code>emptyElseThrow</code>
      * <p>the else throw method.</p>
      * @param <X>               {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param exceptionSupplier {@link java.util.function.Supplier} <p>the exception supplier parameter is <code>Supplier</code> type.</p>
+     * @param exceptionSupplier {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>the exception supplier parameter is <code>SupplierActuator</code> type.</p>
      * @return T <p>the else throw return object is <code>T</code> type.</p>
-     * @throws X X <p>the x is <code>X</code> type.</p>
+     * @throws X             X <p>the x is <code>X</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Throwable
-     * @see java.util.function.Supplier
+     * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
      * @see X
+     * @see io.github.nichetoolkit.rest.RestException
      */
-    public <X extends Throwable> T emptyElseThrow(Supplier<? extends X> exceptionSupplier) throws X {
+    public <X extends Throwable> T emptyElseThrow(SupplierActuator<? extends X> exceptionSupplier) throws X, RestException {
         if (GeneralUtils.isNotEmpty(value)) {
             return value;
         } else {
-            throw exceptionSupplier.get();
+            throw exceptionSupplier.actuate();
         }
     }
 
@@ -498,18 +502,20 @@ public final class OptionalUtils<T> {
      * <code>validElseThrow</code>
      * <p>the else throw method.</p>
      * @param <X>               {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param exceptionSupplier {@link java.util.function.Supplier} <p>the exception supplier parameter is <code>Supplier</code> type.</p>
+     * @param exceptionSupplier {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>the exception supplier parameter is <code>SupplierActuator</code> type.</p>
      * @return T <p>the else throw return object is <code>T</code> type.</p>
-     * @throws X X <p>the x is <code>X</code> type.</p>
+     * @throws X             X <p>the x is <code>X</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Throwable
-     * @see java.util.function.Supplier
+     * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
      * @see X
+     * @see io.github.nichetoolkit.rest.RestException
      */
-    public <X extends Throwable> T validElseThrow(Supplier<? extends X> exceptionSupplier) throws X {
+    public <X extends Throwable> T validElseThrow(SupplierActuator<? extends X> exceptionSupplier) throws X, RestException {
         if (GeneralUtils.isValid(value)) {
             return value;
         } else {
-            throw exceptionSupplier.get();
+            throw exceptionSupplier.actuate();
         }
     }
 
@@ -525,7 +531,7 @@ public final class OptionalUtils<T> {
      */
     public static <T> void nullable(T object, SupplierActuator<RestException> supplierActuator) throws RestException {
         if (GeneralUtils.isEmpty(object)) {
-            RestException restException = supplierActuator.get();
+            RestException restException = supplierActuator.actuate();
             log.error(restException.getMessage());
             throw restException;
         }
@@ -585,7 +591,7 @@ public final class OptionalUtils<T> {
      */
     public static void trueable(Boolean object, SupplierActuator<RestException> supplierActuator) throws RestException {
         if (GeneralUtils.isNotEmpty(object) && object) {
-            RestException restException = supplierActuator.get();
+            RestException restException = supplierActuator.actuate();
             log.error(restException.getMessage());
             throw restException;
         }
@@ -644,7 +650,7 @@ public final class OptionalUtils<T> {
      */
     public static void falseable(Boolean object, SupplierActuator<RestException> supplierActuator) throws RestException {
         if (GeneralUtils.isNotEmpty(object) && !object) {
-            RestException restException = supplierActuator.get();
+            RestException restException = supplierActuator.actuate();
             log.error(restException.getMessage());
             throw restException;
         }
@@ -703,7 +709,7 @@ public final class OptionalUtils<T> {
      */
     public static void nullResult(Integer result, SupplierActuator<RestException> supplierActuator) throws RestException {
         if (null != result && result == 0) {
-            RestException restException = supplierActuator.get();
+            RestException restException = supplierActuator.actuate();
             log.error(restException.getMessage());
             throw restException;
         }

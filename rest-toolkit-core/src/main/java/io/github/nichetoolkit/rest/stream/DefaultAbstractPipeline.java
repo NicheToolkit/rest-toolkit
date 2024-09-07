@@ -1,15 +1,14 @@
 package io.github.nichetoolkit.rest.stream;
 
+import io.github.nichetoolkit.rest.RestException;
+import io.github.nichetoolkit.rest.actuator.SupplierActuator;
 import org.springframework.lang.NonNull;
 
 import java.util.Objects;
-import java.util.Spliterator;
 import java.util.function.IntFunction;
-import java.util.function.Supplier;
-import java.util.stream.*;
 
-abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends BaseStream<E_OUT, S>>
-        extends DefaultPipelineHelper<E_OUT> implements BaseStream<E_OUT, S> {
+abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends DefaultBaseStream<E_OUT, S>>
+        extends DefaultPipelineHelper<E_OUT> implements DefaultBaseStream<E_OUT, S> {
     private static final String MSG_STREAM_LINKED = "stream has already been operated upon or closed";
     private static final String MSG_CONSUMED = "source already consumed or closed";
 
@@ -28,9 +27,9 @@ abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends BaseStream<E_OUT, 
 
     private int combinedFlags;
 
-    private Spliterator<?> sourceSpliterator;
+    private DefaultSpliterator<?> sourceSpliterator;
 
-    private Supplier<? extends Spliterator<?>> sourceSupplier;
+    private SupplierActuator<? extends DefaultSpliterator<?>> sourceSupplier;
 
     private boolean linkedOrConsumed;
 
@@ -40,7 +39,7 @@ abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends BaseStream<E_OUT, 
 
     private boolean parallel;
 
-    DefaultAbstractPipeline(Supplier<? extends Spliterator<?>> source,
+    DefaultAbstractPipeline(SupplierActuator<? extends DefaultSpliterator<?>> source,
                             int sourceFlags, boolean parallel) {
         this.previousStage = null;
         this.sourceSupplier = source;
@@ -53,7 +52,7 @@ abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends BaseStream<E_OUT, 
         this.parallel = parallel;
     }
 
-    DefaultAbstractPipeline(Spliterator<?> source,
+    DefaultAbstractPipeline(DefaultSpliterator<?> source,
                             int sourceFlags, boolean parallel) {
         this.previousStage = null;
         this.sourceSpliterator = source;
@@ -84,40 +83,33 @@ abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends BaseStream<E_OUT, 
 
     // Terminal evaluation methods
 
-    final <R> R evaluate(DefaultTerminalOp<E_OUT, R> terminalOp) {
+    final <R> R evaluate(DefaultTerminalOp<E_OUT, R> terminalOp) throws RestException {
         assert getOutputShape() == terminalOp.inputShape();
         if (linkedOrConsumed)
             throw new IllegalStateException(MSG_STREAM_LINKED);
         linkedOrConsumed = true;
 
         return isParallel()
-               ? terminalOp.evaluateParallel(this, sourceSpliterator(terminalOp.getOpFlags()))
-               : terminalOp.evaluateSequential(this, sourceSpliterator(terminalOp.getOpFlags()));
+                ? terminalOp.evaluateParallel(this, sourceSpliterator(terminalOp.getOpFlags()))
+                : terminalOp.evaluateSequential(this, sourceSpliterator(terminalOp.getOpFlags()));
     }
 
     @SuppressWarnings("unchecked")
-    final DefaultNode<E_OUT> evaluateToArrayNode(IntFunction<E_OUT[]> generator) {
+    final DefaultNode<E_OUT> evaluateToArrayNode(IntFunction<E_OUT[]> generator) throws RestException {
         if (linkedOrConsumed)
             throw new IllegalStateException(MSG_STREAM_LINKED);
         linkedOrConsumed = true;
 
-        // If the last intermediate operation is stateful then
-        // evaluate directly to avoid an extra collection step
         if (isParallel() && previousStage != null && opIsStateful()) {
-            // Set the depth of this, last, pipeline stage to zero to slice the
-            // pipeline such that this operation will not be included in the
-            // upstream slice and upstream operations will not be included
-            // in this slice
             depth = 0;
             return opEvaluateParallel(previousStage, previousStage.sourceSpliterator(0), generator);
-        }
-        else {
+        } else {
             return evaluate(sourceSpliterator(0), true, generator);
         }
     }
 
     @SuppressWarnings("unchecked")
-    final Spliterator<E_OUT> sourceStageSpliterator() {
+    final DefaultSpliterator<E_OUT> sourceStageSpliterator() throws RestException {
         if (this != sourceStage)
             throw new IllegalStateException();
 
@@ -127,27 +119,23 @@ abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends BaseStream<E_OUT, 
 
         if (sourceStage.sourceSpliterator != null) {
             @SuppressWarnings("unchecked")
-            Spliterator<E_OUT> s = sourceStage.sourceSpliterator;
+            DefaultSpliterator<E_OUT> s = sourceStage.sourceSpliterator;
             sourceStage.sourceSpliterator = null;
             return s;
-        }
-        else if (sourceStage.sourceSupplier != null) {
+        } else if (sourceStage.sourceSupplier != null) {
             @SuppressWarnings("unchecked")
-            Spliterator<E_OUT> s = (Spliterator<E_OUT>) sourceStage.sourceSupplier.get();
+            DefaultSpliterator<E_OUT> s = (DefaultSpliterator<E_OUT>) sourceStage.sourceSupplier.actuate();
             sourceStage.sourceSupplier = null;
             return s;
-        }
-        else {
+        } else {
             throw new IllegalStateException(MSG_CONSUMED);
         }
     }
 
-    // BaseStream
-
     @NonNull
     @Override
     @SuppressWarnings("unchecked")
-    public final S sequential() {
+    public final S sequential() throws RestException {
         sourceStage.parallel = false;
         return (S) this;
     }
@@ -155,13 +143,13 @@ abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends BaseStream<E_OUT, 
     @NonNull
     @Override
     @SuppressWarnings("unchecked")
-    public final S parallel() {
+    public final S parallel() throws RestException {
         sourceStage.parallel = true;
         return (S) this;
     }
 
     @Override
-    public void close() {
+    public void closed() throws RestException {
         linkedOrConsumed = true;
         sourceSupplier = null;
         sourceSpliterator = null;
@@ -175,13 +163,13 @@ abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends BaseStream<E_OUT, 
     @NonNull
     @Override
     @SuppressWarnings("unchecked")
-    public S onClose(@NonNull Runnable closeHandler) {
+    public S onClose(@NonNull Runnable closeHandler) throws RestException {
         Objects.requireNonNull(closeHandler);
         Runnable existingHandler = sourceStage.sourceCloseAction;
         sourceStage.sourceCloseAction =
                 (existingHandler == null)
-                ? closeHandler
-                : DefaultStreams.composeWithExceptions(existingHandler, closeHandler);
+                        ? closeHandler
+                        : DefaultStreams.composeWithExceptions(existingHandler, closeHandler);
         return (S) this;
     }
 
@@ -190,7 +178,7 @@ abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends BaseStream<E_OUT, 
     @NonNull
     @Override
     @SuppressWarnings("unchecked")
-    public Spliterator<E_OUT> spliterator() {
+    public DefaultSpliterator<E_OUT> spliterator() throws RestException {
         if (linkedOrConsumed)
             throw new IllegalStateException(MSG_STREAM_LINKED);
         linkedOrConsumed = true;
@@ -198,21 +186,18 @@ abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends BaseStream<E_OUT, 
         if (this == sourceStage) {
             if (sourceStage.sourceSpliterator != null) {
                 @SuppressWarnings("unchecked")
-                Spliterator<E_OUT> s = (Spliterator<E_OUT>) sourceStage.sourceSpliterator;
+                DefaultSpliterator<E_OUT> s = (DefaultSpliterator<E_OUT>) sourceStage.sourceSpliterator;
                 sourceStage.sourceSpliterator = null;
                 return s;
-            }
-            else if (sourceStage.sourceSupplier != null) {
+            } else if (sourceStage.sourceSupplier != null) {
                 @SuppressWarnings("unchecked")
-                Supplier<Spliterator<E_OUT>> s = (Supplier<Spliterator<E_OUT>>) sourceStage.sourceSupplier;
+                SupplierActuator<DefaultSpliterator<E_OUT>> s = (SupplierActuator<DefaultSpliterator<E_OUT>>) sourceStage.sourceSupplier;
                 sourceStage.sourceSupplier = null;
                 return lazySpliterator(s);
-            }
-            else {
+            } else {
                 throw new IllegalStateException(MSG_CONSUMED);
             }
-        }
-        else {
+        } else {
             return wrap(this, () -> sourceSpliterator(0), isParallel());
         }
     }
@@ -223,32 +208,27 @@ abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends BaseStream<E_OUT, 
     }
 
 
-    final int getStreamFlags() {
+    final int getStreamFlags() throws RestException {
         return DefaultStreamOpFlag.toStreamFlags(combinedFlags);
     }
 
-    @SuppressWarnings("unchecked")
-    private Spliterator<?> sourceSpliterator(int terminalFlags) {
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    private DefaultSpliterator<?> sourceSpliterator(int terminalFlags) throws RestException {
         // Get the source spliterator of the pipeline
-        Spliterator<?> spliterator;
+        DefaultSpliterator<?> spliterator;
         if (sourceStage.sourceSpliterator != null) {
             spliterator = sourceStage.sourceSpliterator;
             sourceStage.sourceSpliterator = null;
-        }
-        else if (sourceStage.sourceSupplier != null) {
-            spliterator = (Spliterator<?>) sourceStage.sourceSupplier.get();
+        } else if (sourceStage.sourceSupplier != null) {
+            spliterator = (DefaultSpliterator<?>) sourceStage.sourceSupplier.actuate();
             sourceStage.sourceSupplier = null;
-        }
-        else {
+        } else {
             throw new IllegalStateException(MSG_CONSUMED);
         }
 
         if (isParallel() && sourceStage.sourceAnyStateful) {
-            // Adapt the source spliterator, evaluating each stateful op
-            // in the pipeline up to and including this pipeline stage.
-            // The depth and flags of each pipeline stage are adjusted accordingly.
             int depth = 1;
-            for (@SuppressWarnings("rawtypes") DefaultAbstractPipeline u = sourceStage, p = sourceStage.nextStage, e = this;
+            for (DefaultAbstractPipeline u = sourceStage, p = sourceStage.nextStage, e = this;
                  u != e;
                  u = p, p = p.nextStage) {
 
@@ -257,19 +237,10 @@ abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends BaseStream<E_OUT, 
                     depth = 0;
 
                     if (DefaultStreamOpFlag.SHORT_CIRCUIT.isKnown(thisOpFlags)) {
-                        // Clear the short circuit flag for next pipeline stage
-                        // This stage encapsulates short-circuiting, the next
-                        // stage may not have any short-circuit operations, and
-                        // if so spliterator.forEachRemaining should be used
-                        // for traversal
                         thisOpFlags = thisOpFlags & ~DefaultStreamOpFlag.IS_SHORT_CIRCUIT;
                     }
-
                     spliterator = p.opEvaluateParallelLazy(u, spliterator);
-
-                    // Inject or clear SIZED on the source pipeline stage
-                    // based on the stage's spliterator
-                    thisOpFlags = spliterator.hasCharacteristics(Spliterator.SIZED)
+                    thisOpFlags = spliterator.hasCharacteristics(DefaultSpliterator.SIZED)
                             ? (thisOpFlags & ~DefaultStreamOpFlag.NOT_SIZED) | DefaultStreamOpFlag.IS_SIZED
                             : (thisOpFlags & ~DefaultStreamOpFlag.IS_SIZED) | DefaultStreamOpFlag.NOT_SIZED;
                 }
@@ -278,15 +249,12 @@ abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends BaseStream<E_OUT, 
             }
         }
 
-        if (terminalFlags != 0)  {
-            // Apply flags from the terminal operation to last pipeline stage
+        if (terminalFlags != 0) {
             combinedFlags = DefaultStreamOpFlag.combineOpFlags(terminalFlags, combinedFlags);
         }
 
         return spliterator;
     }
-
-    // DefaultPipelineHelper
 
     @Override
     final DefaultStreamShape getSourceShape() {
@@ -299,33 +267,32 @@ abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends BaseStream<E_OUT, 
     }
 
     @Override
-    final <P_IN> long exactOutputSizeIfKnown(Spliterator<P_IN> spliterator) {
+    final <P_IN> long exactOutputSizeIfKnown(DefaultSpliterator<P_IN> spliterator) throws RestException {
         return DefaultStreamOpFlag.SIZED.isKnown(getStreamAndOpFlags()) ? spliterator.getExactSizeIfKnown() : -1;
     }
 
     @Override
-    final <P_IN, S extends DefaultSink<E_OUT>> S wrapAndCopyInto(S sink, Spliterator<P_IN> spliterator) {
+    final <P_IN, SS extends DefaultSink<E_OUT>> SS wrapAndCopyInto(SS sink, DefaultSpliterator<P_IN> spliterator) throws RestException {
         copyInto(wrapSink(Objects.requireNonNull(sink)), spliterator);
         return sink;
     }
 
     @Override
-    final <P_IN> void copyInto(DefaultSink<P_IN> wrappedDefaultSink, Spliterator<P_IN> spliterator) {
+    final <P_IN> void copyInto(DefaultSink<P_IN> wrappedDefaultSink, DefaultSpliterator<P_IN> spliterator) throws RestException {
         Objects.requireNonNull(wrappedDefaultSink);
 
         if (!DefaultStreamOpFlag.SHORT_CIRCUIT.isKnown(getStreamAndOpFlags())) {
             wrappedDefaultSink.begin(spliterator.getExactSizeIfKnown());
             spliterator.forEachRemaining(wrappedDefaultSink);
             wrappedDefaultSink.end();
-        }
-        else {
+        } else {
             copyIntoWithCancel(wrappedDefaultSink, spliterator);
         }
     }
 
     @Override
     @SuppressWarnings("unchecked")
-    final <P_IN> void copyIntoWithCancel(DefaultSink<P_IN> wrappedDefaultSink, Spliterator<P_IN> spliterator) {
+    final <P_IN> void copyIntoWithCancel(DefaultSink<P_IN> wrappedDefaultSink, DefaultSpliterator<P_IN> spliterator) throws RestException {
         @SuppressWarnings({"rawtypes"})
         DefaultAbstractPipeline p = DefaultAbstractPipeline.this;
         while (p.depth > 0) {
@@ -342,15 +309,15 @@ abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends BaseStream<E_OUT, 
     }
 
     final boolean isOrdered() {
-        return DefaultStreamOpFlag.ORDERED.isKnown(combinedFlags);
+        return !DefaultStreamOpFlag.ORDERED.isKnown(combinedFlags);
     }
 
     @Override
     @SuppressWarnings("unchecked")
-    final <P_IN> DefaultSink<P_IN> wrapSink(DefaultSink<E_OUT> sink) {
+    final <P_IN> DefaultSink<P_IN> wrapSink(DefaultSink<E_OUT> sink) throws RestException {
         Objects.requireNonNull(sink);
 
-        for (@SuppressWarnings("rawtypes") DefaultAbstractPipeline p = DefaultAbstractPipeline.this; p.depth > 0; p=p.previousStage) {
+        for (@SuppressWarnings("rawtypes") DefaultAbstractPipeline p = DefaultAbstractPipeline.this; p.depth > 0; p = p.previousStage) {
             sink = p.opWrapSink(p.previousStage.combinedFlags, sink);
         }
         return (DefaultSink<P_IN>) sink;
@@ -358,24 +325,22 @@ abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends BaseStream<E_OUT, 
 
     @Override
     @SuppressWarnings("unchecked")
-    final <P_IN> Spliterator<E_OUT> wrapSpliterator(Spliterator<P_IN> sourceSpliterator) {
+    final <P_IN> DefaultSpliterator<E_OUT> wrapSpliterator(DefaultSpliterator<P_IN> sourceSpliterator) throws RestException {
         if (depth == 0) {
-            return (Spliterator<E_OUT>) sourceSpliterator;
-        }
-        else {
+            return (DefaultSpliterator<E_OUT>) sourceSpliterator;
+        } else {
             return wrap(this, () -> sourceSpliterator, isParallel());
         }
     }
 
     @Override
-    final <P_IN> DefaultNode<E_OUT> evaluate(Spliterator<P_IN> spliterator,
-                                      boolean flatten,
-                                      IntFunction<E_OUT[]> generator) {
+    final <P_IN> DefaultNode<E_OUT> evaluate(DefaultSpliterator<P_IN> spliterator,
+                                             boolean flatten,
+                                             IntFunction<E_OUT[]> generator) throws RestException {
         if (isParallel()) {
             // @@@ Optimize if op of this pipeline stage is a stateful op
             return evaluateToNode(this, spliterator, flatten, generator);
-        }
-        else {
+        } else {
             DefaultNode.Builder<E_OUT> nb = makeNodeBuilder(
                     exactOutputSizeIfKnown(spliterator), generator);
             return wrapAndCopyInto(nb, spliterator).build();
@@ -388,38 +353,38 @@ abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends BaseStream<E_OUT, 
     abstract DefaultStreamShape getOutputShape();
 
     abstract <P_IN> DefaultNode<E_OUT> evaluateToNode(DefaultPipelineHelper<E_OUT> helper,
-                                               Spliterator<P_IN> spliterator,
-                                               boolean flattenTree,
-                                               IntFunction<E_OUT[]> generator);
+                                                      DefaultSpliterator<P_IN> spliterator,
+                                                      boolean flattenTree,
+                                                      IntFunction<E_OUT[]> generator) throws RestException;
 
-    abstract <P_IN> Spliterator<E_OUT> wrap(DefaultPipelineHelper<E_OUT> ph,
-                                            Supplier<Spliterator<P_IN>> supplier,
-                                            boolean isParallel);
+    abstract <P_IN> DefaultSpliterator<E_OUT> wrap(DefaultPipelineHelper<E_OUT> ph,
+                                                   SupplierActuator<DefaultSpliterator<P_IN>> supplier,
+                                                   boolean isParallel) throws RestException;
 
-    abstract Spliterator<E_OUT> lazySpliterator(Supplier<? extends Spliterator<E_OUT>> supplier);
+    abstract DefaultSpliterator<E_OUT> lazySpliterator(SupplierActuator<? extends DefaultSpliterator<E_OUT>> supplier) throws RestException;
 
-    abstract void forEachWithCancel(Spliterator<E_OUT> spliterator, DefaultSink<E_OUT> sink);
+    abstract void forEachWithCancel(DefaultSpliterator<E_OUT> spliterator, DefaultSink<E_OUT> sink) throws RestException;
 
     @Override
     abstract DefaultNode.Builder<E_OUT> makeNodeBuilder(long exactSizeIfKnown,
-                                                 IntFunction<E_OUT[]> generator);
+                                                        IntFunction<E_OUT[]> generator);
 
 
     // Op-specific abstract methods, implemented by the operation class
 
     abstract boolean opIsStateful();
 
-    abstract DefaultSink<E_IN> opWrapSink(int flags, DefaultSink<E_OUT> sink);
+    abstract DefaultSink<E_IN> opWrapSink(int flags, DefaultSink<E_OUT> sink) throws RestException;
 
     <P_IN> DefaultNode<E_OUT> opEvaluateParallel(DefaultPipelineHelper<E_OUT> helper,
-                                          Spliterator<P_IN> spliterator,
-                                          IntFunction<E_OUT[]> generator) {
+                                                 DefaultSpliterator<P_IN> spliterator,
+                                                 IntFunction<E_OUT[]> generator) throws RestException {
         throw new UnsupportedOperationException("Parallel evaluation is not supported");
     }
 
     @SuppressWarnings("unchecked")
-    <P_IN> Spliterator<E_OUT> opEvaluateParallelLazy(DefaultPipelineHelper<E_OUT> helper,
-                                                     Spliterator<P_IN> spliterator) {
+    <P_IN> DefaultSpliterator<E_OUT> opEvaluateParallelLazy(DefaultPipelineHelper<E_OUT> helper,
+                                                            DefaultSpliterator<P_IN> spliterator) throws RestException {
         return opEvaluateParallel(helper, spliterator, i -> (E_OUT[]) new Object[i]).spliterator();
     }
 }

@@ -3,6 +3,7 @@ package io.github.nichetoolkit.rest.actuator;
 import io.github.nichetoolkit.rest.RestException;
 
 import java.util.Objects;
+import java.util.function.BinaryOperator;
 
 /**
  * <code>BinaryOperatorActuator</code>
@@ -12,7 +13,7 @@ import java.util.Objects;
  * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
  * @since Jdk1.8
  */
-public interface BinaryOperatorActuator<T> extends BiFunctionActuator<T,T,T>{
+public interface BinaryOperatorActuator<T> extends BiFunctionActuator<T,T,T>, BinaryOperator<T> {
 
     /**
      * <code>minBy</code>

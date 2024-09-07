@@ -26,7 +26,7 @@ import java.util.function.Supplier;
 @EqualsAndHashCode(callSuper = true)
 @SuppressWarnings("SameNameButDifferent")
 @JsonIgnoreProperties(value = {"cause","stackTrace","localizedMessage","suppressed"})
-class DefaultException extends Exception implements RestStatus, Supplier<DefaultException>,Serializable {
+public class DefaultException extends Exception implements RestStatus, Supplier<DefaultException>,Serializable {
     /**
      * <code>error</code>
      * {@link io.github.nichetoolkit.rest.RestError} <p>the <code>error</code> field.</p>

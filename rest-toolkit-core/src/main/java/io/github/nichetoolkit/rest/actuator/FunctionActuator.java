@@ -1,8 +1,10 @@
 package io.github.nichetoolkit.rest.actuator;
 
+import io.github.nichetoolkit.rest.RestError;
 import io.github.nichetoolkit.rest.RestException;
 
 import java.util.Objects;
+import java.util.function.Function;
 
 /**
  * <code>FunctionActuator</code>
@@ -10,11 +12,12 @@ import java.util.Objects;
  * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
  * @param <R> {@link java.lang.Object} <p>the parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
+ * @see java.util.function.Function
  * @see java.lang.FunctionalInterface
  * @since Jdk1.8
  */
 @FunctionalInterface
-public interface FunctionActuator<T,R> {
+public interface FunctionActuator<T,R> extends Function<T,R> {
     /**
      * <code>actuate</code>
      * <p>the method.</p>
@@ -24,6 +27,15 @@ public interface FunctionActuator<T,R> {
      * @see io.github.nichetoolkit.rest.RestException
      */
     R actuate(T t) throws RestException;
+
+    @Override
+    default R apply(T t) {
+        try {
+            return actuate(t);
+        } catch (RestException e) {
+            throw new RestError(e);
+        }
+    }
 
     /**
      * <code>compose</code>

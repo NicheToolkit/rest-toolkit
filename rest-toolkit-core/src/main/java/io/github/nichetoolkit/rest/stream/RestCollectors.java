@@ -225,45 +225,6 @@ public final class RestCollectors {
         return reducing(BinaryOperatorActuator.maxBy(comparator));
     }
 
-//    public static <T> RestCollector<T, ?, Integer>
-//    summingInt(ToIntFunction<? super T> mapper) {
-//        return new CollectorImpl<>(
-//                () -> new int[1],
-//                (a, t) -> a[0] += mapper.applyAsInt(t),
-//                (a, b) -> { a[0] += b[0]; return a; },
-//                a -> a[0], CH_NOID);
-//    }
-//
-//    public static <T> RestCollector<T, ?, Long>
-//    summingLong(ToLongFunction<? super T> mapper) {
-//        return new CollectorImpl<>(
-//                () -> new long[1],
-//                (a, t) -> a[0] += mapper.applyAsLong(t),
-//                (a, b) -> { a[0] += b[0]; return a; },
-//                a -> a[0], CH_NOID);
-//    }
-//
-//    public static <T> RestCollector<T, ?, Double>
-//    summingDouble(ToDoubleFunction<? super T> mapper) {
-//        /*
-//         * In the arrays allocated for the collect operation, index 0
-//         * holds the high-order bits of the running sum, index 1 holds
-//         * the low-order bits of the sum computed via compensated
-//         * summation, and index 2 holds the simple sum used to compute
-//         * the proper result if the stream contains infinite values of
-//         * the same sign.
-//         */
-//        return new CollectorImpl<>(
-//                () -> new double[3],
-//                (a, t) -> { sumWithCompensation(a, mapper.applyAsDouble(t));
-//                            a[2] += mapper.applyAsDouble(t);},
-//                (a, b) -> { sumWithCompensation(a, b[0]);
-//                            a[2] += b[2];
-//                            return sumWithCompensation(a, b[1]); },
-//                RestCollectors::computeFinalSum,
-//                CH_NOID);
-//    }
-
     static double[] sumWithCompensation(double[] intermediateSum, double value) {
         double tmp = value - intermediateSum[1];
         double sum = intermediateSum[0];
@@ -282,40 +243,6 @@ public final class RestCollectors {
         else
             return tmp;
     }
-
-//    public static <T> RestCollector<T, ?, Double>
-//    averagingInt(ToIntFunction<? super T> mapper) {
-//        return new CollectorImpl<>(
-//                () -> new long[2],
-//                (a, t) -> { a[0] += mapper.applyAsInt(t); a[1]++; },
-//                (a, b) -> { a[0] += b[0]; a[1] += b[1]; return a; },
-//                a -> (a[1] == 0) ? 0.0d : (double) a[0] / a[1], CH_NOID);
-//    }
-//
-//    public static <T> RestCollector<T, ?, Double>
-//    averagingLong(ToLongFunction<? super T> mapper) {
-//        return new CollectorImpl<>(
-//                () -> new long[2],
-//                (a, t) -> { a[0] += mapper.applyAsLong(t); a[1]++; },
-//                (a, b) -> { a[0] += b[0]; a[1] += b[1]; return a; },
-//                a -> (a[1] == 0) ? 0.0d : (double) a[0] / a[1], CH_NOID);
-//    }
-//
-//    public static <T> RestCollector<T, ?, Double>
-//    averagingDouble(ToDoubleFunction<? super T> mapper) {
-//        /*
-//         * In the arrays allocated for the collect operation, index 0
-//         * holds the high-order bits of the running sum, index 1 holds
-//         * the low-order bits of the sum computed via compensated
-//         * summation, and index 2 holds the number of values seen.
-//         */
-//        return new CollectorImpl<>(
-//                () -> new double[4],
-//                (a, t) -> { sumWithCompensation(a, mapper.applyAsDouble(t)); a[2]++; a[3]+= mapper.applyAsDouble(t);},
-//                (a, b) -> { sumWithCompensation(a, b[0]); sumWithCompensation(a, b[1]); a[2] += b[2]; a[3] += b[3]; return a; },
-//                a -> (a[2] == 0) ? 0.0d : (computeFinalSum(a) / a[2]),
-//                CH_NOID);
-//    }
 
     public static <T> RestCollector<T, ?, T>
     reducing(T identity, BinaryOperatorActuator<T> op) throws RestException {
@@ -389,7 +316,7 @@ public final class RestCollectors {
         BiConsumerActuator<A, ? super T> downstreamAccumulator = downstream.accumulator();
         BiConsumerActuator<Map<K, A>, T> accumulator = (m, t) -> {
             K key = Objects.requireNonNull(classifier.actuate(t), "element cannot be mapped to a null key");
-            A container = computeIfAbsent(m,key, k -> downstreamSupplier.get());
+            A container = computeIfAbsent(m,key, k -> downstreamSupplier.actuate());
             downstreamAccumulator.actuate(container, t);
         };
         BinaryOperatorActuator<Map<K, A>> merger = RestCollectors.mapMerger(downstream.combiner());
@@ -480,14 +407,14 @@ public final class RestCollectors {
         if (downstream.characteristics().contains(RestCollector.Characteristics.CONCURRENT)) {
             accumulator = (m, t) -> {
                 K key = Objects.requireNonNull(classifier.actuate(t), "element cannot be mapped to a null key");
-                A resultContainer = computeIfAbsent(m,key, k -> downstreamSupplier.get());
+                A resultContainer = computeIfAbsent(m,key, k -> downstreamSupplier.actuate());
                 downstreamAccumulator.actuate(resultContainer, t);
             };
         }
         else {
             accumulator = (m, t) -> {
                 K key = Objects.requireNonNull(classifier.actuate(t), "element cannot be mapped to a null key");
-                A resultContainer = computeIfAbsent(m,key, k -> downstreamSupplier.get());
+                A resultContainer = computeIfAbsent(m,key, k -> downstreamSupplier.actuate());
                 synchronized (resultContainer) {
                     downstreamAccumulator.actuate(resultContainer, t);
                 }
@@ -526,8 +453,8 @@ public final class RestCollectors {
                 new Partition<>(op.actuate(left.forTrue, right.forTrue),
                                 op.actuate(left.forFalse, right.forFalse));
         SupplierActuator<Partition<A>> supplier = () ->
-                new Partition<>(downstream.supplier().get(),
-                                downstream.supplier().get());
+                new Partition<>(downstream.supplier().actuate(),
+                                downstream.supplier().actuate());
         if (downstream.characteristics().contains(RestCollector.Characteristics.IDENTITY_FINISH)) {
             return new CollectorImpl<>(supplier, accumulator, merger, CH_ID);
         }
@@ -587,39 +514,6 @@ public final class RestCollectors {
                                               valueMapper.actuate(element), mergeFunction);
         return new CollectorImpl<>(mapSupplier, accumulator, mapMerger(mergeFunction), CH_CONCURRENT_ID);
     }
-
-//    public static <T>
-//    RestCollector<T, ?, IntSummaryStatistics> summarizingInt(ToIntFunction<? super T> mapper) {
-//        return new CollectorImpl<>(
-//                IntSummaryStatistics::new,
-//                (r, t) -> r.accept(mapper.applyAsInt(t)),
-//                (l, r) -> {
-//                    l.combine(r);
-//                    return l;
-//                }, CH_ID);
-//    }
-//
-//    public static <T>
-//    RestCollector<T, ?, LongSummaryStatistics> summarizingLong(ToLongFunction<? super T> mapper) throws RestException {
-//        return new CollectorImpl<>(
-//                LongSummaryStatistics::new,
-//                (r, t) -> r.accept(mapper.applyAsLong(t)),
-//                (l, r) -> {
-//                    l.combine(r);
-//                    return l;
-//                }, CH_ID);
-//    }
-//
-//    public static <T>
-//    RestCollector<T, ?, DoubleSummaryStatistics> summarizingDouble(ToDoubleFunction<? super T> mapper) throws RestException {
-//        return new CollectorImpl<>(
-//                DoubleSummaryStatistics::new,
-//                (r, t) -> r.accept(mapper.applyAsDouble(t)),
-//                (l, r) -> {
-//                    l.combine(r);
-//                    return l;
-//                }, CH_ID);
-//    }
 
     private static final class Partition<T>
             extends AbstractMap<Boolean, T>

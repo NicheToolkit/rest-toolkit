@@ -1,6 +1,10 @@
 package io.github.nichetoolkit.rest.actuator;
 
+import io.github.nichetoolkit.rest.RestError;
 import io.github.nichetoolkit.rest.RestException;
+import io.github.nichetoolkit.rest.RestStatus;
+
+import java.util.function.Supplier;
 
 /**
  * <code>SupplierActuator</code>
@@ -11,7 +15,7 @@ import io.github.nichetoolkit.rest.RestException;
  * @since Jdk1.8
  */
 @FunctionalInterface
-public interface SupplierActuator<T> {
+public interface SupplierActuator<T> extends Supplier<T> {
 
     /**
      * <code>get</code>
@@ -20,5 +24,14 @@ public interface SupplierActuator<T> {
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
-    T get() throws RestException;
+    T actuate() throws RestException;
+
+    @Override
+    default T get() {
+        try {
+            return actuate();
+        } catch (RestException exception) {
+            throw new RestError(exception);
+        }
+    }
 }

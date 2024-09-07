@@ -1,8 +1,10 @@
 package io.github.nichetoolkit.rest.actuator;
 
+import io.github.nichetoolkit.rest.RestError;
 import io.github.nichetoolkit.rest.RestException;
 
 import java.util.Objects;
+import java.util.function.Consumer;
 
 /**
  * <code>ConsumerActuator</code>
@@ -13,7 +15,7 @@ import java.util.Objects;
  * @since Jdk1.8
  */
 @FunctionalInterface
-public interface ConsumerActuator<T>{
+public interface ConsumerActuator<T> extends Consumer<T> {
     /**
      * <code>actuate</code>
      * <p>the method.</p>
@@ -23,6 +25,14 @@ public interface ConsumerActuator<T>{
      */
     void actuate(T t) throws RestException;
 
+    @Override
+    default void accept(T t) {
+        try {
+            actuate(t);
+        } catch (RestException e) {
+            throw new RestError(e);
+        }
+    }
 
     /**
      * <code>andThen</code>

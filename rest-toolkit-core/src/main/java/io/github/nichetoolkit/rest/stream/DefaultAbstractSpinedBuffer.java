@@ -25,10 +25,10 @@ abstract class DefaultAbstractSpinedBuffer {
 
     protected DefaultAbstractSpinedBuffer(int initialCapacity) {
         if (initialCapacity < 0)
-            throw new IllegalArgumentException("Illegal Capacity: "+ initialCapacity);
+            throw new IllegalArgumentException("Illegal Capacity: " + initialCapacity);
 
         this.initialChunkPower = Math.max(MIN_CHUNK_POWER,
-                                          Integer.SIZE - Integer.numberOfLeadingZeros(initialCapacity - 1));
+                Integer.SIZE - Integer.numberOfLeadingZeros(initialCapacity - 1));
     }
 
     public boolean isEmpty() {
@@ -37,14 +37,14 @@ abstract class DefaultAbstractSpinedBuffer {
 
     public long count() {
         return (spineIndex == 0)
-               ? elementIndex
-               : priorElementCount[spineIndex] + elementIndex;
+                ? elementIndex
+                : priorElementCount[spineIndex] + elementIndex;
     }
 
     protected int chunkSize(int n) {
         int power = (n == 0 || n == 1)
-                    ? initialChunkPower
-                    : Math.min(initialChunkPower + n - 1, DefaultAbstractSpinedBuffer.MAX_CHUNK_POWER);
+                ? initialChunkPower
+                : Math.min(initialChunkPower + n - 1, DefaultAbstractSpinedBuffer.MAX_CHUNK_POWER);
         return 1 << power;
     }
 

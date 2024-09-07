@@ -1,53 +1,39 @@
 package io.github.nichetoolkit.rest.stream;
 
+import io.github.nichetoolkit.rest.RestException;
+
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.IntFunction;
 
-/**
- * Factory methods for transforming streams into duplicate-free streams, using
- * {@link Object#equals(Object)} to determine equality.
- *
- * @since 1.8
- */
+
 final class DefaultDistinctOps {
 
-    private DefaultDistinctOps() { }
+    private DefaultDistinctOps() {
+    }
 
-    /**
-     * Appends a "distinct" operation to the provided stream, and returns the
-     * new stream.
-     *
-     * @param <T> the type of both input and output elements
-     * @param upstream a reference stream with element type T
-     * @return the new stream
-     */
     static <T> DefaultReferencePipeline<T, T> makeRef(DefaultAbstractPipeline<?, T, ?> upstream) {
         return new DefaultReferencePipeline.StatefulOp<T, T>(upstream, DefaultStreamShape.REFERENCE,
-                                                      DefaultStreamOpFlag.IS_DISTINCT | DefaultStreamOpFlag.NOT_SIZED) {
+                DefaultStreamOpFlag.IS_DISTINCT | DefaultStreamOpFlag.NOT_SIZED) {
 
-            <P_IN> DefaultNode<T> reduce(DefaultPipelineHelper<T> helper, Spliterator<P_IN> spliterator) {
-                // If the stream is SORTED then it should also be ORDERED so the following will also
-                // preserve the sort order
+            <P_IN> DefaultNode<T> reduce(DefaultPipelineHelper<T> helper, DefaultSpliterator<P_IN> spliterator) throws RestException {
                 DefaultTerminalOp<T, LinkedHashSet<T>> reduceOp
                         = DefaultReduceOps.<T, LinkedHashSet<T>>makeRef(LinkedHashSet::new, LinkedHashSet::add,
-                                                                 LinkedHashSet::addAll);
+                        LinkedHashSet::addAll);
                 return DefaultNodes.node(reduceOp.evaluateParallel(helper, spliterator));
             }
 
             @Override
             <P_IN> DefaultNode<T> opEvaluateParallel(DefaultPipelineHelper<T> helper,
-                                              Spliterator<P_IN> spliterator,
-                                              IntFunction<T[]> generator) {
+                                                     DefaultSpliterator<P_IN> spliterator,
+                                                     IntFunction<T[]> generator) throws RestException {
                 if (DefaultStreamOpFlag.DISTINCT.isKnown(helper.getStreamAndOpFlags())) {
                     // No-op
                     return helper.evaluate(spliterator, false, generator);
-                }
-                else if (DefaultStreamOpFlag.ORDERED.isKnown(helper.getStreamAndOpFlags())) {
+                } else if (DefaultStreamOpFlag.ORDERED.isKnown(helper.getStreamAndOpFlags())) {
                     return reduce(helper, spliterator);
-                }
-                else {
+                } else {
                     // Holder of null state since ConcurrentHashMap does not support null values
                     AtomicBoolean seenNull = new AtomicBoolean(false);
                     ConcurrentHashMap<T, Boolean> map = new ConcurrentHashMap<>();
@@ -59,11 +45,8 @@ final class DefaultDistinctOps {
                     }, false);
                     forEachOp.evaluateParallel(helper, spliterator);
 
-                    // If null has been seen then copy the key set into a HashSet that supports null values
-                    // and add null
                     Set<T> keys = map.keySet();
                     if (seenNull.get()) {
-                        // TODO Implement a more efficient set-union view, rather than copying
                         keys = new HashSet<>(keys);
                         keys.add(null);
                     }
@@ -72,16 +55,14 @@ final class DefaultDistinctOps {
             }
 
             @Override
-            <P_IN> Spliterator<T> opEvaluateParallelLazy(DefaultPipelineHelper<T> helper, Spliterator<P_IN> spliterator) {
+            <P_IN> DefaultSpliterator<T> opEvaluateParallelLazy(DefaultPipelineHelper<T> helper, DefaultSpliterator<P_IN> spliterator) throws RestException {
                 if (DefaultStreamOpFlag.DISTINCT.isKnown(helper.getStreamAndOpFlags())) {
                     // No-op
                     return helper.wrapSpliterator(spliterator);
-                }
-                else if (DefaultStreamOpFlag.ORDERED.isKnown(helper.getStreamAndOpFlags())) {
+                } else if (DefaultStreamOpFlag.ORDERED.isKnown(helper.getStreamAndOpFlags())) {
                     // Not lazy, barrier required to preserve order
                     return reduce(helper, spliterator).spliterator();
-                }
-                else {
+                } else {
                     // Lazy
                     return new DefaultStreamSpliterators.DistinctSpliterator<>(helper.wrapSpliterator(spliterator));
                 }
@@ -99,28 +80,28 @@ final class DefaultDistinctOps {
                         T lastSeen;
 
                         @Override
-                        public void begin(long size) {
+                        public void begin(long size) throws RestException {
                             seenNull = false;
                             lastSeen = null;
                             downstream.begin(-1);
                         }
 
                         @Override
-                        public void end() {
+                        public void end() throws RestException {
                             seenNull = false;
                             lastSeen = null;
                             downstream.end();
                         }
 
                         @Override
-                        public void accept(T t) {
+                        public void actuate(T t) throws RestException {
                             if (t == null) {
                                 if (!seenNull) {
                                     seenNull = true;
-                                    downstream.accept(lastSeen = null);
+                                    downstream.actuate(lastSeen = null);
                                 }
                             } else if (!t.equals(lastSeen)) {
-                                downstream.accept(lastSeen = t);
+                                downstream.actuate(lastSeen = t);
                             }
                         }
                     };
@@ -129,22 +110,22 @@ final class DefaultDistinctOps {
                         Set<T> seen;
 
                         @Override
-                        public void begin(long size) {
+                        public void begin(long size) throws RestException {
                             seen = new HashSet<>();
                             downstream.begin(-1);
                         }
 
                         @Override
-                        public void end() {
+                        public void end() throws RestException {
                             seen = null;
                             downstream.end();
                         }
 
                         @Override
-                        public void accept(T t) {
+                        public void actuate(T t) throws RestException {
                             if (!seen.contains(t)) {
                                 seen.add(t);
-                                downstream.accept(t);
+                                downstream.actuate(t);
                             }
                         }
                     };

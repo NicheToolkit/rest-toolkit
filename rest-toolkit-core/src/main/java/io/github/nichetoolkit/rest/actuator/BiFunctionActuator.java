@@ -1,8 +1,10 @@
 package io.github.nichetoolkit.rest.actuator;
 
+import io.github.nichetoolkit.rest.RestError;
 import io.github.nichetoolkit.rest.RestException;
 
 import java.util.Objects;
+import java.util.function.BiFunction;
 
 /**
  * <code>BiFunctionActuator</code>
@@ -15,7 +17,7 @@ import java.util.Objects;
  * @since Jdk1.8
  */
 @FunctionalInterface
-public interface BiFunctionActuator<T, U, R> {
+public interface BiFunctionActuator<T, U, R> extends BiFunction<T, U, R> {
     /**
      * <code>actuate</code>
      * <p>the method.</p>
@@ -26,6 +28,15 @@ public interface BiFunctionActuator<T, U, R> {
      * @see io.github.nichetoolkit.rest.RestException
      */
     R actuate(T t, U u) throws RestException;
+
+    @Override
+    default R apply(T t, U u) {
+        try {
+            return actuate(t,u);
+        } catch (RestException e) {
+            throw new RestError(e);
+        }
+    }
 
     /**
      * <code>andThen</code>

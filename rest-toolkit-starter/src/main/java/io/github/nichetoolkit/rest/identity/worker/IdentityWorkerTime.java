@@ -15,7 +15,7 @@ import org.springframework.lang.NonNull;
  */
 @Data
 @SuppressWarnings("SameNameButDifferent")
-class IdentityWorkerTime implements SupplierActuator {
+class IdentityWorkerTime implements SupplierActuator<IdentityWorkerTime> {
     /**
      * <code>EPOCH</code>
      * {@link java.lang.Long} <p>the constant <code>EPOCH</code> field.</p>
@@ -79,7 +79,7 @@ class IdentityWorkerTime implements SupplierActuator {
     }
 
     @Override
-    public IdentityWorkerTime get() {
+    public IdentityWorkerTime actuate() {
         return this;
     }
 }

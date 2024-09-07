@@ -1,118 +1,28 @@
-/*
- * Copyright (c) 2012, 2013, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
- *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
- *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
- *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
- *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
- */
+
 package io.github.nichetoolkit.rest.stream;
+
+import io.github.nichetoolkit.rest.RestException;
 
 import java.util.EnumMap;
 import java.util.Map;
-import java.util.Spliterator;
 
 enum DefaultStreamOpFlag {
 
-    /*
-     * Each characteristic takes up 2 bits in a bit set to accommodate
-     * preserving, clearing and setting/injecting information.
-     *
-     * This applies to stream flags, intermediate/terminal operation flags, and
-     * combined stream and operation flags. Even though the former only requires
-     * 1 bit of information per characteristic, is it more efficient when
-     * combining flags to align set and inject bits.
-     *
-     * Characteristics belong to certain types, see the Type enum. Bit masks for
-     * the types are constructed as per the following table:
-     *
-     *                        DISTINCT  SORTED  ORDERED  SIZED  SHORT_CIRCUIT
-     *          SPLITERATOR      01       01       01      01        00
-     *               STREAM      01       01       01      01        00
-     *                   OP      11       11       11      10        01
-     *          TERMINAL_OP      00       00       10      00        01
-     * UPSTREAM_TERMINAL_OP      00       00       10      00        00
-     *
-     * 01 = set/inject
-     * 10 = clear
-     * 11 = preserve
-     *
-     * Construction of the columns is performed using a simple builder for
-     * non-zero values.
-     */
-
-
-    // The following flags correspond to characteristics on Spliterator
-    // and the values MUST be equal.
-    //
-
-    // 0, 0x00000001
-    // Matches Spliterator.DISTINCT
     DISTINCT(0,
              set(Type.SPLITERATOR).set(Type.STREAM).setAndClear(Type.OP)),
 
-    // 1, 0x00000004
-    // Matches Spliterator.SORTED
     SORTED(1,
            set(Type.SPLITERATOR).set(Type.STREAM).setAndClear(Type.OP)),
 
-    // 2, 0x00000010
-    // Matches Spliterator.ORDERED
     ORDERED(2,
             set(Type.SPLITERATOR).set(Type.STREAM).setAndClear(Type.OP).clear(Type.TERMINAL_OP)
                     .clear(Type.UPSTREAM_TERMINAL_OP)),
 
-    // 3, 0x00000040
-    // Matches Spliterator.SIZED
     SIZED(3,
           set(Type.SPLITERATOR).set(Type.STREAM).clear(Type.OP)),
 
-    // The following Spliterator characteristics are not currently used but a
-    // gap in the bit set is deliberately retained to enable corresponding
-    // stream flags if//when required without modification to other flag values.
-    //
-    // 4, 0x00000100 NONNULL(4, ...
-    // 5, 0x00000400 IMMUTABLE(5, ...
-    // 6, 0x00001000 CONCURRENT(6, ...
-    // 7, 0x00004000 SUBSIZED(7, ...
-
-    // The following 4 flags are currently undefined and a free for any further
-    // spliterator characteristics.
-    //
-    //  8, 0x00010000
-    //  9, 0x00040000
-    // 10, 0x00100000
-    // 11, 0x00400000
-
-    // The following flags are specific to streams and operations
-    //
-
-    // 12, 0x01000000
     SHORT_CIRCUIT(12,
                   set(Type.OP).set(Type.TERMINAL_OP));
-
-    // The following 2 flags are currently undefined and a free for any further
-    // stream flags if/when required
-    //
-    // 13, 0x04000000
-    // 14, 0x10000000
-    // 15, 0x40000000
 
     enum Type {
         SPLITERATOR,
@@ -178,7 +88,7 @@ enum DefaultStreamOpFlag {
 
     private final int preserve;
 
-    private DefaultStreamOpFlag(int position, MaskBuilder maskBuilder) {
+    DefaultStreamOpFlag(int position, MaskBuilder maskBuilder) {
         this.maskTable = maskBuilder.build();
         // Two bits per flag
         position *= 2;
@@ -275,16 +185,10 @@ enum DefaultStreamOpFlag {
     }
 
     static int combineOpFlags(int newStreamOrOpFlags, int prevCombOpFlags) {
-        // 0x01 or 0x10 nibbles are transformed to 0x11
-        // 0x00 nibbles remain unchanged
-        // Then all the bits are flipped
-        // Then the result is logically or'ed with the operation flags.
         return (prevCombOpFlags & DefaultStreamOpFlag.getMask(newStreamOrOpFlags)) | newStreamOrOpFlags;
     }
 
     static int toStreamFlags(int combOpFlags) {
-        // By flipping the nibbles 0x11 become 0x00 and 0x01 become 0x10
-        // Shift left 1 to restore set flags and mask off anything other than the set flags
         return ((~combOpFlags) >> 1) & FLAG_MASK_IS & combOpFlags;
     }
 
@@ -292,12 +196,10 @@ enum DefaultStreamOpFlag {
         return streamFlags & SPLITERATOR_CHARACTERISTICS_MASK;
     }
 
-    static int fromCharacteristics(Spliterator<?> spliterator) {
+    static int fromCharacteristics(DefaultSpliterator<?> spliterator) throws RestException {
         int characteristics = spliterator.characteristics();
-        if ((characteristics & Spliterator.SORTED) != 0 && spliterator.getComparator() != null) {
-            // Do not propagate the SORTED characteristic if it does not correspond
-            // to a natural sort order
-            return characteristics & SPLITERATOR_CHARACTERISTICS_MASK & ~Spliterator.SORTED;
+        if ((characteristics & DefaultSpliterator.SORTED) != 0 && spliterator.getComparator() != null) {
+            return characteristics & SPLITERATOR_CHARACTERISTICS_MASK & ~DefaultSpliterator.SORTED;
         }
         else {
             return characteristics & SPLITERATOR_CHARACTERISTICS_MASK;

@@ -1,8 +1,10 @@
 package io.github.nichetoolkit.rest.actuator;
 
+import io.github.nichetoolkit.rest.RestError;
 import io.github.nichetoolkit.rest.RestException;
 
 import java.util.Objects;
+import java.util.function.BiPredicate;
 
 /**
  * <code>BiPredicateActuator</code>
@@ -14,7 +16,7 @@ import java.util.Objects;
  * @since Jdk1.8
  */
 @FunctionalInterface
-public interface BiPredicateActuator<T, U> {
+public interface BiPredicateActuator<T, U> extends BiPredicate<T,U> {
 
     /**
      * <code>actuate</code>
@@ -26,6 +28,15 @@ public interface BiPredicateActuator<T, U> {
      * @see io.github.nichetoolkit.rest.RestException
      */
     boolean actuate(T t, U u) throws RestException;
+
+    @Override
+    default boolean test(T t, U u) {
+        try {
+            return actuate(t,u);
+        } catch (RestException e) {
+            throw new RestError(e);
+        }
+    }
 
     /**
      * <code>and</code>
@@ -47,7 +58,7 @@ public interface BiPredicateActuator<T, U> {
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
-    default BiPredicateActuator<T, U> negate()  throws RestException  {
+    default BiPredicateActuator<T, U> negates() throws RestException  {
         return (T t, U u) -> !actuate(t, u);
     }
 

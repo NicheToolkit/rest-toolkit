@@ -1,38 +1,22 @@
 
 package io.github.nichetoolkit.rest.stream;
 
+import io.github.nichetoolkit.rest.RestException;
+import io.github.nichetoolkit.rest.actuator.ConsumerActuator;
+
 import java.util.Objects;
-import java.util.Spliterator;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.CountedCompleter;
 import java.util.function.*;
 
 final class DefaultForEachOps {
 
-    private DefaultForEachOps() { }
+    private DefaultForEachOps() {
+    }
 
-    public static <T> DefaultTerminalOp<T, Void> makeRef(Consumer<? super T> action,
-                                                  boolean ordered) {
+    public static <T> DefaultTerminalOp<T, Void> makeRef(ConsumerActuator<? super T> action,
+                                                         boolean ordered) {
         Objects.requireNonNull(action);
         return new ForEachOp.OfRef<>(action, ordered);
-    }
-
-    public static DefaultTerminalOp<Integer, Void> makeInt(IntConsumer action,
-                                                    boolean ordered) {
-        Objects.requireNonNull(action);
-        return new ForEachOp.OfInt(action, ordered);
-    }
-
-    public static DefaultTerminalOp<Long, Void> makeLong(LongConsumer action,
-                                                  boolean ordered) {
-        Objects.requireNonNull(action);
-        return new ForEachOp.OfLong(action, ordered);
-    }
-
-    public static DefaultTerminalOp<Double, Void> makeDouble(DoubleConsumer action,
-                                                      boolean ordered) {
-        Objects.requireNonNull(action);
-        return new ForEachOp.OfDouble(action, ordered);
     }
 
     static abstract class ForEachOp<T>
@@ -52,13 +36,13 @@ final class DefaultForEachOps {
 
         @Override
         public <S> Void evaluateSequential(DefaultPipelineHelper<T> helper,
-                                           Spliterator<S> spliterator) {
-            return helper.wrapAndCopyInto(this, spliterator).get();
+                                           DefaultSpliterator<S> spliterator) throws RestException {
+            return helper.wrapAndCopyInto(this, spliterator).actuate();
         }
 
         @Override
         public <S> Void evaluateParallel(DefaultPipelineHelper<T> helper,
-                                         Spliterator<S> spliterator) {
+                                         DefaultSpliterator<S> spliterator) throws RestException {
             if (ordered)
                 new ForEachOrderedTask<>(helper, spliterator, this).invoke();
             else
@@ -69,95 +53,35 @@ final class DefaultForEachOps {
         // TerminalDefaultSink
 
         @Override
-        public Void get() {
+        public Void actuate() {
             return null;
         }
 
         // Implementations
 
         static final class OfRef<T> extends ForEachOp<T> {
-            final Consumer<? super T> consumer;
+            final ConsumerActuator<? super T> consumer;
 
-            OfRef(Consumer<? super T> consumer, boolean ordered) {
+            OfRef(ConsumerActuator<? super T> consumer, boolean ordered) {
                 super(ordered);
                 this.consumer = consumer;
             }
 
             @Override
-            public void accept(T t) {
-                consumer.accept(t);
-            }
-        }
-
-        static final class OfInt extends ForEachOp<Integer>
-                implements DefaultSink.OfInt {
-            final IntConsumer consumer;
-
-            OfInt(IntConsumer consumer, boolean ordered) {
-                super(ordered);
-                this.consumer = consumer;
-            }
-
-            @Override
-            public DefaultStreamShape inputShape() {
-                return DefaultStreamShape.INT_VALUE;
-            }
-
-            @Override
-            public void accept(int t) {
-                consumer.accept(t);
-            }
-        }
-
-        static final class OfLong extends ForEachOp<Long>
-                implements DefaultSink.OfLong {
-            final LongConsumer consumer;
-
-            OfLong(LongConsumer consumer, boolean ordered) {
-                super(ordered);
-                this.consumer = consumer;
-            }
-
-            @Override
-            public DefaultStreamShape inputShape() {
-                return DefaultStreamShape.LONG_VALUE;
-            }
-
-            @Override
-            public void accept(long t) {
-                consumer.accept(t);
-            }
-        }
-
-        static final class OfDouble extends ForEachOp<Double>
-                implements DefaultSink.OfDouble {
-            final DoubleConsumer consumer;
-
-            OfDouble(DoubleConsumer consumer, boolean ordered) {
-                super(ordered);
-                this.consumer = consumer;
-            }
-
-            @Override
-            public DefaultStreamShape inputShape() {
-                return DefaultStreamShape.DOUBLE_VALUE;
-            }
-
-            @Override
-            public void accept(double t) {
-                consumer.accept(t);
+            public void actuate(T t) throws RestException {
+                consumer.actuate(t);
             }
         }
     }
 
-    static final class ForEachTask<S, T> extends CountedCompleter<Void> {
-        private Spliterator<S> spliterator;
+    static final class ForEachTask<S, T> extends DefaultCountedCompleter<Void> {
+        private DefaultSpliterator<S> spliterator;
         private final DefaultSink<S> sink;
         private final DefaultPipelineHelper<T> helper;
         private long targetSize;
 
         ForEachTask(DefaultPipelineHelper<T> helper,
-                    Spliterator<S> spliterator,
+                    DefaultSpliterator<S> spliterator,
                     DefaultSink<S> sink) {
             super(null);
             this.sink = sink;
@@ -166,7 +90,7 @@ final class DefaultForEachOps {
             this.targetSize = 0L;
         }
 
-        ForEachTask(ForEachTask<S, T> parent, Spliterator<S> spliterator) {
+        ForEachTask(ForEachTask<S, T> parent, DefaultSpliterator<S> spliterator) {
             super(parent);
             this.spliterator = spliterator;
             this.sink = parent.sink;
@@ -174,9 +98,8 @@ final class DefaultForEachOps {
             this.helper = parent.helper;
         }
 
-        // Similar to DefaultAbstractTask but doesn't need to track child tasks
-        public void compute() {
-            Spliterator<S> rightSplit = spliterator, leftSplit;
+        public void computes() throws RestException {
+            DefaultSpliterator<S> rightSplit = spliterator, leftSplit;
             long sizeEstimate = rightSplit.estimateSize(), sizeThreshold;
             if ((sizeThreshold = targetSize) == 0L)
                 targetSize = sizeThreshold = DefaultAbstractTask.suggestTargetSize(sizeEstimate);
@@ -186,7 +109,7 @@ final class DefaultForEachOps {
             ForEachTask<S, T> task = this;
             while (!isShortCircuit || !taskDefaultSink.cancellationRequested()) {
                 if (sizeEstimate <= sizeThreshold ||
-                    (leftSplit = rightSplit.trySplit()) == null) {
+                        (leftSplit = rightSplit.trySplit()) == null) {
                     task.helper.copyInto(taskDefaultSink, rightSplit);
                     break;
                 }
@@ -198,8 +121,7 @@ final class DefaultForEachOps {
                     rightSplit = leftSplit;
                     taskToFork = task;
                     task = leftTask;
-                }
-                else {
+                } else {
                     forkRight = true;
                     taskToFork = leftTask;
                 }
@@ -211,74 +133,30 @@ final class DefaultForEachOps {
         }
     }
 
-    static final class ForEachOrderedTask<S, T> extends CountedCompleter<Void> {
-        /*
-         * Our goal is to ensure that the elements associated with a task are
-         * processed according to an in-order traversal of the computation tree.
-         * We use completion counts for representing these dependencies, so that
-         * a task does not complete until all the tasks preceding it in this
-         * order complete.  We use the "completion map" to associate the next
-         * task in this order for any left child.  We increase the pending count
-         * of any node on the right side of such a mapping by one to indicate
-         * its dependency, and when a node on the left side of such a mapping
-         * completes, it decrements the pending count of its corresponding right
-         * side.  As the computation tree is expanded by splitting, we must
-         * atomically update the mappings to maintain the invariant that the
-         * completion map maps left children to the next node in the in-order
-         * traversal.
-         *
-         * Take, for example, the following computation tree of tasks:
-         *
-         *       a
-         *      / \
-         *     b   c
-         *    / \ / \
-         *   d  e f  g
-         *
-         * The complete map will contain (not necessarily all at the same time)
-         * the following associations:
-         *
-         *   d -> e
-         *   b -> f
-         *   f -> g
-         *
-         * Tasks e, f, g will have their pending counts increased by 1.
-         *
-         * The following relationships hold:
-         *
-         *   - completion of d "happens-before" e;
-         *   - completion of d and e "happens-before b;
-         *   - completion of b "happens-before" f; and
-         *   - completion of f "happens-before" g
-         *
-         * Thus overall the "happens-before" relationship holds for the
-         * reporting of elements, covered by tasks d, e, f and g, as specified
-         * by the forEachOrdered operation.
-         */
+    static final class ForEachOrderedTask<S, T> extends DefaultCountedCompleter<Void> {
 
         private final DefaultPipelineHelper<T> helper;
-        private Spliterator<S> spliterator;
+        private DefaultSpliterator<S> spliterator;
         private final long targetSize;
         private final ConcurrentHashMap<ForEachOrderedTask<S, T>, ForEachOrderedTask<S, T>> completionMap;
         private final DefaultSink<T> action;
         private final ForEachOrderedTask<S, T> leftPredecessor;
         private DefaultNode<T> node;
 
-        protected ForEachOrderedTask(DefaultPipelineHelper<T> helper,
-                                     Spliterator<S> spliterator,
-                                     DefaultSink<T> action) {
+        private ForEachOrderedTask(DefaultPipelineHelper<T> helper,
+                                   DefaultSpliterator<S> spliterator,
+                                   DefaultSink<T> action) throws RestException {
             super(null);
             this.helper = helper;
             this.spliterator = spliterator;
             this.targetSize = DefaultAbstractTask.suggestTargetSize(spliterator.estimateSize());
-            // Size map to avoid concurrent re-sizes
             this.completionMap = new ConcurrentHashMap<>(Math.max(16, DefaultAbstractTask.getLeafTarget() << 1));
             this.action = action;
             this.leftPredecessor = null;
         }
 
         ForEachOrderedTask(ForEachOrderedTask<S, T> parent,
-                           Spliterator<S> spliterator,
+                           DefaultSpliterator<S> spliterator,
                            ForEachOrderedTask<S, T> leftPredecessor) {
             super(parent);
             this.helper = parent.helper;
@@ -290,20 +168,20 @@ final class DefaultForEachOps {
         }
 
         @Override
-        public final void compute() {
+        public void computes() throws RestException {
             doCompute(this);
         }
 
-        private static <S, T> void doCompute(ForEachOrderedTask<S, T> task) {
-            Spliterator<S> rightSplit = task.spliterator, leftSplit;
+        private static <S, T> void doCompute(ForEachOrderedTask<S, T> task) throws RestException {
+            DefaultSpliterator<S> rightSplit = task.spliterator, leftSplit;
             long sizeThreshold = task.targetSize;
             boolean forkRight = false;
             while (rightSplit.estimateSize() > sizeThreshold &&
-                   (leftSplit = rightSplit.trySplit()) != null) {
+                    (leftSplit = rightSplit.trySplit()) != null) {
                 ForEachOrderedTask<S, T> leftChild =
-                    new ForEachOrderedTask<>(task, leftSplit, task.leftPredecessor);
+                        new ForEachOrderedTask<>(task, leftSplit, task.leftPredecessor);
                 ForEachOrderedTask<S, T> rightChild =
-                    new ForEachOrderedTask<>(task, rightSplit, leftChild);
+                        new ForEachOrderedTask<>(task, rightSplit, leftChild);
 
                 // Fork the parent task
                 // Completion of the left and right children "happens-before"
@@ -346,8 +224,7 @@ final class DefaultForEachOps {
                     rightSplit = leftSplit;
                     task = leftChild;
                     taskToFork = rightChild;
-                }
-                else {
+                } else {
                     forkRight = true;
                     task = rightChild;
                     taskToFork = leftChild;
@@ -355,17 +232,7 @@ final class DefaultForEachOps {
                 taskToFork.fork();
             }
 
-            /*
-             * Task's pending count is either 0 or 1.  If 1 then the completion
-             * map will contain a value that is task, and two calls to
-             * tryComplete are required for completion, one below and one
-             * triggered by the completion of task's left-predecessor in
-             * onCompletion.  Therefore there is no data race within the if
-             * block.
-             */
             if (task.getPendingCount() > 0) {
-                // Cannot complete just yet so buffer elements into a DefaultNode
-                // for use when completion occurs
                 @SuppressWarnings("unchecked")
                 IntFunction<T[]> generator = size -> (T[]) new Object[size];
                 DefaultNode.Builder<T> nb = task.helper.makeNodeBuilder(
@@ -378,13 +245,12 @@ final class DefaultForEachOps {
         }
 
         @Override
-        public void onCompletion(CountedCompleter<?> caller) {
+        public void onComputes(DefaultCountedCompleter<?> caller) throws RestException {
             if (node != null) {
                 // Dump buffered elements from this leaf into the sink
                 node.forEach(action);
                 node = null;
-            }
-            else if (spliterator != null) {
+            } else if (spliterator != null) {
                 // Dump elements output from this leaf's pipeline into the sink
                 helper.wrapAndCopyInto(action, spliterator);
                 spliterator = null;

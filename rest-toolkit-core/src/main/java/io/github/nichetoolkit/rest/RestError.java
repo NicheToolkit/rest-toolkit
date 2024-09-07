@@ -44,16 +44,22 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
         this.status = RestErrorStatus.UNKNOWN_ERROR.getStatus();
     }
 
-    /**
-     * <code>RestError</code>
-     * Instantiates a new rest error.
-     * @param supplier {@link java.util.function.Supplier} <p>the supplier parameter is <code>Supplier</code> type.</p>
-     * @see java.util.function.Supplier
-     */
     public RestError(Supplier<RestStatus> supplier) {
         super(supplier.get().getMessage());
         this.name = supplier.get().name();
         this.status = supplier.get().getStatus();
+    }
+
+    /**
+     * <code>RestError</code>
+     * Instantiates a new rest error.
+     * @param exception {@link java.util.function.Supplier} <p>the supplier parameter is <code>Supplier</code> type.</p>
+     * @see java.util.function.Supplier
+     */
+    public RestError(RestException exception) {
+        super(exception.getMessage());
+        this.name = exception.name();
+        this.status = exception.getStatus();
     }
 
     /**

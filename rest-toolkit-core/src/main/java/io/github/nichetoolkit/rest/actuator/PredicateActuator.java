@@ -1,8 +1,10 @@
 package io.github.nichetoolkit.rest.actuator;
 
+import io.github.nichetoolkit.rest.RestError;
 import io.github.nichetoolkit.rest.RestException;
 
 import java.util.Objects;
+import java.util.function.Predicate;
 
 /**
  * <code>PredicateActuator</code>
@@ -13,17 +15,26 @@ import java.util.Objects;
  * @since Jdk1.8
  */
 @FunctionalInterface
-public interface PredicateActuator<T> {
+public interface PredicateActuator<T> extends Predicate<T> {
     /**
      * <code>actuate</code>
      * <p>the method.</p>
-     * @param m T <p>the m parameter is <code>T</code> type.</p>
+     * @param t T <p>the m parameter is <code>T</code> type.</p>
      * @return {@link java.lang.Boolean} <p>the return object is <code>Boolean</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Boolean
      * @see io.github.nichetoolkit.rest.RestException
      */
-    Boolean actuate(T m) throws RestException;
+    boolean actuate(T t) throws RestException;
+
+    @Override
+    default boolean test(T t) {
+        try {
+            return actuate(t);
+        } catch (RestException e) {
+            throw new RestError(e);
+        }
+    }
 
     /**
      * <code>and</code>
@@ -45,7 +56,7 @@ public interface PredicateActuator<T> {
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
-    default PredicateActuator<T> negate() throws RestException  {
+    default PredicateActuator<T> negates() throws RestException  {
         return (t) -> !actuate(t);
     }
 

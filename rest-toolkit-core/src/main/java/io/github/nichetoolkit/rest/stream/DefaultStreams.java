@@ -1,37 +1,10 @@
-/*
- * Copyright (c) 2012, 2013, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
- *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
- *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
- *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
- *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
- */
 package io.github.nichetoolkit.rest.stream;
+
+import io.github.nichetoolkit.rest.RestException;
+import io.github.nichetoolkit.rest.actuator.ConsumerActuator;
 
 import java.util.Comparator;
 import java.util.Objects;
-import java.util.Spliterator;
-import java.util.function.Consumer;
-import java.util.function.DoubleConsumer;
-import java.util.function.IntConsumer;
-import java.util.function.LongConsumer;
-import java.util.stream.*;
 
 final class DefaultStreams {
     /* copy form jdk Streams  */
@@ -41,211 +14,12 @@ final class DefaultStreams {
 
     static final Object NONE = new Object();
 
-//    static final class RangeIntSpliterator implements Spliterator.OfInt {
-//        // Can never be greater that upTo, this avoids overflow if upper bound
-//        // is Integer.MAX_VALUE
-//        // All elements are traversed if from == upTo & last == 0
-//        private int from;
-//        private final int upTo;
-//        // 1 if the range is closed and the last element has not been traversed
-//        // Otherwise, 0 if the range is open, or is a closed range and all
-//        // elements have been traversed
-//        private int last;
-//
-//        RangeIntSpliterator(int from, int upTo, boolean closed) {
-//            this(from, upTo, closed ? 1 : 0);
-//        }
-//
-//        private RangeIntSpliterator(int from, int upTo, int last) {
-//            this.from = from;
-//            this.upTo = upTo;
-//            this.last = last;
-//        }
-//
-//        @Override
-//        public boolean tryAdvance(IntConsumer consumer) {
-//            Objects.requireNonNull(consumer);
-//
-//            final int i = from;
-//            if (i < upTo) {
-//                from++;
-//                consumer.accept(i);
-//                return true;
-//            }
-//            else if (last > 0) {
-//                last = 0;
-//                consumer.accept(i);
-//                return true;
-//            }
-//            return false;
-//        }
-//
-//        @Override
-//        public void forEachRemaining(IntConsumer consumer) {
-//            Objects.requireNonNull(consumer);
-//
-//            int i = from;
-//            final int hUpTo = upTo;
-//            int hLast = last;
-//            from = upTo;
-//            last = 0;
-//            while (i < hUpTo) {
-//                consumer.accept(i++);
-//            }
-//            if (hLast > 0) {
-//                // Last element of closed range
-//                consumer.accept(i);
-//            }
-//        }
-//
-//        @Override
-//        public long estimateSize() {
-//            // Ensure ranges of size > Integer.MAX_VALUE report the correct size
-//            return ((long) upTo) - from + last;
-//        }
-//
-//        @Override
-//        public int characteristics() {
-//            return Spliterator.ORDERED | Spliterator.SIZED | Spliterator.SUBSIZED |
-//                   Spliterator.IMMUTABLE | Spliterator.NONNULL |
-//                   Spliterator.DISTINCT | Spliterator.SORTED;
-//        }
-//
-//        @Override
-//        public Comparator<? super Integer> getComparator() {
-//            return null;
-//        }
-//
-//        @Override
-//        public OfInt trySplit() {
-//            long size = estimateSize();
-//            return size <= 1
-//                   ? null
-//                   // Left split always has a half-open range
-//                   : new RangeIntSpliterator(from, from = from + splitPoint(size), 0);
-//        }
-//
-//        private static final int BALANCED_SPLIT_THRESHOLD = 1 << 24;
-//
-//        private static final int RIGHT_BALANCED_SPLIT_RATIO = 1 << 3;
-//
-//        private int splitPoint(long size) {
-//            int d = (size < BALANCED_SPLIT_THRESHOLD) ? 2 : RIGHT_BALANCED_SPLIT_RATIO;
-//            // Cast to int is safe since:
-//            //   2 <= size < 2^32
-//            //   2 <= d <= 8
-//            return (int) (size / d);
-//        }
-//    }
-//
-//    static final class RangeLongSpliterator implements Spliterator.OfLong {
-//        // Can never be greater that upTo, this avoids overflow if upper bound
-//        // is Long.MAX_VALUE
-//        // All elements are traversed if from == upTo & last == 0
-//        private long from;
-//        private final long upTo;
-//        // 1 if the range is closed and the last element has not been traversed
-//        // Otherwise, 0 if the range is open, or is a closed range and all
-//        // elements have been traversed
-//        private int last;
-//
-//        RangeLongSpliterator(long from, long upTo, boolean closed) {
-//            this(from, upTo, closed ? 1 : 0);
-//        }
-//
-//        private RangeLongSpliterator(long from, long upTo, int last) {
-//            assert upTo - from + last > 0;
-//            this.from = from;
-//            this.upTo = upTo;
-//            this.last = last;
-//        }
-//
-//        @Override
-//        public boolean tryAdvance(LongConsumer consumer) {
-//            Objects.requireNonNull(consumer);
-//
-//            final long i = from;
-//            if (i < upTo) {
-//                from++;
-//                consumer.accept(i);
-//                return true;
-//            }
-//            else if (last > 0) {
-//                last = 0;
-//                consumer.accept(i);
-//                return true;
-//            }
-//            return false;
-//        }
-//
-//        @Override
-//        public void forEachRemaining(LongConsumer consumer) {
-//            Objects.requireNonNull(consumer);
-//
-//            long i = from;
-//            final long hUpTo = upTo;
-//            int hLast = last;
-//            from = upTo;
-//            last = 0;
-//            while (i < hUpTo) {
-//                consumer.accept(i++);
-//            }
-//            if (hLast > 0) {
-//                // Last element of closed range
-//                consumer.accept(i);
-//            }
-//        }
-//
-//        @Override
-//        public long estimateSize() {
-//            return upTo - from + last;
-//        }
-//
-//        @Override
-//        public int characteristics() {
-//            return Spliterator.ORDERED | Spliterator.SIZED | Spliterator.SUBSIZED |
-//                   Spliterator.IMMUTABLE | Spliterator.NONNULL |
-//                   Spliterator.DISTINCT | Spliterator.SORTED;
-//        }
-//
-//        @Override
-//        public Comparator<? super Long> getComparator() {
-//            return null;
-//        }
-//
-//        @Override
-//        public OfLong trySplit() {
-//            long size = estimateSize();
-//            return size <= 1
-//                   ? null
-//                   // Left split always has a half-open range
-//                   : new RangeLongSpliterator(from, from = from + splitPoint(size), 0);
-//        }
-//
-//        private static final long BALANCED_SPLIT_THRESHOLD = 1 << 24;
-//
-//        private static final long RIGHT_BALANCED_SPLIT_RATIO = 1 << 3;
-//
-//        private long splitPoint(long size) {
-//            long d = (size < BALANCED_SPLIT_THRESHOLD) ? 2 : RIGHT_BALANCED_SPLIT_RATIO;
-//            // 2 <= size <= Long.MAX_VALUE
-//            return size / d;
-//        }
-//    }
+    private static abstract class AbstractStreamBuilderImpl<T, S extends DefaultSpliterator<T>> implements DefaultSpliterator<T> {
 
-    private static abstract class AbstractStreamBuilderImpl<T, S extends Spliterator<T>> implements Spliterator<T> {
-        // >= 0 when building, < 0 when built
-        // -1 == no elements
-        // -2 == one element, held by first
-        // -3 == two or more elements, held by buffer
         int count;
 
-        // Spliterator implementation for 0 or 1 element
-        // count == -1 for no elements
-        // count == -2 for one element held by first
-
         @Override
-        public S trySplit() {
+        public S trySplit() throws RestException {
             return null;
         }
 
@@ -256,350 +30,87 @@ final class DefaultStreams {
 
         @Override
         public int characteristics() {
-            return Spliterator.SIZED | Spliterator.SUBSIZED |
-                   Spliterator.ORDERED | Spliterator.IMMUTABLE;
+            return DefaultSpliterator.SIZED | DefaultSpliterator.SUBSIZED |
+                    DefaultSpliterator.ORDERED | DefaultSpliterator.IMMUTABLE;
         }
     }
 
     static final class StreamBuilderImpl<T>
-            extends AbstractStreamBuilderImpl<T, Spliterator<T>>
+            extends AbstractStreamBuilderImpl<T, DefaultSpliterator<T>>
             implements RestStream.Builder<T> {
-        // The first element in the stream
-        // valid if count == 1
+
         T first;
 
-        // The first and subsequent elements in the stream
-        // non-null if count == 2
         DefaultSpinedBuffer<T> buffer;
 
-        StreamBuilderImpl() { }
+        StreamBuilderImpl() {
+        }
 
         StreamBuilderImpl(T t) {
             first = t;
             count = -2;
         }
 
-        // StreamBuilder implementation
-
         @Override
-        public void accept(T t) {
+        public void actuate(T t) {
             if (count == 0) {
                 first = t;
                 count++;
-            }
-            else if (count > 0) {
+            } else if (count > 0) {
                 if (buffer == null) {
                     buffer = new DefaultSpinedBuffer<>();
-                    buffer.accept(first);
+                    buffer.actuate(first);
                     count++;
                 }
 
-                buffer.accept(t);
-            }
-            else {
+                buffer.actuate(t);
+            } else {
                 throw new IllegalStateException();
             }
         }
 
         public RestStream.Builder<T> add(T t) {
-            accept(t);
+            actuate(t);
             return this;
         }
 
         @Override
-        public RestStream<T> build() {
+        public RestStream<T> build() throws RestException {
             int c = count;
             if (c >= 0) {
-                // Switch count to negative value signalling the builder is built
                 count = -count - 1;
-                // Use this spliterator if 0 or 1 elements, otherwise use
-                // the spliterator of the spined buffer
-                return (c < 2) ? RestStreamSupport.stream(this, false) : RestStreamSupport.stream(buffer.spliterator(), false);
+                return (c < 2) ? DefaultStreamSupport.stream(this, false) : DefaultStreamSupport.stream(buffer.spliterator(), false);
             }
 
             throw new IllegalStateException();
         }
 
-        // Spliterator implementation for 0 or 1 element
-        // count == -1 for no elements
-        // count == -2 for one element held by first
-
         @Override
-        public boolean tryAdvance(Consumer<? super T> action) {
+        public boolean tryAdvance(ConsumerActuator<? super T> action) throws RestException {
             Objects.requireNonNull(action);
 
             if (count == -2) {
-                action.accept(first);
+                action.actuate(first);
                 count = -1;
                 return true;
-            }
-            else {
+            } else {
                 return false;
             }
         }
 
         @Override
-        public void forEachRemaining(Consumer<? super T> action) {
+        public void forEachRemaining(ConsumerActuator<? super T> action) throws RestException {
             Objects.requireNonNull(action);
 
             if (count == -2) {
-                action.accept(first);
+                action.actuate(first);
                 count = -1;
             }
         }
     }
 
-//    static final class IntStreamBuilderImpl
-//            extends AbstractStreamBuilderImpl<Integer, Spliterator.OfInt>
-//            implements IntStream.Builder, Spliterator.OfInt {
-//        // The first element in the stream
-//        // valid if count == 1
-//        int first;
-//
-//        // The first and subsequent elements in the stream
-//        // non-null if count == 2
-//        DefaultSpinedBuffer.OfInt buffer;
-//
-//        IntStreamBuilderImpl() { }
-//
-//        IntStreamBuilderImpl(int t) {
-//            first = t;
-//            count = -2;
-//        }
-//
-//        // StreamBuilder implementation
-//
-//        @Override
-//        public void accept(int t) {
-//            if (count == 0) {
-//                first = t;
-//                count++;
-//            }
-//            else if (count > 0) {
-//                if (buffer == null) {
-//                    buffer = new DefaultSpinedBuffer.OfInt();
-//                    buffer.accept(first);
-//                    count++;
-//                }
-//
-//                buffer.accept(t);
-//            }
-//            else {
-//                throw new IllegalStateException();
-//            }
-//        }
-//
-//        @Override
-//        public IntStream build() {
-//            int c = count;
-//            if (c >= 0) {
-//                // Switch count to negative value signalling the builder is built
-//                count = -count - 1;
-//                // Use this spliterator if 0 or 1 elements, otherwise use
-//                // the spliterator of the spined buffer
-//                return (c < 2) ? RestStreamSupport.intStream(this, false) : RestStreamSupport.intStream(buffer.spliterator(), false);
-//            }
-//
-//            throw new IllegalStateException();
-//        }
-//
-//        // Spliterator implementation for 0 or 1 element
-//        // count == -1 for no elements
-//        // count == -2 for one element held by first
-//
-//        @Override
-//        public boolean tryAdvance(IntConsumer action) {
-//            Objects.requireNonNull(action);
-//
-//            if (count == -2) {
-//                action.accept(first);
-//                count = -1;
-//                return true;
-//            }
-//            else {
-//                return false;
-//            }
-//        }
-//
-//        @Override
-//        public void forEachRemaining(IntConsumer action) {
-//            Objects.requireNonNull(action);
-//
-//            if (count == -2) {
-//                action.accept(first);
-//                count = -1;
-//            }
-//        }
-//    }
-//
-//    static final class LongStreamBuilderImpl
-//            extends AbstractStreamBuilderImpl<Long, Spliterator.OfLong>
-//            implements LongStream.Builder, Spliterator.OfLong {
-//        // The first element in the stream
-//        // valid if count == 1
-//        long first;
-//
-//        // The first and subsequent elements in the stream
-//        // non-null if count == 2
-//        DefaultSpinedBuffer.OfLong buffer;
-//
-//        LongStreamBuilderImpl() { }
-//
-//        LongStreamBuilderImpl(long t) {
-//            first = t;
-//            count = -2;
-//        }
-//
-//        // StreamBuilder implementation
-//
-//        @Override
-//        public void accept(long t) {
-//            if (count == 0) {
-//                first = t;
-//                count++;
-//            }
-//            else if (count > 0) {
-//                if (buffer == null) {
-//                    buffer = new DefaultSpinedBuffer.OfLong();
-//                    buffer.accept(first);
-//                    count++;
-//                }
-//
-//                buffer.accept(t);
-//            }
-//            else {
-//                throw new IllegalStateException();
-//            }
-//        }
-//
-//        @Override
-//        public LongStream build() {
-//            int c = count;
-//            if (c >= 0) {
-//                // Switch count to negative value signalling the builder is built
-//                count = -count - 1;
-//                // Use this spliterator if 0 or 1 elements, otherwise use
-//                // the spliterator of the spined buffer
-//                return (c < 2) ? RestStreamSupport.longStream(this, false) : RestStreamSupport.longStream(buffer.spliterator(), false);
-//            }
-//
-//            throw new IllegalStateException();
-//        }
-//
-//        // Spliterator implementation for 0 or 1 element
-//        // count == -1 for no elements
-//        // count == -2 for one element held by first
-//
-//        @Override
-//        public boolean tryAdvance(LongConsumer action) {
-//            Objects.requireNonNull(action);
-//
-//            if (count == -2) {
-//                action.accept(first);
-//                count = -1;
-//                return true;
-//            }
-//            else {
-//                return false;
-//            }
-//        }
-//
-//        @Override
-//        public void forEachRemaining(LongConsumer action) {
-//            Objects.requireNonNull(action);
-//
-//            if (count == -2) {
-//                action.accept(first);
-//                count = -1;
-//            }
-//        }
-//    }
-//
-//    static final class DoubleStreamBuilderImpl
-//            extends AbstractStreamBuilderImpl<Double, Spliterator.OfDouble>
-//            implements DoubleStream.Builder, Spliterator.OfDouble {
-//        // The first element in the stream
-//        // valid if count == 1
-//        double first;
-//
-//        // The first and subsequent elements in the stream
-//        // non-null if count == 2
-//        DefaultSpinedBuffer.OfDouble buffer;
-//
-//        DoubleStreamBuilderImpl() { }
-//
-//        DoubleStreamBuilderImpl(double t) {
-//            first = t;
-//            count = -2;
-//        }
-//
-//        // StreamBuilder implementation
-//
-//        @Override
-//        public void accept(double t) {
-//            if (count == 0) {
-//                first = t;
-//                count++;
-//            }
-//            else if (count > 0) {
-//                if (buffer == null) {
-//                    buffer = new DefaultSpinedBuffer.OfDouble();
-//                    buffer.accept(first);
-//                    count++;
-//                }
-//
-//                buffer.accept(t);
-//            }
-//            else {
-//                throw new IllegalStateException();
-//            }
-//        }
-//
-//        @Override
-//        public DoubleStream build() {
-//            int c = count;
-//            if (c >= 0) {
-//                // Switch count to negative value signalling the builder is built
-//                count = -count - 1;
-//                // Use this spliterator if 0 or 1 elements, otherwise use
-//                // the spliterator of the spined buffer
-//                return (c < 2) ? RestStreamSupport.doubleStream(this, false) : RestStreamSupport.doubleStream(buffer.spliterator(), false);
-//            }
-//
-//            throw new IllegalStateException();
-//        }
-//
-//        // Spliterator implementation for 0 or 1 element
-//        // count == -1 for no elements
-//        // count == -2 for one element held by first
-//
-//        @Override
-//        public boolean tryAdvance(DoubleConsumer action) {
-//            Objects.requireNonNull(action);
-//
-//            if (count == -2) {
-//                action.accept(first);
-//                count = -1;
-//                return true;
-//            }
-//            else {
-//                return false;
-//            }
-//        }
-//
-//        @Override
-//        public void forEachRemaining(DoubleConsumer action) {
-//            Objects.requireNonNull(action);
-//
-//            if (count == -2) {
-//                action.accept(first);
-//                count = -1;
-//            }
-//        }
-//    }
-
-    abstract static class ConcatSpliterator<T, T_SPLITR extends Spliterator<T>>
-            implements Spliterator<T> {
+    abstract static class ConcatSpliterator<T, T_SPLITR extends DefaultSpliterator<T>>
+            implements DefaultSpliterator<T> {
         protected final T_SPLITR aSpliterator;
         protected final T_SPLITR bSpliterator;
         // True when no split has occurred, otherwise false
@@ -607,7 +118,7 @@ final class DefaultStreams {
         // Never read after splitting
         final boolean unsized;
 
-        public ConcatSpliterator(T_SPLITR aSpliterator, T_SPLITR bSpliterator) {
+        public ConcatSpliterator(T_SPLITR aSpliterator, T_SPLITR bSpliterator) throws RestException {
             this.aSpliterator = aSpliterator;
             this.bSpliterator = bSpliterator;
             beforeSplit = true;
@@ -617,7 +128,7 @@ final class DefaultStreams {
         }
 
         @Override
-        public T_SPLITR trySplit() {
+        public T_SPLITR trySplit() throws RestException {
             @SuppressWarnings("unchecked")
             T_SPLITR ret = beforeSplit ? aSpliterator : (T_SPLITR) bSpliterator.trySplit();
             beforeSplit = false;
@@ -625,7 +136,7 @@ final class DefaultStreams {
         }
 
         @Override
-        public boolean tryAdvance(Consumer<? super T> consumer) {
+        public boolean tryAdvance(ConsumerActuator<? super T> consumer) throws RestException {
             boolean hasNext;
             if (beforeSplit) {
                 hasNext = aSpliterator.tryAdvance(consumer);
@@ -633,67 +144,63 @@ final class DefaultStreams {
                     beforeSplit = false;
                     hasNext = bSpliterator.tryAdvance(consumer);
                 }
-            }
-            else
+            } else
                 hasNext = bSpliterator.tryAdvance(consumer);
             return hasNext;
         }
 
         @Override
-        public void forEachRemaining(Consumer<? super T> consumer) {
+        public void forEachRemaining(ConsumerActuator<? super T> consumer) throws RestException {
             if (beforeSplit)
                 aSpliterator.forEachRemaining(consumer);
             bSpliterator.forEachRemaining(consumer);
         }
 
         @Override
-        public long estimateSize() {
+        public long estimateSize() throws RestException {
             if (beforeSplit) {
                 // If one or both estimates are Long.MAX_VALUE then the sum
                 // will either be Long.MAX_VALUE or overflow to a negative value
                 long size = aSpliterator.estimateSize() + bSpliterator.estimateSize();
                 return (size >= 0) ? size : Long.MAX_VALUE;
-            }
-            else {
+            } else {
                 return bSpliterator.estimateSize();
             }
         }
 
         @Override
-        public int characteristics() {
+        public int characteristics() throws RestException {
             if (beforeSplit) {
-                // Concatenation loses DISTINCT and SORTED characteristics
                 return aSpliterator.characteristics() & bSpliterator.characteristics()
-                       & ~(Spliterator.DISTINCT | Spliterator.SORTED
-                           | (unsized ? Spliterator.SIZED | Spliterator.SUBSIZED : 0));
-            }
-            else {
+                        & ~(DefaultSpliterator.DISTINCT | DefaultSpliterator.SORTED
+                        | (unsized ? DefaultSpliterator.SIZED | DefaultSpliterator.SUBSIZED : 0));
+            } else {
                 return bSpliterator.characteristics();
             }
         }
 
         @Override
-        public Comparator<? super T> getComparator() {
+        public Comparator<? super T> getComparator() throws RestException {
             if (beforeSplit)
                 throw new IllegalStateException();
             return bSpliterator.getComparator();
         }
 
-        static class OfRef<T> extends ConcatSpliterator<T, Spliterator<T>> {
-            OfRef(Spliterator<T> aSpliterator, Spliterator<T> bSpliterator) {
+        static class OfRef<T> extends ConcatSpliterator<T, DefaultSpliterator<T>> {
+            OfRef(DefaultSpliterator<T> aSpliterator, DefaultSpliterator<T> bSpliterator) throws RestException {
                 super(aSpliterator, bSpliterator);
             }
         }
 
-        private static abstract class OfPrimitive<T, T_CONS, T_SPLITR extends Spliterator.OfPrimitive<T, T_CONS, T_SPLITR>>
+        private static abstract class OfPrimitive<T, T_CONS, T_SPLITR extends DefaultSpliterator.OfPrimitive<T, T_CONS, T_SPLITR>>
                 extends ConcatSpliterator<T, T_SPLITR>
-                implements Spliterator.OfPrimitive<T, T_CONS, T_SPLITR> {
-            private OfPrimitive(T_SPLITR aSpliterator, T_SPLITR bSpliterator) {
+                implements DefaultSpliterator.OfPrimitive<T, T_CONS, T_SPLITR> {
+            private OfPrimitive(T_SPLITR aSpliterator, T_SPLITR bSpliterator) throws RestException {
                 super(aSpliterator, bSpliterator);
             }
 
             @Override
-            public boolean tryAdvance(T_CONS action) {
+            public boolean tryAdvance(T_CONS action) throws RestException {
                 boolean hasNext;
                 if (beforeSplit) {
                     hasNext = aSpliterator.tryAdvance(action);
@@ -701,88 +208,56 @@ final class DefaultStreams {
                         beforeSplit = false;
                         hasNext = bSpliterator.tryAdvance(action);
                     }
-                }
-                else
+                } else
                     hasNext = bSpliterator.tryAdvance(action);
                 return hasNext;
             }
 
             @Override
-            public void forEachRemaining(T_CONS action) {
+            public void forEachRemaining(T_CONS action) throws RestException {
                 if (beforeSplit)
                     aSpliterator.forEachRemaining(action);
                 bSpliterator.forEachRemaining(action);
             }
         }
 
-        static class OfInt
-                extends OfPrimitive<Integer, IntConsumer, Spliterator.OfInt>
-                implements Spliterator.OfInt {
-            OfInt(Spliterator.OfInt aSpliterator, Spliterator.OfInt bSpliterator) {
-                super(aSpliterator, bSpliterator);
-            }
-        }
-
-        static class OfLong
-                extends OfPrimitive<Long, LongConsumer, Spliterator.OfLong>
-                implements Spliterator.OfLong {
-            OfLong(Spliterator.OfLong aSpliterator, Spliterator.OfLong bSpliterator) {
-                super(aSpliterator, bSpliterator);
-            }
-        }
-
-        static class OfDouble
-                extends OfPrimitive<Double, DoubleConsumer, Spliterator.OfDouble>
-                implements Spliterator.OfDouble {
-            OfDouble(Spliterator.OfDouble aSpliterator, Spliterator.OfDouble bSpliterator) {
-                super(aSpliterator, bSpliterator);
-            }
-        }
     }
 
     static Runnable composeWithExceptions(Runnable a, Runnable b) {
-        return new Runnable() {
-            @Override
-            public void run() {
+        return () -> {
+            try {
+                a.run();
+            } catch (Throwable e1) {
                 try {
-                    a.run();
-                }
-                catch (Throwable e1) {
+                    b.run();
+                } catch (Throwable e2) {
                     try {
-                        b.run();
+                        e1.addSuppressed(e2);
+                    } catch (Throwable ignore) {
                     }
-                    catch (Throwable e2) {
-                        try {
-                            e1.addSuppressed(e2);
-                        } catch (Throwable ignore) {}
-                    }
-                    throw e1;
                 }
-                b.run();
+                throw e1;
             }
+            b.run();
         };
     }
 
-    static Runnable composedClose(BaseStream<?, ?> a, BaseStream<?, ?> b) {
-        return new Runnable() {
-            @Override
-            public void run() {
+    static Runnable composedClose(DefaultBaseStream<?, ?> a, DefaultBaseStream<?, ?> b) throws RestException {
+        return () -> {
+            try {
+                a.close();
+            } catch (Throwable e1) {
                 try {
-                    a.close();
-                }
-                catch (Throwable e1) {
+                    b.close();
+                } catch (Throwable e2) {
                     try {
-                        b.close();
+                        e1.addSuppressed(e2);
+                    } catch (Throwable ignore) {
                     }
-                    catch (Throwable e2) {
-                        try {
-                            e1.addSuppressed(e2);
-                        } catch (Throwable ignore) {}
-                    }
-                    throw e1;
                 }
-                b.close();
+                throw e1;
             }
+            b.close();
         };
     }
 }
