@@ -1,6 +1,7 @@
 package io.github.nichetoolkit.rest;
 
 import io.github.nichetoolkit.rest.stereotype.StereoEnum;
+import io.github.nichetoolkit.rest.stereotype.StereoValue;
 
 import java.lang.annotation.Annotation;
 import java.util.Collection;
@@ -53,7 +54,7 @@ public interface RestStereo extends RestValue<String,Long>, StereoEnum {
 
     @Override
     default Class<? extends Annotation> annotationType() {
-        return RestStereo.class;
+        return StereoValue.class;
     }
 
     /**
