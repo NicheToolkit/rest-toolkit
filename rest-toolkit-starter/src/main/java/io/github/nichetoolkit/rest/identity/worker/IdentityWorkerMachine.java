@@ -20,7 +20,7 @@ import java.util.Objects;
  */
 @Slf4j
 @SuppressWarnings("SameNameButDifferent")
-class IdentityWorkerMachine implements IdentityWorker{
+class IdentityWorkerMachine implements IdentityWorker {
     /**
      * <code>name</code>
      * {@link java.lang.String} <p>the <code>name</code> field.</p>
@@ -114,8 +114,8 @@ class IdentityWorkerMachine implements IdentityWorker{
 
     @Override
     public synchronized Long generate() {
-        if (IdentityWorkerConfig.CACHE_SET.size() >= IdentityWorkerConfig.CACHE_SIZE) {
-            IdentityWorkerConfig.CACHE_SET.clear();
+        if (IdentityWorkerConfig.MACHINE_CACHE_SET.size() >= IdentityWorkerConfig.CACHE_SIZE) {
+            IdentityWorkerConfig.MACHINE_CACHE_SET.clear();
             isOffset = true;
         }
         Long time = new IdentityWorkerTime().getTime();
@@ -146,10 +146,10 @@ class IdentityWorkerMachine implements IdentityWorker{
                 | (centerId << IdentityWorkerConfig.CENTER_ID_SHIFT)
                 | (workerId << IdentityWorkerConfig.WORKER_ID_SHIFT)
                 | sequence;
-        if (IdentityWorkerConfig.CACHE_SET.contains(generateId)) {
+        if (IdentityWorkerConfig.MACHINE_CACHE_SET.contains(generateId)) {
             return generate();
         } else {
-            IdentityWorkerConfig.CACHE_SET.add(generateId);
+            IdentityWorkerConfig.MACHINE_CACHE_SET.add(generateId);
             return generateId;
         }
     }

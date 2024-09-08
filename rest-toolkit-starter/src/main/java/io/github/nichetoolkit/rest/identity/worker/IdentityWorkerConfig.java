@@ -149,6 +149,13 @@ class IdentityWorkerConfig {
      * {@link java.util.Set} <p>the <code>CACHE_SET</code> field.</p>
      * @see java.util.Set
      */
-    static final Set<Long> CACHE_SET = new HashSet<>();
+    static final Set<Long> ARTIFICIAL_CACHE_SET = new HashSet<>();
+
+    /**
+     * <code>CACHE_SET</code>
+     * {@link java.util.Set} <p>the <code>CACHE_SET</code> field.</p>
+     * @see java.util.Set
+     */
+    static final Set<Long> MACHINE_CACHE_SET = new HashSet<>();
 
 }

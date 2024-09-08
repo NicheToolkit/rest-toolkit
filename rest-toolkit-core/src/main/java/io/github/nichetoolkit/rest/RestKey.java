@@ -76,4 +76,24 @@ public interface RestKey<K> {
         return null;
     }
 
+    /**
+     * <code>parseKey</code>
+     * <p>the key method.</p>
+     * @param <T>    {@link io.github.nichetoolkit.rest.RestKey} <p>the generic parameter is <code>RestKey</code> type.</p>
+     * @param <K>    {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param values {@link java.util.Collection} <p>the values parameter is <code>Collection</code> type.</p>
+     * @param key    K <p>the key parameter is <code>K</code> type.</p>
+     * @return T <p>the key return object is <code>T</code> type.</p>
+     * @see java.util.Collection
+     * @see java.lang.SuppressWarnings
+     */
+    @SuppressWarnings("Duplicates")
+    static <T extends RestKey<K>, K> T parseKey(Collection<T> values, K key) {
+        if (key != null && values != null && !values.isEmpty()) {
+            Map<K, T> valueEnumMap = values.stream().collect(Collectors.toMap(RestKey::getKey, Function.identity()));
+            return valueEnumMap.get(key);
+        }
+        return null;
+    }
+
 }

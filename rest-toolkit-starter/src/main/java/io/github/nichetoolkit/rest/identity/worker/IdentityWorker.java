@@ -2,8 +2,6 @@ package io.github.nichetoolkit.rest.identity.worker;
 
 
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -33,7 +31,8 @@ public interface IdentityWorker {
      * <p>the method.</p>
      */
     static void clear() {
-        IdentityWorkerConfig.CACHE_SET.clear();
+        IdentityWorkerConfig.MACHINE_CACHE_SET.clear();
+        IdentityWorkerConfig.ARTIFICIAL_CACHE_SET.clear();
     }
 
     /**

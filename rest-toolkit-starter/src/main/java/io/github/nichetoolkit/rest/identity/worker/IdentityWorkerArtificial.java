@@ -48,6 +48,12 @@ class IdentityWorkerArtificial implements IdentityWorker {
     private Long offset = IdentityWorkerConfig.OFFSET;
 
     /**
+     * <code>isOffset</code>
+     * <p>the <code>isOffset</code> field.</p>
+     */
+    private boolean isOffset;
+
+    /**
      * <code>IdentityWorkerArtificial</code>
      * Instantiates a new identity worker artificial.
      */
@@ -86,13 +92,23 @@ class IdentityWorkerArtificial implements IdentityWorker {
 
     @Override
     public synchronized Long generate() {
+        if (IdentityWorkerConfig.ARTIFICIAL_CACHE_SET.size() >= IdentityWorkerConfig.CACHE_SIZE) {
+            IdentityWorkerConfig.ARTIFICIAL_CACHE_SET.clear();
+            isOffset = true;
+        }
         long time = new IdentityWorkerTime().getTime();
         if(this.offset < IdentityWorkerConfig.SEQUENCE){
             offset = -offset;
         }
         if (time < IdentityWorkerConfig.TIMESTAMP) {
-            time = new IdentityWorkerTime().sequence((Math.abs(this.lastTime - time) * this.sequence) + this.offset);
-            log.error("clock is moving backwards. Rejecting requests until {}", this.lastTime);
+            this.sequence ++;
+            int offset = 0;
+            if (isOffset) {
+                offset = IdentityWorkerConfig.CACHE_SIZE + 1;
+                isOffset = false;
+            }
+            time = new IdentityWorkerTime().sequence((Math.abs(this.lastTime - time) * this.sequence) + this.offset + offset);
+            log.warn("clock is moving backwards. Rejecting requests until {}", this.lastTime);
         }
         if (this.lastTime == time) {
             this.sequence = (this.sequence + IdentityWorkerConfig.DEFAULT_TAG) & IdentityWorkerConfig.SEQUENCE_MASK;
@@ -111,9 +127,16 @@ class IdentityWorkerArtificial implements IdentityWorker {
         this.lastTag = offset;
         this.lastTime = time;
 
-        return (time << (IdentityWorkerConfig.ALL_BIT_SIZE - IdentityWorkerConfig.TIMESTAMP_BIT_SIZE))
+        long generateId = (time << (IdentityWorkerConfig.ALL_BIT_SIZE - IdentityWorkerConfig.TIMESTAMP_BIT_SIZE))
                 | ((offset % IdentityWorkerConfig.MAX_REGION_SIZE) << (IdentityWorkerConfig.ALL_BIT_SIZE - IdentityWorkerConfig.TIMESTAMP_BIT_SIZE - IdentityWorkerConfig.REGION_BIT_SIZE))
                 | sequence;
+
+        if (IdentityWorkerConfig.ARTIFICIAL_CACHE_SET.contains(generateId)) {
+            return generate();
+        } else {
+            IdentityWorkerConfig.ARTIFICIAL_CACHE_SET.add(generateId);
+            return generateId;
+        }
     }
 
     @Override

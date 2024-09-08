@@ -97,6 +97,7 @@ public class IdentityFactory {
             Long workerId = ((Double) (new SecureRandom().nextDouble() * 10 + 20)).longValue();
             Long centerId = ((Double) (new SecureRandom().nextDouble() * 20 + 10)).longValue();
             IdentityWorker.get(workerId,centerId);
+            IdentityWorker.get(workerId,centerId,1L);
         } else if (IdentityType.SERVER == type) {
             Long sequence = properties.getServer().getSequence();
             IdentityWorker.get(sequence);
@@ -107,6 +108,7 @@ public class IdentityFactory {
             Long workerId = properties.getConfig().getWorkerId();
             Long centerId = properties.getConfig().getCenterId();
             IdentityWorker.get(workerId, centerId);
+            IdentityWorker.get(workerId, centerId, sequence);
         }
         IdentityWorker.get();
         INSTANCE = this;
