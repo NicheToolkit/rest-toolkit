@@ -108,7 +108,7 @@ class IdentityWorkerArtificial implements IdentityWorker {
                 isOffset = false;
             }
             time = new IdentityWorkerTime().sequence((Math.abs(this.lastTime - time) * this.sequence) + this.offset + offset);
-            log.warn("clock is moving backwards. Rejecting requests until {}", this.lastTime);
+//            log.warn("clock is moving backwards. Rejecting requests until {}", this.lastTime);
         }
         if (this.lastTime == time) {
             this.sequence = (this.sequence + IdentityWorkerConfig.DEFAULT_TAG) & IdentityWorkerConfig.SEQUENCE_MASK;
