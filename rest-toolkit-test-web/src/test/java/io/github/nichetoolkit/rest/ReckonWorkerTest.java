@@ -1,7 +1,5 @@
 package io.github.nichetoolkit.rest;
 
-import io.github.nichetoolkit.rest.identity.IdentityUtils;
-
 /**
  * <p>ReckonWorker</p>
  * @author Cyan (snow22314@outlook.com)
@@ -61,16 +59,23 @@ public class ReckonWorkerTest {
 
     public static void main(String[] args) {
 
-        Long max = Long.MAX_VALUE;
-        System.out.println("max: " +max);
-        Long v63 = annex(63);
-        System.out.println("v63: " +v63);
-        Long annex = annex(DIGITS.length);
-        System.out.println("annex: " +annex);
-        String ennex = ennex(annex);
+//        Long max = Long.MAX_VALUE;
+//        System.out.println("max: " +max);
+//        Long v63 = annex(63);
+//        System.out.println("v63: " +v63);
+//
+//
+//        Long annex = annex(DIGITS.length);
+//        System.out.println("annex: " +annex);
+//        String ennex = ennex(annex);
+//        System.out.println("ennex: " +ennex);
+//        Long denex = denex(ennex);
+//        System.out.println("denex: " +denex);
+
+
+
+        String ennex = ennex(1833036771458285568L);
         System.out.println("ennex: " +ennex);
-        Long denex = denex(ennex);
-        System.out.println("denex: " +denex);
 
 
     }

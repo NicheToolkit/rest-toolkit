@@ -59,7 +59,7 @@ class IdentityWorkerArtificial implements IdentityWorker {
      */
     public IdentityWorkerArtificial() {
         this.name = RestConstants.ARTIFICIAL_WORKER_NAME;
-        IDENTITY_WORKER_MAP.put(WorkerType.BASE_WORKER,this);
+        IDENTITY_WORKER_MAP.put(WorkerType.BASE_WORKER, this);
     }
 
     /**
@@ -70,7 +70,7 @@ class IdentityWorkerArtificial implements IdentityWorker {
      */
     public IdentityWorkerArtificial(String name) {
         this.name = name;
-        IDENTITY_WORKER_MAP.put(WorkerType.BASE_WORKER,this);
+        IDENTITY_WORKER_MAP.put(WorkerType.BASE_WORKER, this);
     }
 
     /**
@@ -87,7 +87,7 @@ class IdentityWorkerArtificial implements IdentityWorker {
         if (offset > IdentityWorkerConfig.OFFSET) {
             this.offset = offset;
         }
-        IDENTITY_WORKER_MAP.put(WorkerType.OFFSET_WORKER,this);
+        IDENTITY_WORKER_MAP.put(WorkerType.OFFSET_WORKER, this);
     }
 
     @Override
@@ -97,11 +97,11 @@ class IdentityWorkerArtificial implements IdentityWorker {
             isOffset = true;
         }
         long time = new IdentityWorkerTime().getTime();
-        if(this.offset < IdentityWorkerConfig.SEQUENCE){
+        if (this.offset < IdentityWorkerConfig.SEQUENCE) {
             offset = -offset;
         }
         if (time < IdentityWorkerConfig.TIMESTAMP) {
-            this.sequence ++;
+            this.sequence++;
             int offset = 0;
             if (isOffset) {
                 offset = IdentityWorkerConfig.CACHE_SIZE + 1;
@@ -118,7 +118,7 @@ class IdentityWorkerArtificial implements IdentityWorker {
         } else {
             this.sequence = IdentityWorkerConfig.SEQUENCE;
         }
-        if(offset.equals(lastTag)){
+        if (offset.equals(lastTag)) {
             this.sequence = (this.sequence + IdentityWorkerConfig.DEFAULT_TAG) & IdentityWorkerConfig.SEQUENCE_MASK;
             if (this.sequence.equals(IdentityWorkerConfig.SEQUENCE)) {
                 time = IdentityWorkerTime.next(this.lastTime);
@@ -126,11 +126,7 @@ class IdentityWorkerArtificial implements IdentityWorker {
         }
         this.lastTag = offset;
         this.lastTime = time;
-
-        long generateId = (time << (IdentityWorkerConfig.ALL_BIT_SIZE - IdentityWorkerConfig.TIMESTAMP_BIT_SIZE))
-                | ((offset % IdentityWorkerConfig.MAX_REGION_SIZE) << (IdentityWorkerConfig.ALL_BIT_SIZE - IdentityWorkerConfig.TIMESTAMP_BIT_SIZE - IdentityWorkerConfig.REGION_BIT_SIZE))
-                | sequence;
-
+        long generateId = getGenerateId(time);
         if (IdentityWorkerConfig.ARTIFICIAL_CACHE_SET.contains(generateId)) {
             return generate();
         } else {
@@ -139,11 +135,25 @@ class IdentityWorkerArtificial implements IdentityWorker {
         }
     }
 
+    /**
+     * <code>getGenerateId</code>
+     * <p>the generate id getter method.</p>
+     * @param time long <p>the time parameter is <code>long</code> type.</p>
+     * @return long <p>the generate id return object is <code>long</code> type.</p>
+     */
+    private long getGenerateId(long time) {
+        long threadId = Thread.currentThread().getId();
+        return (time << (IdentityWorkerConfig.ALL_BIT_SIZE - IdentityWorkerConfig.TIMESTAMP_BIT_SIZE))
+                | (threadId << (IdentityWorkerConfig.ALL_BIT_SIZE - IdentityWorkerConfig.TIMESTAMP_BIT_SIZE - IdentityWorkerConfig.THREAD_ID_SHIFT))
+                | ((offset % IdentityWorkerConfig.MAX_REGION_SIZE) << (IdentityWorkerConfig.ALL_BIT_SIZE - IdentityWorkerConfig.TIMESTAMP_BIT_SIZE - IdentityWorkerConfig.THREAD_BIT_SIZE - IdentityWorkerConfig.REGION_BIT_SIZE))
+                | sequence;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null) return false;
-        if (! (o instanceof IdentityWorkerArtificial)) return false;
+        if (!(o instanceof IdentityWorkerArtificial)) return false;
         IdentityWorkerArtificial that = (IdentityWorkerArtificial) o;
         return Objects.equals(name, that.name);
     }

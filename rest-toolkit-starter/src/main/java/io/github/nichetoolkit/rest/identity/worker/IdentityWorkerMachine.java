@@ -5,6 +5,7 @@ import io.github.nichetoolkit.rest.constant.RestConstants;
 import io.github.nichetoolkit.rest.identity.IdentityErrorStatus;
 import io.github.nichetoolkit.rest.identity.error.IdentityWorkerError;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
+import io.github.nichetoolkit.rest.util.OptionalUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.lang.NonNull;
 
@@ -39,6 +40,13 @@ class IdentityWorkerMachine implements IdentityWorker {
      * @see java.lang.Long
      */
     private Long sequence = IdentityWorkerConfig.SEQUENCE;
+
+    /**
+     * <code>offset</code>
+     * {@link java.lang.Long} <p>the <code>offset</code> field.</p>
+     * @see java.lang.Long
+     */
+    private Long offset = IdentityWorkerConfig.OFFSET;
     /**
      * <code>workerId</code>
      * {@link java.lang.Long} <p>the <code>workerId</code> field.</p>
@@ -67,7 +75,7 @@ class IdentityWorkerMachine implements IdentityWorker {
      * @see org.springframework.lang.NonNull
      */
     public IdentityWorkerMachine(@NonNull Long workerId, @NonNull Long centerId, Long sequence) {
-        this(RestConstants.MACHINE_WORKER_NAME,workerId,centerId,sequence);
+        this(RestConstants.MACHINE_WORKER_NAME, workerId, centerId, sequence);
     }
 
     /**
@@ -84,20 +92,20 @@ class IdentityWorkerMachine implements IdentityWorker {
     public IdentityWorkerMachine(String mame, @NonNull Long workerId, @NonNull Long centerId, Long sequence) {
         this.name = mame;
         if (workerId > IdentityWorkerConfig.MAX_WORKER_ID || workerId < IdentityWorkerConfig.MIN_WORKER_ID) {
-            log.error("worker Id can't be greater than {} or less than {}",IdentityWorkerConfig.MAX_WORKER_ID,IdentityWorkerConfig.MIN_WORKER_ID);
+            log.error("worker Id can't be greater than {} or less than {}", IdentityWorkerConfig.MAX_WORKER_ID, IdentityWorkerConfig.MIN_WORKER_ID);
             throw new IdentityWorkerError(IdentityErrorStatus.WORKER_ID_INVALID);
         }
         if (centerId > IdentityWorkerConfig.MAX_CENTER_ID || centerId < IdentityWorkerConfig.MIN_CENTER_ID) {
-            log.error("center Id can't be greater than {} or less than {}",IdentityWorkerConfig.MAX_CENTER_ID,IdentityWorkerConfig.MIN_CENTER_ID);
+            log.error("center Id can't be greater than {} or less than {}", IdentityWorkerConfig.MAX_CENTER_ID, IdentityWorkerConfig.MIN_CENTER_ID);
             throw new IdentityWorkerError(IdentityErrorStatus.CENTER_ID_INVALID);
         }
         this.workerId = workerId;
         this.centerId = centerId;
         if (sequence != null && sequence >= IdentityWorkerConfig.SEQUENCE) {
             this.sequence = sequence;
-            IDENTITY_WORKER_MAP.put(WorkerType.SEQUENCE_WORKER,this);
+            IDENTITY_WORKER_MAP.put(WorkerType.SEQUENCE_WORKER, this);
         }
-        IDENTITY_WORKER_MAP.put(WorkerType.COMMON_WORKER,this);
+        IDENTITY_WORKER_MAP.put(WorkerType.COMMON_WORKER, this);
     }
 
     /**
@@ -109,7 +117,7 @@ class IdentityWorkerMachine implements IdentityWorker {
      * @see org.springframework.lang.NonNull
      */
     public IdentityWorkerMachine(@NonNull Long workerId, @NonNull Long centerId) {
-        this(workerId,centerId,null);
+        this(workerId, centerId, null);
     }
 
     @Override
@@ -123,7 +131,7 @@ class IdentityWorkerMachine implements IdentityWorker {
             time = new IdentityWorkerTime().sequence(sequence);
         }
         if (time < this.lastTime) {
-            this.sequence ++;
+            this.sequence++;
             int offset = 0;
             if (isOffset) {
                 offset = IdentityWorkerConfig.CACHE_SIZE + 1;
@@ -141,11 +149,7 @@ class IdentityWorkerMachine implements IdentityWorker {
             this.sequence = IdentityWorkerConfig.SEQUENCE;
         }
         this.lastTime = time;
-
-        long generateId = (time << IdentityWorkerConfig.TIMESTAMP_SHIFT)
-                | (centerId << IdentityWorkerConfig.CENTER_ID_SHIFT)
-                | (workerId << IdentityWorkerConfig.WORKER_ID_SHIFT)
-                | sequence;
+        long generateId = getGenerateId(time);
         if (IdentityWorkerConfig.MACHINE_CACHE_SET.contains(generateId)) {
             return generate();
         } else {
@@ -154,11 +158,57 @@ class IdentityWorkerMachine implements IdentityWorker {
         }
     }
 
+    /**
+     * <code>getGenerateId</code>
+     * <p>the generate id getter method.</p>
+     * @param time long <p>the time parameter is <code>long</code> type.</p>
+     * @return long <p>the generate id return object is <code>long</code> type.</p>
+     */
+    private long getGenerateId(long time) {
+        long threadId = Thread.currentThread().getId();
+        long centerIdShift = IdentityWorkerConfig.CENTER_ID_SHIFT;
+        long workerIdShift = IdentityWorkerConfig.WORKER_ID_SHIFT;
+        long threadIdShift = IdentityWorkerConfig.THREAD_ID_SHIFT;
+        boolean centerIdComparer = threadId > IdentityWorkerConfig.MAX_CENTER_ID;
+        boolean workerIdComparer = threadId > IdentityWorkerConfig.MAX_WORKER_ID;
+        boolean threadIdComparer = threadId > IdentityWorkerConfig.MAX_THREAD_ID;
+        if (centerIdComparer && workerIdComparer && threadIdComparer) {
+            centerIdShift = centerIdShift - 1L;
+            workerIdShift = workerIdShift - 2L;
+            threadIdShift = threadIdShift - 3L;
+        } else if (centerIdComparer && workerIdComparer) {
+            centerIdShift = centerIdShift - 1L;
+            workerIdShift = workerIdShift - 2L;
+            threadIdShift = threadIdShift - 2L;
+        } else if (centerIdComparer && threadIdComparer) {
+            centerIdShift = centerIdShift - 1L;
+            workerIdShift = workerIdShift - 1L;
+            threadIdShift = threadIdShift - 2L;
+        } else if (workerIdComparer && threadIdComparer) {
+            workerIdShift = workerIdShift - 1L;
+            threadIdShift = threadIdShift - 2L;
+        } else if (centerIdComparer) {
+            centerIdShift = centerIdShift - 1L;
+            workerIdShift = workerIdShift - 1L;
+            threadIdShift = threadIdShift - 1L;
+        } else if (workerIdComparer) {
+            workerIdShift = workerIdShift - 1L;
+            threadIdShift = threadIdShift - 1L;
+        } else {
+            threadIdShift = threadIdShift - 1L;
+        }
+        return (time << IdentityWorkerConfig.TIMESTAMP_SHIFT)
+                | (centerId << centerIdShift)
+                | (workerId << workerIdShift)
+                | (threadId << threadIdShift)
+                | sequence;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null) return false;
-        if (! (o instanceof IdentityWorkerMachine)) return false;
+        if (!(o instanceof IdentityWorkerMachine)) return false;
         IdentityWorkerMachine that = (IdentityWorkerMachine) o;
         return Objects.equals(name, that.name);
     }

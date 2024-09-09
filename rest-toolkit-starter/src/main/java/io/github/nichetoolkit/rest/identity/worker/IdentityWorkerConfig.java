@@ -33,25 +33,38 @@ class IdentityWorkerConfig {
      * {@link java.lang.Long} <p>the <code>SEQUENCE_BIT</code> field.</p>
      * @see java.lang.Long
      */
-    static final Long SEQUENCE_BIT = 12L;
+    static final Long SEQUENCE_BIT = 10L;
+    /**
+     * <code>THREAD_ID_BIT</code>
+     * {@link java.lang.Long} <p>the <code>THREAD_ID_BIT</code> field.</p>
+     * @see java.lang.Long
+     */
+    static final Long THREAD_ID_BIT = 4L;
     /**
      * <code>WORKER_ID_BIT</code>
      * {@link java.lang.Long} <p>the <code>WORKER_ID_BIT</code> field.</p>
      * @see java.lang.Long
      */
-    static final Long WORKER_ID_BIT = 5L;
+    static final Long WORKER_ID_BIT = 4L;
     /**
      * <code>CENTER_ID_BIT</code>
      * {@link java.lang.Long} <p>the <code>CENTER_ID_BIT</code> field.</p>
      * @see java.lang.Long
      */
-    static final Long CENTER_ID_BIT = 5L;
+    static final Long CENTER_ID_BIT = 4L;
     /**
      * <code>SEQUENCE_MASK</code>
      * {@link java.lang.Long} <p>the <code>SEQUENCE_MASK</code> field.</p>
      * @see java.lang.Long
      */
     static final Long SEQUENCE_MASK = ~(TIMESTAMP << SEQUENCE_BIT);
+
+    /**
+     * <code>MIN_THREAD_ID</code>
+     * {@link java.lang.Long} <p>the <code>MIN_THREAD_ID</code> field.</p>
+     * @see java.lang.Long
+     */
+    static final Long MIN_THREAD_ID = SEQUENCE;
     /**
      * <code>MIN_WORKER_ID</code>
      * {@link java.lang.Long} <p>the <code>MIN_WORKER_ID</code> field.</p>
@@ -65,6 +78,12 @@ class IdentityWorkerConfig {
      */
     static final Long MIN_CENTER_ID = SEQUENCE;
     /**
+     * <code>MAX_THREAD_ID</code>
+     * {@link java.lang.Long} <p>the <code>MAX_THREAD_ID</code> field.</p>
+     * @see java.lang.Long
+     */
+    static final Long MAX_THREAD_ID = ~(TIMESTAMP << THREAD_ID_BIT);
+    /**
      * <code>MAX_WORKER_ID</code>
      * {@link java.lang.Long} <p>the <code>MAX_WORKER_ID</code> field.</p>
      * @see java.lang.Long
@@ -77,30 +96,43 @@ class IdentityWorkerConfig {
      */
     static final Long MAX_CENTER_ID = ~(TIMESTAMP << CENTER_ID_BIT);
     /**
-     * <code>WORKER_ID_SHIFT</code>
-     * {@link java.lang.Long} <p>the <code>WORKER_ID_SHIFT</code> field.</p>
-     * @see java.lang.Long
-     */
-    static final Long WORKER_ID_SHIFT = SEQUENCE_BIT;
-    /**
      * <code>CENTER_ID_SHIFT</code>
      * {@link java.lang.Long} <p>the <code>CENTER_ID_SHIFT</code> field.</p>
      * @see java.lang.Long
      */
-    static final Long CENTER_ID_SHIFT = SEQUENCE_BIT + WORKER_ID_BIT;
+    static final Long CENTER_ID_SHIFT = SEQUENCE_BIT + WORKER_ID_BIT + THREAD_ID_BIT;
+    /**
+     * <code>WORKER_ID_SHIFT</code>
+     * {@link java.lang.Long} <p>the <code>WORKER_ID_SHIFT</code> field.</p>
+     * @see java.lang.Long
+     */
+    static final Long WORKER_ID_SHIFT = SEQUENCE_BIT + THREAD_ID_BIT;
+    /**
+     * <code>THREAD_ID_SHIFT</code>
+     * {@link java.lang.Long} <p>the <code>THREAD_ID_SHIFT</code> field.</p>
+     * @see java.lang.Long
+     */
+    static final Long THREAD_ID_SHIFT = SEQUENCE_BIT;
+
     /**
      * <code>TIMESTAMP_SHIFT</code>
      * {@link java.lang.Long} <p>the <code>TIMESTAMP_SHIFT</code> field.</p>
      * @see java.lang.Long
      */
-    static final Long TIMESTAMP_SHIFT = SEQUENCE_BIT + WORKER_ID_BIT + CENTER_ID_BIT;
+    static final Long TIMESTAMP_SHIFT = SEQUENCE_BIT + WORKER_ID_BIT + CENTER_ID_BIT + THREAD_ID_BIT;
 
     /**
      * <code>TIMESTAMP_BIT_SIZE</code>
      * {@link java.lang.Integer} <p>the <code>TIMESTAMP_BIT_SIZE</code> field.</p>
      * @see java.lang.Integer
      */
-    static final Integer TIMESTAMP_BIT_SIZE = 42;
+    static final Integer TIMESTAMP_BIT_SIZE = 30;
+    /**
+     * <code>THREAD_BIT_SIZE</code>
+     * {@link java.lang.Integer} <p>the <code>THREAD_BIT_SIZE</code> field.</p>
+     * @see java.lang.Integer
+     */
+    static final Integer THREAD_BIT_SIZE = 12;
     /**
      * <code>REGION_BIT_SIZE</code>
      * {@link java.lang.Integer} <p>the <code>REGION_BIT_SIZE</code> field.</p>
@@ -130,7 +162,7 @@ class IdentityWorkerConfig {
      * {@link java.lang.Integer} <p>the <code>ALL_BIT_SIZE</code> field.</p>
      * @see java.lang.Integer
      */
-    static final Integer ALL_BIT_SIZE = TIMESTAMP_BIT_SIZE + REGION_BIT_SIZE + SEQUENCE_BIT_SIZE;
+    static final Integer ALL_BIT_SIZE = TIMESTAMP_BIT_SIZE + THREAD_BIT_SIZE + REGION_BIT_SIZE + SEQUENCE_BIT_SIZE;
 
     /**
      * <code>DEFAULT_TAG</code>
@@ -145,15 +177,15 @@ class IdentityWorkerConfig {
      */
     static final Integer CACHE_SIZE = 99;
     /**
-     * <code>CACHE_SET</code>
-     * {@link java.util.Set} <p>the <code>CACHE_SET</code> field.</p>
+     * <code>ARTIFICIAL_CACHE_SET</code>
+     * {@link java.util.Set} <p>the <code>ARTIFICIAL_CACHE_SET</code> field.</p>
      * @see java.util.Set
      */
     static final Set<Long> ARTIFICIAL_CACHE_SET = new HashSet<>();
 
     /**
-     * <code>CACHE_SET</code>
-     * {@link java.util.Set} <p>the <code>CACHE_SET</code> field.</p>
+     * <code>MACHINE_CACHE_SET</code>
+     * {@link java.util.Set} <p>the <code>MACHINE_CACHE_SET</code> field.</p>
      * @see java.util.Set
      */
     static final Set<Long> MACHINE_CACHE_SET = new HashSet<>();
