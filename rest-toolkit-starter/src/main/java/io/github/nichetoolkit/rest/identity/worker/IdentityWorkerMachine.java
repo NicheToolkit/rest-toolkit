@@ -4,8 +4,6 @@ package io.github.nichetoolkit.rest.identity.worker;
 import io.github.nichetoolkit.rest.constant.RestConstants;
 import io.github.nichetoolkit.rest.identity.IdentityErrorStatus;
 import io.github.nichetoolkit.rest.identity.error.IdentityWorkerError;
-import io.github.nichetoolkit.rest.util.GeneralUtils;
-import io.github.nichetoolkit.rest.util.OptionalUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.lang.NonNull;
 
@@ -46,7 +44,14 @@ class IdentityWorkerMachine implements IdentityWorker {
      * {@link java.lang.Long} <p>the <code>offset</code> field.</p>
      * @see java.lang.Long
      */
-    private Long offset = IdentityWorkerConfig.OFFSET;
+    private Long offset = IdentityWorkerConfig.SEQUENCE;
+
+    /**
+     * <code>step</code>
+     * {@link java.lang.Long} <p>the <code>step</code> field.</p>
+     * @see java.lang.Long
+     */
+    private Long step = IdentityWorkerConfig.DEFAULT_STEP;
     /**
      * <code>workerId</code>
      * {@link java.lang.Long} <p>the <code>workerId</code> field.</p>
@@ -59,6 +64,13 @@ class IdentityWorkerMachine implements IdentityWorker {
      * @see java.lang.Long
      */
     private final Long centerId;
+
+    /**
+     * <code>lastThreadId</code>
+     * {@link java.lang.Long} <p>the <code>lastThreadId</code> field.</p>
+     * @see java.lang.Long
+     */
+    private Long lastThreadId = IdentityWorkerConfig.SEQUENCE;
     /**
      * <code>isOffset</code>
      * <p>the <code>isOffset</code> field.</p>
@@ -122,86 +134,61 @@ class IdentityWorkerMachine implements IdentityWorker {
 
     @Override
     public synchronized Long generate() {
-        if (IdentityWorkerConfig.MACHINE_CACHE_SET.size() >= IdentityWorkerConfig.CACHE_SIZE) {
-            IdentityWorkerConfig.MACHINE_CACHE_SET.clear();
-            isOffset = true;
+        /*
+         * the thread is got from <code>Thread.currentThread()</code>
+         * the max thread id must be less than 512 (2^9), due to
+         * the difference between threads id will be used to wait
+         * on <code>IdentityWorkerTime().next()</code> method, the
+         * most time will be 512 milliseconds on worker time.
+         */
+        long threadId = Thread.currentThread().getId();
+        threadId = threadId & IdentityWorkerConfig.THREAD_ID_MASK;
+        if (threadId == IdentityWorkerConfig.SEQUENCE) {
+            threadId = Math.abs(IdentityWorkerConfig.MAX_THREAD_ID - threadId);
         }
-        Long time = new IdentityWorkerTime().getTime();
-        if (GeneralUtils.isNotEmpty(this.sequence)) {
-            time = new IdentityWorkerTime().sequence(sequence);
+        /*
+         * the sequence bit will be 12 ~ 14 bit, default 14 bit
+         * the center id bit will be 4 ~ 5 bit, default 4 bit
+         * the worker id bit will be 4 ~ 5 bit, default 4 bit
+         */
+        long centerIdShift = IdentityWorkerConfig.CENTER_ID_SHIFT;
+        long workerIdShift = IdentityWorkerConfig.WORKER_ID_SHIFT;
+        long sequenceBit = IdentityWorkerConfig.SEQUENCE_BIT;
+        boolean centerIdComparer = centerId > IdentityWorkerConfig.MAX_CENTER_ID;
+        boolean workerIdComparer = workerId > IdentityWorkerConfig.MAX_WORKER_ID;
+        if (centerIdComparer && workerIdComparer) {
+            centerIdShift = centerIdShift - 1L;
+            workerIdShift = workerIdShift - 2L;
+            sequenceBit = sequenceBit - 2L;
+        } else if (centerIdComparer) {
+            centerIdShift = centerIdShift - 1L;
+            workerIdShift = workerIdShift - 1L;
+            sequenceBit = sequenceBit - 1L;
+        } else if (workerIdComparer) {
+            workerIdShift = workerIdShift - 1L;
+            sequenceBit = sequenceBit - 1L;
         }
+        long time = new IdentityWorkerTime().getTime();
+        long sequenceMask = ~(IdentityWorkerConfig.TIMESTAMP << sequenceBit);
+        /* the time clock fix to lastTime */
         if (time < this.lastTime) {
-            this.sequence++;
-            int offset = 0;
-            if (isOffset) {
-                offset = IdentityWorkerConfig.CACHE_SIZE + 1;
-                isOffset = false;
-            }
-            time = new IdentityWorkerTime().sequence(Math.abs(this.lastTime - time) + this.sequence + offset);
-//            log.warn("clock is moving backwards. Rejecting requests until {}", this.lastTime);
+            time = IdentityWorkerTime.next(this.lastTime + IdentityWorkerConfig.DEFAULT_STEP);
         }
+        /* the time equal last time on after time clock fix */
         if (this.lastTime.equals(time)) {
-            this.sequence = (this.sequence + IdentityWorkerConfig.DEFAULT_TAG) & IdentityWorkerConfig.SEQUENCE_MASK;
+            this.sequence = (this.sequence + IdentityWorkerConfig.DEFAULT_STEP) & sequenceMask;
             if (this.sequence.equals(IdentityWorkerConfig.SEQUENCE)) {
-                time = IdentityWorkerTime.next(this.lastTime);
+                time = IdentityWorkerTime.next(this.lastTime + IdentityWorkerConfig.DEFAULT_STEP);
             }
         } else {
             this.sequence = IdentityWorkerConfig.SEQUENCE;
         }
         this.lastTime = time;
-        long generateId = getGenerateId(time);
-        if (IdentityWorkerConfig.MACHINE_CACHE_SET.contains(generateId)) {
-            return generate();
-        } else {
-            IdentityWorkerConfig.MACHINE_CACHE_SET.add(generateId);
-            return generateId;
-        }
-    }
-
-    /**
-     * <code>getGenerateId</code>
-     * <p>the generate id getter method.</p>
-     * @param time long <p>the time parameter is <code>long</code> type.</p>
-     * @return long <p>the generate id return object is <code>long</code> type.</p>
-     */
-    private long getGenerateId(long time) {
-        long threadId = Thread.currentThread().getId();
-        long centerIdShift = IdentityWorkerConfig.CENTER_ID_SHIFT;
-        long workerIdShift = IdentityWorkerConfig.WORKER_ID_SHIFT;
-        long threadIdShift = IdentityWorkerConfig.THREAD_ID_SHIFT;
-        boolean centerIdComparer = threadId > IdentityWorkerConfig.MAX_CENTER_ID;
-        boolean workerIdComparer = threadId > IdentityWorkerConfig.MAX_WORKER_ID;
-        boolean threadIdComparer = threadId > IdentityWorkerConfig.MAX_THREAD_ID;
-        if (centerIdComparer && workerIdComparer && threadIdComparer) {
-            centerIdShift = centerIdShift - 1L;
-            workerIdShift = workerIdShift - 2L;
-            threadIdShift = threadIdShift - 3L;
-        } else if (centerIdComparer && workerIdComparer) {
-            centerIdShift = centerIdShift - 1L;
-            workerIdShift = workerIdShift - 2L;
-            threadIdShift = threadIdShift - 2L;
-        } else if (centerIdComparer && threadIdComparer) {
-            centerIdShift = centerIdShift - 1L;
-            workerIdShift = workerIdShift - 1L;
-            threadIdShift = threadIdShift - 2L;
-        } else if (workerIdComparer && threadIdComparer) {
-            workerIdShift = workerIdShift - 1L;
-            threadIdShift = threadIdShift - 2L;
-        } else if (centerIdComparer) {
-            centerIdShift = centerIdShift - 1L;
-            workerIdShift = workerIdShift - 1L;
-            threadIdShift = threadIdShift - 1L;
-        } else if (workerIdComparer) {
-            workerIdShift = workerIdShift - 1L;
-            threadIdShift = threadIdShift - 1L;
-        } else {
-            threadIdShift = threadIdShift - 1L;
-        }
+        this.lastThreadId = threadId;
         return (time << IdentityWorkerConfig.TIMESTAMP_SHIFT)
-                | (centerId << centerIdShift)
-                | (workerId << workerIdShift)
-                | (threadId << threadIdShift)
-                | sequence;
+                | (this.centerId << centerIdShift)
+                | (this.workerId << workerIdShift)
+                | this.sequence;
     }
 
     @Override

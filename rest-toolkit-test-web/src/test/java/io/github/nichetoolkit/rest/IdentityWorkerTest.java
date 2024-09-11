@@ -1,13 +1,11 @@
 package io.github.nichetoolkit.rest;
 
 import io.github.nichetoolkit.rest.identity.IdentityUtils;
-import io.github.nichetoolkit.rest.identity.worker.IdentityWorker;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -29,18 +27,79 @@ public class IdentityWorkerTest {
      * @see org.junit.jupiter.api.Test
      */
     @Test
-    void test() {
+    void test() throws InterruptedException {
         Set<String> identitySet = new HashSet<>();
+//        String id = IdentityUtils.commonString();
+//        log.info("identity: {}", id);
+//
 
         int index = 0;
         while (index<1000000) {
-            String identity = IdentityUtils.generateString();
+            String identity = IdentityUtils.commonString();
 //                log.info("[{}]: {}",index,identity);
             identitySet.add(identity);
             index++;
         }
         System.out.println("size: " + identitySet.size());
         Assertions.assertEquals(identitySet.size(),1000000);
+
+//        Thread thread1 = new Thread(() -> {
+//            int index = 0;
+//            while (index < 100000) {
+//                String identity = IdentityUtils.commonString();
+////                log.info("[{}]: {}",index,identity);
+//                identitySet.add(identity);
+//                index++;
+//            }
+//            System.out.println("[Thread1]: " + identitySet.size());
+//        });
+//        thread1.start();
+//
+//        Thread thread2 =new Thread(() -> {
+//            int index = 0;
+//            while (index < 100000) {
+//                String identity = IdentityUtils.commonString();
+////                log.info("[{}]: {}",index,identity);
+//                identitySet.add(identity);
+//                index++;
+//            }
+//            System.out.println("[Thread2]: " + identitySet.size());
+//        });
+//
+//        thread2.start();
+//
+//        Thread thread3 = new Thread(() -> {
+//            int index = 0;
+//            while (index < 100000) {
+//                String identity = IdentityUtils.commonString();
+////                log.info("[{}]: {}",index,identity);
+//                identitySet.add(identity);
+//                index++;
+//            }
+//            System.out.println("[Thread3]: " + identitySet.size());
+//        });
+//
+//        thread3.start();
+//
+//        Thread thread4 = new Thread(() -> {
+//            int index = 0;
+//            while (index < 100000) {
+//                String identity = IdentityUtils.commonString();
+////                log.info("[{}]: {}",index,identity);
+//                identitySet.add(identity);
+//                index++;
+//            }
+//            System.out.println("[Thread4]: " + identitySet.size());
+//        });
+//
+//        thread4.start();
+//
+//        thread1.join();
+//        thread2.join();
+//        thread3.join();
+//        thread4.join();
+//
+//        Assertions.assertEquals(identitySet.size(),400000);
 
     }
 }
