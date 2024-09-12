@@ -92,7 +92,7 @@ class IdentityWorkerArtificial implements IdentityWorker {
         }
         if (time < IdentityWorkerConfig.TIMESTAMP) {
             time = IdentityWorkerTime.next(this.lastTime + IdentityWorkerConfig.DEFAULT_STEP);
-            log.warn("clock is moving backwards. Rejecting requests until {}", this.lastTime);
+            log.warn("clock is moving backwards. rejecting requests until {}", this.lastTime);
         }
         if (this.lastTime == time) {
             this.sequence = (this.sequence + IdentityWorkerConfig.DEFAULT_TAG) & IdentityWorkerConfig.SEQUENCE_MASK;

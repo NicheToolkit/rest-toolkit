@@ -40,19 +40,6 @@ class IdentityWorkerMachine implements IdentityWorker {
     private Long sequence = IdentityWorkerConfig.SEQUENCE;
 
     /**
-     * <code>offset</code>
-     * {@link java.lang.Long} <p>the <code>offset</code> field.</p>
-     * @see java.lang.Long
-     */
-    private Long offset = IdentityWorkerConfig.SEQUENCE;
-
-    /**
-     * <code>step</code>
-     * {@link java.lang.Long} <p>the <code>step</code> field.</p>
-     * @see java.lang.Long
-     */
-    private Long step = IdentityWorkerConfig.DEFAULT_STEP;
-    /**
      * <code>workerId</code>
      * {@link java.lang.Long} <p>the <code>workerId</code> field.</p>
      * @see java.lang.Long
@@ -64,13 +51,6 @@ class IdentityWorkerMachine implements IdentityWorker {
      * @see java.lang.Long
      */
     private final Long centerId;
-
-    /**
-     * <code>lastThreadId</code>
-     * {@link java.lang.Long} <p>the <code>lastThreadId</code> field.</p>
-     * @see java.lang.Long
-     */
-    private Long lastThreadId = IdentityWorkerConfig.SEQUENCE;
     /**
      * <code>isOffset</code>
      * <p>the <code>isOffset</code> field.</p>
@@ -135,18 +115,6 @@ class IdentityWorkerMachine implements IdentityWorker {
     @Override
     public synchronized Long generate() {
         /*
-         * the thread is got from <code>Thread.currentThread()</code>
-         * the max thread id must be less than 512 (2^9), due to
-         * the difference between threads id will be used to wait
-         * on <code>IdentityWorkerTime().next()</code> method, the
-         * most time will be 512 milliseconds on worker time.
-         */
-        long threadId = Thread.currentThread().getId();
-        threadId = threadId & IdentityWorkerConfig.THREAD_ID_MASK;
-        if (threadId == IdentityWorkerConfig.SEQUENCE) {
-            threadId = Math.abs(IdentityWorkerConfig.MAX_THREAD_ID - threadId);
-        }
-        /*
          * the sequence bit will be 12 ~ 14 bit, default 14 bit
          * the center id bit will be 4 ~ 5 bit, default 4 bit
          * the worker id bit will be 4 ~ 5 bit, default 4 bit
@@ -173,7 +141,7 @@ class IdentityWorkerMachine implements IdentityWorker {
         /* the time clock fix to lastTime */
         if (time < this.lastTime) {
             time = IdentityWorkerTime.next(this.lastTime + IdentityWorkerConfig.DEFAULT_STEP);
-            log.warn("clock is moving backwards. rejecting requests until {}", this.lastTime);
+//            log.warn("clock is moving backwards. rejecting requests until {}", this.lastTime);
         }
         /* the time equal last time on after time clock fix */
         if (this.lastTime.equals(time)) {
