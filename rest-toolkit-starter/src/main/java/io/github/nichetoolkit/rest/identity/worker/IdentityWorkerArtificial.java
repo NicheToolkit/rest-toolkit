@@ -86,14 +86,13 @@ class IdentityWorkerArtificial implements IdentityWorker {
 
     @Override
     public synchronized Long generate() {
-
         long time = new IdentityWorkerTime().getTime();
         if (this.offset < IdentityWorkerConfig.SEQUENCE) {
             offset = -offset;
         }
         if (time < IdentityWorkerConfig.TIMESTAMP) {
-            time = new IdentityWorkerTime().sequence((Math.abs(this.lastTime - time) * this.sequence) + this.offset + offset);
-//            log.warn("clock is moving backwards. Rejecting requests until {}", this.lastTime);
+            time = IdentityWorkerTime.next(this.lastTime + IdentityWorkerConfig.DEFAULT_STEP);
+            log.warn("clock is moving backwards. Rejecting requests until {}", this.lastTime);
         }
         if (this.lastTime == time) {
             this.sequence = (this.sequence + IdentityWorkerConfig.DEFAULT_TAG) & IdentityWorkerConfig.SEQUENCE_MASK;

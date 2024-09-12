@@ -173,6 +173,7 @@ class IdentityWorkerMachine implements IdentityWorker {
         /* the time clock fix to lastTime */
         if (time < this.lastTime) {
             time = IdentityWorkerTime.next(this.lastTime + IdentityWorkerConfig.DEFAULT_STEP);
+            log.warn("clock is moving backwards. rejecting requests until {}", this.lastTime);
         }
         /* the time equal last time on after time clock fix */
         if (this.lastTime.equals(time)) {
@@ -184,7 +185,6 @@ class IdentityWorkerMachine implements IdentityWorker {
             this.sequence = IdentityWorkerConfig.SEQUENCE;
         }
         this.lastTime = time;
-        this.lastThreadId = threadId;
         return (time << IdentityWorkerConfig.TIMESTAMP_SHIFT)
                 | (this.centerId << centerIdShift)
                 | (this.workerId << workerIdShift)
