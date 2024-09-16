@@ -1,5 +1,7 @@
 package io.github.nichetoolkit.rest.userlog;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import io.github.nichetoolkit.rest.RestErrorStatus;
 import io.github.nichetoolkit.rest.RestResult;
 import lombok.Data;
@@ -12,6 +14,8 @@ import lombok.Data;
  * @since Jdk1.8
  */
 @Data
+@JsonInclude(value = JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class RestResponsePack {
     /**
      * <code>time</code>

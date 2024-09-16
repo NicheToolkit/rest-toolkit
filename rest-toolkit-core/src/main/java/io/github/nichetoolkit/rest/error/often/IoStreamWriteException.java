@@ -2,22 +2,22 @@ package io.github.nichetoolkit.rest.error.often;
 
 import io.github.nichetoolkit.rest.RestErrorStatus;
 import io.github.nichetoolkit.rest.RestStatus;
-import io.github.nichetoolkit.rest.error.natives.StreamErrorException;
+import io.github.nichetoolkit.rest.error.natives.IoStreamErrorException;
 
 /**
  * <code>StreamWriteException</code>
  * <p>The type stream write exception class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @see io.github.nichetoolkit.rest.error.natives.StreamErrorException
+ * @see IoStreamErrorException
  * @since Jdk1.8
  */
-public class StreamWriteException extends StreamErrorException {
+public class IoStreamWriteException extends IoStreamErrorException {
     /**
      * <code>StreamWriteException</code>
      * Instantiates a new stream write exception.
      */
-    public StreamWriteException() {
-        super(RestErrorStatus.STREAM_WRITE_ERROR);
+    public IoStreamWriteException() {
+        super(RestErrorStatus.IO_STREAM_WRITE_ERROR);
     }
 
     /**
@@ -26,7 +26,7 @@ public class StreamWriteException extends StreamErrorException {
      * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
-    public StreamWriteException(RestStatus status) {
+    public IoStreamWriteException(RestStatus status) {
         super(status);
     }
 
@@ -36,8 +36,8 @@ public class StreamWriteException extends StreamErrorException {
      * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
-    public StreamWriteException(String message) {
-        super(RestErrorStatus.STREAM_WRITE_ERROR, message);
+    public IoStreamWriteException(String message) {
+        super(RestErrorStatus.IO_STREAM_WRITE_ERROR, message);
     }
 
     /**
@@ -47,12 +47,12 @@ public class StreamWriteException extends StreamErrorException {
      * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
-    public StreamWriteException(String resource, String message) {
-        super(RestErrorStatus.STREAM_WRITE_ERROR, resource,  message);
+    public IoStreamWriteException(String resource, String message) {
+        super(RestErrorStatus.IO_STREAM_WRITE_ERROR, resource,  message);
     }
 
     @Override
-    public StreamWriteException get() {
-        return new StreamWriteException();
+    public IoStreamWriteException get() {
+        return new IoStreamWriteException();
     }
 }

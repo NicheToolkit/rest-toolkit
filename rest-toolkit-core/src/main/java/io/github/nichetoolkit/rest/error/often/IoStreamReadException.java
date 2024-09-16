@@ -2,22 +2,22 @@ package io.github.nichetoolkit.rest.error.often;
 
 import io.github.nichetoolkit.rest.RestErrorStatus;
 import io.github.nichetoolkit.rest.RestStatus;
-import io.github.nichetoolkit.rest.error.natives.StreamErrorException;
+import io.github.nichetoolkit.rest.error.natives.IoStreamErrorException;
 
 /**
  * <code>StreamReadException</code>
  * <p>The type stream read exception class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @see io.github.nichetoolkit.rest.error.natives.StreamErrorException
+ * @see IoStreamErrorException
  * @since Jdk1.8
  */
-public class StreamReadException extends StreamErrorException {
+public class IoStreamReadException extends IoStreamErrorException {
     /**
      * <code>StreamReadException</code>
      * Instantiates a new stream read exception.
      */
-    public StreamReadException() {
-        super(RestErrorStatus.STREAM_READ_ERROR);
+    public IoStreamReadException() {
+        super(RestErrorStatus.IO_STREAM_READ_ERROR);
     }
 
     /**
@@ -26,7 +26,7 @@ public class StreamReadException extends StreamErrorException {
      * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
-    public StreamReadException(RestStatus status) {
+    public IoStreamReadException(RestStatus status) {
         super(status);
     }
 
@@ -36,8 +36,8 @@ public class StreamReadException extends StreamErrorException {
      * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
-    public StreamReadException(String message) {
-        super(RestErrorStatus.STREAM_READ_ERROR, message);
+    public IoStreamReadException(String message) {
+        super(RestErrorStatus.IO_STREAM_READ_ERROR, message);
     }
 
     /**
@@ -47,12 +47,12 @@ public class StreamReadException extends StreamErrorException {
      * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
-    public StreamReadException(String resource, String message) {
-        super(RestErrorStatus.STREAM_READ_ERROR, resource,  message);
+    public IoStreamReadException(String resource, String message) {
+        super(RestErrorStatus.IO_STREAM_READ_ERROR, resource,  message);
     }
 
     @Override
-    public StreamReadException get() {
-        return new StreamReadException();
+    public IoStreamReadException get() {
+        return new IoStreamReadException();
     }
 }

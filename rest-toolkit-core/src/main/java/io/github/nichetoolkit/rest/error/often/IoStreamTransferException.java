@@ -2,22 +2,22 @@ package io.github.nichetoolkit.rest.error.often;
 
 import io.github.nichetoolkit.rest.RestErrorStatus;
 import io.github.nichetoolkit.rest.RestStatus;
-import io.github.nichetoolkit.rest.error.natives.StreamErrorException;
+import io.github.nichetoolkit.rest.error.natives.IoStreamErrorException;
 
 /**
  * <code>StreamTransferException</code>
  * <p>The type stream transfer exception class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @see io.github.nichetoolkit.rest.error.natives.StreamErrorException
+ * @see IoStreamErrorException
  * @since Jdk1.8
  */
-public class StreamTransferException extends StreamErrorException {
+public class IoStreamTransferException extends IoStreamErrorException {
     /**
      * <code>StreamTransferException</code>
      * Instantiates a new stream transfer exception.
      */
-    public StreamTransferException() {
-        super(RestErrorStatus.STREAM_TRANSFER_ERROR);
+    public IoStreamTransferException() {
+        super(RestErrorStatus.IO_STREAM_TRANSFER_ERROR);
     }
 
     /**
@@ -26,7 +26,7 @@ public class StreamTransferException extends StreamErrorException {
      * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
-    public StreamTransferException(RestStatus status) {
+    public IoStreamTransferException(RestStatus status) {
         super(status);
     }
 
@@ -36,8 +36,8 @@ public class StreamTransferException extends StreamErrorException {
      * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
-    public StreamTransferException(String message) {
-        super(RestErrorStatus.STREAM_TRANSFER_ERROR, message);
+    public IoStreamTransferException(String message) {
+        super(RestErrorStatus.IO_STREAM_TRANSFER_ERROR, message);
     }
 
     /**
@@ -47,12 +47,12 @@ public class StreamTransferException extends StreamErrorException {
      * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
-    public StreamTransferException(String resource, String message) {
-        super(RestErrorStatus.STREAM_TRANSFER_ERROR, resource,  message);
+    public IoStreamTransferException(String resource, String message) {
+        super(RestErrorStatus.IO_STREAM_TRANSFER_ERROR, resource,  message);
     }
 
     @Override
-    public StreamTransferException get() {
-        return new StreamTransferException();
+    public IoStreamTransferException get() {
+        return new IoStreamTransferException();
     }
 }

@@ -14,25 +14,46 @@ import java.lang.annotation.*;
  * @see java.lang.annotation.Retention
  * @see java.lang.annotation.Documented
  * @see org.springframework.stereotype.Indexed
- * @see io.github.nichetoolkit.rest.stereotype.StereoString
+ * @see io.github.nichetoolkit.rest.stereotype.StereoEnum
  * @since Jdk1.8
  */
 @Target({ElementType.TYPE_USE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Indexed
-@StereoString
+@StereoEnum
 public @interface StereoKey {
+
     /**
-     * <code>key</code>
+     * <code>name</code>
      * <p>the method.</p>
      * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.core.annotation.AliasFor
      */
     @AliasFor(
-            annotation = StereoString.class,
-            attribute = "value"
+            annotation = StereoEnum.class,
+            attribute = "name"
     )
+    String name() default "";
+
+    /**
+     * <code>ordinal</code>
+     * <p>the method.</p>
+     * @return int <p>the return object is <code>int</code> type.</p>
+     * @see org.springframework.core.annotation.AliasFor
+     */
+    @AliasFor(
+            annotation = StereoEnum.class,
+            attribute = "ordinal"
+    )
+    int ordinal() default 0;
+
+    /**
+     * <code>key</code>
+     * <p>the method.</p>
+     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
     String key() default "";
 }

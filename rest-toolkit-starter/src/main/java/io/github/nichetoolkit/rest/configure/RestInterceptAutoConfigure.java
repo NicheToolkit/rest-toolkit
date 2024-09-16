@@ -1,7 +1,7 @@
 package io.github.nichetoolkit.rest.configure;
 
 
-import io.github.nichetoolkit.rest.interceptor.DefaultHandlerInterceptor;
+import io.github.nichetoolkit.rest.interceptor.DefaultLoggingInterceptor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
@@ -31,10 +31,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class RestInterceptAutoConfigure implements WebMvcConfigurer {
     /**
      * <code>handlerInterceptor</code>
-     * {@link io.github.nichetoolkit.rest.interceptor.DefaultHandlerInterceptor} <p>the <code>handlerInterceptor</code> field.</p>
-     * @see io.github.nichetoolkit.rest.interceptor.DefaultHandlerInterceptor
+     * {@link DefaultLoggingInterceptor} <p>the <code>handlerInterceptor</code> field.</p>
+     * @see DefaultLoggingInterceptor
      */
-    private final DefaultHandlerInterceptor handlerInterceptor;
+    private final DefaultLoggingInterceptor handlerInterceptor;
     /**
      * <code>interceptProperties</code>
      * {@link io.github.nichetoolkit.rest.configure.RestInterceptProperties} <p>the <code>interceptProperties</code> field.</p>
@@ -45,14 +45,14 @@ public class RestInterceptAutoConfigure implements WebMvcConfigurer {
     /**
      * <code>RestInterceptAutoConfigure</code>
      * Instantiates a new rest intercept auto configure.
-     * @param handlerInterceptor  {@link io.github.nichetoolkit.rest.interceptor.DefaultHandlerInterceptor} <p>the handler interceptor parameter is <code>DefaultHandlerInterceptor</code> type.</p>
+     * @param handlerInterceptor  {@link DefaultLoggingInterceptor} <p>the handler interceptor parameter is <code>DefaultHandlerInterceptor</code> type.</p>
      * @param interceptProperties {@link io.github.nichetoolkit.rest.configure.RestInterceptProperties} <p>the intercept properties parameter is <code>RestInterceptProperties</code> type.</p>
-     * @see io.github.nichetoolkit.rest.interceptor.DefaultHandlerInterceptor
+     * @see DefaultLoggingInterceptor
      * @see io.github.nichetoolkit.rest.configure.RestInterceptProperties
      * @see org.springframework.beans.factory.annotation.Autowired
      */
     @Autowired
-    public RestInterceptAutoConfigure(DefaultHandlerInterceptor handlerInterceptor,
+    public RestInterceptAutoConfigure(DefaultLoggingInterceptor handlerInterceptor,
                                       RestInterceptProperties interceptProperties) {
         log.debug("================= intercept-auto-config initiated ！ ===================");
         this.handlerInterceptor = handlerInterceptor;

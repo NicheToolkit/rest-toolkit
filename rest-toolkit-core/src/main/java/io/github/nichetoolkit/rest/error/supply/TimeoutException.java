@@ -19,7 +19,7 @@ public class TimeoutException extends RestErrorException {
      * Instantiates a new timeout exception.
      */
     public TimeoutException() {
-        super(RestErrorStatus.TIME_OUT);
+        super(RestErrorStatus.TIMEOUT);
     }
 
     /**
@@ -39,7 +39,7 @@ public class TimeoutException extends RestErrorException {
      * @see java.lang.String
      */
     public TimeoutException(String message) {
-        super(RestErrorStatus.TIME_OUT, RestError.error(RestErrorStatus.TIME_OUT,message));
+        super(RestErrorStatus.TIMEOUT, RestError.error(RestErrorStatus.TIMEOUT,message));
     }
 
     @Override

@@ -12,10 +12,11 @@ import java.util.stream.Stream;
  * <p>The type rest field interface.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestValue
+ * @see java.lang.SuppressWarnings
  * @since Jdk1.8
  */
+@SuppressWarnings("all")
 public interface RestField extends RestValue<Integer, String> {
-
     /**
      * <code>getField</code>
      * <p>the field getter method.</p>
@@ -38,7 +39,7 @@ public interface RestField extends RestValue<Integer, String> {
     @SuppressWarnings("Duplicates")
     static <T extends RestField> T parseField(Class<T> clazz, String field) {
         if (field != null && clazz.isEnum()) {
-            Map<String, T> valueEnumMap = Stream.of(clazz.getEnumConstants()).collect(Collectors.toMap(RestField::getField, Function.identity(),(oldValue,newValue) -> newValue, HashMap::new));
+            Map<String, T> valueEnumMap = Stream.of(clazz.getEnumConstants()).collect(Collectors.toMap(RestField::getField, Function.identity(), (oldValue, newValue) -> newValue, HashMap::new));
             return valueEnumMap.get(field);
         } else {
             return null;
@@ -59,7 +60,7 @@ public interface RestField extends RestValue<Integer, String> {
     @SuppressWarnings("Duplicates")
     static <T extends RestField> T parseField(Collection<T> values, String field) {
         if (field != null && values != null && !values.isEmpty()) {
-            Map<String, T> valueEnumMap = values.stream().collect(Collectors.toMap(RestField::getField, Function.identity(),(oldValue,newValue) -> newValue, HashMap::new));
+            Map<String, T> valueEnumMap = values.stream().collect(Collectors.toMap(RestField::getField, Function.identity(), (oldValue, newValue) -> newValue, HashMap::new));
             return valueEnumMap.get(field);
         } else {
             return null;

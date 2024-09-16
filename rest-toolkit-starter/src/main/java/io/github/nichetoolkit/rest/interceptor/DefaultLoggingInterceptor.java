@@ -55,7 +55,7 @@ import java.util.Optional;
 @Component
 @SuppressWarnings("SameNameButDifferent")
 @Order(1000)
-public class DefaultHandlerInterceptor implements AsyncHandlerInterceptor, RestResponseAdvice, RestExceptionAdvice, Filter {
+public class DefaultLoggingInterceptor implements AsyncHandlerInterceptor, RestResponseAdvice, RestExceptionAdvice, Filter {
     /**
      * <code>START_TIME_HOLDER</code>
      * {@link java.lang.ThreadLocal} <p>the constant <code>START_TIME_HOLDER</code> field.</p>
@@ -90,7 +90,7 @@ public class DefaultHandlerInterceptor implements AsyncHandlerInterceptor, RestR
      * @see org.springframework.beans.factory.annotation.Autowired
      */
     @Autowired
-    public DefaultHandlerInterceptor(RestInterceptProperties interceptProperties) {
+    public DefaultLoggingInterceptor(RestInterceptProperties interceptProperties) {
         this.interceptProperties = interceptProperties;
     }
 
@@ -186,7 +186,7 @@ public class DefaultHandlerInterceptor implements AsyncHandlerInterceptor, RestR
         RestUsernotePack usernote = null;
         if (GeneralUtils.isNotEmpty(notelogAnnotation) && (GeneralUtils.isNotEmpty(notelogAnnotation.notelog())
                 || GeneralUtils.isNotEmpty(notelogAnnotation.value()))) {
-            int loggingKey = notelogAnnotation.loggingKey();
+            String loggingKey = notelogAnnotation.loggingKey();
             String notelog = notelogAnnotation.notelog();
             if (GeneralUtils.isEmpty(notelogAnnotation.notelog())) {
                 notelog = notelogAnnotation.value();
@@ -194,7 +194,6 @@ public class DefaultHandlerInterceptor implements AsyncHandlerInterceptor, RestR
             usernote = new RestUsernotePack();
             usernote.setNotelog(notelog);
             usernote.setLoggingKey(loggingKey);
-            usernote.setLoggingType(LoggingType.NONE);
         }
         if (GeneralUtils.isNotEmpty(userlogAnnotation)) {
             if (GeneralUtils.isEmpty(usernote)) {
@@ -212,17 +211,17 @@ public class DefaultHandlerInterceptor implements AsyncHandlerInterceptor, RestR
                 usernote.setLoggingKey(userlogAnnotation.loggingKey());
             }
             usernote.setLoggingValue(userlogAnnotation.loggingValue());
-            LoggingType logType = userlogAnnotation.loggingType();
-            usernote.setLoggingType(logType);
-            if (GeneralUtils.isNotEmpty(logType)) {
+            LoggingType loggingType = userlogAnnotation.loggingType();
+            usernote.setLoggingType(loggingType);
+            if (GeneralUtils.isNotEmpty(loggingType)) {
                 if (GeneralUtils.isEmpty(usernote.getLoggingKey())) {
-                    usernote.setLoggingKey(logType.getKey());
+                    usernote.setLoggingKey(loggingType.getKey());
                 }
                 if (GeneralUtils.isEmpty(usernote.getLoggingType())) {
-                    usernote.setLoggingValue(logType.getValue());
+                    usernote.setLoggingValue(loggingType.getValue());
                 }
                 if (GeneralUtils.isEmpty(usernote.getUserlog())) {
-                    usernote.setUserlog(logType.getField());
+                    usernote.setUserlog(loggingType.getValue());
                 }
             }
         } else {
@@ -442,7 +441,7 @@ public class DefaultHandlerInterceptor implements AsyncHandlerInterceptor, RestR
                 log.info("logging       userlog : {}", usernotePack.getUserlog());
                 log.info("logging           key : {}", usernotePack.getLoggingKey());
                 log.info("logging         value : {}", usernotePack.getLoggingValue());
-                log.info("logging          type : {}", usernotePack.getLoggingType().toString());
+                log.info("logging          type : {}", usernotePack.getLoggingType().name());
             }
             if (GeneralUtils.isNotEmpty(requestPack)) {
                 log.info("request     ip address : {}", requestPack.getIpAddress());

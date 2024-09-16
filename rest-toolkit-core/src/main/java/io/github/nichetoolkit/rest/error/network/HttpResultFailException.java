@@ -19,7 +19,7 @@ public class HttpResultFailException extends HttpErrorException {
      * Instantiates a new http result fail exception.
      */
     public HttpResultFailException() {
-        super(RestErrorStatus.HTTP_RESULT_FAIL);
+        super(RestErrorStatus.HTTP_RESULT_FAILED);
     }
 
     /**
@@ -39,7 +39,7 @@ public class HttpResultFailException extends HttpErrorException {
      * @see java.lang.String
      */
     public HttpResultFailException(String message) {
-        super(RestErrorStatus.HTTP_RESULT_FAIL,message);
+        super(RestErrorStatus.HTTP_RESULT_FAILED,message);
     }
 
     /**

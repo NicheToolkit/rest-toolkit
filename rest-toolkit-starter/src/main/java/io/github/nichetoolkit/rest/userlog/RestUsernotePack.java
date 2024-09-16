@@ -1,5 +1,7 @@
 package io.github.nichetoolkit.rest.userlog;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 /**
@@ -10,6 +12,8 @@ import lombok.Data;
  * @since Jdk1.8
  */
 @Data
+@JsonInclude(value = JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class RestUsernotePack {
     /**
      * <code>notelog</code>
@@ -25,10 +29,10 @@ public class RestUsernotePack {
     protected String userlog;
     /**
      * <code>loggingKey</code>
-     * {@link java.lang.Integer} <p>the <code>loggingKey</code> field.</p>
-     * @see java.lang.Integer
+     * {@link java.lang.String} <p>the <code>loggingKey</code> field.</p>
+     * @see java.lang.String
      */
-    protected Integer loggingKey;
+    protected String loggingKey;
     /**
      * <code>loggingValue</code>
      * {@link java.lang.String} <p>the <code>loggingValue</code> field.</p>
@@ -84,10 +88,10 @@ public class RestUsernotePack {
         protected String userlog;
         /**
          * <code>loggingKey</code>
-         * {@link java.lang.Integer} <p>the <code>loggingKey</code> field.</p>
-         * @see java.lang.Integer
+         * {@link java.lang.String} <p>the <code>loggingKey</code> field.</p>
+         * @see java.lang.String
          */
-        protected Integer loggingKey;
+        protected String loggingKey;
         /**
          * <code>loggingValue</code>
          * {@link java.lang.String} <p>the <code>loggingValue</code> field.</p>
@@ -135,11 +139,11 @@ public class RestUsernotePack {
         /**
          * <code>loggingKey</code>
          * <p>the key method.</p>
-         * @param loggingKey {@link java.lang.Integer} <p>the logging key parameter is <code>Integer</code> type.</p>
+         * @param loggingKey {@link java.lang.String} <p>the logging key parameter is <code>String</code> type.</p>
          * @return {@link io.github.nichetoolkit.rest.userlog.RestUsernotePack.Builder} <p>the key return object is <code>Builder</code> type.</p>
-         * @see java.lang.Integer
+         * @see java.lang.String
          */
-        public RestUsernotePack.Builder loggingKey(Integer loggingKey) {
+        public RestUsernotePack.Builder loggingKey(String loggingKey) {
             this.loggingKey = loggingKey;
             return this;
         }

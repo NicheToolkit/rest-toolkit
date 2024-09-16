@@ -6,8 +6,8 @@ import org.springframework.stereotype.Indexed;
 import java.lang.annotation.*;
 
 /**
- * <code>StereoValue</code>
- * <p>The type stereo value interface.</p>
+ * <code>StereoField</code>
+ * <p>The type stereo field interface.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.lang.annotation.Annotation
  * @see java.lang.annotation.Target
@@ -22,7 +22,7 @@ import java.lang.annotation.*;
 @Documented
 @Indexed
 @StereoEnum
-public @interface StereoValue {
+public @interface StereoField {
 
     /**
      * <code>name</code>
@@ -52,15 +52,23 @@ public @interface StereoValue {
     /**
      * <code>key</code>
      * <p>the method.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
-     * @see java.lang.String
+     * @return int <p>the return object is <code>int</code> type.</p>
      */
-    String key() default "";
+    int key() default 0;
 
     /**
      * <code>value</code>
      * <p>the method.</p>
-     * @return long <p>the return object is <code>long</code> type.</p>
+     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * @see java.lang.String
      */
-    long value() default 0;
+    String value() default "";
+
+    /**
+     * <code>field</code>
+     * <p>the method.</p>
+     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
+    String field() default "";
 }

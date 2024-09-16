@@ -12,14 +12,14 @@ import io.github.nichetoolkit.rest.RestStatus;
  * @see io.github.nichetoolkit.rest.RestErrorException
  * @since Jdk1.8
  */
-public class StreamErrorException extends RestErrorException {
+public class IoStreamErrorException extends RestErrorException {
 
     /**
      * <code>StreamErrorException</code>
      * Instantiates a new stream error exception.
      */
-    public StreamErrorException() {
-        super(RestErrorStatus.STREAM_ERROR);
+    public IoStreamErrorException() {
+        super(RestErrorStatus.IO_STREAM_ERROR);
     }
 
     /**
@@ -28,7 +28,7 @@ public class StreamErrorException extends RestErrorException {
      * @param status {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>the status parameter is <code>RestErrorStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestErrorStatus
      */
-    public StreamErrorException(RestErrorStatus status) {
+    public IoStreamErrorException(RestErrorStatus status) {
         super(status);
     }
 
@@ -38,8 +38,8 @@ public class StreamErrorException extends RestErrorException {
      * @param error {@link java.lang.String} <p>the error parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
-    public StreamErrorException(String error) {
-        super(RestErrorStatus.STREAM_ERROR, RestError.error(RestErrorStatus.STREAM_ERROR, error));
+    public IoStreamErrorException(String error) {
+        super(RestErrorStatus.IO_STREAM_ERROR, RestError.error(RestErrorStatus.IO_STREAM_ERROR, error));
     }
 
     /**
@@ -50,8 +50,8 @@ public class StreamErrorException extends RestErrorException {
      * @see java.lang.String
      * @see java.lang.Throwable
      */
-    public StreamErrorException(String error, Throwable cause) {
-        super(RestErrorStatus.STREAM_ERROR, RestError.error(RestErrorStatus.STREAM_ERROR, error, cause), cause);
+    public IoStreamErrorException(String error, Throwable cause) {
+        super(RestErrorStatus.IO_STREAM_ERROR, RestError.error(RestErrorStatus.IO_STREAM_ERROR, error, cause), cause);
     }
 
     /**
@@ -60,7 +60,7 @@ public class StreamErrorException extends RestErrorException {
      * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
-    public StreamErrorException(RestStatus status) {
+    public IoStreamErrorException(RestStatus status) {
         super(status, RestError.error(status));
     }
 
@@ -72,7 +72,7 @@ public class StreamErrorException extends RestErrorException {
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.Throwable
      */
-    public StreamErrorException(RestStatus status, Throwable cause) {
+    public IoStreamErrorException(RestStatus status, Throwable cause) {
         super(status, RestError.error(status, cause), cause);
     }
 
@@ -84,7 +84,7 @@ public class StreamErrorException extends RestErrorException {
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see io.github.nichetoolkit.rest.RestError
      */
-    public StreamErrorException(RestStatus status, RestError error) {
+    public IoStreamErrorException(RestStatus status, RestError error) {
         super(status, error);
     }
 
@@ -98,7 +98,7 @@ public class StreamErrorException extends RestErrorException {
      * @see io.github.nichetoolkit.rest.RestError
      * @see java.lang.Throwable
      */
-    public StreamErrorException(RestStatus status, RestError error, Throwable cause) {
+    public IoStreamErrorException(RestStatus status, RestError error, Throwable cause) {
         super(status, error, cause);
     }
 
@@ -110,7 +110,7 @@ public class StreamErrorException extends RestErrorException {
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      */
-    public StreamErrorException(RestStatus status, String message) {
+    public IoStreamErrorException(RestStatus status, String message) {
         super(status, RestError.error(status, message));
     }
 
@@ -124,7 +124,7 @@ public class StreamErrorException extends RestErrorException {
      * @see java.lang.String
      * @see java.lang.Throwable
      */
-    public StreamErrorException(RestStatus status, String message, Throwable cause) {
+    public IoStreamErrorException(RestStatus status, String message, Throwable cause) {
         super(status, RestError.error(status, message, cause), cause);
     }
 
@@ -137,7 +137,7 @@ public class StreamErrorException extends RestErrorException {
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      */
-    public StreamErrorException(RestStatus status, String resource, String message) {
+    public IoStreamErrorException(RestStatus status, String resource, String message) {
         super(status, RestError.error(resource, status, message));
     }
 
@@ -152,7 +152,7 @@ public class StreamErrorException extends RestErrorException {
      * @see java.lang.String
      * @see java.lang.Throwable
      */
-    public StreamErrorException(RestStatus status, String resource, String message, Throwable cause) {
+    public IoStreamErrorException(RestStatus status, String resource, String message, Throwable cause) {
         super(status, RestError.error(resource, status, message, cause), cause);
     }
 
@@ -166,7 +166,7 @@ public class StreamErrorException extends RestErrorException {
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      */
-    public StreamErrorException(RestStatus status, String resource, String filed, String message) {
+    public IoStreamErrorException(RestStatus status, String resource, String filed, String message) {
         super(status, RestError.error(resource, filed, status, message));
     }
 
@@ -182,7 +182,7 @@ public class StreamErrorException extends RestErrorException {
      * @see java.lang.String
      * @see java.lang.Throwable
      */
-    public StreamErrorException(RestStatus status, String resource, String filed, String message, Throwable cause) {
+    public IoStreamErrorException(RestStatus status, String resource, String filed, String message, Throwable cause) {
         super(status, RestError.error(resource, filed, status, message, cause), cause);
     }
 
@@ -198,7 +198,7 @@ public class StreamErrorException extends RestErrorException {
      * @see java.lang.String
      * @see java.lang.Object
      */
-    public StreamErrorException(RestStatus status, String resource, String filed, Object value, String message) {
+    public IoStreamErrorException(RestStatus status, String resource, String filed, Object value, String message) {
         super(status, RestError.error(resource, filed, value, status, message));
     }
 
@@ -216,7 +216,7 @@ public class StreamErrorException extends RestErrorException {
      * @see java.lang.Object
      * @see java.lang.Throwable
      */
-    public StreamErrorException(RestStatus status, String resource, String filed, Object value, String message, Throwable cause) {
+    public IoStreamErrorException(RestStatus status, String resource, String filed, Object value, String message, Throwable cause) {
         super(status, RestError.error(resource, filed, value, status, message, cause), cause);
     }
 
@@ -227,8 +227,8 @@ public class StreamErrorException extends RestErrorException {
      * @param error    {@link java.lang.String} <p>the error parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
-    public StreamErrorException(String resource, String error) {
-        super(RestErrorStatus.STREAM_ERROR, RestError.error(resource, RestErrorStatus.STREAM_ERROR, error));
+    public IoStreamErrorException(String resource, String error) {
+        super(RestErrorStatus.IO_STREAM_ERROR, RestError.error(resource, RestErrorStatus.IO_STREAM_ERROR, error));
     }
 
     /**
@@ -240,8 +240,8 @@ public class StreamErrorException extends RestErrorException {
      * @see java.lang.String
      * @see java.lang.Throwable
      */
-    public StreamErrorException(String resource, String error, Throwable cause) {
-        super(RestErrorStatus.STREAM_ERROR, RestError.error(resource, RestErrorStatus.STREAM_ERROR, error, cause), cause);
+    public IoStreamErrorException(String resource, String error, Throwable cause) {
+        super(RestErrorStatus.IO_STREAM_ERROR, RestError.error(resource, RestErrorStatus.IO_STREAM_ERROR, error, cause), cause);
     }
 
     /**
@@ -252,8 +252,8 @@ public class StreamErrorException extends RestErrorException {
      * @param error    {@link java.lang.String} <p>the error parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
-    public StreamErrorException(String resource, String filed, String error) {
-        super(RestErrorStatus.STREAM_ERROR, RestError.error(resource, filed, RestErrorStatus.STREAM_ERROR, error));
+    public IoStreamErrorException(String resource, String filed, String error) {
+        super(RestErrorStatus.IO_STREAM_ERROR, RestError.error(resource, filed, RestErrorStatus.IO_STREAM_ERROR, error));
     }
 
     /**
@@ -266,8 +266,8 @@ public class StreamErrorException extends RestErrorException {
      * @see java.lang.String
      * @see java.lang.Throwable
      */
-    public StreamErrorException(String resource, String filed, String error, Throwable cause) {
-        super(RestErrorStatus.STREAM_ERROR, RestError.error(resource, filed, RestErrorStatus.STREAM_ERROR, error, cause), cause);
+    public IoStreamErrorException(String resource, String filed, String error, Throwable cause) {
+        super(RestErrorStatus.IO_STREAM_ERROR, RestError.error(resource, filed, RestErrorStatus.IO_STREAM_ERROR, error, cause), cause);
     }
 
     /**
@@ -280,8 +280,8 @@ public class StreamErrorException extends RestErrorException {
      * @see java.lang.String
      * @see java.lang.Object
      */
-    public StreamErrorException(String resource, String filed, Object value, String error) {
-        super(RestErrorStatus.STREAM_ERROR, RestError.error(resource, filed, value, RestErrorStatus.STREAM_ERROR, error));
+    public IoStreamErrorException(String resource, String filed, Object value, String error) {
+        super(RestErrorStatus.IO_STREAM_ERROR, RestError.error(resource, filed, value, RestErrorStatus.IO_STREAM_ERROR, error));
     }
 
     /**
@@ -296,13 +296,13 @@ public class StreamErrorException extends RestErrorException {
      * @see java.lang.Object
      * @see java.lang.Throwable
      */
-    public StreamErrorException(String resource, String filed, Object value, String error, Throwable cause) {
-        super(RestErrorStatus.STREAM_ERROR, RestError.error(resource, filed, value, RestErrorStatus.STREAM_ERROR, error, cause));
+    public IoStreamErrorException(String resource, String filed, Object value, String error, Throwable cause) {
+        super(RestErrorStatus.IO_STREAM_ERROR, RestError.error(resource, filed, value, RestErrorStatus.IO_STREAM_ERROR, error, cause));
     }
 
     @Override
-    public StreamErrorException get() {
-        return new StreamErrorException();
+    public IoStreamErrorException get() {
+        return new IoStreamErrorException();
     }
 }
 

@@ -19,7 +19,7 @@ public class TimeoutErrorException extends RestErrorException {
      * Instantiates a new timeout error exception.
      */
     public TimeoutErrorException() {
-        super(RestErrorStatus.TIME_OUT);
+        super(RestErrorStatus.TIMEOUT);
     }
 
     /**
@@ -39,7 +39,7 @@ public class TimeoutErrorException extends RestErrorException {
      * @see java.lang.String
      */
     public TimeoutErrorException(String error) {
-        super(RestErrorStatus.TIME_OUT, RestError.error(RestErrorStatus.TIME_OUT, error));
+        super(RestErrorStatus.TIMEOUT, RestError.error(RestErrorStatus.TIMEOUT, error));
     }
 
     /**
@@ -51,7 +51,7 @@ public class TimeoutErrorException extends RestErrorException {
      * @see java.lang.Throwable
      */
     public TimeoutErrorException(String error, Throwable cause) {
-        super(RestErrorStatus.TIME_OUT, RestError.error(RestErrorStatus.TIME_OUT, error, cause), cause);
+        super(RestErrorStatus.TIMEOUT, RestError.error(RestErrorStatus.TIMEOUT, error, cause), cause);
     }
 
     /**
@@ -228,7 +228,7 @@ public class TimeoutErrorException extends RestErrorException {
      * @see java.lang.String
      */
     public TimeoutErrorException(String resource, String error) {
-        super(RestErrorStatus.TIME_OUT, RestError.error(resource, RestErrorStatus.TIME_OUT, error));
+        super(RestErrorStatus.TIMEOUT, RestError.error(resource, RestErrorStatus.TIMEOUT, error));
     }
 
     /**
@@ -241,7 +241,7 @@ public class TimeoutErrorException extends RestErrorException {
      * @see java.lang.Throwable
      */
     public TimeoutErrorException(String resource, String error, Throwable cause) {
-        super(RestErrorStatus.TIME_OUT, RestError.error(resource, RestErrorStatus.TIME_OUT, error, cause), cause);
+        super(RestErrorStatus.TIMEOUT, RestError.error(resource, RestErrorStatus.TIMEOUT, error, cause), cause);
     }
 
     /**
@@ -253,7 +253,7 @@ public class TimeoutErrorException extends RestErrorException {
      * @see java.lang.String
      */
     public TimeoutErrorException(String resource, String filed, String error) {
-        super(RestErrorStatus.TIME_OUT, RestError.error(resource, filed, RestErrorStatus.TIME_OUT, error));
+        super(RestErrorStatus.TIMEOUT, RestError.error(resource, filed, RestErrorStatus.TIMEOUT, error));
     }
 
     /**
@@ -267,7 +267,7 @@ public class TimeoutErrorException extends RestErrorException {
      * @see java.lang.Throwable
      */
     public TimeoutErrorException(String resource, String filed, String error, Throwable cause) {
-        super(RestErrorStatus.TIME_OUT, RestError.error(resource, filed, RestErrorStatus.TIME_OUT, error, cause), cause);
+        super(RestErrorStatus.TIMEOUT, RestError.error(resource, filed, RestErrorStatus.TIMEOUT, error, cause), cause);
     }
 
     /**
@@ -281,7 +281,7 @@ public class TimeoutErrorException extends RestErrorException {
      * @see java.lang.Object
      */
     public TimeoutErrorException(String resource, String filed, Object value, String error) {
-        super(RestErrorStatus.TIME_OUT, RestError.error(resource, filed, value, RestErrorStatus.TIME_OUT, error));
+        super(RestErrorStatus.TIMEOUT, RestError.error(resource, filed, value, RestErrorStatus.TIMEOUT, error));
     }
 
     /**
@@ -297,7 +297,7 @@ public class TimeoutErrorException extends RestErrorException {
      * @see java.lang.Throwable
      */
     public TimeoutErrorException(String resource, String filed, Object value, String error, Throwable cause) {
-        super(RestErrorStatus.TIME_OUT, RestError.error(resource, filed, value, RestErrorStatus.TIME_OUT, error, cause));
+        super(RestErrorStatus.TIMEOUT, RestError.error(resource, filed, value, RestErrorStatus.TIMEOUT, error, cause));
     }
 
     @Override

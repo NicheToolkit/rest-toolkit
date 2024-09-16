@@ -1,5 +1,8 @@
 package io.github.nichetoolkit.rest;
 
+import io.github.nichetoolkit.rest.pack.EnumPack;
+import io.github.nichetoolkit.rest.pack.ViewPack;
+
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -75,8 +78,8 @@ public interface RestValue<K, V> extends RestKey<K>, RestEntry<K, V> {
      * @see java.lang.Class
      * @see java.util.List
      */
-    static <T extends RestValue<K, V>, K, V> List<RestPack> nameKey(Class<T> clazz) {
-        return lists(clazz).stream().map(RestPack::nameKey).distinct().collect(Collectors.toList());
+    static <T extends RestValue<K, V>, K, V> List<ViewPack> nameKey(Class<T> clazz) {
+        return lists(clazz).stream().map(ViewPack::nameKey).distinct().collect(Collectors.toList());
     }
 
     /**
@@ -90,8 +93,8 @@ public interface RestValue<K, V> extends RestKey<K>, RestEntry<K, V> {
      * @see java.lang.Class
      * @see java.util.List
      */
-    static <T extends RestValue<K, V>, K, V> List<RestPack> nameValue(Class<T> clazz) {
-        return lists(clazz).stream().map(RestPack::nameValue).distinct().collect(Collectors.toList());
+    static <T extends RestValue<K, V>, K, V> List<ViewPack> nameValue(Class<T> clazz) {
+        return lists(clazz).stream().map(ViewPack::nameValue).distinct().collect(Collectors.toList());
     }
 
     /**
@@ -105,8 +108,8 @@ public interface RestValue<K, V> extends RestKey<K>, RestEntry<K, V> {
      * @see java.lang.Class
      * @see java.util.List
      */
-    static <T extends RestValue<K, V>, K, V> List<RestPack> keyValue(Class<T> clazz) {
-        return lists(clazz).stream().map(RestPack::keyValue).distinct().collect(Collectors.toList());
+    static <T extends RestValue<K, V>, K, V> List<ViewPack> keyValue(Class<T> clazz) {
+        return lists(clazz).stream().map(ViewPack::keyValue).distinct().collect(Collectors.toList());
     }
 
     /**
@@ -120,8 +123,8 @@ public interface RestValue<K, V> extends RestKey<K>, RestEntry<K, V> {
      * @see java.lang.Class
      * @see java.util.List
      */
-    static <T extends RestValue<K, V>, K, V> List<RestPack> valueKey(Class<T> clazz) {
-        return lists(clazz).stream().map(RestPack::valueKey).distinct().collect(Collectors.toList());
+    static <T extends RestValue<K, V>, K, V> List<ViewPack> valueKey(Class<T> clazz) {
+        return lists(clazz).stream().map(ViewPack::valueKey).distinct().collect(Collectors.toList());
     }
 
     /**
@@ -135,8 +138,8 @@ public interface RestValue<K, V> extends RestKey<K>, RestEntry<K, V> {
      * @see java.lang.Class
      * @see java.util.List
      */
-    static <T extends RestValue<K, V>, K, V> List<RestEnum> packEnum(Class<T> clazz) {
-        return lists(clazz).stream().map(RestEnum::fromValue).distinct().collect(Collectors.toList());
+    static <T extends RestValue<K, V>, K, V> List<EnumPack> packEnum(Class<T> clazz) {
+        return lists(clazz).stream().map(EnumPack::fromValue).distinct().collect(Collectors.toList());
     }
 
     /**
