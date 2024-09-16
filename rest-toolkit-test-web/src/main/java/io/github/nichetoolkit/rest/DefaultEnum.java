@@ -19,6 +19,7 @@ import java.util.Optional;
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
+@SuppressWarnings("all")
 class DefaultEnum {
 
     /**
