@@ -18,8 +18,8 @@ class IdentityWorkerConfig {
     static final Long OFFSET = 1L;
 
     /**
-     * <code>SEQUENCE</code>
-     * {@link java.lang.Long} <p>the <code>SEQUENCE</code> field.</p>
+     * <code>STEP</code>
+     * {@link java.lang.Long} <p>the <code>STEP</code> field.</p>
      * @see java.lang.Long
      */
     static final Long STEP = 0L;
@@ -182,8 +182,8 @@ class IdentityWorkerConfig {
     static final Long DEFAULT_STEP = 1L;
 
     /**
-     * <code>DEFAULT_STEP</code>
-     * {@link java.lang.Long} <p>the <code>DEFAULT_STEP</code> field.</p>
+     * <code>DEFAULT_TAG</code>
+     * {@link java.lang.Long} <p>the <code>DEFAULT_TAG</code> field.</p>
      * @see java.lang.Long
      */
     static final Long DEFAULT_TAG = 1L;

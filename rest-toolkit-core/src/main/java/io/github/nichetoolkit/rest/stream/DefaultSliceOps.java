@@ -233,7 +233,8 @@ final class DefaultSliceOps {
          * <code>targetOffset</code>
          * <p>the <code>targetOffset</code> field.</p>
          */
-        private final long targetOffset, /**
+        private final long targetOffset,
+        /**
          * <code>targetSize</code>
          * <p>the Target size field.</p>
          */

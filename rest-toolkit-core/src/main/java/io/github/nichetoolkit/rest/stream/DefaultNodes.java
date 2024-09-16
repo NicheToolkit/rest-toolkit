@@ -1140,7 +1140,8 @@ final class DefaultNodes {
          * <p>the <code>index</code> field.</p>
          */
 // For DefaultSink implementation
-        protected int index, /**
+        protected int index,
+        /**
          * <code>fence</code>
          * <p>the Fence field.</p>
          */

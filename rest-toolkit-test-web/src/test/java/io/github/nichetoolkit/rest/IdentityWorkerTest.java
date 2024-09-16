@@ -24,7 +24,9 @@ public class IdentityWorkerTest {
     /**
      * <code>test</code>
      * <p>the method.</p>
+     * @throws InterruptedException {@link java.lang.InterruptedException} <p>the interrupted exception is <code>InterruptedException</code> type.</p>
      * @see org.junit.jupiter.api.Test
+     * @see java.lang.InterruptedException
      */
     @Test
     void test() throws InterruptedException {

@@ -6,8 +6,8 @@ import io.github.nichetoolkit.rest.RestErrorStatus;
 import io.github.nichetoolkit.rest.RestStatus;
 
 /**
- * <code>StreamErrorException</code>
- * <p>The type stream error exception class.</p>
+ * <code>IoStreamErrorException</code>
+ * <p>The type io stream error exception class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestErrorException
  * @since Jdk1.8
@@ -15,16 +15,16 @@ import io.github.nichetoolkit.rest.RestStatus;
 public class IoStreamErrorException extends RestErrorException {
 
     /**
-     * <code>StreamErrorException</code>
-     * Instantiates a new stream error exception.
+     * <code>IoStreamErrorException</code>
+     * Instantiates a new io stream error exception.
      */
     public IoStreamErrorException() {
         super(RestErrorStatus.IO_STREAM_ERROR);
     }
 
     /**
-     * <code>StreamErrorException</code>
-     * Instantiates a new stream error exception.
+     * <code>IoStreamErrorException</code>
+     * Instantiates a new io stream error exception.
      * @param status {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>the status parameter is <code>RestErrorStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestErrorStatus
      */
@@ -33,8 +33,8 @@ public class IoStreamErrorException extends RestErrorException {
     }
 
     /**
-     * <code>StreamErrorException</code>
-     * Instantiates a new stream error exception.
+     * <code>IoStreamErrorException</code>
+     * Instantiates a new io stream error exception.
      * @param error {@link java.lang.String} <p>the error parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
@@ -43,8 +43,8 @@ public class IoStreamErrorException extends RestErrorException {
     }
 
     /**
-     * <code>StreamErrorException</code>
-     * Instantiates a new stream error exception.
+     * <code>IoStreamErrorException</code>
+     * Instantiates a new io stream error exception.
      * @param error {@link java.lang.String} <p>the error parameter is <code>String</code> type.</p>
      * @param cause {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
      * @see java.lang.String
@@ -55,8 +55,8 @@ public class IoStreamErrorException extends RestErrorException {
     }
 
     /**
-     * <code>StreamErrorException</code>
-     * Instantiates a new stream error exception.
+     * <code>IoStreamErrorException</code>
+     * Instantiates a new io stream error exception.
      * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
@@ -65,8 +65,8 @@ public class IoStreamErrorException extends RestErrorException {
     }
 
     /**
-     * <code>StreamErrorException</code>
-     * Instantiates a new stream error exception.
+     * <code>IoStreamErrorException</code>
+     * Instantiates a new io stream error exception.
      * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
      * @param cause  {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
@@ -77,8 +77,8 @@ public class IoStreamErrorException extends RestErrorException {
     }
 
     /**
-     * <code>StreamErrorException</code>
-     * Instantiates a new stream error exception.
+     * <code>IoStreamErrorException</code>
+     * Instantiates a new io stream error exception.
      * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
      * @param error  {@link io.github.nichetoolkit.rest.RestError} <p>the error parameter is <code>RestError</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
@@ -89,8 +89,8 @@ public class IoStreamErrorException extends RestErrorException {
     }
 
     /**
-     * <code>StreamErrorException</code>
-     * Instantiates a new stream error exception.
+     * <code>IoStreamErrorException</code>
+     * Instantiates a new io stream error exception.
      * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
      * @param error  {@link io.github.nichetoolkit.rest.RestError} <p>the error parameter is <code>RestError</code> type.</p>
      * @param cause  {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
@@ -103,8 +103,8 @@ public class IoStreamErrorException extends RestErrorException {
     }
 
     /**
-     * <code>StreamErrorException</code>
-     * Instantiates a new stream error exception.
+     * <code>IoStreamErrorException</code>
+     * Instantiates a new io stream error exception.
      * @param status  {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
      * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
@@ -115,8 +115,8 @@ public class IoStreamErrorException extends RestErrorException {
     }
 
     /**
-     * <code>StreamErrorException</code>
-     * Instantiates a new stream error exception.
+     * <code>IoStreamErrorException</code>
+     * Instantiates a new io stream error exception.
      * @param status  {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
      * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
      * @param cause   {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
@@ -129,8 +129,8 @@ public class IoStreamErrorException extends RestErrorException {
     }
 
     /**
-     * <code>StreamErrorException</code>
-     * Instantiates a new stream error exception.
+     * <code>IoStreamErrorException</code>
+     * Instantiates a new io stream error exception.
      * @param status   {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
      * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
      * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
@@ -142,8 +142,8 @@ public class IoStreamErrorException extends RestErrorException {
     }
 
     /**
-     * <code>StreamErrorException</code>
-     * Instantiates a new stream error exception.
+     * <code>IoStreamErrorException</code>
+     * Instantiates a new io stream error exception.
      * @param status   {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
      * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
      * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
@@ -157,8 +157,8 @@ public class IoStreamErrorException extends RestErrorException {
     }
 
     /**
-     * <code>StreamErrorException</code>
-     * Instantiates a new stream error exception.
+     * <code>IoStreamErrorException</code>
+     * Instantiates a new io stream error exception.
      * @param status   {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
      * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
      * @param filed    {@link java.lang.String} <p>the filed parameter is <code>String</code> type.</p>
@@ -171,8 +171,8 @@ public class IoStreamErrorException extends RestErrorException {
     }
 
     /**
-     * <code>StreamErrorException</code>
-     * Instantiates a new stream error exception.
+     * <code>IoStreamErrorException</code>
+     * Instantiates a new io stream error exception.
      * @param status   {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
      * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
      * @param filed    {@link java.lang.String} <p>the filed parameter is <code>String</code> type.</p>
@@ -187,8 +187,8 @@ public class IoStreamErrorException extends RestErrorException {
     }
 
     /**
-     * <code>StreamErrorException</code>
-     * Instantiates a new stream error exception.
+     * <code>IoStreamErrorException</code>
+     * Instantiates a new io stream error exception.
      * @param status   {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
      * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
      * @param filed    {@link java.lang.String} <p>the filed parameter is <code>String</code> type.</p>
@@ -203,8 +203,8 @@ public class IoStreamErrorException extends RestErrorException {
     }
 
     /**
-     * <code>StreamErrorException</code>
-     * Instantiates a new stream error exception.
+     * <code>IoStreamErrorException</code>
+     * Instantiates a new io stream error exception.
      * @param status   {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
      * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
      * @param filed    {@link java.lang.String} <p>the filed parameter is <code>String</code> type.</p>
@@ -221,8 +221,8 @@ public class IoStreamErrorException extends RestErrorException {
     }
 
     /**
-     * <code>StreamErrorException</code>
-     * Instantiates a new stream error exception.
+     * <code>IoStreamErrorException</code>
+     * Instantiates a new io stream error exception.
      * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
      * @param error    {@link java.lang.String} <p>the error parameter is <code>String</code> type.</p>
      * @see java.lang.String
@@ -232,8 +232,8 @@ public class IoStreamErrorException extends RestErrorException {
     }
 
     /**
-     * <code>StreamErrorException</code>
-     * Instantiates a new stream error exception.
+     * <code>IoStreamErrorException</code>
+     * Instantiates a new io stream error exception.
      * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
      * @param error    {@link java.lang.String} <p>the error parameter is <code>String</code> type.</p>
      * @param cause    {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
@@ -245,8 +245,8 @@ public class IoStreamErrorException extends RestErrorException {
     }
 
     /**
-     * <code>StreamErrorException</code>
-     * Instantiates a new stream error exception.
+     * <code>IoStreamErrorException</code>
+     * Instantiates a new io stream error exception.
      * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
      * @param filed    {@link java.lang.String} <p>the filed parameter is <code>String</code> type.</p>
      * @param error    {@link java.lang.String} <p>the error parameter is <code>String</code> type.</p>
@@ -257,8 +257,8 @@ public class IoStreamErrorException extends RestErrorException {
     }
 
     /**
-     * <code>StreamErrorException</code>
-     * Instantiates a new stream error exception.
+     * <code>IoStreamErrorException</code>
+     * Instantiates a new io stream error exception.
      * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
      * @param filed    {@link java.lang.String} <p>the filed parameter is <code>String</code> type.</p>
      * @param error    {@link java.lang.String} <p>the error parameter is <code>String</code> type.</p>
@@ -271,8 +271,8 @@ public class IoStreamErrorException extends RestErrorException {
     }
 
     /**
-     * <code>StreamErrorException</code>
-     * Instantiates a new stream error exception.
+     * <code>IoStreamErrorException</code>
+     * Instantiates a new io stream error exception.
      * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
      * @param filed    {@link java.lang.String} <p>the filed parameter is <code>String</code> type.</p>
      * @param value    {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>
@@ -285,8 +285,8 @@ public class IoStreamErrorException extends RestErrorException {
     }
 
     /**
-     * <code>StreamErrorException</code>
-     * Instantiates a new stream error exception.
+     * <code>IoStreamErrorException</code>
+     * Instantiates a new io stream error exception.
      * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
      * @param filed    {@link java.lang.String} <p>the filed parameter is <code>String</code> type.</p>
      * @param value    {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>

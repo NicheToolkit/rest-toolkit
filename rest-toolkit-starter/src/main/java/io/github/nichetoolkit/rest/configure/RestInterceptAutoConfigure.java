@@ -31,8 +31,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class RestInterceptAutoConfigure implements WebMvcConfigurer {
     /**
      * <code>handlerInterceptor</code>
-     * {@link DefaultLoggingInterceptor} <p>the <code>handlerInterceptor</code> field.</p>
-     * @see DefaultLoggingInterceptor
+     * {@link io.github.nichetoolkit.rest.interceptor.DefaultLoggingInterceptor} <p>the <code>handlerInterceptor</code> field.</p>
+     * @see io.github.nichetoolkit.rest.interceptor.DefaultLoggingInterceptor
      */
     private final DefaultLoggingInterceptor handlerInterceptor;
     /**
@@ -45,9 +45,9 @@ public class RestInterceptAutoConfigure implements WebMvcConfigurer {
     /**
      * <code>RestInterceptAutoConfigure</code>
      * Instantiates a new rest intercept auto configure.
-     * @param handlerInterceptor  {@link DefaultLoggingInterceptor} <p>the handler interceptor parameter is <code>DefaultHandlerInterceptor</code> type.</p>
+     * @param handlerInterceptor  {@link io.github.nichetoolkit.rest.interceptor.DefaultLoggingInterceptor} <p>the handler interceptor parameter is <code>DefaultLoggingInterceptor</code> type.</p>
      * @param interceptProperties {@link io.github.nichetoolkit.rest.configure.RestInterceptProperties} <p>the intercept properties parameter is <code>RestInterceptProperties</code> type.</p>
-     * @see DefaultLoggingInterceptor
+     * @see io.github.nichetoolkit.rest.interceptor.DefaultLoggingInterceptor
      * @see io.github.nichetoolkit.rest.configure.RestInterceptProperties
      * @see org.springframework.beans.factory.annotation.Autowired
      */

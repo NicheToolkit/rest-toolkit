@@ -7,10 +7,10 @@ import lombok.Data;
 import java.util.Objects;
 
 /**
- * <code>RestEnum</code>
- * <p>The type rest enum class.</p>
+ * <code>EnumPack</code>
+ * <p>The type enum pack class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @see ViewPack
+ * @see io.github.nichetoolkit.rest.pack.ViewPack
  * @see lombok.Data
  * @since Jdk1.8
  */
@@ -31,15 +31,15 @@ public class EnumPack extends ViewPack {
     private Object key;
 
     /**
-     * <code>RestEnum</code>
-     * Instantiates a new rest enum.
+     * <code>EnumPack</code>
+     * Instantiates a new enum pack.
      */
     public EnumPack() {
     }
 
     /**
-     * <code>RestEnum</code>
-     * Instantiates a new rest enum.
+     * <code>EnumPack</code>
+     * Instantiates a new enum pack.
      * @param name  {@link java.lang.String} <p>the name parameter is <code>String</code> type.</p>
      * @param key   {@link java.lang.Object} <p>the key parameter is <code>Object</code> type.</p>
      * @param value {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>
@@ -53,8 +53,8 @@ public class EnumPack extends ViewPack {
     }
 
     /**
-     * <code>RestEnum</code>
-     * Instantiates a new rest enum.
+     * <code>EnumPack</code>
+     * Instantiates a new enum pack.
      * @param name    {@link java.lang.String} <p>the name parameter is <code>String</code> type.</p>
      * @param ordinal {@link java.lang.Integer} <p>the ordinal parameter is <code>Integer</code> type.</p>
      * @param key     {@link java.lang.Object} <p>the key parameter is <code>Object</code> type.</p>
@@ -73,7 +73,7 @@ public class EnumPack extends ViewPack {
      * <code>fromValue</code>
      * <p>the value method.</p>
      * @param entry {@link io.github.nichetoolkit.rest.RestValue} <p>the entry parameter is <code>RestValue</code> type.</p>
-     * @return {@link EnumPack} <p>the value return object is <code>RestEnum</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.pack.EnumPack} <p>the value return object is <code>EnumPack</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestValue
      */
     public static EnumPack fromValue(RestValue<?, ?> entry) {
@@ -84,7 +84,7 @@ public class EnumPack extends ViewPack {
      * <code>fromEnum</code>
      * <p>the enum method.</p>
      * @param entry {@link java.lang.Enum} <p>the entry parameter is <code>Enum</code> type.</p>
-     * @return {@link EnumPack} <p>the enum return object is <code>RestEnum</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.pack.EnumPack} <p>the enum return object is <code>EnumPack</code> type.</p>
      * @see java.lang.Enum
      */
     public static EnumPack fromEnum(Enum<?> entry) {

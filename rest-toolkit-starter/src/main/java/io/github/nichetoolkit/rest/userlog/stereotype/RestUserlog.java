@@ -82,6 +82,7 @@ public @interface RestUserlog {
     )
     String loggingValue() default "";
 
+
     /**
      * <code>loggingType</code>
      * <p>the type method.</p>

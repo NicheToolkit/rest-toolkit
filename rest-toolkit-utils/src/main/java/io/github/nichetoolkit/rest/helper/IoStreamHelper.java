@@ -25,10 +25,10 @@ public class IoStreamHelper {
      * <p>the method.</p>
      * @param multipartFile    {@link org.springframework.web.multipart.MultipartFile} <p>the multipart file parameter is <code>MultipartFile</code> type.</p>
      * @param transferFilePath {@link java.lang.String} <p>the transfer file path parameter is <code>String</code> type.</p>
-     * @throws IoStreamTransferException {@link IoStreamTransferException} <p>the stream transfer exception is <code>StreamTransferException</code> type.</p>
+     * @throws IoStreamTransferException {@link io.github.nichetoolkit.rest.error.often.IoStreamTransferException} <p>the io stream transfer exception is <code>IoStreamTransferException</code> type.</p>
      * @see org.springframework.web.multipart.MultipartFile
      * @see java.lang.String
-     * @see IoStreamTransferException
+     * @see io.github.nichetoolkit.rest.error.often.IoStreamTransferException
      */
     public static void transfer(MultipartFile multipartFile, String transferFilePath) throws IoStreamTransferException {
         File transferFile = new File(transferFilePath);
@@ -40,10 +40,10 @@ public class IoStreamHelper {
      * <p>the method.</p>
      * @param multipartFile {@link org.springframework.web.multipart.MultipartFile} <p>the multipart file parameter is <code>MultipartFile</code> type.</p>
      * @param transferFile  {@link java.io.File} <p>the transfer file parameter is <code>File</code> type.</p>
-     * @throws IoStreamTransferException {@link IoStreamTransferException} <p>the stream transfer exception is <code>StreamTransferException</code> type.</p>
+     * @throws IoStreamTransferException {@link io.github.nichetoolkit.rest.error.often.IoStreamTransferException} <p>the io stream transfer exception is <code>IoStreamTransferException</code> type.</p>
      * @see org.springframework.web.multipart.MultipartFile
      * @see java.io.File
-     * @see IoStreamTransferException
+     * @see io.github.nichetoolkit.rest.error.often.IoStreamTransferException
      */
     public static void transfer(MultipartFile multipartFile, File transferFile) throws IoStreamTransferException {
         try {
@@ -59,10 +59,10 @@ public class IoStreamHelper {
      * @param inputStream  {@link java.io.InputStream} <p>the input stream parameter is <code>InputStream</code> type.</p>
      * @param outputStream {@link java.io.OutputStream} <p>the output stream parameter is <code>OutputStream</code> type.</p>
      * @param isClose      boolean <p>the is close parameter is <code>boolean</code> type.</p>
-     * @throws IoStreamTransferException {@link IoStreamTransferException} <p>the stream transfer exception is <code>StreamTransferException</code> type.</p>
+     * @throws IoStreamTransferException {@link io.github.nichetoolkit.rest.error.often.IoStreamTransferException} <p>the io stream transfer exception is <code>IoStreamTransferException</code> type.</p>
      * @see java.io.InputStream
      * @see java.io.OutputStream
-     * @see IoStreamTransferException
+     * @see io.github.nichetoolkit.rest.error.often.IoStreamTransferException
      */
     public static void transfer(InputStream inputStream, OutputStream outputStream, boolean isClose) throws IoStreamTransferException {
         try {
@@ -86,10 +86,10 @@ public class IoStreamHelper {
      * <p>the method.</p>
      * @param inputStream {@link java.io.InputStream} <p>the input stream parameter is <code>InputStream</code> type.</p>
      * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
-     * @throws IoStreamReadException {@link IoStreamReadException} <p>the stream read exception is <code>StreamReadException</code> type.</p>
+     * @throws IoStreamReadException {@link io.github.nichetoolkit.rest.error.often.IoStreamReadException} <p>the io stream read exception is <code>IoStreamReadException</code> type.</p>
      * @see java.io.InputStream
      * @see java.lang.String
-     * @see IoStreamReadException
+     * @see io.github.nichetoolkit.rest.error.often.IoStreamReadException
      */
     public static String read(InputStream inputStream) throws IoStreamReadException {
 
@@ -112,9 +112,9 @@ public class IoStreamHelper {
      * <p>the method.</p>
      * @param inputStream {@link java.io.InputStream} <p>the input stream parameter is <code>InputStream</code> type.</p>
      * @return byte <p>the return object is <code>byte</code> type.</p>
-     * @throws IoStreamReadException {@link IoStreamReadException} <p>the stream read exception is <code>StreamReadException</code> type.</p>
+     * @throws IoStreamReadException {@link io.github.nichetoolkit.rest.error.often.IoStreamReadException} <p>the io stream read exception is <code>IoStreamReadException</code> type.</p>
      * @see java.io.InputStream
-     * @see IoStreamReadException
+     * @see io.github.nichetoolkit.rest.error.often.IoStreamReadException
      */
     public static byte[] bytes(InputStream inputStream) throws IoStreamReadException {
         try (ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream()) {
@@ -135,10 +135,10 @@ public class IoStreamHelper {
      * <p>the method.</p>
      * @param outputStream {@link java.io.OutputStream} <p>the output stream parameter is <code>OutputStream</code> type.</p>
      * @param json         {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
-     * @throws IoStreamWriteException {@link IoStreamWriteException} <p>the stream write exception is <code>StreamWriteException</code> type.</p>
+     * @throws IoStreamWriteException {@link io.github.nichetoolkit.rest.error.often.IoStreamWriteException} <p>the io stream write exception is <code>IoStreamWriteException</code> type.</p>
      * @see java.io.OutputStream
      * @see java.lang.String
-     * @see IoStreamWriteException
+     * @see io.github.nichetoolkit.rest.error.often.IoStreamWriteException
      */
     public static void write(OutputStream outputStream, String json) throws IoStreamWriteException {
         try {
@@ -157,10 +157,10 @@ public class IoStreamHelper {
      * <p>the method.</p>
      * @param response {@link javax.servlet.http.HttpServletResponse} <p>the response parameter is <code>HttpServletResponse</code> type.</p>
      * @param file     {@link java.io.File} <p>the file parameter is <code>File</code> type.</p>
-     * @throws IoStreamWriteException {@link IoStreamWriteException} <p>the stream write exception is <code>StreamWriteException</code> type.</p>
+     * @throws IoStreamWriteException {@link io.github.nichetoolkit.rest.error.often.IoStreamWriteException} <p>the io stream write exception is <code>IoStreamWriteException</code> type.</p>
      * @see javax.servlet.http.HttpServletResponse
      * @see java.io.File
-     * @see IoStreamWriteException
+     * @see io.github.nichetoolkit.rest.error.often.IoStreamWriteException
      */
     public static void write(HttpServletResponse response, File file) throws IoStreamWriteException {
         try (FileInputStream inputStream = new FileInputStream(file);
@@ -176,10 +176,10 @@ public class IoStreamHelper {
      * <p>the method.</p>
      * @param response {@link javax.servlet.http.HttpServletResponse} <p>the response parameter is <code>HttpServletResponse</code> type.</p>
      * @param json     {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
-     * @throws IoStreamWriteException {@link IoStreamWriteException} <p>the stream write exception is <code>StreamWriteException</code> type.</p>
+     * @throws IoStreamWriteException {@link io.github.nichetoolkit.rest.error.often.IoStreamWriteException} <p>the io stream write exception is <code>IoStreamWriteException</code> type.</p>
      * @see javax.servlet.http.HttpServletResponse
      * @see java.lang.String
-     * @see IoStreamWriteException
+     * @see io.github.nichetoolkit.rest.error.often.IoStreamWriteException
      */
     public static void write(HttpServletResponse response, String json) throws IoStreamWriteException {
         try (OutputStream outputStream = response.getOutputStream()) {
@@ -196,9 +196,9 @@ public class IoStreamHelper {
      * <p>the method.</p>
      * @param response {@link javax.servlet.http.HttpServletResponse} <p>the response parameter is <code>HttpServletResponse</code> type.</p>
      * @param data     byte <p>the data parameter is <code>byte</code> type.</p>
-     * @throws IoStreamWriteException {@link IoStreamWriteException} <p>the stream write exception is <code>StreamWriteException</code> type.</p>
+     * @throws IoStreamWriteException {@link io.github.nichetoolkit.rest.error.often.IoStreamWriteException} <p>the io stream write exception is <code>IoStreamWriteException</code> type.</p>
      * @see javax.servlet.http.HttpServletResponse
-     * @see IoStreamWriteException
+     * @see io.github.nichetoolkit.rest.error.often.IoStreamWriteException
      */
     public static void write(HttpServletResponse response, byte[] data) throws IoStreamWriteException {
         try (OutputStream outputStream = response.getOutputStream()){
@@ -214,9 +214,9 @@ public class IoStreamHelper {
      * <p>the method.</p>
      * @param outputStream {@link java.io.OutputStream} <p>the output stream parameter is <code>OutputStream</code> type.</p>
      * @param data         byte <p>the data parameter is <code>byte</code> type.</p>
-     * @throws IoStreamWriteException {@link IoStreamWriteException} <p>the stream write exception is <code>StreamWriteException</code> type.</p>
+     * @throws IoStreamWriteException {@link io.github.nichetoolkit.rest.error.often.IoStreamWriteException} <p>the io stream write exception is <code>IoStreamWriteException</code> type.</p>
      * @see java.io.OutputStream
-     * @see IoStreamWriteException
+     * @see io.github.nichetoolkit.rest.error.often.IoStreamWriteException
      */
     public static void write(OutputStream outputStream, byte[] data) throws IoStreamWriteException {
         InputStream inputStream = new ByteArrayInputStream(data);
@@ -228,10 +228,10 @@ public class IoStreamHelper {
      * <p>the method.</p>
      * @param outputStream {@link java.io.OutputStream} <p>the output stream parameter is <code>OutputStream</code> type.</p>
      * @param inputStream  {@link java.io.InputStream} <p>the input stream parameter is <code>InputStream</code> type.</p>
-     * @throws IoStreamWriteException {@link IoStreamWriteException} <p>the stream write exception is <code>StreamWriteException</code> type.</p>
+     * @throws IoStreamWriteException {@link io.github.nichetoolkit.rest.error.often.IoStreamWriteException} <p>the io stream write exception is <code>IoStreamWriteException</code> type.</p>
      * @see java.io.OutputStream
      * @see java.io.InputStream
-     * @see IoStreamWriteException
+     * @see io.github.nichetoolkit.rest.error.often.IoStreamWriteException
      */
     public static void write(OutputStream outputStream, InputStream inputStream) throws IoStreamWriteException {
         try {
@@ -253,10 +253,10 @@ public class IoStreamHelper {
      * <p>the method.</p>
      * @param file        {@link java.io.File} <p>the file parameter is <code>File</code> type.</p>
      * @param inputStream {@link java.io.InputStream} <p>the input stream parameter is <code>InputStream</code> type.</p>
-     * @throws IoStreamWriteException {@link IoStreamWriteException} <p>the stream write exception is <code>StreamWriteException</code> type.</p>
+     * @throws IoStreamWriteException {@link io.github.nichetoolkit.rest.error.often.IoStreamWriteException} <p>the io stream write exception is <code>IoStreamWriteException</code> type.</p>
      * @see java.io.File
      * @see java.io.InputStream
-     * @see IoStreamWriteException
+     * @see io.github.nichetoolkit.rest.error.often.IoStreamWriteException
      */
     public static void write(File file, InputStream inputStream) throws IoStreamWriteException {
         try (OutputStream outputStream = Files.newOutputStream(file.toPath())) {
@@ -271,10 +271,10 @@ public class IoStreamHelper {
      * <p>the method.</p>
      * @param filename    {@link java.lang.String} <p>the filename parameter is <code>String</code> type.</p>
      * @param inputStream {@link java.io.InputStream} <p>the input stream parameter is <code>InputStream</code> type.</p>
-     * @throws IoStreamWriteException {@link IoStreamWriteException} <p>the stream write exception is <code>StreamWriteException</code> type.</p>
+     * @throws IoStreamWriteException {@link io.github.nichetoolkit.rest.error.often.IoStreamWriteException} <p>the io stream write exception is <code>IoStreamWriteException</code> type.</p>
      * @see java.lang.String
      * @see java.io.InputStream
-     * @see IoStreamWriteException
+     * @see io.github.nichetoolkit.rest.error.often.IoStreamWriteException
      */
     public static void write(final String filename,InputStream inputStream) throws IoStreamWriteException {
         try (OutputStream outputStream = Files.newOutputStream(Paths.get(filename))) {
@@ -289,9 +289,9 @@ public class IoStreamHelper {
      * <p>the method.</p>
      * @param file {@link java.io.File} <p>the file parameter is <code>File</code> type.</p>
      * @param data byte <p>the data parameter is <code>byte</code> type.</p>
-     * @throws IoStreamWriteException {@link IoStreamWriteException} <p>the stream write exception is <code>StreamWriteException</code> type.</p>
+     * @throws IoStreamWriteException {@link io.github.nichetoolkit.rest.error.often.IoStreamWriteException} <p>the io stream write exception is <code>IoStreamWriteException</code> type.</p>
      * @see java.io.File
-     * @see IoStreamWriteException
+     * @see io.github.nichetoolkit.rest.error.often.IoStreamWriteException
      */
     public static void write(File file, byte[] data) throws IoStreamWriteException {
         try ( OutputStream outputStream = Files.newOutputStream(file.toPath())){
@@ -306,9 +306,9 @@ public class IoStreamHelper {
      * <p>the method.</p>
      * @param filename {@link java.lang.String} <p>the filename parameter is <code>String</code> type.</p>
      * @param data     byte <p>the data parameter is <code>byte</code> type.</p>
-     * @throws IoStreamWriteException {@link IoStreamWriteException} <p>the stream write exception is <code>StreamWriteException</code> type.</p>
+     * @throws IoStreamWriteException {@link io.github.nichetoolkit.rest.error.often.IoStreamWriteException} <p>the io stream write exception is <code>IoStreamWriteException</code> type.</p>
      * @see java.lang.String
-     * @see IoStreamWriteException
+     * @see io.github.nichetoolkit.rest.error.often.IoStreamWriteException
      */
     public static void write(final String filename, byte[] data) throws IoStreamWriteException {
         try (OutputStream outputStream = Files.newOutputStream(Paths.get(filename))) {

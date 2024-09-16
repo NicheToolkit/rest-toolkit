@@ -1,11 +1,16 @@
 package io.github.nichetoolkit.rest;
 
 /**
- * <p>ReckonWorker</p>
+ * <code>ReckonWorkerTest</code>
+ * <p>The type reckon worker test class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @version v1.0.0
+ * @since Jdk1.8
  */
 public class ReckonWorkerTest {
+    /**
+     * <code>DIGITS</code>
+     * <p>the <code>DIGITS</code> field.</p>
+     */
     static char[] DIGITS = {
             '0', '1', '2', '3', '4', '5',
             '6', '7', '8', '9', 'a', 'b',
@@ -21,6 +26,14 @@ public class ReckonWorkerTest {
     };
 
 
+    /**
+     * <code>ennex</code>
+     * <p>the method.</p>
+     * @param value {@link java.lang.Long} <p>the value parameter is <code>Long</code> type.</p>
+     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * @see java.lang.Long
+     * @see java.lang.String
+     */
     public static String ennex(Long value) {
         StringBuilder builder = new StringBuilder();
         for (int index = 0; index < DIGITS.length; index ++) {
@@ -32,6 +45,14 @@ public class ReckonWorkerTest {
         return builder.toString();
     }
 
+    /**
+     * <code>denex</code>
+     * <p>the method.</p>
+     * @param code {@link java.lang.String} <p>the code parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.Long} <p>the return object is <code>Long</code> type.</p>
+     * @see java.lang.String
+     * @see java.lang.Long
+     */
     public static Long denex(String code) {
         long value = 0L;
         String digits = new String(DIGITS);
@@ -47,6 +68,14 @@ public class ReckonWorkerTest {
     }
 
 
+    /**
+     * <code>annex</code>
+     * <p>the method.</p>
+     * @param level {@link java.lang.Integer} <p>the level parameter is <code>Integer</code> type.</p>
+     * @return {@link java.lang.Long} <p>the return object is <code>Long</code> type.</p>
+     * @see java.lang.Integer
+     * @see java.lang.Long
+     */
     public static Long annex(Integer level) {
         long value = 0L;
         for (int index = 0; index < level; index ++) {
@@ -57,6 +86,12 @@ public class ReckonWorkerTest {
     }
 
 
+    /**
+     * <code>main</code>
+     * <p>The entry point of application.</p>
+     * @param args {@link java.lang.String} <p>the input arguments.</p>
+     * @see java.lang.String
+     */
     public static void main(String[] args) {
 
 //        Long max = Long.MAX_VALUE;

@@ -36,8 +36,8 @@ import java.util.Map;
 import java.util.Optional;
 
 /**
- * <code>DefaultHandlerInterceptor</code>
- * <p>The type default handler interceptor class.</p>
+ * <code>DefaultLoggingInterceptor</code>
+ * <p>The type default logging interceptor class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see org.springframework.web.servlet.AsyncHandlerInterceptor
  * @see io.github.nichetoolkit.rest.RestResponseAdvice
@@ -83,8 +83,8 @@ public class DefaultLoggingInterceptor implements AsyncHandlerInterceptor, RestR
     private final RestInterceptProperties interceptProperties;
 
     /**
-     * <code>DefaultHandlerInterceptor</code>
-     * Instantiates a new default handler interceptor.
+     * <code>DefaultLoggingInterceptor</code>
+     * Instantiates a new default logging interceptor.
      * @param interceptProperties {@link io.github.nichetoolkit.rest.configure.RestInterceptProperties} <p>the intercept properties parameter is <code>RestInterceptProperties</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestInterceptProperties
      * @see org.springframework.beans.factory.annotation.Autowired
