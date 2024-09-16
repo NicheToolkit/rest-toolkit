@@ -217,7 +217,7 @@ public class DefaultLoggingInterceptor implements AsyncHandlerInterceptor, RestR
                 if (GeneralUtils.isEmpty(usernote.getLoggingKey())) {
                     usernote.setLoggingKey(loggingType.getKey());
                 }
-                if (GeneralUtils.isEmpty(usernote.getLoggingType())) {
+                if (GeneralUtils.isEmpty(usernote.getLoggingValue())) {
                     usernote.setLoggingValue(loggingType.getValue());
                 }
                 if (GeneralUtils.isEmpty(usernote.getUserlog())) {
