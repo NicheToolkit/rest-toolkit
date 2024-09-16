@@ -178,12 +178,12 @@ public enum LoggingType implements RestValue<String, String> {
         this.value = value;
     }
 
-    @JsonValue
     @Override
     public String getKey() {
         return this.key;
     }
 
+    @JsonValue
     @Override
     public String getValue() {
         return this.value;
@@ -195,9 +195,7 @@ public enum LoggingType implements RestValue<String, String> {
      * @param key {@link java.lang.String} <p>the key parameter is <code>String</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.userlog.LoggingType} <p>the key return object is <code>LoggingType</code> type.</p>
      * @see java.lang.String
-     * @see com.fasterxml.jackson.annotation.JsonCreator
      */
-    @JsonCreator
     public static LoggingType parseKey(String key) {
         LoggingType sortTypeEnum = RestValue.parseKey(LoggingType.class, key);
         return Optional.ofNullable(sortTypeEnum).orElse(LoggingType.TEST);
@@ -209,7 +207,9 @@ public enum LoggingType implements RestValue<String, String> {
      * @param value {@link java.lang.String} <p>the value parameter is <code>String</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.userlog.LoggingType} <p>the value return object is <code>LoggingType</code> type.</p>
      * @see java.lang.String
+     * @see com.fasterxml.jackson.annotation.JsonCreator
      */
+    @JsonCreator
     public static LoggingType parseValue(String value) {
         LoggingType sortTypeEnum = RestValue.parseValue(LoggingType.class, value);
         return Optional.ofNullable(sortTypeEnum).orElse(LoggingType.TEST);

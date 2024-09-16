@@ -25,6 +25,7 @@ public class RestUsernoteService implements RestUsernoteAdvice {
     public void doUsernoteHandle(@NonNull RestRequestPack requestPack,@NonNull RestResponsePack responsePack,@NonNull RestUsernotePack usernotePack) {
         log.info("the request pack: {}", JsonUtils.parseJson(requestPack));
         log.info("the response pack: {}", JsonUtils.parseJson(responsePack));
+        System.out.println(JsonUtils.parseJson(usernotePack));
         log.info("the usernote pack: {}", JsonUtils.parseJson(usernotePack));
     }
 }

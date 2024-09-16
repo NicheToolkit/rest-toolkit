@@ -544,14 +544,16 @@ logging.file.path=G:\\data\\server\\log
     </springProfile>
 </configuration>
  ```
+
 ### Extended functionality
 
 #### Actuator & Function
 
-the function interface with `@FunctionalInterface` in jdk1.8 is not allow to be throw exception, the actuator interface with `@FunctionalInterface` is as the function interface but throw rest exception.
+the function interface with `@FunctionalInterface` in jdk1.8 is not allow to be throw exception, the actuator interface
+with `@FunctionalInterface` is as the function interface but throw rest exception.
 
 |              rest               |       jdk1.8        |
-| :-----------------------------: | :-----------------: |
+|:-------------------------------:|:-------------------:|
 |         AnchorActuator          |                     |
 |    BiConsumerActuator<T, U>     |  BiConsumer<T, U>   |
 |   BiFunctionActuator<T, U, R>   | BiFunction<T, U, R> |
@@ -567,12 +569,14 @@ the function interface with `@FunctionalInterface` in jdk1.8 is not allow to be 
 |  MapPredicateActuator<T, U, S>  |                     |
 
 * examples
+
 ```java
+
 @Slf4j
 @SpringBootTest
 class ActuatorFunctionTest {
 
-    void handle(AnchorActuator before, AnchorActuator after, AnchorActuator over) throws RestException{
+    void handle(AnchorActuator before, AnchorActuator after, AnchorActuator over) throws RestException {
         before.actuate();
         log.info("the handle method invoke!");
         after.actuate();
@@ -583,13 +587,9 @@ class ActuatorFunctionTest {
     void test() throws RestException {
         handle(
                 /* the before method */
-                () -> {
-                    log.info("the before handle method invoke!");
-                },
+                () -> log.info("the before handle method invoke!"),
                 /* the after method */
-                () -> {
-                    log.info("the after handle method invoke!");
-                },
+                () -> log.info("the after handle method invoke!"),
                 /* the over method */
                 () -> {
                     throw new RestException();
@@ -601,16 +601,18 @@ class ActuatorFunctionTest {
 
 #### Notelog & Userlog
 
-you can use `@RestLogging`、`@RestNotelog` and `@RestUserlog` to obtain infos (`request` 、`response `、`usernote`) freely .
+you can use `@RestLogging`、`@RestNotelog` and `@RestUserlog` to obtain infos (`request` 、`response `、`usernote`)
+freely .
 
 * `RestUsernoteAdvice` interface implement
 
 ```java
+
 @Slf4j
 @Service
 public class RestUsernoteService implements RestUsernoteAdvice {
     @Override
-    public void doUsernoteHandle(@NonNull RestRequestPack requestPack,@NonNull RestResponsePack responsePack,@NonNull RestUsernotePack usernotePack) {
+    public void doUsernoteHandle(@NonNull RestRequestPack requestPack, @NonNull RestResponsePack responsePack, @NonNull RestUsernotePack usernotePack) {
         log.info("the request pack: {}", JsonUtils.parseJson(requestPack));
         log.info("the response pack: {}", JsonUtils.parseJson(responsePack));
         log.info("the usernote pack: {}", JsonUtils.parseJson(usernotePack));
@@ -619,15 +621,17 @@ public class RestUsernoteService implements RestUsernoteAdvice {
 ```
 
 * Annotation usages
+
 ```java
+
 @Slf4j
 @RestController
-@RestNotelog("rest notelog")
-@RequestMapping("/rest")
+@RestNotelog(loggingKey = "logging", notelog = "rest notelog")
+@RequestMapping("/rest/logging")
 public class RestLoggingController {
-
-    @GetMapping("/logging")
-    @RestUserlog(loggingKey = 999, loggingValue = "logging test", userlog = "rest userlog")
+    
+    @GetMapping("/test")
+    @RestUserlog(loggingValue = "logging test", userlog = "rest userlog")
     public RestResult<?> test() throws RestException {
         return RestResult.success();
     }
@@ -636,50 +640,53 @@ public class RestLoggingController {
 
 * Test request
 
->GET http://localhost:8080/rest/logging
+> GET http://localhost:8080/rest/logging/test
 
 * Pack infos
 
 > request pack
+
 ```json
 {
-    "ipAddress": "127.0.0.1",
-    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36 Edg/127.0.0.0",
-    "method": "GET",
-    "url": "http://localhost:8080/rest/logging"
+  "ipAddress": "127.0.0.1",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36 Edg/127.0.0.0",
+  "method": "GET",
+  "url": "http://localhost:8080/rest/logging"
 }
 ```
 
 > response pack
+
 ```json
 {
-    "time": 1725401067616,
-    "startTime": 1725401067616,
-    "endTime": 1725401067619,
-    "costTime": 3,
+  "time": 1725401067616,
+  "startTime": 1725401067616,
+  "endTime": 1725401067619,
+  "costTime": 3,
+  "status": 200,
+  "message": "\"成功\"",
+  "method": "test",
+  "mediaType": "application/json",
+  "result": "{\"status\":200,\"message\":\"成功\",\"time\":\"2024-09-04 06:04:27\"}",
+  "resultString": "{\"status\":200,\"message\":\"成功\",\"time\":\"2024-09-04 06:04:27\"}",
+  "restResult": {
     "status": 200,
     "message": "\"成功\"",
-    "method": "test",
-    "mediaType": "application/json",
-    "result": "{\"status\":200,\"message\":\"成功\",\"time\":\"2024-09-04 06:04:27\"}",
-    "resultString": "{\"status\":200,\"message\":\"成功\",\"time\":\"2024-09-04 06:04:27\"}",
-    "restResult": {
-        "status": 200,
-        "message": "\"成功\"",
-        "time": "2024-09-04 06:04:27"
-    },
-    "success": true
+    "time": "2024-09-04 06:04:27"
+  },
+  "success": true
 }
 ```
 
 > usernote pack
+
 ```json
 {
-    "notelog": "rest notelog",
-    "userlog": "rest userlog",
-    "loggingKey": 999,
-    "loggingValue": "logging test",
-    "loggingType": 0
+  "notelog": "rest notelog",
+  "userlog": "rest userlog",
+  "loggingKey": "logging",
+  "loggingValue": "logging test",
+  "loggingType": "test"
 }
 ```
 

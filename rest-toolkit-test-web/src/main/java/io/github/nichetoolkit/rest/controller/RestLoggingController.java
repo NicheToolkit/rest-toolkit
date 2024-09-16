@@ -22,8 +22,8 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @Slf4j
 @RestController
-@RestNotelog("rest notelog")
-@RequestMapping("/rest")
+@RestNotelog(loggingKey = "logging", notelog = "rest notelog")
+@RequestMapping("/rest/logging")
 public class RestLoggingController {
 
     /**
@@ -36,8 +36,8 @@ public class RestLoggingController {
      * @see io.github.nichetoolkit.rest.userlog.stereotype.RestUserlog
      * @see io.github.nichetoolkit.rest.RestException
      */
-    @GetMapping("/logging")
-    @RestUserlog(loggingType = LoggingType.TEST)
+    @GetMapping("/test")
+    @RestUserlog(loggingValue = "logging test", userlog = "rest userlog")
     public RestResult<?> test() throws RestException {
         return RestResult.success();
     }
