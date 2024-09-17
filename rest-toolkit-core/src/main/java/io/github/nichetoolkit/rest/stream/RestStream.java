@@ -6,7 +6,6 @@ import org.springframework.lang.NonNull;
 
 import java.util.*;
 import java.util.function.*;
-import java.util.stream.Stream;
 
 /**
  * <code>RestStream</code>
