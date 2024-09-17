@@ -2,9 +2,11 @@ package io.github.nichetoolkit.rest.stream;
 
 import io.github.nichetoolkit.rest.RestException;
 import io.github.nichetoolkit.rest.actuator.*;
+import org.springframework.lang.NonNull;
 
 import java.util.*;
 import java.util.function.*;
+import java.util.stream.Stream;
 
 /**
  * <code>RestStream</code>
@@ -15,8 +17,6 @@ import java.util.function.*;
  * @since Jdk1.8
  */
 public interface RestStream<T> extends DefaultBaseStream<T, RestStream<T>> {
-
-    /* copy form jdk Stream  */
 
     /**
      * <code>filter</code>
@@ -141,6 +141,7 @@ public interface RestStream<T> extends DefaultBaseStream<T, RestStream<T>> {
      * @see java.lang.Object
      * @see io.github.nichetoolkit.rest.RestException
      */
+    @NonNull
     Object[] toArray() throws RestException;
 
     /**
@@ -153,6 +154,7 @@ public interface RestStream<T> extends DefaultBaseStream<T, RestStream<T>> {
      * @see java.util.function.IntFunction
      * @see io.github.nichetoolkit.rest.RestException
      */
+    @NonNull
     <A> A[] toArray(IntFunction<A[]> generator) throws RestException;
 
     /**
@@ -177,6 +179,7 @@ public interface RestStream<T> extends DefaultBaseStream<T, RestStream<T>> {
      * @see java.util.Optional
      * @see io.github.nichetoolkit.rest.RestException
      */
+    @NonNull
     Optional<T> reduce(BinaryOperatorActuator<T> accumulator) throws RestException;
 
     /**
@@ -236,6 +239,7 @@ public interface RestStream<T> extends DefaultBaseStream<T, RestStream<T>> {
      * @see java.util.Optional
      * @see io.github.nichetoolkit.rest.RestException
      */
+    @NonNull
     Optional<T> min(ComparatorActuator<? super T> comparator) throws RestException;
 
     /**
@@ -248,6 +252,7 @@ public interface RestStream<T> extends DefaultBaseStream<T, RestStream<T>> {
      * @see java.util.Optional
      * @see io.github.nichetoolkit.rest.RestException
      */
+    @NonNull
     Optional<T> max(ComparatorActuator<? super T> comparator) throws RestException;
 
     /**
@@ -291,6 +296,7 @@ public interface RestStream<T> extends DefaultBaseStream<T, RestStream<T>> {
      * @see java.util.Optional
      * @see io.github.nichetoolkit.rest.RestException
      */
+    @NonNull
     Optional<T> findFirst() throws RestException;
 
     /**
@@ -301,6 +307,7 @@ public interface RestStream<T> extends DefaultBaseStream<T, RestStream<T>> {
      * @see java.util.Optional
      * @see io.github.nichetoolkit.rest.RestException
      */
+    @NonNull
     Optional<T> findAny() throws RestException;
 
     /**
@@ -324,6 +331,7 @@ public interface RestStream<T> extends DefaultBaseStream<T, RestStream<T>> {
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
+    @NonNull
     static <T> RestStream<T> empty() throws RestException {
         return DefaultStreamSupport.stream(DefaultSpliterators.emptySpliterator(), false);
     }
@@ -337,6 +345,7 @@ public interface RestStream<T> extends DefaultBaseStream<T, RestStream<T>> {
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
+    @NonNull
     static <T> RestStream<T> of(T t) throws RestException {
         return DefaultStreamSupport.stream(new DefaultStreams.StreamBuilderImpl<>(t), false);
     }
@@ -352,6 +361,7 @@ public interface RestStream<T> extends DefaultBaseStream<T, RestStream<T>> {
      * @see java.lang.SuppressWarnings
      * @see io.github.nichetoolkit.rest.RestException
      */
+    @NonNull
     @SafeVarargs
     @SuppressWarnings("varargs")
     static <T> RestStream<T> of(T... values) throws RestException {
@@ -368,6 +378,7 @@ public interface RestStream<T> extends DefaultBaseStream<T, RestStream<T>> {
      * @see java.util.Collection
      * @see io.github.nichetoolkit.rest.RestException
      */
+    @NonNull
     static <T> RestStream<T> stream(Collection<T> collection) throws RestException {
         DefaultSpliterator<T> spliterator = DefaultSpliterators.spliterator(collection, 0);
         return DefaultStreamSupport.stream(spliterator, false);
@@ -382,6 +393,7 @@ public interface RestStream<T> extends DefaultBaseStream<T, RestStream<T>> {
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
+    @NonNull
     static <T> RestStream<T> stream(T[] array) throws RestException {
         return stream(array, 0, array.length);
     }
@@ -397,6 +409,7 @@ public interface RestStream<T> extends DefaultBaseStream<T, RestStream<T>> {
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
+    @NonNull
     static <T> RestStream<T> stream(T[] array, int startInclusive, int endExclusive) throws RestException {
         return DefaultStreamSupport.stream(spliterator(array, startInclusive, endExclusive), false);
     }
@@ -413,6 +426,7 @@ public interface RestStream<T> extends DefaultBaseStream<T, RestStream<T>> {
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
      * @see io.github.nichetoolkit.rest.RestException
      */
+    @NonNull
     static <T> DefaultSpliterator<T> spliterator(T[] array, int startInclusive, int endExclusive) throws RestException {
         return DefaultSpliterators.spliterator(array, startInclusive, endExclusive,
                 DefaultSpliterator.ORDERED | DefaultSpliterator.IMMUTABLE);
@@ -429,6 +443,7 @@ public interface RestStream<T> extends DefaultBaseStream<T, RestStream<T>> {
      * @see java.util.function.UnaryOperator
      * @see io.github.nichetoolkit.rest.RestException
      */
+    @NonNull
     static <T> RestStream<T> iterate(final T seed, final UnaryOperator<T> f) throws RestException {
         Objects.requireNonNull(f);
         final Iterator<T> iterator = new Iterator<T>() {
@@ -460,6 +475,7 @@ public interface RestStream<T> extends DefaultBaseStream<T, RestStream<T>> {
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
      * @see io.github.nichetoolkit.rest.RestException
      */
+    @NonNull
     static <T> RestStream<T> generate(SupplierActuator<T> s) throws RestException {
         Objects.requireNonNull(s);
         return DefaultStreamSupport.stream(
@@ -476,6 +492,7 @@ public interface RestStream<T> extends DefaultBaseStream<T, RestStream<T>> {
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
+    @NonNull
     static <T> RestStream<T> concat(RestStream<? extends T> a, RestStream<? extends T> b) throws RestException {
         Objects.requireNonNull(a);
         Objects.requireNonNull(b);
@@ -496,6 +513,9 @@ public interface RestStream<T> extends DefaultBaseStream<T, RestStream<T>> {
      * @since Jdk1.8
      */
     interface Builder<T> extends ConsumerActuator<T> {
+
+        @Override
+        void actuate(T t);
 
         /**
          * <code>add</code>

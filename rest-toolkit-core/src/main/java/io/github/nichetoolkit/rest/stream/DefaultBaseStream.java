@@ -1,6 +1,7 @@
 package io.github.nichetoolkit.rest.stream;
 
 import io.github.nichetoolkit.rest.RestException;
+import org.springframework.lang.NonNull;
 
 import java.util.Iterator;
 
@@ -23,6 +24,7 @@ interface DefaultBaseStream<T, S extends DefaultBaseStream<T, S>> extends AutoCl
      * @see java.util.Iterator
      * @see io.github.nichetoolkit.rest.RestException
      */
+    @NonNull
     Iterator<T> iterator() throws RestException;
 
     /**
@@ -33,6 +35,7 @@ interface DefaultBaseStream<T, S extends DefaultBaseStream<T, S>> extends AutoCl
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
      * @see io.github.nichetoolkit.rest.RestException
      */
+    @NonNull
     DefaultSpliterator<T> spliterator() throws RestException;
 
     /**
@@ -51,6 +54,7 @@ interface DefaultBaseStream<T, S extends DefaultBaseStream<T, S>> extends AutoCl
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
+    @NonNull
     S sequential() throws RestException;
 
     /**
@@ -60,6 +64,7 @@ interface DefaultBaseStream<T, S extends DefaultBaseStream<T, S>> extends AutoCl
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
+    @NonNull
     S parallel() throws RestException;
 
     /**
@@ -69,6 +74,7 @@ interface DefaultBaseStream<T, S extends DefaultBaseStream<T, S>> extends AutoCl
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
+    @NonNull
     S unordered() throws RestException;
 
     /**
@@ -78,7 +84,10 @@ interface DefaultBaseStream<T, S extends DefaultBaseStream<T, S>> extends AutoCl
      * @return S <p>the close return object is <code>S</code> type.</p>
      * @see java.lang.Runnable
      */
+    @NonNull
     S onClose(Runnable closeHandler);
+
+
 
     void close();
 
