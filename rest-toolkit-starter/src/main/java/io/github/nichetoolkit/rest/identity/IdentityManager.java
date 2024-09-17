@@ -100,7 +100,7 @@ public class IdentityManager implements ApplicationRunner {
         if (IdentityType.SERVER == identityProperties.getType()) {
             WorkerConfig workerConfig = workerConfig();
             OptionalUtils.nullable(workerConfig,"the worker config is parse error",IdentityWorkerException::new);
-            log.debug("worker config: {}", JsonUtils.parseJson(workerConfig));
+            log.debug("worker   configuration: {}", JsonUtils.parseJson(workerConfig));
             IdentityManager.config(workerConfig);
         }
     }

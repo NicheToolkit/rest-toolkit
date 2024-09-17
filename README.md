@@ -506,6 +506,7 @@ nichetoolkit.rest.http.http-type=ok_http_client
 |   `request-key`   |  `String`  |  `requestKey`  |    the request key of logback configuration.     |
 | `request-header`  |  `String`  | `X-Request-ID` | the request header key of logback configuration. |
 | `argument-length` | `Integer`  |     `1024`     |  the argument length of logback configuration.   |
+|  `prefix-length`  | `Integer`  |      `12`      |  the argument length of logback configuration.   |
 
 * properties
 
@@ -516,6 +517,7 @@ nichetoolkit.rest.logback.attributes=t
 nichetoolkit.rest.logback.request-key=requestKey
 nichetoolkit.rest.logback.request-header=X-Request-ID
 nichetoolkit.rest.logback.argument-length=1024
+nichetoolkit.rest.logback.prefix-length=12
 logging.config=classpath:logback-spring.xml
 logging.file.path=G:\\data\\server\\log
 ```
@@ -629,7 +631,7 @@ public class RestUsernoteService implements RestUsernoteAdvice {
 @RestNotelog(loggingKey = "logging", notelog = "rest notelog")
 @RequestMapping("/rest/logging")
 public class RestLoggingController {
-    
+
     @GetMapping("/test")
     @RestUserlog(loggingValue = "logging test", userlog = "rest userlog")
     public RestResult<?> test() throws RestException {
@@ -692,7 +694,7 @@ public class RestLoggingController {
 
 ## Test Example
 
-[rest-toolkit-test-web](https://github.com/NicheToolkit/rest-toolkit/tree/master/rest-toolkit-test-web)
+[rest-toolkit-example](https://github.com/NicheToolkit/rest-toolkit/tree/master/rest-toolkit-example)
 
 ## License
 

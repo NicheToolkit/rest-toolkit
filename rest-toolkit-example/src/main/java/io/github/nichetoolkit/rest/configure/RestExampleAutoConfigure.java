@@ -5,8 +5,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * <code>RestTestWebAutoConfigure</code>
- * <p>The type rest test web auto configure class.</p>
+ * <code>RestExampleAutoConfigure</code>
+ * <p>The type rest example auto configure class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
  * @see org.springframework.context.annotation.Configuration
@@ -18,12 +18,12 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @SuppressWarnings("SameNameButDifferent")
 @ComponentScan(basePackages = {"io.github.nichetoolkit.rest"})
-public class RestTestWebAutoConfigure {
+public class RestExampleAutoConfigure {
     /**
-     * <code>RestTestWebAutoConfigure</code>
-     * Instantiates a new rest test web auto configure.
+     * <code>RestExampleAutoConfigure</code>
+     * Instantiates a new rest example auto configure.
      */
-    public RestTestWebAutoConfigure() {
-        log.debug("================= rice-toolkit-test-web initiated ！ ===================");
+    public RestExampleAutoConfigure() {
+        log.debug("the auto configuration for [rest-example] initiated");
     }
 }

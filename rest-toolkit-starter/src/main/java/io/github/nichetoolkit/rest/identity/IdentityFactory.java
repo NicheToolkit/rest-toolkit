@@ -89,7 +89,7 @@ public class IdentityFactory {
      */
     @PostConstruct
     public void identityWorkerInit() {
-        log.debug("identity properties: {}", JsonUtils.parseJson(properties));
+        log.debug("identity   properties: {}", JsonUtils.parseJson(properties));
         IdentityType type = properties.getType();
 
         if (IdentityType.AUTO == type) {

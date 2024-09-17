@@ -79,7 +79,7 @@ public class ShaWorker {
      */
     @PostConstruct
     public void shaWorkerInit() {
-        log.debug("sha properties: {}", JsonUtils.parseJson(shaProperties));
+        log.debug("sha        properties: {}", JsonUtils.parseJson(shaProperties));
         INSTANCE = this;
     }
 

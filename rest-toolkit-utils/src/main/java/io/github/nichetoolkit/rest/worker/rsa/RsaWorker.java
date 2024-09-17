@@ -90,7 +90,7 @@ public class RsaWorker {
      */
     @PostConstruct
     public void rsaWorkerInit() {
-        log.debug("rsa properties: {}", JsonUtils.parseJson(this.rsaProperties));
+        log.debug("rsa        properties: {}", JsonUtils.parseJson(this.rsaProperties));
         INSTANCE = this;
     }
 
@@ -290,7 +290,6 @@ public class RsaWorker {
          * 所以需要先转换成PKCS1的私钥信息，才能输入进来 这里输入asn1Primitive也可以
          */
         RSAPrivateKey rsaPrivateKey = RSAPrivateKey.getInstance(privateKeyBytes);
-        log.info("the rsa private key version: {}", rsaPrivateKey.getVersion());
         /* 从私钥中获取公钥的指数 */
         BigInteger privateExponent = rsaPrivateKey.getPublicExponent();
         if (privateExponent == null) {

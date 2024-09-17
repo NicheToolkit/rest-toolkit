@@ -259,6 +259,13 @@
       "sourceType": "java.lang.Integer",
       "description": "`the argument length of logback configuration.",
       "defaultValue": 1024
+    },
+    {
+      "name": "nichetoolkit.rest.logback.prefix-length",
+      "type": "java.lang.Integer",
+      "sourceType": "java.lang.Integer",
+      "description": "`the prefix length of logback configuration.",
+      "defaultValue": 24
     }
   ],
   "hints": [

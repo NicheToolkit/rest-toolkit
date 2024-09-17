@@ -399,7 +399,7 @@ public class DefaultLoggingInterceptor implements AsyncHandlerInterceptor, RestR
                 restRequest.setBodyString(bodyString);
             } else {
                 restRequest.setBody("the request of content type without 'application/json' is ignored.");
-                log.debug("the request is not 'RestHttpRequest' type!");
+                log.warn("the request is not 'RestHttpRequest' type!");
             }
         }
     }

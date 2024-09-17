@@ -8,11 +8,11 @@
         <version>1.1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>rest-toolkit-test-web</artifactId>
+    <artifactId>rest-toolkit-example</artifactId>
     <version>1.1.0-SNAPSHOT</version>
-    <name>rest-toolkit-test-web</name>
+    <name>rest-toolkit-example</name>
     <packaging>jar</packaging>
-    <description>Rest toolkit test project for Spring Boot</description>
+    <description>Rest toolkit test example project for Spring Boot</description>
 
     <properties>
         <java.version>1.8</java.version>

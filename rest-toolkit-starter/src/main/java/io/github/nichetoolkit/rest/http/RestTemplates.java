@@ -147,7 +147,7 @@ public class RestTemplates {
             return emptyMap();
         }
         LinkedMultiValueMap<K, V> singletonMap = new LinkedMultiValueMap<>(paramsMap.size());
-        paramsMap.forEach(singletonMap::put);
+        singletonMap.putAll(paramsMap);
         return singletonMap;
     }
 
@@ -183,7 +183,7 @@ public class RestTemplates {
             return emptyMap();
         }
         LinkedMultiValueMap<K, V> singletonMap = new LinkedMultiValueMap<>();
-        paramsMap.forEach(singletonMap::put);
+        singletonMap.putAll(paramsMap);
         if (GeneralUtils.isNotEmpty(value)) {
             singletonMap.put(key, Collections.singletonList(value));
         }
@@ -229,10 +229,10 @@ public class RestTemplates {
         }
         LinkedMultiValueMap<K, V> singletonMap = new LinkedMultiValueMap<>();
         if (GeneralUtils.isNotEmpty(firstMap)) {
-            firstMap.forEach(singletonMap::put);
+            singletonMap.putAll(firstMap);
         }
         if (GeneralUtils.isNotEmpty(secondMap)) {
-            secondMap.forEach(singletonMap::put);
+            singletonMap.putAll(secondMap);
         }
         return singletonMap;
     }
@@ -253,10 +253,10 @@ public class RestTemplates {
         }
         LinkedMultiValueMap<K, List<V>> singletonMap = new LinkedMultiValueMap<>();
         if (GeneralUtils.isNotEmpty(firstMap)) {
-            firstMap.forEach(singletonMap::put);
+            singletonMap.putAll(firstMap);
         }
         if (GeneralUtils.isNotEmpty(secondMap)) {
-            secondMap.forEach(singletonMap::put);
+            singletonMap.putAll(secondMap);
         }
         return singletonMap;
     }
@@ -277,7 +277,7 @@ public class RestTemplates {
         }
         LinkedMultiValueMap<K, List<V>> singletonMap = new LinkedMultiValueMap<>();
         if (GeneralUtils.isNotEmpty(firstMap)) {
-            firstMap.forEach(singletonMap::put);
+            singletonMap.putAll(firstMap);
         }
         if (GeneralUtils.isNotEmpty(secondMap)) {
             secondMap.forEach(singletonMap::add);

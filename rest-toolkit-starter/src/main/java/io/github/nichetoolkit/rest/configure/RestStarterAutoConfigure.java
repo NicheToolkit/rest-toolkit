@@ -24,7 +24,7 @@ public class RestStarterAutoConfigure {
      * Instantiates a new rest starter auto configure.
      */
     public RestStarterAutoConfigure() {
-        log.debug("================= rest-toolkit-starter initiated ！ ===================");
+        log.debug("the auto configuration for [rest-starter] initiated");
     }
 
 }

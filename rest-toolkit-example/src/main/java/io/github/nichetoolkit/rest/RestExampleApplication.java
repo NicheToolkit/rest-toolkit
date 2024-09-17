@@ -7,8 +7,8 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.context.annotation.ComponentScan;
 
 /**
- * <code>RestTestApplication</code>
- * <p>The type rest test application class.</p>
+ * <code>RestExampleApplication</code>
+ * <p>The type rest example application class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see org.springframework.boot.web.servlet.support.SpringBootServletInitializer
  * @see org.springframework.boot.autoconfigure.SpringBootApplication
@@ -17,7 +17,7 @@ import org.springframework.context.annotation.ComponentScan;
  */
 @SpringBootApplication
 @ComponentScan(basePackages = "io.github.nichetoolkit")
-public class RestTestApplication extends SpringBootServletInitializer {
+public class RestExampleApplication extends SpringBootServletInitializer {
 
     /**
      * <code>main</code>
@@ -26,11 +26,11 @@ public class RestTestApplication extends SpringBootServletInitializer {
      * @see java.lang.String
      */
     public static void main(String[] args) {
-        SpringApplication.run(RestTestApplication.class, args);
+        SpringApplication.run(RestExampleApplication.class, args);
     }
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(RestTestApplication.class);
+        return application.sources(RestExampleApplication.class);
     }
 }

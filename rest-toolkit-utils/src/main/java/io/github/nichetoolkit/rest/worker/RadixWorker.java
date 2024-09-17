@@ -4,7 +4,6 @@ import io.github.nichetoolkit.rest.configure.RestRadixProperties;
 import io.github.nichetoolkit.rest.util.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.security.SecureRandom;
@@ -60,7 +59,7 @@ public class RadixWorker {
      */
     @PostConstruct
     public void radixWorkerInit() {
-        log.debug("radix properties: {}", JsonUtils.parseJson(radixProperties));
+        log.debug("radix      properties: {}", JsonUtils.parseJson(radixProperties));
         INSTANCE = this;
     }
 

@@ -66,6 +66,13 @@ public class RestLogbackProperties {
     private Integer argumentLength = 1024;
 
     /**
+     * <code>prefixLength</code>
+     * {@link java.lang.Integer} <p>the <code>prefixLength</code> field.</p>
+     * @see java.lang.Integer
+     */
+    private Integer prefixLength = 24;
+
+    /**
      * <code>getAttributes</code>
      * <p>the attributes getter method.</p>
      * @return {@link java.util.List} <p>the attributes return object is <code>List</code> type.</p>

@@ -110,7 +110,7 @@ public class RestHttpAutoConfigure {
      */
     @Autowired
     public RestHttpAutoConfigure(RestHttpProperties httpProperties, DefaultClientHttpInterceptor httpInterceptor, RestInterceptProperties interceptProperties) {
-        log.debug("================= http-auto-config initiated ！ ===================");
+        log.debug("the auto configuration for [rest-http] initiated");
         this.httpProperties = httpProperties;
         this.httpInterceptor = httpInterceptor;
         this.interceptProperties = interceptProperties;
@@ -129,7 +129,7 @@ public class RestHttpAutoConfigure {
     @Bean
     @ConditionalOnMissingBean(RestTemplates.class)
     public RestTemplates restTemplates(RestTemplate restTemplate) {
-        log.debug("http properties: {}", JsonUtils.parseJson(httpProperties));
+        log.debug("http       properties: {}", JsonUtils.parseJson(httpProperties));
         HttpClientType httpType = httpProperties.getHttpType();
         if (GeneralUtils.isNotEmpty(httpType)) {
             restTemplate = ContextUtils.getBean(httpType.getValue(), RestTemplate.class);
@@ -153,7 +153,7 @@ public class RestHttpAutoConfigure {
          * Instantiates a new default rest template auto configure.
          */
         public DefaultRestTemplateAutoConfigure() {
-            log.debug("================= default-rest-template-auto-config initiated ！ ===================");
+            log.debug("the auto configuration for [default] rest template initiated");
         }
 
         /**
@@ -181,9 +181,9 @@ public class RestHttpAutoConfigure {
         public SimpleClientHttpRequestFactory simpleClientHttpRequestFactory() {
             SimpleClientHttpRequestFactory simpleClientHttpRequestFactory = new SimpleClientHttpRequestFactory();
             simpleClientHttpRequestFactory.setConnectTimeout(httpProperties.getConnectTimeout());
-            /** 数据读取超时时间，即SocketTimeout */
+            /* 数据读取超时时间，即SocketTimeout */
             simpleClientHttpRequestFactory.setReadTimeout(httpProperties.getReadTimeout());
-            /** 从连接池获取请求连接的超时时间，不宜过长，必须设置，比如连接不够用时，时间过长将是灾难性的 */
+            /* 从连接池获取请求连接的超时时间，不宜过长，必须设置，比如连接不够用时，时间过长将是灾难性的 */
             Proxy proxy = httpProperties.getProxy().toProxy();
             if (GeneralUtils.isNotEmpty(proxy)) {
                 simpleClientHttpRequestFactory.setProxy(proxy);
@@ -215,7 +215,7 @@ public class RestHttpAutoConfigure {
          * Instantiates a new ok http rest template auto configure.
          */
         public OkHttpRestTemplateAutoConfigure() {
-            log.debug("================= okhttp3-rest-template-auto-config initiated ！ ===================");
+            log.debug("the auto configuration for [okHttp3] rest template initiated!");
         }
 
         /**
@@ -245,9 +245,9 @@ public class RestHttpAutoConfigure {
         public OkHttp3ClientHttpRequestFactory okHttp3ClientHttpRequestFactory(OkHttpClient okHttpClient) {
             OkHttp3ClientHttpRequestFactory okHttp3ClientHttpRequestFactory = new OkHttp3ClientHttpRequestFactory(okHttpClient);
             okHttp3ClientHttpRequestFactory.setConnectTimeout(httpProperties.getConnectTimeout());
-            /** 数据读取超时时间，即SocketTimeout */
+            /* 数据读取超时时间，即SocketTimeout */
             okHttp3ClientHttpRequestFactory.setReadTimeout(httpProperties.getReadTimeout());
-            /** 从连接池获取请求连接的超时时间，不宜过长，必须设置，比如连接不够用时，时间过长将是灾难性的 */
+            /* 从连接池获取请求连接的超时时间，不宜过长，必须设置，比如连接不够用时，时间过长将是灾难性的 */
             okHttp3ClientHttpRequestFactory.setWriteTimeout(httpProperties.getRequestTimeout());
             return okHttp3ClientHttpRequestFactory;
         }
@@ -281,7 +281,7 @@ public class RestHttpAutoConfigure {
                 okHttpClientBuilder.proxySelector(proxySelector);
                 return okHttpClientBuilder.build();
             } catch (KeyManagementException | NoSuchAlgorithmException exception) {
-                log.error("the http connection pool initiated with error, error: {}", exception.getMessage());
+                log.error("the http connection pool initiated with error: {}", exception.getMessage());
                 throw new HttpConfigError("the http connection pool initiated with error, error: " + exception.getMessage(), exception);
             }
         }
@@ -331,7 +331,7 @@ public class RestHttpAutoConfigure {
          * Instantiates a new http client rest template auto configure.
          */
         public HttpClientRestTemplateAutoConfigure() {
-            log.debug("================= http-client-rest-template-auto-config initiated ！ ===================");
+            log.debug("the auto configuration for [httpClient] rest template initiated!");
         }
 
         /**
@@ -361,9 +361,9 @@ public class RestHttpAutoConfigure {
         public HttpComponentsClientHttpRequestFactory httpComponentsClientHttpRequestFactory(HttpClient httpClient) {
             HttpComponentsClientHttpRequestFactory httpComponentsClientHttpRequestFactory = new HttpComponentsClientHttpRequestFactory(httpClient);
             httpComponentsClientHttpRequestFactory.setConnectTimeout(httpProperties.getConnectTimeout());
-            /** 数据读取超时时间，即SocketTimeout */
+            /* 数据读取超时时间，即SocketTimeout */
             httpComponentsClientHttpRequestFactory.setReadTimeout(httpProperties.getReadTimeout());
-            /** 从连接池获取请求连接的超时时间，不宜过长，必须设置，比如连接不够用时，时间过长将是灾难性的 */
+            /* 从连接池获取请求连接的超时时间，不宜过长，必须设置，比如连接不够用时，时间过长将是灾难性的 */
             httpComponentsClientHttpRequestFactory.setConnectionRequestTimeout(httpProperties.getRequestTimeout());
             return httpComponentsClientHttpRequestFactory;
         }
@@ -389,7 +389,7 @@ public class RestHttpAutoConfigure {
                 httpClientBuilder.setProxy(host);
             }
             try {
-                /** 设置信任ssl访问 */
+                /* 设置信任ssl访问 */
                 SSLContext sslContext = new SSLContextBuilder().loadTrustMaterial(null, (arg0, arg1) -> true).build();
                 sslContext.init(null, new TrustManager[]{x509TrustManager}, new SecureRandom());
                 httpClientBuilder.setSSLContext(sslContext);
@@ -397,23 +397,23 @@ public class RestHttpAutoConfigure {
                 HostnameVerifier hostnameVerifier = NoopHostnameVerifier.INSTANCE;
                 SSLConnectionSocketFactory sslConnectionSocketFactory = new SSLConnectionSocketFactory(sslContext, hostnameVerifier);
                 Registry<ConnectionSocketFactory> socketFactoryRegistry = RegistryBuilder.<ConnectionSocketFactory>create()
-                        /**  注册http和https请求 */
+                        /*  注册http和https请求 */
                         .register("http", PlainConnectionSocketFactory.getSocketFactory())
                         .register("https", sslConnectionSocketFactory).build();
 
-                /** 使用Httpclient连接池的方式配置(推荐)，同时支持netty，okHttp以及其他http框架 */
+                /* 使用Httpclient连接池的方式配置(推荐)，同时支持netty，okHttp以及其他http框架 */
                 PoolingHttpClientConnectionManager poolingHttpClientConnectionManager = new PoolingHttpClientConnectionManager(socketFactoryRegistry);
-                /** 最大连接数 */
+                /* 最大连接数 */
                 poolingHttpClientConnectionManager.setMaxTotal(httpProperties.getMaxCoreSize());
-                /** 同路由并发数 */
+                /* 同路由并发数 */
                 poolingHttpClientConnectionManager.setDefaultMaxPerRoute(httpProperties.getMaxIdleSize());
-                /** 配置连接池 */
+                /* 配置连接池 */
                 httpClientBuilder.setConnectionManager(poolingHttpClientConnectionManager);
-                /** 重试次数 */
+                /* 重试次数 */
                 httpClientBuilder.setRetryHandler(new DefaultHttpRequestRetryHandler(httpProperties.getRetryTimes(), true));
-                /** 设置默认请求头 */
+                /* 设置默认请求头 */
                 httpClientBuilder.setDefaultHeaders(getDefaultHeaders());
-                /** 设置长连接保持策略 */
+                /* 设置长连接保持策略 */
                 httpClientBuilder.setKeepAliveStrategy(connectionKeepAliveStrategy());
                 return httpClientBuilder.build();
             } catch (KeyManagementException | NoSuchAlgorithmException | KeyStoreException exception) {
@@ -458,22 +458,22 @@ public class RestHttpAutoConfigure {
                 HeaderElementIterator iterator = new BasicHeaderElementIterator(response.headerIterator(HTTP.CONN_KEEP_ALIVE));
                 while (iterator.hasNext()) {
                     HeaderElement headerElement = iterator.nextElement();
-                    log.debug("HeaderElement: {}", JsonUtils.parseJson(headerElement));
+                    log.debug("header         element: {}", JsonUtils.parseJson(headerElement));
                     String param = headerElement.getName();
                     String value = headerElement.getValue();
                     if (value != null && "timeout".equalsIgnoreCase(param)) {
                         try {
                             return Long.parseLong(value) * 1000;
                         } catch(NumberFormatException exception) {
-                            log.error("Parsing long connection expiration time exception!", exception);
+                            log.error("parsing long connection expiration time exception!", exception);
                         }
                     }
                 }
                 HttpHost target = (HttpHost) context.getAttribute(HttpClientContext.HTTP_TARGET_HOST);
-                /** 如果请求目标地址,单独配置了长连接保持时间,使用该配置 */
+                /* 如果请求目标地址,单独配置了长连接保持时间,使用该配置 */
                 Optional<Map.Entry<String, Integer>> any = Optional.ofNullable(httpProperties.getKeepAliveHosts()).orElseGet(HashMap::new)
                         .entrySet().stream().filter(entry -> entry.getKey().equalsIgnoreCase(target.getHostName())).findAny();
-                /** 否则使用默认长连接保持时间 */
+                /* 否则使用默认长连接保持时间 */
                 return any.map(en -> en.getValue() * 1000L).orElse(httpProperties.getKeepAliveTime());
             };
         }

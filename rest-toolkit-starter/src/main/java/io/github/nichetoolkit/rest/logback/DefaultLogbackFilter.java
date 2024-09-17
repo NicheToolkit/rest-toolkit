@@ -92,7 +92,7 @@ public class DefaultLogbackFilter extends OncePerRequestFilter {
             }
             String requestKey = logbackProperties.getRequestKey();
             String requestIdValue = getRequestId(httpRequest);
-            log.debug("request id: {}, request uri: {}", requestIdValue, request.getRequestURI());
+            log.debug("request-id: {}, request-uri: {}", requestIdValue, request.getRequestURI());
             MDC.put(requestKey, requestIdValue);
             try {
                 filterChain.doFilter(httpRequest, response);

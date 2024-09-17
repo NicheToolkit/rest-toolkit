@@ -54,7 +54,7 @@ public class RestInterceptAutoConfigure implements WebMvcConfigurer {
     @Autowired
     public RestInterceptAutoConfigure(DefaultLoggingInterceptor handlerInterceptor,
                                       RestInterceptProperties interceptProperties) {
-        log.debug("================= intercept-auto-config initiated ！ ===================");
+        log.debug("the auto configuration for [rest-intercept] initiated");
         this.handlerInterceptor = handlerInterceptor;
         this.interceptProperties = interceptProperties;
     }

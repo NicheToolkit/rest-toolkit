@@ -463,7 +463,6 @@ public class GeneralUtils {
             new BigInteger(value);
             return true;
         } catch (NumberFormatException exception) {
-            log.debug(" {} to convent BigInteger fail！", value);
             return false;
         }
     }
@@ -480,7 +479,6 @@ public class GeneralUtils {
             new BigDecimal(value);
             return true;
         } catch (NumberFormatException exception) {
-            log.debug(" {} to convent BigDecimal fail！", value);
             return false;
         }
     }
@@ -497,7 +495,6 @@ public class GeneralUtils {
             Integer.valueOf(value);
             return true;
         } catch (NumberFormatException exception) {
-            log.debug(" {} to convent integer fail！", value);
             return false;
         }
     }
@@ -514,7 +511,6 @@ public class GeneralUtils {
             Long.valueOf(value);
             return true;
         } catch (NumberFormatException exception) {
-            log.debug(" {} to convent long fail！", value);
             return false;
         }
     }
@@ -531,7 +527,6 @@ public class GeneralUtils {
             Double.valueOf(value);
             return true;
         } catch (NumberFormatException exception) {
-            log.debug(" {} to convent double fail！", value);
             return false;
         }
     }

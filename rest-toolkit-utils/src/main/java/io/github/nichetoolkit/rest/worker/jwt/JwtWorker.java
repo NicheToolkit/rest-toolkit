@@ -101,7 +101,7 @@ public class JwtWorker {
      */
     @PostConstruct
     public void jwtWorkerInit() {
-        log.debug("jwt properties: {}", JsonUtils.parseJson(this.jwtProperties));
+        log.debug("jwt        properties: {}", JsonUtils.parseJson(this.jwtProperties));
         INSTANCE = this;
     }
 

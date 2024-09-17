@@ -38,7 +38,7 @@ public abstract class RestLoggingKeyGenerator implements RestLoggingKeyAdvice, R
     @Override
     public String doLoggingKeyHandle(RestHttpRequest httpRequest) {
         String loggingKey = "";
-        int prefixLength = 24;
+        int prefixLength = logbackProperties.getPrefixLength();
         String accessToken = doAccessTokenHandle(httpRequest);
         if (GeneralUtils.isNotEmpty(accessToken)) {
             if (accessToken.length() > prefixLength) {
@@ -62,7 +62,7 @@ public abstract class RestLoggingKeyGenerator implements RestLoggingKeyAdvice, R
         if (GeneralUtils.isEmpty(attribute)) {
             attribute = IdentityUtils.generateString();
         }
-        loggingKey += attribute;
+        loggingKey += "-".concat(attribute);
         loggingKey = loggingKey.replaceAll("[=.]", "");
         return loggingKey;
     }

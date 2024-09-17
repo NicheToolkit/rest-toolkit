@@ -34,7 +34,7 @@ public class RestIdentityAutoConfigure {
      * Instantiates a new rest identity auto configure.
      */
     public RestIdentityAutoConfigure() {
-        log.debug("================= identity-auto-config initiated ！ ===================");
+        log.debug("the auto configuration for [rest-identity] initiated");
     }
 
     /**

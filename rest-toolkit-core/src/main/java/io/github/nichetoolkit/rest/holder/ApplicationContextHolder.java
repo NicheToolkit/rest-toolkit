@@ -38,7 +38,7 @@ public class ApplicationContextHolder implements ApplicationContextAware {
 
     @Override
     public void setApplicationContext(@NonNull ApplicationContext applicationContext) throws BeansException {
-        log.debug("the application context holder initiated!");
+        log.debug("the application context holder initiated");
         APPLICATION_CONTEXT = applicationContext;
     }
 

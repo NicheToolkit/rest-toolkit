@@ -28,7 +28,7 @@ public class RestCoreAutoConfigure {
      * Instantiates a new rest core auto configure.
      */
     public RestCoreAutoConfigure() {
-        log.debug("================= rest-toolkit-core initiated ！ ===================");
+        log.debug("the auto configuration for [rest-core] initiated");
     }
 
     /**
