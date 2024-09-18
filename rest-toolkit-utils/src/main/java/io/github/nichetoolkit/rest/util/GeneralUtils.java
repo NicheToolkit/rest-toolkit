@@ -28,7 +28,9 @@ public class GeneralUtils {
      * @param object {@link java.lang.Object} <p>the object parameter is <code>Object</code> type.</p>
      * @return boolean <p>the not empty return object is <code>boolean</code> type.</p>
      * @see java.lang.Object
+     * @see java.lang.SuppressWarnings
      */
+    @SuppressWarnings("Duplicates")
     public static boolean isNotEmpty(Object object) {
         if (object == null) {
             return false;
@@ -42,9 +44,9 @@ public class GeneralUtils {
             return Integer.parseInt(object.toString()) != 0;
         } else if (object instanceof Float) {
             return Float.parseFloat(object.toString()) != 0F;
-        }  else if (object instanceof Double) {
+        } else if (object instanceof Double) {
             return Double.parseDouble(object.toString()) != 0D;
-        }  else if (object instanceof Long) {
+        } else if (object instanceof Long) {
             return Long.parseLong(object.toString()) != 0L;
         } else if (object instanceof String) {
             return !((String) object).trim().isEmpty();
@@ -79,7 +81,9 @@ public class GeneralUtils {
      * @param object {@link java.lang.Object} <p>the object parameter is <code>Object</code> type.</p>
      * @return boolean <p>the valid return object is <code>boolean</code> type.</p>
      * @see java.lang.Object
+     * @see java.lang.SuppressWarnings
      */
+    @SuppressWarnings("Duplicates")
     public static boolean isValid(Object object) {
         if (object == null) {
             return false;
@@ -130,7 +134,9 @@ public class GeneralUtils {
      * @param object {@link java.lang.Object} <p>the object parameter is <code>Object</code> type.</p>
      * @return boolean <p>the empty return object is <code>boolean</code> type.</p>
      * @see java.lang.Object
+     * @see java.lang.SuppressWarnings
      */
+    @SuppressWarnings("Duplicates")
     public static boolean isEmpty(Object object) {
         if (object == null) {
             return true;
@@ -164,7 +170,7 @@ public class GeneralUtils {
             return ((Set<?>) object).isEmpty();
         } else if (object instanceof Map) {
             return ((Map<?, ?>) object).isEmpty();
-        }  else if (object instanceof Collection) {
+        } else if (object instanceof Collection) {
             return ((Collection<?>) object).isEmpty();
         } else if (object instanceof Iterator) {
             return !((Iterator<?>) object).hasNext();
@@ -181,7 +187,9 @@ public class GeneralUtils {
      * @param object {@link java.lang.Object} <p>the object parameter is <code>Object</code> type.</p>
      * @return boolean <p>the invalid return object is <code>boolean</code> type.</p>
      * @see java.lang.Object
+     * @see java.lang.SuppressWarnings
      */
+    @SuppressWarnings("Duplicates")
     public static boolean isInvalid(Object object) {
         if (object == null) {
             return true;
@@ -284,7 +292,7 @@ public class GeneralUtils {
      */
     public static BigDecimal transform(Long value, Long multiple) {
         if (GeneralUtils.isValid(value)) {
-            return BigDecimal.valueOf(value).divide(new BigDecimal(multiple),2, RoundingMode.HALF_UP);
+            return BigDecimal.valueOf(value).divide(new BigDecimal(multiple), 2, RoundingMode.HALF_UP);
         }
         return null;
     }
@@ -302,7 +310,7 @@ public class GeneralUtils {
      */
     public static BigDecimal transform(Long value, Long multiple, Integer scale) {
         if (GeneralUtils.isValid(value)) {
-            return BigDecimal.valueOf(value).divide(new BigDecimal(multiple),scale, RoundingMode.HALF_UP);
+            return BigDecimal.valueOf(value).divide(new BigDecimal(multiple), scale, RoundingMode.HALF_UP);
         }
         return null;
     }
@@ -554,6 +562,7 @@ public class GeneralUtils {
      * @see java.lang.String
      */
     public static String underline(String underline) {
+        if (isEmpty(underline)) return underline;
         final int size;
         final char[] chars;
         final StringBuilder stringBuilder = new StringBuilder(
@@ -565,6 +574,52 @@ public class GeneralUtils {
                 stringBuilder.append('_').append(Character.toLowerCase(character));
             } else {
                 stringBuilder.append(character);
+            }
+        }
+        return stringBuilder.charAt(0) == '_' ? stringBuilder.substring(1) : stringBuilder.toString();
+    }
+
+    /**
+     * <code>abbreviate</code>
+     * <p>the method.</p>
+     * @param abbreviate {@link java.lang.String} <p>the abbreviate parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
+    public static String abbreviate(String abbreviate) {
+        return abbreviate(abbreviate, 0, false);
+    }
+
+    /**
+     * <code>abbreviate</code>
+     * <p>the method.</p>
+     * @param abbreviate  {@link java.lang.String} <p>the abbreviate parameter is <code>String</code> type.</p>
+     * @param length      int <p>the length parameter is <code>int</code> type.</p>
+     * @param isUnderline boolean <p>the is underline parameter is <code>boolean</code> type.</p>
+     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
+    public static String abbreviate(String abbreviate, int length, boolean isUnderline) {
+        if (isEmpty(abbreviate)) return abbreviate;
+        if (length <= 0) length = abbreviate.length();
+        String firstCase = abbreviate.substring(0, 1);
+        String otherCase = abbreviate.substring(1);
+        abbreviate = firstCase.toUpperCase().concat(otherCase);
+        final int size;
+        final char[] chars;
+        final StringBuilder stringBuilder = new StringBuilder(
+                (size = (chars = abbreviate.toCharArray()).length) * 3 / 2 + 1);
+        char character;
+        int index = 0;
+        for (int i = 0; i < size && index != length; i++) {
+            character = chars[i];
+            if (Character.isUpperCase(character)) {
+                index++;
+                if (isUnderline) {
+                    stringBuilder.append('_').append(Character.toLowerCase(character));
+                } else {
+                    stringBuilder.append(Character.toLowerCase(character));
+                }
             }
         }
         return stringBuilder.charAt(0) == '_' ? stringBuilder.substring(1) : stringBuilder.toString();
