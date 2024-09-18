@@ -603,6 +603,14 @@ class ActuatorFunctionTest {
 
 #### Notelog & Userlog
 
+* default annotation
+
+|  annotation   |                  target                  |                         description                          |
+| :-----------: | :--------------------------------------: | :----------------------------------------------------------: |
+| `RestLogging` | `ElementType.METHOD`、`ElementType.TYPE` | the annotation is used to annotate `controller ` or `method` that need to mark `loggingKey` and `loggingValue`. |
+| `RestNotelog` |            `ElementType.TYPE`            | the annotation is used to annotate `controller` that need to mark `notelog`. |
+| `RestUserlog` |           `ElementType.METHOD`           | the annotation is used to annotate `controller` that need to mark `userlog`. |
+
 you can use `@RestLogging`、`@RestNotelog` and `@RestUserlog` to obtain infos (`request` 、`response `、`usernote`)
 freely .
 
@@ -622,7 +630,7 @@ public class RestUsernoteService implements RestUsernoteAdvice {
 }
 ```
 
-* Annotation usages
+* annotation usages
 
 ```java
 
@@ -640,11 +648,11 @@ public class RestLoggingController {
 }
 ```
 
-* Test request
+* test request
 
 > GET http://localhost:8080/rest/logging/test
 
-* Pack infos
+* pack infos
 
 > request pack
 
