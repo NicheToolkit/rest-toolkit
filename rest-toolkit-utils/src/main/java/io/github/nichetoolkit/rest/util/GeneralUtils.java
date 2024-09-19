@@ -24,7 +24,17 @@ import java.util.regex.Pattern;
 @Slf4j
 public class GeneralUtils {
 
+    /**
+     * <code>LINE_PATTERN</code>
+     * {@link java.util.regex.Pattern} <p>the constant <code>LINE_PATTERN</code> field.</p>
+     * @see java.util.regex.Pattern
+     */
     private static final Pattern LINE_PATTERN = Pattern.compile("_(\\w)");
+    /**
+     * <code>CAMEL_PATTERN</code>
+     * {@link java.util.regex.Pattern} <p>the constant <code>CAMEL_PATTERN</code> field.</p>
+     * @see java.util.regex.Pattern
+     */
     private static final Pattern CAMEL_PATTERN = Pattern.compile("[A-Z]");
 
     /**
@@ -559,6 +569,13 @@ public class GeneralUtils {
         return result.toString().toUpperCase();
     }
 
+    /**
+     * <code>lineToCamel</code>
+     * <p>the to camel method.</p>
+     * @param line {@link java.lang.String} <p>the line parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>the to camel return object is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
     public static String lineToCamel(String line) {
         line = line.toLowerCase();
         Matcher matcher = LINE_PATTERN.matcher(line);
@@ -571,6 +588,13 @@ public class GeneralUtils {
     }
 
 
+    /**
+     * <code>camelToLine</code>
+     * <p>the to line method.</p>
+     * @param camel {@link java.lang.String} <p>the camel parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>the to line return object is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
     public static String camelToLine(String camel) {
         Matcher matcher = CAMEL_PATTERN.matcher(camel);
         StringBuffer stringBuffer = new StringBuffer();
