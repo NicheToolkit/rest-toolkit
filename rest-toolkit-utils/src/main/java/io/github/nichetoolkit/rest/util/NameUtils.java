@@ -138,7 +138,7 @@ public class NameUtils {
      * @see java.lang.String
      */
     public static String buildAliasName(String name, String ext) {
-        String uuid = java.util.UUID.randomUUID().toString().replaceAll("-","");
+        String uuid = GeneralUtils.uuid().replaceAll("-","");
         return uuid + "_" + name + "." + ext;
     }
 

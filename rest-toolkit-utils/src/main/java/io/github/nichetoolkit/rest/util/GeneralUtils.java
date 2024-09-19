@@ -11,6 +11,8 @@ import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * <code>GeneralUtils</code>
@@ -21,6 +23,9 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 @Slf4j
 public class GeneralUtils {
+
+    private static final Pattern LINE_PATTERN = Pattern.compile("_(\\w)");
+    private static final Pattern CAMEL_PATTERN = Pattern.compile("[A-Z]");
 
     /**
      * <code>isNotEmpty</code>
@@ -554,6 +559,28 @@ public class GeneralUtils {
         return result.toString().toUpperCase();
     }
 
+    public static String lineToCamel(String line) {
+        line = line.toLowerCase();
+        Matcher matcher = LINE_PATTERN.matcher(line);
+        StringBuffer stringBuffer = new StringBuffer();
+        while (matcher.find()) {
+            matcher.appendReplacement(stringBuffer, matcher.group(1).toUpperCase());
+        }
+        matcher.appendTail(stringBuffer);
+        return stringBuffer.toString();
+    }
+
+
+    public static String camelToLine(String camel) {
+        Matcher matcher = CAMEL_PATTERN.matcher(camel);
+        StringBuffer stringBuffer = new StringBuffer();
+        while (matcher.find()) {
+            matcher.appendReplacement(stringBuffer, "_" + matcher.group(0).toLowerCase());
+        }
+        matcher.appendTail(stringBuffer);
+        return stringBuffer.toString();
+    }
+
     /**
      * <code>underline</code>
      * <p>the method.</p>
@@ -602,6 +629,9 @@ public class GeneralUtils {
     public static String abbreviate(String abbreviate, int length, boolean isUnderline) {
         if (isEmpty(abbreviate)) return abbreviate;
         if (length <= 0) length = abbreviate.length();
+        if (abbreviate.contains("_")) {
+            abbreviate = lineToCamel(abbreviate);
+        }
         String firstCase = abbreviate.substring(0, 1);
         String otherCase = abbreviate.substring(1);
         abbreviate = firstCase.toUpperCase().concat(otherCase);
