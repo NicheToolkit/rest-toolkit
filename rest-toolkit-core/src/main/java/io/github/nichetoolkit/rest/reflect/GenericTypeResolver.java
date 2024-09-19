@@ -1,41 +1,85 @@
-package io.github.nichetoolkit.rest.resolver;
+package io.github.nichetoolkit.rest.reflect;
 
 import java.lang.reflect.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 /**
- * <code>RestGenericTypeResolver</code>
- * <p>The type rest generic type resolver class.</p>
+ * <code>GenericTypeResolver</code>
+ * <p>The type generic type resolver class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
-public class RestGenericTypeResolver {
+public class GenericTypeResolver {
 
     /**
-     * <code>resolveType</code>
-     * <p>the type method.</p>
+     * <code>resolveFieldType</code>
+     * <p>the field type method.</p>
      * @param field   {@link java.lang.reflect.Field} <p>the field parameter is <code>Field</code> type.</p>
      * @param srcType {@link java.lang.reflect.Type} <p>the src type parameter is <code>Type</code> type.</p>
-     * @return {@link java.lang.reflect.Type} <p>the type return object is <code>Type</code> type.</p>
+     * @return {@link java.lang.reflect.Type} <p>the field type return object is <code>Type</code> type.</p>
      * @see java.lang.reflect.Field
      * @see java.lang.reflect.Type
      */
-    public static Type resolveType(Field field, Type srcType) {
+    public static Type resolveFieldType(Field field, Type srcType) {
         Type fieldType = field.getGenericType();
         Class<?> declaringClass = field.getDeclaringClass();
         return resolveType(fieldType, srcType, declaringClass);
     }
 
     /**
-     * <code>resolveClass</code>
-     * <p>the class method.</p>
+     * <code>resolveGenericTypes</code>
+     * <p>the generic types method.</p>
+     * @param srcType {@link java.lang.Class} <p>the src type parameter is <code>Class</code> type.</p>
+     * @return {@link java.lang.reflect.Type} <p>the generic types return object is <code>Type</code> type.</p>
+     * @see java.lang.Class
+     * @see java.lang.reflect.Type
+     */
+    public static Type[] resolveGenericTypes(Class<?> srcType) {
+        Type[] types = srcType.getGenericInterfaces();
+        List<Type> result = new ArrayList<>();
+        for (Type type : types) {
+            if (type instanceof Class) {
+                result.addAll(Arrays.asList(resolveGenericTypes((Class<?>) type)));
+            } else if (type instanceof ParameterizedType) {
+                Collections.addAll(result, ((ParameterizedType) type).getActualTypeArguments());
+            }
+        }
+        return result.toArray(new Type[]{});
+    }
+
+    /**
+     * <code>resolveMethodTypes</code>
+     * <p>the method types method.</p>
+     * @param method  {@link java.lang.reflect.Method} <p>the method parameter is <code>Method</code> type.</p>
+     * @param srcType {@link java.lang.reflect.Type} <p>the src type parameter is <code>Type</code> type.</p>
+     * @return {@link java.lang.reflect.Type} <p>the method types return object is <code>Type</code> type.</p>
+     * @see java.lang.reflect.Method
+     * @see java.lang.reflect.Type
+     */
+    public static Type[] resolveMethodTypes(Method method, Type srcType) {
+        Class<?> declaringClass = method.getDeclaringClass();
+        TypeVariable<? extends Class<?>>[] typeParameters = declaringClass.getTypeParameters();
+        Type[] result = new Type[typeParameters.length];
+        for (int i = 0; i < typeParameters.length; i++) {
+            result[i] = resolveType(typeParameters[i], srcType, declaringClass);
+        }
+        return result;
+    }
+
+    /**
+     * <code>resolveFieldClass</code>
+     * <p>the field class method.</p>
      * @param field   {@link java.lang.reflect.Field} <p>the field parameter is <code>Field</code> type.</p>
      * @param srcType {@link java.lang.reflect.Type} <p>the src type parameter is <code>Type</code> type.</p>
-     * @return {@link java.lang.Class} <p>the class return object is <code>Class</code> type.</p>
+     * @return {@link java.lang.Class} <p>the field class return object is <code>Class</code> type.</p>
      * @see java.lang.reflect.Field
      * @see java.lang.reflect.Type
      * @see java.lang.Class
      */
-    public static Class<?> resolveClass(Field field, Type srcType) {
+    public static Class<?> resolveFieldClass(Field field, Type srcType) {
         Type fieldType = field.getGenericType();
         Class<?> declaringClass = field.getDeclaringClass();
         Type type = resolveType(fieldType, srcType, declaringClass);

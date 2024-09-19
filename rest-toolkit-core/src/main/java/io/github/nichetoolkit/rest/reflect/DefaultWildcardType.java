@@ -1,4 +1,4 @@
-package io.github.nichetoolkit.rest.resolver;
+package io.github.nichetoolkit.rest.reflect;
 
 import java.lang.reflect.Type;
 import java.lang.reflect.WildcardType;
