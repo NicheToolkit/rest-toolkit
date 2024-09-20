@@ -29,6 +29,17 @@ public class GenericTypeResolver {
         return resolveType(fieldType, srcType, declaringClass);
     }
 
+    public static Type[] resolveSuperclassTypes(Class<?> srcType) {
+        Type type = srcType.getGenericSuperclass();
+        List<Type> result = new ArrayList<>();
+        if (type instanceof Class) {
+            result.addAll(Arrays.asList(resolveSuperclassTypes((Class<?>) type)));
+        } else if (type instanceof ParameterizedType) {
+            Collections.addAll(result, ((ParameterizedType) type).getActualTypeArguments());
+        }
+        return result.toArray(new Type[]{});
+    }
+
     /**
      * <code>resolveGenericTypes</code>
      * <p>the generic types method.</p>
@@ -37,12 +48,12 @@ public class GenericTypeResolver {
      * @see java.lang.Class
      * @see java.lang.reflect.Type
      */
-    public static Type[] resolveGenericTypes(Class<?> srcType) {
+    public static Type[] resolveInterfaceTypes(Class<?> srcType) {
         Type[] types = srcType.getGenericInterfaces();
         List<Type> result = new ArrayList<>();
         for (Type type : types) {
             if (type instanceof Class) {
-                result.addAll(Arrays.asList(resolveGenericTypes((Class<?>) type)));
+                result.addAll(Arrays.asList(resolveInterfaceTypes((Class<?>) type)));
             } else if (type instanceof ParameterizedType) {
                 Collections.addAll(result, ((ParameterizedType) type).getActualTypeArguments());
             }
