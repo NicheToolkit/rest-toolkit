@@ -1,6 +1,7 @@
 package io.github.nichetoolkit.rest.stream;
 
 import io.github.nichetoolkit.rest.RestException;
+import io.github.nichetoolkit.rest.RestOptional;
 import io.github.nichetoolkit.rest.actuator.*;
 import org.springframework.lang.NonNull;
 
@@ -428,7 +429,7 @@ public final class RestCollectors {
      * @see io.github.nichetoolkit.rest.actuator.ComparatorActuator
      * @see io.github.nichetoolkit.rest.RestException
      */
-    public static <T> RestCollector<T, ?, Optional<T>>
+    public static <T> RestCollector<T, ?, RestOptional<T>>
     minBy(ComparatorActuator<? super T> comparator) throws RestException {
         return reducing(BinaryOperatorActuator.minBy(comparator));
     }
@@ -443,7 +444,7 @@ public final class RestCollectors {
      * @see io.github.nichetoolkit.rest.actuator.ComparatorActuator
      * @see io.github.nichetoolkit.rest.RestException
      */
-    public static <T> RestCollector<T, ?, Optional<T>>
+    public static <T> RestCollector<T, ?, RestOptional<T>>
     maxBy(ComparatorActuator<? super T> comparator) throws RestException {
         return reducing(BinaryOperatorActuator.maxBy(comparator));
     }
@@ -528,9 +529,9 @@ public final class RestCollectors {
      * @see io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator
      * @see io.github.nichetoolkit.rest.RestException
      */
-    public static <T> RestCollector<T, ?, Optional<T>>
+    public static <T> RestCollector<T, ?, RestOptional<T>>
     reducing(BinaryOperatorActuator<T> op) throws RestException {
-        class OptionalBox implements ConsumerActuator<T> {
+        class RestOptionalBox implements ConsumerActuator<T> {
             T value = null;
             boolean present = false;
 
@@ -546,12 +547,12 @@ public final class RestCollectors {
         }
 
         return new CollectorImpl<>(
-                OptionalBox::new, OptionalBox::actuate,
+                RestOptionalBox::new, RestOptionalBox::actuate,
                 (a, b) -> {
                     if (b.present) a.actuate(b.value);
                     return a;
                 },
-                a -> Optional.ofNullable(a.value), CH_NOID);
+                a -> RestOptional.ofNullable(a.value), CH_NOID);
     }
 
     /**
