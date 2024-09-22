@@ -206,7 +206,7 @@ public class JwtBuilder {
      */
     public JWT toBean() {
         JWT jwt = new JWT();
-        BeanUtils.copyNonullProperties(this,jwt);
+        BeanUtils.copyNonnullProperties(this,jwt);
         return jwt;
     }
 

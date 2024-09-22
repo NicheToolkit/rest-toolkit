@@ -1,6 +1,7 @@
 package io.github.nichetoolkit.rest.stream;
 
 import io.github.nichetoolkit.rest.RestException;
+import io.github.nichetoolkit.rest.RestOptional;
 import io.github.nichetoolkit.rest.actuator.*;
 import org.springframework.lang.NonNull;
 
@@ -138,6 +139,7 @@ public interface RestStream<T> extends DefaultBaseStream<T, RestStream<T>> {
      * @return {@link java.lang.Object} <p>the array return object is <code>Object</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Object
+     * @see org.springframework.lang.NonNull
      * @see io.github.nichetoolkit.rest.RestException
      */
     @NonNull
@@ -151,6 +153,7 @@ public interface RestStream<T> extends DefaultBaseStream<T, RestStream<T>> {
      * @return A <p>the array return object is <code>A</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see java.util.function.IntFunction
+     * @see org.springframework.lang.NonNull
      * @see io.github.nichetoolkit.rest.RestException
      */
     @NonNull
@@ -172,14 +175,15 @@ public interface RestStream<T> extends DefaultBaseStream<T, RestStream<T>> {
      * <code>reduce</code>
      * <p>the method.</p>
      * @param accumulator {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>the accumulator parameter is <code>BinaryOperatorActuator</code> type.</p>
-     * @return {@link java.util.Optional} <p>the return object is <code>Optional</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>the return object is <code>RestOptional</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator
-     * @see java.util.Optional
+     * @see io.github.nichetoolkit.rest.RestOptional
+     * @see org.springframework.lang.NonNull
      * @see io.github.nichetoolkit.rest.RestException
      */
     @NonNull
-    Optional<T> reduce(BinaryOperatorActuator<T> accumulator) throws RestException;
+    RestOptional<T> reduce(BinaryOperatorActuator<T> accumulator) throws RestException;
 
     /**
      * <code>reduce</code>
@@ -232,27 +236,29 @@ public interface RestStream<T> extends DefaultBaseStream<T, RestStream<T>> {
      * <code>min</code>
      * <p>the method.</p>
      * @param comparator {@link io.github.nichetoolkit.rest.actuator.ComparatorActuator} <p>the comparator parameter is <code>ComparatorActuator</code> type.</p>
-     * @return {@link java.util.Optional} <p>the return object is <code>Optional</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>the return object is <code>RestOptional</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.ComparatorActuator
-     * @see java.util.Optional
+     * @see io.github.nichetoolkit.rest.RestOptional
+     * @see org.springframework.lang.NonNull
      * @see io.github.nichetoolkit.rest.RestException
      */
     @NonNull
-    Optional<T> min(ComparatorActuator<? super T> comparator) throws RestException;
+    RestOptional<T> min(ComparatorActuator<? super T> comparator) throws RestException;
 
     /**
      * <code>max</code>
      * <p>the method.</p>
      * @param comparator {@link io.github.nichetoolkit.rest.actuator.ComparatorActuator} <p>the comparator parameter is <code>ComparatorActuator</code> type.</p>
-     * @return {@link java.util.Optional} <p>the return object is <code>Optional</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>the return object is <code>RestOptional</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.ComparatorActuator
-     * @see java.util.Optional
+     * @see io.github.nichetoolkit.rest.RestOptional
+     * @see org.springframework.lang.NonNull
      * @see io.github.nichetoolkit.rest.RestException
      */
     @NonNull
-    Optional<T> max(ComparatorActuator<? super T> comparator) throws RestException;
+    RestOptional<T> max(ComparatorActuator<? super T> comparator) throws RestException;
 
     /**
      * <code>anyMatch</code>
@@ -290,24 +296,26 @@ public interface RestStream<T> extends DefaultBaseStream<T, RestStream<T>> {
     /**
      * <code>findFirst</code>
      * <p>the first method.</p>
-     * @return {@link java.util.Optional} <p>the first return object is <code>Optional</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>the first return object is <code>RestOptional</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
-     * @see java.util.Optional
+     * @see io.github.nichetoolkit.rest.RestOptional
+     * @see org.springframework.lang.NonNull
      * @see io.github.nichetoolkit.rest.RestException
      */
     @NonNull
-    Optional<T> findFirst() throws RestException;
+    RestOptional<T> findFirst() throws RestException;
 
     /**
      * <code>findAny</code>
      * <p>the any method.</p>
-     * @return {@link java.util.Optional} <p>the any return object is <code>Optional</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>the any return object is <code>RestOptional</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
-     * @see java.util.Optional
+     * @see io.github.nichetoolkit.rest.RestOptional
+     * @see org.springframework.lang.NonNull
      * @see io.github.nichetoolkit.rest.RestException
      */
     @NonNull
-    Optional<T> findAny() throws RestException;
+    RestOptional<T> findAny() throws RestException;
 
     /**
      * <code>builder</code>
@@ -328,6 +336,7 @@ public interface RestStream<T> extends DefaultBaseStream<T, RestStream<T>> {
      * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @return {@link io.github.nichetoolkit.rest.stream.RestStream} <p>the return object is <code>RestStream</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see org.springframework.lang.NonNull
      * @see io.github.nichetoolkit.rest.RestException
      */
     @NonNull
@@ -342,6 +351,7 @@ public interface RestStream<T> extends DefaultBaseStream<T, RestStream<T>> {
      * @param t   T <p>the t parameter is <code>T</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.stream.RestStream} <p>the return object is <code>RestStream</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see org.springframework.lang.NonNull
      * @see io.github.nichetoolkit.rest.RestException
      */
     @NonNull
@@ -356,6 +366,7 @@ public interface RestStream<T> extends DefaultBaseStream<T, RestStream<T>> {
      * @param values T <p>the values parameter is <code>T</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.stream.RestStream} <p>the return object is <code>RestStream</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see org.springframework.lang.NonNull
      * @see java.lang.SafeVarargs
      * @see java.lang.SuppressWarnings
      * @see io.github.nichetoolkit.rest.RestException
@@ -375,6 +386,7 @@ public interface RestStream<T> extends DefaultBaseStream<T, RestStream<T>> {
      * @return {@link io.github.nichetoolkit.rest.stream.RestStream} <p>the return object is <code>RestStream</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see java.util.Collection
+     * @see org.springframework.lang.NonNull
      * @see io.github.nichetoolkit.rest.RestException
      */
     @NonNull
@@ -390,6 +402,7 @@ public interface RestStream<T> extends DefaultBaseStream<T, RestStream<T>> {
      * @param array T <p>the array parameter is <code>T</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.stream.RestStream} <p>the return object is <code>RestStream</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see org.springframework.lang.NonNull
      * @see io.github.nichetoolkit.rest.RestException
      */
     @NonNull
@@ -406,6 +419,7 @@ public interface RestStream<T> extends DefaultBaseStream<T, RestStream<T>> {
      * @param endExclusive   int <p>the end exclusive parameter is <code>int</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.stream.RestStream} <p>the return object is <code>RestStream</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see org.springframework.lang.NonNull
      * @see io.github.nichetoolkit.rest.RestException
      */
     @NonNull
@@ -423,6 +437,7 @@ public interface RestStream<T> extends DefaultBaseStream<T, RestStream<T>> {
      * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the return object is <code>DefaultSpliterator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
+     * @see org.springframework.lang.NonNull
      * @see io.github.nichetoolkit.rest.RestException
      */
     @NonNull
@@ -440,6 +455,7 @@ public interface RestStream<T> extends DefaultBaseStream<T, RestStream<T>> {
      * @return {@link io.github.nichetoolkit.rest.stream.RestStream} <p>the return object is <code>RestStream</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see java.util.function.UnaryOperator
+     * @see org.springframework.lang.NonNull
      * @see io.github.nichetoolkit.rest.RestException
      */
     @NonNull
@@ -472,6 +488,7 @@ public interface RestStream<T> extends DefaultBaseStream<T, RestStream<T>> {
      * @return {@link io.github.nichetoolkit.rest.stream.RestStream} <p>the return object is <code>RestStream</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
+     * @see org.springframework.lang.NonNull
      * @see io.github.nichetoolkit.rest.RestException
      */
     @NonNull
@@ -489,6 +506,7 @@ public interface RestStream<T> extends DefaultBaseStream<T, RestStream<T>> {
      * @param b   {@link io.github.nichetoolkit.rest.stream.RestStream} <p>the b parameter is <code>RestStream</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.stream.RestStream} <p>the return object is <code>RestStream</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see org.springframework.lang.NonNull
      * @see io.github.nichetoolkit.rest.RestException
      */
     @NonNull

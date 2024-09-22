@@ -1,6 +1,7 @@
 package io.github.nichetoolkit.rest.stream;
 
 import io.github.nichetoolkit.rest.RestException;
+import io.github.nichetoolkit.rest.RestOptional;
 import io.github.nichetoolkit.rest.actuator.BiConsumerActuator;
 import io.github.nichetoolkit.rest.actuator.BiFunctionActuator;
 import io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator;
@@ -72,11 +73,11 @@ final class DefaultReduceOps {
      * @see io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator
      * @see io.github.nichetoolkit.rest.stream.DefaultTerminalOp
      */
-    public static <T> DefaultTerminalOp<T, Optional<T>>
+    public static <T> DefaultTerminalOp<T, RestOptional<T>>
     makeRef(BinaryOperatorActuator<T> operator) {
         Objects.requireNonNull(operator);
         class ReducingSink
-                implements AccumulatingSink<T, Optional<T>, ReducingSink> {
+                implements AccumulatingSink<T, RestOptional<T>, ReducingSink> {
             private boolean empty;
             private T state;
 
@@ -96,8 +97,8 @@ final class DefaultReduceOps {
             }
 
             @Override
-            public Optional<T> actuate() {
-                return empty ? Optional.empty() : Optional.of(state);
+            public RestOptional<T> actuate() {
+                return empty ? RestOptional.empty() : RestOptional.of(state);
             }
 
             @Override
@@ -106,7 +107,7 @@ final class DefaultReduceOps {
                     actuate(other.state);
             }
         }
-        return new ReduceOp<T, Optional<T>, ReducingSink>(DefaultStreamShape.REFERENCE) {
+        return new ReduceOp<T, RestOptional<T>, ReducingSink>(DefaultStreamShape.REFERENCE) {
             @Override
             public ReducingSink makeSink() {
                 return new ReducingSink();

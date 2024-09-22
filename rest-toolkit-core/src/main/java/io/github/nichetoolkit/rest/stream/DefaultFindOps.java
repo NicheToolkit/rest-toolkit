@@ -2,10 +2,9 @@
 package io.github.nichetoolkit.rest.stream;
 
 import io.github.nichetoolkit.rest.RestException;
+import io.github.nichetoolkit.rest.RestOptional;
 import io.github.nichetoolkit.rest.actuator.PredicateActuator;
 import io.github.nichetoolkit.rest.actuator.SupplierActuator;
-
-import java.util.*;
 
 /**
  * <code>DefaultFindOps</code>
@@ -30,9 +29,9 @@ final class DefaultFindOps {
      * @return {@link io.github.nichetoolkit.rest.stream.DefaultTerminalOp} <p>the ref return object is <code>DefaultTerminalOp</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultTerminalOp
      */
-    public static <T> DefaultTerminalOp<T, Optional<T>> makeRef(boolean mustFindFirst) {
-        return new FindOp<>(mustFindFirst, DefaultStreamShape.REFERENCE, Optional.empty(),
-                Optional::isPresent, FindSink.OfRef::new);
+    public static <T> DefaultTerminalOp<T, RestOptional<T>> makeRef(boolean mustFindFirst) {
+        return new FindOp<>(mustFindFirst, DefaultStreamShape.REFERENCE, RestOptional.empty(),
+                RestOptional::isNullPresent, FindSink.OfRef::new);
     }
 
 
@@ -171,11 +170,11 @@ final class DefaultFindOps {
          * @author Cyan (snow22314@outlook.com)
          * @since Jdk1.8
          */
-        static final class OfRef<T> extends DefaultFindOps.FindSink<T, Optional<T>> {
+        static final class OfRef<T> extends DefaultFindOps.FindSink<T, RestOptional<T>> {
 
             @Override
-            public Optional<T> actuate() {
-                return hasValue ? Optional.of(value) : Optional.empty();
+            public RestOptional<T> actuate() {
+                return hasValue ? RestOptional.of(value) : RestOptional.empty();
             }
         }
     }

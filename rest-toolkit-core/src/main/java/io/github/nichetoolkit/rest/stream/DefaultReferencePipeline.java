@@ -1,6 +1,7 @@
 package io.github.nichetoolkit.rest.stream;
 
 import io.github.nichetoolkit.rest.RestException;
+import io.github.nichetoolkit.rest.RestOptional;
 import io.github.nichetoolkit.rest.actuator.*;
 import org.springframework.lang.NonNull;
 
@@ -286,13 +287,13 @@ abstract class DefaultReferencePipeline<P_IN, P_OUT>
 
     @NonNull
     @Override
-    public final Optional<P_OUT> findFirst() throws RestException {
+    public final RestOptional<P_OUT> findFirst() throws RestException {
         return evaluate(DefaultFindOps.makeRef(true));
     }
 
     @NonNull
     @Override
-    public final Optional<P_OUT> findAny() throws RestException {
+    public final RestOptional<P_OUT> findAny() throws RestException {
         return evaluate(DefaultFindOps.makeRef(false));
     }
 
@@ -303,7 +304,7 @@ abstract class DefaultReferencePipeline<P_IN, P_OUT>
 
     @NonNull
     @Override
-    public final Optional<P_OUT> reduce(BinaryOperatorActuator<P_OUT> accumulator) throws RestException {
+    public final RestOptional<P_OUT> reduce(BinaryOperatorActuator<P_OUT> accumulator) throws RestException {
         return evaluate(DefaultReduceOps.makeRef(accumulator));
     }
 
@@ -339,13 +340,13 @@ abstract class DefaultReferencePipeline<P_IN, P_OUT>
 
     @NonNull
     @Override
-    public final Optional<P_OUT> max(ComparatorActuator<? super P_OUT> comparator) throws RestException {
+    public final RestOptional<P_OUT> max(ComparatorActuator<? super P_OUT> comparator) throws RestException {
         return reduce(BinaryOperatorActuator.maxBy(comparator));
     }
 
     @NonNull
     @Override
-    public final Optional<P_OUT> min(ComparatorActuator<? super P_OUT> comparator) throws RestException {
+    public final RestOptional<P_OUT> min(ComparatorActuator<? super P_OUT> comparator) throws RestException {
         return reduce(BinaryOperatorActuator.minBy(comparator));
 
     }
