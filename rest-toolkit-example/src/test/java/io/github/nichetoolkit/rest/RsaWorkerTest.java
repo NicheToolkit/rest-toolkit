@@ -1,6 +1,5 @@
 package io.github.nichetoolkit.rest;
 
-import io.github.nichetoolkit.rest.identity.IdentityUtils;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import io.github.nichetoolkit.rest.worker.rsa.RsaKey;
 import io.github.nichetoolkit.rest.worker.rsa.RsaWorker;

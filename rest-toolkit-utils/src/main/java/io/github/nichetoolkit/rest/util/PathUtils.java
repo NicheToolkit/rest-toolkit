@@ -1,6 +1,5 @@
 package io.github.nichetoolkit.rest.util;
 
-import io.github.nichetoolkit.rest.constant.UtilConstants;
 import org.springframework.util.ResourceUtils;
 
 import java.io.File;

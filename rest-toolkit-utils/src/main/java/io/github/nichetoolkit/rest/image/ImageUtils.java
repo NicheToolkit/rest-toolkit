@@ -1,6 +1,5 @@
 package io.github.nichetoolkit.rest.image;
 
-import io.github.nichetoolkit.rest.constant.UtilConstants;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 

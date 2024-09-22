@@ -247,22 +247,4 @@ public interface UtilConstants {
      * @see java.lang.String
      */
     String FILENAME_UTF_8_CONTENT= "attachment;filename*=UTF-8''";
-
-    /**
-     * <code>UUID_DIGITS</code>
-     * <p>the constant <code>UUID_DIGITS</code> field.</p>
-     */
-    byte[] UUID_DIGITS = {
-            '0', '1', '2', '3', '4', '5',
-            '6', '7', '8', '9', 'a', 'b',
-            'c', 'd', 'e', 'f', 'g', 'h',
-            'i', 'j', 'k', 'l', 'm', 'n',
-            'o', 'p', 'q', 'r', 's', 't',
-            'u', 'v', 'w', 'x', 'y', 'z',
-            'A', 'B', 'C', 'D', 'E', 'F',
-            'G', 'H', 'I', 'J', 'K', 'L',
-            'M', 'N', 'O', 'P', 'Q', 'R',
-            'S', 'T', 'U', 'V', 'W', 'X',
-            'Y', 'Z'
-    };
 }
