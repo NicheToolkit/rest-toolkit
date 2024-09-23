@@ -318,6 +318,20 @@ public interface RestStream<T> extends DefaultBaseStream<T, RestStream<T>> {
     RestOptional<T> findAny() throws RestException;
 
     /**
+     * <code>findAnyFirst</code>
+     * <p>the any first method.</p>
+     * @param predicate {@link io.github.nichetoolkit.rest.actuator.PredicateActuator} <p>the predicate parameter is <code>PredicateActuator</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>the any first return object is <code>RestOptional</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.actuator.PredicateActuator
+     * @see io.github.nichetoolkit.rest.RestOptional
+     * @see org.springframework.lang.NonNull
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    @NonNull
+    RestOptional<T> findAny(PredicateActuator<T> predicate) throws RestException;
+
+    /**
      * <code>builder</code>
      * <p>the method.</p>
      * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>

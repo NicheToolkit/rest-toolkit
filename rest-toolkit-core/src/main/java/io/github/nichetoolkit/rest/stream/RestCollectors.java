@@ -520,6 +520,73 @@ public final class RestCollectors {
     }
 
     /**
+     * <code>logicalAnd</code>
+     * <p>the and method.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the and return object is <code>RestCollector</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static RestCollector<Boolean, ?, Boolean> logicalAnd() throws RestException {
+        return logical(Boolean::logicalAnd);
+    }
+
+    /**
+     * <code>logicalOr</code>
+     * <p>the or method.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the or return object is <code>RestCollector</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static RestCollector<Boolean, ?, Boolean> logicalOr() throws RestException {
+        return logical(Boolean::logicalOr);
+    }
+
+    /**
+     * <code>logicalXor</code>
+     * <p>the xor method.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the xor return object is <code>RestCollector</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static RestCollector<Boolean, ?, Boolean> logicalXor() throws RestException {
+        return logical(Boolean::logicalXor);
+    }
+
+    /**
+     * <code>logical</code>
+     * <p>the method.</p>
+     * @param op {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>the op parameter is <code>BinaryOperatorActuator</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the return object is <code>RestCollector</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static RestCollector<Boolean, ?, Boolean> logical(BinaryOperatorActuator<Boolean> op) throws RestException {
+        class BooleanBox implements ConsumerActuator<Boolean> {
+            Boolean value = null;
+            boolean present = false;
+
+            @Override
+            public void actuate(Boolean t) throws RestException {
+                if (present) {
+                    value = op.actuate(value, t);
+                } else {
+                    value = t;
+                    present = true;
+                }
+            }
+        }
+
+        return new CollectorImpl<>(
+                BooleanBox::new, BooleanBox::actuate,
+                (a, b) -> {
+                    if (b.present) a.actuate(b.value);
+                    return a;
+                },
+                a -> a.value, CH_NOID);
+    }
+
+    /**
      * <code>reducing</code>
      * <p>the method.</p>
      * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>

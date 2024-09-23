@@ -115,6 +115,48 @@ final class DefaultReduceOps {
         };
     }
 
+    public static DefaultTerminalOp<Boolean, Boolean>
+    makeRef(BinaryOperatorActuator<Boolean> operator, Boolean defaultValue) {
+        Objects.requireNonNull(operator);
+        class BooleanSink
+                implements AccumulatingSink<Boolean, Boolean, BooleanSink> {
+            private boolean empty;
+            private Boolean state;
+
+            public void begin(long size) {
+                empty = true;
+                state = null;
+            }
+
+            @Override
+            public void actuate(Boolean t) throws RestException {
+                if (empty) {
+                    empty = false;
+                    state = t;
+                } else {
+                    state = operator.actuate(state, t);
+                }
+            }
+
+            @Override
+            public Boolean actuate() {
+                return empty ? defaultValue : state;
+            }
+
+            @Override
+            public void combine(BooleanSink other) throws RestException {
+                if (!other.empty)
+                    actuate(other.state);
+            }
+        }
+        return new ReduceOp<Boolean, Boolean, BooleanSink>(DefaultStreamShape.REFERENCE) {
+            @Override
+            public BooleanSink makeSink() {
+                return new BooleanSink();
+            }
+        };
+    }
+
     /**
      * <code>makeRef</code>
      * <p>the ref method.</p>

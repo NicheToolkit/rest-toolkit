@@ -297,6 +297,12 @@ abstract class DefaultReferencePipeline<P_IN, P_OUT>
         return evaluate(DefaultFindOps.makeRef(false));
     }
 
+    @NonNull
+    @Override
+    public final RestOptional<P_OUT> findAny(PredicateActuator<P_OUT> predicate) throws RestException {
+        return evaluate(DefaultFindOps.makeRef(predicate));
+    }
+
     @Override
     public final P_OUT reduce(final P_OUT identity, final BinaryOperatorActuator<P_OUT> accumulator) throws RestException {
         return evaluate(DefaultReduceOps.makeRef(identity, accumulator, accumulator));

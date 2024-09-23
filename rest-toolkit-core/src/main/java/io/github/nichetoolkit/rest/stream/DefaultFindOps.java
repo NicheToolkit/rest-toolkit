@@ -27,13 +27,58 @@ final class DefaultFindOps {
      * @param <T>           {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param mustFindFirst boolean <p>the must find first parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.stream.DefaultTerminalOp} <p>the ref return object is <code>DefaultTerminalOp</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultTerminalOp
+     * @see io.github.nichetoolkit.rest.RestException
      */
-    public static <T> DefaultTerminalOp<T, RestOptional<T>> makeRef(boolean mustFindFirst) {
+    public static <T> DefaultTerminalOp<T, RestOptional<T>> makeRef(boolean mustFindFirst) throws RestException {
         return new FindOp<>(mustFindFirst, DefaultStreamShape.REFERENCE, RestOptional.empty(),
                 RestOptional::isNullPresent, FindSink.OfRef::new);
     }
 
+    /**
+     * <code>makeRef</code>
+     * <p>the ref method.</p>
+     * @param <T>           {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param predicate     {@link io.github.nichetoolkit.rest.actuator.PredicateActuator} <p>the predicate parameter is <code>PredicateActuator</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultTerminalOp} <p>the ref return object is <code>DefaultTerminalOp</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.actuator.PredicateActuator
+     * @see io.github.nichetoolkit.rest.stream.DefaultTerminalOp
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static <T> DefaultTerminalOp<T, RestOptional<T>> makeRef(PredicateActuator<T> predicate) throws RestException {
+
+        class MatchSink extends DefaultFindOps.FindSink<T, RestOptional<T>> {
+
+            MatchSink() {
+                super();
+            }
+
+            @Override
+            public void actuate(T value) throws RestException {
+                if (!hasValue && predicate.actuate(value)) {
+                    hasValue = true;
+                    this.value = value;
+                }
+            }
+
+
+            @Override
+            public RestOptional<T> actuate() throws RestException {
+                return hasValue ? RestOptional.of(value) : RestOptional.empty();
+            }
+        }
+
+        return new FindOp<>(false, DefaultStreamShape.REFERENCE, RestOptional.empty(),
+                (RestOptional<T> t) -> {
+                    if (t.isNullPresent()) {
+                        return predicate.actuate(t.get());
+                    } else {
+                        return false;
+                    }
+                }, MatchSink::new);
+    }
 
     /**
      * <code>FindOp</code>
@@ -151,7 +196,7 @@ final class DefaultFindOps {
         } // Avoid creation of special accessor
 
         @Override
-        public void actuate(T value) {
+        public void actuate(T value) throws RestException {
             if (!hasValue) {
                 hasValue = true;
                 this.value = value;
