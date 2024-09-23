@@ -17,7 +17,7 @@ import java.util.regex.Pattern;
  * <code>GeneralUtils</code>
  * <p>The type general utils class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @see lombok.extern.slf4j.Slf4j
+ * @see Slf4j
  * @since Jdk1.8
  */
 @Slf4j
@@ -25,24 +25,24 @@ public class GeneralUtils {
 
     /**
      * <code>LINE_PATTERN</code>
-     * {@link java.util.regex.Pattern} <p>the constant <code>LINE_PATTERN</code> field.</p>
-     * @see java.util.regex.Pattern
+     * {@link Pattern} <p>the constant <code>LINE_PATTERN</code> field.</p>
+     * @see Pattern
      */
     private static final Pattern LINE_PATTERN = Pattern.compile("_(\\w)");
     /**
      * <code>CAMEL_PATTERN</code>
-     * {@link java.util.regex.Pattern} <p>the constant <code>CAMEL_PATTERN</code> field.</p>
-     * @see java.util.regex.Pattern
+     * {@link Pattern} <p>the constant <code>CAMEL_PATTERN</code> field.</p>
+     * @see Pattern
      */
     private static final Pattern CAMEL_PATTERN = Pattern.compile("[A-Z]");
 
     /**
      * <code>isNotEmpty</code>
      * <p>the not empty method.</p>
-     * @param object {@link java.lang.Object} <p>the object parameter is <code>Object</code> type.</p>
+     * @param object {@link Object} <p>the object parameter is <code>Object</code> type.</p>
      * @return boolean <p>the not empty return object is <code>boolean</code> type.</p>
-     * @see java.lang.Object
-     * @see java.lang.SuppressWarnings
+     * @see Object
+     * @see Object
      */
     @SuppressWarnings("Duplicates")
     public static boolean isNotEmpty(Object object) {
@@ -62,16 +62,20 @@ public class GeneralUtils {
             return Double.parseDouble(object.toString()) != 0D;
         } else if (object instanceof Long) {
             return Long.parseLong(object.toString()) != 0L;
-        } else if (object instanceof String) {
-            return !((String) object).trim().isEmpty();
-        } else if (object instanceof StringBuffer) {
-            return !((StringBuffer) object).toString().trim().isEmpty();
-        } else if (object instanceof Boolean) {
-            return true;
         } else if (object instanceof BigInteger) {
             return ((BigInteger) object).compareTo(BigInteger.ZERO) != 0;
         } else if (object instanceof BigDecimal) {
             return ((BigDecimal) object).compareTo(BigDecimal.ZERO) != 0;
+        } else if (object instanceof Number) {
+            return ((Number) object).longValue() != 0L;
+        } else if (object instanceof Boolean) {
+            return true;
+        } else if (object instanceof String) {
+            return !((String) object).trim().isEmpty();
+        } else if (object instanceof StringBuffer) {
+            return !((StringBuffer) object).toString().trim().isEmpty();
+        } else if (object instanceof StringBuilder) {
+            return !((StringBuilder) object).toString().trim().isEmpty();
         } else if (object instanceof List) {
             return !((List<?>) object).isEmpty();
         } else if (object instanceof Set) {
@@ -92,10 +96,10 @@ public class GeneralUtils {
     /**
      * <code>isValid</code>
      * <p>the valid method.</p>
-     * @param object {@link java.lang.Object} <p>the object parameter is <code>Object</code> type.</p>
+     * @param object {@link Object} <p>the object parameter is <code>Object</code> type.</p>
      * @return boolean <p>the valid return object is <code>boolean</code> type.</p>
-     * @see java.lang.Object
-     * @see java.lang.SuppressWarnings
+     * @see Object
+     * @see Object
      */
     @SuppressWarnings("Duplicates")
     public static boolean isValid(Object object) {
@@ -115,16 +119,20 @@ public class GeneralUtils {
 //            return true;
 //        } else if (object instanceof Long) {
 //            return true;
-        } else if (object instanceof String) {
-            return !((String) object).trim().isEmpty();
-        } else if (object instanceof StringBuffer) {
-            return !((StringBuffer) object).toString().trim().isEmpty();
-//        } else if (object instanceof Boolean) {
-//            return true;
 //        } else if (object instanceof BigInteger) {
 //            return true;
 //        } else if (object instanceof BigDecimal) {
 //            return true;
+//        } else if (object instanceof Number) {
+//            return true;
+//        } else if (object instanceof Boolean) {
+//            return true;
+        } else if (object instanceof String) {
+            return !((String) object).trim().isEmpty();
+        } else if (object instanceof StringBuffer) {
+            return !((StringBuffer) object).toString().trim().isEmpty();
+        } else if (object instanceof StringBuilder) {
+            return !((StringBuilder) object).toString().trim().isEmpty();
         } else if (object instanceof List) {
             return !((List<?>) object).isEmpty();
         } else if (object instanceof Set) {
@@ -145,10 +153,10 @@ public class GeneralUtils {
     /**
      * <code>isEmpty</code>
      * <p>the empty method.</p>
-     * @param object {@link java.lang.Object} <p>the object parameter is <code>Object</code> type.</p>
+     * @param object {@link Object} <p>the object parameter is <code>Object</code> type.</p>
      * @return boolean <p>the empty return object is <code>boolean</code> type.</p>
-     * @see java.lang.Object
-     * @see java.lang.SuppressWarnings
+     * @see Object
+     * @see Object
      */
     @SuppressWarnings("Duplicates")
     public static boolean isEmpty(Object object) {
@@ -168,16 +176,20 @@ public class GeneralUtils {
             return Double.parseDouble(object.toString()) == 0D;
         } else if (object instanceof Long) {
             return Long.parseLong(object.toString()) == 0L;
-        } else if (object instanceof String) {
-            return ((String) object).trim().isEmpty();
-        } else if (object instanceof StringBuffer) {
-            return ((StringBuffer) object).toString().trim().isEmpty();
-        } else if (object instanceof Boolean) {
-            return false;
         } else if (object instanceof BigInteger) {
             return ((BigInteger) object).compareTo(BigInteger.ZERO) == 0;
         } else if (object instanceof BigDecimal) {
             return ((BigDecimal) object).compareTo(BigDecimal.ZERO) == 0;
+        } else if (object instanceof Number) {
+            return ((Number) object).longValue() == 0L;
+        } else if (object instanceof Boolean) {
+            return false;
+        } else if (object instanceof String) {
+            return ((String) object).trim().isEmpty();
+        } else if (object instanceof StringBuffer) {
+            return ((StringBuffer) object).toString().trim().isEmpty();
+        } else if (object instanceof StringBuilder) {
+            return ((StringBuilder) object).toString().trim().isEmpty();
         } else if (object instanceof List) {
             return ((List<?>) object).isEmpty();
         } else if (object instanceof Set) {
@@ -198,10 +210,10 @@ public class GeneralUtils {
     /**
      * <code>isInvalid</code>
      * <p>the invalid method.</p>
-     * @param object {@link java.lang.Object} <p>the object parameter is <code>Object</code> type.</p>
+     * @param object {@link Object} <p>the object parameter is <code>Object</code> type.</p>
      * @return boolean <p>the invalid return object is <code>boolean</code> type.</p>
-     * @see java.lang.Object
-     * @see java.lang.SuppressWarnings
+     * @see Object
+     * @see Object
      */
     @SuppressWarnings("Duplicates")
     public static boolean isInvalid(Object object) {
@@ -221,16 +233,20 @@ public class GeneralUtils {
 //            return false;
 //        } else if (object instanceof Long) {
 //            return false;
-        } else if (object instanceof String) {
-            return ((String) object).trim().isEmpty();
-        } else if (object instanceof StringBuffer) {
-            return ((StringBuffer) object).toString().trim().isEmpty();
-//        } else if (object instanceof Boolean) {
-//            return false;
 //        } else if (object instanceof BigInteger) {
 //            return false;
 //        } else if (object instanceof BigDecimal) {
 //            return false;
+//        } else if (object instanceof Number) {
+//            return false;
+//        } else if (object instanceof Boolean) {
+//            return false;
+        } else if (object instanceof String) {
+            return ((String) object).trim().isEmpty();
+        } else if (object instanceof StringBuffer) {
+            return ((StringBuffer) object).toString().trim().isEmpty();
+        } else if (object instanceof StringBuilder) {
+            return ((StringBuilder) object).toString().trim().isEmpty();
         } else if (object instanceof List) {
             return ((List<?>) object).isEmpty();
         } else if (object instanceof Set) {
@@ -252,8 +268,8 @@ public class GeneralUtils {
      * <code>randomHex</code>
      * <p>the hex method.</p>
      * @param size int <p>the size parameter is <code>int</code> type.</p>
-     * @return {@link java.lang.String} <p>the hex return object is <code>String</code> type.</p>
-     * @see java.lang.String
+     * @return {@link String} <p>the hex return object is <code>String</code> type.</p>
+     * @see String
      */
     public static String randomHex(int size) {
         StringBuilder result = new StringBuilder();
@@ -266,9 +282,9 @@ public class GeneralUtils {
     /**
      * <code>lineToCamel</code>
      * <p>the to camel method.</p>
-     * @param line {@link java.lang.String} <p>the line parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>the to camel return object is <code>String</code> type.</p>
-     * @see java.lang.String
+     * @param line {@link String} <p>the line parameter is <code>String</code> type.</p>
+     * @return {@link String} <p>the to camel return object is <code>String</code> type.</p>
+     * @see String
      */
     public static String lineToCamel(String line) {
         line = line.toLowerCase();
@@ -285,9 +301,9 @@ public class GeneralUtils {
     /**
      * <code>camelToLine</code>
      * <p>the to line method.</p>
-     * @param camel {@link java.lang.String} <p>the camel parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>the to line return object is <code>String</code> type.</p>
-     * @see java.lang.String
+     * @param camel {@link String} <p>the camel parameter is <code>String</code> type.</p>
+     * @return {@link String} <p>the to line return object is <code>String</code> type.</p>
+     * @see String
      */
     public static String camelToLine(String camel) {
         Matcher matcher = CAMEL_PATTERN.matcher(camel);
@@ -302,9 +318,9 @@ public class GeneralUtils {
     /**
      * <code>underline</code>
      * <p>the method.</p>
-     * @param underline {@link java.lang.String} <p>the underline parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
-     * @see java.lang.String
+     * @param underline {@link String} <p>the underline parameter is <code>String</code> type.</p>
+     * @return {@link String} <p>the return object is <code>String</code> type.</p>
+     * @see String
      */
     public static String underline(String underline) {
         if (isEmpty(underline)) return underline;
@@ -327,9 +343,9 @@ public class GeneralUtils {
     /**
      * <code>abbreviate</code>
      * <p>the method.</p>
-     * @param abbreviate {@link java.lang.String} <p>the abbreviate parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
-     * @see java.lang.String
+     * @param abbreviate {@link String} <p>the abbreviate parameter is <code>String</code> type.</p>
+     * @return {@link String} <p>the return object is <code>String</code> type.</p>
+     * @see String
      */
     public static String abbreviate(String abbreviate) {
         return abbreviate(abbreviate, 0, false);
@@ -338,11 +354,11 @@ public class GeneralUtils {
     /**
      * <code>abbreviate</code>
      * <p>the method.</p>
-     * @param abbreviate  {@link java.lang.String} <p>the abbreviate parameter is <code>String</code> type.</p>
+     * @param abbreviate  {@link String} <p>the abbreviate parameter is <code>String</code> type.</p>
      * @param length      int <p>the length parameter is <code>int</code> type.</p>
      * @param isUnderline boolean <p>the is underline parameter is <code>boolean</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
-     * @see java.lang.String
+     * @return {@link String} <p>the return object is <code>String</code> type.</p>
+     * @see String
      */
     public static String abbreviate(String abbreviate, int length, boolean isUnderline) {
         if (isEmpty(abbreviate)) return abbreviate;
@@ -376,8 +392,8 @@ public class GeneralUtils {
     /**
      * <code>uuid</code>
      * <p>the method.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
-     * @see java.lang.String
+     * @return {@link String} <p>the return object is <code>String</code> type.</p>
+     * @see String
      */
     public static String uuid() {
         ThreadLocalRandom random = ThreadLocalRandom.current();
