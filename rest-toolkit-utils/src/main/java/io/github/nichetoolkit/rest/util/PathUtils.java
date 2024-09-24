@@ -40,6 +40,7 @@ public class PathUtils {
      * @return {@link java.lang.String} <p>the child path return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     public static String getChildPath(final String childName) {
         String rootPath = getRootPath();
         String staticPath = UtilConstants.STATIC_PREFIX.concat(File.separator).concat(childName).concat(File.separator);

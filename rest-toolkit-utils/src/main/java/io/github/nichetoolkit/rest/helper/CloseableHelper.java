@@ -19,12 +19,12 @@ public class CloseableHelper {
     /**
      * <code>close</code>
      * <p>the method.</p>
-     * @param closeables {@link java.io.Closeable} <p>the closeables parameter is <code>Closeable</code> type.</p>
+     * @param close {@link java.io.Closeable} <p>the close parameter is <code>Closeable</code> type.</p>
      * @see java.io.Closeable
      */
-    public static void close(Closeable... closeables) {
-        if (GeneralUtils.isNotEmpty(closeables)) {
-            for (Closeable closeable : closeables) {
+    public static void close(Closeable... close) {
+        if (GeneralUtils.isNotEmpty(close)) {
+            for (Closeable closeable : close) {
                 close(closeable);
             }
         }

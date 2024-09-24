@@ -2,6 +2,7 @@ package io.github.nichetoolkit.rest;
 
 import io.github.nichetoolkit.rest.configure.RestExceptionProperties;
 import io.github.nichetoolkit.rest.holder.ApplicationContextHolder;
+import io.github.nichetoolkit.rest.util.GeneralUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.InitializingBean;
@@ -23,9 +24,6 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.util.Collections;
 import java.util.List;
 
@@ -170,36 +168,16 @@ public class DefaultControllerAdvice implements ResponseBodyAdvice<Object>, Appl
             doRestExceptionHandle(restException, request, response);
             boolean restExceptionEnabled = exceptionProperties.getConsoleLog().getRestExceptionEnabled();
             if (restExceptionEnabled) {
-                printStackTrace(exception);
+                GeneralUtils.printStackTrace(log,exception,true);
             }
             return ResponseEntity.ok(restException.buildResult());
         } else {
             doExceptionHandle(exception, request, response);
             boolean commonExceptionEnabled = exceptionProperties.getConsoleLog().getCommonExceptionEnabled();
             if (commonExceptionEnabled) {
-                printStackTrace(exception);
+                GeneralUtils.printStackTrace(log,exception,true);
             }
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(RestResult.mistake(RestErrorStatus.UNKNOWN_ERROR, exception));
-        }
-    }
-
-    /**
-     * <code>printStackTrace</code>
-     * <p>the stack trace method.</p>
-     * @param exception {@link java.lang.Exception} <p>the exception parameter is <code>Exception</code> type.</p>
-     * @see java.lang.Exception
-     */
-    private void printStackTrace(Exception exception) {
-        try (StringWriter stringWriter = new StringWriter();
-             PrintWriter printWriter = new PrintWriter(stringWriter)) {
-            exception.printStackTrace(printWriter);
-            String stackTrace = stringWriter.toString();
-            StackTraceElement stackTraceElement = exception.getStackTrace()[0];
-            Integer line = stackTraceElement.getLineNumber();
-            String resource = stackTraceElement.getClassName();
-            String errorClass = exception.getClass().getName();
-            log.error("{} [{}] {}: {} \n{}", resource, line, errorClass, exception.getMessage(), stackTrace);
-        } catch (IOException ignored) {
         }
     }
 

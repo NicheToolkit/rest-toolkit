@@ -1,6 +1,5 @@
 package io.github.nichetoolkit.rest.identity.error;
 
-
 import io.github.nichetoolkit.rest.identity.IdentityErrorStatus;
 import io.github.nichetoolkit.rest.RestError;
 import io.github.nichetoolkit.rest.RestStatus;

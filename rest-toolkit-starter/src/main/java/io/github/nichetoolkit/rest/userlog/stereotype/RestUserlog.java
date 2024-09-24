@@ -1,6 +1,5 @@
 package io.github.nichetoolkit.rest.userlog.stereotype;
 
-import io.github.nichetoolkit.rest.stereotype.StereoKey;
 import io.github.nichetoolkit.rest.userlog.LoggingType;
 import org.springframework.core.annotation.AliasFor;
 import org.springframework.stereotype.Indexed;

@@ -81,9 +81,13 @@ public class PasswordWorker {
      * <p>the length quest method.</p>
      * @return boolean <p>the length quest return object is <code>boolean</code> type.</p>
      */
-    public boolean mustLengthQuest() {
-        /** 密码长度 8-16位 */
-        return this.length >= 8 && this.length <= 16;
+    public boolean lengthQuest() {
+        return lengthQuest(8,16);
+    }
+
+    public boolean lengthQuest(int min, int max) {
+        /* 密码长度 8-16位 */
+        return this.length >= min && this.length <= max;
     }
 
     /**
@@ -91,8 +95,7 @@ public class PasswordWorker {
      * <p>the content quest method.</p>
      * @return boolean <p>the content quest return object is <code>boolean</code> type.</p>
      */
-    public boolean mustContentQuest() {
-        /** 包含 大小写字母 数字*/
+    public boolean contentQuest() {
         return (getUpperSize() + getLowerSize()) > 0 && getNumSize() > 0;
     }
 

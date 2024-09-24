@@ -32,7 +32,7 @@ public class DeserializeUtils {
             return DeserializeHelper.deserializerBean(parser);
         } catch (JsonDeserializeException exception) {
             log.error("It is failed during json to deserialize as map of bean fields!  {}", exception.getMessage());
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
         }
         return Collections.emptyMap();
     }
@@ -50,7 +50,7 @@ public class DeserializeUtils {
             return DeserializeHelper.deserializerList(parser);
         } catch (JsonDeserializeException exception) {
             log.error("It is failed during json to deserialize as list of bean! {}", exception.getMessage());
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
         }
         return Collections.emptyList();
     }
@@ -68,7 +68,7 @@ public class DeserializeUtils {
             return DeserializeHelper.deserializerBeanList(parser);
         } catch (JsonDeserializeException exception) {
             log.error("It is failed during json to deserialize as list map of bean fields! {}", exception.getMessage());
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
         }
         return Collections.emptyList();
 
@@ -88,7 +88,7 @@ public class DeserializeUtils {
             return DeserializeHelper.deserializerMap(parser);
         } catch (JsonDeserializeException exception) {
             log.error("It is failed during json to deserialize as map of bean! {}", exception.getMessage());
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
         }
         return Collections.emptyMap();
     }
@@ -107,7 +107,7 @@ public class DeserializeUtils {
             return DeserializeHelper.deserializerBeanMap(parser);
         } catch (JsonDeserializeException exception) {
             log.error("It is failed during json to deserialize as map map of bean fields! {}", exception.getMessage());
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
         }
         return Collections.emptyMap();
     }

@@ -33,6 +33,7 @@ public interface RestAlgorithm<A> extends RestValue<Integer, String> {
      * @return T <p>the algorithm return object is <code>T</code> type.</p>
      * @see java.lang.Class
      */
+    @SuppressWarnings("Duplicates")
     static <A,T extends RestAlgorithm<A>> T parseAlgorithm(Class<T> clazz, A algorithm) {
         if (algorithm != null && clazz.isEnum()) {
             Map<A,T> valueEnumMap = Stream.of(clazz.getEnumConstants()).collect(Collectors.toMap(RestAlgorithm::getAlgorithm, Function.identity(),(oldValue,newValue) -> newValue, HashMap::new));

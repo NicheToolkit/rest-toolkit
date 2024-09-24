@@ -34,7 +34,7 @@ public class DateUtils {
         try {
             return DateHelper.formatDate(date);
         } catch (ResourceNotFoundException exception) {
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
             log.error("date format date has error！date: {}，format: {}，error: {}", date.toString(), DateConstants.DATE_FORMAT_10, exception.getMessage());
             return null;
         }
@@ -52,7 +52,7 @@ public class DateUtils {
         try {
             return DateHelper.formatTime(time);
         } catch (ResourceNotFoundException exception) {
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
             log.error("date format time has error！time: {}，format: {}，error: {}", time.toString(), DateConstants.DATE_FORMAT_19, exception.getMessage());
             return null;
         }
@@ -70,7 +70,7 @@ public class DateUtils {
         try {
             return DateHelper.formatDate(date);
         } catch (ResourceNotFoundException exception) {
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
             log.error("date format date has error! date: {}，format: {}，error: {}", date.toString(), DateConstants.DATE_FORMAT_10, exception.getMessage());
             return null;
         }
@@ -89,7 +89,7 @@ public class DateUtils {
         try {
             return DateHelper.formatTime(time);
         } catch (ResourceNotFoundException exception) {
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
             log.error("date format time has error! time: {}，format: {}，error: {}", time.toString(), DateConstants.DATE_FORMAT_19, exception.getMessage());
             return null;
         }
@@ -108,7 +108,7 @@ public class DateUtils {
         try {
             return DateHelper.format(date, format);
         } catch (ResourceNotFoundException exception) {
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
             log.error("date format has error！date: {}，format: {}，error: {}", date.toString(), format, exception.getMessage());
             return null;
         }
@@ -126,7 +126,7 @@ public class DateUtils {
         try {
             return DateHelper.parseDate(date);
         } catch (ParseErrorException | ResourceNotFoundException exception) {
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
             log.error("date parse date has error！date: {}，format: {}，error: {}", date, DateConstants.DATE_FORMAT_10, exception.getMessage());
             return null;
         }
@@ -147,7 +147,7 @@ public class DateUtils {
         try {
             return DateHelper.parseDateTime(datetime);
         } catch (ParseErrorException | ResourceNotFoundException exception) {
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
             log.error("date parse date time has error！time: {}，format: {}，error: {}", datetime, DateConstants.DATE_FORMAT_19, exception.getMessage());
             return null;
         }
@@ -165,7 +165,7 @@ public class DateUtils {
         try {
             return DateHelper.parseTime(time);
         } catch (ParseErrorException | ResourceNotFoundException exception) {
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
             log.error("date parse time has error！time: {}，format: {}，error: {}", time, DateConstants.DATE_FORMAT_19, exception.getMessage());
             return null;
         }
@@ -184,7 +184,7 @@ public class DateUtils {
         try {
             return DateHelper.parse(datetime, format);
         } catch (ParseErrorException | ResourceNotFoundException exception) {
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
             log.error("date parse has error！date time: {}，format: {}，error: {}", datetime, format, exception.getMessage());
             return null;
         }

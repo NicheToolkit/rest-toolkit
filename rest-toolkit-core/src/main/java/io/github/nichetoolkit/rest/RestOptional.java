@@ -6,6 +6,10 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.NoSuchElementException;
 import java.util.Objects;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 /**
  * <code>RestOptional</code>
@@ -148,12 +152,21 @@ public final class RestOptional<T> {
     }
 
     /**
+     * <code>isPresent</code>
+     * <p>the present method.</p>
+     * @return boolean <p>the present return object is <code>boolean</code> type.</p>
+     */
+    public boolean isPresent() {
+        return isNullPresent();
+    }
+
+    /**
      * <code>isNullPresent</code>
      * <p>the null present method.</p>
      * @return boolean <p>the null present return object is <code>boolean</code> type.</p>
      */
     public boolean isNullPresent() {
-        return value == null;
+        return GeneralUtils.isNull(value);
     }
 
     /**
@@ -162,7 +175,7 @@ public final class RestOptional<T> {
      * @return boolean <p>the empty present return object is <code>boolean</code> type.</p>
      */
     public boolean isEmptyPresent() {
-        return !GeneralUtils.isNotEmpty(value);
+        return GeneralUtils.isEmpty(value);
     }
 
     /**
@@ -171,7 +184,18 @@ public final class RestOptional<T> {
      * @return boolean <p>the valid present return object is <code>boolean</code> type.</p>
      */
     public boolean isValidPresent() {
-        return !GeneralUtils.isValid(value);
+        return GeneralUtils.isInvalid(value);
+    }
+
+    /**
+     * <code>ifPresent</code>
+     * <p>the present method.</p>
+     * @param consumer {@link java.util.function.Consumer} <p>the consumer parameter is <code>Consumer</code> type.</p>
+     * @see java.util.function.Consumer
+     */
+    public void ifPresent(Consumer<? super T> consumer) {
+        if (GeneralUtils.isNotNull(value))
+            consumer.accept(value);
     }
 
     /**
@@ -183,7 +207,7 @@ public final class RestOptional<T> {
      * @see io.github.nichetoolkit.rest.RestException
      */
     public void ifNullPresent(ConsumerActuator<? super T> consumer) throws RestException {
-        if (value != null)
+        if (GeneralUtils.isNotNull(value))
             consumer.actuate(value);
     }
 
@@ -213,6 +237,20 @@ public final class RestOptional<T> {
             consumer.actuate(value);
     }
 
+    /**
+     * <code>filter</code>
+     * <p>the method.</p>
+     * @param predicate {@link java.util.function.Predicate} <p>the predicate parameter is <code>Predicate</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>the return object is <code>RestOptional</code> type.</p>
+     * @see java.util.function.Predicate
+     */
+    public RestOptional<T> filter(Predicate<? super T> predicate) {
+        Objects.requireNonNull(predicate);
+        if (isPresent())
+            return this;
+        else
+            return predicate.test(value) ? this : empty();
+    }
 
     /**
      * <code>nullFilter</code>
@@ -263,6 +301,23 @@ public final class RestOptional<T> {
             return this;
         else
             return predicate.actuate(value) ? this : empty();
+    }
+
+    /**
+     * <code>map</code>
+     * <p>the method.</p>
+     * @param <U>    {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param mapper {@link java.util.function.Function} <p>the mapper parameter is <code>Function</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>the return object is <code>RestOptional</code> type.</p>
+     * @see java.util.function.Function
+     */
+    public <U> RestOptional<U> map(Function<? super T, ? extends U> mapper) {
+        Objects.requireNonNull(mapper);
+        if (isPresent())
+            return empty();
+        else {
+            return RestOptional.ofNullable(mapper.apply(value));
+        }
     }
 
     /**
@@ -323,6 +378,23 @@ public final class RestOptional<T> {
     }
 
     /**
+     * <code>flatMap</code>
+     * <p>the map method.</p>
+     * @param <U>    {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param mapper {@link java.util.function.Function} <p>the mapper parameter is <code>Function</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>the map return object is <code>RestOptional</code> type.</p>
+     * @see java.util.function.Function
+     */
+    public <U> RestOptional<U> flatMap(Function<? super T, RestOptional<U>> mapper) {
+        Objects.requireNonNull(mapper);
+        if (isPresent())
+            return empty();
+        else {
+            return Objects.requireNonNull(mapper.apply(value));
+        }
+    }
+
+    /**
      * <code>nullFlatMap</code>
      * <p>the flat map method.</p>
      * @param <U>    {@link java.lang.Object} <p>the parameter can be of any type.</p>
@@ -379,6 +451,17 @@ public final class RestOptional<T> {
         }
     }
 
+
+    /**
+     * <code>orElse</code>
+     * <p>the else method.</p>
+     * @param other T <p>the other parameter is <code>T</code> type.</p>
+     * @return T <p>the else return object is <code>T</code> type.</p>
+     */
+    public T orElse(T other) {
+        return value != null ? value : other;
+    }
+
     /**
      * <code>nullElse</code>
      * <p>the else method.</p>
@@ -410,6 +493,17 @@ public final class RestOptional<T> {
     }
 
     /**
+     * <code>orElseGet</code>
+     * <p>the else get method.</p>
+     * @param other {@link java.util.function.Supplier} <p>the other parameter is <code>Supplier</code> type.</p>
+     * @return T <p>the else get return object is <code>T</code> type.</p>
+     * @see java.util.function.Supplier
+     */
+    public T orElseGet(Supplier<? extends T> other) {
+        return value != null ? value : other.get();
+    }
+
+    /**
      * <code>nullElseGet</code>
      * <p>the else get method.</p>
      * @param other {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>the other parameter is <code>SupplierActuator</code> type.</p>
@@ -419,7 +513,7 @@ public final class RestOptional<T> {
      * @see io.github.nichetoolkit.rest.RestException
      */
     public T nullElseGet(SupplierActuator<? extends T> other) throws RestException {
-        return value != null ? value : other.actuate();
+        return GeneralUtils.isNotNull(value) ? value : other.actuate();
     }
 
     /**
@@ -448,6 +542,24 @@ public final class RestOptional<T> {
         return GeneralUtils.isValid(value) ? value : other.actuate();
     }
 
+    /**
+     * <code>orElseThrow</code>
+     * <p>the else throw method.</p>
+     * @param <X>       {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
+     * @param exception {@link java.util.function.Supplier} <p>the exception parameter is <code>Supplier</code> type.</p>
+     * @return T <p>the else throw return object is <code>T</code> type.</p>
+     * @throws X X <p>the x is <code>X</code> type.</p>
+     * @see java.lang.Throwable
+     * @see java.util.function.Supplier
+     * @see X
+     */
+    public <X extends Throwable> T orElseThrow(Supplier<? extends X> exception) throws X {
+        if (value != null) {
+            return value;
+        } else {
+            throw exception.get();
+        }
+    }
 
     /**
      * <code>nullElseThrow</code>

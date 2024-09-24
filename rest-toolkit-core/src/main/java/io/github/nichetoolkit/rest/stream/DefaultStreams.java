@@ -17,7 +17,6 @@ public final class DefaultStreams {
      * <code>DefaultStreams</code>
      * Instantiates a new default streams.
      */
-    /* copy form jdk Streams  */
     private DefaultStreams() {
         throw new Error("no instances");
     }
@@ -224,6 +223,7 @@ public final class DefaultStreams {
         }
 
         @Override
+        @SuppressWarnings("Duplicates")
         public boolean tryAdvance(ConsumerActuator<? super T> consumer) throws RestException {
             boolean hasNext;
             if (beforeSplit) {
@@ -247,8 +247,6 @@ public final class DefaultStreams {
         @Override
         public long estimateSize() throws RestException {
             if (beforeSplit) {
-                // If one or both estimates are Long.MAX_VALUE then the sum
-                // will either be Long.MAX_VALUE or overflow to a negative value
                 long size = aSpliterator.estimateSize() + bSpliterator.estimateSize();
                 return (size >= 0) ? size : Long.MAX_VALUE;
             } else {
@@ -322,6 +320,7 @@ public final class DefaultStreams {
             }
 
             @Override
+            @SuppressWarnings("Duplicates")
             public boolean tryAdvance(T_CONS action) throws RestException {
                 boolean hasNext;
                 if (beforeSplit) {

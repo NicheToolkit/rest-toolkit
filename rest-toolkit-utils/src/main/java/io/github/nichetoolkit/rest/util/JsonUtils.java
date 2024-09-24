@@ -46,7 +46,7 @@ public class JsonUtils {
             return JsonHelper.parseJson(target);
         } catch (JsonParseException exception) {
             log.error("It is failed during bean to parse as json! {}", exception.getMessage());
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
             return null;
         }
     }
@@ -65,8 +65,8 @@ public class JsonUtils {
         try {
             return JsonHelper.parseJson(target,typeReference);
         } catch (JsonParseException exception) {
-            log.error("It is failed during bean to parse as json! {}", exception.getMessage());
-            exception.printStackTrace();
+            log.error("It is failed during bean to parse as json with type reference! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
             return null;
         }
     }
@@ -84,7 +84,7 @@ public class JsonUtils {
             return JsonHelper.parseJsonIgnoreNull(target);
         } catch (JsonParseException exception) {
             log.error("It is failed during bean to parse as json with ignoring null! {}", exception.getMessage());
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
             return null;
         }
     }
@@ -103,8 +103,8 @@ public class JsonUtils {
         try {
             return JsonHelper.parseBean(json, clazz);
         } catch (JsonParseBeanException exception) {
-            log.error("It is failed during json to parse as bean! {}", exception.getMessage());
-            exception.printStackTrace();
+            log.error("It is failed during json to parse as bean with class type! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
             return null;
         }
     }
@@ -124,8 +124,8 @@ public class JsonUtils {
         try {
             return JsonHelper.parseBean(json, typeReference);
         } catch (JsonParseBeanException exception) {
-            log.error("It is failed during json to parse as bean! {}", exception.getMessage());
-            exception.printStackTrace();
+            log.error("It is failed during json to parse as bean with type reference! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
             return null;
         }
     }
@@ -145,7 +145,7 @@ public class JsonUtils {
             return JsonHelper.parseBean(json, javaType);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as bean! {}", exception.getMessage());
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
             return null;
         }
     }
@@ -167,7 +167,7 @@ public class JsonUtils {
             return JsonHelper.parseBean(json, clazz, innerClazz);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as bean<E>! {}", exception.getMessage());
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
             return null;
         }
     }
@@ -187,8 +187,8 @@ public class JsonUtils {
         try {
             return JsonHelper.parseList(json, listType);
         } catch (JsonParseListException exception) {
-            log.error("It is failed during json to parse as list of collection! {}", exception.getMessage());
-            exception.printStackTrace();
+            log.error("It is failed during json to parse as list of collection with collection type! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
             return Collections.emptyList();
         }
     }
@@ -209,7 +209,7 @@ public class JsonUtils {
             return JsonHelper.parseList(json, typeReference);
         } catch (JsonParseListException exception) {
             log.error("It is failed during json to parse as list of collection! {}", exception.getMessage());
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
             return Collections.emptyList();
         }
     }
@@ -262,8 +262,8 @@ public class JsonUtils {
         try {
             return JsonHelper.parseSet(json, setType);
         } catch (JsonParseSetException exception) {
-            log.error("It is failed during json to parse as set of collection! {}", exception.getMessage());
-            exception.printStackTrace();
+            log.error("It is failed during json to parse as set of collection with collection type! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
             return Collections.emptySet();
         }
     }
@@ -284,7 +284,7 @@ public class JsonUtils {
             return JsonHelper.parseSet(json, typeReference);
         } catch (JsonParseSetException exception) {
             log.error("It is failed during json to parse as set of collection! {}", exception.getMessage());
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
             return Collections.emptySet();
         }
     }
@@ -339,7 +339,7 @@ public class JsonUtils {
             return JsonHelper.parseMap(json, mapType);
         } catch (JsonParseMapException exception) {
             log.error("It is failed during json to parse as map of bean! {}", exception.getMessage(),exception);
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
             return Collections.emptyMap();
         }
     }
@@ -361,7 +361,7 @@ public class JsonUtils {
             return JsonHelper.parseMap(json, typeReference);
         } catch (JsonParseMapException exception) {
             log.error("It is failed during json to parse as map of bean! {}", exception.getMessage());
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
             return Collections.emptyMap();
         }
     }
@@ -381,8 +381,8 @@ public class JsonUtils {
         try {
             return JsonHelper.parseArray(json, arrayType);
         } catch (JsonParseListException exception) {
-            log.error("It is failed during json to parse as array of bean! {}", exception.getMessage());
-            exception.printStackTrace();
+            log.error("It is failed during json to parse as array of bean with array type! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
             return null;
         }
     }
@@ -402,7 +402,7 @@ public class JsonUtils {
             return JsonHelper.parseArray(json, typeReference);
         } catch (JsonParseListException exception) {
             log.error("It is failed during json to parse as array of bean! {}", exception.getMessage());
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
             return null;
         }
     }
@@ -609,7 +609,7 @@ public class JsonUtils {
             return JsonHelper.parseResult(json, parametricType);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as type reference result of restResult! {}", exception.getMessage());
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
             return null;
         }
     }
@@ -630,7 +630,7 @@ public class JsonUtils {
             return JsonHelper.parseResult(json, javaType);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as java type result of restResult! {}", exception.getMessage());
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
             return null;
         }
     }
@@ -651,7 +651,7 @@ public class JsonUtils {
             return JsonHelper.parseResult(json, clazz);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as clazz result of restResult! {}", exception.getMessage());
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
             return null;
         }
     }
@@ -669,7 +669,7 @@ public class JsonUtils {
             return JsonHelper.parseResult(json);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as result of restResult! {}", exception.getMessage());
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
             return null;
         }
     }
@@ -689,7 +689,7 @@ public class JsonUtils {
             return JsonHelper.parseConvert(value, clazz);
         } catch (ClassUnsupportedException exception) {
             log.error("It is failed during object to convert as clazz of bean! {}", exception.getMessage());
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
             return null;
         }
     }

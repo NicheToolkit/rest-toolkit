@@ -66,6 +66,7 @@ abstract class DefaultAbstractShortCircuitTask<P_IN, P_OUT, R,
     protected abstract R getEmptyResult();
 
     @Override
+    @SuppressWarnings("Duplicates")
     public void computes() throws RestException {
         DefaultSpliterator<P_IN> rs = spliterator, ls;
         long sizeEstimate = rs.estimateSize();

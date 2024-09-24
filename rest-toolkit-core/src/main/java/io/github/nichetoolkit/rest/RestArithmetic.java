@@ -32,6 +32,7 @@ public interface RestArithmetic<A> extends RestValue<Long, String> {
      * @return T <p>the arithmetic return object is <code>T</code> type.</p>
      * @see java.lang.Class
      */
+    @SuppressWarnings("Duplicates")
     static <A,T extends RestArithmetic<A>> T parseArithmetic(Class<T> clazz, A arithmetic) {
         if (arithmetic != null && clazz.isEnum()) {
             Map<A,T> valueEnumMap = Stream.of(clazz.getEnumConstants()).collect(Collectors.toMap(RestArithmetic::getArithmetic, Function.identity(),(oldValue,newValue) -> newValue, HashMap::new));

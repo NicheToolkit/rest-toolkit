@@ -66,7 +66,7 @@ public class BeanUtils {
      * @param <T>    {@link java.lang.Object} <p>the parameter can be of any type.</p>
      * @param source S <p>the source parameter is <code>S</code> type.</p>
      * @param target T <p>the target parameter is <code>T</code> type.</p>
-     * @return T <p>the nonull properties return object is <code>T</code> type.</p>
+     * @return T <p>the nonnull properties return object is <code>T</code> type.</p>
      */
     public static <S,T> T copyNonnullProperties(S source, T target) {
         org.springframework.beans.BeanUtils.copyProperties(source, target,ignoreProperties(source));

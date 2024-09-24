@@ -175,7 +175,7 @@ public class ShaWorker {
             if("v".equals(key)){
                 continue;
             }
-            if (source.get(key) != null && source.get(key).toString().trim().length() > 0) {
+            if (source.get(key) != null && !source.get(key).toString().trim().isEmpty()) {
                 keyBuilder.append(key).append("=").append(source.get(key).toString().trim()).append("&");
             }
         }

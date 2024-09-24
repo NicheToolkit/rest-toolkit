@@ -43,7 +43,7 @@ public class FileUtils {
             return FileHelper.createFile(path);
         } catch (FileCreateException exception) {
             log.error("It is failed during creating file !", exception);
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
         }
         return null;
     }
@@ -62,7 +62,7 @@ public class FileUtils {
             return FileHelper.createFile(path,name);
         } catch (FileCreateException exception) {
             log.error("It is failed during creating file!", exception);
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
         }
         return null;
     }
@@ -82,7 +82,7 @@ public class FileUtils {
             return FileHelper.createFile(path, nameMap);
         } catch (FileCreateException exception) {
             log.error("It is failed during creating file with nameMap!", exception);
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
         }
         return null;
     }
@@ -102,7 +102,7 @@ public class FileUtils {
             return FileHelper.createFile(path,name,ext);
         } catch (FileCreateException exception) {
             log.error("It is failed during creating file!", exception);
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
         }
         return null;
     }
@@ -119,7 +119,7 @@ public class FileUtils {
             return FileHelper.createFile(file);
         } catch (FileCreateException exception) {
             log.error("It is failed during creating of file!", exception);
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
         }
         return null;
     }
@@ -136,7 +136,7 @@ public class FileUtils {
             FileHelper.copyFile(srcFile, targetFile);
         } catch (FileCopyException exception) {
             log.error("It is failed during copying of file!", exception);
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
         }
     }
 
@@ -215,6 +215,7 @@ public class FileUtils {
      * @return {@link java.lang.String} <p>the path return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     public static String createPath(final String path) {
         File filePath = new File(path);
         if (!filePath.exists()) {
@@ -231,6 +232,7 @@ public class FileUtils {
      * @return {@link java.lang.String} <p>the path return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     public static String createPath(final String path,final String child) {
         File allPath = new File(path, child);
         if (!allPath.exists()) {
@@ -279,6 +281,7 @@ public class FileUtils {
      * @param path {@link java.lang.String} <p>the path parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     public static void delete(final String path) {
         File file = new File(path);
         if (file.exists()) {
@@ -292,6 +295,7 @@ public class FileUtils {
      * @param file {@link java.io.File} <p>the file parameter is <code>File</code> type.</p>
      * @see java.io.File
      */
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     public static void delete(final File file) {
         if (file.isFile()) {
             file.delete();
@@ -305,6 +309,7 @@ public class FileUtils {
      * @param data byte <p>the data parameter is <code>byte</code> type.</p>
      * @see java.io.File
      */
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     public static void write(final File file, byte[] data) {
         if (!file.exists()) {
             file.getParentFile().mkdirs();
@@ -313,7 +318,7 @@ public class FileUtils {
             fileOutputStream.write(data);
             fileOutputStream.flush();
         } catch (IOException exception) {
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
             log.error(exception.getMessage(), exception);
         }
     }
@@ -325,6 +330,7 @@ public class FileUtils {
      * @return byte <p>the return object is <code>byte</code> type.</p>
      * @see java.io.File
      */
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     public static byte[] read(final File file) {
         long fileLength = file.length();
         byte[] fileContent = new byte[(int) fileLength];
@@ -450,7 +456,7 @@ public class FileUtils {
             }
 
         } catch (IOException exception) {
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
             log.error(exception.getMessage(), exception);
         }
     }

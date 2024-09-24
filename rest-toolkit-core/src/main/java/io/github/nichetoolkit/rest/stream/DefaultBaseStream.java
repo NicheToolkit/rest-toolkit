@@ -14,6 +14,7 @@ import java.util.Iterator;
  * @see java.lang.AutoCloseable
  * @since Jdk1.8
  */
+@SuppressWarnings("resource")
 interface DefaultBaseStream<T, S extends DefaultBaseStream<T, S>> extends AutoCloseable {
 
     /**

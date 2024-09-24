@@ -28,7 +28,7 @@ import java.util.Optional;
  * @since Jdk1.8
  */
 @Slf4j
-@SuppressWarnings({"TypeParameterUnusedInFormals","SameNameButDifferent"})
+@SuppressWarnings({"TypeParameterUnusedInFormals","SameNameButDifferent","rawtypes"})
 public class RestResults {
 
     /**
@@ -5569,10 +5569,10 @@ public class RestResults {
     public static void checkEntitySuccess(ResponseEntity responseEntity, String resource) throws RestException {
         if (responseEntity.getStatusCode() != HttpStatus.OK) {
             if (GeneralUtils.isNotEmpty(resource)) {
-                log.error("the response entity is failed! resource: {}, status: {}, message: {}, ", resource, responseEntity.getStatusCodeValue(), responseEntity.toString());
+                log.error("the response entity is failed! resource: {}, status: {}, message: {}, ", resource, responseEntity.getStatusCodeValue(), responseEntity);
                 throw new HttpResultFailException(resource, responseEntity);
             } else {
-                log.error("the response entity is failed! status: {}, message: {}, ", responseEntity.getStatusCodeValue(), responseEntity.toString());
+                log.error("the response entity is failed! status: {}, message: {}, ", responseEntity.getStatusCodeValue(), responseEntity);
                 throw new HttpResultFailException(responseEntity);
             }
         }
@@ -5775,7 +5775,7 @@ public class RestResults {
             resourceBuilder.append(" url: ").append(url);
         }
         if (GeneralUtils.isNotEmpty(headers)) {
-            resourceBuilder.append(" headers: ").append(headers.toString());
+            resourceBuilder.append(" headers: ").append(headers);
         }
         if (GeneralUtils.isNotEmpty(body)) {
             resourceBuilder.append(" body: ").append(JsonUtils.parseJson(body));

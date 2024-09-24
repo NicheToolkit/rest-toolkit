@@ -85,6 +85,7 @@ abstract class DefaultReferencePipeline<P_IN, P_OUT>
     }
 
     @Override
+    @SuppressWarnings("StatementWithEmptyBody")
     final void forEachWithCancel(DefaultSpliterator<P_OUT> spliterator, DefaultSink<P_OUT> sink) throws RestException {
         do {
         } while (!sink.cancellationRequested() && spliterator.tryAdvance(sink));
@@ -170,6 +171,7 @@ abstract class DefaultReferencePipeline<P_IN, P_OUT>
                     }
 
                     @Override
+                    @SuppressWarnings("StatementWithEmptyBody")
                     public void actuate(P_OUT u) throws RestException {
                         try (RestStream<? extends R> result = mapper.actuate(u)) {
                             if (result != null) {
@@ -401,8 +403,6 @@ abstract class DefaultReferencePipeline<P_IN, P_OUT>
         final DefaultSink<E_IN> opWrapSink(int flags, DefaultSink<E_OUT> sink) throws RestException {
             throw new UnsupportedOperationException();
         }
-
-        // Optimized sequential terminal operations for the head of the pipeline
 
         @Override
         public void forEach(ConsumerActuator<? super E_OUT> action) throws RestException {

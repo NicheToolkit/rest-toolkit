@@ -1,5 +1,6 @@
 package io.github.nichetoolkit.rest.pack;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import io.github.nichetoolkit.rest.RestValue;
 import lombok.Data;
@@ -15,6 +16,8 @@ import java.util.Objects;
  * @since Jdk1.8
  */
 @Data
+@JsonInclude(value = JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class EnumPack extends ViewPack {
 
     /**

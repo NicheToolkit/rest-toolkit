@@ -38,7 +38,7 @@ public class IoStreamUtils {
             IoStreamHelper.transfer(multipartFile, transferFilePath);
         } catch (IoStreamTransferException exception) {
             log.error("It is failed during transferring from multipart file to file path! {}", exception.getMessage());
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
         }
     }
 
@@ -55,7 +55,7 @@ public class IoStreamUtils {
             IoStreamHelper.transfer(multipartFile, transferFile);
         } catch (IoStreamTransferException exception) {
             log.error("It is failed during transferring from multipart file to file! {}", exception.getMessage());
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
         }
     }
 
@@ -72,7 +72,7 @@ public class IoStreamUtils {
             IoStreamHelper.transfer(inputStream, outputStream, false);
         } catch (IoStreamTransferException exception) {
             log.error("It is failed during transferring from inputStream to outputStream! {}", exception.getMessage());
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
         }
     }
 
@@ -88,8 +88,8 @@ public class IoStreamUtils {
         try {
             return IoStreamHelper.read(inputStream);
         } catch (IoStreamReadException exception) {
-            log.error("It is failed during reading of inputStream! {}", exception.getMessage());
-            exception.printStackTrace();
+            log.error("It is failed during reading of inputStream for 'read' method! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
             return null;
         }
     }
@@ -105,8 +105,8 @@ public class IoStreamUtils {
         try {
             return IoStreamHelper.bytes(inputStream);
         } catch (IoStreamReadException exception) {
-            log.error("It is failed during reading of inputStream! {}", exception.getMessage());
-            exception.printStackTrace();
+            log.error("It is failed during reading of inputStream for 'bytes' method! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
             return null;
         }
     }
@@ -123,8 +123,8 @@ public class IoStreamUtils {
         try {
             IoStreamHelper.write(outputStream, string);
         } catch (IoStreamWriteException exception) {
-            log.error("It is failed when string write to outputStream! {}", exception.getMessage());
-            exception.printStackTrace();
+            log.error("It is failed when string write to output stream for 'write' method! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
         }
     }
 
@@ -140,8 +140,8 @@ public class IoStreamUtils {
         try {
             IoStreamHelper.write(response, file);
         } catch (IoStreamWriteException exception) {
-            log.error("It is failed when file write to response! {}", exception.getMessage());
-            exception.printStackTrace();
+            log.error("It is failed when file write to response for 'write' method! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
         }
     }
 
@@ -157,8 +157,8 @@ public class IoStreamUtils {
         try {
             IoStreamHelper.write(response, json);
         } catch (IoStreamWriteException exception) {
-            log.error("It is failed when json write to response! {}", exception.getMessage());
-            exception.printStackTrace();
+            log.error("It is failed when json write to response for 'write' method! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
         }
     }
 
@@ -173,8 +173,8 @@ public class IoStreamUtils {
         try {
             IoStreamHelper.write(response, data);
         } catch (IoStreamWriteException exception) {
-            log.error("It is failed when data write to response! {}", exception.getMessage());
-            exception.printStackTrace();
+            log.error("It is failed when data write to response for 'write' method! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
         }
     }
 
@@ -212,8 +212,8 @@ public class IoStreamUtils {
         try {
             IoStreamHelper.write(outputStream, data);
         } catch (IoStreamWriteException exception) {
-            log.error("It is failed when data write to outputStream! {}", exception.getMessage());
-            exception.printStackTrace();
+            log.error("It is failed when data write to outputStream for 'write' method! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
         }
     }
 
@@ -229,8 +229,8 @@ public class IoStreamUtils {
         try {
             IoStreamHelper.write(outputStream, inputStream);
         } catch (IoStreamWriteException exception) {
-            log.error("It is failed when inputStream write to outputStream! {}", exception.getMessage());
-            exception.printStackTrace();
+            log.error("It is failed when input stream write to output stream for 'write' method! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
         }
     }
 
@@ -246,8 +246,8 @@ public class IoStreamUtils {
         try {
             IoStreamHelper.write(file, inputStream);
         } catch (IoStreamWriteException exception) {
-            log.error("It is failed when inputStream write to file! {}", exception.getMessage());
-            exception.printStackTrace();
+            log.error("It is failed when input stream write to file for 'write' method! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
         }
     }
 
@@ -263,8 +263,8 @@ public class IoStreamUtils {
         try {
             IoStreamHelper.write(filename, inputStream);
         } catch (IoStreamWriteException exception) {
-            log.error("It is failed when inputStream write to file! {}", exception.getMessage());
-            exception.printStackTrace();
+            log.error("It is failed when input stream write to new file for 'write' method! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
         }
     }
 
@@ -279,8 +279,8 @@ public class IoStreamUtils {
         try {
             IoStreamHelper.write(filename, data);
         } catch (IoStreamWriteException exception) {
-            log.error("It is failed when data write to file! {}", exception.getMessage());
-            exception.printStackTrace();
+            log.error("It is failed when data write to file for 'write' method! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
         }
     }
 
@@ -296,8 +296,8 @@ public class IoStreamUtils {
         try {
             IoStreamHelper.write(file, data);
         } catch (IoStreamWriteException exception) {
-            log.error("It is failed when bytes write to file! {}", exception.getMessage());
-            exception.printStackTrace();
+            log.error("It is failed when bytes write to file for 'write' method! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
         }
     }
 

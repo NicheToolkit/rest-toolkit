@@ -1,10 +1,8 @@
 package io.github.nichetoolkit.rest.actuator;
 
-import io.github.nichetoolkit.rest.RestError;
 import io.github.nichetoolkit.rest.RestException;
 
 import java.util.Objects;
-import java.util.function.Predicate;
 
 /**
  * <code>MapPredicateActuator</code>

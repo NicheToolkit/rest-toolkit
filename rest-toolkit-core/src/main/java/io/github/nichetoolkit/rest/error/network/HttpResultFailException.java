@@ -39,7 +39,7 @@ public class HttpResultFailException extends HttpErrorException {
      * @see java.lang.String
      */
     public HttpResultFailException(String message) {
-        super(RestErrorStatus.HTTP_RESULT_FAILED,message);
+        super(RestErrorStatus.HTTP_RESULT_FAILED, message);
     }
 
     /**
@@ -51,7 +51,7 @@ public class HttpResultFailException extends HttpErrorException {
      * @see java.lang.String
      */
     public HttpResultFailException(Integer status, String message) {
-        super(status,message);
+        super(status, message);
     }
 
     /**
@@ -63,8 +63,8 @@ public class HttpResultFailException extends HttpErrorException {
      * @see java.lang.Integer
      * @see java.lang.String
      */
-    public HttpResultFailException(Integer status,String resource, String message) {
-        super(status,resource,message);
+    public HttpResultFailException(Integer status, String resource, String message) {
+        super(status, resource, message);
     }
 
     /**
@@ -78,7 +78,7 @@ public class HttpResultFailException extends HttpErrorException {
      * @see java.lang.Throwable
      */
     public HttpResultFailException(Integer status, String message, Throwable cause) {
-        super(status,message,cause);
+        super(status, message, cause);
     }
 
     /**
@@ -93,7 +93,7 @@ public class HttpResultFailException extends HttpErrorException {
      * @see java.lang.Throwable
      */
     public HttpResultFailException(Integer status, String resource, String message, Throwable cause) {
-        super(status,resource,message,cause);
+        super(status, resource, message, cause);
     }
 
     /**
@@ -102,8 +102,8 @@ public class HttpResultFailException extends HttpErrorException {
      * @param restResult {@link io.github.nichetoolkit.rest.RestResult} <p>the rest result parameter is <code>RestResult</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestResult
      */
-    public HttpResultFailException(RestResult restResult) {
-        super(restResult.getStatus(),restResult.getMessage(),restResult.getError());
+    public HttpResultFailException(RestResult<?> restResult) {
+        super(restResult.getStatus(), restResult.getMessage(), restResult.getError());
     }
 
     /**
@@ -112,8 +112,8 @@ public class HttpResultFailException extends HttpErrorException {
      * @param responseEntity {@link org.springframework.http.ResponseEntity} <p>the response entity parameter is <code>ResponseEntity</code> type.</p>
      * @see org.springframework.http.ResponseEntity
      */
-    public HttpResultFailException(ResponseEntity responseEntity) {
-        super(responseEntity.getStatusCodeValue(),responseEntity.toString());
+    public HttpResultFailException(ResponseEntity<?> responseEntity) {
+        super(responseEntity.getStatusCodeValue(), responseEntity.toString());
     }
 
     /**
@@ -124,8 +124,8 @@ public class HttpResultFailException extends HttpErrorException {
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestResult
      */
-    public HttpResultFailException(String resource,RestResult restResult) {
-        super(restResult.getStatus(),resource,restResult.getMessage(),restResult.getError());
+    public HttpResultFailException(String resource, RestResult<?> restResult) {
+        super(restResult.getStatus(), resource, restResult.getMessage(), restResult.getError());
     }
 
     /**
@@ -136,8 +136,8 @@ public class HttpResultFailException extends HttpErrorException {
      * @see java.lang.String
      * @see org.springframework.http.ResponseEntity
      */
-    public HttpResultFailException(String resource, ResponseEntity responseEntity) {
-        super(responseEntity.getStatusCodeValue(),resource,responseEntity.toString());
+    public HttpResultFailException(String resource, ResponseEntity<?> responseEntity) {
+        super(responseEntity.getStatusCodeValue(), resource, responseEntity.toString());
     }
 
     @Override

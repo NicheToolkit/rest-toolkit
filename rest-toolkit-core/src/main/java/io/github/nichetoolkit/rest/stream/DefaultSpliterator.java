@@ -33,6 +33,7 @@ public interface DefaultSpliterator<T> {
      * @see io.github.nichetoolkit.rest.actuator.ConsumerActuator
      * @see io.github.nichetoolkit.rest.RestException
      */
+    @SuppressWarnings("StatementWithEmptyBody")
     default void forEachRemaining(ConsumerActuator<? super T> action) throws RestException {
         do {
         } while (tryAdvance(action));
@@ -182,7 +183,7 @@ public interface DefaultSpliterator<T> {
          * @see java.lang.SuppressWarnings
          * @see io.github.nichetoolkit.rest.RestException
          */
-        @SuppressWarnings("overloads")
+        @SuppressWarnings({"overloads","StatementWithEmptyBody"})
         default void forEachRemaining(T_CONS action) throws RestException {
             do {
             } while (tryAdvance(action));

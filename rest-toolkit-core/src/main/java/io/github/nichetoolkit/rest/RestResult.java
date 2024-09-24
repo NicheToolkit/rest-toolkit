@@ -27,7 +27,7 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-@SuppressWarnings({"UnnecessaryParentheses","unused","SameNameButDifferent"})
+@SuppressWarnings({"UnnecessaryParentheses","unused","SameNameButDifferent","rawtypes"})
 public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
     /**
      * <code>STATUS_NAME</code>
@@ -284,7 +284,7 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
      * @see java.lang.Throwable
      */
     public static <T> RestResult mistake(RestStatus status,Throwable cause) {
-        return (new RestResult.Builder<T>()).restStatus(status).cause(cause).build();
+        return (new RestResult.Builder<T>()).restStatus(status).message(cause.getMessage()).cause(cause).build();
     }
 
     /**

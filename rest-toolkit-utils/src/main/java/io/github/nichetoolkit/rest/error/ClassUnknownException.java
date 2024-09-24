@@ -2,7 +2,6 @@ package io.github.nichetoolkit.rest.error;
 
 import io.github.nichetoolkit.rest.RestErrorStatus;
 import io.github.nichetoolkit.rest.error.natives.ClassErrorException;
-import io.github.nichetoolkit.rest.error.natives.ConvertErrorException;
 
 /**
  * <code>ClassUnknownException</code>

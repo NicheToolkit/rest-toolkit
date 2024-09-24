@@ -61,6 +61,7 @@ public class ShuntUtils {
      * @see java.util.Collection
      * @see java.util.Map
      */
+    @SuppressWarnings("Duplicates")
     public static <K, T> void shunt(K key, Collection<T> dataCollection, Map<K, List<T>> shuntMap) {
         Optional.ofNullable(key).ifPresent(value -> {
             if (shuntMap.containsKey(value)) {

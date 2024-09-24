@@ -47,6 +47,7 @@ public class RestCoreAutoConfigure {
     @Primary
     @Autowired(required = false)
     @ConditionalOnMissingBean(ObjectMapperHolder.class)
+    @SuppressWarnings("InstantiationOfUtilityClass")
     public ObjectMapperHolder objectMapperHolder(ObjectMapper objectMapper) {
         return new ObjectMapperHolder(objectMapper);
     }

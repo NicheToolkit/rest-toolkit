@@ -104,9 +104,6 @@ final class DefaultSortedOps {
         @Override
         public DefaultSink<T> opWrapSink(int flags, DefaultSink<T> sink) throws RestException {
             Objects.requireNonNull(sink);
-
-            // If the input is already naturally sorted and this operation
-            // also naturally sorted then this is a no-op
             if (DefaultStreamOpFlag.SORTED.isKnown(flags) && isNaturalSort)
                 return sink;
             else if (DefaultStreamOpFlag.SIZED.isKnown(flags))
@@ -119,13 +116,10 @@ final class DefaultSortedOps {
         public <P_IN> DefaultNode<T> opEvaluateParallel(DefaultPipelineHelper<T> helper,
                                                         DefaultSpliterator<P_IN> spliterator,
                                                  IntFunction<T[]> generator) throws RestException {
-            // If the input is already naturally sorted and this operation
-            // naturally sorts then collect the output
             if (DefaultStreamOpFlag.SORTED.isKnown(helper.getStreamAndOpFlags()) && isNaturalSort) {
                 return helper.evaluate(spliterator, false, generator);
             }
             else {
-                // @@@ Weak two-pass parallel implementation; parallel collect, parallel sort
                 T[] flattenedData = helper.evaluate(spliterator, true, generator).asArray(generator);
                 Arrays.parallelSort(flattenedData, comparator);
                 return DefaultNodes.node(flattenedData);
@@ -152,8 +146,6 @@ final class DefaultSortedOps {
          * <code>cancellationRequestedCalled</code>
          * <p>the <code>cancellationRequestedCalled</code> field.</p>
          */
-// @@@ could be a lazy final value, if/when support is added
-        // true if cancellationRequested() has been called
         protected boolean cancellationRequestedCalled;
 
         /**
@@ -171,10 +163,6 @@ final class DefaultSortedOps {
 
         @Override
         public final boolean cancellationRequested() {
-            // If this method is called then an operation within the stream
-            // pipeline is short-circuiting (see DefaultAbstractPipeline.copyInto).
-            // Note that we cannot differentiate between an upstream or
-            // downstream operation
             cancellationRequestedCalled = true;
             return false;
         }

@@ -1,4 +1,3 @@
-
 package io.github.nichetoolkit.rest.stream;
 
 import io.github.nichetoolkit.rest.RestError;
@@ -499,8 +498,6 @@ public final class DefaultSpliterators {
             return characteristics;
         }
     }
-
-    // Iterator-based Spliterators
 
     /**
      * <code>IteratorSpliterator</code>

@@ -1,4 +1,3 @@
-
 package io.github.nichetoolkit.rest.stream;
 
 import io.github.nichetoolkit.rest.RestException;
@@ -65,8 +64,6 @@ final class DefaultForEachOps {
             this.ordered = ordered;
         }
 
-        // DefaultTerminalOp
-
         @Override
         public int getOpFlags() {
             return ordered ? 0 : DefaultStreamOpFlag.NOT_ORDERED;
@@ -88,14 +85,10 @@ final class DefaultForEachOps {
             return null;
         }
 
-        // TerminalDefaultSink
-
         @Override
         public Void actuate() {
             return null;
         }
-
-        // Implementations
 
         /**
          * <code>OfRef</code>
@@ -345,6 +338,7 @@ final class DefaultForEachOps {
          * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
          * @see io.github.nichetoolkit.rest.RestException
          */
+        @SuppressWarnings("Duplicates")
         private static <S, T> void doCompute(ForEachOrderedTask<S, T> task) throws RestException {
             DefaultSpliterator<S> rightSplit = task.spliterator, leftSplit;
             long sizeThreshold = task.targetSize;
@@ -355,42 +349,17 @@ final class DefaultForEachOps {
                         new ForEachOrderedTask<>(task, leftSplit, task.leftPredecessor);
                 ForEachOrderedTask<S, T> rightChild =
                         new ForEachOrderedTask<>(task, rightSplit, leftChild);
-
-                // Fork the parent task
-                // Completion of the left and right children "happens-before"
-                // completion of the parent
                 task.addToPendingCount(1);
-                // Completion of the left child "happens-before" completion of
-                // the right child
                 rightChild.addToPendingCount(1);
                 task.completionMap.put(leftChild, rightChild);
-
-                // If task is not on the left spine
                 if (task.leftPredecessor != null) {
-                    /*
-                     * Completion of left-predecessor, or left subtree,
-                     * "happens-before" completion of left-most leaf node of
-                     * right subtree.
-                     * The left child's pending count needs to be updated before
-                     * it is associated in the completion map, otherwise the
-                     * left child can complete prematurely and violate the
-                     * "happens-before" constraint.
-                     */
                     leftChild.addToPendingCount(1);
-                    // Update association of left-predecessor to left-most
-                    // leaf node of right subtree
                     if (task.completionMap.replace(task.leftPredecessor, task, leftChild)) {
-                        // If replaced, adjust the pending count of the parent
-                        // to complete when its children complete
                         task.addToPendingCount(-1);
                     } else {
-                        // Left-predecessor has already completed, parent's
-                        // pending count is adjusted by left-predecessor;
-                        // left child is ready to complete
                         leftChild.addToPendingCount(-1);
                     }
                 }
-
                 ForEachOrderedTask<S, T> taskToFork;
                 if (forkRight) {
                     forkRight = false;
@@ -404,7 +373,6 @@ final class DefaultForEachOps {
                 }
                 taskToFork.fork();
             }
-
             if (task.getPendingCount() > 0) {
                 @SuppressWarnings("unchecked")
                 IntFunction<T[]> generator = size -> (T[]) new Object[size];
@@ -420,19 +388,12 @@ final class DefaultForEachOps {
         @Override
         public void onComputes(DefaultCountedCompleter<?> caller) throws RestException {
             if (node != null) {
-                // Dump buffered elements from this leaf into the sink
                 node.forEach(action);
                 node = null;
             } else if (spliterator != null) {
-                // Dump elements output from this leaf's pipeline into the sink
                 helper.wrapAndCopyInto(action, spliterator);
                 spliterator = null;
             }
-
-            // The completion of this task *and* the dumping of elements
-            // "happens-before" completion of the associated left-most leaf task
-            // of right subtree (if any, which can be this task's right sibling)
-            //
             ForEachOrderedTask<S, T> leftDescendant = completionMap.remove(this);
             if (leftDescendant != null)
                 leftDescendant.tryComplete();

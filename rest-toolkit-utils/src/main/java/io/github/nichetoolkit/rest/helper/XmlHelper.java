@@ -39,7 +39,7 @@ public class XmlHelper {
         }
         String content = "attachment;filename=".concat(fileName);
         response.setHeader("Content-Disposition", content);
-        response.setHeader("ContentType", "application/xml;charset=UTF-8");
+        response.setHeader("Content-Type", "application/xml;charset=UTF-8");
         response.setContentType("application/octet-stream");
     }
 

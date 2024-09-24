@@ -98,6 +98,7 @@ public class FileHelper {
      * @see java.io.File
      * @see io.github.nichetoolkit.rest.error.often.FileCreateException
      */
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     public static File createFile(final File file) throws FileCreateException {
         if (file.exists()) {
             return file;

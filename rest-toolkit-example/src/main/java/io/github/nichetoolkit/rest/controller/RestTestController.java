@@ -131,8 +131,8 @@ public class RestTestController {
         response.setCharacterEncoding(StandardCharsets.UTF_8.name());
         try {
             imageVerify.write(response.getOutputStream());
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException exception) {
+            GeneralUtils.printStackTrace(log,exception,true);
         }
     }
 

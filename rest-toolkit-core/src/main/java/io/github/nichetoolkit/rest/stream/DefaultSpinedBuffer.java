@@ -1,27 +1,3 @@
-/*
- * Copyright (c) 2012, 2013, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
- *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
- *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
- *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
- *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
- */
 package io.github.nichetoolkit.rest.stream;
 
 import io.github.nichetoolkit.rest.RestException;
@@ -145,21 +121,14 @@ class DefaultSpinedBuffer<E>
      * @return E <p>the return object is <code>E</code> type.</p>
      */
     public E get(long index) {
-        // @@@ can further optimize by caching last seen spineIndex,
-        // which is going to be right most of the time
-
-        // Casts to int are safe since the spine array index is the index minus
-        // the prior element count from the current spine
         if (spineIndex == 0) {
             if (index < elementIndex)
                 return curChunk[((int) index)];
             else
                 throw new IndexOutOfBoundsException(Long.toString(index));
         }
-
         if (index >= count())
             throw new IndexOutOfBoundsException(Long.toString(index));
-
         for (int j=0; j <= spineIndex; j++)
             if (index < priorElementCount[j] + spine[j].length)
                 return spine[j][((int) (index - priorElementCount[j]))];
@@ -178,11 +147,9 @@ class DefaultSpinedBuffer<E>
         if (finalOffset > array.length || finalOffset < offset) {
             throw new IndexOutOfBoundsException("does not fit");
         }
-
         if (spineIndex == 0)
             System.arraycopy(curChunk, 0, array, offset, elementIndex);
         else {
-            // full chunks
             for (int i=0; i < spineIndex; i++) {
                 System.arraycopy(spine[i], 0, array, offset, spine[i].length);
                 offset += spine[i].length;
@@ -277,6 +244,7 @@ class DefaultSpinedBuffer<E>
             final int lastSpineElementFence;
             E[] splChunk;
 
+            @SuppressWarnings("Duplicates")
             Splitr(int firstSpineIndex, int lastSpineIndex,
                    int firstSpineElementIndex, int lastSpineElementFence) {
                 this.splSpineIndex = firstSpineIndex;
@@ -291,9 +259,8 @@ class DefaultSpinedBuffer<E>
             public long estimateSize() {
                 return (splSpineIndex == lastSpineIndex)
                        ? (long) lastSpineElementFence - splElementIndex
-                       : // # of elements prior to end -
+                       :
                        priorElementCount[lastSpineIndex] + lastSpineElementFence -
-                       // # of elements prior to current
                        priorElementCount[splSpineIndex] - splElementIndex;
             }
 
@@ -430,6 +397,7 @@ class DefaultSpinedBuffer<E>
          * @param size int <p>the size parameter is <code>int</code> type.</p>
          * @return T_ARR <p>the array array return object is <code>T_ARR</code> type.</p>
          */
+        @SuppressWarnings("SameParameterValue")
         protected abstract T_ARR[] newArrayArray(int size);
 
         /**
@@ -543,6 +511,7 @@ class DefaultSpinedBuffer<E>
          * @param array  T_ARR <p>the array parameter is <code>T_ARR</code> type.</p>
          * @param offset int <p>the offset parameter is <code>int</code> type.</p>
          */
+        @SuppressWarnings("all")
         public void copyInto(T_ARR array, int offset) {
             long finalOffset = offset + count();
             if (finalOffset > arrayLength(array) || finalOffset < offset) {
@@ -657,6 +626,7 @@ class DefaultSpinedBuffer<E>
              * @param firstSpineElementIndex int <p>the first spine element index parameter is <code>int</code> type.</p>
              * @param lastSpineElementFence  int <p>the last spine element fence parameter is <code>int</code> type.</p>
              */
+            @SuppressWarnings("Duplicates")
             BaseSpliterator(int firstSpineIndex, int lastSpineIndex,
                             int firstSpineElementIndex, int lastSpineElementFence) {
                 this.splSpineIndex = firstSpineIndex;
@@ -702,9 +672,8 @@ class DefaultSpinedBuffer<E>
             public long estimateSize() {
                 return (splSpineIndex == lastSpineIndex)
                        ? (long) lastSpineElementFence - splElementIndex
-                       : // # of elements prior to end -
+                       :
                        priorElementCount[lastSpineIndex] + lastSpineElementFence -
-                       // # of elements prior to current
                        priorElementCount[splSpineIndex] - splElementIndex;
             }
 

@@ -1,27 +1,3 @@
-/*
- * Copyright (c) 2012, 2013, Oracle and/or its affiliates. All rights reserved.
- * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
- *
- * This code is free software; you can redistribute it and/or modify it
- * under the terms of the GNU General Public License version 2 only, as
- * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the "Classpath" exception as provided
- * by Oracle in the LICENSE file that accompanied this code.
- *
- * This code is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
- * version 2 for more details (a copy is included in the LICENSE file that
- * accompanied this code).
- *
- * You should have received a copy of the GNU General Public License version
- * 2 along with this work; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
- *
- * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
- * or visit www.oracle.com if you need additional information or have any
- * questions.
- */
 package io.github.nichetoolkit.rest.stream;
 
 import io.github.nichetoolkit.rest.RestException;
@@ -58,7 +34,6 @@ final class DefaultNodes {
      * {@link java.lang.String} <p>the constant <code>BAD_SIZE</code> field.</p>
      * @see java.lang.String
      */
-// IllegalArgumentException messages
     static final String BAD_SIZE = "Stream size exceeds max array size";
 
     /**
@@ -68,11 +43,6 @@ final class DefaultNodes {
      */
     @SuppressWarnings("rawtypes")
     private static final DefaultNode EMPTY_NODE = new EmptyDefaultNode.OfRef();
-//    private static final DefaultNode.OfInt EMPTY_INT_NODE = new EmptyDefaultNode.OfInt();
-//    private static final DefaultNode.OfLong EMPTY_LONG_NODE = new EmptyDefaultNode.OfLong();
-//    private static final DefaultNode.OfDouble EMPTY_DOUBLE_NODE = new EmptyDefaultNode.OfDouble();
-
-    // General shape-based node creation methods
 
     /**
      * <code>emptyDefaultNode</code>
@@ -158,8 +128,6 @@ final class DefaultNodes {
         return new SpinedDefaultNodeBuilder<>();
     }
 
-    // Parallel evaluation of pipelines to nodes
-
     /**
      * <code>collect</code>
      * <p>the method.</p>
@@ -193,8 +161,6 @@ final class DefaultNodes {
         }
     }
 
-//     Parallel flattening of nodes
-
     /**
      * <code>flatten</code>
      * <p>the method.</p>
@@ -218,8 +184,6 @@ final class DefaultNodes {
             return node;
         }
     }
-
-//     Implementations
 
     /**
      * <code>EmptyDefaultNode</code>
@@ -331,8 +295,6 @@ final class DefaultNodes {
             this.curSize = array.length;
         }
 
-        // DefaultNode
-
         @Override
         public DefaultSpliterator<T> spliterator() {
             return DefaultSpliterators.spliterator(array, 0, curSize);
@@ -363,8 +325,6 @@ final class DefaultNodes {
                 consumer.actuate(array[i]);
             }
         }
-
-        //
 
         @Override
         public String toString() {
@@ -521,8 +481,6 @@ final class DefaultNodes {
         public void copyInto(T[] array, int offset) {
             Objects.requireNonNull(array);
             left.copyInto(array, offset);
-            // Cast to int is safe since it is the callers responsibility to
-            // ensure that there is sufficient room in the array
             right.copyInto(array, offset + (int) left.count());
         }
 
@@ -605,8 +563,6 @@ final class DefaultNodes {
             @Override
             public void copyInto(T_ARR array, int offset) {
                 left.copyInto(array, offset);
-                // Cast to int is safe since it is the callers responsibility to
-                // ensure that there is sufficient room in the array
                 right.copyInto(array, offset + (int) left.count());
             }
 
@@ -648,32 +604,24 @@ final class DefaultNodes {
          * <code>curDefaultNode</code>
          * <p>the <code>curDefaultNode</code> field.</p>
          */
-// DefaultNode we are pointing to
-        // null if full traversal has occurred
         N curDefaultNode;
 
         /**
          * <code>curChildIndex</code>
          * <p>the <code>curChildIndex</code> field.</p>
          */
-// next child of curDefaultNode to consume
         int curChildIndex;
 
         /**
          * <code>lastDefaultNodeSpliterator</code>
          * <p>the <code>lastDefaultNodeSpliterator</code> field.</p>
          */
-// The spliterator of the curDefaultNode if that node is last and has no children.
-        // This spliterator will be delegated to for splitting and traversing.
-        // null if curDefaultNode has children
         S lastDefaultNodeSpliterator;
 
         /**
          * <code>tryAdvanceSpliterator</code>
          * <p>the <code>tryAdvanceSpliterator</code> field.</p>
          */
-// spliterator used while traversing with tryAdvance
-        // null if no partial traversal has occurred
         S tryAdvanceSpliterator;
 
         /**
@@ -681,8 +629,6 @@ final class DefaultNodes {
          * {@link java.util.Deque} <p>the <code>tryAdvanceStack</code> field.</p>
          * @see java.util.Deque
          */
-// node stack used when traversing to search and find leaf nodes
-        // null if no partial traversal has occurred
         Deque<N> tryAdvanceStack;
 
         /**
@@ -705,8 +651,6 @@ final class DefaultNodes {
          */
         @SuppressWarnings("unchecked")
         protected final Deque<N> initStack() throws RestException {
-            // Bias size to the case where leaf nodes are close to this node
-            // 8 is the minimum initial capacity for the ArrayDeque implementation
             Deque<N> stack = new ArrayDeque<>(8);
             for (int i = curDefaultNode.getChildCount() - 1; i >= curChildIndex; i--)
                 stack.addFirst((N) curDefaultNode.getChild(i));
@@ -754,14 +698,11 @@ final class DefaultNodes {
 
             if (tryAdvanceSpliterator == null) {
                 if (lastDefaultNodeSpliterator == null) {
-                    // Initiate the node stack
                     tryAdvanceStack = initStack();
                     N leaf = findNextLeafDefaultNode(tryAdvanceStack);
                     if (leaf != null)
                         tryAdvanceSpliterator = (S) leaf.spliterator();
                     else {
-                        // A non-empty leaf node was not found
-                        // No elements to traverse
                         curDefaultNode = null;
                         return true;
                     }
@@ -775,7 +716,7 @@ final class DefaultNodes {
         @SuppressWarnings("unchecked")
         public final S trySplit() throws RestException {
             if (curDefaultNode == null || tryAdvanceSpliterator != null)
-                return null; // Cannot split if fully or partially traversed
+                return null;
             else if (lastDefaultNodeSpliterator != null)
                 return (S) lastDefaultNodeSpliterator.trySplit();
             else if (curChildIndex < curDefaultNode.getChildCount() - 1)
@@ -796,9 +737,6 @@ final class DefaultNodes {
         public final long estimateSize() throws RestException {
             if (curDefaultNode == null)
                 return 0;
-
-            // Will not reflect the effects of partial traversal.
-            // This is compliant with the specification
             if (lastDefaultNodeSpliterator != null)
                 return lastDefaultNodeSpliterator.estimateSize();
             else {
@@ -841,21 +779,19 @@ final class DefaultNodes {
                 boolean hasNext = tryAdvanceSpliterator.tryAdvance(consumer);
                 if (!hasNext) {
                     if (lastDefaultNodeSpliterator == null) {
-                        // Advance to the spliterator of the next non-empty leaf node
                         DefaultNode<T> leaf = findNextLeafDefaultNode(tryAdvanceStack);
                         if (leaf != null) {
                             tryAdvanceSpliterator = leaf.spliterator();
-                            // Since the node is not-empty the spliterator can be advanced
                             return tryAdvanceSpliterator.tryAdvance(consumer);
                         }
                     }
-                    // No more elements to traverse
                     curDefaultNode = null;
                 }
                 return hasNext;
             }
 
             @Override
+            @SuppressWarnings("StatementWithEmptyBody")
             public void forEachRemaining(ConsumerActuator<? super T> consumer) throws RestException {
                 if (curDefaultNode == null)
                     return;
@@ -908,25 +844,22 @@ final class DefaultNodes {
             public boolean tryAdvance(T_CONS consumer) throws RestException {
                 if (initTryAdvance())
                     return false;
-
                 boolean hasNext = tryAdvanceSpliterator.tryAdvance(consumer);
                 if (!hasNext) {
                     if (lastDefaultNodeSpliterator == null) {
-                        // Advance to the spliterator of the next non-empty leaf node
                         N leaf = findNextLeafDefaultNode(tryAdvanceStack);
                         if (leaf != null) {
                             tryAdvanceSpliterator = leaf.spliterator();
-                            // Since the node is not-empty the spliterator can be advanced
                             return tryAdvanceSpliterator.tryAdvance(consumer);
                         }
                     }
-                    // No more elements to traverse
                     curDefaultNode = null;
                 }
                 return hasNext;
             }
 
             @Override
+            @SuppressWarnings("StatementWithEmptyBody")
             public void forEachRemaining(T_CONS consumer) throws RestException {
                 if (curDefaultNode == null)
                     return;
@@ -1037,7 +970,7 @@ final class DefaultNodes {
          * Instantiates a new spined default node builder.
          */
         SpinedDefaultNodeBuilder() {
-        } // Avoid creation of special accessor
+        }
 
         @Override
         public DefaultSpliterator<T> spliterator() {
@@ -1051,7 +984,6 @@ final class DefaultNodes {
             super.forEach(consumer);
         }
 
-        //
         @Override
         public void begin(long size) {
             assert !building : "was already building";
@@ -1070,7 +1002,6 @@ final class DefaultNodes {
         public void end() {
             assert building : "was not building";
             building = false;
-            // @@@ check begin(size) and size
         }
 
         @Override
@@ -1139,7 +1070,6 @@ final class DefaultNodes {
          * <code>index</code>
          * <p>the <code>index</code> field.</p>
          */
-// For DefaultSink implementation
         protected int index,
         /**
          * <code>fence</code>

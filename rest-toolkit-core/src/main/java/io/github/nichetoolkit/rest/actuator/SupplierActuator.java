@@ -2,7 +2,6 @@ package io.github.nichetoolkit.rest.actuator;
 
 import io.github.nichetoolkit.rest.RestError;
 import io.github.nichetoolkit.rest.RestException;
-import io.github.nichetoolkit.rest.RestStatus;
 
 import java.util.function.Supplier;
 

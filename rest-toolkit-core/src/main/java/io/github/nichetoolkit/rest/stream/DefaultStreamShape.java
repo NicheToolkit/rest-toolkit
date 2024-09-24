@@ -1,4 +1,3 @@
-
 package io.github.nichetoolkit.rest.stream;
 
 /**

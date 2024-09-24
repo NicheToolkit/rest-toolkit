@@ -289,7 +289,7 @@ final class DefaultReduceOps {
          * <code>Box</code>
          * Instantiates a new box.
          */
-        Box() {} // Avoid creation of special accessor
+        Box() {}
 
         /**
          * <code>actuate</code>
@@ -425,7 +425,6 @@ final class DefaultReduceOps {
                 leftResult.combine(rightChild.getLocalResult());
                 setLocalResult(leftResult);
             }
-            // GC spliterator, left and right child
             super.onCompletion(caller);
         }
     }

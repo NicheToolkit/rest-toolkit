@@ -125,14 +125,6 @@ final class DefaultSliceOps {
                             skip, limit, size);
                 }
                 else {
-                    // @@@ OOMEs will occur for LongStream.longs().filter(i -> true).limit(n)
-                    //     regardless of the value of n
-                    //     Need to adjust the target size of splitting for the
-                    //     SliceTask from say (size / k) to say min(size / k, 1 << 14)
-                    //     This will limit the size of the buffers created at the leaf nodes
-                    //     cancellation will be more aggressive cancelling later tasks
-                    //     if the target slice size has been reached from a given task,
-                    //     cancellation should also clear local results if any
                     return new SliceTask<>(this, helper, spliterator, castingArray(), skip, limit).
                             invoke().spliterator();
                 }
@@ -144,11 +136,6 @@ final class DefaultSliceOps {
                                               IntFunction<T[]> generator) throws RestException {
                 long size = helper.exactOutputSizeIfKnown(spliterator);
                 if (size > 0 && spliterator.hasCharacteristics(DefaultSpliterator.SUBSIZED)) {
-                    // Because the pipeline is SIZED the slice spliterator
-                    // can be created from the source, this requires matching
-                    // to shape of the source, and is potentially more efficient
-                    // than creating the slice spliterator from the pipeline
-                    // wrapping spliterator
                     DefaultSpliterator<P_IN> s = sliceSpliterator(helper.getSourceShape(), spliterator, skip, limit);
                     return DefaultNodes.collect(helper, s, true, generator);
                 } else if (!DefaultStreamOpFlag.ORDERED.isKnown(helper.getStreamAndOpFlags())) {
@@ -311,8 +298,6 @@ final class DefaultSliceOps {
                 final DefaultNode.Builder<P_OUT> nb = op.makeNodeBuilder(sizeIfKnown, generator);
                 DefaultSink<P_OUT> opDefaultSink = op.opWrapSink(helper.getStreamAndOpFlags(), nb);
                 helper.copyIntoWithCancel(helper.wrapSink(opDefaultSink), spliterator);
-                // There is no need to truncate since the op performs the
-                // skipping and limiting of elements
                 return nb.build();
             }
             else {
@@ -412,7 +397,6 @@ final class DefaultSliceOps {
                 SliceTask<P_IN, P_OUT> left = leftChild;
                 SliceTask<P_IN, P_OUT> right = rightChild;
                 if (left == null || right == null) {
-                    // must be completed
                     return thisDefaultNodeSize;
                 }
                 else {

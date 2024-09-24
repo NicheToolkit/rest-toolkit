@@ -1,6 +1,7 @@
 package io.github.nichetoolkit.rest.image;
 
 import io.github.nichetoolkit.rest.constant.UtilConstants;
+import io.github.nichetoolkit.rest.util.GeneralUtils;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
@@ -80,7 +81,7 @@ public class ImageVerify implements Serializable {
             ImageIO.write(image, formatName, outputStream);
         } catch (IOException exception) {
             log.error("It is failed during image writing to output stream!", exception);
-            exception.printStackTrace();
+            GeneralUtils.printStackTrace(exception);
         }
     }
 

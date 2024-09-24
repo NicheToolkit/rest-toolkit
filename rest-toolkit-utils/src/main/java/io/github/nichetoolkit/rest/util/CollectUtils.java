@@ -108,6 +108,7 @@ public class CollectUtils {
      * @see java.util.Collection
      * @see java.util.Map
      */
+    @SuppressWarnings("Duplicates")
     public static <K, T> void collect(K key, Collection<T> dataCollection, Map<K, List<T>> dataMap) {
         Optional.ofNullable(key).ifPresent(value -> {
             if (dataMap.containsKey(value)) {

@@ -60,7 +60,6 @@ final class DefaultDistinctOps {
                             map.putIfAbsent(t, Boolean.TRUE);
                     }, false);
                     forEachOp.evaluateParallel(helper, spliterator);
-
                     Set<T> keys = map.keySet();
                     if (seenNull.get()) {
                         keys = new HashSet<>(keys);

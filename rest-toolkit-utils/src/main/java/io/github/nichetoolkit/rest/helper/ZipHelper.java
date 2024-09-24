@@ -34,6 +34,7 @@ public class ZipHelper {
      * @see io.github.nichetoolkit.rest.error.often.ZipErrorException
      * @see io.github.nichetoolkit.rest.error.often.FileCreateException
      */
+    @SuppressWarnings("Duplicates")
     public static File zipFile(String zipPath, String filename, File file) throws ZipErrorException, FileCreateException {
         String zipFilePath = zipPath.concat(File.separator).concat(filename)
                 .concat(UtilConstants.SUFFIX_REGEX).concat(UtilConstants.ZIP_SUFFIX);
@@ -71,6 +72,7 @@ public class ZipHelper {
      * @see io.github.nichetoolkit.rest.error.often.ZipErrorException
      * @see io.github.nichetoolkit.rest.error.often.FileCreateException
      */
+    @SuppressWarnings("Duplicates")
     public static File zipFiles(String zipPath, String filename, List<File> zipFiles) throws ZipErrorException, FileCreateException {
         if (zipFiles.size() == 1) {
             return zipFile(zipPath,filename,zipFiles.stream().findFirst().get());

@@ -459,9 +459,9 @@ public final class RestCollectors {
     static double[] sumWithCompensation(double[] intermediateSum, double value) {
         double tmp = value - intermediateSum[1];
         double sum = intermediateSum[0];
-        double velvel = sum + tmp; // Little wolf of rounding error
-        intermediateSum[1] = (velvel - sum) - tmp;
-        intermediateSum[0] = velvel;
+        double level = sum + tmp; // Little wolf of rounding error
+        intermediateSum[1] = (level - sum) - tmp;
+        intermediateSum[0] = level;
         return intermediateSum;
     }
 

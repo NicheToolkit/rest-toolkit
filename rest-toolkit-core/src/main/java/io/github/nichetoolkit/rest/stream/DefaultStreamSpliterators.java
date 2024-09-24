@@ -1,4 +1,3 @@
-
 package io.github.nichetoolkit.rest.stream;
 
 import io.github.nichetoolkit.rest.RestError;
@@ -337,6 +336,7 @@ class DefaultStreamSpliterators {
         }
 
         @Override
+        @SuppressWarnings("StatementWithEmptyBody")
         public void forEachRemaining(ConsumerActuator<? super P_OUT> consumer) throws RestException {
             if (buffer == null && !finished) {
                 Objects.requireNonNull(consumer);
@@ -1047,6 +1047,7 @@ class DefaultStreamSpliterators {
             }
 
             @Override
+            @SuppressWarnings("StatementWithEmptyBody")
             public void forEachRemaining(ConsumerActuator<? super T> action) throws RestException {
                 Objects.requireNonNull(action);
 
@@ -1142,6 +1143,7 @@ class DefaultStreamSpliterators {
             protected abstract void actuateConsumed(T_CONS action);
 
             @Override
+            @SuppressWarnings("StatementWithEmptyBody")
             public void forEachRemaining(T_CONS action) throws RestException {
                 Objects.requireNonNull(action);
 
