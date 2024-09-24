@@ -153,7 +153,7 @@
 
         <rest-toolkit.version>1.1.0-SNAPSHOT</rest-toolkit.version>
 
-        <guava.version>33.3.0-jre</guava.version>
+        <guava.version>33.3.1-jre</guava.version>
         <bcprov.version>1.78.1</bcprov.version>
         <fusionauth-jwt.version>5.3.3</fusionauth-jwt.version>
     </properties>
