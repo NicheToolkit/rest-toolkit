@@ -214,6 +214,7 @@ public class FileUtils {
      * @param path {@link java.lang.String} <p>the path parameter is <code>String</code> type.</p>
      * @return {@link java.lang.String} <p>the path return object is <code>String</code> type.</p>
      * @see java.lang.String
+     * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("ResultOfMethodCallIgnored")
     public static String createPath(final String path) {
@@ -231,6 +232,7 @@ public class FileUtils {
      * @param child {@link java.lang.String} <p>the child parameter is <code>String</code> type.</p>
      * @return {@link java.lang.String} <p>the path return object is <code>String</code> type.</p>
      * @see java.lang.String
+     * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("ResultOfMethodCallIgnored")
     public static String createPath(final String path,final String child) {
@@ -280,6 +282,7 @@ public class FileUtils {
      * <p>the method.</p>
      * @param path {@link java.lang.String} <p>the path parameter is <code>String</code> type.</p>
      * @see java.lang.String
+     * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("ResultOfMethodCallIgnored")
     public static void delete(final String path) {
@@ -294,6 +297,7 @@ public class FileUtils {
      * <p>the method.</p>
      * @param file {@link java.io.File} <p>the file parameter is <code>File</code> type.</p>
      * @see java.io.File
+     * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("ResultOfMethodCallIgnored")
     public static void delete(final File file) {
@@ -308,6 +312,7 @@ public class FileUtils {
      * @param file {@link java.io.File} <p>the file parameter is <code>File</code> type.</p>
      * @param data byte <p>the data parameter is <code>byte</code> type.</p>
      * @see java.io.File
+     * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("ResultOfMethodCallIgnored")
     public static void write(final File file, byte[] data) {
@@ -329,6 +334,7 @@ public class FileUtils {
      * @param file {@link java.io.File} <p>the file parameter is <code>File</code> type.</p>
      * @return byte <p>the return object is <code>byte</code> type.</p>
      * @see java.io.File
+     * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("ResultOfMethodCallIgnored")
     public static byte[] read(final File file) {

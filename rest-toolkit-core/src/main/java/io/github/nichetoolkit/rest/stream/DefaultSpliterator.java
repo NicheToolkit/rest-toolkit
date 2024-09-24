@@ -31,6 +31,7 @@ public interface DefaultSpliterator<T> {
      * @param action {@link io.github.nichetoolkit.rest.actuator.ConsumerActuator} <p>the action parameter is <code>ConsumerActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.ConsumerActuator
+     * @see java.lang.SuppressWarnings
      * @see io.github.nichetoolkit.rest.RestException
      */
     @SuppressWarnings("StatementWithEmptyBody")

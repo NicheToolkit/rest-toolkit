@@ -336,6 +336,7 @@ final class DefaultForEachOps {
          * @param <T>  {@link java.lang.Object} <p>the parameter can be of any type.</p>
          * @param task {@link io.github.nichetoolkit.rest.stream.DefaultForEachOps.ForEachOrderedTask} <p>the task parameter is <code>ForEachOrderedTask</code> type.</p>
          * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+         * @see java.lang.SuppressWarnings
          * @see io.github.nichetoolkit.rest.RestException
          */
         @SuppressWarnings("Duplicates")

@@ -38,8 +38,8 @@ final class DefaultFindOps {
     /**
      * <code>makeRef</code>
      * <p>the ref method.</p>
-     * @param <T>           {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param predicate     {@link io.github.nichetoolkit.rest.actuator.PredicateActuator} <p>the predicate parameter is <code>PredicateActuator</code> type.</p>
+     * @param <T>       {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param predicate {@link io.github.nichetoolkit.rest.actuator.PredicateActuator} <p>the predicate parameter is <code>PredicateActuator</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.stream.DefaultTerminalOp} <p>the ref return object is <code>DefaultTerminalOp</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.PredicateActuator

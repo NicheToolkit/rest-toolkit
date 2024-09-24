@@ -2,7 +2,7 @@ package io.github.nichetoolkit.rest.constant;
 
 /**
  * <code>SymbolConstants</code>
- * <p>The type symbol constants class.</p>
+ * <p>The type symbol constants interface.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */

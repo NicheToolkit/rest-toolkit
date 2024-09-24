@@ -107,6 +107,7 @@ public class CollectUtils {
      * @param dataMap        {@link java.util.Map} <p>the data map parameter is <code>Map</code> type.</p>
      * @see java.util.Collection
      * @see java.util.Map
+     * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("Duplicates")
     public static <K, T> void collect(K key, Collection<T> dataCollection, Map<K, List<T>> dataMap) {

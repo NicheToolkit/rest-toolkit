@@ -29,6 +29,14 @@ public class GenericTypeResolver {
         return resolveType(fieldType, srcType, declaringClass);
     }
 
+    /**
+     * <code>resolveSuperclassTypes</code>
+     * <p>the superclass types method.</p>
+     * @param srcType {@link java.lang.Class} <p>the src type parameter is <code>Class</code> type.</p>
+     * @return {@link java.lang.reflect.Type} <p>the superclass types return object is <code>Type</code> type.</p>
+     * @see java.lang.Class
+     * @see java.lang.reflect.Type
+     */
     public static Type[] resolveSuperclassTypes(Class<?> srcType) {
         Type type = srcType.getGenericSuperclass();
         List<Type> result = new ArrayList<>();
@@ -41,10 +49,10 @@ public class GenericTypeResolver {
     }
 
     /**
-     * <code>resolveGenericTypes</code>
-     * <p>the generic types method.</p>
+     * <code>resolveInterfaceTypes</code>
+     * <p>the interface types method.</p>
      * @param srcType {@link java.lang.Class} <p>the src type parameter is <code>Class</code> type.</p>
-     * @return {@link java.lang.reflect.Type} <p>the generic types return object is <code>Type</code> type.</p>
+     * @return {@link java.lang.reflect.Type} <p>the interface types return object is <code>Type</code> type.</p>
      * @see java.lang.Class
      * @see java.lang.reflect.Type
      */

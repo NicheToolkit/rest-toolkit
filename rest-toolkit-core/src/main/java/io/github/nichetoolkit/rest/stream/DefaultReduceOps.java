@@ -115,6 +115,16 @@ final class DefaultReduceOps {
         };
     }
 
+    /**
+     * <code>makeRef</code>
+     * <p>the ref method.</p>
+     * @param operator     {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>the operator parameter is <code>BinaryOperatorActuator</code> type.</p>
+     * @param defaultValue {@link java.lang.Boolean} <p>the default value parameter is <code>Boolean</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultTerminalOp} <p>the ref return object is <code>DefaultTerminalOp</code> type.</p>
+     * @see io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator
+     * @see java.lang.Boolean
+     * @see io.github.nichetoolkit.rest.stream.DefaultTerminalOp
+     */
     public static DefaultTerminalOp<Boolean, Boolean>
     makeRef(BinaryOperatorActuator<Boolean> operator, Boolean defaultValue) {
         Objects.requireNonNull(operator);

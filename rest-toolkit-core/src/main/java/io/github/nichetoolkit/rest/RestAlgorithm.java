@@ -32,6 +32,7 @@ public interface RestAlgorithm<A> extends RestValue<Integer, String> {
      * @param algorithm A <p>the algorithm parameter is <code>A</code> type.</p>
      * @return T <p>the algorithm return object is <code>T</code> type.</p>
      * @see java.lang.Class
+     * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("Duplicates")
     static <A,T extends RestAlgorithm<A>> T parseAlgorithm(Class<T> clazz, A algorithm) {

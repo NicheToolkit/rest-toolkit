@@ -17,6 +17,7 @@ import java.util.Optional;
  * <code>DefaultEnum</code>
  * <p>The type default enum class.</p>
  * @author Cyan (snow22314@outlook.com)
+ * @see java.lang.SuppressWarnings
  * @since Jdk1.8
  */
 @SuppressWarnings("all")

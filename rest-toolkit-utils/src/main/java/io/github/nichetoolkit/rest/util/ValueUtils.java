@@ -9,10 +9,10 @@ import java.security.SecureRandom;
 import java.util.*;
 
 /**
- * <code>GeneralUtils</code>
- * <p>The type general utils class.</p>
+ * <code>ValueUtils</code>
+ * <p>The type value utils class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @see Slf4j
+ * @see lombok.extern.slf4j.Slf4j
  * @since Jdk1.8
  */
 @Slf4j
@@ -21,11 +21,11 @@ public class ValueUtils {
     /**
      * <code>transforms</code>
      * <p>the method.</p>
-     * @param value    {@link Long} <p>the value parameter is <code>Long</code> type.</p>
-     * @param multiple {@link Long} <p>the multiple parameter is <code>Long</code> type.</p>
-     * @return {@link Double} <p>the return object is <code>Double</code> type.</p>
-     * @see Long
-     * @see Double
+     * @param value    {@link java.lang.Long} <p>the value parameter is <code>Long</code> type.</p>
+     * @param multiple {@link java.lang.Long} <p>the multiple parameter is <code>Long</code> type.</p>
+     * @return {@link java.lang.Double} <p>the return object is <code>Double</code> type.</p>
+     * @see java.lang.Long
+     * @see java.lang.Double
      */
     public static Double transforms(Long value, Long multiple) {
         if (GeneralUtils.isValid(value)) {
@@ -37,11 +37,11 @@ public class ValueUtils {
     /**
      * <code>transforms</code>
      * <p>the method.</p>
-     * @param value    {@link Double} <p>the value parameter is <code>Double</code> type.</p>
-     * @param multiple {@link Long} <p>the multiple parameter is <code>Long</code> type.</p>
-     * @return {@link Long} <p>the return object is <code>Long</code> type.</p>
-     * @see Double
-     * @see Long
+     * @param value    {@link java.lang.Double} <p>the value parameter is <code>Double</code> type.</p>
+     * @param multiple {@link java.lang.Long} <p>the multiple parameter is <code>Long</code> type.</p>
+     * @return {@link java.lang.Long} <p>the return object is <code>Long</code> type.</p>
+     * @see java.lang.Double
+     * @see java.lang.Long
      */
     public static Long transforms(Double value, Long multiple) {
         if (GeneralUtils.isValid(value)) {
@@ -53,10 +53,10 @@ public class ValueUtils {
     /**
      * <code>transform</code>
      * <p>the method.</p>
-     * @param value {@link Long} <p>the value parameter is <code>Long</code> type.</p>
-     * @return {@link BigDecimal} <p>the return object is <code>BigDecimal</code> type.</p>
-     * @see Long
-     * @see BigDecimal
+     * @param value {@link java.lang.Long} <p>the value parameter is <code>Long</code> type.</p>
+     * @return {@link java.math.BigDecimal} <p>the return object is <code>BigDecimal</code> type.</p>
+     * @see java.lang.Long
+     * @see java.math.BigDecimal
      */
     public static BigDecimal transform(Long value) {
         if (GeneralUtils.isValid(value)) {
@@ -68,11 +68,11 @@ public class ValueUtils {
     /**
      * <code>transform</code>
      * <p>the method.</p>
-     * @param value    {@link Long} <p>the value parameter is <code>Long</code> type.</p>
-     * @param multiple {@link Long} <p>the multiple parameter is <code>Long</code> type.</p>
-     * @return {@link BigDecimal} <p>the return object is <code>BigDecimal</code> type.</p>
-     * @see Long
-     * @see BigDecimal
+     * @param value    {@link java.lang.Long} <p>the value parameter is <code>Long</code> type.</p>
+     * @param multiple {@link java.lang.Long} <p>the multiple parameter is <code>Long</code> type.</p>
+     * @return {@link java.math.BigDecimal} <p>the return object is <code>BigDecimal</code> type.</p>
+     * @see java.lang.Long
+     * @see java.math.BigDecimal
      */
     public static BigDecimal transform(Long value, Long multiple) {
         if (GeneralUtils.isValid(value)) {
@@ -84,13 +84,13 @@ public class ValueUtils {
     /**
      * <code>transform</code>
      * <p>the method.</p>
-     * @param value    {@link Long} <p>the value parameter is <code>Long</code> type.</p>
-     * @param multiple {@link Long} <p>the multiple parameter is <code>Long</code> type.</p>
-     * @param scale    {@link Integer} <p>the scale parameter is <code>Integer</code> type.</p>
-     * @return {@link BigDecimal} <p>the return object is <code>BigDecimal</code> type.</p>
-     * @see Long
-     * @see Integer
-     * @see BigDecimal
+     * @param value    {@link java.lang.Long} <p>the value parameter is <code>Long</code> type.</p>
+     * @param multiple {@link java.lang.Long} <p>the multiple parameter is <code>Long</code> type.</p>
+     * @param scale    {@link java.lang.Integer} <p>the scale parameter is <code>Integer</code> type.</p>
+     * @return {@link java.math.BigDecimal} <p>the return object is <code>BigDecimal</code> type.</p>
+     * @see java.lang.Long
+     * @see java.lang.Integer
+     * @see java.math.BigDecimal
      */
     public static BigDecimal transform(Long value, Long multiple, Integer scale) {
         if (GeneralUtils.isValid(value)) {
@@ -102,10 +102,10 @@ public class ValueUtils {
     /**
      * <code>transform</code>
      * <p>the method.</p>
-     * @param value {@link BigDecimal} <p>the value parameter is <code>BigDecimal</code> type.</p>
-     * @return {@link Long} <p>the return object is <code>Long</code> type.</p>
-     * @see BigDecimal
-     * @see Long
+     * @param value {@link java.math.BigDecimal} <p>the value parameter is <code>BigDecimal</code> type.</p>
+     * @return {@link java.lang.Long} <p>the return object is <code>Long</code> type.</p>
+     * @see java.math.BigDecimal
+     * @see java.lang.Long
      */
     public static Long transform(BigDecimal value) {
         if (GeneralUtils.isValid(value)) {
@@ -117,11 +117,11 @@ public class ValueUtils {
     /**
      * <code>transform</code>
      * <p>the method.</p>
-     * @param value    {@link BigDecimal} <p>the value parameter is <code>BigDecimal</code> type.</p>
-     * @param multiple {@link Long} <p>the multiple parameter is <code>Long</code> type.</p>
-     * @return {@link Long} <p>the return object is <code>Long</code> type.</p>
-     * @see BigDecimal
-     * @see Long
+     * @param value    {@link java.math.BigDecimal} <p>the value parameter is <code>BigDecimal</code> type.</p>
+     * @param multiple {@link java.lang.Long} <p>the multiple parameter is <code>Long</code> type.</p>
+     * @return {@link java.lang.Long} <p>the return object is <code>Long</code> type.</p>
+     * @see java.math.BigDecimal
+     * @see java.lang.Long
      */
     public static Long transform(BigDecimal value, Long multiple) {
         if (GeneralUtils.isValid(value)) {
@@ -133,10 +133,10 @@ public class ValueUtils {
     /**
      * <code>toDouble</code>
      * <p>the double method.</p>
-     * @param value {@link Object} <p>the value parameter is <code>Object</code> type.</p>
-     * @return {@link Double} <p>the double return object is <code>Double</code> type.</p>
-     * @see Object
-     * @see Double
+     * @param value {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>
+     * @return {@link java.lang.Double} <p>the double return object is <code>Double</code> type.</p>
+     * @see java.lang.Object
+     * @see java.lang.Double
      */
     public static Double toDouble(Object value) {
         if (GeneralUtils.isValid(value)) {
@@ -152,10 +152,10 @@ public class ValueUtils {
     /**
      * <code>toBigInteger</code>
      * <p>the big integer method.</p>
-     * @param value {@link Object} <p>the value parameter is <code>Object</code> type.</p>
-     * @return {@link BigInteger} <p>the big integer return object is <code>BigInteger</code> type.</p>
-     * @see Object
-     * @see BigInteger
+     * @param value {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>
+     * @return {@link java.math.BigInteger} <p>the big integer return object is <code>BigInteger</code> type.</p>
+     * @see java.lang.Object
+     * @see java.math.BigInteger
      */
     public static BigInteger toBigInteger(Object value) {
         if (GeneralUtils.isValid(value)) {
@@ -170,10 +170,10 @@ public class ValueUtils {
     /**
      * <code>toBigDecimal</code>
      * <p>the big decimal method.</p>
-     * @param value {@link Object} <p>the value parameter is <code>Object</code> type.</p>
-     * @return {@link BigDecimal} <p>the big decimal return object is <code>BigDecimal</code> type.</p>
-     * @see Object
-     * @see BigDecimal
+     * @param value {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>
+     * @return {@link java.math.BigDecimal} <p>the big decimal return object is <code>BigDecimal</code> type.</p>
+     * @see java.lang.Object
+     * @see java.math.BigDecimal
      */
     public static BigDecimal toBigDecimal(Object value) {
         if (GeneralUtils.isValid(value)) {
@@ -188,10 +188,10 @@ public class ValueUtils {
     /**
      * <code>toInteger</code>
      * <p>the integer method.</p>
-     * @param value {@link Object} <p>the value parameter is <code>Object</code> type.</p>
-     * @return {@link Integer} <p>the integer return object is <code>Integer</code> type.</p>
-     * @see Object
-     * @see Integer
+     * @param value {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>
+     * @return {@link java.lang.Integer} <p>the integer return object is <code>Integer</code> type.</p>
+     * @see java.lang.Object
+     * @see java.lang.Integer
      */
     public static Integer toInteger(Object value) {
         if (GeneralUtils.isValid(value)) {
@@ -206,10 +206,10 @@ public class ValueUtils {
     /**
      * <code>toLong</code>
      * <p>the long method.</p>
-     * @param value {@link Object} <p>the value parameter is <code>Object</code> type.</p>
-     * @return {@link Long} <p>the long return object is <code>Long</code> type.</p>
-     * @see Object
-     * @see Long
+     * @param value {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>
+     * @return {@link java.lang.Long} <p>the long return object is <code>Long</code> type.</p>
+     * @see java.lang.Object
+     * @see java.lang.Long
      */
     public static Long toLong(Object value) {
         if (GeneralUtils.isValid(value)) {
@@ -224,10 +224,10 @@ public class ValueUtils {
     /**
      * <code>toTime</code>
      * <p>the time method.</p>
-     * @param value {@link Object} <p>the value parameter is <code>Object</code> type.</p>
-     * @return {@link Long} <p>the time return object is <code>Long</code> type.</p>
-     * @see Object
-     * @see Long
+     * @param value {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>
+     * @return {@link java.lang.Long} <p>the time return object is <code>Long</code> type.</p>
+     * @see java.lang.Object
+     * @see java.lang.Long
      */
     public static Long toTime(Object value) {
         if (GeneralUtils.isValid(value)) {
@@ -246,9 +246,9 @@ public class ValueUtils {
     /**
      * <code>isBigInteger</code>
      * <p>the big integer method.</p>
-     * @param value {@link String} <p>the value parameter is <code>String</code> type.</p>
+     * @param value {@link java.lang.String} <p>the value parameter is <code>String</code> type.</p>
      * @return boolean <p>the big integer return object is <code>boolean</code> type.</p>
-     * @see String
+     * @see java.lang.String
      */
     public static boolean isBigInteger(String value) {
         try {
@@ -262,9 +262,9 @@ public class ValueUtils {
     /**
      * <code>isBigDecimal</code>
      * <p>the big decimal method.</p>
-     * @param value {@link String} <p>the value parameter is <code>String</code> type.</p>
+     * @param value {@link java.lang.String} <p>the value parameter is <code>String</code> type.</p>
      * @return boolean <p>the big decimal return object is <code>boolean</code> type.</p>
-     * @see String
+     * @see java.lang.String
      */
     public static boolean isBigDecimal(String value) {
         try {
@@ -278,9 +278,9 @@ public class ValueUtils {
     /**
      * <code>isInteger</code>
      * <p>the integer method.</p>
-     * @param value {@link String} <p>the value parameter is <code>String</code> type.</p>
+     * @param value {@link java.lang.String} <p>the value parameter is <code>String</code> type.</p>
      * @return boolean <p>the integer return object is <code>boolean</code> type.</p>
-     * @see String
+     * @see java.lang.String
      */
     public static boolean isInteger(String value) {
         try {
@@ -294,9 +294,9 @@ public class ValueUtils {
     /**
      * <code>isLong</code>
      * <p>the long method.</p>
-     * @param value {@link String} <p>the value parameter is <code>String</code> type.</p>
+     * @param value {@link java.lang.String} <p>the value parameter is <code>String</code> type.</p>
      * @return boolean <p>the long return object is <code>boolean</code> type.</p>
-     * @see String
+     * @see java.lang.String
      */
     public static boolean isLong(String value) {
         try {
@@ -310,9 +310,9 @@ public class ValueUtils {
     /**
      * <code>isDouble</code>
      * <p>the double method.</p>
-     * @param value {@link String} <p>the value parameter is <code>String</code> type.</p>
+     * @param value {@link java.lang.String} <p>the value parameter is <code>String</code> type.</p>
      * @return boolean <p>the double return object is <code>boolean</code> type.</p>
-     * @see String
+     * @see java.lang.String
      */
     public static boolean isDouble(String value) {
         try {
@@ -327,8 +327,8 @@ public class ValueUtils {
      * <code>randomHex</code>
      * <p>the hex method.</p>
      * @param size int <p>the size parameter is <code>int</code> type.</p>
-     * @return {@link String} <p>the hex return object is <code>String</code> type.</p>
-     * @see String
+     * @return {@link java.lang.String} <p>the hex return object is <code>String</code> type.</p>
+     * @see java.lang.String
      */
     public static String randomHex(int size) {
         StringBuilder result = new StringBuilder();

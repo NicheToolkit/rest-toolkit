@@ -77,23 +77,30 @@ public class PasswordWorker {
     }
 
     /**
-     * <code>mustLengthQuest</code>
-     * <p>the length quest method.</p>
-     * @return boolean <p>the length quest return object is <code>boolean</code> type.</p>
+     * <code>lengthQuest</code>
+     * <p>the quest method.</p>
+     * @return boolean <p>the quest return object is <code>boolean</code> type.</p>
      */
     public boolean lengthQuest() {
         return lengthQuest(8,16);
     }
 
+    /**
+     * <code>lengthQuest</code>
+     * <p>the quest method.</p>
+     * @param min int <p>the min parameter is <code>int</code> type.</p>
+     * @param max int <p>the max parameter is <code>int</code> type.</p>
+     * @return boolean <p>the quest return object is <code>boolean</code> type.</p>
+     */
     public boolean lengthQuest(int min, int max) {
         /* 密码长度 8-16位 */
         return this.length >= min && this.length <= max;
     }
 
     /**
-     * <code>mustContentQuest</code>
-     * <p>the content quest method.</p>
-     * @return boolean <p>the content quest return object is <code>boolean</code> type.</p>
+     * <code>contentQuest</code>
+     * <p>the quest method.</p>
+     * @return boolean <p>the quest return object is <code>boolean</code> type.</p>
      */
     public boolean contentQuest() {
         return (getUpperSize() + getLowerSize()) > 0 && getNumSize() > 0;

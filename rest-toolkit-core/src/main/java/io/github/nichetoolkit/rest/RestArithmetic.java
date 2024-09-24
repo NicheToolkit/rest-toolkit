@@ -31,6 +31,7 @@ public interface RestArithmetic<A> extends RestValue<Long, String> {
      * @param arithmetic A <p>the arithmetic parameter is <code>A</code> type.</p>
      * @return T <p>the arithmetic return object is <code>T</code> type.</p>
      * @see java.lang.Class
+     * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("Duplicates")
     static <A,T extends RestArithmetic<A>> T parseArithmetic(Class<T> clazz, A arithmetic) {

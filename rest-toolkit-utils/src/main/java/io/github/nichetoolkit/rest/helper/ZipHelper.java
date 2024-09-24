@@ -31,6 +31,7 @@ public class ZipHelper {
      * @throws FileCreateException {@link io.github.nichetoolkit.rest.error.often.FileCreateException} <p>the file create exception is <code>FileCreateException</code> type.</p>
      * @see java.lang.String
      * @see java.io.File
+     * @see java.lang.SuppressWarnings
      * @see io.github.nichetoolkit.rest.error.often.ZipErrorException
      * @see io.github.nichetoolkit.rest.error.often.FileCreateException
      */
@@ -69,6 +70,7 @@ public class ZipHelper {
      * @see java.lang.String
      * @see java.util.List
      * @see java.io.File
+     * @see java.lang.SuppressWarnings
      * @see io.github.nichetoolkit.rest.error.often.ZipErrorException
      * @see io.github.nichetoolkit.rest.error.often.FileCreateException
      */

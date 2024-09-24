@@ -6,11 +6,26 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 
+/**
+ * <code>RestStreamTest</code>
+ * <p>The type rest stream test class.</p>
+ * @author Cyan (snow22314@outlook.com)
+ * @see lombok.extern.slf4j.Slf4j
+ * @see org.springframework.boot.test.context.SpringBootTest
+ * @since Jdk1.8
+ */
 @Slf4j
 @SpringBootTest
 class RestStreamTest {
 
 
+    /**
+     * <code>test</code>
+     * <p>the method.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * @see org.junit.jupiter.api.Test
+     * @see io.github.nichetoolkit.rest.RestException
+     */
     @Test
     void test() throws RestException {
         Integer[] testArray = {1,5,3,2,3,4};

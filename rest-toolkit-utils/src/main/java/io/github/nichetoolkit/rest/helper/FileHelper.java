@@ -96,6 +96,7 @@ public class FileHelper {
      * @return {@link java.io.File} <p>the file return object is <code>File</code> type.</p>
      * @throws FileCreateException {@link io.github.nichetoolkit.rest.error.often.FileCreateException} <p>the file create exception is <code>FileCreateException</code> type.</p>
      * @see java.io.File
+     * @see java.lang.SuppressWarnings
      * @see io.github.nichetoolkit.rest.error.often.FileCreateException
      */
     @SuppressWarnings("ResultOfMethodCallIgnored")

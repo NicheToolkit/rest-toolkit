@@ -396,6 +396,7 @@ class DefaultSpinedBuffer<E>
          * <p>the array array method.</p>
          * @param size int <p>the size parameter is <code>int</code> type.</p>
          * @return T_ARR <p>the array array return object is <code>T_ARR</code> type.</p>
+         * @see java.lang.SuppressWarnings
          */
         @SuppressWarnings("SameParameterValue")
         protected abstract T_ARR[] newArrayArray(int size);
@@ -510,6 +511,7 @@ class DefaultSpinedBuffer<E>
          * <p>the into method.</p>
          * @param array  T_ARR <p>the array parameter is <code>T_ARR</code> type.</p>
          * @param offset int <p>the offset parameter is <code>int</code> type.</p>
+         * @see java.lang.SuppressWarnings
          */
         @SuppressWarnings("all")
         public void copyInto(T_ARR array, int offset) {
@@ -625,6 +627,7 @@ class DefaultSpinedBuffer<E>
              * @param lastSpineIndex         int <p>the last spine index parameter is <code>int</code> type.</p>
              * @param firstSpineElementIndex int <p>the first spine element index parameter is <code>int</code> type.</p>
              * @param lastSpineElementFence  int <p>the last spine element fence parameter is <code>int</code> type.</p>
+             * @see java.lang.SuppressWarnings
              */
             @SuppressWarnings("Duplicates")
             BaseSpliterator(int firstSpineIndex, int lastSpineIndex,

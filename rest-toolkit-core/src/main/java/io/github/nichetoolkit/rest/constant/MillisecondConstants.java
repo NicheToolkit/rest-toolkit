@@ -2,7 +2,7 @@ package io.github.nichetoolkit.rest.constant;
 
 /**
  * <code>MillisecondConstants</code>
- * <p>The type millisecond constants class.</p>
+ * <p>The type millisecond constants interface.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */

@@ -39,6 +39,7 @@ public class PathUtils {
      * @param childName {@link java.lang.String} <p>the child name parameter is <code>String</code> type.</p>
      * @return {@link java.lang.String} <p>the child path return object is <code>String</code> type.</p>
      * @see java.lang.String
+     * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("ResultOfMethodCallIgnored")
     public static String getChildPath(final String childName) {

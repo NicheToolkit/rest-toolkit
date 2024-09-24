@@ -62,6 +62,7 @@ public interface DefaultNode<T> {
      * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>the return object is <code>DefaultNode</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see java.util.function.IntFunction
+     * @see java.lang.SuppressWarnings
      * @see io.github.nichetoolkit.rest.RestException
      */
     @SuppressWarnings("StatementWithEmptyBody")

@@ -318,10 +318,10 @@ public interface RestStream<T> extends DefaultBaseStream<T, RestStream<T>> {
     RestOptional<T> findAny() throws RestException;
 
     /**
-     * <code>findAnyFirst</code>
-     * <p>the any first method.</p>
+     * <code>findAny</code>
+     * <p>the any method.</p>
      * @param predicate {@link io.github.nichetoolkit.rest.actuator.PredicateActuator} <p>the predicate parameter is <code>PredicateActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>the any first return object is <code>RestOptional</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>the any return object is <code>RestOptional</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.PredicateActuator
      * @see io.github.nichetoolkit.rest.RestOptional

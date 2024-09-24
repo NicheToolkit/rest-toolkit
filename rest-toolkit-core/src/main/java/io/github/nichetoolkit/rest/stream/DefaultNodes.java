@@ -31,7 +31,7 @@ final class DefaultNodes {
 
     /**
      * <code>BAD_SIZE</code>
-     * {@link java.lang.String} <p>the constant <code>BAD_SIZE</code> field.</p>
+     * {@link java.lang.String} <p>the <code>BAD_SIZE</code> field.</p>
      * @see java.lang.String
      */
     static final String BAD_SIZE = "Stream size exceeds max array size";
@@ -626,7 +626,7 @@ final class DefaultNodes {
 
         /**
          * <code>tryAdvanceStack</code>
-         * {@link java.util.Deque} <p>the <code>tryAdvanceStack</code> field.</p>
+         * <p>the Try advance stack field.</p>
          * @see java.util.Deque
          */
         Deque<N> tryAdvanceStack;

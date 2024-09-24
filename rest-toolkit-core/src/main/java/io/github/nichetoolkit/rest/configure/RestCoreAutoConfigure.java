@@ -42,6 +42,7 @@ public class RestCoreAutoConfigure {
      * @see org.springframework.context.annotation.Primary
      * @see org.springframework.beans.factory.annotation.Autowired
      * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
+     * @see java.lang.SuppressWarnings
      */
     @Bean
     @Primary

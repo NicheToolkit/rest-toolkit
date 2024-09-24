@@ -13,6 +13,8 @@ import java.util.Objects;
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.pack.ViewPack
  * @see lombok.Data
+ * @see com.fasterxml.jackson.annotation.JsonInclude
+ * @see com.fasterxml.jackson.annotation.JsonIgnoreProperties
  * @since Jdk1.8
  */
 @Data
