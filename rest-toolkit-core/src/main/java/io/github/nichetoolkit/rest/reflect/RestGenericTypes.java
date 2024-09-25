@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * <code>GenericTypeResolver</code>
+ * <code>RestGenericTypes</code>
  * <p>The type generic type resolver class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
