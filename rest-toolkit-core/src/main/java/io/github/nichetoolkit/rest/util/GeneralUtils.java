@@ -158,6 +158,42 @@ public class GeneralUtils {
     }
 
     /**
+     * <code>isUsable</code>
+     * <p>the usable method.</p>
+     * @param object {@link java.lang.Object} <p>the object parameter is <code>Object</code> type.</p>
+     * @return boolean <p>the usable return object is <code>boolean</code> type.</p>
+     * @see java.lang.Object
+     * @see org.springframework.lang.Nullable
+     * @see java.lang.SuppressWarnings
+     */
+    @SuppressWarnings("Duplicates")
+    public static boolean isUsable(@Nullable Object object) {
+        if (object == null) {
+            return false;
+        } else if (object instanceof String) {
+            return !((String) object).trim().isEmpty();
+        } else if (object instanceof StringBuffer) {
+            return !((StringBuffer) object).toString().trim().isEmpty();
+        } else if (object instanceof StringBuilder) {
+            return !((StringBuilder) object).toString().trim().isEmpty();
+        } else if (object instanceof List) {
+            return !((List<?>) object).isEmpty();
+        } else if (object instanceof Set) {
+            return !((Set<?>) object).isEmpty();
+        } else if (object instanceof Map) {
+            return !((Map<?, ?>) object).isEmpty();
+        } else if (object instanceof Collection) {
+            return !((Collection<?>) object).isEmpty();
+        } else if (object instanceof Iterator) {
+            return ((Iterator<?>) object).hasNext();
+        } else if (object.getClass().isArray()) {
+            return Array.getLength(object) > 0;
+        } else {
+            return true;
+        }
+    }
+
+    /**
      * <code>isNotNull</code>
      * <p>the not null method.</p>
      * @param object {@link java.lang.Object} <p>the object parameter is <code>Object</code> type.</p>
@@ -262,6 +298,42 @@ public class GeneralUtils {
             return ((Number) object).longValue() <= 0L;
         } else if (object instanceof Boolean) {
             return false;
+        } else if (object instanceof String) {
+            return ((String) object).trim().isEmpty();
+        } else if (object instanceof StringBuffer) {
+            return ((StringBuffer) object).toString().trim().isEmpty();
+        } else if (object instanceof StringBuilder) {
+            return ((StringBuilder) object).toString().trim().isEmpty();
+        } else if (object instanceof List) {
+            return ((List<?>) object).isEmpty();
+        } else if (object instanceof Set) {
+            return ((Set<?>) object).isEmpty();
+        } else if (object instanceof Map) {
+            return ((Map<?, ?>) object).isEmpty();
+        } else if (object instanceof Collection) {
+            return ((Collection<?>) object).isEmpty();
+        } else if (object instanceof Iterator) {
+            return !((Iterator<?>) object).hasNext();
+        } else if (object.getClass().isArray()) {
+            return Array.getLength(object) == 0;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * <code>isUnusable</code>
+     * <p>the unusable method.</p>
+     * @param object {@link java.lang.Object} <p>the object parameter is <code>Object</code> type.</p>
+     * @return boolean <p>the unusable return object is <code>boolean</code> type.</p>
+     * @see java.lang.Object
+     * @see org.springframework.lang.Nullable
+     * @see java.lang.SuppressWarnings
+     */
+    @SuppressWarnings("Duplicates")
+    public static boolean isUnusable(@Nullable Object object) {
+        if (object == null) {
+            return true;
         } else if (object instanceof String) {
             return ((String) object).trim().isEmpty();
         } else if (object instanceof StringBuffer) {
