@@ -1,7 +1,7 @@
 package io.github.nichetoolkit.rest.configure;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.github.nichetoolkit.rest.holder.ObjectMapperHolder;
+import io.github.nichetoolkit.rest.defaults.ObjectMapperHolder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -35,9 +35,9 @@ public class RestCoreAutoConfigure {
      * <code>objectMapperHolder</code>
      * <p>the mapper holder method.</p>
      * @param objectMapper {@link com.fasterxml.jackson.databind.ObjectMapper} <p>the object mapper parameter is <code>ObjectMapper</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.holder.ObjectMapperHolder} <p>the mapper holder return object is <code>ObjectMapperHolder</code> type.</p>
+     * @return {@link ObjectMapperHolder} <p>the mapper holder return object is <code>ObjectMapperHolder</code> type.</p>
      * @see com.fasterxml.jackson.databind.ObjectMapper
-     * @see io.github.nichetoolkit.rest.holder.ObjectMapperHolder
+     * @see ObjectMapperHolder
      * @see org.springframework.context.annotation.Bean
      * @see org.springframework.context.annotation.Primary
      * @see org.springframework.beans.factory.annotation.Autowired

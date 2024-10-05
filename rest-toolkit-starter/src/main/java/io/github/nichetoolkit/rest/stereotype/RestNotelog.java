@@ -1,4 +1,4 @@
-package io.github.nichetoolkit.rest.userlog.stereotype;
+package io.github.nichetoolkit.rest.stereotype;
 
 import org.springframework.core.annotation.AliasFor;
 import org.springframework.stereotype.Indexed;
@@ -14,7 +14,7 @@ import java.lang.annotation.*;
  * @see java.lang.annotation.Retention
  * @see java.lang.annotation.Documented
  * @see org.springframework.stereotype.Indexed
- * @see io.github.nichetoolkit.rest.userlog.stereotype.RestLogging
+ * @see RestLogging
  * @since Jdk1.8
  */
 @Target({ElementType.TYPE})
@@ -49,7 +49,7 @@ public @interface RestNotelog {
      * @see org.springframework.core.annotation.AliasFor
      */
     @AliasFor(
-            annotation = io.github.nichetoolkit.rest.userlog.stereotype.RestLogging.class,
+            annotation = RestLogging.class,
             attribute = "loggingKey"
     )
     String loggingKey() default "";

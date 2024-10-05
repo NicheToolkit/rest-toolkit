@@ -1,4 +1,4 @@
-package io.github.nichetoolkit.rest.holder;
+package io.github.nichetoolkit.rest.defaults;
 
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonFactoryBuilder;

@@ -1,14 +1,14 @@
 package io.github.nichetoolkit.rest.util;
 
-import io.github.nichetoolkit.rest.holder.ApplicationContextHolder;
+import io.github.nichetoolkit.rest.defaults.ApplicationContextHolder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 
 import java.util.List;
 
 /**
- * <code>ContextUtils</code>
- * <p>The type context utils class.</p>
+ * <code>ApplicationContextUtils</code>
+ * <p>The type application context utils class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
  * @since Jdk1.8

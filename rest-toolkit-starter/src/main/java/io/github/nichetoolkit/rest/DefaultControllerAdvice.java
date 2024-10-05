@@ -1,14 +1,11 @@
 package io.github.nichetoolkit.rest;
 
 import io.github.nichetoolkit.rest.configure.RestExceptionProperties;
-import io.github.nichetoolkit.rest.holder.ApplicationContextHolder;
+import io.github.nichetoolkit.rest.defaults.ApplicationContextHolder;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
 import org.springframework.core.MethodParameter;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
@@ -18,7 +15,6 @@ import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
-import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
@@ -44,21 +40,13 @@ import java.util.List;
 @Order(0)
 @CrossOrigin
 @RestControllerAdvice
-public class DefaultControllerAdvice implements ResponseBodyAdvice<Object>, ApplicationContextAware, InitializingBean {
+public class DefaultControllerAdvice implements ResponseBodyAdvice<Object>, InitializingBean {
     /**
      * <code>exceptionProperties</code>
      * {@link io.github.nichetoolkit.rest.configure.RestExceptionProperties} <p>the <code>exceptionProperties</code> field.</p>
      * @see io.github.nichetoolkit.rest.configure.RestExceptionProperties
      */
     private final RestExceptionProperties exceptionProperties;
-    /**
-     * <code>applicationContext</code>
-     * {@link org.springframework.context.ApplicationContext} <p>the <code>applicationContext</code> field.</p>
-     * @see org.springframework.context.ApplicationContext
-     * @see org.springframework.lang.Nullable
-     */
-    @Nullable
-    private ApplicationContext applicationContext;
     /**
      * <code>exceptionAdvices</code>
      * {@link java.util.List} <p>the <code>exceptionAdvices</code> field.</p>
@@ -109,12 +97,10 @@ public class DefaultControllerAdvice implements ResponseBodyAdvice<Object>, Appl
     @Override
     public void afterPropertiesSet() {
         if (this.exceptionAdvices == null) {
-            Assert.notNull(this.applicationContext, "No ApplicationContext");
-            this.exceptionAdvices = ApplicationContextHolder.getBeans(this.applicationContext, RestExceptionAdvice.class);
+            this.exceptionAdvices = ApplicationContextHolder.getBeans(RestExceptionAdvice.class);
         }
         if (this.responseAdvices == null) {
-            Assert.notNull(this.applicationContext, "No ApplicationContext");
-            this.responseAdvices = ApplicationContextHolder.getBeans(this.applicationContext, RestResponseAdvice.class);
+            this.responseAdvices = ApplicationContextHolder.getBeans(RestResponseAdvice.class);
         }
     }
 
@@ -137,12 +123,6 @@ public class DefaultControllerAdvice implements ResponseBodyAdvice<Object>, Appl
      */
     public List<RestResponseAdvice> getResponseAdvices() {
         return this.responseAdvices != null && !this.responseAdvices.isEmpty() ? this.responseAdvices : Collections.emptyList();
-    }
-
-    @Override
-    public void setApplicationContext(@NonNull ApplicationContext applicationContext) throws BeansException {
-        this.applicationContext = applicationContext;
-        ApplicationContextHolder.initApplicationContext(applicationContext);
     }
 
     /**
