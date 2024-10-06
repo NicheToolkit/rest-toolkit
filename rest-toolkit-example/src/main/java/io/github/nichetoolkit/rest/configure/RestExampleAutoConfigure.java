@@ -24,6 +24,6 @@ public class RestExampleAutoConfigure {
      * Instantiates a new rest example auto configure.
      */
     public RestExampleAutoConfigure() {
-        log.debug("the auto configuration for [rest-example] initiated");
+        log.debug("The auto configuration for [rest-example] initiated");
     }
 }

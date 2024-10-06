@@ -5,7 +5,7 @@ import io.github.nichetoolkit.rest.http.HttpThreadFactory;
 import io.github.nichetoolkit.rest.http.RestTemplates;
 import io.github.nichetoolkit.rest.http.config.HttpClientType;
 import io.github.nichetoolkit.rest.interceptor.DefaultClientHttpInterceptor;
-import io.github.nichetoolkit.rest.util.ContextUtils;
+import io.github.nichetoolkit.rest.util.BeanUtils;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import io.github.nichetoolkit.rest.util.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -110,7 +110,7 @@ public class RestHttpAutoConfigure {
      */
     @Autowired
     public RestHttpAutoConfigure(RestHttpProperties httpProperties, DefaultClientHttpInterceptor httpInterceptor, RestInterceptProperties interceptProperties) {
-        log.debug("the auto configuration for [rest-http] initiated");
+        log.debug("The auto configuration for [rest-http] initiated");
         this.httpProperties = httpProperties;
         this.httpInterceptor = httpInterceptor;
         this.interceptProperties = interceptProperties;
@@ -129,10 +129,10 @@ public class RestHttpAutoConfigure {
     @Bean
     @ConditionalOnMissingBean(RestTemplates.class)
     public RestTemplates restTemplates(RestTemplate restTemplate) {
-        log.debug("http       properties: {}", JsonUtils.parseJson(httpProperties));
+        log.debug("The http       properties: {}", JsonUtils.parseJson(httpProperties));
         HttpClientType httpType = httpProperties.getHttpType();
         if (GeneralUtils.isNotEmpty(httpType)) {
-            restTemplate = ContextUtils.getBean(httpType.getValue(), RestTemplate.class);
+            restTemplate = BeanUtils.beanOfType(httpType.getValue(), RestTemplate.class);
         }
         return new RestTemplates(restTemplate);
     }

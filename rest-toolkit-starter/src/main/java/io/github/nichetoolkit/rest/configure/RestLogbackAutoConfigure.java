@@ -47,6 +47,7 @@ public class RestLogbackAutoConfigure {
     @Autowired
     public RestLogbackAutoConfigure(RestLogbackProperties logbackProperties) {
         this.logbackProperties = logbackProperties;
+        log.debug("The auto configuration for [rest-logback] initiated");
     }
 
     /**

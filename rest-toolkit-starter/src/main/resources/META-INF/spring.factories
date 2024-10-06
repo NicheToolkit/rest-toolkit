@@ -1,2 +1,1 @@
-org.springframework.context.ApplicationContextInitializer=io.github.nichetoolkit.rest.defaults.DefaultContextInitializer
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=io.github.nichetoolkit.rest.configure.RestStarterAutoConfigure

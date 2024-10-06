@@ -23,7 +23,7 @@ public class IpAddressUtils {
      * @see javax.servlet.http.HttpServletRequest
      */
     private static HttpServletRequest getHttpServletRequest() {
-        return ContextUtils.getBean(HttpServletRequest.class);
+        return BeanUtils.beanOfType(HttpServletRequest.class);
     }
 
     /**

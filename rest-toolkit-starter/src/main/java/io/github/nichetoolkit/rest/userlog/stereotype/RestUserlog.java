@@ -1,4 +1,4 @@
-package io.github.nichetoolkit.rest.stereotype;
+package io.github.nichetoolkit.rest.userlog.stereotype;
 
 import io.github.nichetoolkit.rest.userlog.LoggingType;
 import org.springframework.core.annotation.AliasFor;

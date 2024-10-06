@@ -30,7 +30,7 @@ public class RestUtilsAutoConfigure {
      * Instantiates a new rest utils auto configure.
      */
     public RestUtilsAutoConfigure() {
-        log.debug("the auto configuration for [rest-Utils] initiated");
+        log.debug("The auto configuration for [rest-Utils] initiated");
     }
 
     /**

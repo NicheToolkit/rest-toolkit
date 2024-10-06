@@ -1,7 +1,7 @@
 package io.github.nichetoolkit.rest;
 
 import io.github.nichetoolkit.rest.configure.RestExceptionProperties;
-import io.github.nichetoolkit.rest.defaults.ApplicationContextHolder;
+import io.github.nichetoolkit.rest.advance.ApplicationContextHolder;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;
@@ -97,10 +97,10 @@ public class DefaultControllerAdvice implements ResponseBodyAdvice<Object>, Init
     @Override
     public void afterPropertiesSet() {
         if (this.exceptionAdvices == null) {
-            this.exceptionAdvices = ApplicationContextHolder.getBeans(RestExceptionAdvice.class);
+            this.exceptionAdvices = ApplicationContextHolder.beansOfType(RestExceptionAdvice.class);
         }
         if (this.responseAdvices == null) {
-            this.responseAdvices = ApplicationContextHolder.getBeans(RestResponseAdvice.class);
+            this.responseAdvices = ApplicationContextHolder.beansOfType(RestResponseAdvice.class);
         }
     }
 

@@ -59,7 +59,7 @@ public class RadixWorker {
      */
     @PostConstruct
     public void radixWorkerInit() {
-        log.debug("radix      properties: {}", JsonUtils.parseJson(radixProperties));
+        log.debug("The radix      properties: {}", JsonUtils.parseJson(radixProperties));
         INSTANCE = this;
     }
 

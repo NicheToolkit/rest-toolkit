@@ -18,7 +18,7 @@ import io.github.nichetoolkit.rest.error.json.JsonParseListException;
 import io.github.nichetoolkit.rest.error.json.JsonParseMapException;
 import io.github.nichetoolkit.rest.error.json.JsonParseSetException;
 import io.github.nichetoolkit.rest.error.supply.JsonParseException;
-import io.github.nichetoolkit.rest.defaults.ObjectMapperHolder;
+import io.github.nichetoolkit.rest.advance.ObjectMapperHolder;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import lombok.extern.slf4j.Slf4j;
 

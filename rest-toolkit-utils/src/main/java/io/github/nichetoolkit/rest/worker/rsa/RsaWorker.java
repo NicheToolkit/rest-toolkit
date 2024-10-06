@@ -90,7 +90,7 @@ public class RsaWorker {
      */
     @PostConstruct
     public void rsaWorkerInit() {
-        log.debug("rsa        properties: {}", JsonUtils.parseJson(this.rsaProperties));
+        log.debug("The rsa        properties: {}", JsonUtils.parseJson(this.rsaProperties));
         INSTANCE = this;
     }
 

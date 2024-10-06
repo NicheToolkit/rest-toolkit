@@ -1,7 +1,7 @@
 package io.github.nichetoolkit.rest.configure;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.github.nichetoolkit.rest.defaults.ObjectMapperHolder;
+import io.github.nichetoolkit.rest.advance.ObjectMapperHolder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -28,7 +28,7 @@ public class RestCoreAutoConfigure {
      * Instantiates a new rest core auto configure.
      */
     public RestCoreAutoConfigure() {
-        log.debug("the auto configuration for [rest-core] initiated");
+        log.debug("The auto configuration for [rest-core] initiated");
     }
 
     /**

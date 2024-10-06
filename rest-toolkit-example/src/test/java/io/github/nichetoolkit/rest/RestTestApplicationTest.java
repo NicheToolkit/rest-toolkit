@@ -1,5 +1,6 @@
 package io.github.nichetoolkit.rest;
 
+import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 /**
@@ -11,5 +12,12 @@ import org.springframework.boot.test.context.SpringBootTest;
  */
 @SpringBootTest
 class RestTestApplicationTest {
+
+    @Test
+    void test() throws RestException {
+
+    }
+
+
 
 }

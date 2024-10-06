@@ -3,12 +3,11 @@ package io.github.nichetoolkit.rest.interceptor;
 import io.github.nichetoolkit.rest.*;
 import io.github.nichetoolkit.rest.configure.RestInterceptProperties;
 import io.github.nichetoolkit.rest.constant.RestConstants;
-import io.github.nichetoolkit.rest.util.ContextUtils;
 import io.github.nichetoolkit.rest.DefaultControllerAdvice;
 import io.github.nichetoolkit.rest.userlog.*;
-import io.github.nichetoolkit.rest.stereotype.RestLogging;
-import io.github.nichetoolkit.rest.stereotype.RestNotelog;
-import io.github.nichetoolkit.rest.stereotype.RestUserlog;
+import io.github.nichetoolkit.rest.userlog.stereotype.RestLogging;
+import io.github.nichetoolkit.rest.userlog.stereotype.RestNotelog;
+import io.github.nichetoolkit.rest.userlog.stereotype.RestUserlog;
 import io.github.nichetoolkit.rest.util.*;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -418,7 +417,7 @@ public class DefaultLoggingInterceptor implements AsyncHandlerInterceptor, RestR
      * @see io.github.nichetoolkit.rest.userlog.RestUsernotePack
      */
     public void applyInterceptAdvice(RestRequestPack requestPack, RestResponsePack responsePack, RestUsernotePack usernotePack) {
-        RestUsernoteAdvice usernoteAdvice = ContextUtils.getBean(RestUsernoteAdvice.class);
+        RestUsernoteAdvice usernoteAdvice = BeanUtils.beanOfType(RestUsernoteAdvice.class);
         if (GeneralUtils.isNotEmpty(usernotePack) && GeneralUtils.isNotEmpty(usernoteAdvice) && interceptProperties.getUserlogEnabled()) {
             usernoteAdvice.doUsernoteHandle(requestPack, responsePack, usernotePack);
         }

@@ -1,4 +1,4 @@
-package io.github.nichetoolkit.rest.stereotype;
+package io.github.nichetoolkit.rest.userlog.stereotype;
 
 
 import org.springframework.stereotype.Indexed;

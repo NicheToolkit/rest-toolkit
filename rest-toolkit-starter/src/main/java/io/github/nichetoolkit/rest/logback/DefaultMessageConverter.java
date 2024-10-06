@@ -2,8 +2,8 @@ package io.github.nichetoolkit.rest.logback;
 
 import ch.qos.logback.classic.pattern.MessageConverter;
 import ch.qos.logback.classic.spi.ILoggingEvent;
+import io.github.nichetoolkit.rest.advance.ApplicationContextHolder;
 import io.github.nichetoolkit.rest.configure.RestLogbackProperties;
-import io.github.nichetoolkit.rest.defaults.ApplicationContextHolder;
 import io.github.nichetoolkit.rest.util.CommonUtils;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import io.github.nichetoolkit.rest.util.JsonUtils;
@@ -27,14 +27,13 @@ public class DefaultMessageConverter extends MessageConverter {
      * {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>the <code>logbackProperties</code> field.</p>
      * @see io.github.nichetoolkit.rest.configure.RestLogbackProperties
      */
-    protected final RestLogbackProperties logbackProperties;
+    protected RestLogbackProperties logbackProperties;
 
     /**
      * <code>DefaultMessageConverter</code>
      * Instantiates a new default message converter.
      */
     public DefaultMessageConverter() {
-        this.logbackProperties = ApplicationContextHolder.getBean(RestLogbackProperties.class);
     }
 
     /**
@@ -96,11 +95,14 @@ public class DefaultMessageConverter extends MessageConverter {
             }
         }
         Integer argumentLength = 1024;
-        if (GeneralUtils.isNotEmpty(logbackProperties)) {
-            argumentLength = logbackProperties.getArgumentLength();
+        if (GeneralUtils.isEmpty(this.logbackProperties) && ApplicationContextHolder.isActiveContext()) {
+            this.logbackProperties = ApplicationContextHolder.beanOfType(RestLogbackProperties.class);
+        }
+        if (GeneralUtils.isNotEmpty(this.logbackProperties)) {
+            argumentLength = this.logbackProperties.getArgumentLength();
         }
         if (argument instanceof String) {
-            if (argument.toString().length() < argumentLength){
+            if (argument.toString().length() < argumentLength) {
                 return argument;
             } else {
                 return CommonUtils.substring(((String) argument), argumentLength);
