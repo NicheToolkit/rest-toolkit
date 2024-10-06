@@ -1,4 +1,4 @@
-package io.github.nichetoolkit.rest.advance;
+package io.github.nichetoolkit.rest.holder;
 
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;

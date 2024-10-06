@@ -1,4 +1,4 @@
-package io.github.nichetoolkit.rest.advance;
+package io.github.nichetoolkit.rest.holder;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;

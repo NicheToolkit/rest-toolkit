@@ -1,6 +1,6 @@
 package io.github.nichetoolkit.rest.util;
 
-import io.github.nichetoolkit.rest.advance.ApplicationContextHolder;
+import io.github.nichetoolkit.rest.holder.ApplicationContextHolder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
