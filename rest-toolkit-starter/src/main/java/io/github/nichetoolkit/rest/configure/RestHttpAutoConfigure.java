@@ -153,7 +153,7 @@ public class RestHttpAutoConfigure {
          * <p>Instantiates a new default rest template auto configure.</p>
          */
         public DefaultRestTemplateAutoConfigure() {
-            log.debug("the auto configuration for [default] rest template initiated");
+            log.debug("The auto configuration for [default-httpClient] rest template initiated");
         }
 
         /**
