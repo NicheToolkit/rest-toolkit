@@ -32,7 +32,7 @@ public class BeanUtils {
         try {
             return ApplicationContextHolder.beanOfName(beanName);
         } catch (BeansException exception) {
-            log.warn("bean for named {} is no found, error: {}", beanName, exception.getMessage());
+            log.warn("The bean for named '{}' is no found, {}", beanName, exception.getMessage());
             return null;
         }
     }
@@ -49,7 +49,7 @@ public class BeanUtils {
         try {
             return ApplicationContextHolder.beanOfType(beanType);
         } catch (BeansException exception) {
-            log.warn("bean of {} is no found, error: {}", beanType.getName(), exception.getMessage());
+            log.warn("The bean of [{}] type is no found, {}", beanType.getName(), exception.getMessage());
             return null;
         }
     }
@@ -68,7 +68,7 @@ public class BeanUtils {
         try {
             return ApplicationContextHolder.beanOfType(beanName, beanType);
         } catch (BeansException exception) {
-            log.warn("bean of {} for named {} is no found, error: {}", beanType.getName(), beanName, exception.getMessage());
+            log.warn("The bean of [{}] type for named '{}' is no found, {}", beanType.getName(), beanName, exception.getMessage());
             return null;
         }
     }
@@ -85,8 +85,8 @@ public class BeanUtils {
     public static <T> List<T> beansOfType(Class<T> beanType) {
         try {
             return ApplicationContextHolder.beansOfType(beanType);
-        } catch (BeansException ex) {
-            log.warn("beans of {} is no found, error: {}", beanType.getName(), ex.getMessage());
+        } catch (BeansException exception) {
+            log.warn("The beans of [{}] type is no found, {}", beanType.getName(), exception.getMessage());
             return null;
         }
     }
@@ -103,8 +103,8 @@ public class BeanUtils {
     public static <T> Map<String, T> beanMapOfType(Class<T> beanType) {
         try {
             return ApplicationContextHolder.beanMapOfType(beanType);
-        } catch (BeansException ex) {
-            log.warn("bean map of {} is no found, error: {}", beanType.getName(), ex.getMessage());
+        } catch (BeansException exception) {
+            log.warn("The bean map of [{}] type is no found, {}", beanType.getName(), exception.getMessage());
             return null;
         }
     }
@@ -120,8 +120,8 @@ public class BeanUtils {
     public static List<Object> beansOfAnnotation(Class<? extends Annotation> annotationType) {
         try {
             return ApplicationContextHolder.beansOfAnnotation(annotationType);
-        } catch (BeansException ex) {
-            log.warn("beans with {} type is no found, error: {}", annotationType.getName(), ex.getMessage());
+        } catch (BeansException exception) {
+            log.warn("The beans with [{}] type is no found, {}", annotationType.getName(), exception.getMessage());
             return null;
         }
     }
@@ -137,8 +137,8 @@ public class BeanUtils {
     public static Map<String, Object> beanMapOfAnnotation(Class<? extends Annotation> annotationType) {
         try {
             return ApplicationContextHolder.beanMapOfAnnotation(annotationType);
-        } catch (BeansException ex) {
-            log.warn("bean map with {} type is no found, error: {}", annotationType.getName(), ex.getMessage());
+        } catch (BeansException exception) {
+            log.warn("The bean map with [{}] type is no found, {}", annotationType.getName(), exception.getMessage());
             return null;
         }
     }
