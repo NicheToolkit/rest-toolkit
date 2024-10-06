@@ -25,7 +25,7 @@ import org.springframework.context.annotation.Primary;
 public class RestCoreAutoConfigure {
     /**
      * <code>RestCoreAutoConfigure</code>
-     * Instantiates a new rest core auto configure.
+     * <p>Instantiates a new rest core auto configure.</p>
      */
     public RestCoreAutoConfigure() {
         log.debug("The auto configuration for [rest-core] initiated");
@@ -33,11 +33,11 @@ public class RestCoreAutoConfigure {
 
     /**
      * <code>objectMapperHolder</code>
-     * <p>the mapper holder method.</p>
-     * @param objectMapper {@link com.fasterxml.jackson.databind.ObjectMapper} <p>the object mapper parameter is <code>ObjectMapper</code> type.</p>
-     * @return {@link ObjectMapperHolder} <p>the mapper holder return object is <code>ObjectMapperHolder</code> type.</p>
+     * <p>The mapper holder method.</p>
+     * @param objectMapper {@link com.fasterxml.jackson.databind.ObjectMapper} <p>The object mapper parameter is <code>ObjectMapper</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.advance.ObjectMapperHolder} <p>The mapper holder return object is <code>ObjectMapperHolder</code> type.</p>
      * @see com.fasterxml.jackson.databind.ObjectMapper
-     * @see ObjectMapperHolder
+     * @see io.github.nichetoolkit.rest.advance.ObjectMapperHolder
      * @see org.springframework.context.annotation.Bean
      * @see org.springframework.context.annotation.Primary
      * @see org.springframework.beans.factory.annotation.Autowired

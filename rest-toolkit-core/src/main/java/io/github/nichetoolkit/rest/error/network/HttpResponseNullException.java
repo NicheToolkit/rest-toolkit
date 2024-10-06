@@ -14,7 +14,7 @@ public class HttpResponseNullException extends HttpErrorException {
 
     /**
      * <code>HttpResponseNullException</code>
-     * Instantiates a new http response null exception.
+     * <p>Instantiates a new http response null exception.</p>
      */
     public HttpResponseNullException() {
         super(RestErrorStatus.HTTP_RESPONSE_NULL);
@@ -22,8 +22,8 @@ public class HttpResponseNullException extends HttpErrorException {
 
     /**
      * <code>HttpResponseNullException</code>
-     * Instantiates a new http response null exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * <p>Instantiates a new http response null exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
     public HttpResponseNullException(RestStatus status) {
@@ -32,8 +32,8 @@ public class HttpResponseNullException extends HttpErrorException {
 
     /**
      * <code>HttpResponseNullException</code>
-     * Instantiates a new http response null exception.
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new http response null exception.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public HttpResponseNullException(String message) {
@@ -42,9 +42,9 @@ public class HttpResponseNullException extends HttpErrorException {
 
     /**
      * <code>HttpResponseNullException</code>
-     * Instantiates a new http response null exception.
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new http response null exception.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public HttpResponseNullException(String resource, String message) {

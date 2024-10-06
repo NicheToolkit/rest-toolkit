@@ -15,8 +15,8 @@ import java.util.Objects;
 public interface AnchorActuator {
     /**
      * <code>actuate</code>
-     * <p>the method.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The method.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
     void actuate() throws RestException;
@@ -24,10 +24,10 @@ public interface AnchorActuator {
 
     /**
      * <code>andThen</code>
-     * <p>the then method.</p>
-     * @param after {@link io.github.nichetoolkit.rest.actuator.AnchorActuator} <p>the after parameter is <code>AnchorActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.actuator.AnchorActuator} <p>the then return object is <code>AnchorActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The then method.</p>
+     * @param after {@link io.github.nichetoolkit.rest.actuator.AnchorActuator} <p>The after parameter is <code>AnchorActuator</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.actuator.AnchorActuator} <p>The then return object is <code>AnchorActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
     default AnchorActuator andThen(AnchorActuator after) throws RestException {

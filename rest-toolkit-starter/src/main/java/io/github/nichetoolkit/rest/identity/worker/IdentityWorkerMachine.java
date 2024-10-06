@@ -22,47 +22,47 @@ import java.util.Objects;
 class IdentityWorkerMachine implements IdentityWorker {
     /**
      * <code>name</code>
-     * {@link java.lang.String} <p>the <code>name</code> field.</p>
+     * {@link java.lang.String} <p>The <code>name</code> field.</p>
      * @see java.lang.String
      */
     private final String name;
     /**
      * <code>lastTime</code>
-     * {@link java.lang.Long} <p>the <code>lastTime</code> field.</p>
+     * {@link java.lang.Long} <p>The <code>lastTime</code> field.</p>
      * @see java.lang.Long
      */
     private Long lastTime = IdentityWorkerConfig.TIMESTAMP;
     /**
      * <code>sequence</code>
-     * {@link java.lang.Long} <p>the <code>sequence</code> field.</p>
+     * {@link java.lang.Long} <p>The <code>sequence</code> field.</p>
      * @see java.lang.Long
      */
     private Long sequence = IdentityWorkerConfig.SEQUENCE;
 
     /**
      * <code>workerId</code>
-     * {@link java.lang.Long} <p>the <code>workerId</code> field.</p>
+     * {@link java.lang.Long} <p>The <code>workerId</code> field.</p>
      * @see java.lang.Long
      */
     private final Long workerId;
     /**
      * <code>centerId</code>
-     * {@link java.lang.Long} <p>the <code>centerId</code> field.</p>
+     * {@link java.lang.Long} <p>The <code>centerId</code> field.</p>
      * @see java.lang.Long
      */
     private final Long centerId;
     /**
      * <code>isOffset</code>
-     * <p>the <code>isOffset</code> field.</p>
+     * <p>The <code>isOffset</code> field.</p>
      */
     private boolean isOffset;
 
     /**
      * <code>IdentityWorkerMachine</code>
-     * Instantiates a new identity worker machine.
-     * @param workerId {@link java.lang.Long} <p>the worker id parameter is <code>Long</code> type.</p>
-     * @param centerId {@link java.lang.Long} <p>the center id parameter is <code>Long</code> type.</p>
-     * @param sequence {@link java.lang.Long} <p>the sequence parameter is <code>Long</code> type.</p>
+     * <p>Instantiates a new identity worker machine.</p>
+     * @param workerId {@link java.lang.Long} <p>The worker id parameter is <code>Long</code> type.</p>
+     * @param centerId {@link java.lang.Long} <p>The center id parameter is <code>Long</code> type.</p>
+     * @param sequence {@link java.lang.Long} <p>The sequence parameter is <code>Long</code> type.</p>
      * @see java.lang.Long
      * @see org.springframework.lang.NonNull
      */
@@ -72,11 +72,11 @@ class IdentityWorkerMachine implements IdentityWorker {
 
     /**
      * <code>IdentityWorkerMachine</code>
-     * Instantiates a new identity worker machine.
-     * @param mame     {@link java.lang.String} <p>the mame parameter is <code>String</code> type.</p>
-     * @param workerId {@link java.lang.Long} <p>the worker id parameter is <code>Long</code> type.</p>
-     * @param centerId {@link java.lang.Long} <p>the center id parameter is <code>Long</code> type.</p>
-     * @param sequence {@link java.lang.Long} <p>the sequence parameter is <code>Long</code> type.</p>
+     * <p>Instantiates a new identity worker machine.</p>
+     * @param mame     {@link java.lang.String} <p>The mame parameter is <code>String</code> type.</p>
+     * @param workerId {@link java.lang.Long} <p>The worker id parameter is <code>Long</code> type.</p>
+     * @param centerId {@link java.lang.Long} <p>The center id parameter is <code>Long</code> type.</p>
+     * @param sequence {@link java.lang.Long} <p>The sequence parameter is <code>Long</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Long
      * @see org.springframework.lang.NonNull
@@ -102,9 +102,9 @@ class IdentityWorkerMachine implements IdentityWorker {
 
     /**
      * <code>IdentityWorkerMachine</code>
-     * Instantiates a new identity worker machine.
-     * @param workerId {@link java.lang.Long} <p>the worker id parameter is <code>Long</code> type.</p>
-     * @param centerId {@link java.lang.Long} <p>the center id parameter is <code>Long</code> type.</p>
+     * <p>Instantiates a new identity worker machine.</p>
+     * @param workerId {@link java.lang.Long} <p>The worker id parameter is <code>Long</code> type.</p>
+     * @param centerId {@link java.lang.Long} <p>The center id parameter is <code>Long</code> type.</p>
      * @see java.lang.Long
      * @see org.springframework.lang.NonNull
      */

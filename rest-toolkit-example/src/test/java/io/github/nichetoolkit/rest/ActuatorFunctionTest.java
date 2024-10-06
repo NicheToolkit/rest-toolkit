@@ -20,11 +20,11 @@ class ActuatorFunctionTest {
 
     /**
      * <code>handle</code>
-     * <p>the method.</p>
-     * @param before {@link io.github.nichetoolkit.rest.actuator.AnchorActuator} <p>the before parameter is <code>AnchorActuator</code> type.</p>
-     * @param after  {@link io.github.nichetoolkit.rest.actuator.AnchorActuator} <p>the after parameter is <code>AnchorActuator</code> type.</p>
-     * @param over   {@link io.github.nichetoolkit.rest.actuator.AnchorActuator} <p>the over parameter is <code>AnchorActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The method.</p>
+     * @param before {@link io.github.nichetoolkit.rest.actuator.AnchorActuator} <p>The before parameter is <code>AnchorActuator</code> type.</p>
+     * @param after  {@link io.github.nichetoolkit.rest.actuator.AnchorActuator} <p>The after parameter is <code>AnchorActuator</code> type.</p>
+     * @param over   {@link io.github.nichetoolkit.rest.actuator.AnchorActuator} <p>The over parameter is <code>AnchorActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.AnchorActuator
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -37,8 +37,8 @@ class ActuatorFunctionTest {
 
     /**
      * <code>test</code>
-     * <p>the method.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The method.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see org.junit.jupiter.api.Test
      * @see io.github.nichetoolkit.rest.RestException
      */

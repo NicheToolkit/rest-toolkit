@@ -20,15 +20,15 @@ import java.util.List;
 public abstract class RestLoggingKeyGenerator implements RestLoggingKeyAdvice, RestAccessValueAdvice {
     /**
      * <code>logbackProperties</code>
-     * {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>the <code>logbackProperties</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>The <code>logbackProperties</code> field.</p>
      * @see io.github.nichetoolkit.rest.configure.RestLogbackProperties
      */
     protected final RestLogbackProperties logbackProperties;
 
     /**
      * <code>RestLoggingKeyGenerator</code>
-     * Instantiates a new rest logging key generator.
-     * @param logbackProperties {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>the logback properties parameter is <code>RestLogbackProperties</code> type.</p>
+     * <p>Instantiates a new rest logging key generator.</p>
+     * @param logbackProperties {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>The logback properties parameter is <code>RestLogbackProperties</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestLogbackProperties
      */
     public RestLoggingKeyGenerator(RestLogbackProperties logbackProperties) {

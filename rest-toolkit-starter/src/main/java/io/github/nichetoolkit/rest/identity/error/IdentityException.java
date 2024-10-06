@@ -16,7 +16,7 @@ import java.util.function.Supplier;
 public class IdentityException extends RestException {
     /**
      * <code>IdentityException</code>
-     * Instantiates a new identity exception.
+     * <p>Instantiates a new identity exception.</p>
      */
     public IdentityException() {
         super(RestErrorStatus.UNKNOWN_ERROR);
@@ -24,8 +24,8 @@ public class IdentityException extends RestException {
 
     /**
      * <code>IdentityException</code>
-     * Instantiates a new identity exception.
-     * @param supplier {@link java.util.function.Supplier} <p>the supplier parameter is <code>Supplier</code> type.</p>
+     * <p>Instantiates a new identity exception.</p>
+     * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
      * @see java.util.function.Supplier
      */
     public IdentityException(Supplier<RestStatus> supplier) {
@@ -34,8 +34,8 @@ public class IdentityException extends RestException {
 
     /**
      * <code>IdentityException</code>
-     * Instantiates a new identity exception.
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new identity exception.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public IdentityException(String message) {
@@ -44,8 +44,8 @@ public class IdentityException extends RestException {
 
     /**
      * <code>IdentityException</code>
-     * Instantiates a new identity exception.
-     * @param status {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
+     * <p>Instantiates a new identity exception.</p>
+     * @param status {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
      * @see java.lang.Integer
      */
     public IdentityException(Integer status) {
@@ -54,8 +54,8 @@ public class IdentityException extends RestException {
 
     /**
      * <code>IdentityException</code>
-     * Instantiates a new identity exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * <p>Instantiates a new identity exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
     public IdentityException(RestStatus status) {
@@ -64,9 +64,9 @@ public class IdentityException extends RestException {
 
     /**
      * <code>IdentityException</code>
-     * Instantiates a new identity exception.
-     * @param status  {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new identity exception.</p>
+     * @param status  {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      */
@@ -76,9 +76,9 @@ public class IdentityException extends RestException {
 
     /**
      * <code>IdentityException</code>
-     * Instantiates a new identity exception.
-     * @param status     {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>the rest status parameter is <code>RestStatus</code> type.</p>
+     * <p>Instantiates a new identity exception.</p>
+     * @param status     {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>The rest status parameter is <code>RestStatus</code> type.</p>
      * @see java.lang.Integer
      * @see io.github.nichetoolkit.rest.RestStatus
      */
@@ -88,9 +88,9 @@ public class IdentityException extends RestException {
 
     /**
      * <code>IdentityException</code>
-     * Instantiates a new identity exception.
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param status  {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * <p>Instantiates a new identity exception.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param status  {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestStatus
      */

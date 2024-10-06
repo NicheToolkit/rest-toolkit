@@ -32,15 +32,15 @@ public class RestLogbackAutoConfigure {
 
     /**
      * <code>logbackProperties</code>
-     * {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>the <code>logbackProperties</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>The <code>logbackProperties</code> field.</p>
      * @see io.github.nichetoolkit.rest.configure.RestLogbackProperties
      */
     private final RestLogbackProperties logbackProperties;
 
     /**
      * <code>RestLogbackAutoConfigure</code>
-     * Instantiates a new rest logback auto configure.
-     * @param logbackProperties {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>the logback properties parameter is <code>RestLogbackProperties</code> type.</p>
+     * <p>Instantiates a new rest logback auto configure.</p>
+     * @param logbackProperties {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>The logback properties parameter is <code>RestLogbackProperties</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestLogbackProperties
      * @see org.springframework.beans.factory.annotation.Autowired
      */
@@ -52,8 +52,8 @@ public class RestLogbackAutoConfigure {
 
     /**
      * <code>loggingKeyGenerator</code>
-     * <p>the key generator method.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestLoggingKey} <p>the key generator return object is <code>RestLoggingKey</code> type.</p>
+     * <p>The key generator method.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestLoggingKey} <p>The key generator return object is <code>RestLoggingKey</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestLoggingKey
      * @see org.springframework.context.annotation.Bean
      * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
@@ -78,8 +78,8 @@ public class RestLogbackAutoConfigure {
 
     /**
      * <code>messageConverter</code>
-     * <p>the converter method.</p>
-     * @return {@link io.github.nichetoolkit.rest.logback.DefaultMessageConverter} <p>the converter return object is <code>DefaultMessageConverter</code> type.</p>
+     * <p>The converter method.</p>
+     * @return {@link io.github.nichetoolkit.rest.logback.DefaultMessageConverter} <p>The converter return object is <code>DefaultMessageConverter</code> type.</p>
      * @see io.github.nichetoolkit.rest.logback.DefaultMessageConverter
      * @see org.springframework.context.annotation.Bean
      * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean

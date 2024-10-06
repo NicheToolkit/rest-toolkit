@@ -22,12 +22,12 @@ public class PartitionHelper {
 
     /**
      * <code>partition</code>
-     * <p>the method.</p>
-     * @param <T>           {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param dataList      {@link java.util.Collection} <p>the data list parameter is <code>Collection</code> type.</p>
-     * @param partitionSize {@link java.lang.Integer} <p>the partition size parameter is <code>Integer</code> type.</p>
-     * @param consumer      {@link io.github.nichetoolkit.rest.actuator.ConsumerActuator} <p>the consumer parameter is <code>ConsumerActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The method.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param dataList      {@link java.util.Collection} <p>The data list parameter is <code>Collection</code> type.</p>
+     * @param partitionSize {@link java.lang.Integer} <p>The partition size parameter is <code>Integer</code> type.</p>
+     * @param consumer      {@link io.github.nichetoolkit.rest.actuator.ConsumerActuator} <p>The consumer parameter is <code>ConsumerActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.util.Collection
      * @see java.lang.Integer
      * @see io.github.nichetoolkit.rest.actuator.ConsumerActuator
@@ -50,14 +50,14 @@ public class PartitionHelper {
 
     /**
      * <code>query</code>
-     * <p>the method.</p>
-     * @param <I>       {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <T>       {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param idList    {@link java.util.Collection} <p>the id list parameter is <code>Collection</code> type.</p>
-     * @param querySize {@link java.lang.Integer} <p>the query size parameter is <code>Integer</code> type.</p>
-     * @param function  {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the function parameter is <code>FunctionActuator</code> type.</p>
-     * @return {@link java.util.List} <p>the return object is <code>List</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The method.</p>
+     * @param <I>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param idList    {@link java.util.Collection} <p>The id list parameter is <code>Collection</code> type.</p>
+     * @param querySize {@link java.lang.Integer} <p>The query size parameter is <code>Integer</code> type.</p>
+     * @param function  {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The function parameter is <code>FunctionActuator</code> type.</p>
+     * @return {@link java.util.List} <p>The return object is <code>List</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.util.Collection
      * @see java.lang.Integer
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
@@ -83,13 +83,13 @@ public class PartitionHelper {
 
     /**
      * <code>save</code>
-     * <p>the method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param dataList {@link java.util.Collection} <p>the data list parameter is <code>Collection</code> type.</p>
-     * @param saveSize {@link java.lang.Integer} <p>the save size parameter is <code>Integer</code> type.</p>
-     * @param function {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the function parameter is <code>FunctionActuator</code> type.</p>
-     * @return {@link java.lang.Integer} <p>the return object is <code>Integer</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param dataList {@link java.util.Collection} <p>The data list parameter is <code>Collection</code> type.</p>
+     * @param saveSize {@link java.lang.Integer} <p>The save size parameter is <code>Integer</code> type.</p>
+     * @param function {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The function parameter is <code>FunctionActuator</code> type.</p>
+     * @return {@link java.lang.Integer} <p>The return object is <code>Integer</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.util.Collection
      * @see java.lang.Integer
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
@@ -113,12 +113,12 @@ public class PartitionHelper {
 
     /**
      * <code>delete</code>
-     * <p>the method.</p>
-     * @param <I>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param idList     {@link java.util.Collection} <p>the id list parameter is <code>Collection</code> type.</p>
-     * @param deleteSize {@link java.lang.Integer} <p>the delete size parameter is <code>Integer</code> type.</p>
-     * @param consumer   {@link io.github.nichetoolkit.rest.actuator.ConsumerActuator} <p>the consumer parameter is <code>ConsumerActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The method.</p>
+     * @param <I>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param idList     {@link java.util.Collection} <p>The id list parameter is <code>Collection</code> type.</p>
+     * @param deleteSize {@link java.lang.Integer} <p>The delete size parameter is <code>Integer</code> type.</p>
+     * @param consumer   {@link io.github.nichetoolkit.rest.actuator.ConsumerActuator} <p>The consumer parameter is <code>ConsumerActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.util.Collection
      * @see java.lang.Integer
      * @see io.github.nichetoolkit.rest.actuator.ConsumerActuator

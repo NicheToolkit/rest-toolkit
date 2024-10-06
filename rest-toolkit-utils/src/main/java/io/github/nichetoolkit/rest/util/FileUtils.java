@@ -32,9 +32,9 @@ public class FileUtils {
 
     /**
      * <code>createFile</code>
-     * <p>the file method.</p>
-     * @param path {@link java.lang.String} <p>the path parameter is <code>String</code> type.</p>
-     * @return {@link java.io.File} <p>the file return object is <code>File</code> type.</p>
+     * <p>The file method.</p>
+     * @param path {@link java.lang.String} <p>The path parameter is <code>String</code> type.</p>
+     * @return {@link java.io.File} <p>The file return object is <code>File</code> type.</p>
      * @see java.lang.String
      * @see java.io.File
      */
@@ -50,10 +50,10 @@ public class FileUtils {
 
     /**
      * <code>createFile</code>
-     * <p>the file method.</p>
-     * @param path {@link java.lang.String} <p>the path parameter is <code>String</code> type.</p>
-     * @param name {@link java.lang.String} <p>the name parameter is <code>String</code> type.</p>
-     * @return {@link java.io.File} <p>the file return object is <code>File</code> type.</p>
+     * <p>The file method.</p>
+     * @param path {@link java.lang.String} <p>The path parameter is <code>String</code> type.</p>
+     * @param name {@link java.lang.String} <p>The name parameter is <code>String</code> type.</p>
+     * @return {@link java.io.File} <p>The file return object is <code>File</code> type.</p>
      * @see java.lang.String
      * @see java.io.File
      */
@@ -69,10 +69,10 @@ public class FileUtils {
 
     /**
      * <code>createFile</code>
-     * <p>the file method.</p>
-     * @param path    {@link java.lang.String} <p>the path parameter is <code>String</code> type.</p>
-     * @param nameMap {@link java.util.Map} <p>the name map parameter is <code>Map</code> type.</p>
-     * @return {@link java.io.File} <p>the file return object is <code>File</code> type.</p>
+     * <p>The file method.</p>
+     * @param path    {@link java.lang.String} <p>The path parameter is <code>String</code> type.</p>
+     * @param nameMap {@link java.util.Map} <p>The name map parameter is <code>Map</code> type.</p>
+     * @return {@link java.io.File} <p>The file return object is <code>File</code> type.</p>
      * @see java.lang.String
      * @see java.util.Map
      * @see java.io.File
@@ -89,11 +89,11 @@ public class FileUtils {
 
     /**
      * <code>createFile</code>
-     * <p>the file method.</p>
-     * @param path {@link java.lang.String} <p>the path parameter is <code>String</code> type.</p>
-     * @param name {@link java.lang.String} <p>the name parameter is <code>String</code> type.</p>
-     * @param ext  {@link java.lang.String} <p>the ext parameter is <code>String</code> type.</p>
-     * @return {@link java.io.File} <p>the file return object is <code>File</code> type.</p>
+     * <p>The file method.</p>
+     * @param path {@link java.lang.String} <p>The path parameter is <code>String</code> type.</p>
+     * @param name {@link java.lang.String} <p>The name parameter is <code>String</code> type.</p>
+     * @param ext  {@link java.lang.String} <p>The ext parameter is <code>String</code> type.</p>
+     * @return {@link java.io.File} <p>The file return object is <code>File</code> type.</p>
      * @see java.lang.String
      * @see java.io.File
      */
@@ -109,9 +109,9 @@ public class FileUtils {
 
     /**
      * <code>createFile</code>
-     * <p>the file method.</p>
-     * @param file {@link java.io.File} <p>the file parameter is <code>File</code> type.</p>
-     * @return {@link java.io.File} <p>the file return object is <code>File</code> type.</p>
+     * <p>The file method.</p>
+     * @param file {@link java.io.File} <p>The file parameter is <code>File</code> type.</p>
+     * @return {@link java.io.File} <p>The file return object is <code>File</code> type.</p>
      * @see java.io.File
      */
     public static File createFile(final File file) {
@@ -126,9 +126,9 @@ public class FileUtils {
 
     /**
      * <code>copyFile</code>
-     * <p>the file method.</p>
-     * @param srcFile    {@link java.io.File} <p>the src file parameter is <code>File</code> type.</p>
-     * @param targetFile {@link java.io.File} <p>the target file parameter is <code>File</code> type.</p>
+     * <p>The file method.</p>
+     * @param srcFile    {@link java.io.File} <p>The src file parameter is <code>File</code> type.</p>
+     * @param targetFile {@link java.io.File} <p>The target file parameter is <code>File</code> type.</p>
      * @see java.io.File
      */
     public static void copyFile(final File srcFile,final File targetFile) {
@@ -142,9 +142,9 @@ public class FileUtils {
 
     /**
      * <code>copyFile</code>
-     * <p>the file method.</p>
-     * @param srcPath    {@link java.lang.String} <p>the src path parameter is <code>String</code> type.</p>
-     * @param targetPath {@link java.lang.String} <p>the target path parameter is <code>String</code> type.</p>
+     * <p>The file method.</p>
+     * @param srcPath    {@link java.lang.String} <p>The src path parameter is <code>String</code> type.</p>
+     * @param targetPath {@link java.lang.String} <p>The target path parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static void copyFile(final String srcPath,final String targetPath) {
@@ -155,9 +155,9 @@ public class FileUtils {
 
     /**
      * <code>deleteFile</code>
-     * <p>the file method.</p>
-     * @param path {@link java.lang.String} <p>the path parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.Boolean} <p>the file return object is <code>Boolean</code> type.</p>
+     * <p>The file method.</p>
+     * @param path {@link java.lang.String} <p>The path parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.Boolean} <p>The file return object is <code>Boolean</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Boolean
      */
@@ -167,9 +167,9 @@ public class FileUtils {
 
     /**
      * <code>deleteFile</code>
-     * <p>the file method.</p>
-     * @param file {@link java.io.File} <p>the file parameter is <code>File</code> type.</p>
-     * @return {@link java.lang.Boolean} <p>the file return object is <code>Boolean</code> type.</p>
+     * <p>The file method.</p>
+     * @param file {@link java.io.File} <p>The file parameter is <code>File</code> type.</p>
+     * @return {@link java.lang.Boolean} <p>The file return object is <code>Boolean</code> type.</p>
      * @see java.io.File
      * @see java.lang.Boolean
      */
@@ -179,9 +179,9 @@ public class FileUtils {
 
     /**
      * <code>clearFile</code>
-     * <p>the file method.</p>
-     * @param path {@link java.lang.String} <p>the path parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.Boolean} <p>the file return object is <code>Boolean</code> type.</p>
+     * <p>The file method.</p>
+     * @param path {@link java.lang.String} <p>The path parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.Boolean} <p>The file return object is <code>Boolean</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Boolean
      */
@@ -191,10 +191,10 @@ public class FileUtils {
 
     /**
      * <code>cacheFile</code>
-     * <p>the file method.</p>
-     * @param cachePath {@link java.lang.String} <p>the cache path parameter is <code>String</code> type.</p>
-     * @param file      {@link org.springframework.web.multipart.MultipartFile} <p>the file parameter is <code>MultipartFile</code> type.</p>
-     * @return {@link java.io.File} <p>the file return object is <code>File</code> type.</p>
+     * <p>The file method.</p>
+     * @param cachePath {@link java.lang.String} <p>The cache path parameter is <code>String</code> type.</p>
+     * @param file      {@link org.springframework.web.multipart.MultipartFile} <p>The file parameter is <code>MultipartFile</code> type.</p>
+     * @return {@link java.io.File} <p>The file return object is <code>File</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.web.multipart.MultipartFile
      * @see java.io.File
@@ -210,9 +210,9 @@ public class FileUtils {
 
     /**
      * <code>createPath</code>
-     * <p>the path method.</p>
-     * @param path {@link java.lang.String} <p>the path parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>the path return object is <code>String</code> type.</p>
+     * <p>The path method.</p>
+     * @param path {@link java.lang.String} <p>The path parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The path return object is <code>String</code> type.</p>
      * @see java.lang.String
      * @see java.lang.SuppressWarnings
      */
@@ -227,10 +227,10 @@ public class FileUtils {
 
     /**
      * <code>createPath</code>
-     * <p>the path method.</p>
-     * @param path  {@link java.lang.String} <p>the path parameter is <code>String</code> type.</p>
-     * @param child {@link java.lang.String} <p>the child parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>the path return object is <code>String</code> type.</p>
+     * <p>The path method.</p>
+     * @param path  {@link java.lang.String} <p>The path parameter is <code>String</code> type.</p>
+     * @param child {@link java.lang.String} <p>The child parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The path return object is <code>String</code> type.</p>
      * @see java.lang.String
      * @see java.lang.SuppressWarnings
      */
@@ -245,9 +245,9 @@ public class FileUtils {
 
     /**
      * <code>clear</code>
-     * <p>the method.</p>
-     * @param root {@link java.io.File} <p>the root parameter is <code>File</code> type.</p>
-     * @return boolean <p>the return object is <code>boolean</code> type.</p>
+     * <p>The method.</p>
+     * @param root {@link java.io.File} <p>The root parameter is <code>File</code> type.</p>
+     * @return boolean <p>The return object is <code>boolean</code> type.</p>
      * @see java.io.File
      */
     public static boolean clear(final File root) {
@@ -267,9 +267,9 @@ public class FileUtils {
 
     /**
      * <code>clear</code>
-     * <p>the method.</p>
-     * @param path {@link java.lang.String} <p>the path parameter is <code>String</code> type.</p>
-     * @return boolean <p>the return object is <code>boolean</code> type.</p>
+     * <p>The method.</p>
+     * @param path {@link java.lang.String} <p>The path parameter is <code>String</code> type.</p>
+     * @return boolean <p>The return object is <code>boolean</code> type.</p>
      * @see java.lang.String
      */
     public static boolean clear(final String path) {
@@ -279,8 +279,8 @@ public class FileUtils {
 
     /**
      * <code>delete</code>
-     * <p>the method.</p>
-     * @param path {@link java.lang.String} <p>the path parameter is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param path {@link java.lang.String} <p>The path parameter is <code>String</code> type.</p>
      * @see java.lang.String
      * @see java.lang.SuppressWarnings
      */
@@ -294,8 +294,8 @@ public class FileUtils {
 
     /**
      * <code>delete</code>
-     * <p>the method.</p>
-     * @param file {@link java.io.File} <p>the file parameter is <code>File</code> type.</p>
+     * <p>The method.</p>
+     * @param file {@link java.io.File} <p>The file parameter is <code>File</code> type.</p>
      * @see java.io.File
      * @see java.lang.SuppressWarnings
      */
@@ -308,9 +308,9 @@ public class FileUtils {
 
     /**
      * <code>write</code>
-     * <p>the method.</p>
-     * @param file {@link java.io.File} <p>the file parameter is <code>File</code> type.</p>
-     * @param data byte <p>the data parameter is <code>byte</code> type.</p>
+     * <p>The method.</p>
+     * @param file {@link java.io.File} <p>The file parameter is <code>File</code> type.</p>
+     * @param data byte <p>The data parameter is <code>byte</code> type.</p>
      * @see java.io.File
      * @see java.lang.SuppressWarnings
      */
@@ -330,9 +330,9 @@ public class FileUtils {
 
     /**
      * <code>read</code>
-     * <p>the method.</p>
-     * @param file {@link java.io.File} <p>the file parameter is <code>File</code> type.</p>
-     * @return byte <p>the return object is <code>byte</code> type.</p>
+     * <p>The method.</p>
+     * @param file {@link java.io.File} <p>The file parameter is <code>File</code> type.</p>
+     * @return byte <p>The return object is <code>byte</code> type.</p>
      * @see java.io.File
      * @see java.lang.SuppressWarnings
      */
@@ -351,9 +351,9 @@ public class FileUtils {
 
     /**
      * <code>suffix</code>
-     * <p>the method.</p>
-     * @param originalName {@link java.lang.String} <p>the original name parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param originalName {@link java.lang.String} <p>The original name parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String suffix(final String originalName){
@@ -368,9 +368,9 @@ public class FileUtils {
 
     /**
      * <code>mediaType</code>
-     * <p>the type method.</p>
-     * @param filename {@link java.lang.String} <p>the filename parameter is <code>String</code> type.</p>
-     * @return {@link org.springframework.http.MediaType} <p>the type return object is <code>MediaType</code> type.</p>
+     * <p>The type method.</p>
+     * @param filename {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
+     * @return {@link org.springframework.http.MediaType} <p>The type return object is <code>MediaType</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.MediaType
      */
@@ -381,9 +381,9 @@ public class FileUtils {
 
     /**
      * <code>filename</code>
-     * <p>the method.</p>
-     * @param originalName {@link java.lang.String} <p>the original name parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param originalName {@link java.lang.String} <p>The original name parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String filename(final String originalName){
@@ -398,9 +398,9 @@ public class FileUtils {
 
     /**
      * <code>fileSize</code>
-     * <p>the size method.</p>
-     * @param fileSize {@link java.lang.Long} <p>the file size parameter is <code>Long</code> type.</p>
-     * @return {@link java.lang.String} <p>the size return object is <code>String</code> type.</p>
+     * <p>The size method.</p>
+     * @param fileSize {@link java.lang.Long} <p>The file size parameter is <code>Long</code> type.</p>
+     * @return {@link java.lang.String} <p>The size return object is <code>String</code> type.</p>
      * @see java.lang.Long
      * @see java.lang.String
      */
@@ -425,10 +425,10 @@ public class FileUtils {
 
     /**
      * <code>attachment</code>
-     * <p>the method.</p>
-     * @param request  {@link javax.servlet.http.HttpServletRequest} <p>the request parameter is <code>HttpServletRequest</code> type.</p>
-     * @param response {@link javax.servlet.http.HttpServletResponse} <p>the response parameter is <code>HttpServletResponse</code> type.</p>
-     * @param fileName {@link java.lang.String} <p>the file name parameter is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param request  {@link javax.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
+     * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param fileName {@link java.lang.String} <p>The file name parameter is <code>String</code> type.</p>
      * @see javax.servlet.http.HttpServletRequest
      * @see javax.servlet.http.HttpServletResponse
      * @see java.lang.String

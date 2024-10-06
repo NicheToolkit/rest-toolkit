@@ -31,22 +31,22 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class RestInterceptAutoConfigure implements WebMvcConfigurer {
     /**
      * <code>handlerInterceptor</code>
-     * {@link io.github.nichetoolkit.rest.interceptor.DefaultLoggingInterceptor} <p>the <code>handlerInterceptor</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.interceptor.DefaultLoggingInterceptor} <p>The <code>handlerInterceptor</code> field.</p>
      * @see io.github.nichetoolkit.rest.interceptor.DefaultLoggingInterceptor
      */
     private final DefaultLoggingInterceptor handlerInterceptor;
     /**
      * <code>interceptProperties</code>
-     * {@link io.github.nichetoolkit.rest.configure.RestInterceptProperties} <p>the <code>interceptProperties</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.configure.RestInterceptProperties} <p>The <code>interceptProperties</code> field.</p>
      * @see io.github.nichetoolkit.rest.configure.RestInterceptProperties
      */
     private final RestInterceptProperties interceptProperties;
 
     /**
      * <code>RestInterceptAutoConfigure</code>
-     * Instantiates a new rest intercept auto configure.
-     * @param handlerInterceptor  {@link io.github.nichetoolkit.rest.interceptor.DefaultLoggingInterceptor} <p>the handler interceptor parameter is <code>DefaultLoggingInterceptor</code> type.</p>
-     * @param interceptProperties {@link io.github.nichetoolkit.rest.configure.RestInterceptProperties} <p>the intercept properties parameter is <code>RestInterceptProperties</code> type.</p>
+     * <p>Instantiates a new rest intercept auto configure.</p>
+     * @param handlerInterceptor  {@link io.github.nichetoolkit.rest.interceptor.DefaultLoggingInterceptor} <p>The handler interceptor parameter is <code>DefaultLoggingInterceptor</code> type.</p>
+     * @param interceptProperties {@link io.github.nichetoolkit.rest.configure.RestInterceptProperties} <p>The intercept properties parameter is <code>RestInterceptProperties</code> type.</p>
      * @see io.github.nichetoolkit.rest.interceptor.DefaultLoggingInterceptor
      * @see io.github.nichetoolkit.rest.configure.RestInterceptProperties
      * @see org.springframework.beans.factory.annotation.Autowired

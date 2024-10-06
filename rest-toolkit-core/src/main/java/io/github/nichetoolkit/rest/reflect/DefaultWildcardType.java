@@ -13,23 +13,23 @@ import java.lang.reflect.WildcardType;
 public class DefaultWildcardType implements WildcardType {
     /**
      * <code>lowerBounds</code>
-     * {@link java.lang.reflect.Type} <p>the <code>lowerBounds</code> field.</p>
+     * {@link java.lang.reflect.Type} <p>The <code>lowerBounds</code> field.</p>
      * @see java.lang.reflect.Type
      */
     private final Type[] lowerBounds;
 
     /**
      * <code>upperBounds</code>
-     * {@link java.lang.reflect.Type} <p>the <code>upperBounds</code> field.</p>
+     * {@link java.lang.reflect.Type} <p>The <code>upperBounds</code> field.</p>
      * @see java.lang.reflect.Type
      */
     private final Type[] upperBounds;
 
     /**
      * <code>DefaultWildcardType</code>
-     * Instantiates a new default wildcard type.
-     * @param lowerBounds {@link java.lang.reflect.Type} <p>the lower bounds parameter is <code>Type</code> type.</p>
-     * @param upperBounds {@link java.lang.reflect.Type} <p>the upper bounds parameter is <code>Type</code> type.</p>
+     * <p>Instantiates a new default wildcard type.</p>
+     * @param lowerBounds {@link java.lang.reflect.Type} <p>The lower bounds parameter is <code>Type</code> type.</p>
+     * @param upperBounds {@link java.lang.reflect.Type} <p>The upper bounds parameter is <code>Type</code> type.</p>
      * @see java.lang.reflect.Type
      */
     DefaultWildcardType(Type[] lowerBounds, Type[] upperBounds) {

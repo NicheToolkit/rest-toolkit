@@ -16,7 +16,7 @@ public class JsonParseErrorException extends ParseErrorException {
 
     /**
      * <code>JsonParseErrorException</code>
-     * Instantiates a new json parse error exception.
+     * <p>Instantiates a new json parse error exception.</p>
      */
     public JsonParseErrorException() {
         super(RestErrorStatus.JSON_PARSE_ERROR);
@@ -24,8 +24,8 @@ public class JsonParseErrorException extends ParseErrorException {
 
     /**
      * <code>JsonParseErrorException</code>
-     * Instantiates a new json parse error exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>the status parameter is <code>RestErrorStatus</code> type.</p>
+     * <p>Instantiates a new json parse error exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The status parameter is <code>RestErrorStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestErrorStatus
      */
     public JsonParseErrorException(RestErrorStatus status) {
@@ -34,8 +34,8 @@ public class JsonParseErrorException extends ParseErrorException {
 
     /**
      * <code>JsonParseErrorException</code>
-     * Instantiates a new json parse error exception.
-     * @param error {@link java.lang.String} <p>the error parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new json parse error exception.</p>
+     * @param error {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public JsonParseErrorException(String error) {
@@ -44,8 +44,8 @@ public class JsonParseErrorException extends ParseErrorException {
 
     /**
      * <code>JsonParseErrorException</code>
-     * Instantiates a new json parse error exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * <p>Instantiates a new json parse error exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
     public JsonParseErrorException(RestStatus status) {
@@ -54,9 +54,9 @@ public class JsonParseErrorException extends ParseErrorException {
 
     /**
      * <code>JsonParseErrorException</code>
-     * Instantiates a new json parse error exception.
-     * @param status  {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new json parse error exception.</p>
+     * @param status  {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      */
@@ -66,10 +66,10 @@ public class JsonParseErrorException extends ParseErrorException {
 
     /**
      * <code>JsonParseErrorException</code>
-     * Instantiates a new json parse error exception.
-     * @param status   {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new json parse error exception.</p>
+     * @param status   {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      */
@@ -79,11 +79,11 @@ public class JsonParseErrorException extends ParseErrorException {
 
     /**
      * <code>JsonParseErrorException</code>
-     * Instantiates a new json parse error exception.
-     * @param status   {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param field    {@link java.lang.String} <p>the field parameter is <code>String</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new json parse error exception.</p>
+     * @param status   {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param field    {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      */
@@ -93,12 +93,12 @@ public class JsonParseErrorException extends ParseErrorException {
 
     /**
      * <code>JsonParseErrorException</code>
-     * Instantiates a new json parse error exception.
-     * @param status   {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param field    {@link java.lang.String} <p>the field parameter is <code>String</code> type.</p>
-     * @param value    {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new json parse error exception.</p>
+     * @param status   {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param field    {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
+     * @param value    {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see java.lang.Object

@@ -16,7 +16,7 @@ public class FieldNullException extends FieldErrorException {
 
     /**
      * <code>FieldNullException</code>
-     * Instantiates a new field null exception.
+     * <p>Instantiates a new field null exception.</p>
      */
     public FieldNullException() {
         super(RestErrorStatus.FIELD_IS_NULL);
@@ -24,8 +24,8 @@ public class FieldNullException extends FieldErrorException {
 
     /**
      * <code>FieldNullException</code>
-     * Instantiates a new field null exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * <p>Instantiates a new field null exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
     public FieldNullException(RestStatus status) {
@@ -34,8 +34,8 @@ public class FieldNullException extends FieldErrorException {
 
     /**
      * <code>FieldNullException</code>
-     * Instantiates a new field null exception.
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new field null exception.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public FieldNullException(String message) {
@@ -44,9 +44,9 @@ public class FieldNullException extends FieldErrorException {
 
     /**
      * <code>FieldNullException</code>
-     * Instantiates a new field null exception.
-     * @param field   {@link java.lang.String} <p>the field parameter is <code>String</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new field null exception.</p>
+     * @param field   {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public FieldNullException(String field, String message) {

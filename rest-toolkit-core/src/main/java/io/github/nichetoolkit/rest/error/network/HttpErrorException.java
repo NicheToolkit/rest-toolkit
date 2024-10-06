@@ -15,7 +15,7 @@ import io.github.nichetoolkit.rest.RestStatus;
 public class HttpErrorException extends RestErrorException {
     /**
      * <code>HttpErrorException</code>
-     * Instantiates a new http error exception.
+     * <p>Instantiates a new http error exception.</p>
      */
     public HttpErrorException() {
         super(RestErrorStatus.HTTP_ERROR);
@@ -23,8 +23,8 @@ public class HttpErrorException extends RestErrorException {
 
     /**
      * <code>HttpErrorException</code>
-     * Instantiates a new http error exception.
-     * @param status {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
+     * <p>Instantiates a new http error exception.</p>
+     * @param status {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
      * @see java.lang.Integer
      */
     public HttpErrorException(Integer status) {
@@ -33,9 +33,9 @@ public class HttpErrorException extends RestErrorException {
 
     /**
      * <code>HttpErrorException</code>
-     * Instantiates a new http error exception.
-     * @param status {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param cause  {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new http error exception.</p>
+     * @param status {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param cause  {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.Throwable
      */
@@ -45,9 +45,9 @@ public class HttpErrorException extends RestErrorException {
 
     /**
      * <code>HttpErrorException</code>
-     * Instantiates a new http error exception.
-     * @param status  {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new http error exception.</p>
+     * @param status  {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      */
@@ -57,10 +57,10 @@ public class HttpErrorException extends RestErrorException {
 
     /**
      * <code>HttpErrorException</code>
-     * Instantiates a new http error exception.
-     * @param status   {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new http error exception.</p>
+     * @param status   {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      */
@@ -70,10 +70,10 @@ public class HttpErrorException extends RestErrorException {
 
     /**
      * <code>HttpErrorException</code>
-     * Instantiates a new http error exception.
-     * @param status  {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param cause   {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new http error exception.</p>
+     * @param status  {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param cause   {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      * @see java.lang.Throwable
@@ -84,11 +84,11 @@ public class HttpErrorException extends RestErrorException {
 
     /**
      * <code>HttpErrorException</code>
-     * Instantiates a new http error exception.
-     * @param status   {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param cause    {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new http error exception.</p>
+     * @param status   {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param cause    {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      * @see java.lang.Throwable
@@ -99,9 +99,9 @@ public class HttpErrorException extends RestErrorException {
 
     /**
      * <code>HttpErrorException</code>
-     * Instantiates a new http error exception.
-     * @param status     {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>the rest status parameter is <code>RestStatus</code> type.</p>
+     * <p>Instantiates a new http error exception.</p>
+     * @param status     {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>The rest status parameter is <code>RestStatus</code> type.</p>
      * @see java.lang.Integer
      * @see io.github.nichetoolkit.rest.RestStatus
      */
@@ -111,10 +111,10 @@ public class HttpErrorException extends RestErrorException {
 
     /**
      * <code>HttpErrorException</code>
-     * Instantiates a new http error exception.
-     * @param status     {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>the rest status parameter is <code>RestStatus</code> type.</p>
-     * @param cause      {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new http error exception.</p>
+     * @param status     {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>The rest status parameter is <code>RestStatus</code> type.</p>
+     * @param cause      {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see java.lang.Integer
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.Throwable
@@ -125,8 +125,8 @@ public class HttpErrorException extends RestErrorException {
 
     /**
      * <code>HttpErrorException</code>
-     * Instantiates a new http error exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>the status parameter is <code>RestErrorStatus</code> type.</p>
+     * <p>Instantiates a new http error exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The status parameter is <code>RestErrorStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestErrorStatus
      */
     public HttpErrorException(RestErrorStatus status) {
@@ -135,8 +135,8 @@ public class HttpErrorException extends RestErrorException {
 
     /**
      * <code>HttpErrorException</code>
-     * Instantiates a new http error exception.
-     * @param error {@link java.lang.String} <p>the error parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new http error exception.</p>
+     * @param error {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public HttpErrorException(String error) {
@@ -145,9 +145,9 @@ public class HttpErrorException extends RestErrorException {
 
     /**
      * <code>HttpErrorException</code>
-     * Instantiates a new http error exception.
-     * @param error {@link java.lang.String} <p>the error parameter is <code>String</code> type.</p>
-     * @param cause {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new http error exception.</p>
+     * @param error {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
+     * @param cause {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Throwable
      */
@@ -157,8 +157,8 @@ public class HttpErrorException extends RestErrorException {
 
     /**
      * <code>HttpErrorException</code>
-     * Instantiates a new http error exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * <p>Instantiates a new http error exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
     public HttpErrorException(RestStatus status) {
@@ -167,9 +167,9 @@ public class HttpErrorException extends RestErrorException {
 
     /**
      * <code>HttpErrorException</code>
-     * Instantiates a new http error exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param cause  {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new http error exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param cause  {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.Throwable
      */
@@ -179,9 +179,9 @@ public class HttpErrorException extends RestErrorException {
 
     /**
      * <code>HttpErrorException</code>
-     * Instantiates a new http error exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param error  {@link io.github.nichetoolkit.rest.RestError} <p>the error parameter is <code>RestError</code> type.</p>
+     * <p>Instantiates a new http error exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param error  {@link io.github.nichetoolkit.rest.RestError} <p>The error parameter is <code>RestError</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see io.github.nichetoolkit.rest.RestError
      */
@@ -191,10 +191,10 @@ public class HttpErrorException extends RestErrorException {
 
     /**
      * <code>HttpErrorException</code>
-     * Instantiates a new http error exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param error  {@link io.github.nichetoolkit.rest.RestError} <p>the error parameter is <code>RestError</code> type.</p>
-     * @param cause  {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new http error exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param error  {@link io.github.nichetoolkit.rest.RestError} <p>The error parameter is <code>RestError</code> type.</p>
+     * @param cause  {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see io.github.nichetoolkit.rest.RestError
      * @see java.lang.Throwable
@@ -205,9 +205,9 @@ public class HttpErrorException extends RestErrorException {
 
     /**
      * <code>HttpErrorException</code>
-     * Instantiates a new http error exception.
-     * @param status  {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new http error exception.</p>
+     * @param status  {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      */
@@ -217,10 +217,10 @@ public class HttpErrorException extends RestErrorException {
 
     /**
      * <code>HttpErrorException</code>
-     * Instantiates a new http error exception.
-     * @param status  {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param cause   {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new http error exception.</p>
+     * @param status  {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param cause   {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see java.lang.Throwable
@@ -231,10 +231,10 @@ public class HttpErrorException extends RestErrorException {
 
     /**
      * <code>HttpErrorException</code>
-     * Instantiates a new http error exception.
-     * @param status   {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new http error exception.</p>
+     * @param status   {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      */
@@ -244,11 +244,11 @@ public class HttpErrorException extends RestErrorException {
 
     /**
      * <code>HttpErrorException</code>
-     * Instantiates a new http error exception.
-     * @param status   {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param cause    {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new http error exception.</p>
+     * @param status   {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param cause    {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see java.lang.Throwable
@@ -259,11 +259,11 @@ public class HttpErrorException extends RestErrorException {
 
     /**
      * <code>HttpErrorException</code>
-     * Instantiates a new http error exception.
-     * @param status   {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param filed    {@link java.lang.String} <p>the filed parameter is <code>String</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new http error exception.</p>
+     * @param status   {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param filed    {@link java.lang.String} <p>The filed parameter is <code>String</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      */
@@ -273,12 +273,12 @@ public class HttpErrorException extends RestErrorException {
 
     /**
      * <code>HttpErrorException</code>
-     * Instantiates a new http error exception.
-     * @param status   {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param filed    {@link java.lang.String} <p>the filed parameter is <code>String</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param cause    {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new http error exception.</p>
+     * @param status   {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param filed    {@link java.lang.String} <p>The filed parameter is <code>String</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param cause    {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see java.lang.Throwable
@@ -289,12 +289,12 @@ public class HttpErrorException extends RestErrorException {
 
     /**
      * <code>HttpErrorException</code>
-     * Instantiates a new http error exception.
-     * @param status   {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param filed    {@link java.lang.String} <p>the filed parameter is <code>String</code> type.</p>
-     * @param value    {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new http error exception.</p>
+     * @param status   {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param filed    {@link java.lang.String} <p>The filed parameter is <code>String</code> type.</p>
+     * @param value    {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see java.lang.Object
@@ -305,13 +305,13 @@ public class HttpErrorException extends RestErrorException {
 
     /**
      * <code>HttpErrorException</code>
-     * Instantiates a new http error exception.
-     * @param status   {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param filed    {@link java.lang.String} <p>the filed parameter is <code>String</code> type.</p>
-     * @param value    {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param cause    {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new http error exception.</p>
+     * @param status   {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param filed    {@link java.lang.String} <p>The filed parameter is <code>String</code> type.</p>
+     * @param value    {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param cause    {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see java.lang.Object
@@ -323,9 +323,9 @@ public class HttpErrorException extends RestErrorException {
 
     /**
      * <code>HttpErrorException</code>
-     * Instantiates a new http error exception.
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param error    {@link java.lang.String} <p>the error parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new http error exception.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param error    {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public HttpErrorException(String resource, String error) {
@@ -334,10 +334,10 @@ public class HttpErrorException extends RestErrorException {
 
     /**
      * <code>HttpErrorException</code>
-     * Instantiates a new http error exception.
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param error    {@link java.lang.String} <p>the error parameter is <code>String</code> type.</p>
-     * @param cause    {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new http error exception.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param error    {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
+     * @param cause    {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Throwable
      */
@@ -347,10 +347,10 @@ public class HttpErrorException extends RestErrorException {
 
     /**
      * <code>HttpErrorException</code>
-     * Instantiates a new http error exception.
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param filed    {@link java.lang.String} <p>the filed parameter is <code>String</code> type.</p>
-     * @param error    {@link java.lang.String} <p>the error parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new http error exception.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param filed    {@link java.lang.String} <p>The filed parameter is <code>String</code> type.</p>
+     * @param error    {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public HttpErrorException(String resource, String filed, String error) {
@@ -359,11 +359,11 @@ public class HttpErrorException extends RestErrorException {
 
     /**
      * <code>HttpErrorException</code>
-     * Instantiates a new http error exception.
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param filed    {@link java.lang.String} <p>the filed parameter is <code>String</code> type.</p>
-     * @param error    {@link java.lang.String} <p>the error parameter is <code>String</code> type.</p>
-     * @param cause    {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new http error exception.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param filed    {@link java.lang.String} <p>The filed parameter is <code>String</code> type.</p>
+     * @param error    {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
+     * @param cause    {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Throwable
      */
@@ -373,11 +373,11 @@ public class HttpErrorException extends RestErrorException {
 
     /**
      * <code>HttpErrorException</code>
-     * Instantiates a new http error exception.
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param filed    {@link java.lang.String} <p>the filed parameter is <code>String</code> type.</p>
-     * @param value    {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>
-     * @param error    {@link java.lang.String} <p>the error parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new http error exception.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param filed    {@link java.lang.String} <p>The filed parameter is <code>String</code> type.</p>
+     * @param value    {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
+     * @param error    {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Object
      */
@@ -387,12 +387,12 @@ public class HttpErrorException extends RestErrorException {
 
     /**
      * <code>HttpErrorException</code>
-     * Instantiates a new http error exception.
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param filed    {@link java.lang.String} <p>the filed parameter is <code>String</code> type.</p>
-     * @param value    {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>
-     * @param error    {@link java.lang.String} <p>the error parameter is <code>String</code> type.</p>
-     * @param cause    {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new http error exception.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param filed    {@link java.lang.String} <p>The filed parameter is <code>String</code> type.</p>
+     * @param value    {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
+     * @param error    {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
+     * @param cause    {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Object
      * @see java.lang.Throwable

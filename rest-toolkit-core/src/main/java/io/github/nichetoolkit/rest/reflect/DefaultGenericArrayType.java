@@ -13,15 +13,15 @@ import java.lang.reflect.Type;
 public class DefaultGenericArrayType implements GenericArrayType {
     /**
      * <code>genericComponentType</code>
-     * {@link java.lang.reflect.Type} <p>the <code>genericComponentType</code> field.</p>
+     * {@link java.lang.reflect.Type} <p>The <code>genericComponentType</code> field.</p>
      * @see java.lang.reflect.Type
      */
     private final Type genericComponentType;
 
     /**
      * <code>DefaultGenericArrayType</code>
-     * Instantiates a new default generic array type.
-     * @param genericComponentType {@link java.lang.reflect.Type} <p>the generic component type parameter is <code>Type</code> type.</p>
+     * <p>Instantiates a new default generic array type.</p>
+     * @param genericComponentType {@link java.lang.reflect.Type} <p>The generic component type parameter is <code>Type</code> type.</p>
      * @see java.lang.reflect.Type
      */
     DefaultGenericArrayType(Type genericComponentType) {

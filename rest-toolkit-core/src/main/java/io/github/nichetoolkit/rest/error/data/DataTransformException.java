@@ -14,7 +14,7 @@ import io.github.nichetoolkit.rest.error.natives.DataErrorException;
 public class DataTransformException extends DataErrorException {
     /**
      * <code>DataTransformException</code>
-     * Instantiates a new data transform exception.
+     * <p>Instantiates a new data transform exception.</p>
      */
     public DataTransformException() {
         super(RestErrorStatus.DATA_TRANSFORM_FAILED);
@@ -22,8 +22,8 @@ public class DataTransformException extends DataErrorException {
 
     /**
      * <code>DataTransformException</code>
-     * Instantiates a new data transform exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>the status parameter is <code>RestErrorStatus</code> type.</p>
+     * <p>Instantiates a new data transform exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The status parameter is <code>RestErrorStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestErrorStatus
      */
     public DataTransformException(RestErrorStatus status) {
@@ -32,8 +32,8 @@ public class DataTransformException extends DataErrorException {
 
     /**
      * <code>DataTransformException</code>
-     * Instantiates a new data transform exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * <p>Instantiates a new data transform exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
     public DataTransformException(RestStatus status) {
@@ -42,8 +42,8 @@ public class DataTransformException extends DataErrorException {
 
     /**
      * <code>DataTransformException</code>
-     * Instantiates a new data transform exception.
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new data transform exception.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public DataTransformException(String message) {
@@ -52,9 +52,9 @@ public class DataTransformException extends DataErrorException {
 
     /**
      * <code>DataTransformException</code>
-     * Instantiates a new data transform exception.
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new data transform exception.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public DataTransformException(String resource, String message) {
@@ -63,11 +63,11 @@ public class DataTransformException extends DataErrorException {
 
     /**
      * <code>DataTransformException</code>
-     * Instantiates a new data transform exception.
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param field    {@link java.lang.String} <p>the field parameter is <code>String</code> type.</p>
-     * @param value    {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new data transform exception.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param field    {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
+     * @param value    {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Object
      */

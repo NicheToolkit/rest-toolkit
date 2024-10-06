@@ -27,10 +27,10 @@ public class FileHelper {
 
     /**
      * <code>createFile</code>
-     * <p>the file method.</p>
-     * @param path {@link java.lang.String} <p>the path parameter is <code>String</code> type.</p>
-     * @return {@link java.io.File} <p>the file return object is <code>File</code> type.</p>
-     * @throws FileCreateException {@link io.github.nichetoolkit.rest.error.often.FileCreateException} <p>the file create exception is <code>FileCreateException</code> type.</p>
+     * <p>The file method.</p>
+     * @param path {@link java.lang.String} <p>The path parameter is <code>String</code> type.</p>
+     * @return {@link java.io.File} <p>The file return object is <code>File</code> type.</p>
+     * @throws FileCreateException {@link io.github.nichetoolkit.rest.error.often.FileCreateException} <p>The file create exception is <code>FileCreateException</code> type.</p>
      * @see java.lang.String
      * @see java.io.File
      * @see io.github.nichetoolkit.rest.error.often.FileCreateException
@@ -41,11 +41,11 @@ public class FileHelper {
 
     /**
      * <code>createFile</code>
-     * <p>the file method.</p>
-     * @param path {@link java.lang.String} <p>the path parameter is <code>String</code> type.</p>
-     * @param name {@link java.lang.String} <p>the name parameter is <code>String</code> type.</p>
-     * @return {@link java.io.File} <p>the file return object is <code>File</code> type.</p>
-     * @throws FileCreateException {@link io.github.nichetoolkit.rest.error.often.FileCreateException} <p>the file create exception is <code>FileCreateException</code> type.</p>
+     * <p>The file method.</p>
+     * @param path {@link java.lang.String} <p>The path parameter is <code>String</code> type.</p>
+     * @param name {@link java.lang.String} <p>The name parameter is <code>String</code> type.</p>
+     * @return {@link java.io.File} <p>The file return object is <code>File</code> type.</p>
+     * @throws FileCreateException {@link io.github.nichetoolkit.rest.error.often.FileCreateException} <p>The file create exception is <code>FileCreateException</code> type.</p>
      * @see java.lang.String
      * @see java.io.File
      * @see io.github.nichetoolkit.rest.error.often.FileCreateException
@@ -57,11 +57,11 @@ public class FileHelper {
 
     /**
      * <code>createFile</code>
-     * <p>the file method.</p>
-     * @param path    {@link java.lang.String} <p>the path parameter is <code>String</code> type.</p>
-     * @param nameMap {@link java.util.Map} <p>the name map parameter is <code>Map</code> type.</p>
-     * @return {@link java.io.File} <p>the file return object is <code>File</code> type.</p>
-     * @throws FileCreateException {@link io.github.nichetoolkit.rest.error.often.FileCreateException} <p>the file create exception is <code>FileCreateException</code> type.</p>
+     * <p>The file method.</p>
+     * @param path    {@link java.lang.String} <p>The path parameter is <code>String</code> type.</p>
+     * @param nameMap {@link java.util.Map} <p>The name map parameter is <code>Map</code> type.</p>
+     * @return {@link java.io.File} <p>The file return object is <code>File</code> type.</p>
+     * @throws FileCreateException {@link io.github.nichetoolkit.rest.error.often.FileCreateException} <p>The file create exception is <code>FileCreateException</code> type.</p>
      * @see java.lang.String
      * @see java.util.Map
      * @see java.io.File
@@ -74,12 +74,12 @@ public class FileHelper {
 
     /**
      * <code>createFile</code>
-     * <p>the file method.</p>
-     * @param path {@link java.lang.String} <p>the path parameter is <code>String</code> type.</p>
-     * @param name {@link java.lang.String} <p>the name parameter is <code>String</code> type.</p>
-     * @param ext  {@link java.lang.String} <p>the ext parameter is <code>String</code> type.</p>
-     * @return {@link java.io.File} <p>the file return object is <code>File</code> type.</p>
-     * @throws FileCreateException {@link io.github.nichetoolkit.rest.error.often.FileCreateException} <p>the file create exception is <code>FileCreateException</code> type.</p>
+     * <p>The file method.</p>
+     * @param path {@link java.lang.String} <p>The path parameter is <code>String</code> type.</p>
+     * @param name {@link java.lang.String} <p>The name parameter is <code>String</code> type.</p>
+     * @param ext  {@link java.lang.String} <p>The ext parameter is <code>String</code> type.</p>
+     * @return {@link java.io.File} <p>The file return object is <code>File</code> type.</p>
+     * @throws FileCreateException {@link io.github.nichetoolkit.rest.error.often.FileCreateException} <p>The file create exception is <code>FileCreateException</code> type.</p>
      * @see java.lang.String
      * @see java.io.File
      * @see io.github.nichetoolkit.rest.error.often.FileCreateException
@@ -91,10 +91,10 @@ public class FileHelper {
 
     /**
      * <code>createFile</code>
-     * <p>the file method.</p>
-     * @param file {@link java.io.File} <p>the file parameter is <code>File</code> type.</p>
-     * @return {@link java.io.File} <p>the file return object is <code>File</code> type.</p>
-     * @throws FileCreateException {@link io.github.nichetoolkit.rest.error.often.FileCreateException} <p>the file create exception is <code>FileCreateException</code> type.</p>
+     * <p>The file method.</p>
+     * @param file {@link java.io.File} <p>The file parameter is <code>File</code> type.</p>
+     * @return {@link java.io.File} <p>The file return object is <code>File</code> type.</p>
+     * @throws FileCreateException {@link io.github.nichetoolkit.rest.error.often.FileCreateException} <p>The file create exception is <code>FileCreateException</code> type.</p>
      * @see java.io.File
      * @see java.lang.SuppressWarnings
      * @see io.github.nichetoolkit.rest.error.often.FileCreateException
@@ -117,10 +117,10 @@ public class FileHelper {
 
     /**
      * <code>copyFile</code>
-     * <p>the file method.</p>
-     * @param srcFile    {@link java.io.File} <p>the src file parameter is <code>File</code> type.</p>
-     * @param targetFile {@link java.io.File} <p>the target file parameter is <code>File</code> type.</p>
-     * @throws FileCopyException {@link io.github.nichetoolkit.rest.error.often.FileCopyException} <p>the file copy exception is <code>FileCopyException</code> type.</p>
+     * <p>The file method.</p>
+     * @param srcFile    {@link java.io.File} <p>The src file parameter is <code>File</code> type.</p>
+     * @param targetFile {@link java.io.File} <p>The target file parameter is <code>File</code> type.</p>
+     * @throws FileCopyException {@link io.github.nichetoolkit.rest.error.often.FileCopyException} <p>The file copy exception is <code>FileCopyException</code> type.</p>
      * @see java.io.File
      * @see io.github.nichetoolkit.rest.error.often.FileCopyException
      */
@@ -138,10 +138,10 @@ public class FileHelper {
 
     /**
      * <code>copyFile</code>
-     * <p>the file method.</p>
-     * @param srcPath    {@link java.lang.String} <p>the src path parameter is <code>String</code> type.</p>
-     * @param targetPath {@link java.lang.String} <p>the target path parameter is <code>String</code> type.</p>
-     * @throws FileCopyException {@link io.github.nichetoolkit.rest.error.often.FileCopyException} <p>the file copy exception is <code>FileCopyException</code> type.</p>
+     * <p>The file method.</p>
+     * @param srcPath    {@link java.lang.String} <p>The src path parameter is <code>String</code> type.</p>
+     * @param targetPath {@link java.lang.String} <p>The target path parameter is <code>String</code> type.</p>
+     * @throws FileCopyException {@link io.github.nichetoolkit.rest.error.often.FileCopyException} <p>The file copy exception is <code>FileCopyException</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.error.often.FileCopyException
      */
@@ -153,9 +153,9 @@ public class FileHelper {
 
     /**
      * <code>deleteFile</code>
-     * <p>the file method.</p>
-     * @param path {@link java.lang.String} <p>the path parameter is <code>String</code> type.</p>
-     * @return boolean <p>the file return object is <code>boolean</code> type.</p>
+     * <p>The file method.</p>
+     * @param path {@link java.lang.String} <p>The path parameter is <code>String</code> type.</p>
+     * @return boolean <p>The file return object is <code>boolean</code> type.</p>
      * @see java.lang.String
      */
     public static boolean deleteFile(final String path) {
@@ -165,9 +165,9 @@ public class FileHelper {
 
     /**
      * <code>deleteFile</code>
-     * <p>the file method.</p>
-     * @param file {@link java.io.File} <p>the file parameter is <code>File</code> type.</p>
-     * @return boolean <p>the file return object is <code>boolean</code> type.</p>
+     * <p>The file method.</p>
+     * @param file {@link java.io.File} <p>The file parameter is <code>File</code> type.</p>
+     * @return boolean <p>The file return object is <code>boolean</code> type.</p>
      * @see java.io.File
      */
     public static boolean deleteFile(final File file) {
@@ -180,9 +180,9 @@ public class FileHelper {
 
     /**
      * <code>clearFile</code>
-     * <p>the file method.</p>
-     * @param path {@link java.lang.String} <p>the path parameter is <code>String</code> type.</p>
-     * @return boolean <p>the file return object is <code>boolean</code> type.</p>
+     * <p>The file method.</p>
+     * @param path {@link java.lang.String} <p>The path parameter is <code>String</code> type.</p>
+     * @return boolean <p>The file return object is <code>boolean</code> type.</p>
      * @see java.lang.String
      */
     public static boolean clearFile(final String path) {

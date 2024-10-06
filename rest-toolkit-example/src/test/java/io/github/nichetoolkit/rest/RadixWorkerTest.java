@@ -23,7 +23,7 @@ class RadixWorkerTest {
 
     /**
      * <code>radixWorker</code>
-     * {@link io.github.nichetoolkit.rest.worker.RadixWorker} <p>the <code>radixWorker</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.worker.RadixWorker} <p>The <code>radixWorker</code> field.</p>
      * @see io.github.nichetoolkit.rest.worker.RadixWorker
      * @see org.springframework.beans.factory.annotation.Autowired
      */
@@ -32,7 +32,7 @@ class RadixWorkerTest {
 
     /**
      * <code>test</code>
-     * <p>the method.</p>
+     * <p>The method.</p>
      * @see org.junit.jupiter.api.Test
      */
     @Test

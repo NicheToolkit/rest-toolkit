@@ -20,7 +20,7 @@ public final class RestCollectors {
 
     /**
      * <code>CH_CONCURRENT_ID</code>
-     * {@link java.util.Set} <p>the <code>CH_CONCURRENT_ID</code> field.</p>
+     * {@link java.util.Set} <p>The <code>CH_CONCURRENT_ID</code> field.</p>
      * @see java.util.Set
      */
     static final Set<RestCollector.Characteristics> CH_CONCURRENT_ID
@@ -29,7 +29,7 @@ public final class RestCollectors {
             RestCollector.Characteristics.IDENTITY_FINISH));
     /**
      * <code>CH_CONCURRENT_NOID</code>
-     * {@link java.util.Set} <p>the <code>CH_CONCURRENT_NOID</code> field.</p>
+     * {@link java.util.Set} <p>The <code>CH_CONCURRENT_NOID</code> field.</p>
      * @see java.util.Set
      */
     static final Set<RestCollector.Characteristics> CH_CONCURRENT_NOID
@@ -37,14 +37,14 @@ public final class RestCollectors {
             RestCollector.Characteristics.UNORDERED));
     /**
      * <code>CH_ID</code>
-     * {@link java.util.Set} <p>the <code>CH_ID</code> field.</p>
+     * {@link java.util.Set} <p>The <code>CH_ID</code> field.</p>
      * @see java.util.Set
      */
     static final Set<RestCollector.Characteristics> CH_ID
             = Collections.unmodifiableSet(EnumSet.of(RestCollector.Characteristics.IDENTITY_FINISH));
     /**
      * <code>CH_UNORDERED_ID</code>
-     * {@link java.util.Set} <p>the <code>CH_UNORDERED_ID</code> field.</p>
+     * {@link java.util.Set} <p>The <code>CH_UNORDERED_ID</code> field.</p>
      * @see java.util.Set
      */
     static final Set<RestCollector.Characteristics> CH_UNORDERED_ID
@@ -52,23 +52,23 @@ public final class RestCollectors {
             RestCollector.Characteristics.IDENTITY_FINISH));
     /**
      * <code>CH_NOID</code>
-     * {@link java.util.Set} <p>the <code>CH_NOID</code> field.</p>
+     * {@link java.util.Set} <p>The <code>CH_NOID</code> field.</p>
      * @see java.util.Set
      */
     static final Set<RestCollector.Characteristics> CH_NOID = Collections.emptySet();
 
     /**
      * <code>RestCollectors</code>
-     * Instantiates a new rest collectors.
+     * <p>Instantiates a new rest collectors.</p>
      */
     private RestCollectors() {
     }
 
     /**
      * <code>throwingMerger</code>
-     * <p>the merger method.</p>
-     * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @return {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>the merger return object is <code>BinaryOperatorActuator</code> type.</p>
+     * <p>The merger method.</p>
+     * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @return {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>The merger return object is <code>BinaryOperatorActuator</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator
      */
     private static <T> BinaryOperatorActuator<T> throwingMerger() {
@@ -79,10 +79,10 @@ public final class RestCollectors {
 
     /**
      * <code>castingIdentity</code>
-     * <p>the identity method.</p>
-     * @param <I> {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <R> {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @return {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the identity return object is <code>FunctionActuator</code> type.</p>
+     * <p>The identity method.</p>
+     * @param <I> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <R> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @return {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The identity return object is <code>FunctionActuator</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      * @see java.lang.SuppressWarnings
      */
@@ -94,52 +94,52 @@ public final class RestCollectors {
     /**
      * <code>CollectorImpl</code>
      * <p>The type collector class.</p>
-     * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <A> {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <R> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <A> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <R> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @since Jdk1.8
      */
     static class CollectorImpl<T, A, R> implements RestCollector<T, A, R> {
         /**
          * <code>supplier</code>
-         * {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>the <code>supplier</code> field.</p>
+         * {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The <code>supplier</code> field.</p>
          * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
          */
         private final SupplierActuator<A> supplier;
         /**
          * <code>accumulator</code>
-         * {@link io.github.nichetoolkit.rest.actuator.BiConsumerActuator} <p>the <code>accumulator</code> field.</p>
+         * {@link io.github.nichetoolkit.rest.actuator.BiConsumerActuator} <p>The <code>accumulator</code> field.</p>
          * @see io.github.nichetoolkit.rest.actuator.BiConsumerActuator
          */
         private final BiConsumerActuator<A, T> accumulator;
         /**
          * <code>combiner</code>
-         * {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>the <code>combiner</code> field.</p>
+         * {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>The <code>combiner</code> field.</p>
          * @see io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator
          */
         private final BinaryOperatorActuator<A> combiner;
         /**
          * <code>finisher</code>
-         * {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the <code>finisher</code> field.</p>
+         * {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The <code>finisher</code> field.</p>
          * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
          */
         private final FunctionActuator<A, R> finisher;
         /**
          * <code>characteristics</code>
-         * {@link java.util.Set} <p>the <code>characteristics</code> field.</p>
+         * {@link java.util.Set} <p>The <code>characteristics</code> field.</p>
          * @see java.util.Set
          */
         private final Set<Characteristics> characteristics;
 
         /**
          * <code>CollectorImpl</code>
-         * Instantiates a new collector.
-         * @param supplier        {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>the supplier parameter is <code>SupplierActuator</code> type.</p>
-         * @param accumulator     {@link io.github.nichetoolkit.rest.actuator.BiConsumerActuator} <p>the accumulator parameter is <code>BiConsumerActuator</code> type.</p>
-         * @param combiner        {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>the combiner parameter is <code>BinaryOperatorActuator</code> type.</p>
-         * @param finisher        {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the finisher parameter is <code>FunctionActuator</code> type.</p>
-         * @param characteristics {@link java.util.Set} <p>the characteristics parameter is <code>Set</code> type.</p>
+         * <p>Instantiates a new collector.</p>
+         * @param supplier        {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The supplier parameter is <code>SupplierActuator</code> type.</p>
+         * @param accumulator     {@link io.github.nichetoolkit.rest.actuator.BiConsumerActuator} <p>The accumulator parameter is <code>BiConsumerActuator</code> type.</p>
+         * @param combiner        {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>The combiner parameter is <code>BinaryOperatorActuator</code> type.</p>
+         * @param finisher        {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The finisher parameter is <code>FunctionActuator</code> type.</p>
+         * @param characteristics {@link java.util.Set} <p>The characteristics parameter is <code>Set</code> type.</p>
          * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
          * @see io.github.nichetoolkit.rest.actuator.BiConsumerActuator
          * @see io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator
@@ -160,11 +160,11 @@ public final class RestCollectors {
 
         /**
          * <code>CollectorImpl</code>
-         * Instantiates a new collector.
-         * @param supplier        {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>the supplier parameter is <code>SupplierActuator</code> type.</p>
-         * @param accumulator     {@link io.github.nichetoolkit.rest.actuator.BiConsumerActuator} <p>the accumulator parameter is <code>BiConsumerActuator</code> type.</p>
-         * @param combiner        {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>the combiner parameter is <code>BinaryOperatorActuator</code> type.</p>
-         * @param characteristics {@link java.util.Set} <p>the characteristics parameter is <code>Set</code> type.</p>
+         * <p>Instantiates a new collector.</p>
+         * @param supplier        {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The supplier parameter is <code>SupplierActuator</code> type.</p>
+         * @param accumulator     {@link io.github.nichetoolkit.rest.actuator.BiConsumerActuator} <p>The accumulator parameter is <code>BiConsumerActuator</code> type.</p>
+         * @param combiner        {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>The combiner parameter is <code>BinaryOperatorActuator</code> type.</p>
+         * @param characteristics {@link java.util.Set} <p>The characteristics parameter is <code>Set</code> type.</p>
          * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
          * @see io.github.nichetoolkit.rest.actuator.BiConsumerActuator
          * @see io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator
@@ -205,11 +205,11 @@ public final class RestCollectors {
 
     /**
      * <code>toCollection</code>
-     * <p>the collection method.</p>
-     * @param <T>               {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <C>               {@link java.util.Collection} <p>the generic parameter is <code>Collection</code> type.</p>
-     * @param collectionFactory {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>the collection factory parameter is <code>SupplierActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the collection return object is <code>RestCollector</code> type.</p>
+     * <p>The collection method.</p>
+     * @param <T>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <C>               {@link java.util.Collection} <p>The generic parameter is <code>Collection</code> type.</p>
+     * @param collectionFactory {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The collection factory parameter is <code>SupplierActuator</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The collection return object is <code>RestCollector</code> type.</p>
      * @see java.util.Collection
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
      */
@@ -225,9 +225,9 @@ public final class RestCollectors {
 
     /**
      * <code>toList</code>
-     * <p>the list method.</p>
-     * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the list return object is <code>RestCollector</code> type.</p>
+     * <p>The list method.</p>
+     * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The list return object is <code>RestCollector</code> type.</p>
      */
     public static <T>
     RestCollector<T, ?, List<T>> toList() {
@@ -241,9 +241,9 @@ public final class RestCollectors {
 
     /**
      * <code>toSet</code>
-     * <p>the set method.</p>
-     * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the set return object is <code>RestCollector</code> type.</p>
+     * <p>The set method.</p>
+     * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The set return object is <code>RestCollector</code> type.</p>
      */
     public static <T>
     RestCollector<T, ?, Set<T>> toSet() {
@@ -257,8 +257,8 @@ public final class RestCollectors {
 
     /**
      * <code>joining</code>
-     * <p>the method.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the return object is <code>RestCollector</code> type.</p>
+     * <p>The method.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The return object is <code>RestCollector</code> type.</p>
      */
     public static RestCollector<CharSequence, ?, String> joining() {
         return new CollectorImpl<>(
@@ -272,9 +272,9 @@ public final class RestCollectors {
 
     /**
      * <code>joining</code>
-     * <p>the method.</p>
-     * @param delimiter {@link java.lang.CharSequence} <p>the delimiter parameter is <code>CharSequence</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the return object is <code>RestCollector</code> type.</p>
+     * <p>The method.</p>
+     * @param delimiter {@link java.lang.CharSequence} <p>The delimiter parameter is <code>CharSequence</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The return object is <code>RestCollector</code> type.</p>
      * @see java.lang.CharSequence
      */
     public static RestCollector<CharSequence, ?, String> joining(CharSequence delimiter) {
@@ -283,11 +283,11 @@ public final class RestCollectors {
 
     /**
      * <code>joining</code>
-     * <p>the method.</p>
-     * @param delimiter {@link java.lang.CharSequence} <p>the delimiter parameter is <code>CharSequence</code> type.</p>
-     * @param prefix    {@link java.lang.CharSequence} <p>the prefix parameter is <code>CharSequence</code> type.</p>
-     * @param suffix    {@link java.lang.CharSequence} <p>the suffix parameter is <code>CharSequence</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the return object is <code>RestCollector</code> type.</p>
+     * <p>The method.</p>
+     * @param delimiter {@link java.lang.CharSequence} <p>The delimiter parameter is <code>CharSequence</code> type.</p>
+     * @param prefix    {@link java.lang.CharSequence} <p>The prefix parameter is <code>CharSequence</code> type.</p>
+     * @param suffix    {@link java.lang.CharSequence} <p>The suffix parameter is <code>CharSequence</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The return object is <code>RestCollector</code> type.</p>
      * @see java.lang.CharSequence
      */
     public static RestCollector<CharSequence, ?, String> joining(CharSequence delimiter,
@@ -301,12 +301,12 @@ public final class RestCollectors {
 
     /**
      * <code>mapMerger</code>
-     * <p>the merger method.</p>
-     * @param <K>           {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <V>           {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <M>           {@link java.util.Map} <p>the generic parameter is <code>Map</code> type.</p>
-     * @param mergeFunction {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>the merge function parameter is <code>BinaryOperatorActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>the merger return object is <code>BinaryOperatorActuator</code> type.</p>
+     * <p>The merger method.</p>
+     * @param <K>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <V>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <M>           {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
+     * @param mergeFunction {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>The merge function parameter is <code>BinaryOperatorActuator</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>The merger return object is <code>BinaryOperatorActuator</code> type.</p>
      * @see java.util.Map
      * @see io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator
      */
@@ -321,15 +321,15 @@ public final class RestCollectors {
 
     /**
      * <code>merge</code>
-     * <p>the method.</p>
-     * @param <V>               {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <K>               {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param map               {@link java.util.Map} <p>the map parameter is <code>Map</code> type.</p>
-     * @param key               K <p>the key parameter is <code>K</code> type.</p>
-     * @param value             V <p>the value parameter is <code>V</code> type.</p>
-     * @param remappingFunction {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>the remapping function parameter is <code>BiFunctionActuator</code> type.</p>
-     * @return V <p>the return object is <code>V</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The method.</p>
+     * @param <V>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param map               {@link java.util.Map} <p>The map parameter is <code>Map</code> type.</p>
+     * @param key               K <p>The key parameter is <code>K</code> type.</p>
+     * @param value             V <p>The value parameter is <code>V</code> type.</p>
+     * @param remappingFunction {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The remapping function parameter is <code>BiFunctionActuator</code> type.</p>
+     * @return V <p>The return object is <code>V</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.util.Map
      * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
      * @see io.github.nichetoolkit.rest.RestException
@@ -351,15 +351,15 @@ public final class RestCollectors {
 
     /**
      * <code>mapping</code>
-     * <p>the method.</p>
-     * @param <T>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <U>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <A>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <R>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param mapper     {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the mapper parameter is <code>FunctionActuator</code> type.</p>
-     * @param downstream {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the downstream parameter is <code>RestCollector</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the return object is <code>RestCollector</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The method.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <U>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <A>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <R>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param mapper     {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The mapper parameter is <code>FunctionActuator</code> type.</p>
+     * @param downstream {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The downstream parameter is <code>RestCollector</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The return object is <code>RestCollector</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -375,15 +375,15 @@ public final class RestCollectors {
 
     /**
      * <code>collectingAndThen</code>
-     * <p>the and then method.</p>
-     * @param <T>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <A>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <R>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <RR>       {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param downstream {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the downstream parameter is <code>RestCollector</code> type.</p>
-     * @param finisher   {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the finisher parameter is <code>FunctionActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the and then return object is <code>RestCollector</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The and then method.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <A>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <R>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <RR>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param downstream {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The downstream parameter is <code>RestCollector</code> type.</p>
+     * @param finisher   {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The finisher parameter is <code>FunctionActuator</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The and then return object is <code>RestCollector</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -408,10 +408,10 @@ public final class RestCollectors {
 
     /**
      * <code>counting</code>
-     * <p>the method.</p>
-     * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the return object is <code>RestCollector</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The method.</p>
+     * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The return object is <code>RestCollector</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestCollector<T, ?, Long>
@@ -421,11 +421,11 @@ public final class RestCollectors {
 
     /**
      * <code>minBy</code>
-     * <p>the by method.</p>
-     * @param <T>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param comparator {@link io.github.nichetoolkit.rest.actuator.ComparatorActuator} <p>the comparator parameter is <code>ComparatorActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the by return object is <code>RestCollector</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The by method.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param comparator {@link io.github.nichetoolkit.rest.actuator.ComparatorActuator} <p>The comparator parameter is <code>ComparatorActuator</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The by return object is <code>RestCollector</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.ComparatorActuator
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -436,11 +436,11 @@ public final class RestCollectors {
 
     /**
      * <code>maxBy</code>
-     * <p>the by method.</p>
-     * @param <T>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param comparator {@link io.github.nichetoolkit.rest.actuator.ComparatorActuator} <p>the comparator parameter is <code>ComparatorActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the by return object is <code>RestCollector</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The by method.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param comparator {@link io.github.nichetoolkit.rest.actuator.ComparatorActuator} <p>The comparator parameter is <code>ComparatorActuator</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The by return object is <code>RestCollector</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.ComparatorActuator
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -451,10 +451,10 @@ public final class RestCollectors {
 
     /**
      * <code>sumWithCompensation</code>
-     * <p>the with compensation method.</p>
-     * @param intermediateSum double <p>the intermediate sum parameter is <code>double</code> type.</p>
-     * @param value           double <p>the value parameter is <code>double</code> type.</p>
-     * @return double <p>the with compensation return object is <code>double</code> type.</p>
+     * <p>The with compensation method.</p>
+     * @param intermediateSum double <p>The intermediate sum parameter is <code>double</code> type.</p>
+     * @param value           double <p>The value parameter is <code>double</code> type.</p>
+     * @return double <p>The with compensation return object is <code>double</code> type.</p>
      */
     static double[] sumWithCompensation(double[] intermediateSum, double value) {
         double tmp = value - intermediateSum[1];
@@ -467,9 +467,9 @@ public final class RestCollectors {
 
     /**
      * <code>computeFinalSum</code>
-     * <p>the final sum method.</p>
-     * @param summands double <p>the summands parameter is <code>double</code> type.</p>
-     * @return double <p>the final sum return object is <code>double</code> type.</p>
+     * <p>The final sum method.</p>
+     * @param summands double <p>The summands parameter is <code>double</code> type.</p>
+     * @return double <p>The final sum return object is <code>double</code> type.</p>
      */
     static double computeFinalSum(double[] summands) {
         // Better error bounds to add both terms as the final sum
@@ -483,12 +483,12 @@ public final class RestCollectors {
 
     /**
      * <code>reducing</code>
-     * <p>the method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param identity T <p>the identity parameter is <code>T</code> type.</p>
-     * @param op       {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>the op parameter is <code>BinaryOperatorActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the return object is <code>RestCollector</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param identity T <p>The identity parameter is <code>T</code> type.</p>
+     * @param op       {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>The op parameter is <code>BinaryOperatorActuator</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The return object is <code>RestCollector</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -507,10 +507,10 @@ public final class RestCollectors {
 
     /**
      * <code>boxSupplier</code>
-     * <p>the supplier method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param identity T <p>the identity parameter is <code>T</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>the supplier return object is <code>SupplierActuator</code> type.</p>
+     * <p>The supplier method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param identity T <p>The identity parameter is <code>T</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The supplier return object is <code>SupplierActuator</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
      * @see java.lang.SuppressWarnings
      */
@@ -521,9 +521,9 @@ public final class RestCollectors {
 
     /**
      * <code>logicalAnd</code>
-     * <p>the and method.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the and return object is <code>RestCollector</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The and method.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The and return object is <code>RestCollector</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static RestCollector<Boolean, ?, Boolean> logicalAnd() throws RestException {
@@ -532,9 +532,9 @@ public final class RestCollectors {
 
     /**
      * <code>logicalOr</code>
-     * <p>the or method.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the or return object is <code>RestCollector</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The or method.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The or return object is <code>RestCollector</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static RestCollector<Boolean, ?, Boolean> logicalOr() throws RestException {
@@ -543,9 +543,9 @@ public final class RestCollectors {
 
     /**
      * <code>logicalXor</code>
-     * <p>the xor method.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the xor return object is <code>RestCollector</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The xor method.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The xor return object is <code>RestCollector</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static RestCollector<Boolean, ?, Boolean> logicalXor() throws RestException {
@@ -554,10 +554,10 @@ public final class RestCollectors {
 
     /**
      * <code>logical</code>
-     * <p>the method.</p>
-     * @param op {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>the op parameter is <code>BinaryOperatorActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the return object is <code>RestCollector</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The method.</p>
+     * @param op {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>The op parameter is <code>BinaryOperatorActuator</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The return object is <code>RestCollector</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -588,11 +588,11 @@ public final class RestCollectors {
 
     /**
      * <code>reducing</code>
-     * <p>the method.</p>
-     * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param op  {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>the op parameter is <code>BinaryOperatorActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the return object is <code>RestCollector</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The method.</p>
+     * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param op  {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>The op parameter is <code>BinaryOperatorActuator</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The return object is <code>RestCollector</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -624,14 +624,14 @@ public final class RestCollectors {
 
     /**
      * <code>reducing</code>
-     * <p>the method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <U>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param identity U <p>the identity parameter is <code>U</code> type.</p>
-     * @param mapper   {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the mapper parameter is <code>FunctionActuator</code> type.</p>
-     * @param op       {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>the op parameter is <code>BinaryOperatorActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the return object is <code>RestCollector</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <U>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param identity U <p>The identity parameter is <code>U</code> type.</p>
+     * @param mapper   {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The mapper parameter is <code>FunctionActuator</code> type.</p>
+     * @param op       {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>The op parameter is <code>BinaryOperatorActuator</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The return object is <code>RestCollector</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      * @see io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator
      * @see io.github.nichetoolkit.rest.RestException
@@ -652,12 +652,12 @@ public final class RestCollectors {
 
     /**
      * <code>groupingBy</code>
-     * <p>the by method.</p>
-     * @param <T>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <K>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param classifier {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the classifier parameter is <code>FunctionActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the by return object is <code>RestCollector</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The by method.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param classifier {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The classifier parameter is <code>FunctionActuator</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The by return object is <code>RestCollector</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -668,15 +668,15 @@ public final class RestCollectors {
 
     /**
      * <code>groupingBy</code>
-     * <p>the by method.</p>
-     * @param <T>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <K>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <A>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <D>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param classifier {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the classifier parameter is <code>FunctionActuator</code> type.</p>
-     * @param downstream {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the downstream parameter is <code>RestCollector</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the by return object is <code>RestCollector</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The by method.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <A>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <D>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param classifier {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The classifier parameter is <code>FunctionActuator</code> type.</p>
+     * @param downstream {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The downstream parameter is <code>RestCollector</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The by return object is <code>RestCollector</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -688,17 +688,17 @@ public final class RestCollectors {
 
     /**
      * <code>groupingBy</code>
-     * <p>the by method.</p>
-     * @param <T>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <K>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <D>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <A>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <M>        {@link java.util.Map} <p>the generic parameter is <code>Map</code> type.</p>
-     * @param classifier {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the classifier parameter is <code>FunctionActuator</code> type.</p>
-     * @param mapFactory {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>the map factory parameter is <code>SupplierActuator</code> type.</p>
-     * @param downstream {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the downstream parameter is <code>RestCollector</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the by return object is <code>RestCollector</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The by method.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <D>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <A>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <M>        {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
+     * @param classifier {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The classifier parameter is <code>FunctionActuator</code> type.</p>
+     * @param mapFactory {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The map factory parameter is <code>SupplierActuator</code> type.</p>
+     * @param downstream {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The downstream parameter is <code>RestCollector</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The by return object is <code>RestCollector</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.util.Map
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
@@ -736,12 +736,12 @@ public final class RestCollectors {
 
     /**
      * <code>replaceAll</code>
-     * <p>the all method.</p>
-     * @param <K>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <V>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param map      {@link java.util.Map} <p>the map parameter is <code>Map</code> type.</p>
-     * @param function {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>the function parameter is <code>BiFunctionActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The all method.</p>
+     * @param <K>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <V>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param map      {@link java.util.Map} <p>The map parameter is <code>Map</code> type.</p>
+     * @param function {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The function parameter is <code>BiFunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.util.Map
      * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
      * @see io.github.nichetoolkit.rest.RestException
@@ -775,14 +775,14 @@ public final class RestCollectors {
 
     /**
      * <code>computeIfAbsent</code>
-     * <p>the if absent method.</p>
-     * @param <K>             {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <V>             {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param map             {@link java.util.Map} <p>the map parameter is <code>Map</code> type.</p>
-     * @param key             K <p>the key parameter is <code>K</code> type.</p>
-     * @param mappingFunction {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the mapping function parameter is <code>FunctionActuator</code> type.</p>
-     * @return V <p>the if absent return object is <code>V</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The if absent method.</p>
+     * @param <K>             {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <V>             {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param map             {@link java.util.Map} <p>The map parameter is <code>Map</code> type.</p>
+     * @param key             K <p>The key parameter is <code>K</code> type.</p>
+     * @param mappingFunction {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The mapping function parameter is <code>FunctionActuator</code> type.</p>
+     * @return V <p>The if absent return object is <code>V</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.util.Map
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      * @see io.github.nichetoolkit.rest.RestException
@@ -805,12 +805,12 @@ public final class RestCollectors {
 
     /**
      * <code>groupingByConcurrent</code>
-     * <p>the by concurrent method.</p>
-     * @param <T>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <K>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param classifier {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the classifier parameter is <code>FunctionActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the by concurrent return object is <code>RestCollector</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The by concurrent method.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param classifier {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The classifier parameter is <code>FunctionActuator</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The by concurrent return object is <code>RestCollector</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -822,15 +822,15 @@ public final class RestCollectors {
 
     /**
      * <code>groupingByConcurrent</code>
-     * <p>the by concurrent method.</p>
-     * @param <T>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <K>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <A>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <D>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param classifier {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the classifier parameter is <code>FunctionActuator</code> type.</p>
-     * @param downstream {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the downstream parameter is <code>RestCollector</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the by concurrent return object is <code>RestCollector</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The by concurrent method.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <A>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <D>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param classifier {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The classifier parameter is <code>FunctionActuator</code> type.</p>
+     * @param downstream {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The downstream parameter is <code>RestCollector</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The by concurrent return object is <code>RestCollector</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -842,17 +842,17 @@ public final class RestCollectors {
 
     /**
      * <code>groupingByConcurrent</code>
-     * <p>the by concurrent method.</p>
-     * @param <T>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <K>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <A>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <D>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <M>        {@link java.util.concurrent.ConcurrentMap} <p>the generic parameter is <code>ConcurrentMap</code> type.</p>
-     * @param classifier {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the classifier parameter is <code>FunctionActuator</code> type.</p>
-     * @param mapFactory {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>the map factory parameter is <code>SupplierActuator</code> type.</p>
-     * @param downstream {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the downstream parameter is <code>RestCollector</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the by concurrent return object is <code>RestCollector</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The by concurrent method.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <A>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <D>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <M>        {@link java.util.concurrent.ConcurrentMap} <p>The generic parameter is <code>ConcurrentMap</code> type.</p>
+     * @param classifier {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The classifier parameter is <code>FunctionActuator</code> type.</p>
+     * @param mapFactory {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The map factory parameter is <code>SupplierActuator</code> type.</p>
+     * @param downstream {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The downstream parameter is <code>RestCollector</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The by concurrent return object is <code>RestCollector</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.util.concurrent.ConcurrentMap
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
@@ -901,11 +901,11 @@ public final class RestCollectors {
 
     /**
      * <code>partitioningBy</code>
-     * <p>the by method.</p>
-     * @param <T>       {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param predicate {@link io.github.nichetoolkit.rest.actuator.PredicateActuator} <p>the predicate parameter is <code>PredicateActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the by return object is <code>RestCollector</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The by method.</p>
+     * @param <T>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param predicate {@link io.github.nichetoolkit.rest.actuator.PredicateActuator} <p>The predicate parameter is <code>PredicateActuator</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The by return object is <code>RestCollector</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.PredicateActuator
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -916,14 +916,14 @@ public final class RestCollectors {
 
     /**
      * <code>partitioningBy</code>
-     * <p>the by method.</p>
-     * @param <T>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <D>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <A>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param predicate  {@link io.github.nichetoolkit.rest.actuator.PredicateActuator} <p>the predicate parameter is <code>PredicateActuator</code> type.</p>
-     * @param downstream {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the downstream parameter is <code>RestCollector</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the by return object is <code>RestCollector</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The by method.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <D>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <A>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param predicate  {@link io.github.nichetoolkit.rest.actuator.PredicateActuator} <p>The predicate parameter is <code>PredicateActuator</code> type.</p>
+     * @param downstream {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The downstream parameter is <code>RestCollector</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The by return object is <code>RestCollector</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.PredicateActuator
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -952,14 +952,14 @@ public final class RestCollectors {
 
     /**
      * <code>toMap</code>
-     * <p>the map method.</p>
-     * @param <T>         {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <K>         {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <U>         {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param keyMapper   {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the key mapper parameter is <code>FunctionActuator</code> type.</p>
-     * @param valueMapper {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the value mapper parameter is <code>FunctionActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the map return object is <code>RestCollector</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The map method.</p>
+     * @param <T>         {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>         {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <U>         {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param keyMapper   {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The key mapper parameter is <code>FunctionActuator</code> type.</p>
+     * @param valueMapper {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The value mapper parameter is <code>FunctionActuator</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The map return object is <code>RestCollector</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -971,15 +971,15 @@ public final class RestCollectors {
 
     /**
      * <code>toMap</code>
-     * <p>the map method.</p>
-     * @param <T>           {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <K>           {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <U>           {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param keyMapper     {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the key mapper parameter is <code>FunctionActuator</code> type.</p>
-     * @param valueMapper   {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the value mapper parameter is <code>FunctionActuator</code> type.</p>
-     * @param mergeFunction {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>the merge function parameter is <code>BinaryOperatorActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the map return object is <code>RestCollector</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The map method.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <U>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param keyMapper     {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The key mapper parameter is <code>FunctionActuator</code> type.</p>
+     * @param valueMapper   {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The value mapper parameter is <code>FunctionActuator</code> type.</p>
+     * @param mergeFunction {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>The merge function parameter is <code>BinaryOperatorActuator</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The map return object is <code>RestCollector</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      * @see io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator
      * @see io.github.nichetoolkit.rest.RestException
@@ -993,17 +993,17 @@ public final class RestCollectors {
 
     /**
      * <code>toMap</code>
-     * <p>the map method.</p>
-     * @param <T>           {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <K>           {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <U>           {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <M>           {@link java.util.Map} <p>the generic parameter is <code>Map</code> type.</p>
-     * @param keyMapper     {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the key mapper parameter is <code>FunctionActuator</code> type.</p>
-     * @param valueMapper   {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the value mapper parameter is <code>FunctionActuator</code> type.</p>
-     * @param mergeFunction {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>the merge function parameter is <code>BinaryOperatorActuator</code> type.</p>
-     * @param mapSupplier   {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>the map supplier parameter is <code>SupplierActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the map return object is <code>RestCollector</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The map method.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <U>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <M>           {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
+     * @param keyMapper     {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The key mapper parameter is <code>FunctionActuator</code> type.</p>
+     * @param valueMapper   {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The value mapper parameter is <code>FunctionActuator</code> type.</p>
+     * @param mergeFunction {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>The merge function parameter is <code>BinaryOperatorActuator</code> type.</p>
+     * @param mapSupplier   {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The map supplier parameter is <code>SupplierActuator</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The map return object is <code>RestCollector</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.util.Map
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      * @see io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator
@@ -1023,14 +1023,14 @@ public final class RestCollectors {
 
     /**
      * <code>toConcurrentMap</code>
-     * <p>the concurrent map method.</p>
-     * @param <T>         {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <K>         {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <U>         {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param keyMapper   {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the key mapper parameter is <code>FunctionActuator</code> type.</p>
-     * @param valueMapper {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the value mapper parameter is <code>FunctionActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the concurrent map return object is <code>RestCollector</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The concurrent map method.</p>
+     * @param <T>         {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>         {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <U>         {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param keyMapper   {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The key mapper parameter is <code>FunctionActuator</code> type.</p>
+     * @param valueMapper {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The value mapper parameter is <code>FunctionActuator</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The concurrent map return object is <code>RestCollector</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -1042,15 +1042,15 @@ public final class RestCollectors {
 
     /**
      * <code>toConcurrentMap</code>
-     * <p>the concurrent map method.</p>
-     * @param <T>           {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <K>           {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <U>           {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param keyMapper     {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the key mapper parameter is <code>FunctionActuator</code> type.</p>
-     * @param valueMapper   {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the value mapper parameter is <code>FunctionActuator</code> type.</p>
-     * @param mergeFunction {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>the merge function parameter is <code>BinaryOperatorActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the concurrent map return object is <code>RestCollector</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The concurrent map method.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <U>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param keyMapper     {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The key mapper parameter is <code>FunctionActuator</code> type.</p>
+     * @param valueMapper   {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The value mapper parameter is <code>FunctionActuator</code> type.</p>
+     * @param mergeFunction {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>The merge function parameter is <code>BinaryOperatorActuator</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The concurrent map return object is <code>RestCollector</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      * @see io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator
      * @see io.github.nichetoolkit.rest.RestException
@@ -1065,17 +1065,17 @@ public final class RestCollectors {
 
     /**
      * <code>toConcurrentMap</code>
-     * <p>the concurrent map method.</p>
-     * @param <T>           {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <K>           {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <U>           {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <M>           {@link java.util.concurrent.ConcurrentMap} <p>the generic parameter is <code>ConcurrentMap</code> type.</p>
-     * @param keyMapper     {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the key mapper parameter is <code>FunctionActuator</code> type.</p>
-     * @param valueMapper   {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the value mapper parameter is <code>FunctionActuator</code> type.</p>
-     * @param mergeFunction {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>the merge function parameter is <code>BinaryOperatorActuator</code> type.</p>
-     * @param mapSupplier   {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>the map supplier parameter is <code>SupplierActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>the concurrent map return object is <code>RestCollector</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The concurrent map method.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <U>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <M>           {@link java.util.concurrent.ConcurrentMap} <p>The generic parameter is <code>ConcurrentMap</code> type.</p>
+     * @param keyMapper     {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The key mapper parameter is <code>FunctionActuator</code> type.</p>
+     * @param valueMapper   {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The value mapper parameter is <code>FunctionActuator</code> type.</p>
+     * @param mergeFunction {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>The merge function parameter is <code>BinaryOperatorActuator</code> type.</p>
+     * @param mapSupplier   {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The map supplier parameter is <code>SupplierActuator</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The concurrent map return object is <code>RestCollector</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.util.concurrent.ConcurrentMap
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      * @see io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator
@@ -1096,7 +1096,7 @@ public final class RestCollectors {
     /**
      * <code>Partition</code>
      * <p>The type partition class.</p>
-     * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see java.util.AbstractMap
      * @see java.util.Map
@@ -1107,20 +1107,20 @@ public final class RestCollectors {
             implements Map<Boolean, T> {
         /**
          * <code>forTrue</code>
-         * <p>the <code>forTrue</code> field.</p>
+         * <p>The <code>forTrue</code> field.</p>
          */
         final T forTrue;
         /**
          * <code>forFalse</code>
-         * <p>the <code>forFalse</code> field.</p>
+         * <p>The <code>forFalse</code> field.</p>
          */
         final T forFalse;
 
         /**
          * <code>Partition</code>
-         * Instantiates a new partition.
-         * @param forTrue  T <p>the for true parameter is <code>T</code> type.</p>
-         * @param forFalse T <p>the for false parameter is <code>T</code> type.</p>
+         * <p>Instantiates a new partition.</p>
+         * @param forTrue  T <p>The for true parameter is <code>T</code> type.</p>
+         * @param forFalse T <p>The for false parameter is <code>T</code> type.</p>
          */
         Partition(T forTrue, T forFalse) {
             this.forTrue = forTrue;

@@ -9,9 +9,9 @@ package io.github.nichetoolkit.rest;
 public interface RestAccessValue {
     /**
      * <code>accessToken</code>
-     * <p>the token method.</p>
-     * @param httpRequest {@link io.github.nichetoolkit.rest.RestHttpRequest} <p>the http request parameter is <code>RestHttpRequest</code> type.</p>
-     * @return {@link java.lang.String} <p>the token return object is <code>String</code> type.</p>
+     * <p>The token method.</p>
+     * @param httpRequest {@link io.github.nichetoolkit.rest.RestHttpRequest} <p>The http request parameter is <code>RestHttpRequest</code> type.</p>
+     * @return {@link java.lang.String} <p>The token return object is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestHttpRequest
      * @see java.lang.String
      */
@@ -19,9 +19,9 @@ public interface RestAccessValue {
 
     /**
      * <code>accessAuth</code>
-     * <p>the auth method.</p>
-     * @param httpRequest {@link io.github.nichetoolkit.rest.RestHttpRequest} <p>the http request parameter is <code>RestHttpRequest</code> type.</p>
-     * @return {@link java.lang.String} <p>the auth return object is <code>String</code> type.</p>
+     * <p>The auth method.</p>
+     * @param httpRequest {@link io.github.nichetoolkit.rest.RestHttpRequest} <p>The http request parameter is <code>RestHttpRequest</code> type.</p>
+     * @return {@link java.lang.String} <p>The auth return object is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestHttpRequest
      * @see java.lang.String
      */

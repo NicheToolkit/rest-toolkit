@@ -31,12 +31,12 @@ public final class OptionalUtils {
 
     /**
      * <code>xOfNull</code>
-     * <p>the of null method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param supplier {@link java.util.function.Supplier} <p>the supplier parameter is <code>Supplier</code> type.</p>
-     * @return X <p>the of null return object is <code>X</code> type.</p>
+     * <p>The of null method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
+     * @return X <p>The of null return object is <code>X</code> type.</p>
      * @see java.lang.Throwable
      * @see org.springframework.lang.Nullable
      * @see java.util.function.Supplier
@@ -63,13 +63,13 @@ public final class OptionalUtils {
 
     /**
      * <code>xOfNullActuator</code>
-     * <p>the of null actuator method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param actuator {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>the actuator parameter is <code>SupplierActuator</code> type.</p>
-     * @return X <p>the of null actuator return object is <code>X</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The of null actuator method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The actuator parameter is <code>SupplierActuator</code> type.</p>
+     * @return X <p>The of null actuator return object is <code>X</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Throwable
      * @see org.springframework.lang.Nullable
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
@@ -98,13 +98,13 @@ public final class OptionalUtils {
 
     /**
      * <code>xOfNull</code>
-     * <p>the of null method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param function {@link java.util.function.Function} <p>the function parameter is <code>Function</code> type.</p>
-     * @return X <p>the of null return object is <code>X</code> type.</p>
+     * <p>The of null method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
+     * @return X <p>The of null return object is <code>X</code> type.</p>
      * @see java.lang.Throwable
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
@@ -133,14 +133,14 @@ public final class OptionalUtils {
 
     /**
      * <code>xOfNullActuator</code>
-     * <p>the of null actuator method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param actuator {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the actuator parameter is <code>FunctionActuator</code> type.</p>
-     * @return X <p>the of null actuator return object is <code>X</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The of null actuator method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The actuator parameter is <code>FunctionActuator</code> type.</p>
+     * @return X <p>The of null actuator return object is <code>X</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Throwable
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
@@ -169,14 +169,14 @@ public final class OptionalUtils {
 
     /**
      * <code>xOfNull</code>
-     * <p>the of null method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param function {@link java.util.function.BiFunction} <p>the function parameter is <code>BiFunction</code> type.</p>
-     * @return X <p>the of null return object is <code>X</code> type.</p>
+     * <p>The of null method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
+     * @return X <p>The of null return object is <code>X</code> type.</p>
      * @see java.lang.Throwable
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
@@ -204,15 +204,15 @@ public final class OptionalUtils {
 
     /**
      * <code>xOfNullActuator</code>
-     * <p>the of null actuator method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param actuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>the actuator parameter is <code>BiFunctionActuator</code> type.</p>
-     * @return X <p>the of null actuator return object is <code>X</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The of null actuator method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The actuator parameter is <code>BiFunctionActuator</code> type.</p>
+     * @return X <p>The of null actuator return object is <code>X</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Throwable
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
@@ -241,12 +241,12 @@ public final class OptionalUtils {
 
     /**
      * <code>xOfEmpty</code>
-     * <p>the of empty method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param supplier {@link java.util.function.Supplier} <p>the supplier parameter is <code>Supplier</code> type.</p>
-     * @return X <p>the of empty return object is <code>X</code> type.</p>
+     * <p>The of empty method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
+     * @return X <p>The of empty return object is <code>X</code> type.</p>
      * @see java.lang.Throwable
      * @see org.springframework.lang.Nullable
      * @see java.util.function.Supplier
@@ -268,13 +268,13 @@ public final class OptionalUtils {
 
     /**
      * <code>xOfEmptyActuator</code>
-     * <p>the of empty actuator method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param actuator {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>the actuator parameter is <code>SupplierActuator</code> type.</p>
-     * @return X <p>the of empty actuator return object is <code>X</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The of empty actuator method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The actuator parameter is <code>SupplierActuator</code> type.</p>
+     * @return X <p>The of empty actuator return object is <code>X</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Throwable
      * @see org.springframework.lang.Nullable
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
@@ -297,13 +297,13 @@ public final class OptionalUtils {
 
     /**
      * <code>xOfEmpty</code>
-     * <p>the of empty method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param function {@link java.util.function.Function} <p>the function parameter is <code>Function</code> type.</p>
-     * @return X <p>the of empty return object is <code>X</code> type.</p>
+     * <p>The of empty method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
+     * @return X <p>The of empty return object is <code>X</code> type.</p>
      * @see java.lang.Throwable
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
@@ -326,14 +326,14 @@ public final class OptionalUtils {
 
     /**
      * <code>xOfEmptyActuator</code>
-     * <p>the of empty actuator method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param actuator {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the actuator parameter is <code>FunctionActuator</code> type.</p>
-     * @return X <p>the of empty actuator return object is <code>X</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The of empty actuator method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The actuator parameter is <code>FunctionActuator</code> type.</p>
+     * @return X <p>The of empty actuator return object is <code>X</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Throwable
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
@@ -357,14 +357,14 @@ public final class OptionalUtils {
 
     /**
      * <code>xOfEmpty</code>
-     * <p>the of empty method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param function {@link java.util.function.BiFunction} <p>the function parameter is <code>BiFunction</code> type.</p>
-     * @return X <p>the of empty return object is <code>X</code> type.</p>
+     * <p>The of empty method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
+     * @return X <p>The of empty return object is <code>X</code> type.</p>
      * @see java.lang.Throwable
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
@@ -387,15 +387,15 @@ public final class OptionalUtils {
 
     /**
      * <code>xOfEmptyActuator</code>
-     * <p>the of empty actuator method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param actuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>the actuator parameter is <code>BiFunctionActuator</code> type.</p>
-     * @return X <p>the of empty actuator return object is <code>X</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The of empty actuator method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The actuator parameter is <code>BiFunctionActuator</code> type.</p>
+     * @return X <p>The of empty actuator return object is <code>X</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Throwable
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
@@ -419,12 +419,12 @@ public final class OptionalUtils {
 
     /**
      * <code>xOfInvalid</code>
-     * <p>the of invalid method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param supplier {@link java.util.function.Supplier} <p>the supplier parameter is <code>Supplier</code> type.</p>
-     * @return X <p>the of invalid return object is <code>X</code> type.</p>
+     * <p>The of invalid method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
+     * @return X <p>The of invalid return object is <code>X</code> type.</p>
      * @see java.lang.Throwable
      * @see org.springframework.lang.Nullable
      * @see java.util.function.Supplier
@@ -446,13 +446,13 @@ public final class OptionalUtils {
 
     /**
      * <code>xOfInvalidActuator</code>
-     * <p>the of invalid actuator method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param actuator {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>the actuator parameter is <code>SupplierActuator</code> type.</p>
-     * @return X <p>the of invalid actuator return object is <code>X</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The of invalid actuator method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The actuator parameter is <code>SupplierActuator</code> type.</p>
+     * @return X <p>The of invalid actuator return object is <code>X</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Throwable
      * @see org.springframework.lang.Nullable
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
@@ -475,13 +475,13 @@ public final class OptionalUtils {
 
     /**
      * <code>xOfInvalid</code>
-     * <p>the of invalid method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param function {@link java.util.function.Function} <p>the function parameter is <code>Function</code> type.</p>
-     * @return X <p>the of invalid return object is <code>X</code> type.</p>
+     * <p>The of invalid method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
+     * @return X <p>The of invalid return object is <code>X</code> type.</p>
      * @see java.lang.Throwable
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
@@ -504,14 +504,14 @@ public final class OptionalUtils {
 
     /**
      * <code>xOfInvalidActuator</code>
-     * <p>the of invalid actuator method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param actuator {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the actuator parameter is <code>FunctionActuator</code> type.</p>
-     * @return X <p>the of invalid actuator return object is <code>X</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The of invalid actuator method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The actuator parameter is <code>FunctionActuator</code> type.</p>
+     * @return X <p>The of invalid actuator return object is <code>X</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Throwable
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
@@ -535,14 +535,14 @@ public final class OptionalUtils {
 
     /**
      * <code>xOfInvalid</code>
-     * <p>the of invalid method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param function {@link java.util.function.BiFunction} <p>the function parameter is <code>BiFunction</code> type.</p>
-     * @return X <p>the of invalid return object is <code>X</code> type.</p>
+     * <p>The of invalid method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
+     * @return X <p>The of invalid return object is <code>X</code> type.</p>
      * @see java.lang.Throwable
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
@@ -565,15 +565,15 @@ public final class OptionalUtils {
 
     /**
      * <code>xOfInvalidActuator</code>
-     * <p>the of invalid actuator method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>the generic parameter is <code>RestException</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param actuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>the actuator parameter is <code>BiFunctionActuator</code> type.</p>
-     * @return X <p>the of invalid actuator return object is <code>X</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The of invalid actuator method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The actuator parameter is <code>BiFunctionActuator</code> type.</p>
+     * @return X <p>The of invalid actuator return object is <code>X</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
@@ -596,10 +596,10 @@ public final class OptionalUtils {
 
     /**
      * <code>ofCauseThrow</code>
-     * <p>the cause throw method.</p>
-     * @param <X>   {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param cause X <p>the cause parameter is <code>X</code> type.</p>
-     * @throws X X <p>the x is <code>X</code> type.</p>
+     * <p>The cause throw method.</p>
+     * @param <X>   {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param cause X <p>The cause parameter is <code>X</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
      */
     public static <X extends Throwable> void ofCauseThrow(X cause) throws X {
@@ -611,9 +611,9 @@ public final class OptionalUtils {
 
     /**
      * <code>ofCauseThrowError</code>
-     * <p>the cause throw error method.</p>
-     * @param <X>   {@link io.github.nichetoolkit.rest.RestError} <p>the generic parameter is <code>RestError</code> type.</p>
-     * @param cause X <p>the cause parameter is <code>X</code> type.</p>
+     * <p>The cause throw error method.</p>
+     * @param <X>   {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param cause X <p>The cause parameter is <code>X</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
      */
     public static <X extends RestError> void ofCauseThrowError(X cause) {
@@ -625,10 +625,10 @@ public final class OptionalUtils {
 
     /**
      * <code>ofCauseThrowException</code>
-     * <p>the cause throw exception method.</p>
-     * @param <X>   {@link io.github.nichetoolkit.rest.RestException} <p>the generic parameter is <code>RestException</code> type.</p>
-     * @param cause {@link io.github.nichetoolkit.rest.RestException} <p>the cause parameter is <code>RestException</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The cause throw exception method.</p>
+     * @param <X>   {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param cause {@link io.github.nichetoolkit.rest.RestException} <p>The cause parameter is <code>RestException</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <X extends RestException> void ofCauseThrowException(RestException cause) throws RestException {
@@ -640,11 +640,11 @@ public final class OptionalUtils {
 
     /**
      * <code>ofTrueThrow</code>
-     * <p>the true throw method.</p>
-     * @param <X>      {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param supplier {@link java.util.function.Supplier} <p>the supplier parameter is <code>Supplier</code> type.</p>
-     * @throws X X <p>the x is <code>X</code> type.</p>
+     * <p>The true throw method.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
      * @see java.lang.Boolean
      * @see java.util.function.Supplier
@@ -661,10 +661,10 @@ public final class OptionalUtils {
 
     /**
      * <code>ofTrueThrowError</code>
-     * <p>the true throw error method.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>the generic parameter is <code>RestError</code> type.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param supplier {@link java.util.function.Supplier} <p>the supplier parameter is <code>Supplier</code> type.</p>
+     * <p>The true throw error method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
      * @see java.lang.Boolean
      * @see java.util.function.Supplier
@@ -679,11 +679,11 @@ public final class OptionalUtils {
 
     /**
      * <code>ofTrueThrowException</code>
-     * <p>the true throw exception method.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>the generic parameter is <code>RestException</code> type.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param actuator {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>the actuator parameter is <code>SupplierActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The true throw exception method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The actuator parameter is <code>SupplierActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      * @see java.lang.Boolean
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
@@ -698,12 +698,12 @@ public final class OptionalUtils {
 
     /**
      * <code>ofTrueThrow</code>
-     * <p>the true throw method.</p>
-     * @param <X>      {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param function {@link java.util.function.Function} <p>the function parameter is <code>Function</code> type.</p>
-     * @throws X X <p>the x is <code>X</code> type.</p>
+     * <p>The true throw method.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
      * @see java.lang.Boolean
      * @see java.lang.String
@@ -721,11 +721,11 @@ public final class OptionalUtils {
 
     /**
      * <code>ofTrueThrowError</code>
-     * <p>the true throw error method.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>the generic parameter is <code>RestError</code> type.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param function {@link java.util.function.Function} <p>the function parameter is <code>Function</code> type.</p>
+     * <p>The true throw error method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
      * @see java.lang.Boolean
      * @see java.lang.String
@@ -742,12 +742,12 @@ public final class OptionalUtils {
 
     /**
      * <code>ofTrueThrowException</code>
-     * <p>the true throw exception method.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>the generic parameter is <code>RestException</code> type.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param actuator {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the actuator parameter is <code>FunctionActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The true throw exception method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The actuator parameter is <code>FunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      * @see java.lang.Boolean
      * @see java.lang.String
@@ -763,13 +763,13 @@ public final class OptionalUtils {
 
     /**
      * <code>ofTrueThrow</code>
-     * <p>the true throw method.</p>
-     * @param <X>      {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param function {@link java.util.function.BiFunction} <p>the function parameter is <code>BiFunction</code> type.</p>
-     * @throws X X <p>the x is <code>X</code> type.</p>
+     * <p>The true throw method.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
      * @see java.lang.Boolean
      * @see java.lang.String
@@ -786,12 +786,12 @@ public final class OptionalUtils {
 
     /**
      * <code>ofTrueThrowError</code>
-     * <p>the true throw error method.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>the generic parameter is <code>RestError</code> type.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param function {@link java.util.function.BiFunction} <p>the function parameter is <code>BiFunction</code> type.</p>
+     * <p>The true throw error method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
      * @see java.lang.Boolean
      * @see java.lang.String
@@ -807,13 +807,13 @@ public final class OptionalUtils {
 
     /**
      * <code>ofTrueThrowException</code>
-     * <p>the true throw exception method.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>the generic parameter is <code>RestException</code> type.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param actuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>the actuator parameter is <code>BiFunctionActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The true throw exception method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The actuator parameter is <code>BiFunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      * @see java.lang.Boolean
      * @see java.lang.String
@@ -829,11 +829,11 @@ public final class OptionalUtils {
 
     /**
      * <code>ofFalseThrow</code>
-     * <p>the false throw method.</p>
-     * @param <X>      {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param supplier {@link java.util.function.Supplier} <p>the supplier parameter is <code>Supplier</code> type.</p>
-     * @throws X X <p>the x is <code>X</code> type.</p>
+     * <p>The false throw method.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
      * @see java.lang.Boolean
      * @see java.util.function.Supplier
@@ -849,10 +849,10 @@ public final class OptionalUtils {
 
     /**
      * <code>ofFalseThrowError</code>
-     * <p>the false throw error method.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>the generic parameter is <code>RestError</code> type.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param supplier {@link java.util.function.Supplier} <p>the supplier parameter is <code>Supplier</code> type.</p>
+     * <p>The false throw error method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
      * @see java.lang.Boolean
      * @see java.util.function.Supplier
@@ -867,11 +867,11 @@ public final class OptionalUtils {
 
     /**
      * <code>ofFalseThrowException</code>
-     * <p>the false throw exception method.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>the generic parameter is <code>RestException</code> type.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param actuator {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>the actuator parameter is <code>SupplierActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The false throw exception method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The actuator parameter is <code>SupplierActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      * @see java.lang.Boolean
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
@@ -886,12 +886,12 @@ public final class OptionalUtils {
 
     /**
      * <code>ofFalseThrow</code>
-     * <p>the false throw method.</p>
-     * @param <X>      {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param function {@link java.util.function.Function} <p>the function parameter is <code>Function</code> type.</p>
-     * @throws X X <p>the x is <code>X</code> type.</p>
+     * <p>The false throw method.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
      * @see java.lang.Boolean
      * @see java.lang.String
@@ -908,11 +908,11 @@ public final class OptionalUtils {
 
     /**
      * <code>ofFalseThrowError</code>
-     * <p>the false throw error method.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>the generic parameter is <code>RestError</code> type.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param function {@link java.util.function.Function} <p>the function parameter is <code>Function</code> type.</p>
+     * <p>The false throw error method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
      * @see java.lang.Boolean
      * @see java.lang.String
@@ -928,12 +928,12 @@ public final class OptionalUtils {
 
     /**
      * <code>ofFalseThrowException</code>
-     * <p>the false throw exception method.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>the generic parameter is <code>RestException</code> type.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param actuator {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the actuator parameter is <code>FunctionActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The false throw exception method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The actuator parameter is <code>FunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      * @see java.lang.Boolean
      * @see java.lang.String
@@ -949,13 +949,13 @@ public final class OptionalUtils {
 
     /**
      * <code>ofFalseThrow</code>
-     * <p>the false throw method.</p>
-     * @param <X>      {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param function {@link java.util.function.BiFunction} <p>the function parameter is <code>BiFunction</code> type.</p>
-     * @throws X X <p>the x is <code>X</code> type.</p>
+     * <p>The false throw method.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
      * @see java.lang.Boolean
      * @see java.lang.String
@@ -972,12 +972,12 @@ public final class OptionalUtils {
 
     /**
      * <code>ofFalseThrowError</code>
-     * <p>the false throw error method.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>the generic parameter is <code>RestError</code> type.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param function {@link java.util.function.BiFunction} <p>the function parameter is <code>BiFunction</code> type.</p>
+     * <p>The false throw error method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
      * @see java.lang.Boolean
      * @see java.lang.String
@@ -993,13 +993,13 @@ public final class OptionalUtils {
 
     /**
      * <code>ofFalseThrowException</code>
-     * <p>the false throw exception method.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>the generic parameter is <code>RestException</code> type.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param actuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>the actuator parameter is <code>BiFunctionActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The false throw exception method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The actuator parameter is <code>BiFunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      * @see java.lang.Boolean
      * @see java.lang.String
@@ -1015,12 +1015,12 @@ public final class OptionalUtils {
 
     /**
      * <code>ofNull</code>
-     * <p>the null method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param supplier {@link java.util.function.Supplier} <p>the supplier parameter is <code>Supplier</code> type.</p>
-     * @throws X X <p>the x is <code>X</code> type.</p>
+     * <p>The null method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
      * @see org.springframework.lang.Nullable
      * @see java.util.function.Supplier
@@ -1033,11 +1033,11 @@ public final class OptionalUtils {
 
     /**
      * <code>ofNullError</code>
-     * <p>the null error method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>the generic parameter is <code>RestError</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param supplier {@link java.util.function.Supplier} <p>the supplier parameter is <code>Supplier</code> type.</p>
+     * <p>The null error method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
      * @see org.springframework.lang.Nullable
      * @see java.util.function.Supplier
@@ -1049,12 +1049,12 @@ public final class OptionalUtils {
 
     /**
      * <code>ofNullException</code>
-     * <p>the null exception method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>the generic parameter is <code>RestException</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param actuator {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>the actuator parameter is <code>SupplierActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The null exception method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The actuator parameter is <code>SupplierActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      * @see org.springframework.lang.Nullable
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
@@ -1066,12 +1066,12 @@ public final class OptionalUtils {
 
     /**
      * <code>ofEmpty</code>
-     * <p>the empty method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param supplier {@link java.util.function.Supplier} <p>the supplier parameter is <code>Supplier</code> type.</p>
-     * @throws X X <p>the x is <code>X</code> type.</p>
+     * <p>The empty method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
      * @see org.springframework.lang.Nullable
      * @see java.util.function.Supplier
@@ -1084,11 +1084,11 @@ public final class OptionalUtils {
 
     /**
      * <code>ofEmptyError</code>
-     * <p>the empty error method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>the generic parameter is <code>RestError</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param supplier {@link java.util.function.Supplier} <p>the supplier parameter is <code>Supplier</code> type.</p>
+     * <p>The empty error method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
      * @see org.springframework.lang.Nullable
      * @see java.util.function.Supplier
@@ -1100,12 +1100,12 @@ public final class OptionalUtils {
 
     /**
      * <code>ofEmptyException</code>
-     * <p>the empty exception method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>the generic parameter is <code>RestException</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param actuator {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>the actuator parameter is <code>SupplierActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The empty exception method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The actuator parameter is <code>SupplierActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      * @see org.springframework.lang.Nullable
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
@@ -1117,12 +1117,12 @@ public final class OptionalUtils {
 
     /**
      * <code>ofInvalid</code>
-     * <p>the invalid method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param supplier {@link java.util.function.Supplier} <p>the supplier parameter is <code>Supplier</code> type.</p>
-     * @throws X X <p>the x is <code>X</code> type.</p>
+     * <p>The invalid method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
      * @see org.springframework.lang.Nullable
      * @see java.util.function.Supplier
@@ -1135,11 +1135,11 @@ public final class OptionalUtils {
 
     /**
      * <code>ofInvalidError</code>
-     * <p>the invalid error method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>the generic parameter is <code>RestError</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param supplier {@link java.util.function.Supplier} <p>the supplier parameter is <code>Supplier</code> type.</p>
+     * <p>The invalid error method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
      * @see org.springframework.lang.Nullable
      * @see java.util.function.Supplier
@@ -1151,12 +1151,12 @@ public final class OptionalUtils {
 
     /**
      * <code>ofInvalidException</code>
-     * <p>the invalid exception method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>the generic parameter is <code>RestException</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param actuator {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>the actuator parameter is <code>SupplierActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The invalid exception method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The actuator parameter is <code>SupplierActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      * @see org.springframework.lang.Nullable
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
@@ -1168,13 +1168,13 @@ public final class OptionalUtils {
 
     /**
      * <code>ofNull</code>
-     * <p>the null method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param function {@link java.util.function.Function} <p>the function parameter is <code>Function</code> type.</p>
-     * @throws X X <p>the x is <code>X</code> type.</p>
+     * <p>The null method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
@@ -1187,12 +1187,12 @@ public final class OptionalUtils {
 
     /**
      * <code>ofNullError</code>
-     * <p>the null error method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>the generic parameter is <code>RestError</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param function {@link java.util.function.Function} <p>the function parameter is <code>Function</code> type.</p>
+     * <p>The null error method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
@@ -1204,13 +1204,13 @@ public final class OptionalUtils {
 
     /**
      * <code>ofNullException</code>
-     * <p>the null exception method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>the generic parameter is <code>RestException</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param actuator {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the actuator parameter is <code>FunctionActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The null exception method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The actuator parameter is <code>FunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
@@ -1222,13 +1222,13 @@ public final class OptionalUtils {
 
     /**
      * <code>ofEmpty</code>
-     * <p>the empty method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param function {@link java.util.function.Function} <p>the function parameter is <code>Function</code> type.</p>
-     * @throws X X <p>the x is <code>X</code> type.</p>
+     * <p>The empty method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
@@ -1241,12 +1241,12 @@ public final class OptionalUtils {
 
     /**
      * <code>ofEmptyError</code>
-     * <p>the empty error method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>the generic parameter is <code>RestError</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param function {@link java.util.function.Function} <p>the function parameter is <code>Function</code> type.</p>
+     * <p>The empty error method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
@@ -1258,13 +1258,13 @@ public final class OptionalUtils {
 
     /**
      * <code>ofEmptyException</code>
-     * <p>the empty exception method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>the generic parameter is <code>RestException</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param actuator {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the actuator parameter is <code>FunctionActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The empty exception method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The actuator parameter is <code>FunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
@@ -1276,13 +1276,13 @@ public final class OptionalUtils {
 
     /**
      * <code>ofInvalid</code>
-     * <p>the invalid method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param function {@link java.util.function.Function} <p>the function parameter is <code>Function</code> type.</p>
-     * @throws X X <p>the x is <code>X</code> type.</p>
+     * <p>The invalid method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
@@ -1295,12 +1295,12 @@ public final class OptionalUtils {
 
     /**
      * <code>ofInvalidError</code>
-     * <p>the invalid error method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>the generic parameter is <code>RestError</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param function {@link java.util.function.Function} <p>the function parameter is <code>Function</code> type.</p>
+     * <p>The invalid error method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
@@ -1312,13 +1312,13 @@ public final class OptionalUtils {
 
     /**
      * <code>ofInvalidException</code>
-     * <p>the invalid exception method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>the generic parameter is <code>RestException</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param actuator {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the actuator parameter is <code>FunctionActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The invalid exception method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The actuator parameter is <code>FunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
@@ -1330,14 +1330,14 @@ public final class OptionalUtils {
 
     /**
      * <code>ofNull</code>
-     * <p>the null method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param function {@link java.util.function.BiFunction} <p>the function parameter is <code>BiFunction</code> type.</p>
-     * @throws X X <p>the x is <code>X</code> type.</p>
+     * <p>The null method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
@@ -1350,13 +1350,13 @@ public final class OptionalUtils {
 
     /**
      * <code>ofNullError</code>
-     * <p>the null error method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>the generic parameter is <code>RestError</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param function {@link java.util.function.BiFunction} <p>the function parameter is <code>BiFunction</code> type.</p>
+     * <p>The null error method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
@@ -1368,14 +1368,14 @@ public final class OptionalUtils {
 
     /**
      * <code>ofNullException</code>
-     * <p>the null exception method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>the generic parameter is <code>RestException</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param actuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>the actuator parameter is <code>BiFunctionActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The null exception method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The actuator parameter is <code>BiFunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
@@ -1387,14 +1387,14 @@ public final class OptionalUtils {
 
     /**
      * <code>ofEmpty</code>
-     * <p>the empty method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param function {@link java.util.function.BiFunction} <p>the function parameter is <code>BiFunction</code> type.</p>
-     * @throws X X <p>the x is <code>X</code> type.</p>
+     * <p>The empty method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
@@ -1407,13 +1407,13 @@ public final class OptionalUtils {
 
     /**
      * <code>ofEmptyError</code>
-     * <p>the empty error method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>the generic parameter is <code>RestError</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param function {@link java.util.function.BiFunction} <p>the function parameter is <code>BiFunction</code> type.</p>
+     * <p>The empty error method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
@@ -1425,14 +1425,14 @@ public final class OptionalUtils {
 
     /**
      * <code>ofEmptyException</code>
-     * <p>the empty exception method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>the generic parameter is <code>RestException</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param actuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>the actuator parameter is <code>BiFunctionActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The empty exception method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The actuator parameter is <code>BiFunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
@@ -1444,14 +1444,14 @@ public final class OptionalUtils {
 
     /**
      * <code>ofInvalid</code>
-     * <p>the invalid method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param function {@link java.util.function.BiFunction} <p>the function parameter is <code>BiFunction</code> type.</p>
-     * @throws X X <p>the x is <code>X</code> type.</p>
+     * <p>The invalid method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
@@ -1464,13 +1464,13 @@ public final class OptionalUtils {
 
     /**
      * <code>ofInvalidError</code>
-     * <p>the invalid error method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>the generic parameter is <code>RestError</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param function {@link java.util.function.BiFunction} <p>the function parameter is <code>BiFunction</code> type.</p>
+     * <p>The invalid error method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
@@ -1482,14 +1482,14 @@ public final class OptionalUtils {
 
     /**
      * <code>ofInvalidException</code>
-     * <p>the invalid exception method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>the generic parameter is <code>RestException</code> type.</p>
-     * @param object   T <p>the object parameter is <code>T</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param actuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>the actuator parameter is <code>BiFunctionActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The invalid exception method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The actuator parameter is <code>BiFunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
@@ -1501,11 +1501,11 @@ public final class OptionalUtils {
 
     /**
      * <code>ofTrue</code>
-     * <p>the true method.</p>
-     * @param <X>      {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param supplier {@link java.util.function.Supplier} <p>the supplier parameter is <code>Supplier</code> type.</p>
-     * @throws X X <p>the x is <code>X</code> type.</p>
+     * <p>The true method.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
      * @see java.lang.Boolean
      * @see java.util.function.Supplier
@@ -1517,10 +1517,10 @@ public final class OptionalUtils {
 
     /**
      * <code>ofTrueError</code>
-     * <p>the true error method.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>the generic parameter is <code>RestError</code> type.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param supplier {@link java.util.function.Supplier} <p>the supplier parameter is <code>Supplier</code> type.</p>
+     * <p>The true error method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
      * @see java.lang.Boolean
      * @see java.util.function.Supplier
@@ -1531,11 +1531,11 @@ public final class OptionalUtils {
 
     /**
      * <code>ofTrueException</code>
-     * <p>the true exception method.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>the generic parameter is <code>RestException</code> type.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param actuator {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>the actuator parameter is <code>SupplierActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The true exception method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The actuator parameter is <code>SupplierActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      * @see java.lang.Boolean
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
@@ -1546,12 +1546,12 @@ public final class OptionalUtils {
 
     /**
      * <code>ofTrue</code>
-     * <p>the true method.</p>
-     * @param <X>      {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param function {@link java.util.function.Function} <p>the function parameter is <code>Function</code> type.</p>
-     * @throws X X <p>the x is <code>X</code> type.</p>
+     * <p>The true method.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
      * @see java.lang.Boolean
      * @see java.lang.String
@@ -1564,11 +1564,11 @@ public final class OptionalUtils {
 
     /**
      * <code>ofTrueError</code>
-     * <p>the true error method.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>the generic parameter is <code>RestError</code> type.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param function {@link java.util.function.Function} <p>the function parameter is <code>Function</code> type.</p>
+     * <p>The true error method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
      * @see java.lang.Boolean
      * @see java.lang.String
@@ -1580,12 +1580,12 @@ public final class OptionalUtils {
 
     /**
      * <code>ofTrueException</code>
-     * <p>the true exception method.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>the generic parameter is <code>RestException</code> type.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param actuator {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the actuator parameter is <code>FunctionActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The true exception method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The actuator parameter is <code>FunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      * @see java.lang.Boolean
      * @see java.lang.String
@@ -1597,13 +1597,13 @@ public final class OptionalUtils {
 
     /**
      * <code>ofTrue</code>
-     * <p>the true method.</p>
-     * @param <X>      {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param function {@link java.util.function.BiFunction} <p>the function parameter is <code>BiFunction</code> type.</p>
-     * @throws X X <p>the x is <code>X</code> type.</p>
+     * <p>The true method.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
      * @see java.lang.Boolean
      * @see java.lang.String
@@ -1616,12 +1616,12 @@ public final class OptionalUtils {
 
     /**
      * <code>ofTrueError</code>
-     * <p>the true error method.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>the generic parameter is <code>RestError</code> type.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param function {@link java.util.function.BiFunction} <p>the function parameter is <code>BiFunction</code> type.</p>
+     * <p>The true error method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
      * @see java.lang.Boolean
      * @see java.lang.String
@@ -1633,13 +1633,13 @@ public final class OptionalUtils {
 
     /**
      * <code>ofTrueException</code>
-     * <p>the true exception method.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>the generic parameter is <code>RestException</code> type.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param actuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>the actuator parameter is <code>BiFunctionActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The true exception method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The actuator parameter is <code>BiFunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      * @see java.lang.Boolean
      * @see java.lang.String
@@ -1651,11 +1651,11 @@ public final class OptionalUtils {
 
     /**
      * <code>ofFalse</code>
-     * <p>the false method.</p>
-     * @param <X>      {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param supplier {@link java.util.function.Supplier} <p>the supplier parameter is <code>Supplier</code> type.</p>
-     * @throws X X <p>the x is <code>X</code> type.</p>
+     * <p>The false method.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
      * @see java.lang.Boolean
      * @see java.util.function.Supplier
@@ -1667,10 +1667,10 @@ public final class OptionalUtils {
 
     /**
      * <code>ofFalseError</code>
-     * <p>the false error method.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>the generic parameter is <code>RestError</code> type.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param supplier {@link java.util.function.Supplier} <p>the supplier parameter is <code>Supplier</code> type.</p>
+     * <p>The false error method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
      * @see java.lang.Boolean
      * @see java.util.function.Supplier
@@ -1681,11 +1681,11 @@ public final class OptionalUtils {
 
     /**
      * <code>ofFalseException</code>
-     * <p>the false exception method.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>the generic parameter is <code>RestException</code> type.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param actuator {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>the actuator parameter is <code>SupplierActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The false exception method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The actuator parameter is <code>SupplierActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      * @see java.lang.Boolean
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
@@ -1696,12 +1696,12 @@ public final class OptionalUtils {
 
     /**
      * <code>ofFalse</code>
-     * <p>the false method.</p>
-     * @param <X>      {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param function {@link java.util.function.Function} <p>the function parameter is <code>Function</code> type.</p>
-     * @throws X X <p>the x is <code>X</code> type.</p>
+     * <p>The false method.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
      * @see java.lang.Boolean
      * @see java.lang.String
@@ -1714,11 +1714,11 @@ public final class OptionalUtils {
 
     /**
      * <code>ofFalseError</code>
-     * <p>the false error method.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>the generic parameter is <code>RestError</code> type.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param function {@link java.util.function.Function} <p>the function parameter is <code>Function</code> type.</p>
+     * <p>The false error method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
      * @see java.lang.Boolean
      * @see java.lang.String
@@ -1730,12 +1730,12 @@ public final class OptionalUtils {
 
     /**
      * <code>ofFalseException</code>
-     * <p>the false exception method.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>the generic parameter is <code>RestException</code> type.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param actuator {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the actuator parameter is <code>FunctionActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The false exception method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The actuator parameter is <code>FunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      * @see java.lang.Boolean
      * @see java.lang.String
@@ -1747,13 +1747,13 @@ public final class OptionalUtils {
 
     /**
      * <code>ofFalse</code>
-     * <p>the false method.</p>
-     * @param <X>      {@link java.lang.Throwable} <p>the generic parameter is <code>Throwable</code> type.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param function {@link java.util.function.BiFunction} <p>the function parameter is <code>BiFunction</code> type.</p>
-     * @throws X X <p>the x is <code>X</code> type.</p>
+     * <p>The false method.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
      * @see java.lang.Boolean
      * @see java.lang.String
@@ -1766,12 +1766,12 @@ public final class OptionalUtils {
 
     /**
      * <code>ofFalseError</code>
-     * <p>the false error method.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>the generic parameter is <code>RestError</code> type.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param function {@link java.util.function.BiFunction} <p>the function parameter is <code>BiFunction</code> type.</p>
+     * <p>The false error method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
      * @see java.lang.Boolean
      * @see java.lang.String
@@ -1783,13 +1783,13 @@ public final class OptionalUtils {
 
     /**
      * <code>ofFalseException</code>
-     * <p>the false exception method.</p>
-     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>the generic parameter is <code>RestException</code> type.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param actuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>the actuator parameter is <code>BiFunctionActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The false exception method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The actuator parameter is <code>BiFunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      * @see java.lang.Boolean
      * @see java.lang.String
@@ -1801,10 +1801,10 @@ public final class OptionalUtils {
 
     /**
      * <code>ofFieldNull</code>
-     * <p>the field null method.</p>
-     * @param <T>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param field T <p>the field parameter is <code>T</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The field null method.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param field T <p>The field parameter is <code>T</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> void ofFieldNull(T field) throws RestException {
@@ -1813,11 +1813,11 @@ public final class OptionalUtils {
 
     /**
      * <code>ofFieldNull</code>
-     * <p>the field null method.</p>
-     * @param <T>     {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param field   T <p>the field parameter is <code>T</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The field null method.</p>
+     * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param field   T <p>The field parameter is <code>T</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -1827,12 +1827,12 @@ public final class OptionalUtils {
 
     /**
      * <code>ofFieldNull</code>
-     * <p>the field null method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param field    T <p>the field parameter is <code>T</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The field null method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param field    T <p>The field parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -1842,10 +1842,10 @@ public final class OptionalUtils {
 
     /**
      * <code>ofFieldEmpty</code>
-     * <p>the field empty method.</p>
-     * @param <T>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param field T <p>the field parameter is <code>T</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The field empty method.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param field T <p>The field parameter is <code>T</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> void ofFieldEmpty(T field) throws RestException {
@@ -1854,11 +1854,11 @@ public final class OptionalUtils {
 
     /**
      * <code>ofFieldEmpty</code>
-     * <p>the field empty method.</p>
-     * @param <T>     {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param field   T <p>the field parameter is <code>T</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The field empty method.</p>
+     * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param field   T <p>The field parameter is <code>T</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -1868,12 +1868,12 @@ public final class OptionalUtils {
 
     /**
      * <code>ofFieldEmpty</code>
-     * <p>the field empty method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param field    T <p>the field parameter is <code>T</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The field empty method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param field    T <p>The field parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -1883,10 +1883,10 @@ public final class OptionalUtils {
 
     /**
      * <code>ofFieldInvalid</code>
-     * <p>the field invalid method.</p>
-     * @param <T>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param field T <p>the field parameter is <code>T</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The field invalid method.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param field T <p>The field parameter is <code>T</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> void ofFieldInvalid(T field) throws RestException {
@@ -1895,11 +1895,11 @@ public final class OptionalUtils {
 
     /**
      * <code>ofFieldInvalid</code>
-     * <p>the field invalid method.</p>
-     * @param <T>     {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param field   T <p>the field parameter is <code>T</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The field invalid method.</p>
+     * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param field   T <p>The field parameter is <code>T</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -1909,12 +1909,12 @@ public final class OptionalUtils {
 
     /**
      * <code>ofFieldInvalid</code>
-     * <p>the field invalid method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param field    T <p>the field parameter is <code>T</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The field invalid method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param field    T <p>The field parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -1924,10 +1924,10 @@ public final class OptionalUtils {
 
     /**
      * <code>ofIdNull</code>
-     * <p>the id null method.</p>
-     * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param id  T <p>the id parameter is <code>T</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The id null method.</p>
+     * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param id  T <p>The id parameter is <code>T</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> void ofIdNull(T id) throws RestException {
@@ -1936,11 +1936,11 @@ public final class OptionalUtils {
 
     /**
      * <code>ofIdNull</code>
-     * <p>the id null method.</p>
-     * @param <T>     {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param id      T <p>the id parameter is <code>T</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The id null method.</p>
+     * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param id      T <p>The id parameter is <code>T</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -1950,12 +1950,12 @@ public final class OptionalUtils {
 
     /**
      * <code>ofIdNull</code>
-     * <p>the id null method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param id       T <p>the id parameter is <code>T</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The id null method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param id       T <p>The id parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -1965,10 +1965,10 @@ public final class OptionalUtils {
 
     /**
      * <code>ofIdEmpty</code>
-     * <p>the id empty method.</p>
-     * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param id  T <p>the id parameter is <code>T</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The id empty method.</p>
+     * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param id  T <p>The id parameter is <code>T</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> void ofIdEmpty(T id) throws RestException {
@@ -1977,11 +1977,11 @@ public final class OptionalUtils {
 
     /**
      * <code>ofIdEmpty</code>
-     * <p>the id empty method.</p>
-     * @param <T>     {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param id      T <p>the id parameter is <code>T</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The id empty method.</p>
+     * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param id      T <p>The id parameter is <code>T</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -1991,12 +1991,12 @@ public final class OptionalUtils {
 
     /**
      * <code>ofIdEmpty</code>
-     * <p>the id empty method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param id       T <p>the id parameter is <code>T</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The id empty method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param id       T <p>The id parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -2006,10 +2006,10 @@ public final class OptionalUtils {
 
     /**
      * <code>ofIdInvalid</code>
-     * <p>the id invalid method.</p>
-     * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param id  T <p>the id parameter is <code>T</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The id invalid method.</p>
+     * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param id  T <p>The id parameter is <code>T</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> void ofIdInvalid(T id) throws RestException {
@@ -2018,11 +2018,11 @@ public final class OptionalUtils {
 
     /**
      * <code>ofIdInvalid</code>
-     * <p>the id invalid method.</p>
-     * @param <T>     {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param id      T <p>the id parameter is <code>T</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The id invalid method.</p>
+     * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param id      T <p>The id parameter is <code>T</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -2032,12 +2032,12 @@ public final class OptionalUtils {
 
     /**
      * <code>ofIdInvalid</code>
-     * <p>the id invalid method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param id       T <p>the id parameter is <code>T</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The id invalid method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param id       T <p>The id parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -2047,9 +2047,9 @@ public final class OptionalUtils {
 
     /**
      * <code>ofCreate</code>
-     * <p>the create method.</p>
-     * @param result {@link java.lang.Integer} <p>the result parameter is <code>Integer</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The create method.</p>
+     * @param result {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Integer
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -2059,10 +2059,10 @@ public final class OptionalUtils {
 
     /**
      * <code>ofCreate</code>
-     * <p>the create method.</p>
-     * @param result  {@link java.lang.Integer} <p>the result parameter is <code>Integer</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The create method.</p>
+     * @param result  {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
@@ -2073,11 +2073,11 @@ public final class OptionalUtils {
 
     /**
      * <code>ofCreate</code>
-     * <p>the create method.</p>
-     * @param result   {@link java.lang.Integer} <p>the result parameter is <code>Integer</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The create method.</p>
+     * @param result   {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
@@ -2088,9 +2088,9 @@ public final class OptionalUtils {
 
     /**
      * <code>ofUpdate</code>
-     * <p>the update method.</p>
-     * @param result {@link java.lang.Integer} <p>the result parameter is <code>Integer</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The update method.</p>
+     * @param result {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Integer
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -2100,10 +2100,10 @@ public final class OptionalUtils {
 
     /**
      * <code>ofUpdate</code>
-     * <p>the update method.</p>
-     * @param result  {@link java.lang.Integer} <p>the result parameter is <code>Integer</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The update method.</p>
+     * @param result  {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
@@ -2114,11 +2114,11 @@ public final class OptionalUtils {
 
     /**
      * <code>ofUpdate</code>
-     * <p>the update method.</p>
-     * @param result   {@link java.lang.Integer} <p>the result parameter is <code>Integer</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The update method.</p>
+     * @param result   {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
@@ -2129,9 +2129,9 @@ public final class OptionalUtils {
 
     /**
      * <code>ofSave</code>
-     * <p>the save method.</p>
-     * @param result {@link java.lang.Integer} <p>the result parameter is <code>Integer</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The save method.</p>
+     * @param result {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Integer
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -2141,10 +2141,10 @@ public final class OptionalUtils {
 
     /**
      * <code>ofSave</code>
-     * <p>the save method.</p>
-     * @param result  {@link java.lang.Integer} <p>the result parameter is <code>Integer</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The save method.</p>
+     * @param result  {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
@@ -2155,11 +2155,11 @@ public final class OptionalUtils {
 
     /**
      * <code>ofSave</code>
-     * <p>the save method.</p>
-     * @param result   {@link java.lang.Integer} <p>the result parameter is <code>Integer</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The save method.</p>
+     * @param result   {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
@@ -2170,9 +2170,9 @@ public final class OptionalUtils {
 
     /**
      * <code>ofInsertAll</code>
-     * <p>the insert all method.</p>
-     * @param result {@link java.lang.Integer} <p>the result parameter is <code>Integer</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The insert all method.</p>
+     * @param result {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Integer
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -2182,10 +2182,10 @@ public final class OptionalUtils {
 
     /**
      * <code>ofInsertAll</code>
-     * <p>the insert all method.</p>
-     * @param result  {@link java.lang.Integer} <p>the result parameter is <code>Integer</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The insert all method.</p>
+     * @param result  {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
@@ -2196,11 +2196,11 @@ public final class OptionalUtils {
 
     /**
      * <code>ofInsertAll</code>
-     * <p>the insert all method.</p>
-     * @param result   {@link java.lang.Integer} <p>the result parameter is <code>Integer</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The insert all method.</p>
+     * @param result   {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
@@ -2211,9 +2211,9 @@ public final class OptionalUtils {
 
     /**
      * <code>ofInsertAll</code>
-     * <p>the insert all method.</p>
-     * @param present {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The insert all method.</p>
+     * @param present {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Boolean
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -2223,11 +2223,11 @@ public final class OptionalUtils {
 
     /**
      * <code>ofInsertAll</code>
-     * <p>the insert all method.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The insert all method.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Boolean
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
@@ -2238,10 +2238,10 @@ public final class OptionalUtils {
 
     /**
      * <code>ofInsertAll</code>
-     * <p>the insert all method.</p>
-     * @param present {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The insert all method.</p>
+     * @param present {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Boolean
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
@@ -2252,9 +2252,9 @@ public final class OptionalUtils {
 
     /**
      * <code>ofUpdateAll</code>
-     * <p>the update all method.</p>
-     * @param result {@link java.lang.Integer} <p>the result parameter is <code>Integer</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The update all method.</p>
+     * @param result {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Integer
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -2264,11 +2264,11 @@ public final class OptionalUtils {
 
     /**
      * <code>ofUpdateAll</code>
-     * <p>the update all method.</p>
-     * @param result   {@link java.lang.Integer} <p>the result parameter is <code>Integer</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The update all method.</p>
+     * @param result   {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
@@ -2279,10 +2279,10 @@ public final class OptionalUtils {
 
     /**
      * <code>ofUpdateAll</code>
-     * <p>the update all method.</p>
-     * @param result  {@link java.lang.Integer} <p>the result parameter is <code>Integer</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The update all method.</p>
+     * @param result  {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
@@ -2293,9 +2293,9 @@ public final class OptionalUtils {
 
     /**
      * <code>ofUpdateAll</code>
-     * <p>the update all method.</p>
-     * @param present {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The update all method.</p>
+     * @param present {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Boolean
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -2305,11 +2305,11 @@ public final class OptionalUtils {
 
     /**
      * <code>ofUpdateAll</code>
-     * <p>the update all method.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The update all method.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Boolean
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
@@ -2320,10 +2320,10 @@ public final class OptionalUtils {
 
     /**
      * <code>ofUpdateAll</code>
-     * <p>the update all method.</p>
-     * @param present {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The update all method.</p>
+     * @param present {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Boolean
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
@@ -2334,9 +2334,9 @@ public final class OptionalUtils {
 
     /**
      * <code>ofSaveAll</code>
-     * <p>the save all method.</p>
-     * @param present {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The save all method.</p>
+     * @param present {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Boolean
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -2346,11 +2346,11 @@ public final class OptionalUtils {
 
     /**
      * <code>ofSaveAll</code>
-     * <p>the save all method.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The save all method.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Boolean
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
@@ -2361,10 +2361,10 @@ public final class OptionalUtils {
 
     /**
      * <code>ofSaveAll</code>
-     * <p>the save all method.</p>
-     * @param present {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The save all method.</p>
+     * @param present {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Boolean
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
@@ -2375,9 +2375,9 @@ public final class OptionalUtils {
 
     /**
      * <code>ofNameRepeat</code>
-     * <p>the name repeat method.</p>
-     * @param present {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The name repeat method.</p>
+     * @param present {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Boolean
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -2387,10 +2387,10 @@ public final class OptionalUtils {
 
     /**
      * <code>ofNameRepeat</code>
-     * <p>the name repeat method.</p>
-     * @param present {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The name repeat method.</p>
+     * @param present {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Boolean
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
@@ -2401,11 +2401,11 @@ public final class OptionalUtils {
 
     /**
      * <code>ofNameRepeat</code>
-     * <p>the name repeat method.</p>
-     * @param present  {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The name repeat method.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Boolean
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
@@ -2416,9 +2416,9 @@ public final class OptionalUtils {
 
     /**
      * <code>ofFieldRepeat</code>
-     * <p>the field repeat method.</p>
-     * @param present {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The field repeat method.</p>
+     * @param present {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Boolean
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -2428,10 +2428,10 @@ public final class OptionalUtils {
 
     /**
      * <code>ofFieldRepeat</code>
-     * <p>the field repeat method.</p>
-     * @param present {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param field   {@link java.lang.String} <p>the field parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The field repeat method.</p>
+     * @param present {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param field   {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Boolean
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
@@ -2442,11 +2442,11 @@ public final class OptionalUtils {
 
     /**
      * <code>ofFieldRepeat</code>
-     * <p>the field repeat method.</p>
-     * @param present {@link java.lang.Boolean} <p>the present parameter is <code>Boolean</code> type.</p>
-     * @param field   {@link java.lang.String} <p>the field parameter is <code>String</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The field repeat method.</p>
+     * @param present {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param field   {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Boolean
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException

@@ -14,7 +14,7 @@ public class DynamicEnumTest {
     /**
      * <code>main</code>
      * <p>The entry point of application.</p>
-     * @param args {@link java.lang.String} <p>the input arguments.</p>
+     * @param args {@link java.lang.String} <p>The input arguments.</p>
      * @see java.lang.String
      */
     public static void main(String[] args) {

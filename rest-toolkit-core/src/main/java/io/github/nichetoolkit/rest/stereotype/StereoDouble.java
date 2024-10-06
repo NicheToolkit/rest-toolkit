@@ -22,8 +22,8 @@ import java.lang.annotation.*;
 public @interface StereoDouble {
     /**
      * <code>value</code>
-     * <p>the method.</p>
-     * @return double <p>the return object is <code>double</code> type.</p>
+     * <p>The method.</p>
+     * @return double <p>The return object is <code>double</code> type.</p>
      */
     double value() default 0;
 }

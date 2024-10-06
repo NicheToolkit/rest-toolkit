@@ -16,7 +16,7 @@ public class ParamMissingException extends RestErrorException {
 
     /**
      * <code>ParamMissingException</code>
-     * Instantiates a new param missing exception.
+     * <p>Instantiates a new param missing exception.</p>
      */
     public ParamMissingException() {
         super(RestErrorStatus.PARAM_MISSING);
@@ -24,8 +24,8 @@ public class ParamMissingException extends RestErrorException {
 
     /**
      * <code>ParamMissingException</code>
-     * Instantiates a new param missing exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * <p>Instantiates a new param missing exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
     public ParamMissingException(RestStatus status) {
@@ -34,8 +34,8 @@ public class ParamMissingException extends RestErrorException {
 
     /**
      * <code>ParamMissingException</code>
-     * Instantiates a new param missing exception.
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new param missing exception.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public ParamMissingException(String message) {
@@ -44,9 +44,9 @@ public class ParamMissingException extends RestErrorException {
 
     /**
      * <code>ParamMissingException</code>
-     * Instantiates a new param missing exception.
-     * @param field   {@link java.lang.String} <p>the field parameter is <code>String</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new param missing exception.</p>
+     * @param field   {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public ParamMissingException(String field, String message) {
@@ -55,10 +55,10 @@ public class ParamMissingException extends RestErrorException {
 
     /**
      * <code>ParamMissingException</code>
-     * Instantiates a new param missing exception.
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param field    {@link java.lang.String} <p>the field parameter is <code>String</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new param missing exception.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param field    {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public ParamMissingException(String resource, String field, String message) {

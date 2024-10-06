@@ -26,46 +26,46 @@ import java.util.Optional;
 class DefaultError extends Error implements Serializable {
     /**
      * <code>domain</code>
-     * {@link java.lang.Integer} <p>the <code>domain</code> field.</p>
+     * {@link java.lang.Integer} <p>The <code>domain</code> field.</p>
      * @see java.lang.Integer
      */
     private Integer domain;
     /**
      * <code>line</code>
-     * {@link java.lang.Integer} <p>the <code>line</code> field.</p>
+     * {@link java.lang.Integer} <p>The <code>line</code> field.</p>
      * @see java.lang.Integer
      */
     private Integer line;
     /**
      * <code>resource</code>
-     * {@link java.lang.String} <p>the <code>resource</code> field.</p>
+     * {@link java.lang.String} <p>The <code>resource</code> field.</p>
      * @see java.lang.String
      */
     private String resource;
     /**
      * <code>debug</code>
-     * {@link java.lang.String} <p>the <code>debug</code> field.</p>
+     * {@link java.lang.String} <p>The <code>debug</code> field.</p>
      * @see java.lang.String
      */
     private String debug;
     /**
      * <code>issues</code>
-     * {@link java.util.List} <p>the <code>issues</code> field.</p>
+     * {@link java.util.List} <p>The <code>issues</code> field.</p>
      * @see java.util.List
      */
     private List<RestErrorIssue> issues;
 
     /**
      * <code>DefaultError</code>
-     * Instantiates a new default error.
+     * <p>Instantiates a new default error.</p>
      */
     protected DefaultError() {
     }
 
     /**
      * <code>DefaultError</code>
-     * Instantiates a new default error.
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new default error.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     protected DefaultError(String message) {
@@ -74,8 +74,8 @@ class DefaultError extends Error implements Serializable {
 
     /**
      * <code>DefaultError</code>
-     * Instantiates a new default error.
-     * @param cause {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new default error.</p>
+     * @param cause {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see java.lang.Throwable
      */
     protected DefaultError(Throwable cause) {
@@ -90,9 +90,9 @@ class DefaultError extends Error implements Serializable {
 
     /**
      * <code>DefaultError</code>
-     * Instantiates a new default error.
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param domain  {@link java.lang.Integer} <p>the domain parameter is <code>Integer</code> type.</p>
+     * <p>Instantiates a new default error.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param domain  {@link java.lang.Integer} <p>The domain parameter is <code>Integer</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Integer
      */
@@ -104,9 +104,9 @@ class DefaultError extends Error implements Serializable {
 
     /**
      * <code>DefaultError</code>
-     * Instantiates a new default error.
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param cause   {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new default error.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param cause   {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Throwable
      */
@@ -122,11 +122,11 @@ class DefaultError extends Error implements Serializable {
 
     /**
      * <code>DefaultError</code>
-     * Instantiates a new default error.
-     * @param message            {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param cause              {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
-     * @param enableSuppression  boolean <p>the enable suppression parameter is <code>boolean</code> type.</p>
-     * @param writableStackTrace boolean <p>the writable stack trace parameter is <code>boolean</code> type.</p>
+     * <p>Instantiates a new default error.</p>
+     * @param message            {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param cause              {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
+     * @param enableSuppression  boolean <p>The enable suppression parameter is <code>boolean</code> type.</p>
+     * @param writableStackTrace boolean <p>The writable stack trace parameter is <code>boolean</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Throwable
      */
@@ -142,10 +142,10 @@ class DefaultError extends Error implements Serializable {
 
     /**
      * <code>DefaultError</code>
-     * Instantiates a new default error.
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param domain  {@link java.lang.Integer} <p>the domain parameter is <code>Integer</code> type.</p>
-     * @param cause   {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new default error.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param domain  {@link java.lang.Integer} <p>The domain parameter is <code>Integer</code> type.</p>
+     * @param cause   {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Integer
      * @see java.lang.Throwable
@@ -164,13 +164,13 @@ class DefaultError extends Error implements Serializable {
 
     /**
      * <code>DefaultError</code>
-     * Instantiates a new default error.
-     * @param message            {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param cause              {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
-     * @param enableSuppression  boolean <p>the enable suppression parameter is <code>boolean</code> type.</p>
-     * @param writableStackTrace boolean <p>the writable stack trace parameter is <code>boolean</code> type.</p>
-     * @param name               {@link java.lang.String} <p>the name parameter is <code>String</code> type.</p>
-     * @param domain             {@link java.lang.Integer} <p>the domain parameter is <code>Integer</code> type.</p>
+     * <p>Instantiates a new default error.</p>
+     * @param message            {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param cause              {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
+     * @param enableSuppression  boolean <p>The enable suppression parameter is <code>boolean</code> type.</p>
+     * @param writableStackTrace boolean <p>The writable stack trace parameter is <code>boolean</code> type.</p>
+     * @param name               {@link java.lang.String} <p>The name parameter is <code>String</code> type.</p>
+     * @param domain             {@link java.lang.Integer} <p>The domain parameter is <code>Integer</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Throwable
      * @see java.lang.Integer
@@ -188,8 +188,8 @@ class DefaultError extends Error implements Serializable {
 
     /**
      * <code>DefaultError</code>
-     * Instantiates a new default error.
-     * @param builder {@link io.github.nichetoolkit.rest.DefaultError.Builder} <p>the builder parameter is <code>Builder</code> type.</p>
+     * <p>Instantiates a new default error.</p>
+     * @param builder {@link io.github.nichetoolkit.rest.DefaultError.Builder} <p>The builder parameter is <code>Builder</code> type.</p>
      * @see io.github.nichetoolkit.rest.DefaultError.Builder
      */
     protected DefaultError(Builder builder) {
@@ -215,46 +215,46 @@ class DefaultError extends Error implements Serializable {
     public static abstract class Builder {
         /**
          * <code>message</code>
-         * {@link java.lang.String} <p>the <code>message</code> field.</p>
+         * {@link java.lang.String} <p>The <code>message</code> field.</p>
          * @see java.lang.String
          */
         protected String message;
         /**
          * <code>debug</code>
-         * {@link java.lang.String} <p>the <code>debug</code> field.</p>
+         * {@link java.lang.String} <p>The <code>debug</code> field.</p>
          * @see java.lang.String
          */
         protected String debug;
         /**
          * <code>resource</code>
-         * {@link java.lang.String} <p>the <code>resource</code> field.</p>
+         * {@link java.lang.String} <p>The <code>resource</code> field.</p>
          * @see java.lang.String
          */
         protected String resource;
         /**
          * <code>issues</code>
-         * {@link java.util.List} <p>the <code>issues</code> field.</p>
+         * {@link java.util.List} <p>The <code>issues</code> field.</p>
          * @see java.util.List
          */
         protected List<RestErrorIssue> issues;
         /**
          * <code>cause</code>
-         * {@link java.lang.Throwable} <p>the <code>cause</code> field.</p>
+         * {@link java.lang.Throwable} <p>The <code>cause</code> field.</p>
          * @see java.lang.Throwable
          */
         protected Throwable cause;
 
         /**
          * <code>Builder</code>
-         * Instantiates a new builder.
+         * <p>Instantiates a new builder.</p>
          */
         public Builder() {
         }
 
         /**
          * <code>Builder</code>
-         * Instantiates a new builder.
-         * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+         * <p>Instantiates a new builder.</p>
+         * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
          * @see io.github.nichetoolkit.rest.RestStatus
          */
         public Builder(RestStatus status) {
@@ -263,9 +263,9 @@ class DefaultError extends Error implements Serializable {
 
         /**
          * <code>message</code>
-         * <p>the method.</p>
-         * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.DefaultError.Builder} <p>the return object is <code>Builder</code> type.</p>
+         * <p>The method.</p>
+         * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.DefaultError.Builder} <p>The return object is <code>Builder</code> type.</p>
          * @see java.lang.String
          */
         public DefaultError.Builder message(String message) {
@@ -277,9 +277,9 @@ class DefaultError extends Error implements Serializable {
 
         /**
          * <code>message</code>
-         * <p>the method.</p>
-         * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.DefaultError.Builder} <p>the return object is <code>Builder</code> type.</p>
+         * <p>The method.</p>
+         * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.DefaultError.Builder} <p>The return object is <code>Builder</code> type.</p>
          * @see io.github.nichetoolkit.rest.RestStatus
          */
         public DefaultError.Builder message(RestStatus status) {
@@ -289,9 +289,9 @@ class DefaultError extends Error implements Serializable {
 
         /**
          * <code>message</code>
-         * <p>the method.</p>
-         * @param cause {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.DefaultError.Builder} <p>the return object is <code>Builder</code> type.</p>
+         * <p>The method.</p>
+         * @param cause {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.DefaultError.Builder} <p>The return object is <code>Builder</code> type.</p>
          * @see java.lang.Throwable
          */
         public DefaultError.Builder message(Throwable cause) {
@@ -301,9 +301,9 @@ class DefaultError extends Error implements Serializable {
 
         /**
          * <code>debug</code>
-         * <p>the method.</p>
-         * @param debug {@link java.lang.String} <p>the debug parameter is <code>String</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.DefaultError.Builder} <p>the return object is <code>Builder</code> type.</p>
+         * <p>The method.</p>
+         * @param debug {@link java.lang.String} <p>The debug parameter is <code>String</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.DefaultError.Builder} <p>The return object is <code>Builder</code> type.</p>
          * @see java.lang.String
          */
         public DefaultError.Builder debug(String debug) {
@@ -313,9 +313,9 @@ class DefaultError extends Error implements Serializable {
 
         /**
          * <code>resource</code>
-         * <p>the method.</p>
-         * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.DefaultError.Builder} <p>the return object is <code>Builder</code> type.</p>
+         * <p>The method.</p>
+         * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.DefaultError.Builder} <p>The return object is <code>Builder</code> type.</p>
          * @see java.lang.String
          */
         public DefaultError.Builder resource(String resource) {
@@ -325,9 +325,9 @@ class DefaultError extends Error implements Serializable {
 
         /**
          * <code>add</code>
-         * <p>the method.</p>
-         * @param issue {@link io.github.nichetoolkit.rest.RestErrorIssue} <p>the issue parameter is <code>RestErrorIssue</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.DefaultError.Builder} <p>the return object is <code>Builder</code> type.</p>
+         * <p>The method.</p>
+         * @param issue {@link io.github.nichetoolkit.rest.RestErrorIssue} <p>The issue parameter is <code>RestErrorIssue</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.DefaultError.Builder} <p>The return object is <code>Builder</code> type.</p>
          * @see io.github.nichetoolkit.rest.RestErrorIssue
          */
         public DefaultError.Builder add(RestErrorIssue issue) {
@@ -338,9 +338,9 @@ class DefaultError extends Error implements Serializable {
 
         /**
          * <code>cause</code>
-         * <p>the method.</p>
-         * @param cause {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.DefaultError.Builder} <p>the return object is <code>Builder</code> type.</p>
+         * <p>The method.</p>
+         * @param cause {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.DefaultError.Builder} <p>The return object is <code>Builder</code> type.</p>
          * @see java.lang.Throwable
          */
         public DefaultError.Builder cause(Throwable cause) {
@@ -350,8 +350,8 @@ class DefaultError extends Error implements Serializable {
 
         /**
          * <code>build</code>
-         * <p>the method.</p>
-         * @return {@link io.github.nichetoolkit.rest.DefaultError} <p>the return object is <code>DefaultError</code> type.</p>
+         * <p>The method.</p>
+         * @return {@link io.github.nichetoolkit.rest.DefaultError} <p>The return object is <code>DefaultError</code> type.</p>
          */
         abstract DefaultError build();
     }

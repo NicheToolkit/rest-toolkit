@@ -23,22 +23,22 @@ import java.lang.annotation.*;
 public @interface StereoBoolean {
     /**
      * <code>value</code>
-     * <p>the method.</p>
-     * @return boolean <p>the return object is <code>boolean</code> type.</p>
+     * <p>The method.</p>
+     * @return boolean <p>The return object is <code>boolean</code> type.</p>
      */
     boolean value() default false;
 
     /**
      * <code>getKey</code>
-     * <p>the key getter method.</p>
-     * @return boolean <p>the key return object is <code>boolean</code> type.</p>
+     * <p>The key getter method.</p>
+     * @return boolean <p>The key return object is <code>boolean</code> type.</p>
      */
     boolean getKey() default false;
 
     /**
      * <code>getValue</code>
-     * <p>the value getter method.</p>
-     * @return boolean <p>the value return object is <code>boolean</code> type.</p>
+     * <p>The value getter method.</p>
+     * @return boolean <p>The value return object is <code>boolean</code> type.</p>
      */
     boolean getValue() default false;
 }

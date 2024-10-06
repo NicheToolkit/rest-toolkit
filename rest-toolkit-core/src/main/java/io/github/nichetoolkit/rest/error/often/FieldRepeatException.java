@@ -15,7 +15,7 @@ import io.github.nichetoolkit.rest.error.natives.FieldErrorException;
 public class FieldRepeatException extends FieldErrorException {
     /**
      * <code>FieldRepeatException</code>
-     * Instantiates a new field repeat exception.
+     * <p>Instantiates a new field repeat exception.</p>
      */
     public FieldRepeatException() {
         super(RestErrorStatus.FIELD_REPEATED);
@@ -23,8 +23,8 @@ public class FieldRepeatException extends FieldErrorException {
 
     /**
      * <code>FieldRepeatException</code>
-     * Instantiates a new field repeat exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * <p>Instantiates a new field repeat exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
     public FieldRepeatException(RestStatus status) {
@@ -33,8 +33,8 @@ public class FieldRepeatException extends FieldErrorException {
 
     /**
      * <code>FieldRepeatException</code>
-     * Instantiates a new field repeat exception.
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new field repeat exception.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public FieldRepeatException(String message) {
@@ -44,9 +44,9 @@ public class FieldRepeatException extends FieldErrorException {
 
     /**
      * <code>FieldRepeatException</code>
-     * Instantiates a new field repeat exception.
-     * @param field   {@link java.lang.String} <p>the field parameter is <code>String</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new field repeat exception.</p>
+     * @param field   {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public FieldRepeatException(String field, String message) {
@@ -55,10 +55,10 @@ public class FieldRepeatException extends FieldErrorException {
 
     /**
      * <code>FieldRepeatException</code>
-     * Instantiates a new field repeat exception.
-     * @param field   {@link java.lang.String} <p>the field parameter is <code>String</code> type.</p>
-     * @param value   {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new field repeat exception.</p>
+     * @param field   {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
+     * @param value   {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Object
      */

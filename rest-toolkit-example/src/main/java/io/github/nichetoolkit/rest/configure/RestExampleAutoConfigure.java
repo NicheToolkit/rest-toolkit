@@ -21,7 +21,7 @@ import org.springframework.context.annotation.Configuration;
 public class RestExampleAutoConfigure {
     /**
      * <code>RestExampleAutoConfigure</code>
-     * Instantiates a new rest example auto configure.
+     * <p>Instantiates a new rest example auto configure.</p>
      */
     public RestExampleAutoConfigure() {
         log.debug("The auto configuration for [rest-example] initiated");

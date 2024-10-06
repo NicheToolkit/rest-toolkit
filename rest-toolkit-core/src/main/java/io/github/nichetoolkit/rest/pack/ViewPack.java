@@ -22,30 +22,30 @@ import java.util.Objects;
 public class ViewPack {
     /**
      * <code>name</code>
-     * {@link java.lang.String} <p>the <code>name</code> field.</p>
+     * {@link java.lang.String} <p>The <code>name</code> field.</p>
      * @see java.lang.String
      */
     private String name;
 
     /**
      * <code>value</code>
-     * {@link java.lang.Object} <p>the <code>value</code> field.</p>
+     * {@link java.lang.Object} <p>The <code>value</code> field.</p>
      * @see java.lang.Object
      */
     private Object value;
 
     /**
      * <code>ViewPack</code>
-     * Instantiates a new view pack.
+     * <p>Instantiates a new view pack.</p>
      */
     public ViewPack() {
     }
 
     /**
      * <code>ViewPack</code>
-     * Instantiates a new view pack.
-     * @param name  {@link java.lang.String} <p>the name parameter is <code>String</code> type.</p>
-     * @param value {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>
+     * <p>Instantiates a new view pack.</p>
+     * @param name  {@link java.lang.String} <p>The name parameter is <code>String</code> type.</p>
+     * @param value {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Object
      */
@@ -56,9 +56,9 @@ public class ViewPack {
 
     /**
      * <code>nameKey</code>
-     * <p>the key method.</p>
-     * @param entry {@link io.github.nichetoolkit.rest.RestValue} <p>the entry parameter is <code>RestValue</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.pack.ViewPack} <p>the key return object is <code>ViewPack</code> type.</p>
+     * <p>The key method.</p>
+     * @param entry {@link io.github.nichetoolkit.rest.RestValue} <p>The entry parameter is <code>RestValue</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.pack.ViewPack} <p>The key return object is <code>ViewPack</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestValue
      */
     public static ViewPack nameKey(RestValue<?,?> entry) {
@@ -67,9 +67,9 @@ public class ViewPack {
 
     /**
      * <code>nameValue</code>
-     * <p>the value method.</p>
-     * @param entry {@link io.github.nichetoolkit.rest.RestValue} <p>the entry parameter is <code>RestValue</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.pack.ViewPack} <p>the value return object is <code>ViewPack</code> type.</p>
+     * <p>The value method.</p>
+     * @param entry {@link io.github.nichetoolkit.rest.RestValue} <p>The entry parameter is <code>RestValue</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.pack.ViewPack} <p>The value return object is <code>ViewPack</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestValue
      */
     public static ViewPack nameValue(RestValue<?,?> entry) {
@@ -78,9 +78,9 @@ public class ViewPack {
 
     /**
      * <code>keyName</code>
-     * <p>the name method.</p>
-     * @param entry {@link io.github.nichetoolkit.rest.RestValue} <p>the entry parameter is <code>RestValue</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.pack.ViewPack} <p>the name return object is <code>ViewPack</code> type.</p>
+     * <p>The name method.</p>
+     * @param entry {@link io.github.nichetoolkit.rest.RestValue} <p>The entry parameter is <code>RestValue</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.pack.ViewPack} <p>The name return object is <code>ViewPack</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestValue
      */
     public static ViewPack keyName(RestValue<?,?> entry) {
@@ -89,9 +89,9 @@ public class ViewPack {
 
     /**
      * <code>keyValue</code>
-     * <p>the value method.</p>
-     * @param entry {@link io.github.nichetoolkit.rest.RestValue} <p>the entry parameter is <code>RestValue</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.pack.ViewPack} <p>the value return object is <code>ViewPack</code> type.</p>
+     * <p>The value method.</p>
+     * @param entry {@link io.github.nichetoolkit.rest.RestValue} <p>The entry parameter is <code>RestValue</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.pack.ViewPack} <p>The value return object is <code>ViewPack</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestValue
      */
     public static ViewPack keyValue(RestValue<?,?> entry) {
@@ -100,9 +100,9 @@ public class ViewPack {
 
     /**
      * <code>valueName</code>
-     * <p>the name method.</p>
-     * @param entry {@link io.github.nichetoolkit.rest.RestValue} <p>the entry parameter is <code>RestValue</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.pack.ViewPack} <p>the name return object is <code>ViewPack</code> type.</p>
+     * <p>The name method.</p>
+     * @param entry {@link io.github.nichetoolkit.rest.RestValue} <p>The entry parameter is <code>RestValue</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.pack.ViewPack} <p>The name return object is <code>ViewPack</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestValue
      */
     public static ViewPack valueName(RestValue<?,?> entry) {
@@ -111,9 +111,9 @@ public class ViewPack {
 
     /**
      * <code>valueKey</code>
-     * <p>the key method.</p>
-     * @param entry {@link io.github.nichetoolkit.rest.RestValue} <p>the entry parameter is <code>RestValue</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.pack.ViewPack} <p>the key return object is <code>ViewPack</code> type.</p>
+     * <p>The key method.</p>
+     * @param entry {@link io.github.nichetoolkit.rest.RestValue} <p>The entry parameter is <code>RestValue</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.pack.ViewPack} <p>The key return object is <code>ViewPack</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestValue
      */
     public static ViewPack valueKey(RestValue<?,?> entry) {

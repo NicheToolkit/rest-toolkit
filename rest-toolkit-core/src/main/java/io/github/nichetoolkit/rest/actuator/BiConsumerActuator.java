@@ -9,8 +9,8 @@ import java.util.function.BiConsumer;
 /**
  * <code>BiConsumerActuator</code>
  * <p>The type bi consumer actuator interface.</p>
- * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
- * @param <U> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+ * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+ * @param <U> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.util.function.BiConsumer
  * @see java.lang.FunctionalInterface
@@ -21,10 +21,10 @@ public interface BiConsumerActuator<T, U> extends BiConsumer<T, U> {
 
     /**
      * <code>actuate</code>
-     * <p>the method.</p>
-     * @param t T <p>the t parameter is <code>T</code> type.</p>
-     * @param u U <p>the u parameter is <code>U</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The method.</p>
+     * @param t T <p>The t parameter is <code>T</code> type.</p>
+     * @param u U <p>The u parameter is <code>U</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
     void actuate(T t, U u) throws RestException;
@@ -40,10 +40,10 @@ public interface BiConsumerActuator<T, U> extends BiConsumer<T, U> {
 
     /**
      * <code>andThen</code>
-     * <p>the then method.</p>
-     * @param after {@link io.github.nichetoolkit.rest.actuator.BiConsumerActuator} <p>the after parameter is <code>BiConsumerActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.actuator.BiConsumerActuator} <p>the then return object is <code>BiConsumerActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The then method.</p>
+     * @param after {@link io.github.nichetoolkit.rest.actuator.BiConsumerActuator} <p>The after parameter is <code>BiConsumerActuator</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.actuator.BiConsumerActuator} <p>The then return object is <code>BiConsumerActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
     default BiConsumerActuator<T, U> andThen(BiConsumerActuator<? super T, ? super U> after) throws RestException  {

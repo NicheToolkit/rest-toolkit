@@ -33,29 +33,29 @@ public class IdentityManager implements ApplicationRunner {
 
     /**
      * <code>identityProperties</code>
-     * {@link io.github.nichetoolkit.rest.configure.RestIdentityProperties} <p>the <code>identityProperties</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.configure.RestIdentityProperties} <p>The <code>identityProperties</code> field.</p>
      * @see io.github.nichetoolkit.rest.configure.RestIdentityProperties
      */
     private final RestIdentityProperties identityProperties;
 
     /**
      * <code>environment</code>
-     * {@link org.springframework.core.env.Environment} <p>the <code>environment</code> field.</p>
+     * {@link org.springframework.core.env.Environment} <p>The <code>environment</code> field.</p>
      * @see org.springframework.core.env.Environment
      */
     private final Environment environment;
 
     /**
      * <code>INSTANCE</code>
-     * {@link io.github.nichetoolkit.rest.identity.IdentityManager} <p>the constant <code>INSTANCE</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.identity.IdentityManager} <p>The constant <code>INSTANCE</code> field.</p>
      */
     private static IdentityManager INSTANCE = null;
 
     /**
      * <code>IdentityManager</code>
-     * Instantiates a new identity manager.
-     * @param identityProperties {@link io.github.nichetoolkit.rest.configure.RestIdentityProperties} <p>the identity properties parameter is <code>RestIdentityProperties</code> type.</p>
-     * @param environment        {@link org.springframework.core.env.Environment} <p>the environment parameter is <code>Environment</code> type.</p>
+     * <p>Instantiates a new identity manager.</p>
+     * @param identityProperties {@link io.github.nichetoolkit.rest.configure.RestIdentityProperties} <p>The identity properties parameter is <code>RestIdentityProperties</code> type.</p>
+     * @param environment        {@link org.springframework.core.env.Environment} <p>The environment parameter is <code>Environment</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestIdentityProperties
      * @see org.springframework.core.env.Environment
      * @see org.springframework.beans.factory.annotation.Autowired
@@ -68,8 +68,8 @@ public class IdentityManager implements ApplicationRunner {
 
     /**
      * <code>getInstance</code>
-     * <p>the instance getter method.</p>
-     * @return {@link io.github.nichetoolkit.rest.identity.IdentityManager} <p>the instance return object is <code>IdentityManager</code> type.</p>
+     * <p>The instance getter method.</p>
+     * @return {@link io.github.nichetoolkit.rest.identity.IdentityManager} <p>The instance return object is <code>IdentityManager</code> type.</p>
      */
     public static IdentityManager getInstance() {
         return INSTANCE;
@@ -77,8 +77,8 @@ public class IdentityManager implements ApplicationRunner {
 
     /**
      * <code>getEnvironment</code>
-     * <p>the environment getter method.</p>
-     * @return {@link org.springframework.core.env.Environment} <p>the environment return object is <code>Environment</code> type.</p>
+     * <p>The environment getter method.</p>
+     * @return {@link org.springframework.core.env.Environment} <p>The environment return object is <code>Environment</code> type.</p>
      * @see org.springframework.core.env.Environment
      */
     public static Environment getEnvironment() {
@@ -87,7 +87,7 @@ public class IdentityManager implements ApplicationRunner {
 
     /**
      * <code>identityManagerInit</code>
-     * <p>the manager init method.</p>
+     * <p>The manager init method.</p>
      * @see javax.annotation.PostConstruct
      */
     @PostConstruct
@@ -107,9 +107,9 @@ public class IdentityManager implements ApplicationRunner {
 
     /**
      * <code>config</code>
-     * <p>the method.</p>
-     * @param workerId {@link java.lang.Long} <p>the worker id parameter is <code>Long</code> type.</p>
-     * @param centerId {@link java.lang.Long} <p>the center id parameter is <code>Long</code> type.</p>
+     * <p>The method.</p>
+     * @param workerId {@link java.lang.Long} <p>The worker id parameter is <code>Long</code> type.</p>
+     * @param centerId {@link java.lang.Long} <p>The center id parameter is <code>Long</code> type.</p>
      * @see java.lang.Long
      * @see org.springframework.lang.NonNull
      */
@@ -119,8 +119,8 @@ public class IdentityManager implements ApplicationRunner {
 
     /**
      * <code>config</code>
-     * <p>the method.</p>
-     * @param config {@link io.github.nichetoolkit.rest.identity.worker.WorkerConfig} <p>the config parameter is <code>WorkerConfig</code> type.</p>
+     * <p>The method.</p>
+     * @param config {@link io.github.nichetoolkit.rest.identity.worker.WorkerConfig} <p>The config parameter is <code>WorkerConfig</code> type.</p>
      * @see io.github.nichetoolkit.rest.identity.worker.WorkerConfig
      */
     public static void config(WorkerConfig config) {
@@ -129,8 +129,8 @@ public class IdentityManager implements ApplicationRunner {
 
     /**
      * <code>serverConfig</code>
-     * <p>the config method.</p>
-     * @return {@link io.github.nichetoolkit.rest.identity.ServerConfig} <p>the config return object is <code>ServerConfig</code> type.</p>
+     * <p>The config method.</p>
+     * @return {@link io.github.nichetoolkit.rest.identity.ServerConfig} <p>The config return object is <code>ServerConfig</code> type.</p>
      * @see io.github.nichetoolkit.rest.identity.ServerConfig
      */
     public static ServerConfig serverConfig() {
@@ -142,9 +142,9 @@ public class IdentityManager implements ApplicationRunner {
 
     /**
      * <code>workerConfig</code>
-     * <p>the config method.</p>
-     * @return {@link io.github.nichetoolkit.rest.identity.worker.WorkerConfig} <p>the config return object is <code>WorkerConfig</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The config method.</p>
+     * @return {@link io.github.nichetoolkit.rest.identity.worker.WorkerConfig} <p>The config return object is <code>WorkerConfig</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.identity.worker.WorkerConfig
      * @see io.github.nichetoolkit.rest.RestException
      */

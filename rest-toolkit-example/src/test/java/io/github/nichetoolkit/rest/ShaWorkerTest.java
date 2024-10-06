@@ -23,7 +23,7 @@ class ShaWorkerTest{
 
     /**
      * <code>shaWorker</code>
-     * {@link io.github.nichetoolkit.rest.worker.sha.ShaWorker} <p>the <code>shaWorker</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.worker.sha.ShaWorker} <p>The <code>shaWorker</code> field.</p>
      * @see io.github.nichetoolkit.rest.worker.sha.ShaWorker
      * @see org.springframework.beans.factory.annotation.Autowired
      */
@@ -32,7 +32,7 @@ class ShaWorkerTest{
 
     /**
      * <code>test</code>
-     * <p>the method.</p>
+     * <p>The method.</p>
      * @see org.junit.jupiter.api.Test
      */
     @Test

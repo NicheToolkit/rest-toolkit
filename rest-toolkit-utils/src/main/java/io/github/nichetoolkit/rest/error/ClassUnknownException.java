@@ -13,7 +13,7 @@ import io.github.nichetoolkit.rest.error.natives.ClassErrorException;
 public class ClassUnknownException extends ClassErrorException {
     /**
      * <code>ClassUnknownException</code>
-     * Instantiates a new class unknown exception.
+     * <p>Instantiates a new class unknown exception.</p>
      */
     public ClassUnknownException() {
         super(RestErrorStatus.CLASS_TYPE_UNKNOWN);
@@ -21,8 +21,8 @@ public class ClassUnknownException extends ClassErrorException {
 
     /**
      * <code>ClassUnknownException</code>
-     * Instantiates a new class unknown exception.
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new class unknown exception.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public ClassUnknownException(String message) {
@@ -31,9 +31,9 @@ public class ClassUnknownException extends ClassErrorException {
 
     /**
      * <code>ClassUnknownException</code>
-     * Instantiates a new class unknown exception.
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new class unknown exception.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public ClassUnknownException(String resource, String message) {
@@ -42,10 +42,10 @@ public class ClassUnknownException extends ClassErrorException {
 
     /**
      * <code>ClassUnknownException</code>
-     * Instantiates a new class unknown exception.
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param field    {@link java.lang.String} <p>the field parameter is <code>String</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new class unknown exception.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param field    {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public ClassUnknownException(String resource, String field, String message) {
@@ -54,11 +54,11 @@ public class ClassUnknownException extends ClassErrorException {
 
     /**
      * <code>ClassUnknownException</code>
-     * Instantiates a new class unknown exception.
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param field    {@link java.lang.String} <p>the field parameter is <code>String</code> type.</p>
-     * @param value    {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new class unknown exception.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param field    {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
+     * @param value    {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Object
      */

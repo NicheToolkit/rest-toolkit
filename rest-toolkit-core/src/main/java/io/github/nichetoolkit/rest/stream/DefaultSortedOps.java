@@ -16,16 +16,16 @@ final class DefaultSortedOps {
 
     /**
      * <code>DefaultSortedOps</code>
-     * Instantiates a new default sorted ops.
+     * <p>Instantiates a new default sorted ops.</p>
      */
     private DefaultSortedOps() { }
 
     /**
      * <code>makeRef</code>
-     * <p>the ref method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param upstream {@link io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline} <p>the upstream parameter is <code>DefaultAbstractPipeline</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.RestStream} <p>the ref return object is <code>RestStream</code> type.</p>
+     * <p>The ref method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param upstream {@link io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline} <p>The upstream parameter is <code>DefaultAbstractPipeline</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestStream} <p>The ref return object is <code>RestStream</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline
      * @see io.github.nichetoolkit.rest.stream.RestStream
      */
@@ -35,11 +35,11 @@ final class DefaultSortedOps {
 
     /**
      * <code>makeRef</code>
-     * <p>the ref method.</p>
-     * @param <T>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param upstream   {@link io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline} <p>the upstream parameter is <code>DefaultAbstractPipeline</code> type.</p>
-     * @param comparator {@link java.util.Comparator} <p>the comparator parameter is <code>Comparator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.RestStream} <p>the ref return object is <code>RestStream</code> type.</p>
+     * <p>The ref method.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param upstream   {@link io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline} <p>The upstream parameter is <code>DefaultAbstractPipeline</code> type.</p>
+     * @param comparator {@link java.util.Comparator} <p>The comparator parameter is <code>Comparator</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestStream} <p>The ref return object is <code>RestStream</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline
      * @see java.util.Comparator
      * @see io.github.nichetoolkit.rest.stream.RestStream
@@ -53,7 +53,7 @@ final class DefaultSortedOps {
     /**
      * <code>OfRef</code>
      * <p>The type of ref class.</p>
-     * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultReferencePipeline.StatefulOp
      * @since Jdk1.8
@@ -61,20 +61,20 @@ final class DefaultSortedOps {
     private static final class OfRef<T> extends  DefaultReferencePipeline.StatefulOp<T, T> {
         /**
          * <code>isNaturalSort</code>
-         * <p>the <code>isNaturalSort</code> field.</p>
+         * <p>The <code>isNaturalSort</code> field.</p>
          */
         private final boolean isNaturalSort;
         /**
          * <code>comparator</code>
-         * {@link java.util.Comparator} <p>the <code>comparator</code> field.</p>
+         * {@link java.util.Comparator} <p>The <code>comparator</code> field.</p>
          * @see java.util.Comparator
          */
         private final Comparator<? super T> comparator;
 
         /**
          * <code>OfRef</code>
-         * Instantiates a new of ref.
-         * @param upstream {@link io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline} <p>the upstream parameter is <code>DefaultAbstractPipeline</code> type.</p>
+         * <p>Instantiates a new of ref.</p>
+         * @param upstream {@link io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline} <p>The upstream parameter is <code>DefaultAbstractPipeline</code> type.</p>
          * @see io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline
          */
         OfRef(DefaultAbstractPipeline<?, T, ?> upstream) {
@@ -88,9 +88,9 @@ final class DefaultSortedOps {
 
         /**
          * <code>OfRef</code>
-         * Instantiates a new of ref.
-         * @param upstream   {@link io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline} <p>the upstream parameter is <code>DefaultAbstractPipeline</code> type.</p>
-         * @param comparator {@link java.util.Comparator} <p>the comparator parameter is <code>Comparator</code> type.</p>
+         * <p>Instantiates a new of ref.</p>
+         * @param upstream   {@link io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline} <p>The upstream parameter is <code>DefaultAbstractPipeline</code> type.</p>
+         * @param comparator {@link java.util.Comparator} <p>The comparator parameter is <code>Comparator</code> type.</p>
          * @see io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline
          * @see java.util.Comparator
          */
@@ -130,7 +130,7 @@ final class DefaultSortedOps {
     /**
      * <code>AbstractRefSortingSink</code>
      * <p>The type abstract ref sorting sink class.</p>
-     * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultSink.ChainedReference
      * @since Jdk1.8
@@ -138,21 +138,21 @@ final class DefaultSortedOps {
     private static abstract class AbstractRefSortingSink<T> extends DefaultSink.ChainedReference<T, T> {
         /**
          * <code>comparator</code>
-         * {@link java.util.Comparator} <p>the <code>comparator</code> field.</p>
+         * {@link java.util.Comparator} <p>The <code>comparator</code> field.</p>
          * @see java.util.Comparator
          */
         protected final Comparator<? super T> comparator;
         /**
          * <code>cancellationRequestedCalled</code>
-         * <p>the <code>cancellationRequestedCalled</code> field.</p>
+         * <p>The <code>cancellationRequestedCalled</code> field.</p>
          */
         protected boolean cancellationRequestedCalled;
 
         /**
          * <code>AbstractRefSortingSink</code>
-         * Instantiates a new abstract ref sorting sink.
-         * @param downstream {@link io.github.nichetoolkit.rest.stream.DefaultSink} <p>the downstream parameter is <code>DefaultSink</code> type.</p>
-         * @param comparator {@link java.util.Comparator} <p>the comparator parameter is <code>Comparator</code> type.</p>
+         * <p>Instantiates a new abstract ref sorting sink.</p>
+         * @param downstream {@link io.github.nichetoolkit.rest.stream.DefaultSink} <p>The downstream parameter is <code>DefaultSink</code> type.</p>
+         * @param comparator {@link java.util.Comparator} <p>The comparator parameter is <code>Comparator</code> type.</p>
          * @see io.github.nichetoolkit.rest.stream.DefaultSink
          * @see java.util.Comparator
          */
@@ -171,7 +171,7 @@ final class DefaultSortedOps {
     /**
      * <code>SizedRefSortingSink</code>
      * <p>The type sized ref sorting sink class.</p>
-     * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultSortedOps.AbstractRefSortingSink
      * @since Jdk1.8
@@ -179,20 +179,20 @@ final class DefaultSortedOps {
     private static final class SizedRefSortingSink<T> extends AbstractRefSortingSink<T> {
         /**
          * <code>array</code>
-         * <p>the <code>array</code> field.</p>
+         * <p>The <code>array</code> field.</p>
          */
         private T[] array;
         /**
          * <code>offset</code>
-         * <p>the <code>offset</code> field.</p>
+         * <p>The <code>offset</code> field.</p>
          */
         private int offset;
 
         /**
          * <code>SizedRefSortingSink</code>
-         * Instantiates a new sized ref sorting sink.
-         * @param sink       {@link io.github.nichetoolkit.rest.stream.DefaultSink} <p>the sink parameter is <code>DefaultSink</code> type.</p>
-         * @param comparator {@link java.util.Comparator} <p>the comparator parameter is <code>Comparator</code> type.</p>
+         * <p>Instantiates a new sized ref sorting sink.</p>
+         * @param sink       {@link io.github.nichetoolkit.rest.stream.DefaultSink} <p>The sink parameter is <code>DefaultSink</code> type.</p>
+         * @param comparator {@link java.util.Comparator} <p>The comparator parameter is <code>Comparator</code> type.</p>
          * @see io.github.nichetoolkit.rest.stream.DefaultSink
          * @see java.util.Comparator
          */
@@ -233,7 +233,7 @@ final class DefaultSortedOps {
     /**
      * <code>RefSortingSink</code>
      * <p>The type ref sorting sink class.</p>
-     * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultSortedOps.AbstractRefSortingSink
      * @since Jdk1.8
@@ -241,16 +241,16 @@ final class DefaultSortedOps {
     private static final class RefSortingSink<T> extends AbstractRefSortingSink<T> {
         /**
          * <code>list</code>
-         * {@link java.util.ArrayList} <p>the <code>list</code> field.</p>
+         * {@link java.util.ArrayList} <p>The <code>list</code> field.</p>
          * @see java.util.ArrayList
          */
         private ArrayList<T> list;
 
         /**
          * <code>RefSortingSink</code>
-         * Instantiates a new ref sorting sink.
-         * @param sink       {@link io.github.nichetoolkit.rest.stream.DefaultSink} <p>the sink parameter is <code>DefaultSink</code> type.</p>
-         * @param comparator {@link java.util.Comparator} <p>the comparator parameter is <code>Comparator</code> type.</p>
+         * <p>Instantiates a new ref sorting sink.</p>
+         * @param sink       {@link io.github.nichetoolkit.rest.stream.DefaultSink} <p>The sink parameter is <code>DefaultSink</code> type.</p>
+         * @param comparator {@link java.util.Comparator} <p>The comparator parameter is <code>Comparator</code> type.</p>
          * @see io.github.nichetoolkit.rest.stream.DefaultSink
          * @see java.util.Comparator
          */

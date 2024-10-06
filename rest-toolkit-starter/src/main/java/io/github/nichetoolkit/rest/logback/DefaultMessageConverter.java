@@ -24,22 +24,22 @@ import org.springframework.lang.NonNull;
 public class DefaultMessageConverter extends MessageConverter {
     /**
      * <code>logbackProperties</code>
-     * {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>the <code>logbackProperties</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>The <code>logbackProperties</code> field.</p>
      * @see io.github.nichetoolkit.rest.configure.RestLogbackProperties
      */
     protected RestLogbackProperties logbackProperties;
 
     /**
      * <code>DefaultMessageConverter</code>
-     * Instantiates a new default message converter.
+     * <p>Instantiates a new default message converter.</p>
      */
     public DefaultMessageConverter() {
     }
 
     /**
      * <code>DefaultMessageConverter</code>
-     * Instantiates a new default message converter.
-     * @param logbackProperties {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>the logback properties parameter is <code>RestLogbackProperties</code> type.</p>
+     * <p>Instantiates a new default message converter.</p>
+     * @param logbackProperties {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>The logback properties parameter is <code>RestLogbackProperties</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestLogbackProperties
      */
     public DefaultMessageConverter(RestLogbackProperties logbackProperties) {
@@ -59,9 +59,9 @@ public class DefaultMessageConverter extends MessageConverter {
 
     /**
      * <code>argumentsFormat</code>
-     * <p>the format method.</p>
-     * @param arguments {@link java.lang.Object} <p>the arguments parameter is <code>Object</code> type.</p>
-     * @return {@link java.lang.Object} <p>the format return object is <code>Object</code> type.</p>
+     * <p>The format method.</p>
+     * @param arguments {@link java.lang.Object} <p>The arguments parameter is <code>Object</code> type.</p>
+     * @return {@link java.lang.Object} <p>The format return object is <code>Object</code> type.</p>
      * @see java.lang.Object
      * @see org.springframework.lang.NonNull
      */
@@ -79,9 +79,9 @@ public class DefaultMessageConverter extends MessageConverter {
 
     /**
      * <code>argumentJson</code>
-     * <p>the json method.</p>
-     * @param argument {@link java.lang.Object} <p>the argument parameter is <code>Object</code> type.</p>
-     * @return {@link java.lang.Object} <p>the json return object is <code>Object</code> type.</p>
+     * <p>The json method.</p>
+     * @param argument {@link java.lang.Object} <p>The argument parameter is <code>Object</code> type.</p>
+     * @return {@link java.lang.Object} <p>The json return object is <code>Object</code> type.</p>
      * @see java.lang.Object
      * @see org.springframework.lang.NonNull
      */

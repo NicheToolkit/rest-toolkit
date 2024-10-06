@@ -13,22 +13,22 @@ import java.util.concurrent.ConcurrentHashMap;
 public interface IdentityWorker {
     /**
      * <code>IDENTITY_WORKER_MAP</code>
-     * {@link java.util.concurrent.ConcurrentHashMap} <p>the constant <code>IDENTITY_WORKER_MAP</code> field.</p>
+     * {@link java.util.concurrent.ConcurrentHashMap} <p>The constant <code>IDENTITY_WORKER_MAP</code> field.</p>
      * @see java.util.concurrent.ConcurrentHashMap
      */
     ConcurrentHashMap<WorkerType,IdentityWorker> IDENTITY_WORKER_MAP = new ConcurrentHashMap<>();
 
     /**
      * <code>generate</code>
-     * <p>the method.</p>
-     * @return {@link java.lang.Long} <p>the return object is <code>Long</code> type.</p>
+     * <p>The method.</p>
+     * @return {@link java.lang.Long} <p>The return object is <code>Long</code> type.</p>
      * @see java.lang.Long
      */
     Long generate();
 
     /**
      * <code>clear</code>
-     * <p>the method.</p>
+     * <p>The method.</p>
      */
     static void clear() {
         IdentityWorkerConfig.MACHINE_CACHE_SET.clear();
@@ -37,9 +37,9 @@ public interface IdentityWorker {
 
     /**
      * <code>get</code>
-     * <p>the method.</p>
-     * @param workerType {@link io.github.nichetoolkit.rest.identity.worker.WorkerType} <p>the worker type parameter is <code>WorkerType</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.identity.worker.IdentityWorker} <p>the return object is <code>IdentityWorker</code> type.</p>
+     * <p>The method.</p>
+     * @param workerType {@link io.github.nichetoolkit.rest.identity.worker.WorkerType} <p>The worker type parameter is <code>WorkerType</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.identity.worker.IdentityWorker} <p>The return object is <code>IdentityWorker</code> type.</p>
      * @see io.github.nichetoolkit.rest.identity.worker.WorkerType
      */
     static IdentityWorker get(WorkerType workerType) {
@@ -48,8 +48,8 @@ public interface IdentityWorker {
 
     /**
      * <code>get</code>
-     * <p>the method.</p>
-     * @return {@link io.github.nichetoolkit.rest.identity.worker.IdentityWorker} <p>the return object is <code>IdentityWorker</code> type.</p>
+     * <p>The method.</p>
+     * @return {@link io.github.nichetoolkit.rest.identity.worker.IdentityWorker} <p>The return object is <code>IdentityWorker</code> type.</p>
      */
     static IdentityWorker get() {
         if (IDENTITY_WORKER_MAP.containsKey(WorkerType.BASE_WORKER)) {
@@ -61,9 +61,9 @@ public interface IdentityWorker {
 
     /**
      * <code>get</code>
-     * <p>the method.</p>
-     * @param offset {@link java.lang.Long} <p>the offset parameter is <code>Long</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.identity.worker.IdentityWorker} <p>the return object is <code>IdentityWorker</code> type.</p>
+     * <p>The method.</p>
+     * @param offset {@link java.lang.Long} <p>The offset parameter is <code>Long</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.identity.worker.IdentityWorker} <p>The return object is <code>IdentityWorker</code> type.</p>
      * @see java.lang.Long
      */
     static IdentityWorker get(Long offset) {
@@ -76,10 +76,10 @@ public interface IdentityWorker {
 
     /**
      * <code>get</code>
-     * <p>the method.</p>
-     * @param workerId {@link java.lang.Long} <p>the worker id parameter is <code>Long</code> type.</p>
-     * @param centerId {@link java.lang.Long} <p>the center id parameter is <code>Long</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.identity.worker.IdentityWorker} <p>the return object is <code>IdentityWorker</code> type.</p>
+     * <p>The method.</p>
+     * @param workerId {@link java.lang.Long} <p>The worker id parameter is <code>Long</code> type.</p>
+     * @param centerId {@link java.lang.Long} <p>The center id parameter is <code>Long</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.identity.worker.IdentityWorker} <p>The return object is <code>IdentityWorker</code> type.</p>
      * @see java.lang.Long
      */
     static IdentityWorker get(Long workerId, Long centerId) {
@@ -92,11 +92,11 @@ public interface IdentityWorker {
 
     /**
      * <code>get</code>
-     * <p>the method.</p>
-     * @param workerId {@link java.lang.Long} <p>the worker id parameter is <code>Long</code> type.</p>
-     * @param centerId {@link java.lang.Long} <p>the center id parameter is <code>Long</code> type.</p>
-     * @param sequence {@link java.lang.Long} <p>the sequence parameter is <code>Long</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.identity.worker.IdentityWorker} <p>the return object is <code>IdentityWorker</code> type.</p>
+     * <p>The method.</p>
+     * @param workerId {@link java.lang.Long} <p>The worker id parameter is <code>Long</code> type.</p>
+     * @param centerId {@link java.lang.Long} <p>The center id parameter is <code>Long</code> type.</p>
+     * @param sequence {@link java.lang.Long} <p>The sequence parameter is <code>Long</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.identity.worker.IdentityWorker} <p>The return object is <code>IdentityWorker</code> type.</p>
      * @see java.lang.Long
      */
     static IdentityWorker get(Long workerId, Long centerId, Long sequence) {

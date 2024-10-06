@@ -7,7 +7,7 @@ import java.util.*;
 /**
  * <code>RestReckon</code>
  * <p>The type rest reckon interface.</p>
- * @param <N> {@link java.lang.Number} <p>the generic parameter is <code>Number</code> type.</p>
+ * @param <N> {@link java.lang.Number} <p>The generic parameter is <code>Number</code> type.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.lang.Number
  * @see io.github.nichetoolkit.rest.RestValue
@@ -17,12 +17,12 @@ public interface RestReckon<N extends Number> extends RestValue<String, N> {
 
     /**
      * <code>parseReckon</code>
-     * <p>the reckon method.</p>
-     * @param <N>       {@link java.lang.Number} <p>the generic parameter is <code>Number</code> type.</p>
-     * @param <T>       {@link io.github.nichetoolkit.rest.RestReckon} <p>the generic parameter is <code>RestReckon</code> type.</p>
-     * @param clazz     {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @param reckonKey {@link java.lang.String} <p>the reckon key parameter is <code>String</code> type.</p>
-     * @return T <p>the reckon return object is <code>T</code> type.</p>
+     * <p>The reckon method.</p>
+     * @param <N>       {@link java.lang.Number} <p>The generic parameter is <code>Number</code> type.</p>
+     * @param <T>       {@link io.github.nichetoolkit.rest.RestReckon} <p>The generic parameter is <code>RestReckon</code> type.</p>
+     * @param clazz     {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @param reckonKey {@link java.lang.String} <p>The reckon key parameter is <code>String</code> type.</p>
+     * @return T <p>The reckon return object is <code>T</code> type.</p>
      * @see java.lang.Number
      * @see java.lang.Class
      * @see java.lang.String
@@ -35,12 +35,12 @@ public interface RestReckon<N extends Number> extends RestValue<String, N> {
 
     /**
      * <code>parseReckon</code>
-     * <p>the reckon method.</p>
-     * @param <N>       {@link java.lang.Number} <p>the generic parameter is <code>Number</code> type.</p>
-     * @param <T>       {@link io.github.nichetoolkit.rest.RestReckon} <p>the generic parameter is <code>RestReckon</code> type.</p>
-     * @param reckons   {@link java.util.Collection} <p>the reckons parameter is <code>Collection</code> type.</p>
-     * @param reckonKey {@link java.lang.String} <p>the reckon key parameter is <code>String</code> type.</p>
-     * @return T <p>the reckon return object is <code>T</code> type.</p>
+     * <p>The reckon method.</p>
+     * @param <N>       {@link java.lang.Number} <p>The generic parameter is <code>Number</code> type.</p>
+     * @param <T>       {@link io.github.nichetoolkit.rest.RestReckon} <p>The generic parameter is <code>RestReckon</code> type.</p>
+     * @param reckons   {@link java.util.Collection} <p>The reckons parameter is <code>Collection</code> type.</p>
+     * @param reckonKey {@link java.lang.String} <p>The reckon key parameter is <code>String</code> type.</p>
+     * @return T <p>The reckon return object is <code>T</code> type.</p>
      * @see java.lang.Number
      * @see java.util.Collection
      * @see java.lang.String
@@ -53,12 +53,12 @@ public interface RestReckon<N extends Number> extends RestValue<String, N> {
 
     /**
      * <code>parseReckon</code>
-     * <p>the reckon method.</p>
-     * @param <N>         {@link java.lang.Number} <p>the generic parameter is <code>Number</code> type.</p>
-     * @param <T>         {@link io.github.nichetoolkit.rest.RestReckon} <p>the generic parameter is <code>RestReckon</code> type.</p>
-     * @param clazz       {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @param reckonValue N <p>the reckon value parameter is <code>N</code> type.</p>
-     * @return T <p>the reckon return object is <code>T</code> type.</p>
+     * <p>The reckon method.</p>
+     * @param <N>         {@link java.lang.Number} <p>The generic parameter is <code>Number</code> type.</p>
+     * @param <T>         {@link io.github.nichetoolkit.rest.RestReckon} <p>The generic parameter is <code>RestReckon</code> type.</p>
+     * @param clazz       {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @param reckonValue N <p>The reckon value parameter is <code>N</code> type.</p>
+     * @return T <p>The reckon return object is <code>T</code> type.</p>
      * @see java.lang.Number
      * @see java.lang.Class
      * @see java.lang.SuppressWarnings
@@ -70,12 +70,12 @@ public interface RestReckon<N extends Number> extends RestValue<String, N> {
 
     /**
      * <code>parseReckon</code>
-     * <p>the reckon method.</p>
-     * @param <N>         {@link java.lang.Number} <p>the generic parameter is <code>Number</code> type.</p>
-     * @param <T>         {@link io.github.nichetoolkit.rest.RestReckon} <p>the generic parameter is <code>RestReckon</code> type.</p>
-     * @param reckons     {@link java.util.Collection} <p>the reckons parameter is <code>Collection</code> type.</p>
-     * @param reckonValue N <p>the reckon value parameter is <code>N</code> type.</p>
-     * @return T <p>the reckon return object is <code>T</code> type.</p>
+     * <p>The reckon method.</p>
+     * @param <N>         {@link java.lang.Number} <p>The generic parameter is <code>Number</code> type.</p>
+     * @param <T>         {@link io.github.nichetoolkit.rest.RestReckon} <p>The generic parameter is <code>RestReckon</code> type.</p>
+     * @param reckons     {@link java.util.Collection} <p>The reckons parameter is <code>Collection</code> type.</p>
+     * @param reckonValue N <p>The reckon value parameter is <code>N</code> type.</p>
+     * @return T <p>The reckon return object is <code>T</code> type.</p>
      * @see java.lang.Number
      * @see java.util.Collection
      * @see java.lang.SuppressWarnings
@@ -87,12 +87,12 @@ public interface RestReckon<N extends Number> extends RestValue<String, N> {
 
     /**
      * <code>reachValue</code>
-     * <p>the value method.</p>
-     * @param <N>    {@link java.lang.Number} <p>the generic parameter is <code>Number</code> type.</p>
-     * @param <T>    {@link io.github.nichetoolkit.rest.RestReckon} <p>the generic parameter is <code>RestReckon</code> type.</p>
-     * @param clazz  {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @param reckon {@link io.github.nichetoolkit.rest.RestReckon} <p>the reckon parameter is <code>RestReckon</code> type.</p>
-     * @return boolean <p>the value return object is <code>boolean</code> type.</p>
+     * <p>The value method.</p>
+     * @param <N>    {@link java.lang.Number} <p>The generic parameter is <code>Number</code> type.</p>
+     * @param <T>    {@link io.github.nichetoolkit.rest.RestReckon} <p>The generic parameter is <code>RestReckon</code> type.</p>
+     * @param clazz  {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @param reckon {@link io.github.nichetoolkit.rest.RestReckon} <p>The reckon parameter is <code>RestReckon</code> type.</p>
+     * @return boolean <p>The value return object is <code>boolean</code> type.</p>
      * @see java.lang.Number
      * @see java.lang.Class
      */
@@ -104,12 +104,12 @@ public interface RestReckon<N extends Number> extends RestValue<String, N> {
 
     /**
      * <code>reachValue</code>
-     * <p>the value method.</p>
-     * @param <N>     {@link java.lang.Number} <p>the generic parameter is <code>Number</code> type.</p>
-     * @param <T>     {@link io.github.nichetoolkit.rest.RestReckon} <p>the generic parameter is <code>RestReckon</code> type.</p>
-     * @param reckons {@link java.util.Collection} <p>the reckons parameter is <code>Collection</code> type.</p>
-     * @param reckon  {@link io.github.nichetoolkit.rest.RestReckon} <p>the reckon parameter is <code>RestReckon</code> type.</p>
-     * @return boolean <p>the value return object is <code>boolean</code> type.</p>
+     * <p>The value method.</p>
+     * @param <N>     {@link java.lang.Number} <p>The generic parameter is <code>Number</code> type.</p>
+     * @param <T>     {@link io.github.nichetoolkit.rest.RestReckon} <p>The generic parameter is <code>RestReckon</code> type.</p>
+     * @param reckons {@link java.util.Collection} <p>The reckons parameter is <code>Collection</code> type.</p>
+     * @param reckon  {@link io.github.nichetoolkit.rest.RestReckon} <p>The reckon parameter is <code>RestReckon</code> type.</p>
+     * @return boolean <p>The value return object is <code>boolean</code> type.</p>
      * @see java.lang.Number
      * @see java.util.Collection
      */
@@ -121,12 +121,12 @@ public interface RestReckon<N extends Number> extends RestValue<String, N> {
 
     /**
      * <code>reachValue</code>
-     * <p>the value method.</p>
-     * @param <N>         {@link java.lang.Number} <p>the generic parameter is <code>Number</code> type.</p>
-     * @param <T>         {@link io.github.nichetoolkit.rest.RestReckon} <p>the generic parameter is <code>RestReckon</code> type.</p>
-     * @param clazz       {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @param reckonValue N <p>the reckon value parameter is <code>N</code> type.</p>
-     * @return boolean <p>the value return object is <code>boolean</code> type.</p>
+     * <p>The value method.</p>
+     * @param <N>         {@link java.lang.Number} <p>The generic parameter is <code>Number</code> type.</p>
+     * @param <T>         {@link io.github.nichetoolkit.rest.RestReckon} <p>The generic parameter is <code>RestReckon</code> type.</p>
+     * @param clazz       {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @param reckonValue N <p>The reckon value parameter is <code>N</code> type.</p>
+     * @return boolean <p>The value return object is <code>boolean</code> type.</p>
      * @see java.lang.Number
      * @see java.lang.Class
      */
@@ -138,12 +138,12 @@ public interface RestReckon<N extends Number> extends RestValue<String, N> {
 
     /**
      * <code>reachValue</code>
-     * <p>the value method.</p>
-     * @param <N>         {@link java.lang.Number} <p>the generic parameter is <code>Number</code> type.</p>
-     * @param <T>         {@link io.github.nichetoolkit.rest.RestReckon} <p>the generic parameter is <code>RestReckon</code> type.</p>
-     * @param reckons     {@link java.util.Collection} <p>the reckons parameter is <code>Collection</code> type.</p>
-     * @param reckonValue N <p>the reckon value parameter is <code>N</code> type.</p>
-     * @return boolean <p>the value return object is <code>boolean</code> type.</p>
+     * <p>The value method.</p>
+     * @param <N>         {@link java.lang.Number} <p>The generic parameter is <code>Number</code> type.</p>
+     * @param <T>         {@link io.github.nichetoolkit.rest.RestReckon} <p>The generic parameter is <code>RestReckon</code> type.</p>
+     * @param reckons     {@link java.util.Collection} <p>The reckons parameter is <code>Collection</code> type.</p>
+     * @param reckonValue N <p>The reckon value parameter is <code>N</code> type.</p>
+     * @return boolean <p>The value return object is <code>boolean</code> type.</p>
      * @see java.lang.Number
      * @see java.util.Collection
      */
@@ -155,11 +155,11 @@ public interface RestReckon<N extends Number> extends RestValue<String, N> {
 
     /**
      * <code>reachValue</code>
-     * <p>the value method.</p>
-     * @param <N>    {@link java.lang.Number} <p>the generic parameter is <code>Number</code> type.</p>
-     * @param value  N <p>the value parameter is <code>N</code> type.</p>
-     * @param reckon {@link io.github.nichetoolkit.rest.RestReckon} <p>the reckon parameter is <code>RestReckon</code> type.</p>
-     * @return boolean <p>the value return object is <code>boolean</code> type.</p>
+     * <p>The value method.</p>
+     * @param <N>    {@link java.lang.Number} <p>The generic parameter is <code>Number</code> type.</p>
+     * @param value  N <p>The value parameter is <code>N</code> type.</p>
+     * @param reckon {@link io.github.nichetoolkit.rest.RestReckon} <p>The reckon parameter is <code>RestReckon</code> type.</p>
+     * @return boolean <p>The value return object is <code>boolean</code> type.</p>
      * @see java.lang.Number
      * @see org.springframework.lang.NonNull
      */
@@ -170,11 +170,11 @@ public interface RestReckon<N extends Number> extends RestValue<String, N> {
 
     /**
      * <code>reachNumber</code>
-     * <p>the number method.</p>
-     * @param <N>         {@link java.lang.Number} <p>the generic parameter is <code>Number</code> type.</p>
-     * @param value       N <p>the value parameter is <code>N</code> type.</p>
-     * @param reckonValue N <p>the reckon value parameter is <code>N</code> type.</p>
-     * @return boolean <p>the number return object is <code>boolean</code> type.</p>
+     * <p>The number method.</p>
+     * @param <N>         {@link java.lang.Number} <p>The generic parameter is <code>Number</code> type.</p>
+     * @param value       N <p>The value parameter is <code>N</code> type.</p>
+     * @param reckonValue N <p>The reckon value parameter is <code>N</code> type.</p>
+     * @return boolean <p>The number return object is <code>boolean</code> type.</p>
      * @see java.lang.Number
      * @see org.springframework.lang.NonNull
      */
@@ -185,11 +185,11 @@ public interface RestReckon<N extends Number> extends RestValue<String, N> {
 
     /**
      * <code>annexValue</code>
-     * <p>the value method.</p>
-     * @param <N>   {@link java.lang.Number} <p>the generic parameter is <code>Number</code> type.</p>
-     * @param <T>   {@link io.github.nichetoolkit.rest.RestReckon} <p>the generic parameter is <code>RestReckon</code> type.</p>
-     * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @return {@link java.lang.Number} <p>the value return object is <code>Number</code> type.</p>
+     * <p>The value method.</p>
+     * @param <N>   {@link java.lang.Number} <p>The generic parameter is <code>Number</code> type.</p>
+     * @param <T>   {@link io.github.nichetoolkit.rest.RestReckon} <p>The generic parameter is <code>RestReckon</code> type.</p>
+     * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @return {@link java.lang.Number} <p>The value return object is <code>Number</code> type.</p>
      * @see java.lang.Number
      * @see java.lang.Class
      */
@@ -199,11 +199,11 @@ public interface RestReckon<N extends Number> extends RestValue<String, N> {
 
     /**
      * <code>annexValue</code>
-     * <p>the value method.</p>
-     * @param <N>     {@link java.lang.Number} <p>the generic parameter is <code>Number</code> type.</p>
-     * @param <T>     {@link io.github.nichetoolkit.rest.RestReckon} <p>the generic parameter is <code>RestReckon</code> type.</p>
-     * @param reckons {@link java.util.Collection} <p>the reckons parameter is <code>Collection</code> type.</p>
-     * @return {@link java.lang.Number} <p>the value return object is <code>Number</code> type.</p>
+     * <p>The value method.</p>
+     * @param <N>     {@link java.lang.Number} <p>The generic parameter is <code>Number</code> type.</p>
+     * @param <T>     {@link io.github.nichetoolkit.rest.RestReckon} <p>The generic parameter is <code>RestReckon</code> type.</p>
+     * @param reckons {@link java.util.Collection} <p>The reckons parameter is <code>Collection</code> type.</p>
+     * @return {@link java.lang.Number} <p>The value return object is <code>Number</code> type.</p>
      * @see java.lang.Number
      * @see java.util.Collection
      */
@@ -213,11 +213,11 @@ public interface RestReckon<N extends Number> extends RestValue<String, N> {
 
     /**
      * <code>annexValue</code>
-     * <p>the value method.</p>
-     * @param <N>     {@link java.lang.Number} <p>the generic parameter is <code>Number</code> type.</p>
-     * @param <T>     {@link io.github.nichetoolkit.rest.RestReckon} <p>the generic parameter is <code>RestReckon</code> type.</p>
-     * @param reckons T <p>the reckons parameter is <code>T</code> type.</p>
-     * @return {@link java.lang.Number} <p>the value return object is <code>Number</code> type.</p>
+     * <p>The value method.</p>
+     * @param <N>     {@link java.lang.Number} <p>The generic parameter is <code>Number</code> type.</p>
+     * @param <T>     {@link io.github.nichetoolkit.rest.RestReckon} <p>The generic parameter is <code>RestReckon</code> type.</p>
+     * @param reckons T <p>The reckons parameter is <code>T</code> type.</p>
+     * @return {@link java.lang.Number} <p>The value return object is <code>Number</code> type.</p>
      * @see java.lang.Number
      * @see java.lang.SuppressWarnings
      */
@@ -228,12 +228,12 @@ public interface RestReckon<N extends Number> extends RestValue<String, N> {
 
     /**
      * <code>annexValue</code>
-     * <p>the value method.</p>
-     * @param <N>     {@link java.lang.Number} <p>the generic parameter is <code>Number</code> type.</p>
-     * @param <T>     {@link io.github.nichetoolkit.rest.RestReckon} <p>the generic parameter is <code>RestReckon</code> type.</p>
-     * @param value   N <p>the value parameter is <code>N</code> type.</p>
-     * @param reckons T <p>the reckons parameter is <code>T</code> type.</p>
-     * @return {@link java.lang.Number} <p>the value return object is <code>Number</code> type.</p>
+     * <p>The value method.</p>
+     * @param <N>     {@link java.lang.Number} <p>The generic parameter is <code>Number</code> type.</p>
+     * @param <T>     {@link io.github.nichetoolkit.rest.RestReckon} <p>The generic parameter is <code>RestReckon</code> type.</p>
+     * @param value   N <p>The value parameter is <code>N</code> type.</p>
+     * @param reckons T <p>The reckons parameter is <code>T</code> type.</p>
+     * @return {@link java.lang.Number} <p>The value return object is <code>Number</code> type.</p>
      * @see java.lang.Number
      * @see java.lang.SuppressWarnings
      */
@@ -247,12 +247,12 @@ public interface RestReckon<N extends Number> extends RestValue<String, N> {
 
     /**
      * <code>annexValue</code>
-     * <p>the value method.</p>
-     * @param <N>   {@link java.lang.Number} <p>the generic parameter is <code>Number</code> type.</p>
-     * @param <T>   {@link io.github.nichetoolkit.rest.RestReckon} <p>the generic parameter is <code>RestReckon</code> type.</p>
-     * @param value N <p>the value parameter is <code>N</code> type.</p>
-     * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @return {@link java.lang.Number} <p>the value return object is <code>Number</code> type.</p>
+     * <p>The value method.</p>
+     * @param <N>   {@link java.lang.Number} <p>The generic parameter is <code>Number</code> type.</p>
+     * @param <T>   {@link io.github.nichetoolkit.rest.RestReckon} <p>The generic parameter is <code>RestReckon</code> type.</p>
+     * @param value N <p>The value parameter is <code>N</code> type.</p>
+     * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @return {@link java.lang.Number} <p>The value return object is <code>Number</code> type.</p>
      * @see java.lang.Number
      * @see java.lang.Class
      */
@@ -266,12 +266,12 @@ public interface RestReckon<N extends Number> extends RestValue<String, N> {
 
     /**
      * <code>annexValue</code>
-     * <p>the value method.</p>
-     * @param <N>     {@link java.lang.Number} <p>the generic parameter is <code>Number</code> type.</p>
-     * @param <T>     {@link io.github.nichetoolkit.rest.RestReckon} <p>the generic parameter is <code>RestReckon</code> type.</p>
-     * @param value   N <p>the value parameter is <code>N</code> type.</p>
-     * @param reckons {@link java.util.Collection} <p>the reckons parameter is <code>Collection</code> type.</p>
-     * @return {@link java.lang.Number} <p>the value return object is <code>Number</code> type.</p>
+     * <p>The value method.</p>
+     * @param <N>     {@link java.lang.Number} <p>The generic parameter is <code>Number</code> type.</p>
+     * @param <T>     {@link io.github.nichetoolkit.rest.RestReckon} <p>The generic parameter is <code>RestReckon</code> type.</p>
+     * @param value   N <p>The value parameter is <code>N</code> type.</p>
+     * @param reckons {@link java.util.Collection} <p>The reckons parameter is <code>Collection</code> type.</p>
+     * @return {@link java.lang.Number} <p>The value return object is <code>Number</code> type.</p>
      * @see java.lang.Number
      * @see java.util.Collection
      */
@@ -288,10 +288,10 @@ public interface RestReckon<N extends Number> extends RestValue<String, N> {
 
     /**
      * <code>annexNumber</code>
-     * <p>the number method.</p>
-     * @param <N>          {@link java.lang.Number} <p>the generic parameter is <code>Number</code> type.</p>
-     * @param reckonValues {@link java.util.Collection} <p>the reckon values parameter is <code>Collection</code> type.</p>
-     * @return {@link java.lang.Number} <p>the number return object is <code>Number</code> type.</p>
+     * <p>The number method.</p>
+     * @param <N>          {@link java.lang.Number} <p>The generic parameter is <code>Number</code> type.</p>
+     * @param reckonValues {@link java.util.Collection} <p>The reckon values parameter is <code>Collection</code> type.</p>
+     * @return {@link java.lang.Number} <p>The number return object is <code>Number</code> type.</p>
      * @see java.lang.Number
      * @see java.util.Collection
      */
@@ -301,10 +301,10 @@ public interface RestReckon<N extends Number> extends RestValue<String, N> {
 
     /**
      * <code>annexNumber</code>
-     * <p>the number method.</p>
-     * @param <N>          {@link java.lang.Number} <p>the generic parameter is <code>Number</code> type.</p>
-     * @param reckonValues N <p>the reckon values parameter is <code>N</code> type.</p>
-     * @return {@link java.lang.Number} <p>the number return object is <code>Number</code> type.</p>
+     * <p>The number method.</p>
+     * @param <N>          {@link java.lang.Number} <p>The generic parameter is <code>Number</code> type.</p>
+     * @param reckonValues N <p>The reckon values parameter is <code>N</code> type.</p>
+     * @return {@link java.lang.Number} <p>The number return object is <code>Number</code> type.</p>
      * @see java.lang.Number
      * @see java.lang.SafeVarargs
      */
@@ -315,11 +315,11 @@ public interface RestReckon<N extends Number> extends RestValue<String, N> {
 
     /**
      * <code>annexNumber</code>
-     * <p>the number method.</p>
-     * @param <N>          {@link java.lang.Number} <p>the generic parameter is <code>Number</code> type.</p>
-     * @param value        N <p>the value parameter is <code>N</code> type.</p>
-     * @param reckonValues {@link java.util.Collection} <p>the reckon values parameter is <code>Collection</code> type.</p>
-     * @return {@link java.lang.Number} <p>the number return object is <code>Number</code> type.</p>
+     * <p>The number method.</p>
+     * @param <N>          {@link java.lang.Number} <p>The generic parameter is <code>Number</code> type.</p>
+     * @param value        N <p>The value parameter is <code>N</code> type.</p>
+     * @param reckonValues {@link java.util.Collection} <p>The reckon values parameter is <code>Collection</code> type.</p>
+     * @return {@link java.lang.Number} <p>The number return object is <code>Number</code> type.</p>
      * @see java.lang.Number
      * @see java.util.Collection
      */
@@ -335,12 +335,12 @@ public interface RestReckon<N extends Number> extends RestValue<String, N> {
 
     /**
      * <code>denexValue</code>
-     * <p>the value method.</p>
-     * @param <N>   {@link java.lang.Number} <p>the generic parameter is <code>Number</code> type.</p>
-     * @param <T>   {@link io.github.nichetoolkit.rest.RestReckon} <p>the generic parameter is <code>RestReckon</code> type.</p>
-     * @param value N <p>the value parameter is <code>N</code> type.</p>
-     * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @return {@link java.util.List} <p>the value return object is <code>List</code> type.</p>
+     * <p>The value method.</p>
+     * @param <N>   {@link java.lang.Number} <p>The generic parameter is <code>Number</code> type.</p>
+     * @param <T>   {@link io.github.nichetoolkit.rest.RestReckon} <p>The generic parameter is <code>RestReckon</code> type.</p>
+     * @param value N <p>The value parameter is <code>N</code> type.</p>
+     * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @return {@link java.util.List} <p>The value return object is <code>List</code> type.</p>
      * @see java.lang.Number
      * @see java.lang.Class
      * @see java.util.List
@@ -360,12 +360,12 @@ public interface RestReckon<N extends Number> extends RestValue<String, N> {
 
     /**
      * <code>denexValue</code>
-     * <p>the value method.</p>
-     * @param <N>     {@link java.lang.Number} <p>the generic parameter is <code>Number</code> type.</p>
-     * @param <T>     {@link io.github.nichetoolkit.rest.RestReckon} <p>the generic parameter is <code>RestReckon</code> type.</p>
-     * @param value   N <p>the value parameter is <code>N</code> type.</p>
-     * @param reckons T <p>the reckons parameter is <code>T</code> type.</p>
-     * @return {@link java.util.List} <p>the value return object is <code>List</code> type.</p>
+     * <p>The value method.</p>
+     * @param <N>     {@link java.lang.Number} <p>The generic parameter is <code>Number</code> type.</p>
+     * @param <T>     {@link io.github.nichetoolkit.rest.RestReckon} <p>The generic parameter is <code>RestReckon</code> type.</p>
+     * @param value   N <p>The value parameter is <code>N</code> type.</p>
+     * @param reckons T <p>The reckons parameter is <code>T</code> type.</p>
+     * @return {@link java.util.List} <p>The value return object is <code>List</code> type.</p>
      * @see java.lang.Number
      * @see java.util.List
      * @see java.lang.SuppressWarnings
@@ -386,12 +386,12 @@ public interface RestReckon<N extends Number> extends RestValue<String, N> {
 
     /**
      * <code>denexValue</code>
-     * <p>the value method.</p>
-     * @param <N>     {@link java.lang.Number} <p>the generic parameter is <code>Number</code> type.</p>
-     * @param <T>     {@link io.github.nichetoolkit.rest.RestReckon} <p>the generic parameter is <code>RestReckon</code> type.</p>
-     * @param value   N <p>the value parameter is <code>N</code> type.</p>
-     * @param reckons {@link java.util.Collection} <p>the reckons parameter is <code>Collection</code> type.</p>
-     * @return {@link java.util.List} <p>the value return object is <code>List</code> type.</p>
+     * <p>The value method.</p>
+     * @param <N>     {@link java.lang.Number} <p>The generic parameter is <code>Number</code> type.</p>
+     * @param <T>     {@link io.github.nichetoolkit.rest.RestReckon} <p>The generic parameter is <code>RestReckon</code> type.</p>
+     * @param value   N <p>The value parameter is <code>N</code> type.</p>
+     * @param reckons {@link java.util.Collection} <p>The reckons parameter is <code>Collection</code> type.</p>
+     * @return {@link java.util.List} <p>The value return object is <code>List</code> type.</p>
      * @see java.lang.Number
      * @see java.util.Collection
      * @see java.util.List
@@ -411,10 +411,10 @@ public interface RestReckon<N extends Number> extends RestValue<String, N> {
 
     /**
      * <code>denexNumber</code>
-     * <p>the number method.</p>
-     * @param <N>   {@link java.lang.Number} <p>the generic parameter is <code>Number</code> type.</p>
-     * @param value N <p>the value parameter is <code>N</code> type.</p>
-     * @return {@link java.util.List} <p>the number return object is <code>List</code> type.</p>
+     * <p>The number method.</p>
+     * @param <N>   {@link java.lang.Number} <p>The generic parameter is <code>Number</code> type.</p>
+     * @param value N <p>The value parameter is <code>N</code> type.</p>
+     * @return {@link java.util.List} <p>The number return object is <code>List</code> type.</p>
      * @see java.lang.Number
      * @see java.util.List
      */
@@ -428,11 +428,11 @@ public interface RestReckon<N extends Number> extends RestValue<String, N> {
 
     /**
      * <code>denexNumber</code>
-     * <p>the number method.</p>
-     * @param <N>    {@link java.lang.Number} <p>the generic parameter is <code>Number</code> type.</p>
-     * @param value  N <p>the value parameter is <code>N</code> type.</p>
-     * @param length N <p>the length parameter is <code>N</code> type.</p>
-     * @return {@link java.util.List} <p>the number return object is <code>List</code> type.</p>
+     * <p>The number method.</p>
+     * @param <N>    {@link java.lang.Number} <p>The generic parameter is <code>Number</code> type.</p>
+     * @param value  N <p>The value parameter is <code>N</code> type.</p>
+     * @param length N <p>The length parameter is <code>N</code> type.</p>
+     * @return {@link java.util.List} <p>The number return object is <code>List</code> type.</p>
      * @see java.lang.Number
      * @see java.util.List
      */
@@ -452,11 +452,11 @@ public interface RestReckon<N extends Number> extends RestValue<String, N> {
 
     /**
      * <code>denexNumber</code>
-     * <p>the number method.</p>
-     * @param <N>     {@link java.lang.Number} <p>the generic parameter is <code>Number</code> type.</p>
-     * @param value   N <p>the value parameter is <code>N</code> type.</p>
-     * @param reckons {@link java.util.Collection} <p>the reckons parameter is <code>Collection</code> type.</p>
-     * @return {@link java.util.List} <p>the number return object is <code>List</code> type.</p>
+     * <p>The number method.</p>
+     * @param <N>     {@link java.lang.Number} <p>The generic parameter is <code>Number</code> type.</p>
+     * @param value   N <p>The value parameter is <code>N</code> type.</p>
+     * @param reckons {@link java.util.Collection} <p>The reckons parameter is <code>Collection</code> type.</p>
+     * @return {@link java.util.List} <p>The number return object is <code>List</code> type.</p>
      * @see java.lang.Number
      * @see java.util.Collection
      * @see java.util.List

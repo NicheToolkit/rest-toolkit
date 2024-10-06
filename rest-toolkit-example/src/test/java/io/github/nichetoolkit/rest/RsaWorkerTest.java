@@ -27,7 +27,7 @@ class RsaWorkerTest {
 
     /**
      * <code>rsaWorker</code>
-     * {@link io.github.nichetoolkit.rest.worker.rsa.RsaWorker} <p>the <code>rsaWorker</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.worker.rsa.RsaWorker} <p>The <code>rsaWorker</code> field.</p>
      * @see io.github.nichetoolkit.rest.worker.rsa.RsaWorker
      * @see org.springframework.beans.factory.annotation.Autowired
      */
@@ -36,7 +36,7 @@ class RsaWorkerTest {
 
     /**
      * <code>rsaKey</code>
-     * <p>the key method.</p>
+     * <p>The key method.</p>
      * @see org.junit.jupiter.api.Test
      */
     @Test
@@ -48,7 +48,7 @@ class RsaWorkerTest {
 
     /**
      * <code>test</code>
-     * <p>the method.</p>
+     * <p>The method.</p>
      * @see org.junit.jupiter.api.Test
      */
     @Test

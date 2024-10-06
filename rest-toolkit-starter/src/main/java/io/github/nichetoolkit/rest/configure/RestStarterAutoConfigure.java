@@ -21,7 +21,7 @@ import org.springframework.context.annotation.Configuration;
 public class RestStarterAutoConfigure {
     /**
      * <code>RestStarterAutoConfigure</code>
-     * Instantiates a new rest starter auto configure.
+     * <p>Instantiates a new rest starter auto configure.</p>
      */
     public RestStarterAutoConfigure() {
         log.debug("The auto configuration for [rest-starter] initiated");

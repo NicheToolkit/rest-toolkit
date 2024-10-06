@@ -35,21 +35,21 @@ import java.io.IOException;
 public class DefaultLogbackFilter extends OncePerRequestFilter {
     /**
      * <code>logbackProperties</code>
-     * {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>the <code>logbackProperties</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>The <code>logbackProperties</code> field.</p>
      * @see io.github.nichetoolkit.rest.configure.RestLogbackProperties
      */
     private final RestLogbackProperties logbackProperties;
     /**
      * <code>loggingKey</code>
-     * {@link io.github.nichetoolkit.rest.RestLoggingKey} <p>the <code>loggingKey</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.RestLoggingKey} <p>The <code>loggingKey</code> field.</p>
      * @see io.github.nichetoolkit.rest.RestLoggingKey
      */
     private RestLoggingKey loggingKey;
 
     /**
      * <code>DefaultLogbackFilter</code>
-     * Instantiates a new default logback filter.
-     * @param logbackProperties {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>the logback properties parameter is <code>RestLogbackProperties</code> type.</p>
+     * <p>Instantiates a new default logback filter.</p>
+     * @param logbackProperties {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>The logback properties parameter is <code>RestLogbackProperties</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestLogbackProperties
      * @see org.springframework.beans.factory.annotation.Autowired
      */
@@ -60,9 +60,9 @@ public class DefaultLogbackFilter extends OncePerRequestFilter {
 
     /**
      * <code>DefaultLogbackFilter</code>
-     * Instantiates a new default logback filter.
-     * @param logbackProperties {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>the logback properties parameter is <code>RestLogbackProperties</code> type.</p>
-     * @param loggingKey        {@link io.github.nichetoolkit.rest.RestLoggingKey} <p>the logging key parameter is <code>RestLoggingKey</code> type.</p>
+     * <p>Instantiates a new default logback filter.</p>
+     * @param logbackProperties {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>The logback properties parameter is <code>RestLogbackProperties</code> type.</p>
+     * @param loggingKey        {@link io.github.nichetoolkit.rest.RestLoggingKey} <p>The logging key parameter is <code>RestLoggingKey</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestLogbackProperties
      * @see io.github.nichetoolkit.rest.RestLoggingKey
      * @see org.springframework.beans.factory.annotation.Autowired
@@ -107,9 +107,9 @@ public class DefaultLogbackFilter extends OncePerRequestFilter {
 
     /**
      * <code>getRequestId</code>
-     * <p>the request id getter method.</p>
-     * @param httpRequest {@link io.github.nichetoolkit.rest.RestHttpRequest} <p>the http request parameter is <code>RestHttpRequest</code> type.</p>
-     * @return {@link java.lang.String} <p>the request id return object is <code>String</code> type.</p>
+     * <p>The request id getter method.</p>
+     * @param httpRequest {@link io.github.nichetoolkit.rest.RestHttpRequest} <p>The http request parameter is <code>RestHttpRequest</code> type.</p>
+     * @return {@link java.lang.String} <p>The request id return object is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestHttpRequest
      * @see java.lang.String
      */

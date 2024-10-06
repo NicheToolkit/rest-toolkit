@@ -13,10 +13,10 @@ public interface RestExceptionAdvice {
 
     /**
      * <code>preExceptionHandle</code>
-     * <p>the exception handle method.</p>
-     * @param exception {@link java.lang.Exception} <p>the exception parameter is <code>Exception</code> type.</p>
-     * @param request   {@link javax.servlet.http.HttpServletRequest} <p>the request parameter is <code>HttpServletRequest</code> type.</p>
-     * @param response  {@link javax.servlet.http.HttpServletResponse} <p>the response parameter is <code>HttpServletResponse</code> type.</p>
+     * <p>The exception handle method.</p>
+     * @param exception {@link java.lang.Exception} <p>The exception parameter is <code>Exception</code> type.</p>
+     * @param request   {@link javax.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
+     * @param response  {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
      * @see java.lang.Exception
      * @see javax.servlet.http.HttpServletRequest
      * @see javax.servlet.http.HttpServletResponse
@@ -26,10 +26,10 @@ public interface RestExceptionAdvice {
 
     /**
      * <code>doRestExceptionHandle</code>
-     * <p>the rest exception handle method.</p>
-     * @param exception {@link io.github.nichetoolkit.rest.RestException} <p>the exception parameter is <code>RestException</code> type.</p>
-     * @param request   {@link javax.servlet.http.HttpServletRequest} <p>the request parameter is <code>HttpServletRequest</code> type.</p>
-     * @param response  {@link javax.servlet.http.HttpServletResponse} <p>the response parameter is <code>HttpServletResponse</code> type.</p>
+     * <p>The rest exception handle method.</p>
+     * @param exception {@link io.github.nichetoolkit.rest.RestException} <p>The exception parameter is <code>RestException</code> type.</p>
+     * @param request   {@link javax.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
+     * @param response  {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
      * @see javax.servlet.http.HttpServletRequest
      * @see javax.servlet.http.HttpServletResponse
      */
@@ -38,10 +38,10 @@ public interface RestExceptionAdvice {
 
     /**
      * <code>doExceptionHandle</code>
-     * <p>the exception handle method.</p>
-     * @param exception {@link java.lang.Exception} <p>the exception parameter is <code>Exception</code> type.</p>
-     * @param request   {@link javax.servlet.http.HttpServletRequest} <p>the request parameter is <code>HttpServletRequest</code> type.</p>
-     * @param response  {@link javax.servlet.http.HttpServletResponse} <p>the response parameter is <code>HttpServletResponse</code> type.</p>
+     * <p>The exception handle method.</p>
+     * @param exception {@link java.lang.Exception} <p>The exception parameter is <code>Exception</code> type.</p>
+     * @param request   {@link javax.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
+     * @param response  {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
      * @see java.lang.Exception
      * @see javax.servlet.http.HttpServletRequest
      * @see javax.servlet.http.HttpServletResponse

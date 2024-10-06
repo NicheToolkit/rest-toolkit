@@ -16,7 +16,7 @@ public class TimeoutException extends RestErrorException {
 
     /**
      * <code>TimeoutException</code>
-     * Instantiates a new timeout exception.
+     * <p>Instantiates a new timeout exception.</p>
      */
     public TimeoutException() {
         super(RestErrorStatus.TIMEOUT);
@@ -24,8 +24,8 @@ public class TimeoutException extends RestErrorException {
 
     /**
      * <code>TimeoutException</code>
-     * Instantiates a new timeout exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * <p>Instantiates a new timeout exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
     public TimeoutException(RestStatus status) {
@@ -34,8 +34,8 @@ public class TimeoutException extends RestErrorException {
 
     /**
      * <code>TimeoutException</code>
-     * Instantiates a new timeout exception.
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new timeout exception.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public TimeoutException(String message) {

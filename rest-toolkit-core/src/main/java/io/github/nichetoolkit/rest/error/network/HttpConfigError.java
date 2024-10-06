@@ -17,7 +17,7 @@ public class HttpConfigError extends RestError {
 
     /**
      * <code>HttpConfigError</code>
-     * Instantiates a new http config error.
+     * <p>Instantiates a new http config error.</p>
      */
     public HttpConfigError() {
         super(RestErrorStatus.HTTP_CONFIG_ERROR);
@@ -25,8 +25,8 @@ public class HttpConfigError extends RestError {
 
     /**
      * <code>HttpConfigError</code>
-     * Instantiates a new http config error.
-     * @param supplier {@link java.util.function.Supplier} <p>the supplier parameter is <code>Supplier</code> type.</p>
+     * <p>Instantiates a new http config error.</p>
+     * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
      * @see java.util.function.Supplier
      */
     public HttpConfigError(Supplier<RestStatus> supplier) {
@@ -35,8 +35,8 @@ public class HttpConfigError extends RestError {
 
     /**
      * <code>HttpConfigError</code>
-     * Instantiates a new http config error.
-     * @param error {@link java.lang.String} <p>the error parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new http config error.</p>
+     * @param error {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public HttpConfigError(String error) {
@@ -45,8 +45,8 @@ public class HttpConfigError extends RestError {
 
     /**
      * <code>HttpConfigError</code>
-     * Instantiates a new http config error.
-     * @param cause {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new http config error.</p>
+     * @param cause {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see java.lang.Throwable
      */
     public HttpConfigError( Throwable cause) {
@@ -55,9 +55,9 @@ public class HttpConfigError extends RestError {
 
     /**
      * <code>HttpConfigError</code>
-     * Instantiates a new http config error.
-     * @param error {@link java.lang.String} <p>the error parameter is <code>String</code> type.</p>
-     * @param cause {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new http config error.</p>
+     * @param error {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
+     * @param cause {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Throwable
      */
@@ -67,8 +67,8 @@ public class HttpConfigError extends RestError {
 
     /**
      * <code>HttpConfigError</code>
-     * Instantiates a new http config error.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * <p>Instantiates a new http config error.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
     public HttpConfigError(RestStatus status) {

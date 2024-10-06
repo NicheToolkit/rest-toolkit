@@ -22,13 +22,13 @@ public class ZipHelper {
 
     /**
      * <code>zipFile</code>
-     * <p>the file method.</p>
-     * @param zipPath  {@link java.lang.String} <p>the zip path parameter is <code>String</code> type.</p>
-     * @param filename {@link java.lang.String} <p>the filename parameter is <code>String</code> type.</p>
-     * @param file     {@link java.io.File} <p>the file parameter is <code>File</code> type.</p>
-     * @return {@link java.io.File} <p>the file return object is <code>File</code> type.</p>
-     * @throws ZipErrorException   {@link io.github.nichetoolkit.rest.error.often.ZipErrorException} <p>the zip error exception is <code>ZipErrorException</code> type.</p>
-     * @throws FileCreateException {@link io.github.nichetoolkit.rest.error.often.FileCreateException} <p>the file create exception is <code>FileCreateException</code> type.</p>
+     * <p>The file method.</p>
+     * @param zipPath  {@link java.lang.String} <p>The zip path parameter is <code>String</code> type.</p>
+     * @param filename {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
+     * @param file     {@link java.io.File} <p>The file parameter is <code>File</code> type.</p>
+     * @return {@link java.io.File} <p>The file return object is <code>File</code> type.</p>
+     * @throws ZipErrorException   {@link io.github.nichetoolkit.rest.error.often.ZipErrorException} <p>The zip error exception is <code>ZipErrorException</code> type.</p>
+     * @throws FileCreateException {@link io.github.nichetoolkit.rest.error.often.FileCreateException} <p>The file create exception is <code>FileCreateException</code> type.</p>
      * @see java.lang.String
      * @see java.io.File
      * @see java.lang.SuppressWarnings
@@ -60,13 +60,13 @@ public class ZipHelper {
 
     /**
      * <code>zipFiles</code>
-     * <p>the files method.</p>
-     * @param zipPath  {@link java.lang.String} <p>the zip path parameter is <code>String</code> type.</p>
-     * @param filename {@link java.lang.String} <p>the filename parameter is <code>String</code> type.</p>
-     * @param zipFiles {@link java.util.List} <p>the zip files parameter is <code>List</code> type.</p>
-     * @return {@link java.io.File} <p>the files return object is <code>File</code> type.</p>
-     * @throws ZipErrorException   {@link io.github.nichetoolkit.rest.error.often.ZipErrorException} <p>the zip error exception is <code>ZipErrorException</code> type.</p>
-     * @throws FileCreateException {@link io.github.nichetoolkit.rest.error.often.FileCreateException} <p>the file create exception is <code>FileCreateException</code> type.</p>
+     * <p>The files method.</p>
+     * @param zipPath  {@link java.lang.String} <p>The zip path parameter is <code>String</code> type.</p>
+     * @param filename {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
+     * @param zipFiles {@link java.util.List} <p>The zip files parameter is <code>List</code> type.</p>
+     * @return {@link java.io.File} <p>The files return object is <code>File</code> type.</p>
+     * @throws ZipErrorException   {@link io.github.nichetoolkit.rest.error.often.ZipErrorException} <p>The zip error exception is <code>ZipErrorException</code> type.</p>
+     * @throws FileCreateException {@link io.github.nichetoolkit.rest.error.often.FileCreateException} <p>The file create exception is <code>FileCreateException</code> type.</p>
      * @see java.lang.String
      * @see java.util.List
      * @see java.io.File
@@ -104,10 +104,10 @@ public class ZipHelper {
 
     /**
      * <code>gzip</code>
-     * <p>the method.</p>
-     * @param data byte <p>the data parameter is <code>byte</code> type.</p>
-     * @return byte <p>the return object is <code>byte</code> type.</p>
-     * @throws ZipErrorException {@link io.github.nichetoolkit.rest.error.often.ZipErrorException} <p>the zip error exception is <code>ZipErrorException</code> type.</p>
+     * <p>The method.</p>
+     * @param data byte <p>The data parameter is <code>byte</code> type.</p>
+     * @return byte <p>The return object is <code>byte</code> type.</p>
+     * @throws ZipErrorException {@link io.github.nichetoolkit.rest.error.often.ZipErrorException} <p>The zip error exception is <code>ZipErrorException</code> type.</p>
      * @see io.github.nichetoolkit.rest.error.often.ZipErrorException
      */
     public static byte[] gzip(byte[] data) throws ZipErrorException {
@@ -125,10 +125,10 @@ public class ZipHelper {
 
     /**
      * <code>ungzip</code>
-     * <p>the method.</p>
-     * @param data byte <p>the data parameter is <code>byte</code> type.</p>
-     * @return byte <p>the return object is <code>byte</code> type.</p>
-     * @throws ZipErrorException {@link io.github.nichetoolkit.rest.error.often.ZipErrorException} <p>the zip error exception is <code>ZipErrorException</code> type.</p>
+     * <p>The method.</p>
+     * @param data byte <p>The data parameter is <code>byte</code> type.</p>
+     * @return byte <p>The return object is <code>byte</code> type.</p>
+     * @throws ZipErrorException {@link io.github.nichetoolkit.rest.error.often.ZipErrorException} <p>The zip error exception is <code>ZipErrorException</code> type.</p>
      * @see io.github.nichetoolkit.rest.error.often.ZipErrorException
      */
     public static byte[] ungzip(byte[] data) throws ZipErrorException {

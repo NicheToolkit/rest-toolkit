@@ -25,12 +25,12 @@ public class CheckUtils {
 
     /**
      * <code>checkNullObject</code>
-     * <p>the null object method.</p>
-     * @param <T>              {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param object           T <p>the object parameter is <code>T</code> type.</p>
-     * @param logMessage       {@link java.lang.String} <p>the log message parameter is <code>String</code> type.</p>
-     * @param exceptionMessage {@link java.lang.String} <p>the exception message parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The null object method.</p>
+     * @param <T>              {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param object           T <p>The object parameter is <code>T</code> type.</p>
+     * @param logMessage       {@link java.lang.String} <p>The log message parameter is <code>String</code> type.</p>
+     * @param exceptionMessage {@link java.lang.String} <p>The exception message parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -43,11 +43,11 @@ public class CheckUtils {
 
     /**
      * <code>checkNullObject</code>
-     * <p>the null object method.</p>
-     * @param <T>     {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param object  T <p>the object parameter is <code>T</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The null object method.</p>
+     * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param object  T <p>The object parameter is <code>T</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -57,10 +57,10 @@ public class CheckUtils {
 
     /**
      * <code>checkNullObject</code>
-     * <p>the null object method.</p>
-     * @param <T>    {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param object T <p>the object parameter is <code>T</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The null object method.</p>
+     * @param <T>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param object T <p>The object parameter is <code>T</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> void checkNullObject(T object) throws RestException {
@@ -72,12 +72,12 @@ public class CheckUtils {
 
     /**
      * <code>checkNullId</code>
-     * <p>the null id method.</p>
-     * @param <T>              {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param id               T <p>the id parameter is <code>T</code> type.</p>
-     * @param logMessage       {@link java.lang.String} <p>the log message parameter is <code>String</code> type.</p>
-     * @param exceptionMessage {@link java.lang.String} <p>the exception message parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The null id method.</p>
+     * @param <T>              {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param id               T <p>The id parameter is <code>T</code> type.</p>
+     * @param logMessage       {@link java.lang.String} <p>The log message parameter is <code>String</code> type.</p>
+     * @param exceptionMessage {@link java.lang.String} <p>The exception message parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -90,11 +90,11 @@ public class CheckUtils {
 
     /**
      * <code>checkNullId</code>
-     * <p>the null id method.</p>
-     * @param <T>     {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param id      T <p>the id parameter is <code>T</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The null id method.</p>
+     * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param id      T <p>The id parameter is <code>T</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -104,10 +104,10 @@ public class CheckUtils {
 
     /**
      * <code>checkNullId</code>
-     * <p>the null id method.</p>
-     * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param id  T <p>the id parameter is <code>T</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The null id method.</p>
+     * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param id  T <p>The id parameter is <code>T</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> void checkNullId(T id) throws RestException {
@@ -119,13 +119,13 @@ public class CheckUtils {
 
     /**
      * <code>checkTrueComparer</code>
-     * <p>the true comparer method.</p>
-     * @param comparer         {@link java.lang.Boolean} <p>the comparer parameter is <code>Boolean</code> type.</p>
-     * @param logMessage       {@link java.lang.String} <p>the log message parameter is <code>String</code> type.</p>
-     * @param exceptionMessage {@link java.lang.String} <p>the exception message parameter is <code>String</code> type.</p>
-     * @param resource         {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param functionActuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>the function actuator parameter is <code>BiFunctionActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The true comparer method.</p>
+     * @param comparer         {@link java.lang.Boolean} <p>The comparer parameter is <code>Boolean</code> type.</p>
+     * @param logMessage       {@link java.lang.String} <p>The log message parameter is <code>String</code> type.</p>
+     * @param exceptionMessage {@link java.lang.String} <p>The exception message parameter is <code>String</code> type.</p>
+     * @param resource         {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param functionActuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The function actuator parameter is <code>BiFunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Boolean
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
@@ -140,12 +140,12 @@ public class CheckUtils {
 
     /**
      * <code>checkTrueComparer</code>
-     * <p>the true comparer method.</p>
-     * @param comparer         {@link java.lang.Boolean} <p>the comparer parameter is <code>Boolean</code> type.</p>
-     * @param status           {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param resource         {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param functionActuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>the function actuator parameter is <code>BiFunctionActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The true comparer method.</p>
+     * @param comparer         {@link java.lang.Boolean} <p>The comparer parameter is <code>Boolean</code> type.</p>
+     * @param status           {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param resource         {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param functionActuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The function actuator parameter is <code>BiFunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Boolean
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
@@ -162,12 +162,12 @@ public class CheckUtils {
 
     /**
      * <code>checkTrueComparer</code>
-     * <p>the true comparer method.</p>
-     * @param comparer         {@link java.lang.Boolean} <p>the comparer parameter is <code>Boolean</code> type.</p>
-     * @param message          {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource         {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param functionActuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>the function actuator parameter is <code>BiFunctionActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The true comparer method.</p>
+     * @param comparer         {@link java.lang.Boolean} <p>The comparer parameter is <code>Boolean</code> type.</p>
+     * @param message          {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource         {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param functionActuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The function actuator parameter is <code>BiFunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Boolean
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
@@ -179,13 +179,13 @@ public class CheckUtils {
 
     /**
      * <code>checkFalseComparer</code>
-     * <p>the false comparer method.</p>
-     * @param comparer         {@link java.lang.Boolean} <p>the comparer parameter is <code>Boolean</code> type.</p>
-     * @param logMessage       {@link java.lang.String} <p>the log message parameter is <code>String</code> type.</p>
-     * @param exceptionMessage {@link java.lang.String} <p>the exception message parameter is <code>String</code> type.</p>
-     * @param resource         {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param functionActuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>the function actuator parameter is <code>BiFunctionActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The false comparer method.</p>
+     * @param comparer         {@link java.lang.Boolean} <p>The comparer parameter is <code>Boolean</code> type.</p>
+     * @param logMessage       {@link java.lang.String} <p>The log message parameter is <code>String</code> type.</p>
+     * @param exceptionMessage {@link java.lang.String} <p>The exception message parameter is <code>String</code> type.</p>
+     * @param resource         {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param functionActuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The function actuator parameter is <code>BiFunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Boolean
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
@@ -200,12 +200,12 @@ public class CheckUtils {
 
     /**
      * <code>checkFalseComparer</code>
-     * <p>the false comparer method.</p>
-     * @param comparer         {@link java.lang.Boolean} <p>the comparer parameter is <code>Boolean</code> type.</p>
-     * @param message          {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource         {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param functionActuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>the function actuator parameter is <code>BiFunctionActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The false comparer method.</p>
+     * @param comparer         {@link java.lang.Boolean} <p>The comparer parameter is <code>Boolean</code> type.</p>
+     * @param message          {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource         {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param functionActuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The function actuator parameter is <code>BiFunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Boolean
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
@@ -217,12 +217,12 @@ public class CheckUtils {
 
     /**
      * <code>checkFalseComparer</code>
-     * <p>the false comparer method.</p>
-     * @param comparer         {@link java.lang.Boolean} <p>the comparer parameter is <code>Boolean</code> type.</p>
-     * @param status           {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param resource         {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param functionActuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>the function actuator parameter is <code>BiFunctionActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The false comparer method.</p>
+     * @param comparer         {@link java.lang.Boolean} <p>The comparer parameter is <code>Boolean</code> type.</p>
+     * @param status           {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param resource         {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param functionActuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The function actuator parameter is <code>BiFunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Boolean
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
@@ -236,13 +236,13 @@ public class CheckUtils {
 
     /**
      * <code>checkNullResult</code>
-     * <p>the null result method.</p>
-     * @param result           {@link java.lang.Integer} <p>the result parameter is <code>Integer</code> type.</p>
-     * @param logMessage       {@link java.lang.String} <p>the log message parameter is <code>String</code> type.</p>
-     * @param exceptionMessage {@link java.lang.String} <p>the exception message parameter is <code>String</code> type.</p>
-     * @param resource         {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param functionActuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>the function actuator parameter is <code>BiFunctionActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The null result method.</p>
+     * @param result           {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @param logMessage       {@link java.lang.String} <p>The log message parameter is <code>String</code> type.</p>
+     * @param exceptionMessage {@link java.lang.String} <p>The exception message parameter is <code>String</code> type.</p>
+     * @param resource         {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param functionActuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The function actuator parameter is <code>BiFunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
@@ -257,12 +257,12 @@ public class CheckUtils {
 
     /**
      * <code>checkNullResult</code>
-     * <p>the null result method.</p>
-     * @param result           {@link java.lang.Integer} <p>the result parameter is <code>Integer</code> type.</p>
-     * @param status           {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param resource         {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param functionActuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>the function actuator parameter is <code>BiFunctionActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The null result method.</p>
+     * @param result           {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @param status           {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param resource         {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param functionActuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The function actuator parameter is <code>BiFunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Integer
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
@@ -275,12 +275,12 @@ public class CheckUtils {
 
     /**
      * <code>checkNullResult</code>
-     * <p>the null result method.</p>
-     * @param result           {@link java.lang.Integer} <p>the result parameter is <code>Integer</code> type.</p>
-     * @param message          {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource         {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param functionActuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>the function actuator parameter is <code>BiFunctionActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The null result method.</p>
+     * @param result           {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @param message          {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource         {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param functionActuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The function actuator parameter is <code>BiFunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
@@ -292,13 +292,13 @@ public class CheckUtils {
 
     /**
      * <code>checkNonNullResult</code>
-     * <p>the non null result method.</p>
-     * @param result           {@link java.lang.Integer} <p>the result parameter is <code>Integer</code> type.</p>
-     * @param logMessage       {@link java.lang.String} <p>the log message parameter is <code>String</code> type.</p>
-     * @param exceptionMessage {@link java.lang.String} <p>the exception message parameter is <code>String</code> type.</p>
-     * @param resource         {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param functionActuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>the function actuator parameter is <code>BiFunctionActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The non null result method.</p>
+     * @param result           {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @param logMessage       {@link java.lang.String} <p>The log message parameter is <code>String</code> type.</p>
+     * @param exceptionMessage {@link java.lang.String} <p>The exception message parameter is <code>String</code> type.</p>
+     * @param resource         {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param functionActuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The function actuator parameter is <code>BiFunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
@@ -313,12 +313,12 @@ public class CheckUtils {
 
     /**
      * <code>checkNonNullResult</code>
-     * <p>the non null result method.</p>
-     * @param result           {@link java.lang.Integer} <p>the result parameter is <code>Integer</code> type.</p>
-     * @param message          {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource         {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param functionActuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>the function actuator parameter is <code>BiFunctionActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The non null result method.</p>
+     * @param result           {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @param message          {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource         {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param functionActuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The function actuator parameter is <code>BiFunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
@@ -330,12 +330,12 @@ public class CheckUtils {
 
     /**
      * <code>checkExistResource</code>
-     * <p>the exist resource method.</p>
-     * @param exist            {@link java.lang.Boolean} <p>the exist parameter is <code>Boolean</code> type.</p>
-     * @param message          {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource         {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param functionActuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>the function actuator parameter is <code>BiFunctionActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The exist resource method.</p>
+     * @param exist            {@link java.lang.Boolean} <p>The exist parameter is <code>Boolean</code> type.</p>
+     * @param message          {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource         {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param functionActuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The function actuator parameter is <code>BiFunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Boolean
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
@@ -347,12 +347,12 @@ public class CheckUtils {
 
     /**
      * <code>checkNonExistResource</code>
-     * <p>the non exist resource method.</p>
-     * @param exist            {@link java.lang.Boolean} <p>the exist parameter is <code>Boolean</code> type.</p>
-     * @param message          {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource         {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param functionActuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>the function actuator parameter is <code>BiFunctionActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The non exist resource method.</p>
+     * @param exist            {@link java.lang.Boolean} <p>The exist parameter is <code>Boolean</code> type.</p>
+     * @param message          {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource         {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param functionActuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The function actuator parameter is <code>BiFunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Boolean
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
@@ -364,11 +364,11 @@ public class CheckUtils {
 
     /**
      * <code>checkCreate</code>
-     * <p>the create method.</p>
-     * @param result   {@link java.lang.Integer} <p>the result parameter is <code>Integer</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The create method.</p>
+     * @param result   {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
@@ -379,10 +379,10 @@ public class CheckUtils {
 
     /**
      * <code>checkCreate</code>
-     * <p>the create method.</p>
-     * @param result   {@link java.lang.Integer} <p>the result parameter is <code>Integer</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The create method.</p>
+     * @param result   {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
@@ -393,11 +393,11 @@ public class CheckUtils {
 
     /**
      * <code>checkBatchCreate</code>
-     * <p>the batch create method.</p>
-     * @param result   {@link java.lang.Integer} <p>the result parameter is <code>Integer</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The batch create method.</p>
+     * @param result   {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
@@ -408,10 +408,10 @@ public class CheckUtils {
 
     /**
      * <code>checkBatchCreate</code>
-     * <p>the batch create method.</p>
-     * @param result   {@link java.lang.Integer} <p>the result parameter is <code>Integer</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The batch create method.</p>
+     * @param result   {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
@@ -422,11 +422,11 @@ public class CheckUtils {
 
     /**
      * <code>checkUpdate</code>
-     * <p>the update method.</p>
-     * @param result   {@link java.lang.Integer} <p>the result parameter is <code>Integer</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The update method.</p>
+     * @param result   {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
@@ -437,10 +437,10 @@ public class CheckUtils {
 
     /**
      * <code>checkUpdate</code>
-     * <p>the update method.</p>
-     * @param result   {@link java.lang.Integer} <p>the result parameter is <code>Integer</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The update method.</p>
+     * @param result   {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
@@ -451,11 +451,11 @@ public class CheckUtils {
 
     /**
      * <code>checkBatchUpdate</code>
-     * <p>the batch update method.</p>
-     * @param result   {@link java.lang.Integer} <p>the result parameter is <code>Integer</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The batch update method.</p>
+     * @param result   {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
@@ -466,10 +466,10 @@ public class CheckUtils {
 
     /**
      * <code>checkBatchUpdate</code>
-     * <p>the batch update method.</p>
-     * @param result   {@link java.lang.Integer} <p>the result parameter is <code>Integer</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The batch update method.</p>
+     * @param result   {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
@@ -480,11 +480,11 @@ public class CheckUtils {
 
     /**
      * <code>checkBatchSave</code>
-     * <p>the batch save method.</p>
-     * @param result   {@link java.lang.Boolean} <p>the result parameter is <code>Boolean</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The batch save method.</p>
+     * @param result   {@link java.lang.Boolean} <p>The result parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Boolean
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
@@ -495,10 +495,10 @@ public class CheckUtils {
 
     /**
      * <code>checkBatchSave</code>
-     * <p>the batch save method.</p>
-     * @param result   {@link java.lang.Boolean} <p>the result parameter is <code>Boolean</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The batch save method.</p>
+     * @param result   {@link java.lang.Boolean} <p>The result parameter is <code>Boolean</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Boolean
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
@@ -509,11 +509,11 @@ public class CheckUtils {
 
     /**
      * <code>checkNameRepeat</code>
-     * <p>the name repeat method.</p>
-     * @param exist    {@link java.lang.Boolean} <p>the exist parameter is <code>Boolean</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param value    {@link java.lang.String} <p>the value parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The name repeat method.</p>
+     * @param exist    {@link java.lang.Boolean} <p>The exist parameter is <code>Boolean</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param value    {@link java.lang.String} <p>The value parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Boolean
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException
@@ -527,10 +527,10 @@ public class CheckUtils {
 
     /**
      * <code>checkNameRepeat</code>
-     * <p>the name repeat method.</p>
-     * @param exist {@link java.lang.Boolean} <p>the exist parameter is <code>Boolean</code> type.</p>
-     * @param value {@link java.lang.String} <p>the value parameter is <code>String</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The name repeat method.</p>
+     * @param exist {@link java.lang.Boolean} <p>The exist parameter is <code>Boolean</code> type.</p>
+     * @param value {@link java.lang.String} <p>The value parameter is <code>String</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Boolean
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestException

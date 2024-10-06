@@ -14,7 +14,7 @@ import io.github.nichetoolkit.rest.error.natives.FieldErrorException;
 public class NameNullException extends FieldErrorException {
     /**
      * <code>NameNullException</code>
-     * Instantiates a new name null exception.
+     * <p>Instantiates a new name null exception.</p>
      */
     public NameNullException() {
         super(RestErrorStatus.NAME_IS_NULL);
@@ -22,8 +22,8 @@ public class NameNullException extends FieldErrorException {
 
     /**
      * <code>NameNullException</code>
-     * Instantiates a new name null exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * <p>Instantiates a new name null exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
     public NameNullException(RestStatus status) {
@@ -32,8 +32,8 @@ public class NameNullException extends FieldErrorException {
 
     /**
      * <code>NameNullException</code>
-     * Instantiates a new name null exception.
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new name null exception.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public NameNullException(String message) {
@@ -42,9 +42,9 @@ public class NameNullException extends FieldErrorException {
 
     /**
      * <code>NameNullException</code>
-     * Instantiates a new name null exception.
-     * @param field   {@link java.lang.String} <p>the field parameter is <code>String</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new name null exception.</p>
+     * @param field   {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public NameNullException(String field, String message) {

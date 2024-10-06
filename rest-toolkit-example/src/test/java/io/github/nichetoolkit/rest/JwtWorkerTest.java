@@ -25,7 +25,7 @@ class JwtWorkerTest {
 
     /**
      * <code>jwtWorker</code>
-     * {@link io.github.nichetoolkit.rest.worker.jwt.JwtWorker} <p>the <code>jwtWorker</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.worker.jwt.JwtWorker} <p>The <code>jwtWorker</code> field.</p>
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtWorker
      * @see org.springframework.beans.factory.annotation.Autowired
      */
@@ -34,7 +34,7 @@ class JwtWorkerTest {
 
     /**
      * <code>test</code>
-     * <p>the method.</p>
+     * <p>The method.</p>
      * @see org.junit.jupiter.api.Test
      */
     @Test

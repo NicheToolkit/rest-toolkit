@@ -25,57 +25,57 @@ public class RestLogbackProperties {
 
     /**
      * <code>enabled</code>
-     * {@link java.lang.Boolean} <p>the <code>enabled</code> field.</p>
+     * {@link java.lang.Boolean} <p>The <code>enabled</code> field.</p>
      * @see java.lang.Boolean
      */
     private Boolean enabled = true;
 
     /**
      * <code>loggingKey</code>
-     * {@link java.lang.String} <p>the <code>loggingKey</code> field.</p>
+     * {@link java.lang.String} <p>The <code>loggingKey</code> field.</p>
      * @see java.lang.String
      */
     private String loggingKey ="loggingKey";
 
     /**
      * <code>attributes</code>
-     * {@link java.lang.String} <p>the <code>attributes</code> field.</p>
+     * {@link java.lang.String} <p>The <code>attributes</code> field.</p>
      * @see java.lang.String
      */
     private String[] attributes = {"t"};
 
     /**
      * <code>requestKey</code>
-     * {@link java.lang.String} <p>the <code>requestKey</code> field.</p>
+     * {@link java.lang.String} <p>The <code>requestKey</code> field.</p>
      * @see java.lang.String
      */
     private String requestKey = "requestKey";
 
     /**
      * <code>requestHeader</code>
-     * {@link java.lang.String} <p>the <code>requestHeader</code> field.</p>
+     * {@link java.lang.String} <p>The <code>requestHeader</code> field.</p>
      * @see java.lang.String
      */
     private String requestHeader = "X-Request-ID";
 
     /**
      * <code>argumentLength</code>
-     * {@link java.lang.Integer} <p>the <code>argumentLength</code> field.</p>
+     * {@link java.lang.Integer} <p>The <code>argumentLength</code> field.</p>
      * @see java.lang.Integer
      */
     private Integer argumentLength = 1024;
 
     /**
      * <code>prefixLength</code>
-     * {@link java.lang.Integer} <p>the <code>prefixLength</code> field.</p>
+     * {@link java.lang.Integer} <p>The <code>prefixLength</code> field.</p>
      * @see java.lang.Integer
      */
     private Integer prefixLength = 24;
 
     /**
      * <code>getAttributes</code>
-     * <p>the attributes getter method.</p>
-     * @return {@link java.util.List} <p>the attributes return object is <code>List</code> type.</p>
+     * <p>The attributes getter method.</p>
+     * @return {@link java.util.List} <p>The attributes return object is <code>List</code> type.</p>
      * @see java.util.List
      */
     public List<String> getAttributes() {

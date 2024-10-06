@@ -23,20 +23,20 @@ import org.springframework.stereotype.Component;
 public class RestIdentityProperties {
     /**
      * <code>enabled</code>
-     * {@link java.lang.Boolean} <p>the <code>enabled</code> field.</p>
+     * {@link java.lang.Boolean} <p>The <code>enabled</code> field.</p>
      * @see java.lang.Boolean
      */
     private Boolean enabled = false;
 
     /**
      * <code>type</code>
-     * {@link io.github.nichetoolkit.rest.identity.IdentityType} <p>the <code>type</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.identity.IdentityType} <p>The <code>type</code> field.</p>
      * @see io.github.nichetoolkit.rest.identity.IdentityType
      */
     private IdentityType type = IdentityType.AUTO;
     /**
      * <code>config</code>
-     * {@link io.github.nichetoolkit.rest.configure.RestIdentityProperties.Config} <p>the <code>config</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.configure.RestIdentityProperties.Config} <p>The <code>config</code> field.</p>
      * @see io.github.nichetoolkit.rest.configure.RestIdentityProperties.Config
      * @see org.springframework.boot.context.properties.NestedConfigurationProperty
      */
@@ -44,7 +44,7 @@ public class RestIdentityProperties {
     private Config config = new Config();
     /**
      * <code>server</code>
-     * {@link io.github.nichetoolkit.rest.configure.RestIdentityProperties.Server} <p>the <code>server</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.configure.RestIdentityProperties.Server} <p>The <code>server</code> field.</p>
      * @see io.github.nichetoolkit.rest.configure.RestIdentityProperties.Server
      * @see org.springframework.boot.context.properties.NestedConfigurationProperty
      */
@@ -62,28 +62,28 @@ public class RestIdentityProperties {
     public static class Server {
         /**
          * <code>sequence</code>
-         * {@link java.lang.Long} <p>the <code>sequence</code> field.</p>
+         * {@link java.lang.Long} <p>The <code>sequence</code> field.</p>
          * @see java.lang.Long
          */
         private Long sequence = 1L;
         /**
          * <code>url</code>
-         * {@link java.lang.String} <p>the <code>url</code> field.</p>
+         * {@link java.lang.String} <p>The <code>url</code> field.</p>
          * @see java.lang.String
          */
         private String url;
         /**
          * <code>api</code>
-         * {@link java.lang.String} <p>the <code>api</code> field.</p>
+         * {@link java.lang.String} <p>The <code>api</code> field.</p>
          * @see java.lang.String
          */
         private String api;
 
         /**
          * <code>uri</code>
-         * <p>the method.</p>
-         * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
-         * @throws ParamMissingException {@link io.github.nichetoolkit.rest.error.supply.ParamMissingException} <p>the param missing exception is <code>ParamMissingException</code> type.</p>
+         * <p>The method.</p>
+         * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
+         * @throws ParamMissingException {@link io.github.nichetoolkit.rest.error.supply.ParamMissingException} <p>The param missing exception is <code>ParamMissingException</code> type.</p>
          * @see java.lang.String
          * @see io.github.nichetoolkit.rest.error.supply.ParamMissingException
          */
@@ -108,19 +108,19 @@ public class RestIdentityProperties {
     public static class Config {
         /**
          * <code>workerId</code>
-         * {@link java.lang.Long} <p>the <code>workerId</code> field.</p>
+         * {@link java.lang.Long} <p>The <code>workerId</code> field.</p>
          * @see java.lang.Long
          */
         private Long workerId = 1L;
         /**
          * <code>centerId</code>
-         * {@link java.lang.Long} <p>the <code>centerId</code> field.</p>
+         * {@link java.lang.Long} <p>The <code>centerId</code> field.</p>
          * @see java.lang.Long
          */
         private Long centerId = 2L;
         /**
          * <code>sequence</code>
-         * {@link java.lang.Long} <p>the <code>sequence</code> field.</p>
+         * {@link java.lang.Long} <p>The <code>sequence</code> field.</p>
          * @see java.lang.Long
          */
         private Long sequence = 1L;

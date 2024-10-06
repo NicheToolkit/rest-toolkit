@@ -27,29 +27,29 @@ import java.io.Serializable;
 public class ImageVerify implements Serializable {
     /**
      * <code>content</code>
-     * {@link java.lang.String} <p>the <code>content</code> field.</p>
+     * {@link java.lang.String} <p>The <code>content</code> field.</p>
      * @see java.lang.String
      */
     private String content;
     /**
      * <code>image</code>
-     * {@link java.awt.image.BufferedImage} <p>the <code>image</code> field.</p>
+     * {@link java.awt.image.BufferedImage} <p>The <code>image</code> field.</p>
      * @see java.awt.image.BufferedImage
      */
     private BufferedImage image;
 
     /**
      * <code>ImageVerify</code>
-     * Instantiates a new image verify.
+     * <p>Instantiates a new image verify.</p>
      */
     public ImageVerify() {
     }
 
     /**
      * <code>ImageVerify</code>
-     * Instantiates a new image verify.
-     * @param content {@link java.lang.String} <p>the content parameter is <code>String</code> type.</p>
-     * @param image   {@link java.awt.image.BufferedImage} <p>the image parameter is <code>BufferedImage</code> type.</p>
+     * <p>Instantiates a new image verify.</p>
+     * @param content {@link java.lang.String} <p>The content parameter is <code>String</code> type.</p>
+     * @param image   {@link java.awt.image.BufferedImage} <p>The image parameter is <code>BufferedImage</code> type.</p>
      * @see java.lang.String
      * @see java.awt.image.BufferedImage
      */
@@ -60,8 +60,8 @@ public class ImageVerify implements Serializable {
 
     /**
      * <code>write</code>
-     * <p>the method.</p>
-     * @param outputStream {@link java.io.OutputStream} <p>the output stream parameter is <code>OutputStream</code> type.</p>
+     * <p>The method.</p>
+     * @param outputStream {@link java.io.OutputStream} <p>The output stream parameter is <code>OutputStream</code> type.</p>
      * @see java.io.OutputStream
      */
     public void write(OutputStream outputStream) {
@@ -70,9 +70,9 @@ public class ImageVerify implements Serializable {
 
     /**
      * <code>write</code>
-     * <p>the method.</p>
-     * @param formatName   {@link java.lang.String} <p>the format name parameter is <code>String</code> type.</p>
-     * @param outputStream {@link java.io.OutputStream} <p>the output stream parameter is <code>OutputStream</code> type.</p>
+     * <p>The method.</p>
+     * @param formatName   {@link java.lang.String} <p>The format name parameter is <code>String</code> type.</p>
+     * @param outputStream {@link java.io.OutputStream} <p>The output stream parameter is <code>OutputStream</code> type.</p>
      * @see java.lang.String
      * @see java.io.OutputStream
      */

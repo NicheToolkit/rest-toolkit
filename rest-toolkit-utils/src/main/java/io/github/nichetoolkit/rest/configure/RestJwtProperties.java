@@ -31,7 +31,7 @@ import java.util.*;
 public class RestJwtProperties {
     /**
      * <code>radixWorker</code>
-     * {@link io.github.nichetoolkit.rest.worker.RadixWorker} <p>the <code>radixWorker</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.worker.RadixWorker} <p>The <code>radixWorker</code> field.</p>
      * @see io.github.nichetoolkit.rest.worker.RadixWorker
      * @see com.fasterxml.jackson.annotation.JsonIgnore
      */
@@ -40,72 +40,72 @@ public class RestJwtProperties {
 
     /**
      * <code>enabled</code>
-     * <p>the <code>enabled</code> field.</p>
+     * <p>The <code>enabled</code> field.</p>
      */
     private boolean enabled;
     /**
      * <code>algorithm</code>
-     * {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>the <code>algorithm</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The <code>algorithm</code> field.</p>
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm
      */
     private JwtAlgorithm algorithm = JwtAlgorithm.HS256;
     /**
      * <code>secret</code>
-     * {@link java.lang.String} <p>the <code>secret</code> field.</p>
+     * {@link java.lang.String} <p>The <code>secret</code> field.</p>
      * @see java.lang.String
      */
     private String secret;
     /**
      * <code>kid</code>
-     * {@link java.lang.String} <p>the <code>kid</code> field.</p>
+     * {@link java.lang.String} <p>The <code>kid</code> field.</p>
      * @see java.lang.String
      */
     private String kid;
     /**
      * <code>issuer</code>
-     * {@link java.lang.String} <p>the <code>issuer</code> field.</p>
+     * {@link java.lang.String} <p>The <code>issuer</code> field.</p>
      * @see java.lang.String
      */
     private String issuer;
     /**
      * <code>audiences</code>
-     * {@link java.lang.String} <p>the <code>audiences</code> field.</p>
+     * {@link java.lang.String} <p>The <code>audiences</code> field.</p>
      * @see java.lang.String
      */
     private String[] audiences;
     /**
      * <code>expireTime</code>
-     * {@link java.lang.Long} <p>the <code>expireTime</code> field.</p>
+     * {@link java.lang.Long} <p>The <code>expireTime</code> field.</p>
      * @see java.lang.Long
      */
     private Long expireTime = 0L;
     /**
      * <code>expireUnit</code>
-     * {@link java.time.temporal.ChronoUnit} <p>the <code>expireUnit</code> field.</p>
+     * {@link java.time.temporal.ChronoUnit} <p>The <code>expireUnit</code> field.</p>
      * @see java.time.temporal.ChronoUnit
      */
     private ChronoUnit expireUnit = ChronoUnit.MILLIS;
     /**
      * <code>issuedDelayTime</code>
-     * {@link java.lang.Long} <p>the <code>issuedDelayTime</code> field.</p>
+     * {@link java.lang.Long} <p>The <code>issuedDelayTime</code> field.</p>
      * @see java.lang.Long
      */
     private Long issuedDelayTime = 0L;
     /**
      * <code>issuedDelayUnit</code>
-     * {@link java.time.temporal.ChronoUnit} <p>the <code>issuedDelayUnit</code> field.</p>
+     * {@link java.time.temporal.ChronoUnit} <p>The <code>issuedDelayUnit</code> field.</p>
      * @see java.time.temporal.ChronoUnit
      */
     private ChronoUnit issuedDelayUnit = ChronoUnit.MILLIS;
     /**
      * <code>notBeforeEnabled</code>
-     * <p>the <code>notBeforeEnabled</code> field.</p>
+     * <p>The <code>notBeforeEnabled</code> field.</p>
      */
     private boolean notBeforeEnabled = false;
 
     /**
      * <code>RestJwtProperties</code>
-     * Instantiates a new rest jwt properties.
+     * <p>Instantiates a new rest jwt properties.</p>
      */
     public RestJwtProperties() {
         this.radixWorker = null;
@@ -113,8 +113,8 @@ public class RestJwtProperties {
 
     /**
      * <code>RestJwtProperties</code>
-     * Instantiates a new rest jwt properties.
-     * @param radixWorker {@link io.github.nichetoolkit.rest.worker.RadixWorker} <p>the radix worker parameter is <code>RadixWorker</code> type.</p>
+     * <p>Instantiates a new rest jwt properties.</p>
+     * @param radixWorker {@link io.github.nichetoolkit.rest.worker.RadixWorker} <p>The radix worker parameter is <code>RadixWorker</code> type.</p>
      * @see io.github.nichetoolkit.rest.worker.RadixWorker
      * @see org.springframework.beans.factory.annotation.Autowired
      */
@@ -125,7 +125,7 @@ public class RestJwtProperties {
 
     /**
      * <code>algorithmInit</code>
-     * <p>the init method.</p>
+     * <p>The init method.</p>
      * @see javax.annotation.PostConstruct
      */
     @PostConstruct
@@ -151,8 +151,8 @@ public class RestJwtProperties {
 
     /**
      * <code>getAudiences</code>
-     * <p>the audiences getter method.</p>
-     * @return {@link java.util.List} <p>the audiences return object is <code>List</code> type.</p>
+     * <p>The audiences getter method.</p>
+     * @return {@link java.util.List} <p>The audiences return object is <code>List</code> type.</p>
      * @see java.util.List
      * @see java.lang.SuppressWarnings
      */
@@ -166,8 +166,8 @@ public class RestJwtProperties {
 
     /**
      * <code>toBuilder</code>
-     * <p>the builder method.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>the builder return object is <code>JwtBuilder</code> type.</p>
+     * <p>The builder method.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>The builder return object is <code>JwtBuilder</code> type.</p>
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtBuilder
      */
     public JwtBuilder toBuilder() {

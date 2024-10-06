@@ -31,7 +31,7 @@ public class RestIdentityAutoConfigure {
 
     /**
      * <code>RestIdentityAutoConfigure</code>
-     * Instantiates a new rest identity auto configure.
+     * <p>Instantiates a new rest identity auto configure.</p>
      */
     public RestIdentityAutoConfigure() {
         log.debug("The auto configuration for [rest-identity] initiated");
@@ -39,9 +39,9 @@ public class RestIdentityAutoConfigure {
 
     /**
      * <code>identityFactory</code>
-     * <p>the factory method.</p>
-     * @param identityProperties {@link io.github.nichetoolkit.rest.configure.RestIdentityProperties} <p>the identity properties parameter is <code>RestIdentityProperties</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.identity.IdentityFactory} <p>the factory return object is <code>IdentityFactory</code> type.</p>
+     * <p>The factory method.</p>
+     * @param identityProperties {@link io.github.nichetoolkit.rest.configure.RestIdentityProperties} <p>The identity properties parameter is <code>RestIdentityProperties</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.identity.IdentityFactory} <p>The factory return object is <code>IdentityFactory</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestIdentityProperties
      * @see io.github.nichetoolkit.rest.identity.IdentityFactory
      * @see org.springframework.context.annotation.Bean
@@ -57,10 +57,10 @@ public class RestIdentityAutoConfigure {
 
     /**
      * <code>IdentityManager</code>
-     * <p>the manager method.</p>
-     * @param identityProperties {@link io.github.nichetoolkit.rest.configure.RestIdentityProperties} <p>the identity properties parameter is <code>RestIdentityProperties</code> type.</p>
-     * @param environment        {@link org.springframework.core.env.Environment} <p>the environment parameter is <code>Environment</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.identity.IdentityManager} <p>the manager return object is <code>IdentityManager</code> type.</p>
+     * <p>The manager method.</p>
+     * @param identityProperties {@link io.github.nichetoolkit.rest.configure.RestIdentityProperties} <p>The identity properties parameter is <code>RestIdentityProperties</code> type.</p>
+     * @param environment        {@link org.springframework.core.env.Environment} <p>The environment parameter is <code>Environment</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.identity.IdentityManager} <p>The manager return object is <code>IdentityManager</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestIdentityProperties
      * @see org.springframework.core.env.Environment
      * @see io.github.nichetoolkit.rest.identity.IdentityManager

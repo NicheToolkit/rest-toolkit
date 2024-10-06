@@ -40,15 +40,15 @@ import java.util.Map;
 public class DefaultClientHttpInterceptor implements ClientHttpRequestInterceptor {
     /**
      * <code>interceptProperties</code>
-     * {@link io.github.nichetoolkit.rest.configure.RestInterceptProperties} <p>the <code>interceptProperties</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.configure.RestInterceptProperties} <p>The <code>interceptProperties</code> field.</p>
      * @see io.github.nichetoolkit.rest.configure.RestInterceptProperties
      */
     private final RestInterceptProperties interceptProperties;
 
     /**
      * <code>DefaultClientHttpInterceptor</code>
-     * Instantiates a new default client http interceptor.
-     * @param interceptProperties {@link io.github.nichetoolkit.rest.configure.RestInterceptProperties} <p>the intercept properties parameter is <code>RestInterceptProperties</code> type.</p>
+     * <p>Instantiates a new default client http interceptor.</p>
+     * @param interceptProperties {@link io.github.nichetoolkit.rest.configure.RestInterceptProperties} <p>The intercept properties parameter is <code>RestInterceptProperties</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestInterceptProperties
      * @see org.springframework.beans.factory.annotation.Autowired
      */

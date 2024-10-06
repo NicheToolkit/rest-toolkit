@@ -16,7 +16,7 @@ import lombok.Data;
 public class ServerConfig {
     /**
      * <code>IP_ADDRESS</code>
-     * {@link java.lang.String} <p>the constant <code>IP_ADDRESS</code> field.</p>
+     * {@link java.lang.String} <p>The constant <code>IP_ADDRESS</code> field.</p>
      * @see java.lang.String
      * @see com.fasterxml.jackson.annotation.JsonIgnore
      */
@@ -24,7 +24,7 @@ public class ServerConfig {
     public static final String IP_ADDRESS = "spring.cloud.client.ip-address";
     /**
      * <code>SERVER_PORT</code>
-     * {@link java.lang.String} <p>the constant <code>SERVER_PORT</code> field.</p>
+     * {@link java.lang.String} <p>The constant <code>SERVER_PORT</code> field.</p>
      * @see java.lang.String
      * @see com.fasterxml.jackson.annotation.JsonIgnore
      */
@@ -32,7 +32,7 @@ public class ServerConfig {
     public static final String SERVER_PORT = "server.port";
     /**
      * <code>APP_NAME</code>
-     * {@link java.lang.String} <p>the constant <code>APP_NAME</code> field.</p>
+     * {@link java.lang.String} <p>The constant <code>APP_NAME</code> field.</p>
      * @see java.lang.String
      * @see com.fasterxml.jackson.annotation.JsonIgnore
      */
@@ -41,36 +41,36 @@ public class ServerConfig {
 
     /**
      * <code>ip</code>
-     * {@link java.lang.String} <p>the <code>ip</code> field.</p>
+     * {@link java.lang.String} <p>The <code>ip</code> field.</p>
      * @see java.lang.String
      */
     private String ip;
     /**
      * <code>port</code>
-     * {@link java.lang.String} <p>the <code>port</code> field.</p>
+     * {@link java.lang.String} <p>The <code>port</code> field.</p>
      * @see java.lang.String
      */
     private String port;
     /**
      * <code>name</code>
-     * {@link java.lang.String} <p>the <code>name</code> field.</p>
+     * {@link java.lang.String} <p>The <code>name</code> field.</p>
      * @see java.lang.String
      */
     private String name;
 
     /**
      * <code>ServerConfig</code>
-     * Instantiates a new server config.
+     * <p>Instantiates a new server config.</p>
      */
     public ServerConfig() {
     }
 
     /**
      * <code>ServerConfig</code>
-     * Instantiates a new server config.
-     * @param ip   {@link java.lang.String} <p>the ip parameter is <code>String</code> type.</p>
-     * @param port {@link java.lang.String} <p>the port parameter is <code>String</code> type.</p>
-     * @param name {@link java.lang.String} <p>the name parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new server config.</p>
+     * @param ip   {@link java.lang.String} <p>The ip parameter is <code>String</code> type.</p>
+     * @param port {@link java.lang.String} <p>The port parameter is <code>String</code> type.</p>
+     * @param name {@link java.lang.String} <p>The name parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public ServerConfig(String ip, String port, String name) {
@@ -81,8 +81,8 @@ public class ServerConfig {
 
     /**
      * <code>toServer</code>
-     * <p>the server method.</p>
-     * @return {@link java.lang.String} <p>the server return object is <code>String</code> type.</p>
+     * <p>The server method.</p>
+     * @return {@link java.lang.String} <p>The server return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public String toServer() {

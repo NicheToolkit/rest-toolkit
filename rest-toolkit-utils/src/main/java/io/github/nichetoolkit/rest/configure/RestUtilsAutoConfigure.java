@@ -27,7 +27,7 @@ import org.springframework.context.annotation.Primary;
 public class RestUtilsAutoConfigure {
     /**
      * <code>RestUtilsAutoConfigure</code>
-     * Instantiates a new rest utils auto configure.
+     * <p>Instantiates a new rest utils auto configure.</p>
      */
     public RestUtilsAutoConfigure() {
         log.debug("The auto configuration for [rest-Utils] initiated");
@@ -35,9 +35,9 @@ public class RestUtilsAutoConfigure {
 
     /**
      * <code>radixWorker</code>
-     * <p>the worker method.</p>
-     * @param radixProperties {@link io.github.nichetoolkit.rest.configure.RestRadixProperties} <p>the radix properties parameter is <code>RestRadixProperties</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.RadixWorker} <p>the worker return object is <code>RadixWorker</code> type.</p>
+     * <p>The worker method.</p>
+     * @param radixProperties {@link io.github.nichetoolkit.rest.configure.RestRadixProperties} <p>The radix properties parameter is <code>RestRadixProperties</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.RadixWorker} <p>The worker return object is <code>RadixWorker</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestRadixProperties
      * @see io.github.nichetoolkit.rest.worker.RadixWorker
      * @see org.springframework.context.annotation.Bean
@@ -55,9 +55,9 @@ public class RestUtilsAutoConfigure {
 
     /**
      * <code>jwtWorker</code>
-     * <p>the worker method.</p>
-     * @param jwtProperties {@link io.github.nichetoolkit.rest.configure.RestJwtProperties} <p>the jwt properties parameter is <code>RestJwtProperties</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtWorker} <p>the worker return object is <code>JwtWorker</code> type.</p>
+     * <p>The worker method.</p>
+     * @param jwtProperties {@link io.github.nichetoolkit.rest.configure.RestJwtProperties} <p>The jwt properties parameter is <code>RestJwtProperties</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtWorker} <p>The worker return object is <code>JwtWorker</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestJwtProperties
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtWorker
      * @see org.springframework.context.annotation.Bean
@@ -75,9 +75,9 @@ public class RestUtilsAutoConfigure {
 
     /**
      * <code>shaWorker</code>
-     * <p>the worker method.</p>
-     * @param shaProperties {@link io.github.nichetoolkit.rest.configure.RestShaProperties} <p>the sha properties parameter is <code>RestShaProperties</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.sha.ShaWorker} <p>the worker return object is <code>ShaWorker</code> type.</p>
+     * <p>The worker method.</p>
+     * @param shaProperties {@link io.github.nichetoolkit.rest.configure.RestShaProperties} <p>The sha properties parameter is <code>RestShaProperties</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.sha.ShaWorker} <p>The worker return object is <code>ShaWorker</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestShaProperties
      * @see io.github.nichetoolkit.rest.worker.sha.ShaWorker
      * @see org.springframework.context.annotation.Bean
@@ -95,9 +95,9 @@ public class RestUtilsAutoConfigure {
 
     /**
      * <code>rsaWorker</code>
-     * <p>the worker method.</p>
-     * @param rsaProperties {@link io.github.nichetoolkit.rest.configure.RestRsaProperties} <p>the rsa properties parameter is <code>RestRsaProperties</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.rsa.RsaWorker} <p>the worker return object is <code>RsaWorker</code> type.</p>
+     * <p>The worker method.</p>
+     * @param rsaProperties {@link io.github.nichetoolkit.rest.configure.RestRsaProperties} <p>The rsa properties parameter is <code>RestRsaProperties</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.rsa.RsaWorker} <p>The worker return object is <code>RsaWorker</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestRsaProperties
      * @see io.github.nichetoolkit.rest.worker.rsa.RsaWorker
      * @see org.springframework.context.annotation.Bean

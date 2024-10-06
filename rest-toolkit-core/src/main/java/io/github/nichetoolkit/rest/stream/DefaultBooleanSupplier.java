@@ -15,9 +15,9 @@ interface DefaultBooleanSupplier {
 
     /**
      * <code>actuate</code>
-     * <p>the method.</p>
-     * @return boolean <p>the return object is <code>boolean</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The method.</p>
+     * @return boolean <p>The return object is <code>boolean</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
     boolean actuate() throws RestException;

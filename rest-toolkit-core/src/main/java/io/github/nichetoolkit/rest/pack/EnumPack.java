@@ -24,30 +24,30 @@ public class EnumPack extends ViewPack {
 
     /**
      * <code>ordinal</code>
-     * {@link java.lang.Integer} <p>the <code>ordinal</code> field.</p>
+     * {@link java.lang.Integer} <p>The <code>ordinal</code> field.</p>
      * @see java.lang.Integer
      */
     private Integer ordinal;
     /**
      * <code>key</code>
-     * {@link java.lang.Object} <p>the <code>key</code> field.</p>
+     * {@link java.lang.Object} <p>The <code>key</code> field.</p>
      * @see java.lang.Object
      */
     private Object key;
 
     /**
      * <code>EnumPack</code>
-     * Instantiates a new enum pack.
+     * <p>Instantiates a new enum pack.</p>
      */
     public EnumPack() {
     }
 
     /**
      * <code>EnumPack</code>
-     * Instantiates a new enum pack.
-     * @param name  {@link java.lang.String} <p>the name parameter is <code>String</code> type.</p>
-     * @param key   {@link java.lang.Object} <p>the key parameter is <code>Object</code> type.</p>
-     * @param value {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>
+     * <p>Instantiates a new enum pack.</p>
+     * @param name  {@link java.lang.String} <p>The name parameter is <code>String</code> type.</p>
+     * @param key   {@link java.lang.Object} <p>The key parameter is <code>Object</code> type.</p>
+     * @param value {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Object
      */
@@ -59,11 +59,11 @@ public class EnumPack extends ViewPack {
 
     /**
      * <code>EnumPack</code>
-     * Instantiates a new enum pack.
-     * @param name    {@link java.lang.String} <p>the name parameter is <code>String</code> type.</p>
-     * @param ordinal {@link java.lang.Integer} <p>the ordinal parameter is <code>Integer</code> type.</p>
-     * @param key     {@link java.lang.Object} <p>the key parameter is <code>Object</code> type.</p>
-     * @param value   {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>
+     * <p>Instantiates a new enum pack.</p>
+     * @param name    {@link java.lang.String} <p>The name parameter is <code>String</code> type.</p>
+     * @param ordinal {@link java.lang.Integer} <p>The ordinal parameter is <code>Integer</code> type.</p>
+     * @param key     {@link java.lang.Object} <p>The key parameter is <code>Object</code> type.</p>
+     * @param value   {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Integer
      * @see java.lang.Object
@@ -76,9 +76,9 @@ public class EnumPack extends ViewPack {
 
     /**
      * <code>fromValue</code>
-     * <p>the value method.</p>
-     * @param entry {@link io.github.nichetoolkit.rest.RestValue} <p>the entry parameter is <code>RestValue</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.pack.EnumPack} <p>the value return object is <code>EnumPack</code> type.</p>
+     * <p>The value method.</p>
+     * @param entry {@link io.github.nichetoolkit.rest.RestValue} <p>The entry parameter is <code>RestValue</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.pack.EnumPack} <p>The value return object is <code>EnumPack</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestValue
      */
     public static EnumPack fromValue(RestValue<?, ?> entry) {
@@ -87,9 +87,9 @@ public class EnumPack extends ViewPack {
 
     /**
      * <code>fromEnum</code>
-     * <p>the enum method.</p>
-     * @param entry {@link java.lang.Enum} <p>the entry parameter is <code>Enum</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.pack.EnumPack} <p>the enum return object is <code>EnumPack</code> type.</p>
+     * <p>The enum method.</p>
+     * @param entry {@link java.lang.Enum} <p>The entry parameter is <code>Enum</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.pack.EnumPack} <p>The enum return object is <code>EnumPack</code> type.</p>
      * @see java.lang.Enum
      */
     public static EnumPack fromEnum(Enum<?> entry) {

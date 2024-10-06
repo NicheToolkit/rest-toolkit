@@ -17,7 +17,7 @@ public class ConfigureLackError extends RestError {
 
     /**
      * <code>ConfigureLackError</code>
-     * Instantiates a new configure lack error.
+     * <p>Instantiates a new configure lack error.</p>
      */
     public ConfigureLackError() {
         super(RestErrorStatus.CONFIGURE_LACK_ERROR);
@@ -25,8 +25,8 @@ public class ConfigureLackError extends RestError {
 
     /**
      * <code>ConfigureLackError</code>
-     * Instantiates a new configure lack error.
-     * @param cause {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new configure lack error.</p>
+     * @param cause {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see java.lang.Throwable
      */
     public ConfigureLackError(Throwable cause) {
@@ -35,8 +35,8 @@ public class ConfigureLackError extends RestError {
 
     /**
      * <code>ConfigureLackError</code>
-     * Instantiates a new configure lack error.
-     * @param supplier {@link java.util.function.Supplier} <p>the supplier parameter is <code>Supplier</code> type.</p>
+     * <p>Instantiates a new configure lack error.</p>
+     * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
      * @see java.util.function.Supplier
      */
     public ConfigureLackError(Supplier<RestStatus> supplier) {
@@ -45,8 +45,8 @@ public class ConfigureLackError extends RestError {
 
     /**
      * <code>ConfigureLackError</code>
-     * Instantiates a new configure lack error.
-     * @param error {@link java.lang.String} <p>the error parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new configure lack error.</p>
+     * @param error {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public ConfigureLackError(String error) {
@@ -55,9 +55,9 @@ public class ConfigureLackError extends RestError {
 
     /**
      * <code>ConfigureLackError</code>
-     * Instantiates a new configure lack error.
-     * @param error {@link java.lang.String} <p>the error parameter is <code>String</code> type.</p>
-     * @param cause {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new configure lack error.</p>
+     * @param error {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
+     * @param cause {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Throwable
      */
@@ -67,8 +67,8 @@ public class ConfigureLackError extends RestError {
 
     /**
      * <code>ConfigureLackError</code>
-     * Instantiates a new configure lack error.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * <p>Instantiates a new configure lack error.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
     public ConfigureLackError(RestStatus status) {
@@ -77,9 +77,9 @@ public class ConfigureLackError extends RestError {
 
     /**
      * <code>ConfigureLackError</code>
-     * Instantiates a new configure lack error.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param cause  {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new configure lack error.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param cause  {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.Throwable
      */

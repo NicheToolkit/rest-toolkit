@@ -16,13 +16,13 @@ public class CollectUtils {
 
     /**
      * <code>collect</code>
-     * <p>the method.</p>
-     * @param <K>           {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <V>           {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param srcCollection {@link java.util.Collection} <p>the src collection parameter is <code>Collection</code> type.</p>
-     * @param function      {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>the function parameter is <code>FunctionActuator</code> type.</p>
-     * @return {@link java.util.Map} <p>the return object is <code>Map</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The method.</p>
+     * @param <K>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <V>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param srcCollection {@link java.util.Collection} <p>The src collection parameter is <code>Collection</code> type.</p>
+     * @param function      {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The function parameter is <code>FunctionActuator</code> type.</p>
+     * @return {@link java.util.Map} <p>The return object is <code>Map</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.util.Collection
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      * @see java.util.Map
@@ -39,12 +39,12 @@ public class CollectUtils {
 
     /**
      * <code>collect</code>
-     * <p>the method.</p>
-     * @param <K>           {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <V>           {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param srcCollection {@link java.util.Collection} <p>the src collection parameter is <code>Collection</code> type.</p>
-     * @param function      {@link java.util.function.Function} <p>the function parameter is <code>Function</code> type.</p>
-     * @return {@link java.util.Map} <p>the return object is <code>Map</code> type.</p>
+     * <p>The method.</p>
+     * @param <K>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <V>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param srcCollection {@link java.util.Collection} <p>The src collection parameter is <code>Collection</code> type.</p>
+     * @param function      {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
+     * @return {@link java.util.Map} <p>The return object is <code>Map</code> type.</p>
      * @see java.util.Collection
      * @see java.util.function.Function
      * @see java.util.Map
@@ -60,12 +60,12 @@ public class CollectUtils {
 
     /**
      * <code>collect</code>
-     * <p>the method.</p>
-     * @param <K> {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <V> {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param key K <p>the key parameter is <code>K</code> type.</p>
-     * @param src V <p>the src parameter is <code>V</code> type.</p>
-     * @param map {@link java.util.Map} <p>the map parameter is <code>Map</code> type.</p>
+     * <p>The method.</p>
+     * @param <K> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <V> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param key K <p>The key parameter is <code>K</code> type.</p>
+     * @param src V <p>The src parameter is <code>V</code> type.</p>
+     * @param map {@link java.util.Map} <p>The map parameter is <code>Map</code> type.</p>
      * @see java.util.Map
      */
     public static <K,V> void collect(K key,V src, Map<K,List<V>> map) {
@@ -80,12 +80,12 @@ public class CollectUtils {
 
     /**
      * <code>collect</code>
-     * <p>the method.</p>
-     * @param <T>             {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param key             boolean <p>the key parameter is <code>boolean</code> type.</p>
-     * @param data            T <p>the data parameter is <code>T</code> type.</p>
-     * @param falseCollection {@link java.util.Collection} <p>the false collection parameter is <code>Collection</code> type.</p>
-     * @param trueCollection  {@link java.util.Collection} <p>the true collection parameter is <code>Collection</code> type.</p>
+     * <p>The method.</p>
+     * @param <T>             {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param key             boolean <p>The key parameter is <code>boolean</code> type.</p>
+     * @param data            T <p>The data parameter is <code>T</code> type.</p>
+     * @param falseCollection {@link java.util.Collection} <p>The false collection parameter is <code>Collection</code> type.</p>
+     * @param trueCollection  {@link java.util.Collection} <p>The true collection parameter is <code>Collection</code> type.</p>
      * @see java.util.Collection
      */
     public static <T> void collect(boolean key, T data, Collection<T> falseCollection, Collection<T> trueCollection) {
@@ -99,12 +99,12 @@ public class CollectUtils {
 
     /**
      * <code>collect</code>
-     * <p>the method.</p>
-     * @param <K>            {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <T>            {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param key            K <p>the key parameter is <code>K</code> type.</p>
-     * @param dataCollection {@link java.util.Collection} <p>the data collection parameter is <code>Collection</code> type.</p>
-     * @param dataMap        {@link java.util.Map} <p>the data map parameter is <code>Map</code> type.</p>
+     * <p>The method.</p>
+     * @param <K>            {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>            {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param key            K <p>The key parameter is <code>K</code> type.</p>
+     * @param dataCollection {@link java.util.Collection} <p>The data collection parameter is <code>Collection</code> type.</p>
+     * @param dataMap        {@link java.util.Map} <p>The data map parameter is <code>Map</code> type.</p>
      * @see java.util.Collection
      * @see java.util.Map
      * @see java.lang.SuppressWarnings
@@ -123,13 +123,13 @@ public class CollectUtils {
 
     /**
      * <code>collect</code>
-     * <p>the method.</p>
-     * @param <K>             {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <T>             {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param key             K <p>the key parameter is <code>K</code> type.</p>
-     * @param data            T <p>the data parameter is <code>T</code> type.</p>
-     * @param falseCollection {@link java.util.Collection} <p>the false collection parameter is <code>Collection</code> type.</p>
-     * @param trueMap         {@link java.util.Map} <p>the true map parameter is <code>Map</code> type.</p>
+     * <p>The method.</p>
+     * @param <K>             {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>             {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param key             K <p>The key parameter is <code>K</code> type.</p>
+     * @param data            T <p>The data parameter is <code>T</code> type.</p>
+     * @param falseCollection {@link java.util.Collection} <p>The false collection parameter is <code>Collection</code> type.</p>
+     * @param trueMap         {@link java.util.Map} <p>The true map parameter is <code>Map</code> type.</p>
      * @see java.util.Collection
      * @see java.util.Map
      */
@@ -144,13 +144,13 @@ public class CollectUtils {
 
     /**
      * <code>collect</code>
-     * <p>the method.</p>
-     * @param <K>             {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <T>             {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param key             K <p>the key parameter is <code>K</code> type.</p>
-     * @param data            T <p>the data parameter is <code>T</code> type.</p>
-     * @param falseCollection {@link java.util.Collection} <p>the false collection parameter is <code>Collection</code> type.</p>
-     * @param trueCollection  {@link java.util.Collection} <p>the true collection parameter is <code>Collection</code> type.</p>
+     * <p>The method.</p>
+     * @param <K>             {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>             {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param key             K <p>The key parameter is <code>K</code> type.</p>
+     * @param data            T <p>The data parameter is <code>T</code> type.</p>
+     * @param falseCollection {@link java.util.Collection} <p>The false collection parameter is <code>Collection</code> type.</p>
+     * @param trueCollection  {@link java.util.Collection} <p>The true collection parameter is <code>Collection</code> type.</p>
      * @see java.util.Collection
      */
     public static <K, T> void collect(K key, T data, Collection<T> falseCollection, Collection<T> trueCollection) {
@@ -164,13 +164,13 @@ public class CollectUtils {
 
     /**
      * <code>collect</code>
-     * <p>the method.</p>
-     * @param <T>             {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param srcKey          {@link java.lang.Long} <p>the src key parameter is <code>Long</code> type.</p>
-     * @param targetKey       {@link java.lang.Long} <p>the target key parameter is <code>Long</code> type.</p>
-     * @param data            T <p>the data parameter is <code>T</code> type.</p>
-     * @param equalCollection {@link java.util.Collection} <p>the equal collection parameter is <code>Collection</code> type.</p>
-     * @param unequalMap      {@link java.util.Map} <p>the unequal map parameter is <code>Map</code> type.</p>
+     * <p>The method.</p>
+     * @param <T>             {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param srcKey          {@link java.lang.Long} <p>The src key parameter is <code>Long</code> type.</p>
+     * @param targetKey       {@link java.lang.Long} <p>The target key parameter is <code>Long</code> type.</p>
+     * @param data            T <p>The data parameter is <code>T</code> type.</p>
+     * @param equalCollection {@link java.util.Collection} <p>The equal collection parameter is <code>Collection</code> type.</p>
+     * @param unequalMap      {@link java.util.Map} <p>The unequal map parameter is <code>Map</code> type.</p>
      * @see java.lang.Long
      * @see java.util.Collection
      * @see java.util.Map
@@ -185,14 +185,14 @@ public class CollectUtils {
 
     /**
      * <code>collect</code>
-     * <p>the method.</p>
-     * @param <K>               {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <T>               {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param srcKey            K <p>the src key parameter is <code>K</code> type.</p>
-     * @param targetKey         K <p>the target key parameter is <code>K</code> type.</p>
-     * @param data              T <p>the data parameter is <code>T</code> type.</p>
-     * @param equalCollection   {@link java.util.Collection} <p>the equal collection parameter is <code>Collection</code> type.</p>
-     * @param unequalCollection {@link java.util.Collection} <p>the unequal collection parameter is <code>Collection</code> type.</p>
+     * <p>The method.</p>
+     * @param <K>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param srcKey            K <p>The src key parameter is <code>K</code> type.</p>
+     * @param targetKey         K <p>The target key parameter is <code>K</code> type.</p>
+     * @param data              T <p>The data parameter is <code>T</code> type.</p>
+     * @param equalCollection   {@link java.util.Collection} <p>The equal collection parameter is <code>Collection</code> type.</p>
+     * @param unequalCollection {@link java.util.Collection} <p>The unequal collection parameter is <code>Collection</code> type.</p>
      * @see java.util.Collection
      */
     public static <K, T> void collect(K srcKey, K targetKey, T data, Collection<T> equalCollection, Collection<T> unequalCollection) {
@@ -205,13 +205,13 @@ public class CollectUtils {
 
     /**
      * <code>collect</code>
-     * <p>the method.</p>
-     * @param <K>                 {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <T>                 {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param srcKey              K <p>the src key parameter is <code>K</code> type.</p>
-     * @param targetKeyCollection {@link java.util.Collection} <p>the target key collection parameter is <code>Collection</code> type.</p>
-     * @param data                T <p>the data parameter is <code>T</code> type.</p>
-     * @param dataMap             {@link java.util.Map} <p>the data map parameter is <code>Map</code> type.</p>
+     * <p>The method.</p>
+     * @param <K>                 {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>                 {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param srcKey              K <p>The src key parameter is <code>K</code> type.</p>
+     * @param targetKeyCollection {@link java.util.Collection} <p>The target key collection parameter is <code>Collection</code> type.</p>
+     * @param data                T <p>The data parameter is <code>T</code> type.</p>
+     * @param dataMap             {@link java.util.Map} <p>The data map parameter is <code>Map</code> type.</p>
      * @see java.util.Collection
      * @see java.util.Map
      */

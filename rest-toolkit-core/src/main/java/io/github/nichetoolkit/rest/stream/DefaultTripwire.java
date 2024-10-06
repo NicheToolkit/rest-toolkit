@@ -16,29 +16,29 @@ import java.security.PrivilegedAction;
 final class DefaultTripwire {
     /**
      * <code>TRIPWIRE_PROPERTY</code>
-     * {@link java.lang.String} <p>the constant <code>TRIPWIRE_PROPERTY</code> field.</p>
+     * {@link java.lang.String} <p>The constant <code>TRIPWIRE_PROPERTY</code> field.</p>
      * @see java.lang.String
      */
     private static final String TRIPWIRE_PROPERTY = "org.openjdk.java.util.stream.tripwire";
 
     /**
      * <code>ENABLED</code>
-     * <p>the <code>ENABLED</code> field.</p>
+     * <p>The <code>ENABLED</code> field.</p>
      */
     static final boolean ENABLED = AccessController.doPrivileged(
             (PrivilegedAction<Boolean>) () -> Boolean.getBoolean(TRIPWIRE_PROPERTY));
 
     /**
      * <code>DefaultTripwire</code>
-     * Instantiates a new default tripwire.
+     * <p>Instantiates a new default tripwire.</p>
      */
     private DefaultTripwire() { }
 
     /**
      * <code>trip</code>
-     * <p>the method.</p>
-     * @param trippingClass {@link java.lang.Class} <p>the tripping class parameter is <code>Class</code> type.</p>
-     * @param msg           {@link java.lang.String} <p>the msg parameter is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param trippingClass {@link java.lang.Class} <p>The tripping class parameter is <code>Class</code> type.</p>
+     * @param msg           {@link java.lang.String} <p>The msg parameter is <code>String</code> type.</p>
      * @see java.lang.Class
      * @see java.lang.String
      */

@@ -9,7 +9,7 @@ package io.github.nichetoolkit.rest;
 public class ReckonWorkerTest {
     /**
      * <code>DIGITS</code>
-     * <p>the <code>DIGITS</code> field.</p>
+     * <p>The <code>DIGITS</code> field.</p>
      */
     static char[] DIGITS = {
             '0', '1', '2', '3', '4', '5',
@@ -28,9 +28,9 @@ public class ReckonWorkerTest {
 
     /**
      * <code>ennex</code>
-     * <p>the method.</p>
-     * @param value {@link java.lang.Long} <p>the value parameter is <code>Long</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param value {@link java.lang.Long} <p>The value parameter is <code>Long</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.Long
      * @see java.lang.String
      */
@@ -47,9 +47,9 @@ public class ReckonWorkerTest {
 
     /**
      * <code>denex</code>
-     * <p>the method.</p>
-     * @param code {@link java.lang.String} <p>the code parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.Long} <p>the return object is <code>Long</code> type.</p>
+     * <p>The method.</p>
+     * @param code {@link java.lang.String} <p>The code parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.Long} <p>The return object is <code>Long</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Long
      */
@@ -70,9 +70,9 @@ public class ReckonWorkerTest {
 
     /**
      * <code>annex</code>
-     * <p>the method.</p>
-     * @param level {@link java.lang.Integer} <p>the level parameter is <code>Integer</code> type.</p>
-     * @return {@link java.lang.Long} <p>the return object is <code>Long</code> type.</p>
+     * <p>The method.</p>
+     * @param level {@link java.lang.Integer} <p>The level parameter is <code>Integer</code> type.</p>
+     * @return {@link java.lang.Long} <p>The return object is <code>Long</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.Long
      */
@@ -89,7 +89,7 @@ public class ReckonWorkerTest {
     /**
      * <code>main</code>
      * <p>The entry point of application.</p>
-     * @param args {@link java.lang.String} <p>the input arguments.</p>
+     * @param args {@link java.lang.String} <p>The input arguments.</p>
      * @see java.lang.String
      */
     public static void main(String[] args) {

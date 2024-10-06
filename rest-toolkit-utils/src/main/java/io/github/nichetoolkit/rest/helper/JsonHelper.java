@@ -39,11 +39,11 @@ public class JsonHelper {
 
     /**
      * <code>parseJson</code>
-     * <p>the json method.</p>
-     * @param <T>    {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param target T <p>the target parameter is <code>T</code> type.</p>
-     * @return {@link java.lang.String} <p>the json return object is <code>String</code> type.</p>
-     * @throws JsonParseException {@link io.github.nichetoolkit.rest.error.supply.JsonParseException} <p>the json parse exception is <code>JsonParseException</code> type.</p>
+     * <p>The json method.</p>
+     * @param <T>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param target T <p>The target parameter is <code>T</code> type.</p>
+     * @return {@link java.lang.String} <p>The json return object is <code>String</code> type.</p>
+     * @throws JsonParseException {@link io.github.nichetoolkit.rest.error.supply.JsonParseException} <p>The json parse exception is <code>JsonParseException</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.error.supply.JsonParseException
      */
@@ -60,12 +60,12 @@ public class JsonHelper {
 
     /**
      * <code>parseJson</code>
-     * <p>the json method.</p>
-     * @param <T>           {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param target        T <p>the target parameter is <code>T</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>the type reference parameter is <code>TypeReference</code> type.</p>
-     * @return {@link java.lang.String} <p>the json return object is <code>String</code> type.</p>
-     * @throws JsonParseException {@link io.github.nichetoolkit.rest.error.supply.JsonParseException} <p>the json parse exception is <code>JsonParseException</code> type.</p>
+     * <p>The json method.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param target        T <p>The target parameter is <code>T</code> type.</p>
+     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @return {@link java.lang.String} <p>The json return object is <code>String</code> type.</p>
+     * @throws JsonParseException {@link io.github.nichetoolkit.rest.error.supply.JsonParseException} <p>The json parse exception is <code>JsonParseException</code> type.</p>
      * @see com.fasterxml.jackson.core.type.TypeReference
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.error.supply.JsonParseException
@@ -83,11 +83,11 @@ public class JsonHelper {
 
     /**
      * <code>parseJsonIgnoreNull</code>
-     * <p>the json ignore null method.</p>
-     * @param <T>    {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param target T <p>the target parameter is <code>T</code> type.</p>
-     * @return {@link java.lang.String} <p>the json ignore null return object is <code>String</code> type.</p>
-     * @throws JsonParseException {@link io.github.nichetoolkit.rest.error.supply.JsonParseException} <p>the json parse exception is <code>JsonParseException</code> type.</p>
+     * <p>The json ignore null method.</p>
+     * @param <T>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param target T <p>The target parameter is <code>T</code> type.</p>
+     * @return {@link java.lang.String} <p>The json ignore null return object is <code>String</code> type.</p>
+     * @throws JsonParseException {@link io.github.nichetoolkit.rest.error.supply.JsonParseException} <p>The json parse exception is <code>JsonParseException</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.error.supply.JsonParseException
      */
@@ -106,12 +106,12 @@ public class JsonHelper {
 
     /**
      * <code>parseBean</code>
-     * <p>the bean method.</p>
-     * @param <T>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param json  {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
-     * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @return T <p>the bean return object is <code>T</code> type.</p>
-     * @throws JsonParseBeanException {@link io.github.nichetoolkit.rest.error.json.JsonParseBeanException} <p>the json parse bean exception is <code>JsonParseBeanException</code> type.</p>
+     * <p>The bean method.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json  {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @return T <p>The bean return object is <code>T</code> type.</p>
+     * @throws JsonParseBeanException {@link io.github.nichetoolkit.rest.error.json.JsonParseBeanException} <p>The json parse bean exception is <code>JsonParseBeanException</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Class
      * @see io.github.nichetoolkit.rest.error.json.JsonParseBeanException
@@ -129,12 +129,12 @@ public class JsonHelper {
 
     /**
      * <code>parseBean</code>
-     * <p>the bean method.</p>
-     * @param <T>           {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param json          {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>the type reference parameter is <code>TypeReference</code> type.</p>
-     * @return T <p>the bean return object is <code>T</code> type.</p>
-     * @throws JsonParseBeanException {@link io.github.nichetoolkit.rest.error.json.JsonParseBeanException} <p>the json parse bean exception is <code>JsonParseBeanException</code> type.</p>
+     * <p>The bean method.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json          {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @return T <p>The bean return object is <code>T</code> type.</p>
+     * @throws JsonParseBeanException {@link io.github.nichetoolkit.rest.error.json.JsonParseBeanException} <p>The json parse bean exception is <code>JsonParseBeanException</code> type.</p>
      * @see java.lang.String
      * @see com.fasterxml.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.error.json.JsonParseBeanException
@@ -152,12 +152,12 @@ public class JsonHelper {
 
     /**
      * <code>parseBean</code>
-     * <p>the bean method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param json     {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>the java type parameter is <code>JavaType</code> type.</p>
-     * @return T <p>the bean return object is <code>T</code> type.</p>
-     * @throws JsonParseBeanException {@link io.github.nichetoolkit.rest.error.json.JsonParseBeanException} <p>the json parse bean exception is <code>JsonParseBeanException</code> type.</p>
+     * <p>The bean method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json     {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @return T <p>The bean return object is <code>T</code> type.</p>
+     * @throws JsonParseBeanException {@link io.github.nichetoolkit.rest.error.json.JsonParseBeanException} <p>The json parse bean exception is <code>JsonParseBeanException</code> type.</p>
      * @see java.lang.String
      * @see com.fasterxml.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.error.json.JsonParseBeanException
@@ -175,14 +175,14 @@ public class JsonHelper {
 
     /**
      * <code>parseBean</code>
-     * <p>the bean method.</p>
-     * @param <T>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <U>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param json       {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
-     * @param clazz      {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @param innerClazz {@link java.lang.Class} <p>the inner clazz parameter is <code>Class</code> type.</p>
-     * @return T <p>the bean return object is <code>T</code> type.</p>
-     * @throws JsonParseBeanException {@link io.github.nichetoolkit.rest.error.json.JsonParseBeanException} <p>the json parse bean exception is <code>JsonParseBeanException</code> type.</p>
+     * <p>The bean method.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <U>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json       {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param clazz      {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @param innerClazz {@link java.lang.Class} <p>The inner clazz parameter is <code>Class</code> type.</p>
+     * @return T <p>The bean return object is <code>T</code> type.</p>
+     * @throws JsonParseBeanException {@link io.github.nichetoolkit.rest.error.json.JsonParseBeanException} <p>The json parse bean exception is <code>JsonParseBeanException</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Class
      * @see io.github.nichetoolkit.rest.error.json.JsonParseBeanException
@@ -201,12 +201,12 @@ public class JsonHelper {
 
     /**
      * <code>parseArray</code>
-     * <p>the array method.</p>
-     * @param <T>       {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param json      {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
-     * @param arrayType {@link com.fasterxml.jackson.databind.type.ArrayType} <p>the array type parameter is <code>ArrayType</code> type.</p>
-     * @return T <p>the array return object is <code>T</code> type.</p>
-     * @throws JsonParseListException {@link io.github.nichetoolkit.rest.error.json.JsonParseListException} <p>the json parse list exception is <code>JsonParseListException</code> type.</p>
+     * <p>The array method.</p>
+     * @param <T>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json      {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param arrayType {@link com.fasterxml.jackson.databind.type.ArrayType} <p>The array type parameter is <code>ArrayType</code> type.</p>
+     * @return T <p>The array return object is <code>T</code> type.</p>
+     * @throws JsonParseListException {@link io.github.nichetoolkit.rest.error.json.JsonParseListException} <p>The json parse list exception is <code>JsonParseListException</code> type.</p>
      * @see java.lang.String
      * @see com.fasterxml.jackson.databind.type.ArrayType
      * @see io.github.nichetoolkit.rest.error.json.JsonParseListException
@@ -225,13 +225,13 @@ public class JsonHelper {
 
     /**
      * <code>parseArray</code>
-     * <p>the array method.</p>
-     * @param <Z>   {@link java.util.List} <p>the generic parameter is <code>List</code> type.</p>
-     * @param <T>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param json  {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
-     * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @return T <p>the array return object is <code>T</code> type.</p>
-     * @throws JsonParseListException {@link io.github.nichetoolkit.rest.error.json.JsonParseListException} <p>the json parse list exception is <code>JsonParseListException</code> type.</p>
+     * <p>The array method.</p>
+     * @param <Z>   {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json  {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @return T <p>The array return object is <code>T</code> type.</p>
+     * @throws JsonParseListException {@link io.github.nichetoolkit.rest.error.json.JsonParseListException} <p>The json parse list exception is <code>JsonParseListException</code> type.</p>
      * @see java.util.List
      * @see java.lang.String
      * @see java.lang.Class
@@ -245,12 +245,12 @@ public class JsonHelper {
 
     /**
      * <code>parseArray</code>
-     * <p>the array method.</p>
-     * @param <T>           {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param json          {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>the type reference parameter is <code>TypeReference</code> type.</p>
-     * @return T <p>the array return object is <code>T</code> type.</p>
-     * @throws JsonParseListException {@link io.github.nichetoolkit.rest.error.json.JsonParseListException} <p>the json parse list exception is <code>JsonParseListException</code> type.</p>
+     * <p>The array method.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json          {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @return T <p>The array return object is <code>T</code> type.</p>
+     * @throws JsonParseListException {@link io.github.nichetoolkit.rest.error.json.JsonParseListException} <p>The json parse list exception is <code>JsonParseListException</code> type.</p>
      * @see java.lang.String
      * @see com.fasterxml.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.error.json.JsonParseListException
@@ -262,12 +262,12 @@ public class JsonHelper {
 
     /**
      * <code>parseList</code>
-     * <p>the list method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param json     {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
-     * @param listType {@link com.fasterxml.jackson.databind.type.CollectionType} <p>the list type parameter is <code>CollectionType</code> type.</p>
-     * @return {@link java.util.List} <p>the list return object is <code>List</code> type.</p>
-     * @throws JsonParseListException {@link io.github.nichetoolkit.rest.error.json.JsonParseListException} <p>the json parse list exception is <code>JsonParseListException</code> type.</p>
+     * <p>The list method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json     {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param listType {@link com.fasterxml.jackson.databind.type.CollectionType} <p>The list type parameter is <code>CollectionType</code> type.</p>
+     * @return {@link java.util.List} <p>The list return object is <code>List</code> type.</p>
+     * @throws JsonParseListException {@link io.github.nichetoolkit.rest.error.json.JsonParseListException} <p>The json parse list exception is <code>JsonParseListException</code> type.</p>
      * @see java.lang.String
      * @see com.fasterxml.jackson.databind.type.CollectionType
      * @see java.util.List
@@ -286,12 +286,12 @@ public class JsonHelper {
 
     /**
      * <code>parseList</code>
-     * <p>the list method.</p>
-     * @param <T>           {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param json          {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>the type reference parameter is <code>TypeReference</code> type.</p>
-     * @return {@link java.util.List} <p>the list return object is <code>List</code> type.</p>
-     * @throws JsonParseListException {@link io.github.nichetoolkit.rest.error.json.JsonParseListException} <p>the json parse list exception is <code>JsonParseListException</code> type.</p>
+     * <p>The list method.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json          {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @return {@link java.util.List} <p>The list return object is <code>List</code> type.</p>
+     * @throws JsonParseListException {@link io.github.nichetoolkit.rest.error.json.JsonParseListException} <p>The json parse list exception is <code>JsonParseListException</code> type.</p>
      * @see java.lang.String
      * @see com.fasterxml.jackson.core.type.TypeReference
      * @see java.util.List
@@ -310,14 +310,14 @@ public class JsonHelper {
 
     /**
      * <code>parseList</code>
-     * <p>the list method.</p>
-     * @param <Z>        {@link java.util.List} <p>the generic parameter is <code>List</code> type.</p>
-     * @param <T>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param json       {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
-     * @param parseClazz {@link java.lang.Class} <p>the parse clazz parameter is <code>Class</code> type.</p>
-     * @param clazz      {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @return {@link java.util.List} <p>the list return object is <code>List</code> type.</p>
-     * @throws JsonParseListException {@link io.github.nichetoolkit.rest.error.json.JsonParseListException} <p>the json parse list exception is <code>JsonParseListException</code> type.</p>
+     * <p>The list method.</p>
+     * @param <Z>        {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json       {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param parseClazz {@link java.lang.Class} <p>The parse clazz parameter is <code>Class</code> type.</p>
+     * @param clazz      {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @return {@link java.util.List} <p>The list return object is <code>List</code> type.</p>
+     * @throws JsonParseListException {@link io.github.nichetoolkit.rest.error.json.JsonParseListException} <p>The json parse list exception is <code>JsonParseListException</code> type.</p>
      * @see java.util.List
      * @see java.lang.String
      * @see java.lang.Class
@@ -330,12 +330,12 @@ public class JsonHelper {
 
     /**
      * <code>parseList</code>
-     * <p>the list method.</p>
-     * @param <T>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param json  {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
-     * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @return {@link java.util.List} <p>the list return object is <code>List</code> type.</p>
-     * @throws JsonParseListException {@link io.github.nichetoolkit.rest.error.json.JsonParseListException} <p>the json parse list exception is <code>JsonParseListException</code> type.</p>
+     * <p>The list method.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json  {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @return {@link java.util.List} <p>The list return object is <code>List</code> type.</p>
+     * @throws JsonParseListException {@link io.github.nichetoolkit.rest.error.json.JsonParseListException} <p>The json parse list exception is <code>JsonParseListException</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Class
      * @see java.util.List
@@ -347,12 +347,12 @@ public class JsonHelper {
 
     /**
      * <code>parseSet</code>
-     * <p>the set method.</p>
-     * @param <T>     {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param json    {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
-     * @param setType {@link com.fasterxml.jackson.databind.type.CollectionType} <p>the set type parameter is <code>CollectionType</code> type.</p>
-     * @return {@link java.util.Set} <p>the set return object is <code>Set</code> type.</p>
-     * @throws JsonParseSetException {@link io.github.nichetoolkit.rest.error.json.JsonParseSetException} <p>the json parse set exception is <code>JsonParseSetException</code> type.</p>
+     * <p>The set method.</p>
+     * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json    {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param setType {@link com.fasterxml.jackson.databind.type.CollectionType} <p>The set type parameter is <code>CollectionType</code> type.</p>
+     * @return {@link java.util.Set} <p>The set return object is <code>Set</code> type.</p>
+     * @throws JsonParseSetException {@link io.github.nichetoolkit.rest.error.json.JsonParseSetException} <p>The json parse set exception is <code>JsonParseSetException</code> type.</p>
      * @see java.lang.String
      * @see com.fasterxml.jackson.databind.type.CollectionType
      * @see java.util.Set
@@ -371,12 +371,12 @@ public class JsonHelper {
 
     /**
      * <code>parseSet</code>
-     * <p>the set method.</p>
-     * @param <T>           {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param json          {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>the type reference parameter is <code>TypeReference</code> type.</p>
-     * @return {@link java.util.Set} <p>the set return object is <code>Set</code> type.</p>
-     * @throws JsonParseSetException {@link io.github.nichetoolkit.rest.error.json.JsonParseSetException} <p>the json parse set exception is <code>JsonParseSetException</code> type.</p>
+     * <p>The set method.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json          {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @return {@link java.util.Set} <p>The set return object is <code>Set</code> type.</p>
+     * @throws JsonParseSetException {@link io.github.nichetoolkit.rest.error.json.JsonParseSetException} <p>The json parse set exception is <code>JsonParseSetException</code> type.</p>
      * @see java.lang.String
      * @see com.fasterxml.jackson.core.type.TypeReference
      * @see java.util.Set
@@ -395,14 +395,14 @@ public class JsonHelper {
 
     /**
      * <code>parseSet</code>
-     * <p>the set method.</p>
-     * @param <Z>        {@link java.util.Set} <p>the generic parameter is <code>Set</code> type.</p>
-     * @param <T>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param json       {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
-     * @param parseClazz {@link java.lang.Class} <p>the parse clazz parameter is <code>Class</code> type.</p>
-     * @param clazz      {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @return {@link java.util.Set} <p>the set return object is <code>Set</code> type.</p>
-     * @throws JsonParseSetException {@link io.github.nichetoolkit.rest.error.json.JsonParseSetException} <p>the json parse set exception is <code>JsonParseSetException</code> type.</p>
+     * <p>The set method.</p>
+     * @param <Z>        {@link java.util.Set} <p>The generic parameter is <code>Set</code> type.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json       {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param parseClazz {@link java.lang.Class} <p>The parse clazz parameter is <code>Class</code> type.</p>
+     * @param clazz      {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @return {@link java.util.Set} <p>The set return object is <code>Set</code> type.</p>
+     * @throws JsonParseSetException {@link io.github.nichetoolkit.rest.error.json.JsonParseSetException} <p>The json parse set exception is <code>JsonParseSetException</code> type.</p>
      * @see java.util.Set
      * @see java.lang.String
      * @see java.lang.Class
@@ -415,12 +415,12 @@ public class JsonHelper {
 
     /**
      * <code>parseSet</code>
-     * <p>the set method.</p>
-     * @param <T>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param json  {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
-     * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @return {@link java.util.Set} <p>the set return object is <code>Set</code> type.</p>
-     * @throws JsonParseSetException {@link io.github.nichetoolkit.rest.error.json.JsonParseSetException} <p>the json parse set exception is <code>JsonParseSetException</code> type.</p>
+     * <p>The set method.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json  {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @return {@link java.util.Set} <p>The set return object is <code>Set</code> type.</p>
+     * @throws JsonParseSetException {@link io.github.nichetoolkit.rest.error.json.JsonParseSetException} <p>The json parse set exception is <code>JsonParseSetException</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Class
      * @see java.util.Set
@@ -432,13 +432,13 @@ public class JsonHelper {
 
     /**
      * <code>parseMap</code>
-     * <p>the map method.</p>
-     * @param <T>     {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <K>     {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param json    {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
-     * @param mapType {@link com.fasterxml.jackson.databind.type.MapType} <p>the map type parameter is <code>MapType</code> type.</p>
-     * @return {@link java.util.Map} <p>the map return object is <code>Map</code> type.</p>
-     * @throws JsonParseMapException {@link io.github.nichetoolkit.rest.error.json.JsonParseMapException} <p>the json parse map exception is <code>JsonParseMapException</code> type.</p>
+     * <p>The map method.</p>
+     * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json    {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param mapType {@link com.fasterxml.jackson.databind.type.MapType} <p>The map type parameter is <code>MapType</code> type.</p>
+     * @return {@link java.util.Map} <p>The map return object is <code>Map</code> type.</p>
+     * @throws JsonParseMapException {@link io.github.nichetoolkit.rest.error.json.JsonParseMapException} <p>The json parse map exception is <code>JsonParseMapException</code> type.</p>
      * @see java.lang.String
      * @see com.fasterxml.jackson.databind.type.MapType
      * @see java.util.Map
@@ -457,13 +457,13 @@ public class JsonHelper {
 
     /**
      * <code>parseMap</code>
-     * <p>the map method.</p>
-     * @param <T>           {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <K>           {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param json          {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>the type reference parameter is <code>TypeReference</code> type.</p>
-     * @return {@link java.util.Map} <p>the map return object is <code>Map</code> type.</p>
-     * @throws JsonParseMapException {@link io.github.nichetoolkit.rest.error.json.JsonParseMapException} <p>the json parse map exception is <code>JsonParseMapException</code> type.</p>
+     * <p>The map method.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json          {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @return {@link java.util.Map} <p>The map return object is <code>Map</code> type.</p>
+     * @throws JsonParseMapException {@link io.github.nichetoolkit.rest.error.json.JsonParseMapException} <p>The json parse map exception is <code>JsonParseMapException</code> type.</p>
      * @see java.lang.String
      * @see com.fasterxml.jackson.core.type.TypeReference
      * @see java.util.Map
@@ -482,16 +482,16 @@ public class JsonHelper {
 
     /**
      * <code>parseMap</code>
-     * <p>the map method.</p>
-     * @param <Z>        {@link java.util.Map} <p>the generic parameter is <code>Map</code> type.</p>
-     * @param <T>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <K>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param json       {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
-     * @param parseClazz {@link java.lang.Class} <p>the parse clazz parameter is <code>Class</code> type.</p>
-     * @param keyClazz   {@link java.lang.Class} <p>the key clazz parameter is <code>Class</code> type.</p>
-     * @param valueClazz {@link java.lang.Class} <p>the value clazz parameter is <code>Class</code> type.</p>
-     * @return {@link java.util.Map} <p>the map return object is <code>Map</code> type.</p>
-     * @throws JsonParseMapException {@link io.github.nichetoolkit.rest.error.json.JsonParseMapException} <p>the json parse map exception is <code>JsonParseMapException</code> type.</p>
+     * <p>The map method.</p>
+     * @param <Z>        {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json       {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param parseClazz {@link java.lang.Class} <p>The parse clazz parameter is <code>Class</code> type.</p>
+     * @param keyClazz   {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
+     * @param valueClazz {@link java.lang.Class} <p>The value clazz parameter is <code>Class</code> type.</p>
+     * @return {@link java.util.Map} <p>The map return object is <code>Map</code> type.</p>
+     * @throws JsonParseMapException {@link io.github.nichetoolkit.rest.error.json.JsonParseMapException} <p>The json parse map exception is <code>JsonParseMapException</code> type.</p>
      * @see java.util.Map
      * @see java.lang.String
      * @see java.lang.Class
@@ -504,14 +504,14 @@ public class JsonHelper {
 
     /**
      * <code>parseMap</code>
-     * <p>the map method.</p>
-     * @param <T>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <K>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param json       {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
-     * @param keyClazz   {@link java.lang.Class} <p>the key clazz parameter is <code>Class</code> type.</p>
-     * @param valueClazz {@link java.lang.Class} <p>the value clazz parameter is <code>Class</code> type.</p>
-     * @return {@link java.util.Map} <p>the map return object is <code>Map</code> type.</p>
-     * @throws JsonParseMapException {@link io.github.nichetoolkit.rest.error.json.JsonParseMapException} <p>the json parse map exception is <code>JsonParseMapException</code> type.</p>
+     * <p>The map method.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json       {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param keyClazz   {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
+     * @param valueClazz {@link java.lang.Class} <p>The value clazz parameter is <code>Class</code> type.</p>
+     * @return {@link java.util.Map} <p>The map return object is <code>Map</code> type.</p>
+     * @throws JsonParseMapException {@link io.github.nichetoolkit.rest.error.json.JsonParseMapException} <p>The json parse map exception is <code>JsonParseMapException</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Class
      * @see java.util.Map
@@ -524,18 +524,18 @@ public class JsonHelper {
 
     /**
      * <code>parseMapList</code>
-     * <p>the map list method.</p>
-     * @param <H>            {@link java.util.List} <p>the generic parameter is <code>List</code> type.</p>
-     * @param <Y>            {@link java.util.Map} <p>the generic parameter is <code>Map</code> type.</p>
-     * @param <T>            {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <K>            {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param json           {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
-     * @param parseListClazz {@link java.lang.Class} <p>the parse list clazz parameter is <code>Class</code> type.</p>
-     * @param parseMapClazz  {@link java.lang.Class} <p>the parse map clazz parameter is <code>Class</code> type.</p>
-     * @param keyClazz       {@link java.lang.Class} <p>the key clazz parameter is <code>Class</code> type.</p>
-     * @param valueClazz     {@link java.lang.Class} <p>the value clazz parameter is <code>Class</code> type.</p>
-     * @return {@link java.util.Map} <p>the map list return object is <code>Map</code> type.</p>
-     * @throws JsonParseMapException {@link io.github.nichetoolkit.rest.error.json.JsonParseMapException} <p>the json parse map exception is <code>JsonParseMapException</code> type.</p>
+     * <p>The map list method.</p>
+     * @param <H>            {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
+     * @param <Y>            {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
+     * @param <T>            {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>            {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json           {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param parseListClazz {@link java.lang.Class} <p>The parse list clazz parameter is <code>Class</code> type.</p>
+     * @param parseMapClazz  {@link java.lang.Class} <p>The parse map clazz parameter is <code>Class</code> type.</p>
+     * @param keyClazz       {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
+     * @param valueClazz     {@link java.lang.Class} <p>The value clazz parameter is <code>Class</code> type.</p>
+     * @return {@link java.util.Map} <p>The map list return object is <code>Map</code> type.</p>
+     * @throws JsonParseMapException {@link io.github.nichetoolkit.rest.error.json.JsonParseMapException} <p>The json parse map exception is <code>JsonParseMapException</code> type.</p>
      * @see java.util.List
      * @see java.util.Map
      * @see java.lang.String
@@ -550,18 +550,18 @@ public class JsonHelper {
 
     /**
      * <code>parseListMap</code>
-     * <p>the list map method.</p>
-     * @param <Z>               {@link java.util.List} <p>the generic parameter is <code>List</code> type.</p>
-     * @param <Y>               {@link java.util.Map} <p>the generic parameter is <code>Map</code> type.</p>
-     * @param <T>               {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <K>               {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param json              {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
-     * @param wrapKeyClazz      {@link java.lang.Class} <p>the wrap key clazz parameter is <code>Class</code> type.</p>
-     * @param contentMapClazz   {@link java.lang.Class} <p>the content map clazz parameter is <code>Class</code> type.</p>
-     * @param contentKeyClazz   {@link java.lang.Class} <p>the content key clazz parameter is <code>Class</code> type.</p>
-     * @param contentValueClazz {@link java.lang.Class} <p>the content value clazz parameter is <code>Class</code> type.</p>
-     * @return {@link java.util.List} <p>the list map return object is <code>List</code> type.</p>
-     * @throws JsonParseListException {@link io.github.nichetoolkit.rest.error.json.JsonParseListException} <p>the json parse list exception is <code>JsonParseListException</code> type.</p>
+     * <p>The list map method.</p>
+     * @param <Z>               {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
+     * @param <Y>               {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
+     * @param <T>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json              {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param wrapKeyClazz      {@link java.lang.Class} <p>The wrap key clazz parameter is <code>Class</code> type.</p>
+     * @param contentMapClazz   {@link java.lang.Class} <p>The content map clazz parameter is <code>Class</code> type.</p>
+     * @param contentKeyClazz   {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
+     * @param contentValueClazz {@link java.lang.Class} <p>The content value clazz parameter is <code>Class</code> type.</p>
+     * @return {@link java.util.List} <p>The list map return object is <code>List</code> type.</p>
+     * @throws JsonParseListException {@link io.github.nichetoolkit.rest.error.json.JsonParseListException} <p>The json parse list exception is <code>JsonParseListException</code> type.</p>
      * @see java.util.List
      * @see java.util.Map
      * @see java.lang.String
@@ -576,14 +576,14 @@ public class JsonHelper {
 
     /**
      * <code>parseListMap</code>
-     * <p>the list map method.</p>
-     * @param <T>               {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <K>               {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param json              {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
-     * @param contentKeyClazz   {@link java.lang.Class} <p>the content key clazz parameter is <code>Class</code> type.</p>
-     * @param contentValueClazz {@link java.lang.Class} <p>the content value clazz parameter is <code>Class</code> type.</p>
-     * @return {@link java.util.List} <p>the list map return object is <code>List</code> type.</p>
-     * @throws JsonParseListException {@link io.github.nichetoolkit.rest.error.json.JsonParseListException} <p>the json parse list exception is <code>JsonParseListException</code> type.</p>
+     * <p>The list map method.</p>
+     * @param <T>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json              {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param contentKeyClazz   {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
+     * @param contentValueClazz {@link java.lang.Class} <p>The content value clazz parameter is <code>Class</code> type.</p>
+     * @return {@link java.util.List} <p>The list map return object is <code>List</code> type.</p>
+     * @throws JsonParseListException {@link io.github.nichetoolkit.rest.error.json.JsonParseListException} <p>The json parse list exception is <code>JsonParseListException</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Class
      * @see java.util.List
@@ -597,14 +597,14 @@ public class JsonHelper {
 
     /**
      * <code>parseMapList</code>
-     * <p>the map list method.</p>
-     * @param <T>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <K>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param json       {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
-     * @param keyClazz   {@link java.lang.Class} <p>the key clazz parameter is <code>Class</code> type.</p>
-     * @param valueClazz {@link java.lang.Class} <p>the value clazz parameter is <code>Class</code> type.</p>
-     * @return {@link java.util.Map} <p>the map list return object is <code>Map</code> type.</p>
-     * @throws JsonParseMapException {@link io.github.nichetoolkit.rest.error.json.JsonParseMapException} <p>the json parse map exception is <code>JsonParseMapException</code> type.</p>
+     * <p>The map list method.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json       {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param keyClazz   {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
+     * @param valueClazz {@link java.lang.Class} <p>The value clazz parameter is <code>Class</code> type.</p>
+     * @return {@link java.util.Map} <p>The map list return object is <code>Map</code> type.</p>
+     * @throws JsonParseMapException {@link io.github.nichetoolkit.rest.error.json.JsonParseMapException} <p>The json parse map exception is <code>JsonParseMapException</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Class
      * @see java.util.Map
@@ -616,20 +616,20 @@ public class JsonHelper {
 
     /**
      * <code>parseMapMap</code>
-     * <p>the map map method.</p>
-     * @param <H>               {@link java.util.Map} <p>the generic parameter is <code>Map</code> type.</p>
-     * @param <Y>               {@link java.util.Map} <p>the generic parameter is <code>Map</code> type.</p>
-     * @param <Z>               {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <T>               {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <K>               {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param json              {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
-     * @param wrapMapClazz      {@link java.lang.Class} <p>the wrap map clazz parameter is <code>Class</code> type.</p>
-     * @param contentMapClazz   {@link java.lang.Class} <p>the content map clazz parameter is <code>Class</code> type.</p>
-     * @param wrapKeyClazz      {@link java.lang.Class} <p>the wrap key clazz parameter is <code>Class</code> type.</p>
-     * @param contentKeyClazz   {@link java.lang.Class} <p>the content key clazz parameter is <code>Class</code> type.</p>
-     * @param contentValueClazz {@link java.lang.Class} <p>the content value clazz parameter is <code>Class</code> type.</p>
-     * @return {@link java.util.Map} <p>the map map return object is <code>Map</code> type.</p>
-     * @throws JsonParseMapException {@link io.github.nichetoolkit.rest.error.json.JsonParseMapException} <p>the json parse map exception is <code>JsonParseMapException</code> type.</p>
+     * <p>The map map method.</p>
+     * @param <H>               {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
+     * @param <Y>               {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
+     * @param <Z>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json              {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param wrapMapClazz      {@link java.lang.Class} <p>The wrap map clazz parameter is <code>Class</code> type.</p>
+     * @param contentMapClazz   {@link java.lang.Class} <p>The content map clazz parameter is <code>Class</code> type.</p>
+     * @param wrapKeyClazz      {@link java.lang.Class} <p>The wrap key clazz parameter is <code>Class</code> type.</p>
+     * @param contentKeyClazz   {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
+     * @param contentValueClazz {@link java.lang.Class} <p>The content value clazz parameter is <code>Class</code> type.</p>
+     * @return {@link java.util.Map} <p>The map map return object is <code>Map</code> type.</p>
+     * @throws JsonParseMapException {@link io.github.nichetoolkit.rest.error.json.JsonParseMapException} <p>The json parse map exception is <code>JsonParseMapException</code> type.</p>
      * @see java.util.Map
      * @see java.lang.String
      * @see java.lang.Class
@@ -643,16 +643,16 @@ public class JsonHelper {
 
     /**
      * <code>parseMapMap</code>
-     * <p>the map map method.</p>
-     * @param <Z>               {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <T>               {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <K>               {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param json              {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
-     * @param wrapKeyClazz      {@link java.lang.Class} <p>the wrap key clazz parameter is <code>Class</code> type.</p>
-     * @param contentKeyClazz   {@link java.lang.Class} <p>the content key clazz parameter is <code>Class</code> type.</p>
-     * @param contentValueClazz {@link java.lang.Class} <p>the content value clazz parameter is <code>Class</code> type.</p>
-     * @return {@link java.util.Map} <p>the map map return object is <code>Map</code> type.</p>
-     * @throws JsonParseMapException {@link io.github.nichetoolkit.rest.error.json.JsonParseMapException} <p>the json parse map exception is <code>JsonParseMapException</code> type.</p>
+     * <p>The map map method.</p>
+     * @param <Z>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json              {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param wrapKeyClazz      {@link java.lang.Class} <p>The wrap key clazz parameter is <code>Class</code> type.</p>
+     * @param contentKeyClazz   {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
+     * @param contentValueClazz {@link java.lang.Class} <p>The content value clazz parameter is <code>Class</code> type.</p>
+     * @return {@link java.util.Map} <p>The map map return object is <code>Map</code> type.</p>
+     * @throws JsonParseMapException {@link io.github.nichetoolkit.rest.error.json.JsonParseMapException} <p>The json parse map exception is <code>JsonParseMapException</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Class
      * @see java.util.Map
@@ -664,12 +664,12 @@ public class JsonHelper {
 
     /**
      * <code>parseResult</code>
-     * <p>the result method.</p>
-     * @param <T>           {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param json          {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>the type reference parameter is <code>TypeReference</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>the result return object is <code>RestResult</code> type.</p>
-     * @throws JsonParseBeanException {@link io.github.nichetoolkit.rest.error.json.JsonParseBeanException} <p>the json parse bean exception is <code>JsonParseBeanException</code> type.</p>
+     * <p>The result method.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json          {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
+     * @throws JsonParseBeanException {@link io.github.nichetoolkit.rest.error.json.JsonParseBeanException} <p>The json parse bean exception is <code>JsonParseBeanException</code> type.</p>
      * @see java.lang.String
      * @see com.fasterxml.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
@@ -682,12 +682,12 @@ public class JsonHelper {
 
     /**
      * <code>parseResult</code>
-     * <p>the result method.</p>
-     * @param <T>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param json  {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
-     * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>the result return object is <code>RestResult</code> type.</p>
-     * @throws JsonParseBeanException {@link io.github.nichetoolkit.rest.error.json.JsonParseBeanException} <p>the json parse bean exception is <code>JsonParseBeanException</code> type.</p>
+     * <p>The result method.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json  {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
+     * @throws JsonParseBeanException {@link io.github.nichetoolkit.rest.error.json.JsonParseBeanException} <p>The json parse bean exception is <code>JsonParseBeanException</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Class
      * @see io.github.nichetoolkit.rest.RestResult
@@ -701,12 +701,12 @@ public class JsonHelper {
 
     /**
      * <code>parseResult</code>
-     * <p>the result method.</p>
-     * @param <T>       {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param json      {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
-     * @param innerType {@link com.fasterxml.jackson.databind.JavaType} <p>the inner type parameter is <code>JavaType</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>the result return object is <code>RestResult</code> type.</p>
-     * @throws JsonParseBeanException {@link io.github.nichetoolkit.rest.error.json.JsonParseBeanException} <p>the json parse bean exception is <code>JsonParseBeanException</code> type.</p>
+     * <p>The result method.</p>
+     * @param <T>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json      {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param innerType {@link com.fasterxml.jackson.databind.JavaType} <p>The inner type parameter is <code>JavaType</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
+     * @throws JsonParseBeanException {@link io.github.nichetoolkit.rest.error.json.JsonParseBeanException} <p>The json parse bean exception is <code>JsonParseBeanException</code> type.</p>
      * @see java.lang.String
      * @see com.fasterxml.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
@@ -719,10 +719,10 @@ public class JsonHelper {
 
     /**
      * <code>parseResult</code>
-     * <p>the result method.</p>
-     * @param json {@link java.lang.String} <p>the json parameter is <code>String</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>the result return object is <code>RestResult</code> type.</p>
-     * @throws JsonParseBeanException {@link io.github.nichetoolkit.rest.error.json.JsonParseBeanException} <p>the json parse bean exception is <code>JsonParseBeanException</code> type.</p>
+     * <p>The result method.</p>
+     * @param json {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
+     * @throws JsonParseBeanException {@link io.github.nichetoolkit.rest.error.json.JsonParseBeanException} <p>The json parse bean exception is <code>JsonParseBeanException</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.error.json.JsonParseBeanException
@@ -757,12 +757,12 @@ public class JsonHelper {
 
     /**
      * <code>parseConvert</code>
-     * <p>the convert method.</p>
-     * @param <T>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param value {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>
-     * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @return T <p>the convert return object is <code>T</code> type.</p>
-     * @throws ClassUnsupportedException {@link io.github.nichetoolkit.rest.error.ClassUnsupportedException} <p>the class unsupported exception is <code>ClassUnsupportedException</code> type.</p>
+     * <p>The convert method.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param value {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
+     * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @return T <p>The convert return object is <code>T</code> type.</p>
+     * @throws ClassUnsupportedException {@link io.github.nichetoolkit.rest.error.ClassUnsupportedException} <p>The class unsupported exception is <code>ClassUnsupportedException</code> type.</p>
      * @see java.lang.Object
      * @see java.lang.Class
      * @see io.github.nichetoolkit.rest.error.ClassUnsupportedException

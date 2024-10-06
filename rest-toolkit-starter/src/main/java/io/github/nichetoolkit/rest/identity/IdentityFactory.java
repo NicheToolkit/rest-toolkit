@@ -25,21 +25,21 @@ public class IdentityFactory {
 
     /**
      * <code>properties</code>
-     * {@link io.github.nichetoolkit.rest.configure.RestIdentityProperties} <p>the <code>properties</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.configure.RestIdentityProperties} <p>The <code>properties</code> field.</p>
      * @see io.github.nichetoolkit.rest.configure.RestIdentityProperties
      */
     private final RestIdentityProperties properties;
 
     /**
      * <code>INSTANCE</code>
-     * {@link io.github.nichetoolkit.rest.identity.IdentityFactory} <p>the constant <code>INSTANCE</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.identity.IdentityFactory} <p>The constant <code>INSTANCE</code> field.</p>
      */
     private static IdentityFactory INSTANCE = null;
 
     /**
      * <code>IdentityFactory</code>
-     * Instantiates a new identity factory.
-     * @param properties {@link io.github.nichetoolkit.rest.configure.RestIdentityProperties} <p>the properties parameter is <code>RestIdentityProperties</code> type.</p>
+     * <p>Instantiates a new identity factory.</p>
+     * @param properties {@link io.github.nichetoolkit.rest.configure.RestIdentityProperties} <p>The properties parameter is <code>RestIdentityProperties</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestIdentityProperties
      * @see org.springframework.beans.factory.annotation.Autowired
      */
@@ -50,8 +50,8 @@ public class IdentityFactory {
 
     /**
      * <code>getInstance</code>
-     * <p>the instance getter method.</p>
-     * @return {@link io.github.nichetoolkit.rest.identity.IdentityFactory} <p>the instance return object is <code>IdentityFactory</code> type.</p>
+     * <p>The instance getter method.</p>
+     * @return {@link io.github.nichetoolkit.rest.identity.IdentityFactory} <p>The instance return object is <code>IdentityFactory</code> type.</p>
      */
     public static IdentityFactory getInstance() {
         return INSTANCE;
@@ -59,10 +59,10 @@ public class IdentityFactory {
 
     /**
      * <code>get</code>
-     * <p>the method.</p>
-     * @param workerType {@link io.github.nichetoolkit.rest.identity.worker.WorkerType} <p>the worker type parameter is <code>WorkerType</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.identity.worker.IdentityWorker} <p>the return object is <code>IdentityWorker</code> type.</p>
-     * @throws RestError {@link io.github.nichetoolkit.rest.RestError} <p>the rest error is <code>RestError</code> type.</p>
+     * <p>The method.</p>
+     * @param workerType {@link io.github.nichetoolkit.rest.identity.worker.WorkerType} <p>The worker type parameter is <code>WorkerType</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.identity.worker.IdentityWorker} <p>The return object is <code>IdentityWorker</code> type.</p>
+     * @throws RestError {@link io.github.nichetoolkit.rest.RestError} <p>The rest error is <code>RestError</code> type.</p>
      * @see io.github.nichetoolkit.rest.identity.worker.WorkerType
      * @see io.github.nichetoolkit.rest.identity.worker.IdentityWorker
      * @see io.github.nichetoolkit.rest.RestError
@@ -84,7 +84,7 @@ public class IdentityFactory {
 
     /**
      * <code>identityWorkerInit</code>
-     * <p>the worker init method.</p>
+     * <p>The worker init method.</p>
      * @see javax.annotation.PostConstruct
      */
     @PostConstruct

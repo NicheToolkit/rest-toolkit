@@ -17,34 +17,34 @@ import java.net.Proxy;
 public class ProxyConfig {
     /**
      * <code>type</code>
-     * {@link io.github.nichetoolkit.rest.http.config.ProxyType} <p>the <code>type</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.http.config.ProxyType} <p>The <code>type</code> field.</p>
      * @see io.github.nichetoolkit.rest.http.config.ProxyType
      */
     private ProxyType type = ProxyType.SOCKS;
     /**
      * <code>hostname</code>
-     * {@link java.lang.String} <p>the <code>hostname</code> field.</p>
+     * {@link java.lang.String} <p>The <code>hostname</code> field.</p>
      * @see java.lang.String
      */
     private String hostname;
     /**
      * <code>port</code>
-     * {@link java.lang.Integer} <p>the <code>port</code> field.</p>
+     * {@link java.lang.Integer} <p>The <code>port</code> field.</p>
      * @see java.lang.Integer
      */
     private Integer port;
 
     /**
      * <code>ProxyConfig</code>
-     * Instantiates a new proxy config.
+     * <p>Instantiates a new proxy config.</p>
      */
     public ProxyConfig() {
     }
 
     /**
      * <code>toProxy</code>
-     * <p>the proxy method.</p>
-     * @return {@link java.net.Proxy} <p>the proxy return object is <code>Proxy</code> type.</p>
+     * <p>The proxy method.</p>
+     * @return {@link java.net.Proxy} <p>The proxy return object is <code>Proxy</code> type.</p>
      * @see java.net.Proxy
      */
     public Proxy toProxy() {

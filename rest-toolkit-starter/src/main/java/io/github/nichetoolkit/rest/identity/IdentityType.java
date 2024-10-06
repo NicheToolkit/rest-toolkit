@@ -9,17 +9,17 @@ package io.github.nichetoolkit.rest.identity;
 public enum IdentityType {
     /**
      * <code>AUTO</code>
-     * <p>the Auto identity type field.</p>
+     * <p>The auto identity type field.</p>
      */
     AUTO,
     /**
      * <code>CONFIG</code>
-     * <p>the Config identity type field.</p>
+     * <p>The config identity type field.</p>
      */
     CONFIG,
     /**
      * <code>SERVER</code>
-     * <p>the Server identity type field.</p>
+     * <p>The server identity type field.</p>
      */
     SERVER
 }

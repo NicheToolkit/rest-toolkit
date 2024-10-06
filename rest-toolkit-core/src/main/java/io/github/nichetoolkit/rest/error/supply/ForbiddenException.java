@@ -15,7 +15,7 @@ import io.github.nichetoolkit.rest.RestStatus;
 public class ForbiddenException extends RestErrorException {
     /**
      * <code>ForbiddenException</code>
-     * Instantiates a new forbidden exception.
+     * <p>Instantiates a new forbidden exception.</p>
      */
     public ForbiddenException() {
         super(RestErrorStatus.AUTH_FORBIDDEN);
@@ -23,8 +23,8 @@ public class ForbiddenException extends RestErrorException {
 
     /**
      * <code>ForbiddenException</code>
-     * Instantiates a new forbidden exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * <p>Instantiates a new forbidden exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
     public ForbiddenException(RestStatus status) {
@@ -33,8 +33,8 @@ public class ForbiddenException extends RestErrorException {
 
     /**
      * <code>ForbiddenException</code>
-     * Instantiates a new forbidden exception.
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new forbidden exception.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public ForbiddenException(String message) {
@@ -43,9 +43,9 @@ public class ForbiddenException extends RestErrorException {
 
     /**
      * <code>ForbiddenException</code>
-     * Instantiates a new forbidden exception.
-     * @param user    {@link java.lang.String} <p>the user parameter is <code>String</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new forbidden exception.</p>
+     * @param user    {@link java.lang.String} <p>The user parameter is <code>String</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public ForbiddenException(String user, String message) {
@@ -54,10 +54,10 @@ public class ForbiddenException extends RestErrorException {
 
     /**
      * <code>ForbiddenException</code>
-     * Instantiates a new forbidden exception.
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param user     {@link java.lang.String} <p>the user parameter is <code>String</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new forbidden exception.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param user     {@link java.lang.String} <p>The user parameter is <code>String</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public ForbiddenException(String resource, String user, String message) {

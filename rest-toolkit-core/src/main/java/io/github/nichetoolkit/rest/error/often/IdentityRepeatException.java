@@ -16,7 +16,7 @@ public class IdentityRepeatException extends IdentityErrorException {
 
     /**
      * <code>IdentityRepeatException</code>
-     * Instantiates a new identity repeat exception.
+     * <p>Instantiates a new identity repeat exception.</p>
      */
     public IdentityRepeatException() {
         super(RestErrorStatus.IDENTITY_REPEATED);
@@ -24,8 +24,8 @@ public class IdentityRepeatException extends IdentityErrorException {
 
     /**
      * <code>IdentityRepeatException</code>
-     * Instantiates a new identity repeat exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * <p>Instantiates a new identity repeat exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
     public IdentityRepeatException(RestStatus status) {
@@ -34,8 +34,8 @@ public class IdentityRepeatException extends IdentityErrorException {
 
     /**
      * <code>IdentityRepeatException</code>
-     * Instantiates a new identity repeat exception.
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new identity repeat exception.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public IdentityRepeatException(String message) {
@@ -45,9 +45,9 @@ public class IdentityRepeatException extends IdentityErrorException {
 
     /**
      * <code>IdentityRepeatException</code>
-     * Instantiates a new identity repeat exception.
-     * @param field   {@link java.lang.String} <p>the field parameter is <code>String</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new identity repeat exception.</p>
+     * @param field   {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public IdentityRepeatException(String field, String message) {
@@ -56,10 +56,10 @@ public class IdentityRepeatException extends IdentityErrorException {
 
     /**
      * <code>IdentityRepeatException</code>
-     * Instantiates a new identity repeat exception.
-     * @param field   {@link java.lang.String} <p>the field parameter is <code>String</code> type.</p>
-     * @param value   {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new identity repeat exception.</p>
+     * @param field   {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
+     * @param value   {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Object
      */

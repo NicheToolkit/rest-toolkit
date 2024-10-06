@@ -18,8 +18,8 @@ public class CloseableHelper {
 
     /**
      * <code>close</code>
-     * <p>the method.</p>
-     * @param close {@link java.io.Closeable} <p>the close parameter is <code>Closeable</code> type.</p>
+     * <p>The method.</p>
+     * @param close {@link java.io.Closeable} <p>The close parameter is <code>Closeable</code> type.</p>
      * @see java.io.Closeable
      */
     public static void close(Closeable... close) {
@@ -32,8 +32,8 @@ public class CloseableHelper {
 
     /**
      * <code>close</code>
-     * <p>the method.</p>
-     * @param closeable {@link java.io.Closeable} <p>the closeable parameter is <code>Closeable</code> type.</p>
+     * <p>The method.</p>
+     * @param closeable {@link java.io.Closeable} <p>The closeable parameter is <code>Closeable</code> type.</p>
      * @see java.io.Closeable
      */
     public static void close(Closeable closeable) {
@@ -47,8 +47,8 @@ public class CloseableHelper {
 
     /**
      * <code>interrupt</code>
-     * <p>the method.</p>
-     * @param threads {@link java.lang.Thread} <p>the threads parameter is <code>Thread</code> type.</p>
+     * <p>The method.</p>
+     * @param threads {@link java.lang.Thread} <p>The threads parameter is <code>Thread</code> type.</p>
      * @see java.lang.Thread
      */
     public static void interrupt(Thread... threads) {

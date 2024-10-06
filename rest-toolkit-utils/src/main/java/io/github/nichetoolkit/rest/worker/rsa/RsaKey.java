@@ -16,34 +16,34 @@ import java.io.Serializable;
 public class RsaKey implements Serializable {
     /**
      * <code>publicKey</code>
-     * {@link java.lang.String} <p>the <code>publicKey</code> field.</p>
+     * {@link java.lang.String} <p>The <code>publicKey</code> field.</p>
      * @see java.lang.String
      */
     private String publicKey;
     /**
      * <code>privateKey</code>
-     * {@link java.lang.String} <p>the <code>privateKey</code> field.</p>
+     * {@link java.lang.String} <p>The <code>privateKey</code> field.</p>
      * @see java.lang.String
      */
     private String privateKey;
     /**
      * <code>keySize</code>
-     * <p>the <code>keySize</code> field.</p>
+     * <p>The <code>keySize</code> field.</p>
      */
     private int keySize;
 
     /**
      * <code>RsaKey</code>
-     * Instantiates a new rsa key.
+     * <p>Instantiates a new rsa key.</p>
      */
     public RsaKey() {
     }
 
     /**
      * <code>RsaKey</code>
-     * Instantiates a new rsa key.
-     * @param publicKey  {@link java.lang.String} <p>the public key parameter is <code>String</code> type.</p>
-     * @param privateKey {@link java.lang.String} <p>the private key parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new rsa key.</p>
+     * @param publicKey  {@link java.lang.String} <p>The public key parameter is <code>String</code> type.</p>
+     * @param privateKey {@link java.lang.String} <p>The private key parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public RsaKey(String publicKey, String privateKey) {

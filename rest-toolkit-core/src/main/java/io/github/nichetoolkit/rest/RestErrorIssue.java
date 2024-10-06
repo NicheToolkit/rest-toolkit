@@ -23,22 +23,22 @@ public class RestErrorIssue extends DefaultErrorIssue implements RestStatus {
 
     /**
      * <code>status</code>
-     * {@link java.lang.Integer} <p>the <code>status</code> field.</p>
+     * {@link java.lang.Integer} <p>The <code>status</code> field.</p>
      * @see java.lang.Integer
      */
     protected Integer status;
 
     /**
      * <code>RestErrorIssue</code>
-     * Instantiates a new rest error issue.
+     * <p>Instantiates a new rest error issue.</p>
      */
     public RestErrorIssue() {
     }
 
     /**
      * <code>RestErrorIssue</code>
-     * Instantiates a new rest error issue.
-     * @param builder {@link io.github.nichetoolkit.rest.RestErrorIssue.Builder} <p>the builder parameter is <code>Builder</code> type.</p>
+     * <p>Instantiates a new rest error issue.</p>
+     * @param builder {@link io.github.nichetoolkit.rest.RestErrorIssue.Builder} <p>The builder parameter is <code>Builder</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestErrorIssue.Builder
      */
     public RestErrorIssue(RestErrorIssue.Builder builder) {
@@ -48,8 +48,8 @@ public class RestErrorIssue extends DefaultErrorIssue implements RestStatus {
 
     /**
      * <code>RestErrorIssue</code>
-     * Instantiates a new rest error issue.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * <p>Instantiates a new rest error issue.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
     public RestErrorIssue(RestStatus status) {
@@ -59,9 +59,9 @@ public class RestErrorIssue extends DefaultErrorIssue implements RestStatus {
 
     /**
      * <code>RestErrorIssue</code>
-     * Instantiates a new rest error issue.
-     * @param status  {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new rest error issue.</p>
+     * @param status  {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      */
@@ -72,9 +72,9 @@ public class RestErrorIssue extends DefaultErrorIssue implements RestStatus {
 
     /**
      * <code>RestErrorIssue</code>
-     * Instantiates a new rest error issue.
-     * @param status  {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new rest error issue.</p>
+     * @param status  {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      */
@@ -85,9 +85,9 @@ public class RestErrorIssue extends DefaultErrorIssue implements RestStatus {
 
     /**
      * <code>RestErrorIssue</code>
-     * Instantiates a new rest error issue.
-     * @param status     {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>the rest status parameter is <code>RestStatus</code> type.</p>
+     * <p>Instantiates a new rest error issue.</p>
+     * @param status     {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>The rest status parameter is <code>RestStatus</code> type.</p>
      * @see java.lang.Integer
      * @see io.github.nichetoolkit.rest.RestStatus
      */
@@ -98,9 +98,9 @@ public class RestErrorIssue extends DefaultErrorIssue implements RestStatus {
 
     /**
      * <code>RestErrorIssue</code>
-     * Instantiates a new rest error issue.
-     * @param field  {@link java.lang.String} <p>the field parameter is <code>String</code> type.</p>
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * <p>Instantiates a new rest error issue.</p>
+     * @param field  {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestStatus
      */
@@ -111,10 +111,10 @@ public class RestErrorIssue extends DefaultErrorIssue implements RestStatus {
 
     /**
      * <code>RestErrorIssue</code>
-     * Instantiates a new rest error issue.
-     * @param field   {@link java.lang.String} <p>the field parameter is <code>String</code> type.</p>
-     * @param status  {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new rest error issue.</p>
+     * @param field   {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
+     * @param status  {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestStatus
      */
@@ -125,10 +125,10 @@ public class RestErrorIssue extends DefaultErrorIssue implements RestStatus {
 
     /**
      * <code>RestErrorIssue</code>
-     * Instantiates a new rest error issue.
-     * @param field   {@link java.lang.String} <p>the field parameter is <code>String</code> type.</p>
-     * @param status  {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new rest error issue.</p>
+     * @param field   {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
+     * @param status  {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Integer
      */
@@ -139,11 +139,11 @@ public class RestErrorIssue extends DefaultErrorIssue implements RestStatus {
 
     /**
      * <code>RestErrorIssue</code>
-     * Instantiates a new rest error issue.
-     * @param field   {@link java.lang.String} <p>the field parameter is <code>String</code> type.</p>
-     * @param value   {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>
-     * @param status  {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new rest error issue.</p>
+     * @param field   {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
+     * @param value   {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
+     * @param status  {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Object
      * @see java.lang.Integer
@@ -155,10 +155,10 @@ public class RestErrorIssue extends DefaultErrorIssue implements RestStatus {
 
     /**
      * <code>RestErrorIssue</code>
-     * Instantiates a new rest error issue.
-     * @param field  {@link java.lang.String} <p>the field parameter is <code>String</code> type.</p>
-     * @param value  {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * <p>Instantiates a new rest error issue.</p>
+     * @param field  {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
+     * @param value  {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Object
      * @see io.github.nichetoolkit.rest.RestStatus
@@ -170,11 +170,11 @@ public class RestErrorIssue extends DefaultErrorIssue implements RestStatus {
 
     /**
      * <code>RestErrorIssue</code>
-     * Instantiates a new rest error issue.
-     * @param field   {@link java.lang.String} <p>the field parameter is <code>String</code> type.</p>
-     * @param value   {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>
-     * @param status  {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new rest error issue.</p>
+     * @param field   {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
+     * @param value   {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
+     * @param status  {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Object
      * @see io.github.nichetoolkit.rest.RestStatus
@@ -194,23 +194,23 @@ public class RestErrorIssue extends DefaultErrorIssue implements RestStatus {
     public static class Builder extends DefaultErrorIssue.Builder {
         /**
          * <code>status</code>
-         * {@link java.lang.Integer} <p>the <code>status</code> field.</p>
+         * {@link java.lang.Integer} <p>The <code>status</code> field.</p>
          * @see java.lang.Integer
          */
         protected Integer status;
 
         /**
          * <code>Builder</code>
-         * Instantiates a new builder.
+         * <p>Instantiates a new builder.</p>
          */
         public Builder() {
         }
 
         /**
          * <code>status</code>
-         * <p>the method.</p>
-         * @param status {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.RestErrorIssue.Builder} <p>the return object is <code>Builder</code> type.</p>
+         * <p>The method.</p>
+         * @param status {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.RestErrorIssue.Builder} <p>The return object is <code>Builder</code> type.</p>
          * @see java.lang.Integer
          */
         public RestErrorIssue.Builder status(Integer status) {

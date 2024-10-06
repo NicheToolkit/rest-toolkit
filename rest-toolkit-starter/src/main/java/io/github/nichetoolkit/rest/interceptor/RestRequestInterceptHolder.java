@@ -18,9 +18,9 @@ public class RestRequestInterceptHolder {
 
     /**
      * <code>getRequestParam</code>
-     * <p>the request param getter method.</p>
-     * @param request {@link javax.servlet.http.HttpServletRequest} <p>the request parameter is <code>HttpServletRequest</code> type.</p>
-     * @return {@link java.lang.String} <p>the request param return object is <code>String</code> type.</p>
+     * <p>The request param getter method.</p>
+     * @param request {@link javax.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
+     * @return {@link java.lang.String} <p>The request param return object is <code>String</code> type.</p>
      * @see javax.servlet.http.HttpServletRequest
      * @see java.lang.String
      */
@@ -35,10 +35,10 @@ public class RestRequestInterceptHolder {
 
     /**
      * <code>getRequestBody</code>
-     * <p>the request body getter method.</p>
-     * @param request {@link javax.servlet.http.HttpServletRequest} <p>the request parameter is <code>HttpServletRequest</code> type.</p>
-     * @return {@link java.lang.String} <p>the request body return object is <code>String</code> type.</p>
-     * @throws IOException {@link java.io.IOException} <p>the io exception is <code>IOException</code> type.</p>
+     * <p>The request body getter method.</p>
+     * @param request {@link javax.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
+     * @return {@link java.lang.String} <p>The request body return object is <code>String</code> type.</p>
+     * @throws IOException {@link java.io.IOException} <p>The io exception is <code>IOException</code> type.</p>
      * @see javax.servlet.http.HttpServletRequest
      * @see java.lang.String
      * @see java.io.IOException

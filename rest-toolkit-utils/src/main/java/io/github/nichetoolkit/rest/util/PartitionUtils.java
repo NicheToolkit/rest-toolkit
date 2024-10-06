@@ -19,11 +19,11 @@ public class PartitionUtils {
 
     /**
      * <code>partition</code>
-     * <p>the method.</p>
-     * @param <T>           {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param dataList      {@link java.util.Collection} <p>the data list parameter is <code>Collection</code> type.</p>
-     * @param partitionSize {@link java.lang.Integer} <p>the partition size parameter is <code>Integer</code> type.</p>
-     * @param consumer      {@link java.util.function.Consumer} <p>the consumer parameter is <code>Consumer</code> type.</p>
+     * <p>The method.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param dataList      {@link java.util.Collection} <p>The data list parameter is <code>Collection</code> type.</p>
+     * @param partitionSize {@link java.lang.Integer} <p>The partition size parameter is <code>Integer</code> type.</p>
+     * @param consumer      {@link java.util.function.Consumer} <p>The consumer parameter is <code>Consumer</code> type.</p>
      * @see java.util.Collection
      * @see java.lang.Integer
      * @see java.util.function.Consumer
@@ -42,13 +42,13 @@ public class PartitionUtils {
 
     /**
      * <code>query</code>
-     * <p>the method.</p>
-     * @param <I>       {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <T>       {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param idList    {@link java.util.Collection} <p>the id list parameter is <code>Collection</code> type.</p>
-     * @param querySize {@link java.lang.Integer} <p>the query size parameter is <code>Integer</code> type.</p>
-     * @param function  {@link java.util.function.Function} <p>the function parameter is <code>Function</code> type.</p>
-     * @return {@link java.util.List} <p>the return object is <code>List</code> type.</p>
+     * <p>The method.</p>
+     * @param <I>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param idList    {@link java.util.Collection} <p>The id list parameter is <code>Collection</code> type.</p>
+     * @param querySize {@link java.lang.Integer} <p>The query size parameter is <code>Integer</code> type.</p>
+     * @param function  {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
+     * @return {@link java.util.List} <p>The return object is <code>List</code> type.</p>
      * @see java.util.Collection
      * @see java.lang.Integer
      * @see java.util.function.Function
@@ -71,12 +71,12 @@ public class PartitionUtils {
 
     /**
      * <code>save</code>
-     * <p>the method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param dataList {@link java.util.Collection} <p>the data list parameter is <code>Collection</code> type.</p>
-     * @param saveSize {@link java.lang.Integer} <p>the save size parameter is <code>Integer</code> type.</p>
-     * @param function {@link java.util.function.Function} <p>the function parameter is <code>Function</code> type.</p>
-     * @return {@link java.lang.Integer} <p>the return object is <code>Integer</code> type.</p>
+     * <p>The method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param dataList {@link java.util.Collection} <p>The data list parameter is <code>Collection</code> type.</p>
+     * @param saveSize {@link java.lang.Integer} <p>The save size parameter is <code>Integer</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
+     * @return {@link java.lang.Integer} <p>The return object is <code>Integer</code> type.</p>
      * @see java.util.Collection
      * @see java.lang.Integer
      * @see java.util.function.Function
@@ -99,11 +99,11 @@ public class PartitionUtils {
 
     /**
      * <code>delete</code>
-     * <p>the method.</p>
-     * @param <I>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param idList     {@link java.util.Collection} <p>the id list parameter is <code>Collection</code> type.</p>
-     * @param deleteSize {@link java.lang.Integer} <p>the delete size parameter is <code>Integer</code> type.</p>
-     * @param consumer   {@link java.util.function.Consumer} <p>the consumer parameter is <code>Consumer</code> type.</p>
+     * <p>The method.</p>
+     * @param <I>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param idList     {@link java.util.Collection} <p>The id list parameter is <code>Collection</code> type.</p>
+     * @param deleteSize {@link java.lang.Integer} <p>The delete size parameter is <code>Integer</code> type.</p>
+     * @param consumer   {@link java.util.function.Consumer} <p>The consumer parameter is <code>Consumer</code> type.</p>
      * @see java.util.Collection
      * @see java.lang.Integer
      * @see java.util.function.Consumer

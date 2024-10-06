@@ -23,8 +23,8 @@ import java.lang.annotation.*;
 public @interface StereoByte {
     /**
      * <code>value</code>
-     * <p>the method.</p>
-     * @return byte <p>the return object is <code>byte</code> type.</p>
+     * <p>The method.</p>
+     * @return byte <p>The return object is <code>byte</code> type.</p>
      */
     byte value() default 0;
 }

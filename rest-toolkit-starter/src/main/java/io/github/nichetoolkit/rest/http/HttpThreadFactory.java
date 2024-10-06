@@ -30,33 +30,33 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class HttpThreadFactory implements ThreadFactory {
     /**
      * <code>poolNumber</code>
-     * {@link java.util.concurrent.atomic.AtomicInteger} <p>the constant <code>poolNumber</code> field.</p>
+     * {@link java.util.concurrent.atomic.AtomicInteger} <p>The constant <code>poolNumber</code> field.</p>
      * @see java.util.concurrent.atomic.AtomicInteger
      */
     private static final AtomicInteger poolNumber = new AtomicInteger(1);
     /**
      * <code>group</code>
-     * {@link java.lang.ThreadGroup} <p>the <code>group</code> field.</p>
+     * {@link java.lang.ThreadGroup} <p>The <code>group</code> field.</p>
      * @see java.lang.ThreadGroup
      */
     private final ThreadGroup group;
     /**
      * <code>threadNumber</code>
-     * {@link java.util.concurrent.atomic.AtomicInteger} <p>the <code>threadNumber</code> field.</p>
+     * {@link java.util.concurrent.atomic.AtomicInteger} <p>The <code>threadNumber</code> field.</p>
      * @see java.util.concurrent.atomic.AtomicInteger
      */
     private final AtomicInteger threadNumber = new AtomicInteger(1);
     /**
      * <code>namePrefix</code>
-     * {@link java.lang.String} <p>the <code>namePrefix</code> field.</p>
+     * {@link java.lang.String} <p>The <code>namePrefix</code> field.</p>
      * @see java.lang.String
      */
     private final String namePrefix;
 
     /**
      * <code>HttpThreadFactory</code>
-     * Instantiates a new http thread factory.
-     * @param threadPrefix {@link java.lang.String} <p>the thread prefix parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new http thread factory.</p>
+     * @param threadPrefix {@link java.lang.String} <p>The thread prefix parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public HttpThreadFactory(String threadPrefix) {

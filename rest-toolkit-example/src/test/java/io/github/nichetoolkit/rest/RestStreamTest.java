@@ -21,8 +21,8 @@ class RestStreamTest {
 
     /**
      * <code>test</code>
-     * <p>the method.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The method.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see org.junit.jupiter.api.Test
      * @see io.github.nichetoolkit.rest.RestException
      */

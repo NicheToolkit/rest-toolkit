@@ -15,7 +15,7 @@ import io.github.nichetoolkit.rest.error.natives.DataErrorException;
 public class DataSaveException extends DataErrorException {
     /**
      * <code>DataSaveException</code>
-     * Instantiates a new data save exception.
+     * <p>Instantiates a new data save exception.</p>
      */
     public DataSaveException() {
         super(RestErrorStatus.DATA_SAVE_FAILED);
@@ -23,8 +23,8 @@ public class DataSaveException extends DataErrorException {
 
     /**
      * <code>DataSaveException</code>
-     * Instantiates a new data save exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>the status parameter is <code>RestErrorStatus</code> type.</p>
+     * <p>Instantiates a new data save exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The status parameter is <code>RestErrorStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestErrorStatus
      */
     public DataSaveException(RestErrorStatus status) {
@@ -33,8 +33,8 @@ public class DataSaveException extends DataErrorException {
 
     /**
      * <code>DataSaveException</code>
-     * Instantiates a new data save exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * <p>Instantiates a new data save exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
     public DataSaveException(RestStatus status) {
@@ -43,8 +43,8 @@ public class DataSaveException extends DataErrorException {
 
     /**
      * <code>DataSaveException</code>
-     * Instantiates a new data save exception.
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new data save exception.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public DataSaveException(String resource) {
@@ -53,9 +53,9 @@ public class DataSaveException extends DataErrorException {
 
     /**
      * <code>DataSaveException</code>
-     * Instantiates a new data save exception.
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new data save exception.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public DataSaveException(String resource, String message) {

@@ -20,21 +20,21 @@ public class RadixWorker {
 
     /**
      * <code>radixProperties</code>
-     * {@link io.github.nichetoolkit.rest.configure.RestRadixProperties} <p>the <code>radixProperties</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.configure.RestRadixProperties} <p>The <code>radixProperties</code> field.</p>
      * @see io.github.nichetoolkit.rest.configure.RestRadixProperties
      */
     private final RestRadixProperties radixProperties;
 
     /**
      * <code>INSTANCE</code>
-     * {@link io.github.nichetoolkit.rest.worker.RadixWorker} <p>the constant <code>INSTANCE</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.worker.RadixWorker} <p>The constant <code>INSTANCE</code> field.</p>
      */
     private static RadixWorker INSTANCE = null;
 
     /**
      * <code>getInstance</code>
-     * <p>the instance getter method.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.RadixWorker} <p>the instance return object is <code>RadixWorker</code> type.</p>
+     * <p>The instance getter method.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.RadixWorker} <p>The instance return object is <code>RadixWorker</code> type.</p>
      */
     public static RadixWorker getInstance() {
         return INSTANCE;
@@ -42,8 +42,8 @@ public class RadixWorker {
 
     /**
      * <code>RadixWorker</code>
-     * Instantiates a new radix worker.
-     * @param radixProperties {@link io.github.nichetoolkit.rest.configure.RestRadixProperties} <p>the radix properties parameter is <code>RestRadixProperties</code> type.</p>
+     * <p>Instantiates a new radix worker.</p>
+     * @param radixProperties {@link io.github.nichetoolkit.rest.configure.RestRadixProperties} <p>The radix properties parameter is <code>RestRadixProperties</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestRadixProperties
      * @see org.springframework.beans.factory.annotation.Autowired
      */
@@ -54,7 +54,7 @@ public class RadixWorker {
 
     /**
      * <code>radixWorkerInit</code>
-     * <p>the worker init method.</p>
+     * <p>The worker init method.</p>
      * @see javax.annotation.PostConstruct
      */
     @PostConstruct
@@ -65,9 +65,9 @@ public class RadixWorker {
 
     /**
      * <code>encrypt</code>
-     * <p>the method.</p>
-     * @param source {@link java.lang.Long} <p>the source parameter is <code>Long</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param source {@link java.lang.Long} <p>The source parameter is <code>Long</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.Long
      * @see java.lang.String
      */
@@ -77,9 +77,9 @@ public class RadixWorker {
 
     /**
      * <code>decrypt</code>
-     * <p>the method.</p>
-     * @param target {@link java.lang.String} <p>the target parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.Long} <p>the return object is <code>Long</code> type.</p>
+     * <p>The method.</p>
+     * @param target {@link java.lang.String} <p>The target parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.Long} <p>The return object is <code>Long</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Long
      */
@@ -89,10 +89,10 @@ public class RadixWorker {
 
     /**
      * <code>encrypts</code>
-     * <p>the method.</p>
-     * @param source     {@link java.lang.Long} <p>the source parameter is <code>Long</code> type.</p>
-     * @param properties {@link io.github.nichetoolkit.rest.configure.RestRadixProperties} <p>the properties parameter is <code>RestRadixProperties</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param source     {@link java.lang.Long} <p>The source parameter is <code>Long</code> type.</p>
+     * @param properties {@link io.github.nichetoolkit.rest.configure.RestRadixProperties} <p>The properties parameter is <code>RestRadixProperties</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.Long
      * @see io.github.nichetoolkit.rest.configure.RestRadixProperties
      * @see java.lang.String
@@ -103,9 +103,9 @@ public class RadixWorker {
 
     /**
      * <code>encrypts</code>
-     * <p>the method.</p>
-     * @param source {@link java.lang.Long} <p>the source parameter is <code>Long</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param source {@link java.lang.Long} <p>The source parameter is <code>Long</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.Long
      * @see java.lang.String
      */
@@ -115,11 +115,11 @@ public class RadixWorker {
 
     /**
      * <code>encrypts</code>
-     * <p>the method.</p>
-     * @param source {@link java.lang.Long} <p>the source parameter is <code>Long</code> type.</p>
-     * @param digits char <p>the digits parameter is <code>char</code> type.</p>
-     * @param supply char <p>the supply parameter is <code>char</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param source {@link java.lang.Long} <p>The source parameter is <code>Long</code> type.</p>
+     * @param digits char <p>The digits parameter is <code>char</code> type.</p>
+     * @param supply char <p>The supply parameter is <code>char</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.Long
      * @see java.lang.String
      */
@@ -129,12 +129,12 @@ public class RadixWorker {
 
     /**
      * <code>encrypts</code>
-     * <p>the method.</p>
-     * @param source    {@link java.lang.Long} <p>the source parameter is <code>Long</code> type.</p>
-     * @param digits    char <p>the digits parameter is <code>char</code> type.</p>
-     * @param supply    char <p>the supply parameter is <code>char</code> type.</p>
-     * @param minLength int <p>the min length parameter is <code>int</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param source    {@link java.lang.Long} <p>The source parameter is <code>Long</code> type.</p>
+     * @param digits    char <p>The digits parameter is <code>char</code> type.</p>
+     * @param supply    char <p>The supply parameter is <code>char</code> type.</p>
+     * @param minLength int <p>The min length parameter is <code>int</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.Long
      * @see java.lang.String
      */
@@ -164,10 +164,10 @@ public class RadixWorker {
 
     /**
      * <code>decrypts</code>
-     * <p>the method.</p>
-     * @param target     {@link java.lang.String} <p>the target parameter is <code>String</code> type.</p>
-     * @param properties {@link io.github.nichetoolkit.rest.configure.RestRadixProperties} <p>the properties parameter is <code>RestRadixProperties</code> type.</p>
-     * @return {@link java.lang.Long} <p>the return object is <code>Long</code> type.</p>
+     * <p>The method.</p>
+     * @param target     {@link java.lang.String} <p>The target parameter is <code>String</code> type.</p>
+     * @param properties {@link io.github.nichetoolkit.rest.configure.RestRadixProperties} <p>The properties parameter is <code>RestRadixProperties</code> type.</p>
+     * @return {@link java.lang.Long} <p>The return object is <code>Long</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.configure.RestRadixProperties
      * @see java.lang.Long
@@ -178,9 +178,9 @@ public class RadixWorker {
 
     /**
      * <code>decrypts</code>
-     * <p>the method.</p>
-     * @param target {@link java.lang.String} <p>the target parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.Long} <p>the return object is <code>Long</code> type.</p>
+     * <p>The method.</p>
+     * @param target {@link java.lang.String} <p>The target parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.Long} <p>The return object is <code>Long</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Long
      */
@@ -190,11 +190,11 @@ public class RadixWorker {
 
     /**
      * <code>decrypts</code>
-     * <p>the method.</p>
-     * @param target {@link java.lang.String} <p>the target parameter is <code>String</code> type.</p>
-     * @param digits char <p>the digits parameter is <code>char</code> type.</p>
-     * @param supply char <p>the supply parameter is <code>char</code> type.</p>
-     * @return {@link java.lang.Long} <p>the return object is <code>Long</code> type.</p>
+     * <p>The method.</p>
+     * @param target {@link java.lang.String} <p>The target parameter is <code>String</code> type.</p>
+     * @param digits char <p>The digits parameter is <code>char</code> type.</p>
+     * @param supply char <p>The supply parameter is <code>char</code> type.</p>
+     * @return {@link java.lang.Long} <p>The return object is <code>Long</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Long
      */

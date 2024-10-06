@@ -14,7 +14,7 @@ import io.github.nichetoolkit.rest.error.natives.IoStreamErrorException;
 public class IoStreamTransferException extends IoStreamErrorException {
     /**
      * <code>IoStreamTransferException</code>
-     * Instantiates a new io stream transfer exception.
+     * <p>Instantiates a new io stream transfer exception.</p>
      */
     public IoStreamTransferException() {
         super(RestErrorStatus.IO_STREAM_TRANSFER_ERROR);
@@ -22,8 +22,8 @@ public class IoStreamTransferException extends IoStreamErrorException {
 
     /**
      * <code>IoStreamTransferException</code>
-     * Instantiates a new io stream transfer exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * <p>Instantiates a new io stream transfer exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
     public IoStreamTransferException(RestStatus status) {
@@ -32,8 +32,8 @@ public class IoStreamTransferException extends IoStreamErrorException {
 
     /**
      * <code>IoStreamTransferException</code>
-     * Instantiates a new io stream transfer exception.
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new io stream transfer exception.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public IoStreamTransferException(String message) {
@@ -42,9 +42,9 @@ public class IoStreamTransferException extends IoStreamErrorException {
 
     /**
      * <code>IoStreamTransferException</code>
-     * Instantiates a new io stream transfer exception.
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new io stream transfer exception.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public IoStreamTransferException(String resource, String message) {

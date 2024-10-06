@@ -15,7 +15,7 @@ import java.lang.annotation.*;
  * @see java.lang.annotation.Retention
  * @see java.lang.annotation.Documented
  * @see org.springframework.stereotype.Indexed
- * @see RestNotelog
+ * @see io.github.nichetoolkit.rest.userlog.stereotype.RestNotelog
  * @since Jdk1.8
  */
 @Target({ElementType.METHOD})
@@ -26,8 +26,8 @@ import java.lang.annotation.*;
 public @interface RestUserlog {
     /**
      * <code>value</code>
-     * <p>the method.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.core.annotation.AliasFor
      */
@@ -36,8 +36,8 @@ public @interface RestUserlog {
 
     /**
      * <code>notelog</code>
-     * <p>the method.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.core.annotation.AliasFor
      */
@@ -49,16 +49,16 @@ public @interface RestUserlog {
 
     /**
      * <code>userlog</code>
-     * <p>the method.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     String userlog() default "";
 
     /**
      * <code>loggingKey</code>
-     * <p>the key method.</p>
-     * @return {@link java.lang.String} <p>the key return object is <code>String</code> type.</p>
+     * <p>The key method.</p>
+     * @return {@link java.lang.String} <p>The key return object is <code>String</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.core.annotation.AliasFor
      */
@@ -70,8 +70,8 @@ public @interface RestUserlog {
 
     /**
      * <code>loggingValue</code>
-     * <p>the value method.</p>
-     * @return {@link java.lang.String} <p>the value return object is <code>String</code> type.</p>
+     * <p>The value method.</p>
+     * @return {@link java.lang.String} <p>The value return object is <code>String</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.core.annotation.AliasFor
      */
@@ -84,8 +84,8 @@ public @interface RestUserlog {
 
     /**
      * <code>loggingType</code>
-     * <p>the type method.</p>
-     * @return {@link io.github.nichetoolkit.rest.userlog.LoggingType} <p>the type return object is <code>LoggingType</code> type.</p>
+     * <p>The type method.</p>
+     * @return {@link io.github.nichetoolkit.rest.userlog.LoggingType} <p>The type return object is <code>LoggingType</code> type.</p>
      * @see io.github.nichetoolkit.rest.userlog.LoggingType
      */
     LoggingType loggingType() default LoggingType.TEST;

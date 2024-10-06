@@ -12,63 +12,63 @@ import java.util.regex.Pattern;
 public class PasswordWorker {
     /**
      * <code>LOWER_REGEX</code>
-     * {@link java.lang.String} <p>the constant <code>LOWER_REGEX</code> field.</p>
+     * {@link java.lang.String} <p>The constant <code>LOWER_REGEX</code> field.</p>
      * @see java.lang.String
      */
     private static final String LOWER_REGEX = "[a-z]";
     /**
      * <code>UPPER_REGEX</code>
-     * {@link java.lang.String} <p>the constant <code>UPPER_REGEX</code> field.</p>
+     * {@link java.lang.String} <p>The constant <code>UPPER_REGEX</code> field.</p>
      * @see java.lang.String
      */
     private static final String UPPER_REGEX = "[A-Z]";
     /**
      * <code>NUMBER_REGEX</code>
-     * {@link java.lang.String} <p>the constant <code>NUMBER_REGEX</code> field.</p>
+     * {@link java.lang.String} <p>The constant <code>NUMBER_REGEX</code> field.</p>
      * @see java.lang.String
      */
     private static final String NUMBER_REGEX = "[0-9]";
     /**
      * <code>password</code>
-     * {@link java.lang.String} <p>the <code>password</code> field.</p>
+     * {@link java.lang.String} <p>The <code>password</code> field.</p>
      * @see java.lang.String
      */
     private final String password;
     /**
      * <code>length</code>
-     * {@link java.lang.Integer} <p>the <code>length</code> field.</p>
+     * {@link java.lang.Integer} <p>The <code>length</code> field.</p>
      * @see java.lang.Integer
      */
     private final Integer length;
     /**
      * <code>upperSize</code>
-     * {@link java.lang.Integer} <p>the <code>upperSize</code> field.</p>
+     * {@link java.lang.Integer} <p>The <code>upperSize</code> field.</p>
      * @see java.lang.Integer
      */
     private Integer upperSize;
     /**
      * <code>lowerSize</code>
-     * {@link java.lang.Integer} <p>the <code>lowerSize</code> field.</p>
+     * {@link java.lang.Integer} <p>The <code>lowerSize</code> field.</p>
      * @see java.lang.Integer
      */
     private Integer lowerSize;
     /**
      * <code>numSize</code>
-     * {@link java.lang.Integer} <p>the <code>numSize</code> field.</p>
+     * {@link java.lang.Integer} <p>The <code>numSize</code> field.</p>
      * @see java.lang.Integer
      */
     private Integer numSize;
     /**
      * <code>charSize</code>
-     * {@link java.lang.Integer} <p>the <code>charSize</code> field.</p>
+     * {@link java.lang.Integer} <p>The <code>charSize</code> field.</p>
      * @see java.lang.Integer
      */
     private Integer charSize;
 
     /**
      * <code>PasswordWorker</code>
-     * Instantiates a new password worker.
-     * @param password {@link java.lang.String} <p>the password parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new password worker.</p>
+     * @param password {@link java.lang.String} <p>The password parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public PasswordWorker(String password){
@@ -78,8 +78,8 @@ public class PasswordWorker {
 
     /**
      * <code>lengthQuest</code>
-     * <p>the quest method.</p>
-     * @return boolean <p>the quest return object is <code>boolean</code> type.</p>
+     * <p>The quest method.</p>
+     * @return boolean <p>The quest return object is <code>boolean</code> type.</p>
      */
     public boolean lengthQuest() {
         return lengthQuest(8,16);
@@ -87,10 +87,10 @@ public class PasswordWorker {
 
     /**
      * <code>lengthQuest</code>
-     * <p>the quest method.</p>
-     * @param min int <p>the min parameter is <code>int</code> type.</p>
-     * @param max int <p>the max parameter is <code>int</code> type.</p>
-     * @return boolean <p>the quest return object is <code>boolean</code> type.</p>
+     * <p>The quest method.</p>
+     * @param min int <p>The min parameter is <code>int</code> type.</p>
+     * @param max int <p>The max parameter is <code>int</code> type.</p>
+     * @return boolean <p>The quest return object is <code>boolean</code> type.</p>
      */
     public boolean lengthQuest(int min, int max) {
         /* 密码长度 8-16位 */
@@ -99,8 +99,8 @@ public class PasswordWorker {
 
     /**
      * <code>contentQuest</code>
-     * <p>the quest method.</p>
-     * @return boolean <p>the quest return object is <code>boolean</code> type.</p>
+     * <p>The quest method.</p>
+     * @return boolean <p>The quest return object is <code>boolean</code> type.</p>
      */
     public boolean contentQuest() {
         return (getUpperSize() + getLowerSize()) > 0 && getNumSize() > 0;
@@ -108,8 +108,8 @@ public class PasswordWorker {
 
     /**
      * <code>getUpperSize</code>
-     * <p>the upper size getter method.</p>
-     * @return {@link java.lang.Integer} <p>the upper size return object is <code>Integer</code> type.</p>
+     * <p>The upper size getter method.</p>
+     * @return {@link java.lang.Integer} <p>The upper size return object is <code>Integer</code> type.</p>
      * @see java.lang.Integer
      */
     public Integer getUpperSize() {
@@ -121,8 +121,8 @@ public class PasswordWorker {
 
     /**
      * <code>getLowerSize</code>
-     * <p>the lower size getter method.</p>
-     * @return {@link java.lang.Integer} <p>the lower size return object is <code>Integer</code> type.</p>
+     * <p>The lower size getter method.</p>
+     * @return {@link java.lang.Integer} <p>The lower size return object is <code>Integer</code> type.</p>
      * @see java.lang.Integer
      */
     public Integer getLowerSize() {
@@ -134,8 +134,8 @@ public class PasswordWorker {
 
     /**
      * <code>getNumSize</code>
-     * <p>the num size getter method.</p>
-     * @return {@link java.lang.Integer} <p>the num size return object is <code>Integer</code> type.</p>
+     * <p>The num size getter method.</p>
+     * @return {@link java.lang.Integer} <p>The num size return object is <code>Integer</code> type.</p>
      * @see java.lang.Integer
      */
     public Integer getNumSize() {
@@ -147,8 +147,8 @@ public class PasswordWorker {
 
     /**
      * <code>getCharSize</code>
-     * <p>the char size getter method.</p>
-     * @return int <p>the char size return object is <code>int</code> type.</p>
+     * <p>The char size getter method.</p>
+     * @return int <p>The char size return object is <code>int</code> type.</p>
      */
     public int getCharSize() {
         if (this.charSize == null) {
@@ -160,9 +160,9 @@ public class PasswordWorker {
 
     /**
      * <code>upperMatch</code>
-     * <p>the match method.</p>
-     * @param target {@link java.lang.String} <p>the target parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.Integer} <p>the match return object is <code>Integer</code> type.</p>
+     * <p>The match method.</p>
+     * @param target {@link java.lang.String} <p>The target parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.Integer} <p>The match return object is <code>Integer</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Integer
      */
@@ -172,9 +172,9 @@ public class PasswordWorker {
 
     /**
      * <code>lowerMatch</code>
-     * <p>the match method.</p>
-     * @param target {@link java.lang.String} <p>the target parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.Integer} <p>the match return object is <code>Integer</code> type.</p>
+     * <p>The match method.</p>
+     * @param target {@link java.lang.String} <p>The target parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.Integer} <p>The match return object is <code>Integer</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Integer
      */
@@ -184,9 +184,9 @@ public class PasswordWorker {
 
     /**
      * <code>numberMatch</code>
-     * <p>the match method.</p>
-     * @param target {@link java.lang.String} <p>the target parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.Integer} <p>the match return object is <code>Integer</code> type.</p>
+     * <p>The match method.</p>
+     * @param target {@link java.lang.String} <p>The target parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.Integer} <p>The match return object is <code>Integer</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Integer
      */
@@ -196,10 +196,10 @@ public class PasswordWorker {
 
     /**
      * <code>match</code>
-     * <p>the method.</p>
-     * @param regex  {@link java.lang.String} <p>the regex parameter is <code>String</code> type.</p>
-     * @param target {@link java.lang.String} <p>the target parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.Integer} <p>the return object is <code>Integer</code> type.</p>
+     * <p>The method.</p>
+     * @param regex  {@link java.lang.String} <p>The regex parameter is <code>String</code> type.</p>
+     * @param target {@link java.lang.String} <p>The target parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.Integer} <p>The return object is <code>Integer</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Integer
      */

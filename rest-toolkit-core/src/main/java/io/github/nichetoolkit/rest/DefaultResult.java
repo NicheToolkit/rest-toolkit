@@ -10,8 +10,8 @@ import java.util.Optional;
 /**
  * <code>DefaultResult</code>
  * <p>The type default result class.</p>
- * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
- * @param <S> {@link io.github.nichetoolkit.rest.DefaultResult} <p>the generic parameter is <code>DefaultResult</code> type.</p>
+ * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+ * @param <S> {@link io.github.nichetoolkit.rest.DefaultResult} <p>The generic parameter is <code>DefaultResult</code> type.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.io.Serializable
  * @see lombok.Data
@@ -23,26 +23,26 @@ import java.util.Optional;
 class DefaultResult<T,S extends DefaultResult<T,S>> implements Serializable {
     /**
      * <code>status</code>
-     * {@link java.lang.Integer} <p>the <code>status</code> field.</p>
+     * {@link java.lang.Integer} <p>The <code>status</code> field.</p>
      * @see java.lang.Integer
      */
     private Integer status;
     /**
      * <code>message</code>
-     * {@link java.lang.String} <p>the <code>message</code> field.</p>
+     * {@link java.lang.String} <p>The <code>message</code> field.</p>
      * @see java.lang.String
      */
     private String message;
     /**
      * <code>data</code>
-     * <p>the <code>data</code> field.</p>
+     * <p>The <code>data</code> field.</p>
      * @see com.fasterxml.jackson.annotation.JsonInclude
      */
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private T data;
     /**
      * <code>error</code>
-     * {@link io.github.nichetoolkit.rest.DefaultError} <p>the <code>error</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.DefaultError} <p>The <code>error</code> field.</p>
      * @see io.github.nichetoolkit.rest.DefaultError
      */
     private DefaultError error;
@@ -50,16 +50,16 @@ class DefaultResult<T,S extends DefaultResult<T,S>> implements Serializable {
 
     /**
      * <code>DefaultResult</code>
-     * Instantiates a new default result.
+     * <p>Instantiates a new default result.</p>
      */
     protected DefaultResult() {
     }
 
     /**
      * <code>DefaultResult</code>
-     * Instantiates a new default result.
-     * @param status  {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new default result.</p>
+     * @param status  {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      */
@@ -70,8 +70,8 @@ class DefaultResult<T,S extends DefaultResult<T,S>> implements Serializable {
 
     /**
      * <code>DefaultResult</code>
-     * Instantiates a new default result.
-     * @param builder {@link io.github.nichetoolkit.rest.DefaultResult.Builder} <p>the builder parameter is <code>Builder</code> type.</p>
+     * <p>Instantiates a new default result.</p>
+     * @param builder {@link io.github.nichetoolkit.rest.DefaultResult.Builder} <p>The builder parameter is <code>Builder</code> type.</p>
      * @see io.github.nichetoolkit.rest.DefaultResult.Builder
      */
     protected DefaultResult(DefaultResult.Builder<T,S> builder) {
@@ -87,10 +87,10 @@ class DefaultResult<T,S extends DefaultResult<T,S>> implements Serializable {
 
     /**
      * <code>DefaultResult</code>
-     * Instantiates a new default result.
-     * @param status  {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param data    T <p>the data parameter is <code>T</code> type.</p>
+     * <p>Instantiates a new default result.</p>
+     * @param status  {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param data    T <p>The data parameter is <code>T</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      */
@@ -102,8 +102,8 @@ class DefaultResult<T,S extends DefaultResult<T,S>> implements Serializable {
 
     /**
      * <code>isSuccess</code>
-     * <p>the success method.</p>
-     * @return boolean <p>the success return object is <code>boolean</code> type.</p>
+     * <p>The success method.</p>
+     * @return boolean <p>The success return object is <code>boolean</code> type.</p>
      * @see com.fasterxml.jackson.annotation.JsonIgnore
      */
     @JsonIgnore
@@ -114,48 +114,48 @@ class DefaultResult<T,S extends DefaultResult<T,S>> implements Serializable {
     /**
      * <code>Builder</code>
      * <p>The type builder class.</p>
-     * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <S> {@link io.github.nichetoolkit.rest.DefaultResult} <p>the generic parameter is <code>DefaultResult</code> type.</p>
+     * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <S> {@link io.github.nichetoolkit.rest.DefaultResult} <p>The generic parameter is <code>DefaultResult</code> type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @since Jdk1.8
      */
     public static abstract class Builder<T,S extends DefaultResult<T,S>> {
         /**
          * <code>status</code>
-         * {@link java.lang.Integer} <p>the <code>status</code> field.</p>
+         * {@link java.lang.Integer} <p>The <code>status</code> field.</p>
          * @see java.lang.Integer
          */
         protected Integer status;
         /**
          * <code>message</code>
-         * {@link java.lang.String} <p>the <code>message</code> field.</p>
+         * {@link java.lang.String} <p>The <code>message</code> field.</p>
          * @see java.lang.String
          */
         protected String message;
         /**
          * <code>data</code>
-         * <p>the <code>data</code> field.</p>
+         * <p>The <code>data</code> field.</p>
          */
         protected T data;
         /**
          * <code>cause</code>
-         * {@link java.lang.Throwable} <p>the <code>cause</code> field.</p>
+         * {@link java.lang.Throwable} <p>The <code>cause</code> field.</p>
          * @see java.lang.Throwable
          */
         protected Throwable cause;
 
         /**
          * <code>Builder</code>
-         * Instantiates a new builder.
+         * <p>Instantiates a new builder.</p>
          */
         public Builder() {
         }
 
         /**
          * <code>restStatus</code>
-         * <p>the status method.</p>
-         * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.DefaultResult.Builder} <p>the status return object is <code>Builder</code> type.</p>
+         * <p>The status method.</p>
+         * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.DefaultResult.Builder} <p>The status return object is <code>Builder</code> type.</p>
          * @see io.github.nichetoolkit.rest.RestStatus
          */
         public DefaultResult.Builder<T,S> restStatus(RestStatus status) {
@@ -166,9 +166,9 @@ class DefaultResult<T,S extends DefaultResult<T,S>> implements Serializable {
 
         /**
          * <code>status</code>
-         * <p>the method.</p>
-         * @param status {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.DefaultResult.Builder} <p>the return object is <code>Builder</code> type.</p>
+         * <p>The method.</p>
+         * @param status {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.DefaultResult.Builder} <p>The return object is <code>Builder</code> type.</p>
          * @see java.lang.Integer
          */
         public DefaultResult.Builder<T,S> status(Integer status) {
@@ -178,9 +178,9 @@ class DefaultResult<T,S extends DefaultResult<T,S>> implements Serializable {
 
         /**
          * <code>status</code>
-         * <p>the method.</p>
-         * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.DefaultResult.Builder} <p>the return object is <code>Builder</code> type.</p>
+         * <p>The method.</p>
+         * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.DefaultResult.Builder} <p>The return object is <code>Builder</code> type.</p>
          * @see io.github.nichetoolkit.rest.RestStatus
          */
         public DefaultResult.Builder<T,S> status(RestStatus status) {
@@ -190,9 +190,9 @@ class DefaultResult<T,S extends DefaultResult<T,S>> implements Serializable {
 
         /**
          * <code>message</code>
-         * <p>the method.</p>
-         * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.DefaultResult.Builder} <p>the return object is <code>Builder</code> type.</p>
+         * <p>The method.</p>
+         * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.DefaultResult.Builder} <p>The return object is <code>Builder</code> type.</p>
          * @see java.lang.String
          */
         public DefaultResult.Builder<T,S> message(String message) {
@@ -202,9 +202,9 @@ class DefaultResult<T,S extends DefaultResult<T,S>> implements Serializable {
 
         /**
          * <code>message</code>
-         * <p>the method.</p>
-         * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.DefaultResult.Builder} <p>the return object is <code>Builder</code> type.</p>
+         * <p>The method.</p>
+         * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.DefaultResult.Builder} <p>The return object is <code>Builder</code> type.</p>
          * @see io.github.nichetoolkit.rest.RestStatus
          */
         public DefaultResult.Builder<T,S> message(RestStatus status) {
@@ -214,9 +214,9 @@ class DefaultResult<T,S extends DefaultResult<T,S>> implements Serializable {
 
         /**
          * <code>data</code>
-         * <p>the method.</p>
-         * @param data T <p>the data parameter is <code>T</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.DefaultResult.Builder} <p>the return object is <code>Builder</code> type.</p>
+         * <p>The method.</p>
+         * @param data T <p>The data parameter is <code>T</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.DefaultResult.Builder} <p>The return object is <code>Builder</code> type.</p>
          */
         public DefaultResult.Builder<T,S> data(T data) {
             this.data = data;
@@ -225,9 +225,9 @@ class DefaultResult<T,S extends DefaultResult<T,S>> implements Serializable {
 
         /**
          * <code>cause</code>
-         * <p>the method.</p>
-         * @param cause {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.DefaultResult.Builder} <p>the return object is <code>Builder</code> type.</p>
+         * <p>The method.</p>
+         * @param cause {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.DefaultResult.Builder} <p>The return object is <code>Builder</code> type.</p>
          * @see java.lang.Throwable
          */
         public DefaultResult.Builder<T,S> cause(Throwable cause) {
@@ -237,8 +237,8 @@ class DefaultResult<T,S extends DefaultResult<T,S>> implements Serializable {
 
         /**
          * <code>build</code>
-         * <p>the method.</p>
-         * @return {@link io.github.nichetoolkit.rest.DefaultResult} <p>the return object is <code>DefaultResult</code> type.</p>
+         * <p>The method.</p>
+         * @return {@link io.github.nichetoolkit.rest.DefaultResult} <p>The return object is <code>DefaultResult</code> type.</p>
          */
         abstract DefaultResult<T,S> build();
     }

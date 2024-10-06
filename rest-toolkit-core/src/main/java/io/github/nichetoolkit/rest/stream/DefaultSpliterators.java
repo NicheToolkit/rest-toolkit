@@ -16,15 +16,15 @@ public final class DefaultSpliterators {
 
     /**
      * <code>DefaultSpliterators</code>
-     * Instantiates a new default spliterators.
+     * <p>Instantiates a new default spliterators.</p>
      */
     private DefaultSpliterators() {}
 
     /**
      * <code>emptySpliterator</code>
-     * <p>the spliterator method.</p>
-     * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the spliterator return object is <code>DefaultSpliterator</code> type.</p>
+     * <p>The spliterator method.</p>
+     * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The spliterator return object is <code>DefaultSpliterator</code> type.</p>
      * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("unchecked")
@@ -34,19 +34,19 @@ public final class DefaultSpliterators {
 
     /**
      * <code>EMPTY_SPLITERATOR</code>
-     * {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the constant <code>EMPTY_SPLITERATOR</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The constant <code>EMPTY_SPLITERATOR</code> field.</p>
      */
     private static final DefaultSpliterator<Object> EMPTY_SPLITERATOR =
             new EmptySpliterator.OfRef<>();
 
     /**
      * <code>spliterator</code>
-     * <p>the method.</p>
-     * @param <T>            {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param array          T <p>the array parameter is <code>T</code> type.</p>
-     * @param startInclusive int <p>the start inclusive parameter is <code>int</code> type.</p>
-     * @param endExclusive   int <p>the end exclusive parameter is <code>int</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the return object is <code>DefaultSpliterator</code> type.</p>
+     * <p>The method.</p>
+     * @param <T>            {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param array          T <p>The array parameter is <code>T</code> type.</p>
+     * @param startInclusive int <p>The start inclusive parameter is <code>int</code> type.</p>
+     * @param endExclusive   int <p>The end exclusive parameter is <code>int</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The return object is <code>DefaultSpliterator</code> type.</p>
      */
     public static <T> DefaultSpliterator<T> spliterator(T[] array, int startInclusive, int endExclusive) {
         return spliterator(array, startInclusive, endExclusive,
@@ -55,11 +55,11 @@ public final class DefaultSpliterators {
 
     /**
      * <code>spliterator</code>
-     * <p>the method.</p>
-     * @param <T>                       {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param array                     {@link java.lang.Object} <p>the array parameter is <code>Object</code> type.</p>
-     * @param additionalCharacteristics int <p>the additional characteristics parameter is <code>int</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the return object is <code>DefaultSpliterator</code> type.</p>
+     * <p>The method.</p>
+     * @param <T>                       {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param array                     {@link java.lang.Object} <p>The array parameter is <code>Object</code> type.</p>
+     * @param additionalCharacteristics int <p>The additional characteristics parameter is <code>int</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The return object is <code>DefaultSpliterator</code> type.</p>
      * @see java.lang.Object
      */
     public static <T> DefaultSpliterator<T> spliterator(Object[] array, int additionalCharacteristics) {
@@ -68,13 +68,13 @@ public final class DefaultSpliterators {
 
     /**
      * <code>spliterator</code>
-     * <p>the method.</p>
-     * @param <T>                       {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param array                     {@link java.lang.Object} <p>the array parameter is <code>Object</code> type.</p>
-     * @param fromIndex                 int <p>the from index parameter is <code>int</code> type.</p>
-     * @param toIndex                   int <p>the to index parameter is <code>int</code> type.</p>
-     * @param additionalCharacteristics int <p>the additional characteristics parameter is <code>int</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the return object is <code>DefaultSpliterator</code> type.</p>
+     * <p>The method.</p>
+     * @param <T>                       {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param array                     {@link java.lang.Object} <p>The array parameter is <code>Object</code> type.</p>
+     * @param fromIndex                 int <p>The from index parameter is <code>int</code> type.</p>
+     * @param toIndex                   int <p>The to index parameter is <code>int</code> type.</p>
+     * @param additionalCharacteristics int <p>The additional characteristics parameter is <code>int</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The return object is <code>DefaultSpliterator</code> type.</p>
      * @see java.lang.Object
      */
     public static <T> DefaultSpliterator<T> spliterator(Object[] array, int fromIndex, int toIndex, int additionalCharacteristics) {
@@ -84,10 +84,10 @@ public final class DefaultSpliterators {
 
     /**
      * <code>checkFromToBounds</code>
-     * <p>the from to bounds method.</p>
-     * @param arrayLength int <p>the array length parameter is <code>int</code> type.</p>
-     * @param origin      int <p>the origin parameter is <code>int</code> type.</p>
-     * @param fence       int <p>the fence parameter is <code>int</code> type.</p>
+     * <p>The from to bounds method.</p>
+     * @param arrayLength int <p>The array length parameter is <code>int</code> type.</p>
+     * @param origin      int <p>The origin parameter is <code>int</code> type.</p>
+     * @param fence       int <p>The fence parameter is <code>int</code> type.</p>
      */
     private static void checkFromToBounds(int arrayLength, int origin, int fence) {
         if (origin > fence) {
@@ -103,10 +103,10 @@ public final class DefaultSpliterators {
 
     /**
      * <code>spliterator</code>
-     * <p>the method.</p>
-     * @param <T>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param collection {@link java.util.Collection} <p>the collection parameter is <code>Collection</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the return object is <code>DefaultSpliterator</code> type.</p>
+     * <p>The method.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param collection {@link java.util.Collection} <p>The collection parameter is <code>Collection</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The return object is <code>DefaultSpliterator</code> type.</p>
      * @see java.util.Collection
      */
     public static <T> DefaultSpliterator<T> spliterator(Collection<T> collection) {
@@ -115,11 +115,11 @@ public final class DefaultSpliterators {
 
     /**
      * <code>spliterator</code>
-     * <p>the method.</p>
-     * @param <T>             {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param c               {@link java.util.Collection} <p>the c parameter is <code>Collection</code> type.</p>
-     * @param characteristics int <p>the characteristics parameter is <code>int</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the return object is <code>DefaultSpliterator</code> type.</p>
+     * <p>The method.</p>
+     * @param <T>             {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param c               {@link java.util.Collection} <p>The c parameter is <code>Collection</code> type.</p>
+     * @param characteristics int <p>The characteristics parameter is <code>int</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The return object is <code>DefaultSpliterator</code> type.</p>
      * @see java.util.Collection
      */
     public static <T> DefaultSpliterator<T> spliterator(Collection<? extends T> c,
@@ -130,12 +130,12 @@ public final class DefaultSpliterators {
 
     /**
      * <code>spliterator</code>
-     * <p>the method.</p>
-     * @param <T>             {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param iterator        {@link java.util.Iterator} <p>the iterator parameter is <code>Iterator</code> type.</p>
-     * @param size            long <p>the size parameter is <code>long</code> type.</p>
-     * @param characteristics int <p>the characteristics parameter is <code>int</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the return object is <code>DefaultSpliterator</code> type.</p>
+     * <p>The method.</p>
+     * @param <T>             {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param iterator        {@link java.util.Iterator} <p>The iterator parameter is <code>Iterator</code> type.</p>
+     * @param size            long <p>The size parameter is <code>long</code> type.</p>
+     * @param characteristics int <p>The characteristics parameter is <code>int</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The return object is <code>DefaultSpliterator</code> type.</p>
      * @see java.util.Iterator
      */
     public static <T> DefaultSpliterator<T> spliterator(Iterator<? extends T> iterator,
@@ -147,11 +147,11 @@ public final class DefaultSpliterators {
 
     /**
      * <code>spliteratorUnknownSize</code>
-     * <p>the unknown size method.</p>
-     * @param <T>             {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param iterator        {@link java.util.Iterator} <p>the iterator parameter is <code>Iterator</code> type.</p>
-     * @param characteristics int <p>the characteristics parameter is <code>int</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the unknown size return object is <code>DefaultSpliterator</code> type.</p>
+     * <p>The unknown size method.</p>
+     * @param <T>             {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param iterator        {@link java.util.Iterator} <p>The iterator parameter is <code>Iterator</code> type.</p>
+     * @param characteristics int <p>The characteristics parameter is <code>int</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The unknown size return object is <code>DefaultSpliterator</code> type.</p>
      * @see java.util.Iterator
      */
     public static <T> DefaultSpliterator<T> spliteratorUnknownSize(Iterator<? extends T> iterator,
@@ -161,10 +161,10 @@ public final class DefaultSpliterators {
 
     /**
      * <code>iterator</code>
-     * <p>the method.</p>
-     * @param <T>         {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the spliterator parameter is <code>DefaultSpliterator</code> type.</p>
-     * @return {@link java.util.Iterator} <p>the return object is <code>Iterator</code> type.</p>
+     * <p>The method.</p>
+     * @param <T>         {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The spliterator parameter is <code>DefaultSpliterator</code> type.</p>
+     * @return {@link java.util.Iterator} <p>The return object is <code>Iterator</code> type.</p>
      * @see java.util.Iterator
      */
     public static<T> Iterator<T> iterator(DefaultSpliterator<? extends T> spliterator) {
@@ -210,9 +210,9 @@ public final class DefaultSpliterators {
     /**
      * <code>EmptySpliterator</code>
      * <p>The type empty spliterator class.</p>
-     * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <S> {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the generic parameter is <code>DefaultSpliterator</code> type.</p>
-     * @param <C> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <S> {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The generic parameter is <code>DefaultSpliterator</code> type.</p>
+     * @param <C> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @since Jdk1.8
      */
@@ -220,15 +220,15 @@ public final class DefaultSpliterators {
 
         /**
          * <code>EmptySpliterator</code>
-         * Instantiates a new empty spliterator.
+         * <p>Instantiates a new empty spliterator.</p>
          */
         EmptySpliterator() { }
 
         /**
          * <code>trySplit</code>
-         * <p>the split method.</p>
-         * @return S <p>the split return object is <code>S</code> type.</p>
-         * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+         * <p>The split method.</p>
+         * @return S <p>The split return object is <code>S</code> type.</p>
+         * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
          * @see io.github.nichetoolkit.rest.RestException
          */
         public S trySplit() throws RestException {
@@ -237,9 +237,9 @@ public final class DefaultSpliterators {
 
         /**
          * <code>tryAdvance</code>
-         * <p>the advance method.</p>
-         * @param consumer C <p>the consumer parameter is <code>C</code> type.</p>
-         * @return boolean <p>the advance return object is <code>boolean</code> type.</p>
+         * <p>The advance method.</p>
+         * @param consumer C <p>The consumer parameter is <code>C</code> type.</p>
+         * @return boolean <p>The advance return object is <code>boolean</code> type.</p>
          */
         public boolean tryAdvance(C consumer) {
             Objects.requireNonNull(consumer);
@@ -248,8 +248,8 @@ public final class DefaultSpliterators {
 
         /**
          * <code>forEachRemaining</code>
-         * <p>the each remaining method.</p>
-         * @param consumer C <p>the consumer parameter is <code>C</code> type.</p>
+         * <p>The each remaining method.</p>
+         * @param consumer C <p>The consumer parameter is <code>C</code> type.</p>
          */
         public void forEachRemaining(C consumer) {
             Objects.requireNonNull(consumer);
@@ -257,8 +257,8 @@ public final class DefaultSpliterators {
 
         /**
          * <code>estimateSize</code>
-         * <p>the size method.</p>
-         * @return long <p>the size return object is <code>long</code> type.</p>
+         * <p>The size method.</p>
+         * @return long <p>The size return object is <code>long</code> type.</p>
          */
         public long estimateSize() {
             return 0;
@@ -266,8 +266,8 @@ public final class DefaultSpliterators {
 
         /**
          * <code>characteristics</code>
-         * <p>the method.</p>
-         * @return int <p>the return object is <code>int</code> type.</p>
+         * <p>The method.</p>
+         * @return int <p>The return object is <code>int</code> type.</p>
          */
         public int characteristics() {
             return DefaultSpliterator.SIZED | DefaultSpliterator.SUBSIZED;
@@ -276,7 +276,7 @@ public final class DefaultSpliterators {
         /**
          * <code>OfRef</code>
          * <p>The type of ref class.</p>
-         * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+         * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @author Cyan (snow22314@outlook.com)
          * @since Jdk1.8
          */
@@ -285,7 +285,7 @@ public final class DefaultSpliterators {
                 implements DefaultSpliterator<T> {
             /**
              * <code>OfRef</code>
-             * Instantiates a new of ref.
+             * <p>Instantiates a new of ref.</p>
              */
             OfRef() { }
         }
@@ -296,38 +296,38 @@ public final class DefaultSpliterators {
     /**
      * <code>ArraySpliterator</code>
      * <p>The type array spliterator class.</p>
-     * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @since Jdk1.8
      */
     static final class ArraySpliterator<T> implements DefaultSpliterator<T> {
         /**
          * <code>array</code>
-         * {@link java.lang.Object} <p>the <code>array</code> field.</p>
+         * {@link java.lang.Object} <p>The <code>array</code> field.</p>
          * @see java.lang.Object
          */
         private final Object[] array;
         /**
          * <code>index</code>
-         * <p>the <code>index</code> field.</p>
+         * <p>The <code>index</code> field.</p>
          */
         private int index;        // current index, modified on advance/split
         /**
          * <code>fence</code>
-         * <p>the <code>fence</code> field.</p>
+         * <p>The <code>fence</code> field.</p>
          */
         private final int fence;  // one past last index
         /**
          * <code>characteristics</code>
-         * <p>the <code>characteristics</code> field.</p>
+         * <p>The <code>characteristics</code> field.</p>
          */
         private final int characteristics;
 
         /**
          * <code>ArraySpliterator</code>
-         * Instantiates a new array spliterator.
-         * @param array                     {@link java.lang.Object} <p>the array parameter is <code>Object</code> type.</p>
-         * @param additionalCharacteristics int <p>the additional characteristics parameter is <code>int</code> type.</p>
+         * <p>Instantiates a new array spliterator.</p>
+         * @param array                     {@link java.lang.Object} <p>The array parameter is <code>Object</code> type.</p>
+         * @param additionalCharacteristics int <p>The additional characteristics parameter is <code>int</code> type.</p>
          * @see java.lang.Object
          */
         public ArraySpliterator(Object[] array, int additionalCharacteristics) {
@@ -336,11 +336,11 @@ public final class DefaultSpliterators {
 
         /**
          * <code>ArraySpliterator</code>
-         * Instantiates a new array spliterator.
-         * @param array                     {@link java.lang.Object} <p>the array parameter is <code>Object</code> type.</p>
-         * @param origin                    int <p>the origin parameter is <code>int</code> type.</p>
-         * @param fence                     int <p>the fence parameter is <code>int</code> type.</p>
-         * @param additionalCharacteristics int <p>the additional characteristics parameter is <code>int</code> type.</p>
+         * <p>Instantiates a new array spliterator.</p>
+         * @param array                     {@link java.lang.Object} <p>The array parameter is <code>Object</code> type.</p>
+         * @param origin                    int <p>The origin parameter is <code>int</code> type.</p>
+         * @param fence                     int <p>The fence parameter is <code>int</code> type.</p>
+         * @param additionalCharacteristics int <p>The additional characteristics parameter is <code>int</code> type.</p>
          * @see java.lang.Object
          */
         public ArraySpliterator(Object[] array, int origin, int fence, int additionalCharacteristics) {
@@ -401,42 +401,42 @@ public final class DefaultSpliterators {
     /**
      * <code>AbstractSpliterator</code>
      * <p>The type abstract spliterator class.</p>
-     * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @since Jdk1.8
      */
     public static abstract class AbstractSpliterator<T> implements DefaultSpliterator<T> {
         /**
          * <code>BATCH_UNIT</code>
-         * <p>the <code>BATCH_UNIT</code> field.</p>
+         * <p>The <code>BATCH_UNIT</code> field.</p>
          */
         static final int BATCH_UNIT = 1 << 10;  // batch array size increment
         /**
          * <code>MAX_BATCH</code>
-         * <p>the <code>MAX_BATCH</code> field.</p>
+         * <p>The <code>MAX_BATCH</code> field.</p>
          */
         static final int MAX_BATCH = 1 << 25;  // max batch array size;
         /**
          * <code>characteristics</code>
-         * <p>the <code>characteristics</code> field.</p>
+         * <p>The <code>characteristics</code> field.</p>
          */
         private final int characteristics;
         /**
          * <code>est</code>
-         * <p>the <code>est</code> field.</p>
+         * <p>The <code>est</code> field.</p>
          */
         private long est;             // size estimate
         /**
          * <code>batch</code>
-         * <p>the <code>batch</code> field.</p>
+         * <p>The <code>batch</code> field.</p>
          */
         private int batch;            // batch size for splits
 
         /**
          * <code>AbstractSpliterator</code>
-         * Instantiates a new abstract spliterator.
-         * @param est                       long <p>the est parameter is <code>long</code> type.</p>
-         * @param additionalCharacteristics int <p>the additional characteristics parameter is <code>int</code> type.</p>
+         * <p>Instantiates a new abstract spliterator.</p>
+         * @param est                       long <p>The est parameter is <code>long</code> type.</p>
+         * @param additionalCharacteristics int <p>The additional characteristics parameter is <code>int</code> type.</p>
          */
         protected AbstractSpliterator(long est, int additionalCharacteristics) {
             this.est = est;
@@ -448,7 +448,7 @@ public final class DefaultSpliterators {
         /**
          * <code>HoldingConsumer</code>
          * <p>The type holding consumer class.</p>
-         * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+         * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @author Cyan (snow22314@outlook.com)
          * @see io.github.nichetoolkit.rest.actuator.ConsumerActuator
          * @since Jdk1.8
@@ -456,7 +456,7 @@ public final class DefaultSpliterators {
         static final class HoldingConsumer<T> implements ConsumerActuator<T> {
             /**
              * <code>value</code>
-             * {@link java.lang.Object} <p>the <code>value</code> field.</p>
+             * {@link java.lang.Object} <p>The <code>value</code> field.</p>
              * @see java.lang.Object
              */
             Object value;
@@ -502,54 +502,54 @@ public final class DefaultSpliterators {
     /**
      * <code>IteratorSpliterator</code>
      * <p>The type iterator spliterator class.</p>
-     * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @since Jdk1.8
      */
     static class IteratorSpliterator<T> implements DefaultSpliterator<T> {
         /**
          * <code>BATCH_UNIT</code>
-         * <p>the <code>BATCH_UNIT</code> field.</p>
+         * <p>The <code>BATCH_UNIT</code> field.</p>
          */
         static final int BATCH_UNIT = 1 << 10;  // batch array size increment
         /**
          * <code>MAX_BATCH</code>
-         * <p>the <code>MAX_BATCH</code> field.</p>
+         * <p>The <code>MAX_BATCH</code> field.</p>
          */
         static final int MAX_BATCH = 1 << 25;  // max batch array size;
         /**
          * <code>collection</code>
-         * {@link java.util.Collection} <p>the <code>collection</code> field.</p>
+         * {@link java.util.Collection} <p>The <code>collection</code> field.</p>
          * @see java.util.Collection
          */
         private final Collection<? extends T> collection; // null OK
         /**
          * <code>it</code>
-         * {@link java.util.Iterator} <p>the <code>it</code> field.</p>
+         * {@link java.util.Iterator} <p>The <code>it</code> field.</p>
          * @see java.util.Iterator
          */
         private Iterator<? extends T> it;
         /**
          * <code>characteristics</code>
-         * <p>the <code>characteristics</code> field.</p>
+         * <p>The <code>characteristics</code> field.</p>
          */
         private final int characteristics;
         /**
          * <code>est</code>
-         * <p>the <code>est</code> field.</p>
+         * <p>The <code>est</code> field.</p>
          */
         private long est;             // size estimate
         /**
          * <code>batch</code>
-         * <p>the <code>batch</code> field.</p>
+         * <p>The <code>batch</code> field.</p>
          */
         private int batch;            // batch size for splits
 
         /**
          * <code>IteratorSpliterator</code>
-         * Instantiates a new iterator spliterator.
-         * @param collection      {@link java.util.Collection} <p>the collection parameter is <code>Collection</code> type.</p>
-         * @param characteristics int <p>the characteristics parameter is <code>int</code> type.</p>
+         * <p>Instantiates a new iterator spliterator.</p>
+         * @param collection      {@link java.util.Collection} <p>The collection parameter is <code>Collection</code> type.</p>
+         * @param characteristics int <p>The characteristics parameter is <code>int</code> type.</p>
          * @see java.util.Collection
          */
         public IteratorSpliterator(Collection<? extends T> collection, int characteristics) {
@@ -562,10 +562,10 @@ public final class DefaultSpliterators {
 
         /**
          * <code>IteratorSpliterator</code>
-         * Instantiates a new iterator spliterator.
-         * @param iterator        {@link java.util.Iterator} <p>the iterator parameter is <code>Iterator</code> type.</p>
-         * @param size            long <p>the size parameter is <code>long</code> type.</p>
-         * @param characteristics int <p>the characteristics parameter is <code>int</code> type.</p>
+         * <p>Instantiates a new iterator spliterator.</p>
+         * @param iterator        {@link java.util.Iterator} <p>The iterator parameter is <code>Iterator</code> type.</p>
+         * @param size            long <p>The size parameter is <code>long</code> type.</p>
+         * @param characteristics int <p>The characteristics parameter is <code>int</code> type.</p>
          * @see java.util.Iterator
          */
         public IteratorSpliterator(Iterator<? extends T> iterator, long size, int characteristics) {
@@ -579,9 +579,9 @@ public final class DefaultSpliterators {
 
         /**
          * <code>IteratorSpliterator</code>
-         * Instantiates a new iterator spliterator.
-         * @param iterator        {@link java.util.Iterator} <p>the iterator parameter is <code>Iterator</code> type.</p>
-         * @param characteristics int <p>the characteristics parameter is <code>int</code> type.</p>
+         * <p>Instantiates a new iterator spliterator.</p>
+         * @param iterator        {@link java.util.Iterator} <p>The iterator parameter is <code>Iterator</code> type.</p>
+         * @param characteristics int <p>The characteristics parameter is <code>int</code> type.</p>
          * @see java.util.Iterator
          */
         public IteratorSpliterator(Iterator<? extends T> iterator, int characteristics) {

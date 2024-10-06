@@ -13,7 +13,7 @@ public class IdentityUtils {
 
     /**
      * <code>clear</code>
-     * <p>the method.</p>
+     * <p>The method.</p>
      */
     public static void clear() {
         IdentityWorker.clear();
@@ -21,9 +21,9 @@ public class IdentityUtils {
 
     /**
      * <code>generateLong</code>
-     * <p>the long method.</p>
-     * @param workerType {@link io.github.nichetoolkit.rest.identity.worker.WorkerType} <p>the worker type parameter is <code>WorkerType</code> type.</p>
-     * @return {@link java.lang.Long} <p>the long return object is <code>Long</code> type.</p>
+     * <p>The long method.</p>
+     * @param workerType {@link io.github.nichetoolkit.rest.identity.worker.WorkerType} <p>The worker type parameter is <code>WorkerType</code> type.</p>
+     * @return {@link java.lang.Long} <p>The long return object is <code>Long</code> type.</p>
      * @see io.github.nichetoolkit.rest.identity.worker.WorkerType
      * @see java.lang.Long
      */
@@ -33,9 +33,9 @@ public class IdentityUtils {
 
     /**
      * <code>generateString</code>
-     * <p>the string method.</p>
-     * @param workerType {@link io.github.nichetoolkit.rest.identity.worker.WorkerType} <p>the worker type parameter is <code>WorkerType</code> type.</p>
-     * @return {@link java.lang.String} <p>the string return object is <code>String</code> type.</p>
+     * <p>The string method.</p>
+     * @param workerType {@link io.github.nichetoolkit.rest.identity.worker.WorkerType} <p>The worker type parameter is <code>WorkerType</code> type.</p>
+     * @return {@link java.lang.String} <p>The string return object is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.identity.worker.WorkerType
      * @see java.lang.String
      */
@@ -45,8 +45,8 @@ public class IdentityUtils {
 
     /**
      * <code>baseLong</code>
-     * <p>the long method.</p>
-     * @return {@link java.lang.Long} <p>the long return object is <code>Long</code> type.</p>
+     * <p>The long method.</p>
+     * @return {@link java.lang.Long} <p>The long return object is <code>Long</code> type.</p>
      * @see java.lang.Long
      */
     public static Long baseLong() {
@@ -55,8 +55,8 @@ public class IdentityUtils {
 
     /**
      * <code>commonLong</code>
-     * <p>the long method.</p>
-     * @return {@link java.lang.Long} <p>the long return object is <code>Long</code> type.</p>
+     * <p>The long method.</p>
+     * @return {@link java.lang.Long} <p>The long return object is <code>Long</code> type.</p>
      * @see java.lang.Long
      */
     public static Long commonLong() {
@@ -65,8 +65,8 @@ public class IdentityUtils {
 
     /**
      * <code>offsetLong</code>
-     * <p>the long method.</p>
-     * @return {@link java.lang.Long} <p>the long return object is <code>Long</code> type.</p>
+     * <p>The long method.</p>
+     * @return {@link java.lang.Long} <p>The long return object is <code>Long</code> type.</p>
      * @see java.lang.Long
      */
     public static Long offsetLong() {
@@ -75,8 +75,8 @@ public class IdentityUtils {
 
     /**
      * <code>sequenceLong</code>
-     * <p>the long method.</p>
-     * @return {@link java.lang.Long} <p>the long return object is <code>Long</code> type.</p>
+     * <p>The long method.</p>
+     * @return {@link java.lang.Long} <p>The long return object is <code>Long</code> type.</p>
      * @see java.lang.Long
      */
     public static Long sequenceLong() {
@@ -85,8 +85,8 @@ public class IdentityUtils {
 
     /**
      * <code>generateLong</code>
-     * <p>the long method.</p>
-     * @return {@link java.lang.Long} <p>the long return object is <code>Long</code> type.</p>
+     * <p>The long method.</p>
+     * @return {@link java.lang.Long} <p>The long return object is <code>Long</code> type.</p>
      * @see java.lang.Long
      */
     public static Long generateLong() {
@@ -95,8 +95,8 @@ public class IdentityUtils {
 
     /**
      * <code>baseString</code>
-     * <p>the string method.</p>
-     * @return {@link java.lang.String} <p>the string return object is <code>String</code> type.</p>
+     * <p>The string method.</p>
+     * @return {@link java.lang.String} <p>The string return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String baseString() {
@@ -105,8 +105,8 @@ public class IdentityUtils {
 
     /**
      * <code>commonString</code>
-     * <p>the string method.</p>
-     * @return {@link java.lang.String} <p>the string return object is <code>String</code> type.</p>
+     * <p>The string method.</p>
+     * @return {@link java.lang.String} <p>The string return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String commonString() {
@@ -115,8 +115,8 @@ public class IdentityUtils {
 
     /**
      * <code>offsetString</code>
-     * <p>the string method.</p>
-     * @return {@link java.lang.String} <p>the string return object is <code>String</code> type.</p>
+     * <p>The string method.</p>
+     * @return {@link java.lang.String} <p>The string return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String offsetString() {
@@ -125,8 +125,8 @@ public class IdentityUtils {
 
     /**
      * <code>sequenceString</code>
-     * <p>the string method.</p>
-     * @return {@link java.lang.String} <p>the string return object is <code>String</code> type.</p>
+     * <p>The string method.</p>
+     * @return {@link java.lang.String} <p>The string return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String sequenceString() {
@@ -135,8 +135,8 @@ public class IdentityUtils {
 
     /**
      * <code>generateString</code>
-     * <p>the string method.</p>
-     * @return {@link java.lang.String} <p>the string return object is <code>String</code> type.</p>
+     * <p>The string method.</p>
+     * @return {@link java.lang.String} <p>The string return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String generateString() {

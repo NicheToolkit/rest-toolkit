@@ -14,7 +14,7 @@ import io.github.nichetoolkit.rest.error.natives.XmlErrorException;
 public class XmlReadException extends XmlErrorException {
     /**
      * <code>XmlReadException</code>
-     * Instantiates a new xml read exception.
+     * <p>Instantiates a new xml read exception.</p>
      */
     public XmlReadException() {
         super(RestErrorStatus.XML_READ_ERROR);
@@ -22,8 +22,8 @@ public class XmlReadException extends XmlErrorException {
 
     /**
      * <code>XmlReadException</code>
-     * Instantiates a new xml read exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * <p>Instantiates a new xml read exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
     public XmlReadException(RestStatus status) {
@@ -32,8 +32,8 @@ public class XmlReadException extends XmlErrorException {
 
     /**
      * <code>XmlReadException</code>
-     * Instantiates a new xml read exception.
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new xml read exception.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public XmlReadException(String message) {
@@ -42,9 +42,9 @@ public class XmlReadException extends XmlErrorException {
 
     /**
      * <code>XmlReadException</code>
-     * Instantiates a new xml read exception.
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new xml read exception.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public XmlReadException(String resource, String message) {

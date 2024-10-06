@@ -16,8 +16,8 @@ public class PathUtils {
 
     /**
      * <code>getRootPath</code>
-     * <p>the root path getter method.</p>
-     * @return {@link java.lang.String} <p>the root path return object is <code>String</code> type.</p>
+     * <p>The root path getter method.</p>
+     * @return {@link java.lang.String} <p>The root path return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String getRootPath() {
@@ -35,9 +35,9 @@ public class PathUtils {
 
     /**
      * <code>getChildPath</code>
-     * <p>the child path getter method.</p>
-     * @param childName {@link java.lang.String} <p>the child name parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>the child path return object is <code>String</code> type.</p>
+     * <p>The child path getter method.</p>
+     * @param childName {@link java.lang.String} <p>The child name parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The child path return object is <code>String</code> type.</p>
      * @see java.lang.String
      * @see java.lang.SuppressWarnings
      */

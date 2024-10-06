@@ -29,20 +29,20 @@ import java.util.function.Supplier;
 public class DefaultException extends Exception implements RestStatus, Supplier<DefaultException>,Serializable {
     /**
      * <code>error</code>
-     * {@link io.github.nichetoolkit.rest.RestError} <p>the <code>error</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.RestError} <p>The <code>error</code> field.</p>
      * @see io.github.nichetoolkit.rest.RestError
      */
     private RestError error;
     /**
      * <code>status</code>
-     * {@link java.lang.Integer} <p>the <code>status</code> field.</p>
+     * {@link java.lang.Integer} <p>The <code>status</code> field.</p>
      * @see java.lang.Integer
      */
     private Integer status;
 
     /**
      * <code>DefaultException</code>
-     * Instantiates a new default exception.
+     * <p>Instantiates a new default exception.</p>
      */
     protected DefaultException() {
         super(RestErrorStatus.MISTAKE.getMessage());
@@ -52,8 +52,8 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
 
     /**
      * <code>DefaultException</code>
-     * Instantiates a new default exception.
-     * @param supplier {@link java.util.function.Supplier} <p>the supplier parameter is <code>Supplier</code> type.</p>
+     * <p>Instantiates a new default exception.</p>
+     * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
      * @see java.util.function.Supplier
      */
     protected DefaultException(Supplier<RestStatus> supplier) {
@@ -64,8 +64,8 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
 
     /**
      * <code>DefaultException</code>
-     * Instantiates a new default exception.
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new default exception.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     protected DefaultException(String message) {
@@ -76,8 +76,8 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
 
     /**
      * <code>DefaultException</code>
-     * Instantiates a new default exception.
-     * @param status {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
+     * <p>Instantiates a new default exception.</p>
+     * @param status {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
      * @see java.lang.Integer
      */
     protected DefaultException(Integer status) {
@@ -88,8 +88,8 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
 
     /**
      * <code>DefaultException</code>
-     * Instantiates a new default exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * <p>Instantiates a new default exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
     protected DefaultException(RestStatus status) {
@@ -100,8 +100,8 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
 
     /**
      * <code>DefaultException</code>
-     * Instantiates a new default exception.
-     * @param error {@link io.github.nichetoolkit.rest.RestError} <p>the error parameter is <code>RestError</code> type.</p>
+     * <p>Instantiates a new default exception.</p>
+     * @param error {@link io.github.nichetoolkit.rest.RestError} <p>The error parameter is <code>RestError</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
      */
     protected DefaultException(RestError error) {
@@ -112,8 +112,8 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
 
     /**
      * <code>DefaultException</code>
-     * Instantiates a new default exception.
-     * @param cause {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new default exception.</p>
+     * @param cause {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see java.lang.Throwable
      */
     protected DefaultException(Throwable cause) {
@@ -124,9 +124,9 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
 
     /**
      * <code>DefaultException</code>
-     * Instantiates a new default exception.
-     * @param status  {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new default exception.</p>
+     * @param status  {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      */
@@ -139,9 +139,9 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
 
     /**
      * <code>DefaultException</code>
-     * Instantiates a new default exception.
-     * @param status     {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>the rest status parameter is <code>RestStatus</code> type.</p>
+     * <p>Instantiates a new default exception.</p>
+     * @param status     {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>The rest status parameter is <code>RestStatus</code> type.</p>
      * @see java.lang.Integer
      * @see io.github.nichetoolkit.rest.RestStatus
      */
@@ -153,9 +153,9 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
 
     /**
      * <code>DefaultException</code>
-     * Instantiates a new default exception.
-     * @param status {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param error  {@link io.github.nichetoolkit.rest.RestError} <p>the error parameter is <code>RestError</code> type.</p>
+     * <p>Instantiates a new default exception.</p>
+     * @param status {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param error  {@link io.github.nichetoolkit.rest.RestError} <p>The error parameter is <code>RestError</code> type.</p>
      * @see java.lang.Integer
      * @see io.github.nichetoolkit.rest.RestError
      */
@@ -167,9 +167,9 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
 
     /**
      * <code>DefaultException</code>
-     * Instantiates a new default exception.
-     * @param status {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param cause  {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new default exception.</p>
+     * @param status {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param cause  {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.Throwable
      */
@@ -181,9 +181,9 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
 
     /**
      * <code>DefaultException</code>
-     * Instantiates a new default exception.
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param status  {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * <p>Instantiates a new default exception.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param status  {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestStatus
      */
@@ -195,9 +195,9 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
 
     /**
      * <code>DefaultException</code>
-     * Instantiates a new default exception.
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param error   {@link io.github.nichetoolkit.rest.RestError} <p>the error parameter is <code>RestError</code> type.</p>
+     * <p>Instantiates a new default exception.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param error   {@link io.github.nichetoolkit.rest.RestError} <p>The error parameter is <code>RestError</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestError
      */
@@ -209,9 +209,9 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
 
     /**
      * <code>DefaultException</code>
-     * Instantiates a new default exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param error  {@link io.github.nichetoolkit.rest.RestError} <p>the error parameter is <code>RestError</code> type.</p>
+     * <p>Instantiates a new default exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param error  {@link io.github.nichetoolkit.rest.RestError} <p>The error parameter is <code>RestError</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see io.github.nichetoolkit.rest.RestError
      */
@@ -223,9 +223,9 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
 
     /**
      * <code>DefaultException</code>
-     * Instantiates a new default exception.
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param cause   {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new default exception.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param cause   {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Throwable
      */
@@ -237,9 +237,9 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
 
     /**
      * <code>DefaultException</code>
-     * Instantiates a new default exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param cause  {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new default exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param cause  {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.Throwable
      */
@@ -251,10 +251,10 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
 
     /**
      * <code>DefaultException</code>
-     * Instantiates a new default exception.
-     * @param status  {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param error   {@link io.github.nichetoolkit.rest.RestError} <p>the error parameter is <code>RestError</code> type.</p>
+     * <p>Instantiates a new default exception.</p>
+     * @param status  {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param error   {@link io.github.nichetoolkit.rest.RestError} <p>The error parameter is <code>RestError</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestError
@@ -267,10 +267,10 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
 
     /**
      * <code>DefaultException</code>
-     * Instantiates a new default exception.
-     * @param status  {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param cause   {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new default exception.</p>
+     * @param status  {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param cause   {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      * @see java.lang.Throwable
@@ -283,10 +283,10 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
 
     /**
      * <code>DefaultException</code>
-     * Instantiates a new default exception.
-     * @param status     {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>the rest status parameter is <code>RestStatus</code> type.</p>
-     * @param cause      {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new default exception.</p>
+     * @param status     {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>The rest status parameter is <code>RestStatus</code> type.</p>
+     * @param cause      {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see java.lang.Integer
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.Throwable
@@ -299,10 +299,10 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
 
     /**
      * <code>DefaultException</code>
-     * Instantiates a new default exception.
-     * @param status {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param error  {@link io.github.nichetoolkit.rest.RestError} <p>the error parameter is <code>RestError</code> type.</p>
-     * @param cause  {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new default exception.</p>
+     * @param status {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param error  {@link io.github.nichetoolkit.rest.RestError} <p>The error parameter is <code>RestError</code> type.</p>
+     * @param cause  {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see java.lang.Integer
      * @see io.github.nichetoolkit.rest.RestError
      * @see java.lang.Throwable
@@ -315,10 +315,10 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
 
     /**
      * <code>DefaultException</code>
-     * Instantiates a new default exception.
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param status  {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param cause   {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new default exception.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param status  {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param cause   {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.Throwable
@@ -331,10 +331,10 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
 
     /**
      * <code>DefaultException</code>
-     * Instantiates a new default exception.
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param error   {@link io.github.nichetoolkit.rest.RestError} <p>the error parameter is <code>RestError</code> type.</p>
-     * @param cause   {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new default exception.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param error   {@link io.github.nichetoolkit.rest.RestError} <p>The error parameter is <code>RestError</code> type.</p>
+     * @param cause   {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestError
      * @see java.lang.Throwable
@@ -347,10 +347,10 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
 
     /**
      * <code>DefaultException</code>
-     * Instantiates a new default exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param error  {@link io.github.nichetoolkit.rest.RestError} <p>the error parameter is <code>RestError</code> type.</p>
-     * @param cause  {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new default exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param error  {@link io.github.nichetoolkit.rest.RestError} <p>The error parameter is <code>RestError</code> type.</p>
+     * @param cause  {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see io.github.nichetoolkit.rest.RestError
      * @see java.lang.Throwable
@@ -363,11 +363,11 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
 
     /**
      * <code>DefaultException</code>
-     * Instantiates a new default exception.
-     * @param status     {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>the rest status parameter is <code>RestStatus</code> type.</p>
-     * @param error      {@link io.github.nichetoolkit.rest.RestError} <p>the error parameter is <code>RestError</code> type.</p>
-     * @param cause      {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new default exception.</p>
+     * @param status     {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>The rest status parameter is <code>RestStatus</code> type.</p>
+     * @param error      {@link io.github.nichetoolkit.rest.RestError} <p>The error parameter is <code>RestError</code> type.</p>
+     * @param cause      {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see java.lang.Integer
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see io.github.nichetoolkit.rest.RestError
@@ -381,11 +381,11 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
 
     /**
      * <code>DefaultException</code>
-     * Instantiates a new default exception.
-     * @param message            {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param cause              {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
-     * @param enableSuppression  boolean <p>the enable suppression parameter is <code>boolean</code> type.</p>
-     * @param writableStackTrace boolean <p>the writable stack trace parameter is <code>boolean</code> type.</p>
+     * <p>Instantiates a new default exception.</p>
+     * @param message            {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param cause              {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
+     * @param enableSuppression  boolean <p>The enable suppression parameter is <code>boolean</code> type.</p>
+     * @param writableStackTrace boolean <p>The writable stack trace parameter is <code>boolean</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Throwable
      */
@@ -398,11 +398,11 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
 
     /**
      * <code>DefaultException</code>
-     * Instantiates a new default exception.
-     * @param status             {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param cause              {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
-     * @param enableSuppression  boolean <p>the enable suppression parameter is <code>boolean</code> type.</p>
-     * @param writableStackTrace boolean <p>the writable stack trace parameter is <code>boolean</code> type.</p>
+     * <p>Instantiates a new default exception.</p>
+     * @param status             {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param cause              {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
+     * @param enableSuppression  boolean <p>The enable suppression parameter is <code>boolean</code> type.</p>
+     * @param writableStackTrace boolean <p>The writable stack trace parameter is <code>boolean</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.Throwable
      */
@@ -414,11 +414,11 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
 
     /**
      * <code>DefaultException</code>
-     * Instantiates a new default exception.
-     * @param error              {@link io.github.nichetoolkit.rest.RestError} <p>the error parameter is <code>RestError</code> type.</p>
-     * @param cause              {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
-     * @param enableSuppression  boolean <p>the enable suppression parameter is <code>boolean</code> type.</p>
-     * @param writableStackTrace boolean <p>the writable stack trace parameter is <code>boolean</code> type.</p>
+     * <p>Instantiates a new default exception.</p>
+     * @param error              {@link io.github.nichetoolkit.rest.RestError} <p>The error parameter is <code>RestError</code> type.</p>
+     * @param cause              {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
+     * @param enableSuppression  boolean <p>The enable suppression parameter is <code>boolean</code> type.</p>
+     * @param writableStackTrace boolean <p>The writable stack trace parameter is <code>boolean</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
      * @see java.lang.Throwable
      */
@@ -430,12 +430,12 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
 
     /**
      * <code>DefaultException</code>
-     * Instantiates a new default exception.
-     * @param status             {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param message            {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param cause              {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
-     * @param enableSuppression  boolean <p>the enable suppression parameter is <code>boolean</code> type.</p>
-     * @param writableStackTrace boolean <p>the writable stack trace parameter is <code>boolean</code> type.</p>
+     * <p>Instantiates a new default exception.</p>
+     * @param status             {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param message            {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param cause              {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
+     * @param enableSuppression  boolean <p>The enable suppression parameter is <code>boolean</code> type.</p>
+     * @param writableStackTrace boolean <p>The writable stack trace parameter is <code>boolean</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      * @see java.lang.Throwable
@@ -448,12 +448,12 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
 
     /**
      * <code>DefaultException</code>
-     * Instantiates a new default exception.
-     * @param status             {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param restStatus         {@link io.github.nichetoolkit.rest.RestStatus} <p>the rest status parameter is <code>RestStatus</code> type.</p>
-     * @param cause              {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
-     * @param enableSuppression  boolean <p>the enable suppression parameter is <code>boolean</code> type.</p>
-     * @param writableStackTrace boolean <p>the writable stack trace parameter is <code>boolean</code> type.</p>
+     * <p>Instantiates a new default exception.</p>
+     * @param status             {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param restStatus         {@link io.github.nichetoolkit.rest.RestStatus} <p>The rest status parameter is <code>RestStatus</code> type.</p>
+     * @param cause              {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
+     * @param enableSuppression  boolean <p>The enable suppression parameter is <code>boolean</code> type.</p>
+     * @param writableStackTrace boolean <p>The writable stack trace parameter is <code>boolean</code> type.</p>
      * @see java.lang.Integer
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.Throwable
@@ -466,12 +466,12 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
 
     /**
      * <code>DefaultException</code>
-     * Instantiates a new default exception.
-     * @param status             {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param error              {@link io.github.nichetoolkit.rest.RestError} <p>the error parameter is <code>RestError</code> type.</p>
-     * @param cause              {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
-     * @param enableSuppression  boolean <p>the enable suppression parameter is <code>boolean</code> type.</p>
-     * @param writableStackTrace boolean <p>the writable stack trace parameter is <code>boolean</code> type.</p>
+     * <p>Instantiates a new default exception.</p>
+     * @param status             {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param error              {@link io.github.nichetoolkit.rest.RestError} <p>The error parameter is <code>RestError</code> type.</p>
+     * @param cause              {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
+     * @param enableSuppression  boolean <p>The enable suppression parameter is <code>boolean</code> type.</p>
+     * @param writableStackTrace boolean <p>The writable stack trace parameter is <code>boolean</code> type.</p>
      * @see java.lang.Integer
      * @see io.github.nichetoolkit.rest.RestError
      * @see java.lang.Throwable
@@ -485,12 +485,12 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
 
     /**
      * <code>DefaultException</code>
-     * Instantiates a new default exception.
-     * @param message            {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param status             {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param cause              {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
-     * @param enableSuppression  boolean <p>the enable suppression parameter is <code>boolean</code> type.</p>
-     * @param writableStackTrace boolean <p>the writable stack trace parameter is <code>boolean</code> type.</p>
+     * <p>Instantiates a new default exception.</p>
+     * @param message            {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param status             {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param cause              {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
+     * @param enableSuppression  boolean <p>The enable suppression parameter is <code>boolean</code> type.</p>
+     * @param writableStackTrace boolean <p>The writable stack trace parameter is <code>boolean</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.Throwable
@@ -503,12 +503,12 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
 
     /**
      * <code>DefaultException</code>
-     * Instantiates a new default exception.
-     * @param message            {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param error              {@link io.github.nichetoolkit.rest.RestError} <p>the error parameter is <code>RestError</code> type.</p>
-     * @param cause              {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
-     * @param enableSuppression  boolean <p>the enable suppression parameter is <code>boolean</code> type.</p>
-     * @param writableStackTrace boolean <p>the writable stack trace parameter is <code>boolean</code> type.</p>
+     * <p>Instantiates a new default exception.</p>
+     * @param message            {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param error              {@link io.github.nichetoolkit.rest.RestError} <p>The error parameter is <code>RestError</code> type.</p>
+     * @param cause              {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
+     * @param enableSuppression  boolean <p>The enable suppression parameter is <code>boolean</code> type.</p>
+     * @param writableStackTrace boolean <p>The writable stack trace parameter is <code>boolean</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestError
      * @see java.lang.Throwable
@@ -521,12 +521,12 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
 
     /**
      * <code>DefaultException</code>
-     * Instantiates a new default exception.
-     * @param status             {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param error              {@link io.github.nichetoolkit.rest.RestError} <p>the error parameter is <code>RestError</code> type.</p>
-     * @param cause              {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
-     * @param enableSuppression  boolean <p>the enable suppression parameter is <code>boolean</code> type.</p>
-     * @param writableStackTrace boolean <p>the writable stack trace parameter is <code>boolean</code> type.</p>
+     * <p>Instantiates a new default exception.</p>
+     * @param status             {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param error              {@link io.github.nichetoolkit.rest.RestError} <p>The error parameter is <code>RestError</code> type.</p>
+     * @param cause              {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
+     * @param enableSuppression  boolean <p>The enable suppression parameter is <code>boolean</code> type.</p>
+     * @param writableStackTrace boolean <p>The writable stack trace parameter is <code>boolean</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see io.github.nichetoolkit.rest.RestError
      * @see java.lang.Throwable
@@ -539,8 +539,8 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
 
     /**
      * <code>buildResult</code>
-     * <p>the result method.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>the result return object is <code>RestResult</code> type.</p>
+     * <p>The result method.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestResult
      */
     public final RestResult<?> buildResult() {

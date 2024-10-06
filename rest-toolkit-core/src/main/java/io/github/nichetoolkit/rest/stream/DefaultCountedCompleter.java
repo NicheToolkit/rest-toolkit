@@ -8,7 +8,7 @@ import java.util.concurrent.*;
 /**
  * <code>DefaultCountedCompleter</code>
  * <p>The type default counted completer class.</p>
- * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+ * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.util.concurrent.CountedCompleter
  * @since Jdk1.8
@@ -16,15 +16,15 @@ import java.util.concurrent.*;
 public abstract class DefaultCountedCompleter<T> extends CountedCompleter<T> {
     /**
      * <code>serialVersionUID</code>
-     * <p>the constant <code>serialVersionUID</code> field.</p>
+     * <p>The constant <code>serialVersionUID</code> field.</p>
      */
     private static final long serialVersionUID = 5232453752276485070L;
 
     /**
      * <code>DefaultCountedCompleter</code>
-     * Instantiates a new default counted completer.
-     * @param completer           {@link io.github.nichetoolkit.rest.stream.DefaultCountedCompleter} <p>the completer parameter is <code>DefaultCountedCompleter</code> type.</p>
-     * @param initialPendingCount int <p>the initial pending count parameter is <code>int</code> type.</p>
+     * <p>Instantiates a new default counted completer.</p>
+     * @param completer           {@link io.github.nichetoolkit.rest.stream.DefaultCountedCompleter} <p>The completer parameter is <code>DefaultCountedCompleter</code> type.</p>
+     * @param initialPendingCount int <p>The initial pending count parameter is <code>int</code> type.</p>
      */
     protected DefaultCountedCompleter(DefaultCountedCompleter<?> completer,
                                       int initialPendingCount) {
@@ -33,8 +33,8 @@ public abstract class DefaultCountedCompleter<T> extends CountedCompleter<T> {
 
     /**
      * <code>DefaultCountedCompleter</code>
-     * Instantiates a new default counted completer.
-     * @param completer {@link io.github.nichetoolkit.rest.stream.DefaultCountedCompleter} <p>the completer parameter is <code>DefaultCountedCompleter</code> type.</p>
+     * <p>Instantiates a new default counted completer.</p>
+     * @param completer {@link io.github.nichetoolkit.rest.stream.DefaultCountedCompleter} <p>The completer parameter is <code>DefaultCountedCompleter</code> type.</p>
      */
     protected DefaultCountedCompleter(DefaultCountedCompleter<?> completer) {
         super(completer);
@@ -42,7 +42,7 @@ public abstract class DefaultCountedCompleter<T> extends CountedCompleter<T> {
 
     /**
      * <code>DefaultCountedCompleter</code>
-     * Instantiates a new default counted completer.
+     * <p>Instantiates a new default counted completer.</p>
      */
     protected DefaultCountedCompleter() {
         super();
@@ -50,8 +50,8 @@ public abstract class DefaultCountedCompleter<T> extends CountedCompleter<T> {
 
     /**
      * <code>computes</code>
-     * <p>the method.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The method.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
     public abstract void computes() throws RestException;
@@ -66,8 +66,8 @@ public abstract class DefaultCountedCompleter<T> extends CountedCompleter<T> {
 
     /**
      * <code>onCompletion</code>
-     * <p>the completion method.</p>
-     * @param caller {@link io.github.nichetoolkit.rest.stream.DefaultCountedCompleter} <p>the caller parameter is <code>DefaultCountedCompleter</code> type.</p>
+     * <p>The completion method.</p>
+     * @param caller {@link io.github.nichetoolkit.rest.stream.DefaultCountedCompleter} <p>The caller parameter is <code>DefaultCountedCompleter</code> type.</p>
      */
     public void onCompletion(DefaultCountedCompleter<?> caller) {
         try {
@@ -79,9 +79,9 @@ public abstract class DefaultCountedCompleter<T> extends CountedCompleter<T> {
 
     /**
      * <code>onComputes</code>
-     * <p>the computes method.</p>
-     * @param caller {@link io.github.nichetoolkit.rest.stream.DefaultCountedCompleter} <p>the caller parameter is <code>DefaultCountedCompleter</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The computes method.</p>
+     * @param caller {@link io.github.nichetoolkit.rest.stream.DefaultCountedCompleter} <p>The caller parameter is <code>DefaultCountedCompleter</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
     public void onComputes(DefaultCountedCompleter<?> caller) throws RestException {}

@@ -26,8 +26,8 @@ public @interface StereoField {
 
     /**
      * <code>name</code>
-     * <p>the method.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.core.annotation.AliasFor
      */
@@ -39,8 +39,8 @@ public @interface StereoField {
 
     /**
      * <code>ordinal</code>
-     * <p>the method.</p>
-     * @return int <p>the return object is <code>int</code> type.</p>
+     * <p>The method.</p>
+     * @return int <p>The return object is <code>int</code> type.</p>
      * @see org.springframework.core.annotation.AliasFor
      */
     @AliasFor(
@@ -51,23 +51,23 @@ public @interface StereoField {
 
     /**
      * <code>key</code>
-     * <p>the method.</p>
-     * @return int <p>the return object is <code>int</code> type.</p>
+     * <p>The method.</p>
+     * @return int <p>The return object is <code>int</code> type.</p>
      */
     int key() default 0;
 
     /**
      * <code>value</code>
-     * <p>the method.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     String value() default "";
 
     /**
      * <code>field</code>
-     * <p>the method.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     String field() default "";

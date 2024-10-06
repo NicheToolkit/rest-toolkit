@@ -15,19 +15,19 @@ import java.util.Objects;
 public final class DefaultStreamSupport {
     /**
      * <code>DefaultStreamSupport</code>
-     * Instantiates a new default stream support.
+     * <p>Instantiates a new default stream support.</p>
      */
     private DefaultStreamSupport() {
     }
 
     /**
      * <code>stream</code>
-     * <p>the method.</p>
-     * @param <T>         {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the spliterator parameter is <code>DefaultSpliterator</code> type.</p>
-     * @param parallel    boolean <p>the parallel parameter is <code>boolean</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.RestStream} <p>the return object is <code>RestStream</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The method.</p>
+     * @param <T>         {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The spliterator parameter is <code>DefaultSpliterator</code> type.</p>
+     * @param parallel    boolean <p>The parallel parameter is <code>boolean</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestStream} <p>The return object is <code>RestStream</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
      * @see io.github.nichetoolkit.rest.stream.RestStream
      * @see io.github.nichetoolkit.rest.RestException
@@ -39,12 +39,12 @@ public final class DefaultStreamSupport {
 
     /**
      * <code>stream</code>
-     * <p>the method.</p>
-     * @param <T>             {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param supplier        {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>the supplier parameter is <code>SupplierActuator</code> type.</p>
-     * @param characteristics int <p>the characteristics parameter is <code>int</code> type.</p>
-     * @param parallel        boolean <p>the parallel parameter is <code>boolean</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.RestStream} <p>the return object is <code>RestStream</code> type.</p>
+     * <p>The method.</p>
+     * @param <T>             {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param supplier        {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The supplier parameter is <code>SupplierActuator</code> type.</p>
+     * @param characteristics int <p>The characteristics parameter is <code>int</code> type.</p>
+     * @param parallel        boolean <p>The parallel parameter is <code>boolean</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestStream} <p>The return object is <code>RestStream</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
      * @see io.github.nichetoolkit.rest.stream.RestStream
      */

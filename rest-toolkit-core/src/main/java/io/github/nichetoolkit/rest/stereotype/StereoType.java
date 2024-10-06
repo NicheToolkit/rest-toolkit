@@ -25,8 +25,8 @@ import java.lang.annotation.*;
 public @interface StereoType {
     /**
      * <code>value</code>
-     * <p>the method.</p>
-     * @return int <p>the return object is <code>int</code> type.</p>
+     * <p>The method.</p>
+     * @return int <p>The return object is <code>int</code> type.</p>
      * @see org.springframework.core.annotation.AliasFor
      */
     @AliasFor(

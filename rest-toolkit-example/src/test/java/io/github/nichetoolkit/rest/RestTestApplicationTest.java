@@ -13,6 +13,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class RestTestApplicationTest {
 
+    /**
+     * <code>test</code>
+     * <p>The method.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see org.junit.jupiter.api.Test
+     * @see io.github.nichetoolkit.rest.RestException
+     */
     @Test
     void test() throws RestException {
 

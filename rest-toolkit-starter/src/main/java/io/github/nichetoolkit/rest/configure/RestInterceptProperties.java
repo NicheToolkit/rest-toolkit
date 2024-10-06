@@ -19,43 +19,43 @@ import org.springframework.stereotype.Component;
 public class RestInterceptProperties {
     /**
      * <code>enabled</code>
-     * {@link java.lang.Boolean} <p>the <code>enabled</code> field.</p>
+     * {@link java.lang.Boolean} <p>The <code>enabled</code> field.</p>
      * @see java.lang.Boolean
      */
     private Boolean enabled = false;
     /**
      * <code>loggingEnabled</code>
-     * {@link java.lang.Boolean} <p>the <code>loggingEnabled</code> field.</p>
+     * {@link java.lang.Boolean} <p>The <code>loggingEnabled</code> field.</p>
      * @see java.lang.Boolean
      */
     private Boolean loggingEnabled = false;
     /**
      * <code>userlogEnabled</code>
-     * {@link java.lang.Boolean} <p>the <code>userlogEnabled</code> field.</p>
+     * {@link java.lang.Boolean} <p>The <code>userlogEnabled</code> field.</p>
      * @see java.lang.Boolean
      */
     private Boolean userlogEnabled = false;
     /**
      * <code>bodyLength</code>
-     * {@link java.lang.Integer} <p>the <code>bodyLength</code> field.</p>
+     * {@link java.lang.Integer} <p>The <code>bodyLength</code> field.</p>
      * @see java.lang.Integer
      */
     private Integer bodyLength = 1024;
     /**
      * <code>errorLength</code>
-     * {@link java.lang.Integer} <p>the <code>errorLength</code> field.</p>
+     * {@link java.lang.Integer} <p>The <code>errorLength</code> field.</p>
      * @see java.lang.Integer
      */
     private Integer errorLength = 1024;
     /**
      * <code>messageLength</code>
-     * {@link java.lang.Integer} <p>the <code>messageLength</code> field.</p>
+     * {@link java.lang.Integer} <p>The <code>messageLength</code> field.</p>
      * @see java.lang.Integer
      */
     private Integer messageLength = 1024;
     /**
      * <code>resultLength</code>
-     * {@link java.lang.Integer} <p>the <code>resultLength</code> field.</p>
+     * {@link java.lang.Integer} <p>The <code>resultLength</code> field.</p>
      * @see java.lang.Integer
      */
     private Integer resultLength = 1024;

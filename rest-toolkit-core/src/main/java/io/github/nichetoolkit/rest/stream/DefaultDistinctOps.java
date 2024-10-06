@@ -17,17 +17,17 @@ final class DefaultDistinctOps {
 
     /**
      * <code>DefaultDistinctOps</code>
-     * Instantiates a new default distinct ops.
+     * <p>Instantiates a new default distinct ops.</p>
      */
     private DefaultDistinctOps() {
     }
 
     /**
      * <code>makeRef</code>
-     * <p>the ref method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param upstream {@link io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline} <p>the upstream parameter is <code>DefaultAbstractPipeline</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultReferencePipeline} <p>the ref return object is <code>DefaultReferencePipeline</code> type.</p>
+     * <p>The ref method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param upstream {@link io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline} <p>The upstream parameter is <code>DefaultAbstractPipeline</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultReferencePipeline} <p>The ref return object is <code>DefaultReferencePipeline</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline
      * @see io.github.nichetoolkit.rest.stream.DefaultReferencePipeline
      */

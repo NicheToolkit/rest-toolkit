@@ -21,44 +21,44 @@ import org.springframework.stereotype.Component;
 public class RestRsaProperties {
     /**
      * <code>enabled</code>
-     * <p>the <code>enabled</code> field.</p>
+     * <p>The <code>enabled</code> field.</p>
      */
     private boolean enabled;
     /**
      * <code>keySize</code>
-     * {@link java.lang.Integer} <p>the <code>keySize</code> field.</p>
+     * {@link java.lang.Integer} <p>The <code>keySize</code> field.</p>
      * @see java.lang.Integer
      */
     private Integer keySize = 1024;
     /**
      * <code>publicKey</code>
-     * {@link java.lang.String} <p>the <code>publicKey</code> field.</p>
+     * {@link java.lang.String} <p>The <code>publicKey</code> field.</p>
      * @see java.lang.String
      */
     private String publicKey;
     /**
      * <code>privateKey</code>
-     * {@link java.lang.String} <p>the <code>privateKey</code> field.</p>
+     * {@link java.lang.String} <p>The <code>privateKey</code> field.</p>
      * @see java.lang.String
      */
     private String privateKey;
     /**
      * <code>autoVerify</code>
-     * <p>the <code>autoVerify</code> field.</p>
+     * <p>The <code>autoVerify</code> field.</p>
      */
     private boolean autoVerify = true;
 
     /**
      * <code>RestRsaProperties</code>
-     * Instantiates a new rest rsa properties.
+     * <p>Instantiates a new rest rsa properties.</p>
      */
     public RestRsaProperties() {
     }
 
     /**
      * <code>toRsaKey</code>
-     * <p>the rsa key method.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.rsa.RsaKey} <p>the rsa key return object is <code>RsaKey</code> type.</p>
+     * <p>The rsa key method.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.rsa.RsaKey} <p>The rsa key return object is <code>RsaKey</code> type.</p>
      * @see io.github.nichetoolkit.rest.worker.rsa.RsaKey
      */
     public RsaKey toRsaKey() {

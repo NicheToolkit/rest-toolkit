@@ -15,7 +15,7 @@ import io.github.nichetoolkit.rest.RestStatus;
 public class ServiceUnavailableException extends RestErrorException {
     /**
      * <code>ServiceUnavailableException</code>
-     * Instantiates a new service unavailable exception.
+     * <p>Instantiates a new service unavailable exception.</p>
      */
     public ServiceUnavailableException() {
         super(RestErrorStatus.SERVICE_UNAVAILABLE);
@@ -23,8 +23,8 @@ public class ServiceUnavailableException extends RestErrorException {
 
     /**
      * <code>ServiceUnavailableException</code>
-     * Instantiates a new service unavailable exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * <p>Instantiates a new service unavailable exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
     public ServiceUnavailableException(RestStatus status) {
@@ -33,8 +33,8 @@ public class ServiceUnavailableException extends RestErrorException {
 
     /**
      * <code>ServiceUnavailableException</code>
-     * Instantiates a new service unavailable exception.
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new service unavailable exception.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public ServiceUnavailableException(String message) {
@@ -43,9 +43,9 @@ public class ServiceUnavailableException extends RestErrorException {
 
     /**
      * <code>ServiceUnavailableException</code>
-     * Instantiates a new service unavailable exception.
-     * @param service {@link java.lang.String} <p>the service parameter is <code>String</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new service unavailable exception.</p>
+     * @param service {@link java.lang.String} <p>The service parameter is <code>String</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public ServiceUnavailableException(String service, String message) {
@@ -54,10 +54,10 @@ public class ServiceUnavailableException extends RestErrorException {
 
     /**
      * <code>ServiceUnavailableException</code>
-     * Instantiates a new service unavailable exception.
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param service  {@link java.lang.String} <p>the service parameter is <code>String</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new service unavailable exception.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param service  {@link java.lang.String} <p>The service parameter is <code>String</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public ServiceUnavailableException(String resource, String service, String message) {

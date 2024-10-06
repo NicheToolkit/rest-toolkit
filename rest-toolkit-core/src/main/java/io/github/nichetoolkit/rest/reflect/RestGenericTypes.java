@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * <code>RestGenericTypes</code>
- * <p>The type generic type resolver class.</p>
+ * <p>The type rest generic types class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
@@ -16,10 +16,10 @@ public class RestGenericTypes {
 
     /**
      * <code>resolveFieldType</code>
-     * <p>the field type method.</p>
-     * @param field   {@link java.lang.reflect.Field} <p>the field parameter is <code>Field</code> type.</p>
-     * @param srcType {@link java.lang.reflect.Type} <p>the src type parameter is <code>Type</code> type.</p>
-     * @return {@link java.lang.reflect.Type} <p>the field type return object is <code>Type</code> type.</p>
+     * <p>The field type method.</p>
+     * @param field   {@link java.lang.reflect.Field} <p>The field parameter is <code>Field</code> type.</p>
+     * @param srcType {@link java.lang.reflect.Type} <p>The src type parameter is <code>Type</code> type.</p>
+     * @return {@link java.lang.reflect.Type} <p>The field type return object is <code>Type</code> type.</p>
      * @see java.lang.reflect.Field
      * @see java.lang.reflect.Type
      */
@@ -31,9 +31,9 @@ public class RestGenericTypes {
 
     /**
      * <code>resolveSuperclassTypes</code>
-     * <p>the superclass types method.</p>
-     * @param srcType {@link java.lang.Class} <p>the src type parameter is <code>Class</code> type.</p>
-     * @return {@link java.lang.reflect.Type} <p>the superclass types return object is <code>Type</code> type.</p>
+     * <p>The superclass types method.</p>
+     * @param srcType {@link java.lang.Class} <p>The src type parameter is <code>Class</code> type.</p>
+     * @return {@link java.lang.reflect.Type} <p>The superclass types return object is <code>Type</code> type.</p>
      * @see java.lang.Class
      * @see java.lang.reflect.Type
      */
@@ -50,9 +50,9 @@ public class RestGenericTypes {
 
     /**
      * <code>resolveInterfaceTypes</code>
-     * <p>the interface types method.</p>
-     * @param srcType {@link java.lang.Class} <p>the src type parameter is <code>Class</code> type.</p>
-     * @return {@link java.lang.reflect.Type} <p>the interface types return object is <code>Type</code> type.</p>
+     * <p>The interface types method.</p>
+     * @param srcType {@link java.lang.Class} <p>The src type parameter is <code>Class</code> type.</p>
+     * @return {@link java.lang.reflect.Type} <p>The interface types return object is <code>Type</code> type.</p>
      * @see java.lang.Class
      * @see java.lang.reflect.Type
      */
@@ -71,10 +71,10 @@ public class RestGenericTypes {
 
     /**
      * <code>resolveMethodTypes</code>
-     * <p>the method types method.</p>
-     * @param method  {@link java.lang.reflect.Method} <p>the method parameter is <code>Method</code> type.</p>
-     * @param srcType {@link java.lang.reflect.Type} <p>the src type parameter is <code>Type</code> type.</p>
-     * @return {@link java.lang.reflect.Type} <p>the method types return object is <code>Type</code> type.</p>
+     * <p>The method types method.</p>
+     * @param method  {@link java.lang.reflect.Method} <p>The method parameter is <code>Method</code> type.</p>
+     * @param srcType {@link java.lang.reflect.Type} <p>The src type parameter is <code>Type</code> type.</p>
+     * @return {@link java.lang.reflect.Type} <p>The method types return object is <code>Type</code> type.</p>
      * @see java.lang.reflect.Method
      * @see java.lang.reflect.Type
      */
@@ -90,10 +90,10 @@ public class RestGenericTypes {
 
     /**
      * <code>resolveFieldClass</code>
-     * <p>the field class method.</p>
-     * @param field   {@link java.lang.reflect.Field} <p>the field parameter is <code>Field</code> type.</p>
-     * @param srcType {@link java.lang.reflect.Type} <p>the src type parameter is <code>Type</code> type.</p>
-     * @return {@link java.lang.Class} <p>the field class return object is <code>Class</code> type.</p>
+     * <p>The field class method.</p>
+     * @param field   {@link java.lang.reflect.Field} <p>The field parameter is <code>Field</code> type.</p>
+     * @param srcType {@link java.lang.reflect.Type} <p>The src type parameter is <code>Type</code> type.</p>
+     * @return {@link java.lang.Class} <p>The field class return object is <code>Class</code> type.</p>
      * @see java.lang.reflect.Field
      * @see java.lang.reflect.Type
      * @see java.lang.Class
@@ -107,9 +107,9 @@ public class RestGenericTypes {
 
     /**
      * <code>resolveClass</code>
-     * <p>the class method.</p>
-     * @param type {@link java.lang.reflect.Type} <p>the type parameter is <code>Type</code> type.</p>
-     * @return {@link java.lang.Class} <p>the class return object is <code>Class</code> type.</p>
+     * <p>The class method.</p>
+     * @param type {@link java.lang.reflect.Type} <p>The type parameter is <code>Type</code> type.</p>
+     * @return {@link java.lang.Class} <p>The class return object is <code>Class</code> type.</p>
      * @see java.lang.reflect.Type
      * @see java.lang.Class
      */
@@ -135,10 +135,10 @@ public class RestGenericTypes {
 
     /**
      * <code>resolveReturnType</code>
-     * <p>the return type method.</p>
-     * @param method  {@link java.lang.reflect.Method} <p>the method parameter is <code>Method</code> type.</p>
-     * @param srcType {@link java.lang.reflect.Type} <p>the src type parameter is <code>Type</code> type.</p>
-     * @return {@link java.lang.reflect.Type} <p>the return type return object is <code>Type</code> type.</p>
+     * <p>The return type method.</p>
+     * @param method  {@link java.lang.reflect.Method} <p>The method parameter is <code>Method</code> type.</p>
+     * @param srcType {@link java.lang.reflect.Type} <p>The src type parameter is <code>Type</code> type.</p>
+     * @return {@link java.lang.reflect.Type} <p>The return type return object is <code>Type</code> type.</p>
      * @see java.lang.reflect.Method
      * @see java.lang.reflect.Type
      */
@@ -150,10 +150,10 @@ public class RestGenericTypes {
 
     /**
      * <code>resolveParamTypes</code>
-     * <p>the param types method.</p>
-     * @param method  {@link java.lang.reflect.Method} <p>the method parameter is <code>Method</code> type.</p>
-     * @param srcType {@link java.lang.reflect.Type} <p>the src type parameter is <code>Type</code> type.</p>
-     * @return {@link java.lang.reflect.Type} <p>the param types return object is <code>Type</code> type.</p>
+     * <p>The param types method.</p>
+     * @param method  {@link java.lang.reflect.Method} <p>The method parameter is <code>Method</code> type.</p>
+     * @param srcType {@link java.lang.reflect.Type} <p>The src type parameter is <code>Type</code> type.</p>
+     * @return {@link java.lang.reflect.Type} <p>The param types return object is <code>Type</code> type.</p>
      * @see java.lang.reflect.Method
      * @see java.lang.reflect.Type
      */
@@ -169,11 +169,11 @@ public class RestGenericTypes {
 
     /**
      * <code>resolveType</code>
-     * <p>the type method.</p>
-     * @param type           {@link java.lang.reflect.Type} <p>the type parameter is <code>Type</code> type.</p>
-     * @param srcType        {@link java.lang.reflect.Type} <p>the src type parameter is <code>Type</code> type.</p>
-     * @param declaringClass {@link java.lang.Class} <p>the declaring class parameter is <code>Class</code> type.</p>
-     * @return {@link java.lang.reflect.Type} <p>the type return object is <code>Type</code> type.</p>
+     * <p>The type method.</p>
+     * @param type           {@link java.lang.reflect.Type} <p>The type parameter is <code>Type</code> type.</p>
+     * @param srcType        {@link java.lang.reflect.Type} <p>The src type parameter is <code>Type</code> type.</p>
+     * @param declaringClass {@link java.lang.Class} <p>The declaring class parameter is <code>Class</code> type.</p>
+     * @return {@link java.lang.reflect.Type} <p>The type return object is <code>Type</code> type.</p>
      * @see java.lang.reflect.Type
      * @see java.lang.Class
      */
@@ -191,11 +191,11 @@ public class RestGenericTypes {
 
     /**
      * <code>resolveGenericArrayType</code>
-     * <p>the generic array type method.</p>
-     * @param genericArrayType {@link java.lang.reflect.GenericArrayType} <p>the generic array type parameter is <code>GenericArrayType</code> type.</p>
-     * @param srcType          {@link java.lang.reflect.Type} <p>the src type parameter is <code>Type</code> type.</p>
-     * @param declaringClass   {@link java.lang.Class} <p>the declaring class parameter is <code>Class</code> type.</p>
-     * @return {@link java.lang.reflect.Type} <p>the generic array type return object is <code>Type</code> type.</p>
+     * <p>The generic array type method.</p>
+     * @param genericArrayType {@link java.lang.reflect.GenericArrayType} <p>The generic array type parameter is <code>GenericArrayType</code> type.</p>
+     * @param srcType          {@link java.lang.reflect.Type} <p>The src type parameter is <code>Type</code> type.</p>
+     * @param declaringClass   {@link java.lang.Class} <p>The declaring class parameter is <code>Class</code> type.</p>
+     * @return {@link java.lang.reflect.Type} <p>The generic array type return object is <code>Type</code> type.</p>
      * @see java.lang.reflect.GenericArrayType
      * @see java.lang.reflect.Type
      * @see java.lang.Class
@@ -219,11 +219,11 @@ public class RestGenericTypes {
 
     /**
      * <code>resolveParameterizedType</code>
-     * <p>the parameterized type method.</p>
-     * @param parameterizedType {@link java.lang.reflect.ParameterizedType} <p>the parameterized type parameter is <code>ParameterizedType</code> type.</p>
-     * @param srcType           {@link java.lang.reflect.Type} <p>the src type parameter is <code>Type</code> type.</p>
-     * @param declaringClass    {@link java.lang.Class} <p>the declaring class parameter is <code>Class</code> type.</p>
-     * @return {@link java.lang.reflect.ParameterizedType} <p>the parameterized type return object is <code>ParameterizedType</code> type.</p>
+     * <p>The parameterized type method.</p>
+     * @param parameterizedType {@link java.lang.reflect.ParameterizedType} <p>The parameterized type parameter is <code>ParameterizedType</code> type.</p>
+     * @param srcType           {@link java.lang.reflect.Type} <p>The src type parameter is <code>Type</code> type.</p>
+     * @param declaringClass    {@link java.lang.Class} <p>The declaring class parameter is <code>Class</code> type.</p>
+     * @return {@link java.lang.reflect.ParameterizedType} <p>The parameterized type return object is <code>ParameterizedType</code> type.</p>
      * @see java.lang.reflect.ParameterizedType
      * @see java.lang.reflect.Type
      * @see java.lang.Class
@@ -250,11 +250,11 @@ public class RestGenericTypes {
 
     /**
      * <code>resolveWildcardType</code>
-     * <p>the wildcard type method.</p>
-     * @param wildcardType   {@link java.lang.reflect.WildcardType} <p>the wildcard type parameter is <code>WildcardType</code> type.</p>
-     * @param srcType        {@link java.lang.reflect.Type} <p>the src type parameter is <code>Type</code> type.</p>
-     * @param declaringClass {@link java.lang.Class} <p>the declaring class parameter is <code>Class</code> type.</p>
-     * @return {@link java.lang.reflect.Type} <p>the wildcard type return object is <code>Type</code> type.</p>
+     * <p>The wildcard type method.</p>
+     * @param wildcardType   {@link java.lang.reflect.WildcardType} <p>The wildcard type parameter is <code>WildcardType</code> type.</p>
+     * @param srcType        {@link java.lang.reflect.Type} <p>The src type parameter is <code>Type</code> type.</p>
+     * @param declaringClass {@link java.lang.Class} <p>The declaring class parameter is <code>Class</code> type.</p>
+     * @return {@link java.lang.reflect.Type} <p>The wildcard type return object is <code>Type</code> type.</p>
      * @see java.lang.reflect.WildcardType
      * @see java.lang.reflect.Type
      * @see java.lang.Class
@@ -267,11 +267,11 @@ public class RestGenericTypes {
 
     /**
      * <code>resolveWildcardTypeBounds</code>
-     * <p>the wildcard type bounds method.</p>
-     * @param bounds         {@link java.lang.reflect.Type} <p>the bounds parameter is <code>Type</code> type.</p>
-     * @param srcType        {@link java.lang.reflect.Type} <p>the src type parameter is <code>Type</code> type.</p>
-     * @param declaringClass {@link java.lang.Class} <p>the declaring class parameter is <code>Class</code> type.</p>
-     * @return {@link java.lang.reflect.Type} <p>the wildcard type bounds return object is <code>Type</code> type.</p>
+     * <p>The wildcard type bounds method.</p>
+     * @param bounds         {@link java.lang.reflect.Type} <p>The bounds parameter is <code>Type</code> type.</p>
+     * @param srcType        {@link java.lang.reflect.Type} <p>The src type parameter is <code>Type</code> type.</p>
+     * @param declaringClass {@link java.lang.Class} <p>The declaring class parameter is <code>Class</code> type.</p>
+     * @return {@link java.lang.reflect.Type} <p>The wildcard type bounds return object is <code>Type</code> type.</p>
      * @see java.lang.reflect.Type
      * @see java.lang.Class
      * @see java.lang.SuppressWarnings
@@ -295,11 +295,11 @@ public class RestGenericTypes {
 
     /**
      * <code>resolveTypeVar</code>
-     * <p>the type var method.</p>
-     * @param typeVar        {@link java.lang.reflect.TypeVariable} <p>the type var parameter is <code>TypeVariable</code> type.</p>
-     * @param srcType        {@link java.lang.reflect.Type} <p>the src type parameter is <code>Type</code> type.</p>
-     * @param declaringClass {@link java.lang.Class} <p>the declaring class parameter is <code>Class</code> type.</p>
-     * @return {@link java.lang.reflect.Type} <p>the type var return object is <code>Type</code> type.</p>
+     * <p>The type var method.</p>
+     * @param typeVar        {@link java.lang.reflect.TypeVariable} <p>The type var parameter is <code>TypeVariable</code> type.</p>
+     * @param srcType        {@link java.lang.reflect.Type} <p>The src type parameter is <code>Type</code> type.</p>
+     * @param declaringClass {@link java.lang.Class} <p>The declaring class parameter is <code>Class</code> type.</p>
+     * @return {@link java.lang.reflect.Type} <p>The type var return object is <code>Type</code> type.</p>
      * @see java.lang.reflect.TypeVariable
      * @see java.lang.Class
      */
@@ -341,13 +341,13 @@ public class RestGenericTypes {
 
     /**
      * <code>scanSuperTypes</code>
-     * <p>the super types method.</p>
-     * @param typeVar        {@link java.lang.reflect.TypeVariable} <p>the type var parameter is <code>TypeVariable</code> type.</p>
-     * @param srcType        {@link java.lang.reflect.Type} <p>the src type parameter is <code>Type</code> type.</p>
-     * @param declaringClass {@link java.lang.Class} <p>the declaring class parameter is <code>Class</code> type.</p>
-     * @param clazz          {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @param superclass     {@link java.lang.reflect.Type} <p>the superclass parameter is <code>Type</code> type.</p>
-     * @return {@link java.lang.reflect.Type} <p>the super types return object is <code>Type</code> type.</p>
+     * <p>The super types method.</p>
+     * @param typeVar        {@link java.lang.reflect.TypeVariable} <p>The type var parameter is <code>TypeVariable</code> type.</p>
+     * @param srcType        {@link java.lang.reflect.Type} <p>The src type parameter is <code>Type</code> type.</p>
+     * @param declaringClass {@link java.lang.Class} <p>The declaring class parameter is <code>Class</code> type.</p>
+     * @param clazz          {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @param superclass     {@link java.lang.reflect.Type} <p>The superclass parameter is <code>Type</code> type.</p>
+     * @return {@link java.lang.reflect.Type} <p>The super types return object is <code>Type</code> type.</p>
      * @see java.lang.reflect.TypeVariable
      * @see java.lang.Class
      */
@@ -377,11 +377,11 @@ public class RestGenericTypes {
 
     /**
      * <code>translateParentTypeVars</code>
-     * <p>the parent type vars method.</p>
-     * @param srcType    {@link java.lang.reflect.ParameterizedType} <p>the src type parameter is <code>ParameterizedType</code> type.</p>
-     * @param srcClass   {@link java.lang.Class} <p>the src class parameter is <code>Class</code> type.</p>
-     * @param parentType {@link java.lang.reflect.ParameterizedType} <p>the parent type parameter is <code>ParameterizedType</code> type.</p>
-     * @return {@link java.lang.reflect.ParameterizedType} <p>the parent type vars return object is <code>ParameterizedType</code> type.</p>
+     * <p>The parent type vars method.</p>
+     * @param srcType    {@link java.lang.reflect.ParameterizedType} <p>The src type parameter is <code>ParameterizedType</code> type.</p>
+     * @param srcClass   {@link java.lang.Class} <p>The src class parameter is <code>Class</code> type.</p>
+     * @param parentType {@link java.lang.reflect.ParameterizedType} <p>The parent type parameter is <code>ParameterizedType</code> type.</p>
+     * @return {@link java.lang.reflect.ParameterizedType} <p>The parent type vars return object is <code>ParameterizedType</code> type.</p>
      * @see java.lang.reflect.ParameterizedType
      * @see java.lang.Class
      */

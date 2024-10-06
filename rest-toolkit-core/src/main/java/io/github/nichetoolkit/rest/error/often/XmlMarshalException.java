@@ -14,7 +14,7 @@ import io.github.nichetoolkit.rest.error.natives.XmlErrorException;
 public class XmlMarshalException extends XmlErrorException {
     /**
      * <code>XmlMarshalException</code>
-     * Instantiates a new xml marshal exception.
+     * <p>Instantiates a new xml marshal exception.</p>
      */
     public XmlMarshalException() {
         super(RestErrorStatus.XML_MARSHAL_ERROR);
@@ -22,8 +22,8 @@ public class XmlMarshalException extends XmlErrorException {
 
     /**
      * <code>XmlMarshalException</code>
-     * Instantiates a new xml marshal exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * <p>Instantiates a new xml marshal exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
     public XmlMarshalException(RestStatus status) {
@@ -32,8 +32,8 @@ public class XmlMarshalException extends XmlErrorException {
 
     /**
      * <code>XmlMarshalException</code>
-     * Instantiates a new xml marshal exception.
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new xml marshal exception.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public XmlMarshalException(String message) {
@@ -42,9 +42,9 @@ public class XmlMarshalException extends XmlErrorException {
 
     /**
      * <code>XmlMarshalException</code>
-     * Instantiates a new xml marshal exception.
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new xml marshal exception.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public XmlMarshalException(String resource, String message) {

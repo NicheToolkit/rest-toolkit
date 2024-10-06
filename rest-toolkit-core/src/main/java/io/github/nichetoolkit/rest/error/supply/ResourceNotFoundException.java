@@ -15,7 +15,7 @@ import io.github.nichetoolkit.rest.RestStatus;
 public class ResourceNotFoundException extends RestErrorException {
     /**
      * <code>ResourceNotFoundException</code>
-     * Instantiates a new resource not found exception.
+     * <p>Instantiates a new resource not found exception.</p>
      */
     public ResourceNotFoundException() {
         super(RestErrorStatus.RESOURCE_NOT_FOUND);
@@ -23,8 +23,8 @@ public class ResourceNotFoundException extends RestErrorException {
 
     /**
      * <code>ResourceNotFoundException</code>
-     * Instantiates a new resource not found exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * <p>Instantiates a new resource not found exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
     public ResourceNotFoundException(RestStatus status) {
@@ -33,8 +33,8 @@ public class ResourceNotFoundException extends RestErrorException {
 
     /**
      * <code>ResourceNotFoundException</code>
-     * Instantiates a new resource not found exception.
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new resource not found exception.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public ResourceNotFoundException(String message) {
@@ -43,9 +43,9 @@ public class ResourceNotFoundException extends RestErrorException {
 
     /**
      * <code>ResourceNotFoundException</code>
-     * Instantiates a new resource not found exception.
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new resource not found exception.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public ResourceNotFoundException(String resource, String message) {

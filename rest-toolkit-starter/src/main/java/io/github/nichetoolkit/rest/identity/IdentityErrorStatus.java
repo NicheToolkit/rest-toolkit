@@ -15,53 +15,53 @@ import lombok.Getter;
 public enum IdentityErrorStatus implements RestStatus {
     /**
      * <code>WORKER_ID_INVALID</code>
-     * <p>the Worker id invalid identity error status field.</p>
+     * <p>The worker id invalid identity error status field.</p>
      */
     WORKER_ID_INVALID(10530,"workerId无效"),
     /**
      * <code>CENTER_ID_INVALID</code>
-     * <p>the Center id invalid identity error status field.</p>
+     * <p>The center id invalid identity error status field.</p>
      */
     CENTER_ID_INVALID(10531,"centerId无效"),
     /**
      * <code>IDENTITY_WORKER_ERROR</code>
-     * <p>the Identity worker error identity error status field.</p>
+     * <p>The identity worker error identity error status field.</p>
      */
     IDENTITY_WORKER_ERROR(10532,"worker错误"),
     /**
      * <code>IDENTITY_WORKER_TIME_ERROR</code>
-     * <p>the Identity worker time error identity error status field.</p>
+     * <p>The identity worker time error identity error status field.</p>
      */
     IDENTITY_WORKER_TIME_ERROR(10533,"centerId无效"),
     /**
      * <code>WORKER_TYPE_IS_NULL</code>
-     * <p>the Worker type is null identity error status field.</p>
+     * <p>The worker type is null identity error status field.</p>
      */
     WORKER_TYPE_IS_NULL(10534,"WorkerType为空"),
     /**
      * <code>IDENTITY_WORKER_UNAVAILABLE</code>
-     * <p>the Identity worker unavailable identity error status field.</p>
+     * <p>The identity worker unavailable identity error status field.</p>
      */
     IDENTITY_WORKER_UNAVAILABLE(10535,"IdentityWorker不可用"),
     ;
     /**
      * <code>status</code>
-     * {@link java.lang.Integer} <p>the <code>status</code> field.</p>
+     * {@link java.lang.Integer} <p>The <code>status</code> field.</p>
      * @see java.lang.Integer
      */
     private final Integer status;
     /**
      * <code>message</code>
-     * {@link java.lang.String} <p>the <code>message</code> field.</p>
+     * {@link java.lang.String} <p>The <code>message</code> field.</p>
      * @see java.lang.String
      */
     private final String message;
 
     /**
      * <code>IdentityErrorStatus</code>
-     * Instantiates a new identity error status.
-     * @param status  {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new identity error status.</p>
+     * @param status  {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      */
@@ -72,8 +72,8 @@ public enum IdentityErrorStatus implements RestStatus {
 
     /**
      * <code>getName</code>
-     * <p>the name getter method.</p>
-     * @return {@link java.lang.String} <p>the name return object is <code>String</code> type.</p>
+     * <p>The name getter method.</p>
+     * @return {@link java.lang.String} <p>The name return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public String getName() {

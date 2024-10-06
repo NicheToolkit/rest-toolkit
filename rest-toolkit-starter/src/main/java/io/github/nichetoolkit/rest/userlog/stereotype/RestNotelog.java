@@ -14,7 +14,7 @@ import java.lang.annotation.*;
  * @see java.lang.annotation.Retention
  * @see java.lang.annotation.Documented
  * @see org.springframework.stereotype.Indexed
- * @see RestLogging
+ * @see io.github.nichetoolkit.rest.userlog.stereotype.RestLogging
  * @since Jdk1.8
  */
 @Target({ElementType.TYPE})
@@ -25,8 +25,8 @@ import java.lang.annotation.*;
 public @interface RestNotelog {
     /**
      * <code>value</code>
-     * <p>the method.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.core.annotation.AliasFor
      */
@@ -35,16 +35,16 @@ public @interface RestNotelog {
 
     /**
      * <code>notelog</code>
-     * <p>the method.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     String notelog() default "";
 
     /**
      * <code>loggingKey</code>
-     * <p>the key method.</p>
-     * @return {@link java.lang.String} <p>the key return object is <code>String</code> type.</p>
+     * <p>The key method.</p>
+     * @return {@link java.lang.String} <p>The key return object is <code>String</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.core.annotation.AliasFor
      */

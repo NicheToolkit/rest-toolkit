@@ -60,34 +60,34 @@ import java.util.Optional;
 public class DefaultLoggingInterceptor implements AsyncHandlerInterceptor, RestResponseAdvice, RestExceptionAdvice, Filter {
     /**
      * <code>START_TIME_HOLDER</code>
-     * {@link java.lang.ThreadLocal} <p>the constant <code>START_TIME_HOLDER</code> field.</p>
+     * {@link java.lang.ThreadLocal} <p>The constant <code>START_TIME_HOLDER</code> field.</p>
      * @see java.lang.ThreadLocal
      */
     protected static final ThreadLocal<Long> START_TIME_HOLDER = new ThreadLocal<>();
     /**
      * <code>EXCEPTION_HOLDER</code>
-     * {@link java.lang.ThreadLocal} <p>the constant <code>EXCEPTION_HOLDER</code> field.</p>
+     * {@link java.lang.ThreadLocal} <p>The constant <code>EXCEPTION_HOLDER</code> field.</p>
      * @see java.lang.ThreadLocal
      */
     protected static final ThreadLocal<Exception> EXCEPTION_HOLDER = new ThreadLocal<>();
     /**
      * <code>REST_RESPONSE_HOLDER</code>
-     * {@link java.lang.ThreadLocal} <p>the constant <code>REST_RESPONSE_HOLDER</code> field.</p>
+     * {@link java.lang.ThreadLocal} <p>The constant <code>REST_RESPONSE_HOLDER</code> field.</p>
      * @see java.lang.ThreadLocal
      */
     protected static final ThreadLocal<RestResponsePack> REST_RESPONSE_HOLDER = new ThreadLocal<>();
 
     /**
      * <code>interceptProperties</code>
-     * {@link io.github.nichetoolkit.rest.configure.RestInterceptProperties} <p>the <code>interceptProperties</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.configure.RestInterceptProperties} <p>The <code>interceptProperties</code> field.</p>
      * @see io.github.nichetoolkit.rest.configure.RestInterceptProperties
      */
     private final RestInterceptProperties interceptProperties;
 
     /**
      * <code>DefaultLoggingInterceptor</code>
-     * Instantiates a new default logging interceptor.
-     * @param interceptProperties {@link io.github.nichetoolkit.rest.configure.RestInterceptProperties} <p>the intercept properties parameter is <code>RestInterceptProperties</code> type.</p>
+     * <p>Instantiates a new default logging interceptor.</p>
+     * @param interceptProperties {@link io.github.nichetoolkit.rest.configure.RestInterceptProperties} <p>The intercept properties parameter is <code>RestInterceptProperties</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestInterceptProperties
      * @see org.springframework.beans.factory.annotation.Autowired
      */
@@ -259,12 +259,12 @@ public class DefaultLoggingInterceptor implements AsyncHandlerInterceptor, RestR
 
     /**
      * <code>applyInterceptRequest</code>
-     * <p>the intercept request method.</p>
-     * @param request      {@link javax.servlet.http.HttpServletRequest} <p>the request parameter is <code>HttpServletRequest</code> type.</p>
-     * @param response     {@link javax.servlet.http.HttpServletResponse} <p>the response parameter is <code>HttpServletResponse</code> type.</p>
-     * @param throwable    {@link java.lang.Throwable} <p>the throwable parameter is <code>Throwable</code> type.</p>
-     * @param restResponse {@link io.github.nichetoolkit.rest.userlog.RestResponsePack} <p>the rest response parameter is <code>RestResponsePack</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.userlog.RestRequestPack} <p>the intercept request return object is <code>RestRequestPack</code> type.</p>
+     * <p>The intercept request method.</p>
+     * @param request      {@link javax.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
+     * @param response     {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param throwable    {@link java.lang.Throwable} <p>The throwable parameter is <code>Throwable</code> type.</p>
+     * @param restResponse {@link io.github.nichetoolkit.rest.userlog.RestResponsePack} <p>The rest response parameter is <code>RestResponsePack</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.userlog.RestRequestPack} <p>The intercept request return object is <code>RestRequestPack</code> type.</p>
      * @see javax.servlet.http.HttpServletRequest
      * @see javax.servlet.http.HttpServletResponse
      * @see java.lang.Throwable
@@ -290,10 +290,10 @@ public class DefaultLoggingInterceptor implements AsyncHandlerInterceptor, RestR
 
     /**
      * <code>applyResponseTime</code>
-     * <p>the response time method.</p>
-     * @param response     {@link javax.servlet.http.HttpServletResponse} <p>the response parameter is <code>HttpServletResponse</code> type.</p>
-     * @param throwable    {@link java.lang.Throwable} <p>the throwable parameter is <code>Throwable</code> type.</p>
-     * @param restResponse {@link io.github.nichetoolkit.rest.userlog.RestResponsePack} <p>the rest response parameter is <code>RestResponsePack</code> type.</p>
+     * <p>The response time method.</p>
+     * @param response     {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param throwable    {@link java.lang.Throwable} <p>The throwable parameter is <code>Throwable</code> type.</p>
+     * @param restResponse {@link io.github.nichetoolkit.rest.userlog.RestResponsePack} <p>The rest response parameter is <code>RestResponsePack</code> type.</p>
      * @see javax.servlet.http.HttpServletResponse
      * @see java.lang.Throwable
      * @see io.github.nichetoolkit.rest.userlog.RestResponsePack
@@ -326,10 +326,10 @@ public class DefaultLoggingInterceptor implements AsyncHandlerInterceptor, RestR
 
     /**
      * <code>applyResponseError</code>
-     * <p>the response error method.</p>
-     * @param response     {@link javax.servlet.http.HttpServletResponse} <p>the response parameter is <code>HttpServletResponse</code> type.</p>
-     * @param throwable    {@link java.lang.Throwable} <p>the throwable parameter is <code>Throwable</code> type.</p>
-     * @param restResponse {@link io.github.nichetoolkit.rest.userlog.RestResponsePack} <p>the rest response parameter is <code>RestResponsePack</code> type.</p>
+     * <p>The response error method.</p>
+     * @param response     {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param throwable    {@link java.lang.Throwable} <p>The throwable parameter is <code>Throwable</code> type.</p>
+     * @param restResponse {@link io.github.nichetoolkit.rest.userlog.RestResponsePack} <p>The rest response parameter is <code>RestResponsePack</code> type.</p>
      * @see javax.servlet.http.HttpServletResponse
      * @see java.lang.Throwable
      * @see io.github.nichetoolkit.rest.userlog.RestResponsePack
@@ -360,9 +360,9 @@ public class DefaultLoggingInterceptor implements AsyncHandlerInterceptor, RestR
 
     /**
      * <code>applyRequestHeader</code>
-     * <p>the request header method.</p>
-     * @param request {@link javax.servlet.http.HttpServletRequest} <p>the request parameter is <code>HttpServletRequest</code> type.</p>
-     * @return {@link java.util.Map} <p>the request header return object is <code>Map</code> type.</p>
+     * <p>The request header method.</p>
+     * @param request {@link javax.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
+     * @return {@link java.util.Map} <p>The request header return object is <code>Map</code> type.</p>
      * @see javax.servlet.http.HttpServletRequest
      * @see java.util.Map
      */
@@ -378,9 +378,9 @@ public class DefaultLoggingInterceptor implements AsyncHandlerInterceptor, RestR
 
     /**
      * <code>applyRequestBody</code>
-     * <p>the request body method.</p>
-     * @param request     {@link javax.servlet.http.HttpServletRequest} <p>the request parameter is <code>HttpServletRequest</code> type.</p>
-     * @param restRequest {@link io.github.nichetoolkit.rest.userlog.RestRequestPack} <p>the rest request parameter is <code>RestRequestPack</code> type.</p>
+     * <p>The request body method.</p>
+     * @param request     {@link javax.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
+     * @param restRequest {@link io.github.nichetoolkit.rest.userlog.RestRequestPack} <p>The rest request parameter is <code>RestRequestPack</code> type.</p>
      * @see javax.servlet.http.HttpServletRequest
      * @see io.github.nichetoolkit.rest.userlog.RestRequestPack
      */
@@ -408,10 +408,10 @@ public class DefaultLoggingInterceptor implements AsyncHandlerInterceptor, RestR
 
     /**
      * <code>applyInterceptAdvice</code>
-     * <p>the intercept advice method.</p>
-     * @param requestPack  {@link io.github.nichetoolkit.rest.userlog.RestRequestPack} <p>the request pack parameter is <code>RestRequestPack</code> type.</p>
-     * @param responsePack {@link io.github.nichetoolkit.rest.userlog.RestResponsePack} <p>the response pack parameter is <code>RestResponsePack</code> type.</p>
-     * @param usernotePack {@link io.github.nichetoolkit.rest.userlog.RestUsernotePack} <p>the usernote pack parameter is <code>RestUsernotePack</code> type.</p>
+     * <p>The intercept advice method.</p>
+     * @param requestPack  {@link io.github.nichetoolkit.rest.userlog.RestRequestPack} <p>The request pack parameter is <code>RestRequestPack</code> type.</p>
+     * @param responsePack {@link io.github.nichetoolkit.rest.userlog.RestResponsePack} <p>The response pack parameter is <code>RestResponsePack</code> type.</p>
+     * @param usernotePack {@link io.github.nichetoolkit.rest.userlog.RestUsernotePack} <p>The usernote pack parameter is <code>RestUsernotePack</code> type.</p>
      * @see io.github.nichetoolkit.rest.userlog.RestRequestPack
      * @see io.github.nichetoolkit.rest.userlog.RestResponsePack
      * @see io.github.nichetoolkit.rest.userlog.RestUsernotePack
@@ -425,10 +425,10 @@ public class DefaultLoggingInterceptor implements AsyncHandlerInterceptor, RestR
 
     /**
      * <code>applyInterceptLogging</code>
-     * <p>the intercept logging method.</p>
-     * @param requestPack  {@link io.github.nichetoolkit.rest.userlog.RestRequestPack} <p>the request pack parameter is <code>RestRequestPack</code> type.</p>
-     * @param responsePack {@link io.github.nichetoolkit.rest.userlog.RestResponsePack} <p>the response pack parameter is <code>RestResponsePack</code> type.</p>
-     * @param usernotePack {@link io.github.nichetoolkit.rest.userlog.RestUsernotePack} <p>the usernote pack parameter is <code>RestUsernotePack</code> type.</p>
+     * <p>The intercept logging method.</p>
+     * @param requestPack  {@link io.github.nichetoolkit.rest.userlog.RestRequestPack} <p>The request pack parameter is <code>RestRequestPack</code> type.</p>
+     * @param responsePack {@link io.github.nichetoolkit.rest.userlog.RestResponsePack} <p>The response pack parameter is <code>RestResponsePack</code> type.</p>
+     * @param usernotePack {@link io.github.nichetoolkit.rest.userlog.RestUsernotePack} <p>The usernote pack parameter is <code>RestUsernotePack</code> type.</p>
      * @see io.github.nichetoolkit.rest.userlog.RestRequestPack
      * @see io.github.nichetoolkit.rest.userlog.RestResponsePack
      * @see io.github.nichetoolkit.rest.userlog.RestUsernotePack

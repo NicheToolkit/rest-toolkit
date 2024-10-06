@@ -16,7 +16,7 @@ public class HttpResultFailException extends HttpErrorException {
 
     /**
      * <code>HttpResultFailException</code>
-     * Instantiates a new http result fail exception.
+     * <p>Instantiates a new http result fail exception.</p>
      */
     public HttpResultFailException() {
         super(RestErrorStatus.HTTP_RESULT_FAILED);
@@ -24,8 +24,8 @@ public class HttpResultFailException extends HttpErrorException {
 
     /**
      * <code>HttpResultFailException</code>
-     * Instantiates a new http result fail exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * <p>Instantiates a new http result fail exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
     public HttpResultFailException(RestStatus status) {
@@ -34,8 +34,8 @@ public class HttpResultFailException extends HttpErrorException {
 
     /**
      * <code>HttpResultFailException</code>
-     * Instantiates a new http result fail exception.
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new http result fail exception.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public HttpResultFailException(String message) {
@@ -44,9 +44,9 @@ public class HttpResultFailException extends HttpErrorException {
 
     /**
      * <code>HttpResultFailException</code>
-     * Instantiates a new http result fail exception.
-     * @param status  {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new http result fail exception.</p>
+     * @param status  {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      */
@@ -56,10 +56,10 @@ public class HttpResultFailException extends HttpErrorException {
 
     /**
      * <code>HttpResultFailException</code>
-     * Instantiates a new http result fail exception.
-     * @param status   {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new http result fail exception.</p>
+     * @param status   {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      */
@@ -69,10 +69,10 @@ public class HttpResultFailException extends HttpErrorException {
 
     /**
      * <code>HttpResultFailException</code>
-     * Instantiates a new http result fail exception.
-     * @param status  {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param cause   {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new http result fail exception.</p>
+     * @param status  {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param cause   {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      * @see java.lang.Throwable
@@ -83,11 +83,11 @@ public class HttpResultFailException extends HttpErrorException {
 
     /**
      * <code>HttpResultFailException</code>
-     * Instantiates a new http result fail exception.
-     * @param status   {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param cause    {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new http result fail exception.</p>
+     * @param status   {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param cause    {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      * @see java.lang.Throwable
@@ -98,8 +98,8 @@ public class HttpResultFailException extends HttpErrorException {
 
     /**
      * <code>HttpResultFailException</code>
-     * Instantiates a new http result fail exception.
-     * @param restResult {@link io.github.nichetoolkit.rest.RestResult} <p>the rest result parameter is <code>RestResult</code> type.</p>
+     * <p>Instantiates a new http result fail exception.</p>
+     * @param restResult {@link io.github.nichetoolkit.rest.RestResult} <p>The rest result parameter is <code>RestResult</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestResult
      */
     public HttpResultFailException(RestResult<?> restResult) {
@@ -108,8 +108,8 @@ public class HttpResultFailException extends HttpErrorException {
 
     /**
      * <code>HttpResultFailException</code>
-     * Instantiates a new http result fail exception.
-     * @param responseEntity {@link org.springframework.http.ResponseEntity} <p>the response entity parameter is <code>ResponseEntity</code> type.</p>
+     * <p>Instantiates a new http result fail exception.</p>
+     * @param responseEntity {@link org.springframework.http.ResponseEntity} <p>The response entity parameter is <code>ResponseEntity</code> type.</p>
      * @see org.springframework.http.ResponseEntity
      */
     public HttpResultFailException(ResponseEntity<?> responseEntity) {
@@ -118,9 +118,9 @@ public class HttpResultFailException extends HttpErrorException {
 
     /**
      * <code>HttpResultFailException</code>
-     * Instantiates a new http result fail exception.
-     * @param resource   {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param restResult {@link io.github.nichetoolkit.rest.RestResult} <p>the rest result parameter is <code>RestResult</code> type.</p>
+     * <p>Instantiates a new http result fail exception.</p>
+     * @param resource   {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param restResult {@link io.github.nichetoolkit.rest.RestResult} <p>The rest result parameter is <code>RestResult</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestResult
      */
@@ -130,9 +130,9 @@ public class HttpResultFailException extends HttpErrorException {
 
     /**
      * <code>HttpResultFailException</code>
-     * Instantiates a new http result fail exception.
-     * @param resource       {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param responseEntity {@link org.springframework.http.ResponseEntity} <p>the response entity parameter is <code>ResponseEntity</code> type.</p>
+     * <p>Instantiates a new http result fail exception.</p>
+     * @param resource       {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param responseEntity {@link org.springframework.http.ResponseEntity} <p>The response entity parameter is <code>ResponseEntity</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.ResponseEntity
      */

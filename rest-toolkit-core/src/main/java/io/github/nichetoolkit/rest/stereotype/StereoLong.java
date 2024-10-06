@@ -22,8 +22,8 @@ import java.lang.annotation.*;
 public @interface StereoLong {
     /**
      * <code>value</code>
-     * <p>the method.</p>
-     * @return long <p>the return object is <code>long</code> type.</p>
+     * <p>The method.</p>
+     * @return long <p>The return object is <code>long</code> type.</p>
      */
     long value() default 0;
 }

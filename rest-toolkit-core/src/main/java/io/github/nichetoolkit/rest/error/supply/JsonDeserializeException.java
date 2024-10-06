@@ -15,7 +15,7 @@ import io.github.nichetoolkit.rest.RestStatus;
 public class JsonDeserializeException extends RestErrorException {
     /**
      * <code>JsonDeserializeException</code>
-     * Instantiates a new json deserialize exception.
+     * <p>Instantiates a new json deserialize exception.</p>
      */
     public JsonDeserializeException() {
         super(RestErrorStatus.JSON_DESERIALIZE_ERROR);
@@ -23,8 +23,8 @@ public class JsonDeserializeException extends RestErrorException {
 
     /**
      * <code>JsonDeserializeException</code>
-     * Instantiates a new json deserialize exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * <p>Instantiates a new json deserialize exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
     public JsonDeserializeException(RestStatus status) {
@@ -33,8 +33,8 @@ public class JsonDeserializeException extends RestErrorException {
 
     /**
      * <code>JsonDeserializeException</code>
-     * Instantiates a new json deserialize exception.
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new json deserialize exception.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public JsonDeserializeException(String message) {

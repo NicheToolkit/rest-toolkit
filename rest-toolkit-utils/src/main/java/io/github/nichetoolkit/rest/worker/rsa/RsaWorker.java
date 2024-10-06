@@ -37,21 +37,21 @@ import java.security.spec.X509EncodedKeySpec;
 public class RsaWorker {
     /**
      * <code>RSA_ALGORITHM</code>
-     * {@link java.lang.String} <p>the constant <code>RSA_ALGORITHM</code> field.</p>
+     * {@link java.lang.String} <p>The constant <code>RSA_ALGORITHM</code> field.</p>
      * @see java.lang.String
      */
     private static final String RSA_ALGORITHM = "RSA";
 
     /**
      * <code>INSTANCE</code>
-     * {@link io.github.nichetoolkit.rest.worker.rsa.RsaWorker} <p>the constant <code>INSTANCE</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.worker.rsa.RsaWorker} <p>The constant <code>INSTANCE</code> field.</p>
      */
     private static RsaWorker INSTANCE = null;
 
     /**
      * <code>getInstance</code>
-     * <p>the instance getter method.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.rsa.RsaWorker} <p>the instance return object is <code>RsaWorker</code> type.</p>
+     * <p>The instance getter method.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.rsa.RsaWorker} <p>The instance return object is <code>RsaWorker</code> type.</p>
      */
     public static RsaWorker getInstance() {
         return INSTANCE;
@@ -59,15 +59,15 @@ public class RsaWorker {
 
     /**
      * <code>rsaProperties</code>
-     * {@link io.github.nichetoolkit.rest.configure.RestRsaProperties} <p>the <code>rsaProperties</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.configure.RestRsaProperties} <p>The <code>rsaProperties</code> field.</p>
      * @see io.github.nichetoolkit.rest.configure.RestRsaProperties
      */
     private final RestRsaProperties rsaProperties;
 
     /**
      * <code>RsaWorker</code>
-     * Instantiates a new rsa worker.
-     * @param rsaProperties {@link io.github.nichetoolkit.rest.configure.RestRsaProperties} <p>the rsa properties parameter is <code>RestRsaProperties</code> type.</p>
+     * <p>Instantiates a new rsa worker.</p>
+     * @param rsaProperties {@link io.github.nichetoolkit.rest.configure.RestRsaProperties} <p>The rsa properties parameter is <code>RestRsaProperties</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestRsaProperties
      * @see org.springframework.beans.factory.annotation.Autowired
      */
@@ -85,7 +85,7 @@ public class RsaWorker {
 
     /**
      * <code>rsaWorkerInit</code>
-     * <p>the worker init method.</p>
+     * <p>The worker init method.</p>
      * @see javax.annotation.PostConstruct
      */
     @PostConstruct
@@ -96,8 +96,8 @@ public class RsaWorker {
 
     /**
      * <code>generate</code>
-     * <p>the method.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.rsa.RsaKey} <p>the return object is <code>RsaKey</code> type.</p>
+     * <p>The method.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.rsa.RsaKey} <p>The return object is <code>RsaKey</code> type.</p>
      * @see io.github.nichetoolkit.rest.worker.rsa.RsaKey
      */
     public RsaKey generate() {
@@ -106,9 +106,9 @@ public class RsaWorker {
 
     /**
      * <code>generate</code>
-     * <p>the method.</p>
-     * @param keySize int <p>the key size parameter is <code>int</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.rsa.RsaKey} <p>the return object is <code>RsaKey</code> type.</p>
+     * <p>The method.</p>
+     * @param keySize int <p>The key size parameter is <code>int</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.rsa.RsaKey} <p>The return object is <code>RsaKey</code> type.</p>
      * @see io.github.nichetoolkit.rest.worker.rsa.RsaKey
      */
     public RsaKey generate(int keySize) {
@@ -117,9 +117,9 @@ public class RsaWorker {
 
     /**
      * <code>verify</code>
-     * <p>the method.</p>
-     * @param rsaKey {@link io.github.nichetoolkit.rest.worker.rsa.RsaKey} <p>the rsa key parameter is <code>RsaKey</code> type.</p>
-     * @return boolean <p>the return object is <code>boolean</code> type.</p>
+     * <p>The method.</p>
+     * @param rsaKey {@link io.github.nichetoolkit.rest.worker.rsa.RsaKey} <p>The rsa key parameter is <code>RsaKey</code> type.</p>
+     * @return boolean <p>The return object is <code>boolean</code> type.</p>
      * @see io.github.nichetoolkit.rest.worker.rsa.RsaKey
      */
     public boolean verify(RsaKey rsaKey) {
@@ -128,10 +128,10 @@ public class RsaWorker {
 
     /**
      * <code>verify</code>
-     * <p>the method.</p>
-     * @param publicKeySecret  {@link java.lang.String} <p>the public key secret parameter is <code>String</code> type.</p>
-     * @param privateKeySecret {@link java.lang.String} <p>the private key secret parameter is <code>String</code> type.</p>
-     * @return boolean <p>the return object is <code>boolean</code> type.</p>
+     * <p>The method.</p>
+     * @param publicKeySecret  {@link java.lang.String} <p>The public key secret parameter is <code>String</code> type.</p>
+     * @param privateKeySecret {@link java.lang.String} <p>The private key secret parameter is <code>String</code> type.</p>
+     * @return boolean <p>The return object is <code>boolean</code> type.</p>
      * @see java.lang.String
      */
     public boolean verify(String publicKeySecret, String privateKeySecret) {
@@ -140,10 +140,10 @@ public class RsaWorker {
 
     /**
      * <code>verify</code>
-     * <p>the method.</p>
-     * @param publicKey  {@link java.security.PublicKey} <p>the public key parameter is <code>PublicKey</code> type.</p>
-     * @param privateKey {@link java.security.PrivateKey} <p>the private key parameter is <code>PrivateKey</code> type.</p>
-     * @return boolean <p>the return object is <code>boolean</code> type.</p>
+     * <p>The method.</p>
+     * @param publicKey  {@link java.security.PublicKey} <p>The public key parameter is <code>PublicKey</code> type.</p>
+     * @param privateKey {@link java.security.PrivateKey} <p>The private key parameter is <code>PrivateKey</code> type.</p>
+     * @return boolean <p>The return object is <code>boolean</code> type.</p>
      * @see java.security.PublicKey
      * @see java.security.PrivateKey
      */
@@ -153,9 +153,9 @@ public class RsaWorker {
 
     /**
      * <code>encrypt</code>
-     * <p>the method.</p>
-     * @param source {@link java.lang.String} <p>the source parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param source {@link java.lang.String} <p>The source parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public String encrypt(String source) {
@@ -164,9 +164,9 @@ public class RsaWorker {
 
     /**
      * <code>encrypt</code>
-     * <p>the method.</p>
-     * @param sourceBytes byte <p>the source bytes parameter is <code>byte</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param sourceBytes byte <p>The source bytes parameter is <code>byte</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public String encrypt(byte[] sourceBytes) {
@@ -175,10 +175,10 @@ public class RsaWorker {
 
     /**
      * <code>encrypt</code>
-     * <p>the method.</p>
-     * @param source    {@link java.lang.String} <p>the source parameter is <code>String</code> type.</p>
-     * @param publicKey {@link java.lang.String} <p>the public key parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param source    {@link java.lang.String} <p>The source parameter is <code>String</code> type.</p>
+     * @param publicKey {@link java.lang.String} <p>The public key parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public String encrypt(String source, String publicKey) {
@@ -188,10 +188,10 @@ public class RsaWorker {
 
     /**
      * <code>encrypt</code>
-     * <p>the method.</p>
-     * @param sourceBytes byte <p>the source bytes parameter is <code>byte</code> type.</p>
-     * @param publicKey   {@link java.lang.String} <p>the public key parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param sourceBytes byte <p>The source bytes parameter is <code>byte</code> type.</p>
+     * @param publicKey   {@link java.lang.String} <p>The public key parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public String encrypt(byte[] sourceBytes, String publicKey) {
@@ -200,9 +200,9 @@ public class RsaWorker {
 
     /**
      * <code>decrypt</code>
-     * <p>the method.</p>
-     * @param source {@link java.lang.String} <p>the source parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param source {@link java.lang.String} <p>The source parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public String decrypt(String source) {
@@ -211,9 +211,9 @@ public class RsaWorker {
 
     /**
      * <code>decrypt</code>
-     * <p>the method.</p>
-     * @param sourceBytes byte <p>the source bytes parameter is <code>byte</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param sourceBytes byte <p>The source bytes parameter is <code>byte</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public String decrypt(byte[] sourceBytes) {
@@ -222,10 +222,10 @@ public class RsaWorker {
 
     /**
      * <code>decrypt</code>
-     * <p>the method.</p>
-     * @param source     {@link java.lang.String} <p>the source parameter is <code>String</code> type.</p>
-     * @param privateKey {@link java.lang.String} <p>the private key parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param source     {@link java.lang.String} <p>The source parameter is <code>String</code> type.</p>
+     * @param privateKey {@link java.lang.String} <p>The private key parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public String decrypt(String source, String privateKey) {
@@ -234,10 +234,10 @@ public class RsaWorker {
 
     /**
      * <code>decrypt</code>
-     * <p>the method.</p>
-     * @param sourceBytes byte <p>the source bytes parameter is <code>byte</code> type.</p>
-     * @param privateKey  {@link java.lang.String} <p>the private key parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param sourceBytes byte <p>The source bytes parameter is <code>byte</code> type.</p>
+     * @param privateKey  {@link java.lang.String} <p>The private key parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public String decrypt(byte[] sourceBytes, String privateKey) {
@@ -246,9 +246,9 @@ public class RsaWorker {
 
     /**
      * <code>verifies</code>
-     * <p>the method.</p>
-     * @param rsaKey {@link io.github.nichetoolkit.rest.worker.rsa.RsaKey} <p>the rsa key parameter is <code>RsaKey</code> type.</p>
-     * @return boolean <p>the return object is <code>boolean</code> type.</p>
+     * <p>The method.</p>
+     * @param rsaKey {@link io.github.nichetoolkit.rest.worker.rsa.RsaKey} <p>The rsa key parameter is <code>RsaKey</code> type.</p>
+     * @return boolean <p>The return object is <code>boolean</code> type.</p>
      * @see io.github.nichetoolkit.rest.worker.rsa.RsaKey
      */
     public static boolean verifies(RsaKey rsaKey) {
@@ -257,10 +257,10 @@ public class RsaWorker {
 
     /**
      * <code>verifies</code>
-     * <p>the method.</p>
-     * @param publicKeySecret  {@link java.lang.String} <p>the public key secret parameter is <code>String</code> type.</p>
-     * @param privateKeySecret {@link java.lang.String} <p>the private key secret parameter is <code>String</code> type.</p>
-     * @return boolean <p>the return object is <code>boolean</code> type.</p>
+     * <p>The method.</p>
+     * @param publicKeySecret  {@link java.lang.String} <p>The public key secret parameter is <code>String</code> type.</p>
+     * @param privateKeySecret {@link java.lang.String} <p>The private key secret parameter is <code>String</code> type.</p>
+     * @return boolean <p>The return object is <code>boolean</code> type.</p>
      * @see java.lang.String
      */
     public static boolean verifies(String publicKeySecret, String privateKeySecret) {
@@ -271,10 +271,10 @@ public class RsaWorker {
 
     /**
      * <code>verifies</code>
-     * <p>the method.</p>
-     * @param publicKey  {@link java.security.PublicKey} <p>the public key parameter is <code>PublicKey</code> type.</p>
-     * @param privateKey {@link java.security.PrivateKey} <p>the private key parameter is <code>PrivateKey</code> type.</p>
-     * @return boolean <p>the return object is <code>boolean</code> type.</p>
+     * <p>The method.</p>
+     * @param publicKey  {@link java.security.PublicKey} <p>The public key parameter is <code>PublicKey</code> type.</p>
+     * @param privateKey {@link java.security.PrivateKey} <p>The private key parameter is <code>PrivateKey</code> type.</p>
+     * @return boolean <p>The return object is <code>boolean</code> type.</p>
      * @see java.security.PublicKey
      * @see java.security.PrivateKey
      */
@@ -320,9 +320,9 @@ public class RsaWorker {
 
     /**
      * <code>privateKey</code>
-     * <p>the key method.</p>
-     * @param privateKey {@link java.security.PrivateKey} <p>the private key parameter is <code>PrivateKey</code> type.</p>
-     * @return byte <p>the key return object is <code>byte</code> type.</p>
+     * <p>The key method.</p>
+     * @param privateKey {@link java.security.PrivateKey} <p>The private key parameter is <code>PrivateKey</code> type.</p>
+     * @return byte <p>The key return object is <code>byte</code> type.</p>
      * @see java.security.PrivateKey
      */
     public static byte[] privateKey(PrivateKey privateKey) {
@@ -340,8 +340,8 @@ public class RsaWorker {
 
     /**
      * <code>generates</code>
-     * <p>the method.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.rsa.RsaKey} <p>the return object is <code>RsaKey</code> type.</p>
+     * <p>The method.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.rsa.RsaKey} <p>The return object is <code>RsaKey</code> type.</p>
      * @see io.github.nichetoolkit.rest.worker.rsa.RsaKey
      */
     public static RsaKey generates() {
@@ -350,9 +350,9 @@ public class RsaWorker {
 
     /**
      * <code>generates</code>
-     * <p>the method.</p>
-     * @param keySize int <p>the key size parameter is <code>int</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.rsa.RsaKey} <p>the return object is <code>RsaKey</code> type.</p>
+     * <p>The method.</p>
+     * @param keySize int <p>The key size parameter is <code>int</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.rsa.RsaKey} <p>The return object is <code>RsaKey</code> type.</p>
      * @see io.github.nichetoolkit.rest.worker.rsa.RsaKey
      */
     public static RsaKey generates(int keySize) {
@@ -383,9 +383,9 @@ public class RsaWorker {
 
     /**
      * <code>encrypts</code>
-     * <p>the method.</p>
-     * @param source {@link java.lang.String} <p>the source parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param source {@link java.lang.String} <p>The source parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String encrypts(String source) {
@@ -395,9 +395,9 @@ public class RsaWorker {
 
     /**
      * <code>encrypts</code>
-     * <p>the method.</p>
-     * @param sourceBytes byte <p>the source bytes parameter is <code>byte</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param sourceBytes byte <p>The source bytes parameter is <code>byte</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String encrypts(byte[] sourceBytes) {
@@ -407,9 +407,9 @@ public class RsaWorker {
 
     /**
      * <code>decrypts</code>
-     * <p>the method.</p>
-     * @param source {@link java.lang.String} <p>the source parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param source {@link java.lang.String} <p>The source parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String decrypts(String source) {
@@ -419,9 +419,9 @@ public class RsaWorker {
 
     /**
      * <code>decrypts</code>
-     * <p>the method.</p>
-     * @param sourceBytes byte <p>the source bytes parameter is <code>byte</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param sourceBytes byte <p>The source bytes parameter is <code>byte</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String decrypts(byte[] sourceBytes) {
@@ -431,10 +431,10 @@ public class RsaWorker {
 
     /**
      * <code>decrypts</code>
-     * <p>the method.</p>
-     * @param source           {@link java.lang.String} <p>the source parameter is <code>String</code> type.</p>
-     * @param privateKeySecret {@link java.lang.String} <p>the private key secret parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param source           {@link java.lang.String} <p>The source parameter is <code>String</code> type.</p>
+     * @param privateKeySecret {@link java.lang.String} <p>The private key secret parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String decrypts(String source, String privateKeySecret) {
@@ -444,10 +444,10 @@ public class RsaWorker {
 
     /**
      * <code>decrypts</code>
-     * <p>the method.</p>
-     * @param sourceBytes      byte <p>the source bytes parameter is <code>byte</code> type.</p>
-     * @param privateKeySecret {@link java.lang.String} <p>the private key secret parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param sourceBytes      byte <p>The source bytes parameter is <code>byte</code> type.</p>
+     * @param privateKeySecret {@link java.lang.String} <p>The private key secret parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String decrypts(byte[] sourceBytes, String privateKeySecret) {
@@ -457,11 +457,11 @@ public class RsaWorker {
 
     /**
      * <code>decrypts</code>
-     * <p>the method.</p>
-     * @param source           {@link java.lang.String} <p>the source parameter is <code>String</code> type.</p>
-     * @param privateKeySecret {@link java.lang.String} <p>the private key secret parameter is <code>String</code> type.</p>
-     * @param segmentSize      int <p>the segment size parameter is <code>int</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param source           {@link java.lang.String} <p>The source parameter is <code>String</code> type.</p>
+     * @param privateKeySecret {@link java.lang.String} <p>The private key secret parameter is <code>String</code> type.</p>
+     * @param segmentSize      int <p>The segment size parameter is <code>int</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String decrypts(String source, String privateKeySecret, int segmentSize) {
@@ -471,11 +471,11 @@ public class RsaWorker {
 
     /**
      * <code>decrypts</code>
-     * <p>the method.</p>
-     * @param sourceBytes      byte <p>the source bytes parameter is <code>byte</code> type.</p>
-     * @param privateKeySecret {@link java.lang.String} <p>the private key secret parameter is <code>String</code> type.</p>
-     * @param segmentSize      int <p>the segment size parameter is <code>int</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param sourceBytes      byte <p>The source bytes parameter is <code>byte</code> type.</p>
+     * @param privateKeySecret {@link java.lang.String} <p>The private key secret parameter is <code>String</code> type.</p>
+     * @param segmentSize      int <p>The segment size parameter is <code>int</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String decrypts(byte[] sourceBytes, String privateKeySecret, int segmentSize) {
@@ -485,9 +485,9 @@ public class RsaWorker {
 
     /**
      * <code>keyFactory</code>
-     * <p>the factory method.</p>
-     * @param algorithm {@link java.lang.String} <p>the algorithm parameter is <code>String</code> type.</p>
-     * @return {@link java.security.KeyFactory} <p>the factory return object is <code>KeyFactory</code> type.</p>
+     * <p>The factory method.</p>
+     * @param algorithm {@link java.lang.String} <p>The algorithm parameter is <code>String</code> type.</p>
+     * @return {@link java.security.KeyFactory} <p>The factory return object is <code>KeyFactory</code> type.</p>
      * @see java.lang.String
      * @see java.security.KeyFactory
      */
@@ -503,9 +503,9 @@ public class RsaWorker {
 
     /**
      * <code>privateKey</code>
-     * <p>the key method.</p>
-     * @param privateKeySecret {@link java.lang.String} <p>the private key secret parameter is <code>String</code> type.</p>
-     * @return {@link java.security.PrivateKey} <p>the key return object is <code>PrivateKey</code> type.</p>
+     * <p>The key method.</p>
+     * @param privateKeySecret {@link java.lang.String} <p>The private key secret parameter is <code>String</code> type.</p>
+     * @return {@link java.security.PrivateKey} <p>The key return object is <code>PrivateKey</code> type.</p>
      * @see java.lang.String
      * @see java.security.PrivateKey
      */
@@ -524,11 +524,11 @@ public class RsaWorker {
 
     /**
      * <code>decrypts</code>
-     * <p>the method.</p>
-     * @param source      {@link java.lang.String} <p>the source parameter is <code>String</code> type.</p>
-     * @param privateKey  {@link java.security.PrivateKey} <p>the private key parameter is <code>PrivateKey</code> type.</p>
-     * @param segmentSize int <p>the segment size parameter is <code>int</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param source      {@link java.lang.String} <p>The source parameter is <code>String</code> type.</p>
+     * @param privateKey  {@link java.security.PrivateKey} <p>The private key parameter is <code>PrivateKey</code> type.</p>
+     * @param segmentSize int <p>The segment size parameter is <code>int</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      * @see java.security.PrivateKey
      */
@@ -539,11 +539,11 @@ public class RsaWorker {
 
     /**
      * <code>decrypts</code>
-     * <p>the method.</p>
-     * @param sourceBytes byte <p>the source bytes parameter is <code>byte</code> type.</p>
-     * @param privateKey  {@link java.security.PrivateKey} <p>the private key parameter is <code>PrivateKey</code> type.</p>
-     * @param segmentSize int <p>the segment size parameter is <code>int</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param sourceBytes byte <p>The source bytes parameter is <code>byte</code> type.</p>
+     * @param privateKey  {@link java.security.PrivateKey} <p>The private key parameter is <code>PrivateKey</code> type.</p>
+     * @param segmentSize int <p>The segment size parameter is <code>int</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.security.PrivateKey
      * @see java.lang.String
      */
@@ -564,10 +564,10 @@ public class RsaWorker {
 
     /**
      * <code>encrypts</code>
-     * <p>the method.</p>
-     * @param source          {@link java.lang.String} <p>the source parameter is <code>String</code> type.</p>
-     * @param publicKeySecret {@link java.lang.String} <p>the public key secret parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param source          {@link java.lang.String} <p>The source parameter is <code>String</code> type.</p>
+     * @param publicKeySecret {@link java.lang.String} <p>The public key secret parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String encrypts(String source, String publicKeySecret) {
@@ -577,10 +577,10 @@ public class RsaWorker {
 
     /**
      * <code>encrypts</code>
-     * <p>the method.</p>
-     * @param sourceBytes     byte <p>the source bytes parameter is <code>byte</code> type.</p>
-     * @param publicKeySecret {@link java.lang.String} <p>the public key secret parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param sourceBytes     byte <p>The source bytes parameter is <code>byte</code> type.</p>
+     * @param publicKeySecret {@link java.lang.String} <p>The public key secret parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String encrypts(byte[] sourceBytes,  String publicKeySecret) {
@@ -590,11 +590,11 @@ public class RsaWorker {
 
     /**
      * <code>encrypts</code>
-     * <p>the method.</p>
-     * @param source          {@link java.lang.String} <p>the source parameter is <code>String</code> type.</p>
-     * @param publicKeySecret {@link java.lang.String} <p>the public key secret parameter is <code>String</code> type.</p>
-     * @param segmentSize     int <p>the segment size parameter is <code>int</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param source          {@link java.lang.String} <p>The source parameter is <code>String</code> type.</p>
+     * @param publicKeySecret {@link java.lang.String} <p>The public key secret parameter is <code>String</code> type.</p>
+     * @param segmentSize     int <p>The segment size parameter is <code>int</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String encrypts(String source, String publicKeySecret, int segmentSize) {
@@ -604,11 +604,11 @@ public class RsaWorker {
 
     /**
      * <code>encrypts</code>
-     * <p>the method.</p>
-     * @param sourceBytes     byte <p>the source bytes parameter is <code>byte</code> type.</p>
-     * @param publicKeySecret {@link java.lang.String} <p>the public key secret parameter is <code>String</code> type.</p>
-     * @param segmentSize     int <p>the segment size parameter is <code>int</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param sourceBytes     byte <p>The source bytes parameter is <code>byte</code> type.</p>
+     * @param publicKeySecret {@link java.lang.String} <p>The public key secret parameter is <code>String</code> type.</p>
+     * @param segmentSize     int <p>The segment size parameter is <code>int</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String encrypts(byte[] sourceBytes,  String publicKeySecret, int segmentSize) {
@@ -618,9 +618,9 @@ public class RsaWorker {
 
     /**
      * <code>publicKey</code>
-     * <p>the key method.</p>
-     * @param publicKeySecret {@link java.lang.String} <p>the public key secret parameter is <code>String</code> type.</p>
-     * @return {@link java.security.PublicKey} <p>the key return object is <code>PublicKey</code> type.</p>
+     * <p>The key method.</p>
+     * @param publicKeySecret {@link java.lang.String} <p>The public key secret parameter is <code>String</code> type.</p>
+     * @return {@link java.security.PublicKey} <p>The key return object is <code>PublicKey</code> type.</p>
      * @see java.lang.String
      * @see java.security.PublicKey
      */
@@ -640,11 +640,11 @@ public class RsaWorker {
 
     /**
      * <code>encrypts</code>
-     * <p>the method.</p>
-     * @param source      {@link java.lang.String} <p>the source parameter is <code>String</code> type.</p>
-     * @param publicKey   {@link java.security.PublicKey} <p>the public key parameter is <code>PublicKey</code> type.</p>
-     * @param segmentSize int <p>the segment size parameter is <code>int</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param source      {@link java.lang.String} <p>The source parameter is <code>String</code> type.</p>
+     * @param publicKey   {@link java.security.PublicKey} <p>The public key parameter is <code>PublicKey</code> type.</p>
+     * @param segmentSize int <p>The segment size parameter is <code>int</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      * @see java.security.PublicKey
      */
@@ -655,11 +655,11 @@ public class RsaWorker {
 
     /**
      * <code>encrypts</code>
-     * <p>the method.</p>
-     * @param sourceBytes byte <p>the source bytes parameter is <code>byte</code> type.</p>
-     * @param publicKey   {@link java.security.PublicKey} <p>the public key parameter is <code>PublicKey</code> type.</p>
-     * @param segmentSize int <p>the segment size parameter is <code>int</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param sourceBytes byte <p>The source bytes parameter is <code>byte</code> type.</p>
+     * @param publicKey   {@link java.security.PublicKey} <p>The public key parameter is <code>PublicKey</code> type.</p>
+     * @param segmentSize int <p>The segment size parameter is <code>int</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.security.PublicKey
      * @see java.lang.String
      */
@@ -680,11 +680,11 @@ public class RsaWorker {
 
     /**
      * <code>dofinal</code>
-     * <p>the method.</p>
-     * @param cipher      {@link javax.crypto.Cipher} <p>the cipher parameter is <code>Cipher</code> type.</p>
-     * @param source      {@link java.lang.String} <p>the source parameter is <code>String</code> type.</p>
-     * @param segmentSize int <p>the segment size parameter is <code>int</code> type.</p>
-     * @return byte <p>the return object is <code>byte</code> type.</p>
+     * <p>The method.</p>
+     * @param cipher      {@link javax.crypto.Cipher} <p>The cipher parameter is <code>Cipher</code> type.</p>
+     * @param source      {@link java.lang.String} <p>The source parameter is <code>String</code> type.</p>
+     * @param segmentSize int <p>The segment size parameter is <code>int</code> type.</p>
+     * @return byte <p>The return object is <code>byte</code> type.</p>
      * @see javax.crypto.Cipher
      * @see java.lang.String
      */
@@ -695,11 +695,11 @@ public class RsaWorker {
 
     /**
      * <code>dofinal</code>
-     * <p>the method.</p>
-     * @param cipher      {@link javax.crypto.Cipher} <p>the cipher parameter is <code>Cipher</code> type.</p>
-     * @param sourceBytes byte <p>the source bytes parameter is <code>byte</code> type.</p>
-     * @param segmentSize int <p>the segment size parameter is <code>int</code> type.</p>
-     * @return byte <p>the return object is <code>byte</code> type.</p>
+     * <p>The method.</p>
+     * @param cipher      {@link javax.crypto.Cipher} <p>The cipher parameter is <code>Cipher</code> type.</p>
+     * @param sourceBytes byte <p>The source bytes parameter is <code>byte</code> type.</p>
+     * @param segmentSize int <p>The segment size parameter is <code>int</code> type.</p>
+     * @return byte <p>The return object is <code>byte</code> type.</p>
      * @see javax.crypto.Cipher
      */
     private static byte[] dofinal(Cipher cipher, byte[] sourceBytes, int segmentSize) {
@@ -718,11 +718,11 @@ public class RsaWorker {
 
     /**
      * <code>segmentDofinal</code>
-     * <p>the dofinal method.</p>
-     * @param cipher      {@link javax.crypto.Cipher} <p>the cipher parameter is <code>Cipher</code> type.</p>
-     * @param sourceBytes byte <p>the source bytes parameter is <code>byte</code> type.</p>
-     * @param segmentSize int <p>the segment size parameter is <code>int</code> type.</p>
-     * @return byte <p>the dofinal return object is <code>byte</code> type.</p>
+     * <p>The dofinal method.</p>
+     * @param cipher      {@link javax.crypto.Cipher} <p>The cipher parameter is <code>Cipher</code> type.</p>
+     * @param sourceBytes byte <p>The source bytes parameter is <code>byte</code> type.</p>
+     * @param segmentSize int <p>The segment size parameter is <code>int</code> type.</p>
+     * @return byte <p>The dofinal return object is <code>byte</code> type.</p>
      * @see javax.crypto.Cipher
      */
     private static byte[] segmentDofinal(Cipher cipher, byte[] sourceBytes, int segmentSize) {

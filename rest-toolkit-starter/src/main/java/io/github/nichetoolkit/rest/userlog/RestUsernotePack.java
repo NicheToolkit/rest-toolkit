@@ -19,46 +19,46 @@ import lombok.Data;
 public class RestUsernotePack {
     /**
      * <code>notelog</code>
-     * {@link java.lang.String} <p>the <code>notelog</code> field.</p>
+     * {@link java.lang.String} <p>The <code>notelog</code> field.</p>
      * @see java.lang.String
      */
     protected String notelog;
     /**
      * <code>userlog</code>
-     * {@link java.lang.String} <p>the <code>userlog</code> field.</p>
+     * {@link java.lang.String} <p>The <code>userlog</code> field.</p>
      * @see java.lang.String
      */
     protected String userlog;
     /**
      * <code>loggingKey</code>
-     * {@link java.lang.String} <p>the <code>loggingKey</code> field.</p>
+     * {@link java.lang.String} <p>The <code>loggingKey</code> field.</p>
      * @see java.lang.String
      */
     protected String loggingKey;
     /**
      * <code>loggingValue</code>
-     * {@link java.lang.String} <p>the <code>loggingValue</code> field.</p>
+     * {@link java.lang.String} <p>The <code>loggingValue</code> field.</p>
      * @see java.lang.String
      */
     protected String loggingValue;
     /**
      * <code>loggingType</code>
-     * {@link io.github.nichetoolkit.rest.userlog.LoggingType} <p>the <code>loggingType</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.userlog.LoggingType} <p>The <code>loggingType</code> field.</p>
      * @see io.github.nichetoolkit.rest.userlog.LoggingType
      */
     protected LoggingType loggingType;
 
     /**
      * <code>RestUsernotePack</code>
-     * Instantiates a new rest usernote pack.
+     * <p>Instantiates a new rest usernote pack.</p>
      */
     public RestUsernotePack() {
     }
 
     /**
      * <code>RestUsernotePack</code>
-     * Instantiates a new rest usernote pack.
-     * @param builder {@link io.github.nichetoolkit.rest.userlog.RestUsernotePack.Builder} <p>the builder parameter is <code>Builder</code> type.</p>
+     * <p>Instantiates a new rest usernote pack.</p>
+     * @param builder {@link io.github.nichetoolkit.rest.userlog.RestUsernotePack.Builder} <p>The builder parameter is <code>Builder</code> type.</p>
      * @see io.github.nichetoolkit.rest.userlog.RestUsernotePack.Builder
      */
     private RestUsernotePack(Builder builder) {
@@ -78,47 +78,47 @@ public class RestUsernotePack {
     public static class Builder {
         /**
          * <code>notelog</code>
-         * {@link java.lang.String} <p>the <code>notelog</code> field.</p>
+         * {@link java.lang.String} <p>The <code>notelog</code> field.</p>
          * @see java.lang.String
          */
         protected String notelog;
         /**
          * <code>userlog</code>
-         * {@link java.lang.String} <p>the <code>userlog</code> field.</p>
+         * {@link java.lang.String} <p>The <code>userlog</code> field.</p>
          * @see java.lang.String
          */
         protected String userlog;
         /**
          * <code>loggingKey</code>
-         * {@link java.lang.String} <p>the <code>loggingKey</code> field.</p>
+         * {@link java.lang.String} <p>The <code>loggingKey</code> field.</p>
          * @see java.lang.String
          */
         protected String loggingKey;
         /**
          * <code>loggingValue</code>
-         * {@link java.lang.String} <p>the <code>loggingValue</code> field.</p>
+         * {@link java.lang.String} <p>The <code>loggingValue</code> field.</p>
          * @see java.lang.String
          */
         protected String loggingValue;
         /**
          * <code>loggingType</code>
-         * {@link io.github.nichetoolkit.rest.userlog.LoggingType} <p>the <code>loggingType</code> field.</p>
+         * {@link io.github.nichetoolkit.rest.userlog.LoggingType} <p>The <code>loggingType</code> field.</p>
          * @see io.github.nichetoolkit.rest.userlog.LoggingType
          */
         protected LoggingType loggingType;
 
         /**
          * <code>Builder</code>
-         * Instantiates a new builder.
+         * <p>Instantiates a new builder.</p>
          */
         public Builder() {
         }
 
         /**
          * <code>notelog</code>
-         * <p>the method.</p>
-         * @param notelog {@link java.lang.String} <p>the notelog parameter is <code>String</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.userlog.RestUsernotePack.Builder} <p>the return object is <code>Builder</code> type.</p>
+         * <p>The method.</p>
+         * @param notelog {@link java.lang.String} <p>The notelog parameter is <code>String</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.userlog.RestUsernotePack.Builder} <p>The return object is <code>Builder</code> type.</p>
          * @see java.lang.String
          */
         public RestUsernotePack.Builder notelog(String notelog) {
@@ -128,9 +128,9 @@ public class RestUsernotePack {
 
         /**
          * <code>userlog</code>
-         * <p>the method.</p>
-         * @param userlog {@link java.lang.String} <p>the userlog parameter is <code>String</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.userlog.RestUsernotePack.Builder} <p>the return object is <code>Builder</code> type.</p>
+         * <p>The method.</p>
+         * @param userlog {@link java.lang.String} <p>The userlog parameter is <code>String</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.userlog.RestUsernotePack.Builder} <p>The return object is <code>Builder</code> type.</p>
          * @see java.lang.String
          */
         public RestUsernotePack.Builder userlog(String userlog) {
@@ -140,9 +140,9 @@ public class RestUsernotePack {
 
         /**
          * <code>loggingKey</code>
-         * <p>the key method.</p>
-         * @param loggingKey {@link java.lang.String} <p>the logging key parameter is <code>String</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.userlog.RestUsernotePack.Builder} <p>the key return object is <code>Builder</code> type.</p>
+         * <p>The key method.</p>
+         * @param loggingKey {@link java.lang.String} <p>The logging key parameter is <code>String</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.userlog.RestUsernotePack.Builder} <p>The key return object is <code>Builder</code> type.</p>
          * @see java.lang.String
          */
         public RestUsernotePack.Builder loggingKey(String loggingKey) {
@@ -152,9 +152,9 @@ public class RestUsernotePack {
 
         /**
          * <code>loggingValue</code>
-         * <p>the value method.</p>
-         * @param loggingValue {@link java.lang.String} <p>the logging value parameter is <code>String</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.userlog.RestUsernotePack.Builder} <p>the value return object is <code>Builder</code> type.</p>
+         * <p>The value method.</p>
+         * @param loggingValue {@link java.lang.String} <p>The logging value parameter is <code>String</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.userlog.RestUsernotePack.Builder} <p>The value return object is <code>Builder</code> type.</p>
          * @see java.lang.String
          */
         public RestUsernotePack.Builder loggingValue(String loggingValue) {
@@ -164,9 +164,9 @@ public class RestUsernotePack {
 
         /**
          * <code>loggingType</code>
-         * <p>the type method.</p>
-         * @param loggingType {@link io.github.nichetoolkit.rest.userlog.LoggingType} <p>the logging type parameter is <code>LoggingType</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.userlog.RestUsernotePack.Builder} <p>the type return object is <code>Builder</code> type.</p>
+         * <p>The type method.</p>
+         * @param loggingType {@link io.github.nichetoolkit.rest.userlog.LoggingType} <p>The logging type parameter is <code>LoggingType</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.userlog.RestUsernotePack.Builder} <p>The type return object is <code>Builder</code> type.</p>
          * @see io.github.nichetoolkit.rest.userlog.LoggingType
          */
         public RestUsernotePack.Builder loggingType(LoggingType loggingType) {
@@ -176,8 +176,8 @@ public class RestUsernotePack {
 
         /**
          * <code>build</code>
-         * <p>the method.</p>
-         * @return {@link io.github.nichetoolkit.rest.userlog.RestUsernotePack} <p>the return object is <code>RestUsernotePack</code> type.</p>
+         * <p>The method.</p>
+         * @return {@link io.github.nichetoolkit.rest.userlog.RestUsernotePack} <p>The return object is <code>RestUsernotePack</code> type.</p>
          */
         public RestUsernotePack build() {
             return new RestUsernotePack(this);

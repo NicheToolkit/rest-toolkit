@@ -18,20 +18,20 @@ import org.springframework.lang.NonNull;
 class IdentityWorkerTime implements SupplierActuator<IdentityWorkerTime> {
     /**
      * <code>EPOCH</code>
-     * {@link java.lang.Long} <p>the constant <code>EPOCH</code> field.</p>
+     * {@link java.lang.Long} <p>The constant <code>EPOCH</code> field.</p>
      * @see java.lang.Long
      */
     public static final Long EPOCH = 1288834974657L;
     /**
      * <code>time</code>
-     * {@link java.lang.Long} <p>the <code>time</code> field.</p>
+     * {@link java.lang.Long} <p>The <code>time</code> field.</p>
      * @see java.lang.Long
      */
     private Long time;
 
     /**
      * <code>IdentityWorkerTime</code>
-     * Instantiates a new identity worker time.
+     * <p>Instantiates a new identity worker time.</p>
      */
     public IdentityWorkerTime() {
         this.time = System.currentTimeMillis() - EPOCH;
@@ -39,8 +39,8 @@ class IdentityWorkerTime implements SupplierActuator<IdentityWorkerTime> {
 
     /**
      * <code>IdentityWorkerTime</code>
-     * Instantiates a new identity worker time.
-     * @param time {@link java.lang.Long} <p>the time parameter is <code>Long</code> type.</p>
+     * <p>Instantiates a new identity worker time.</p>
+     * @param time {@link java.lang.Long} <p>The time parameter is <code>Long</code> type.</p>
      * @see java.lang.Long
      * @see org.springframework.lang.NonNull
      */
@@ -50,9 +50,9 @@ class IdentityWorkerTime implements SupplierActuator<IdentityWorkerTime> {
 
     /**
      * <code>sequence</code>
-     * <p>the method.</p>
-     * @param sequence {@link java.lang.Long} <p>the sequence parameter is <code>Long</code> type.</p>
-     * @return {@link java.lang.Long} <p>the return object is <code>Long</code> type.</p>
+     * <p>The method.</p>
+     * @param sequence {@link java.lang.Long} <p>The sequence parameter is <code>Long</code> type.</p>
+     * @return {@link java.lang.Long} <p>The return object is <code>Long</code> type.</p>
      * @see java.lang.Long
      */
     public Long sequence(Long sequence) {
@@ -65,9 +65,9 @@ class IdentityWorkerTime implements SupplierActuator<IdentityWorkerTime> {
 
     /**
      * <code>next</code>
-     * <p>the method.</p>
-     * @param lastTime {@link java.lang.Long} <p>the last time parameter is <code>Long</code> type.</p>
-     * @return {@link java.lang.Long} <p>the return object is <code>Long</code> type.</p>
+     * <p>The method.</p>
+     * @param lastTime {@link java.lang.Long} <p>The last time parameter is <code>Long</code> type.</p>
+     * @return {@link java.lang.Long} <p>The return object is <code>Long</code> type.</p>
      * @see java.lang.Long
      */
     public static Long next(Long lastTime) {

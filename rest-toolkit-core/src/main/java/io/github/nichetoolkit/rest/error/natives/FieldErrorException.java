@@ -15,7 +15,7 @@ import io.github.nichetoolkit.rest.RestStatus;
 public class FieldErrorException extends RestErrorException {
     /**
      * <code>FieldErrorException</code>
-     * Instantiates a new field error exception.
+     * <p>Instantiates a new field error exception.</p>
      */
     public FieldErrorException() {
         super(RestErrorStatus.FIELD_ERROR);
@@ -23,8 +23,8 @@ public class FieldErrorException extends RestErrorException {
 
     /**
      * <code>FieldErrorException</code>
-     * Instantiates a new field error exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>the status parameter is <code>RestErrorStatus</code> type.</p>
+     * <p>Instantiates a new field error exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The status parameter is <code>RestErrorStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestErrorStatus
      */
     public FieldErrorException(RestErrorStatus status) {
@@ -33,8 +33,8 @@ public class FieldErrorException extends RestErrorException {
 
     /**
      * <code>FieldErrorException</code>
-     * Instantiates a new field error exception.
-     * @param error {@link java.lang.String} <p>the error parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new field error exception.</p>
+     * @param error {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public FieldErrorException(String error) {
@@ -43,9 +43,9 @@ public class FieldErrorException extends RestErrorException {
 
     /**
      * <code>FieldErrorException</code>
-     * Instantiates a new field error exception.
-     * @param error {@link java.lang.String} <p>the error parameter is <code>String</code> type.</p>
-     * @param cause {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new field error exception.</p>
+     * @param error {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
+     * @param cause {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Throwable
      */
@@ -55,8 +55,8 @@ public class FieldErrorException extends RestErrorException {
 
     /**
      * <code>FieldErrorException</code>
-     * Instantiates a new field error exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * <p>Instantiates a new field error exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
     public FieldErrorException(RestStatus status) {
@@ -65,9 +65,9 @@ public class FieldErrorException extends RestErrorException {
 
     /**
      * <code>FieldErrorException</code>
-     * Instantiates a new field error exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param cause  {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new field error exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param cause  {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.Throwable
      */
@@ -77,9 +77,9 @@ public class FieldErrorException extends RestErrorException {
 
     /**
      * <code>FieldErrorException</code>
-     * Instantiates a new field error exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param error  {@link io.github.nichetoolkit.rest.RestError} <p>the error parameter is <code>RestError</code> type.</p>
+     * <p>Instantiates a new field error exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param error  {@link io.github.nichetoolkit.rest.RestError} <p>The error parameter is <code>RestError</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see io.github.nichetoolkit.rest.RestError
      */
@@ -89,10 +89,10 @@ public class FieldErrorException extends RestErrorException {
 
     /**
      * <code>FieldErrorException</code>
-     * Instantiates a new field error exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param error  {@link io.github.nichetoolkit.rest.RestError} <p>the error parameter is <code>RestError</code> type.</p>
-     * @param cause  {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new field error exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param error  {@link io.github.nichetoolkit.rest.RestError} <p>The error parameter is <code>RestError</code> type.</p>
+     * @param cause  {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see io.github.nichetoolkit.rest.RestError
      * @see java.lang.Throwable
@@ -103,9 +103,9 @@ public class FieldErrorException extends RestErrorException {
 
     /**
      * <code>FieldErrorException</code>
-     * Instantiates a new field error exception.
-     * @param status  {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new field error exception.</p>
+     * @param status  {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      */
@@ -115,10 +115,10 @@ public class FieldErrorException extends RestErrorException {
 
     /**
      * <code>FieldErrorException</code>
-     * Instantiates a new field error exception.
-     * @param status  {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param cause   {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new field error exception.</p>
+     * @param status  {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param cause   {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see java.lang.Throwable
@@ -129,10 +129,10 @@ public class FieldErrorException extends RestErrorException {
 
     /**
      * <code>FieldErrorException</code>
-     * Instantiates a new field error exception.
-     * @param status   {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new field error exception.</p>
+     * @param status   {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      */
@@ -142,11 +142,11 @@ public class FieldErrorException extends RestErrorException {
 
     /**
      * <code>FieldErrorException</code>
-     * Instantiates a new field error exception.
-     * @param status   {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param cause    {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new field error exception.</p>
+     * @param status   {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param cause    {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see java.lang.Throwable
@@ -157,11 +157,11 @@ public class FieldErrorException extends RestErrorException {
 
     /**
      * <code>FieldErrorException</code>
-     * Instantiates a new field error exception.
-     * @param status   {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param filed    {@link java.lang.String} <p>the filed parameter is <code>String</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new field error exception.</p>
+     * @param status   {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param filed    {@link java.lang.String} <p>The filed parameter is <code>String</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      */
@@ -171,12 +171,12 @@ public class FieldErrorException extends RestErrorException {
 
     /**
      * <code>FieldErrorException</code>
-     * Instantiates a new field error exception.
-     * @param status   {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param filed    {@link java.lang.String} <p>the filed parameter is <code>String</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param cause    {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new field error exception.</p>
+     * @param status   {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param filed    {@link java.lang.String} <p>The filed parameter is <code>String</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param cause    {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see java.lang.Throwable
@@ -187,12 +187,12 @@ public class FieldErrorException extends RestErrorException {
 
     /**
      * <code>FieldErrorException</code>
-     * Instantiates a new field error exception.
-     * @param status   {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param filed    {@link java.lang.String} <p>the filed parameter is <code>String</code> type.</p>
-     * @param value    {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new field error exception.</p>
+     * @param status   {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param filed    {@link java.lang.String} <p>The filed parameter is <code>String</code> type.</p>
+     * @param value    {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see java.lang.Object
@@ -203,13 +203,13 @@ public class FieldErrorException extends RestErrorException {
 
     /**
      * <code>FieldErrorException</code>
-     * Instantiates a new field error exception.
-     * @param status   {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param filed    {@link java.lang.String} <p>the filed parameter is <code>String</code> type.</p>
-     * @param value    {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param cause    {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new field error exception.</p>
+     * @param status   {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param filed    {@link java.lang.String} <p>The filed parameter is <code>String</code> type.</p>
+     * @param value    {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param cause    {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see java.lang.Object
@@ -221,9 +221,9 @@ public class FieldErrorException extends RestErrorException {
 
     /**
      * <code>FieldErrorException</code>
-     * Instantiates a new field error exception.
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param error    {@link java.lang.String} <p>the error parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new field error exception.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param error    {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public FieldErrorException(String resource, String error) {
@@ -232,10 +232,10 @@ public class FieldErrorException extends RestErrorException {
 
     /**
      * <code>FieldErrorException</code>
-     * Instantiates a new field error exception.
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param error    {@link java.lang.String} <p>the error parameter is <code>String</code> type.</p>
-     * @param cause    {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new field error exception.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param error    {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
+     * @param cause    {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Throwable
      */
@@ -245,10 +245,10 @@ public class FieldErrorException extends RestErrorException {
 
     /**
      * <code>FieldErrorException</code>
-     * Instantiates a new field error exception.
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param filed    {@link java.lang.String} <p>the filed parameter is <code>String</code> type.</p>
-     * @param error    {@link java.lang.String} <p>the error parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new field error exception.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param filed    {@link java.lang.String} <p>The filed parameter is <code>String</code> type.</p>
+     * @param error    {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public FieldErrorException(String resource, String filed, String error) {
@@ -257,11 +257,11 @@ public class FieldErrorException extends RestErrorException {
 
     /**
      * <code>FieldErrorException</code>
-     * Instantiates a new field error exception.
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param filed    {@link java.lang.String} <p>the filed parameter is <code>String</code> type.</p>
-     * @param error    {@link java.lang.String} <p>the error parameter is <code>String</code> type.</p>
-     * @param cause    {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new field error exception.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param filed    {@link java.lang.String} <p>The filed parameter is <code>String</code> type.</p>
+     * @param error    {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
+     * @param cause    {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Throwable
      */
@@ -271,11 +271,11 @@ public class FieldErrorException extends RestErrorException {
 
     /**
      * <code>FieldErrorException</code>
-     * Instantiates a new field error exception.
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param filed    {@link java.lang.String} <p>the filed parameter is <code>String</code> type.</p>
-     * @param value    {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>
-     * @param error    {@link java.lang.String} <p>the error parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new field error exception.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param filed    {@link java.lang.String} <p>The filed parameter is <code>String</code> type.</p>
+     * @param value    {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
+     * @param error    {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Object
      */
@@ -285,12 +285,12 @@ public class FieldErrorException extends RestErrorException {
 
     /**
      * <code>FieldErrorException</code>
-     * Instantiates a new field error exception.
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param filed    {@link java.lang.String} <p>the filed parameter is <code>String</code> type.</p>
-     * @param value    {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>
-     * @param error    {@link java.lang.String} <p>the error parameter is <code>String</code> type.</p>
-     * @param cause    {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new field error exception.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param filed    {@link java.lang.String} <p>The filed parameter is <code>String</code> type.</p>
+     * @param value    {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
+     * @param error    {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
+     * @param cause    {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Object
      * @see java.lang.Throwable

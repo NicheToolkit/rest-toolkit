@@ -25,9 +25,9 @@ public interface RestAccessValueAdvice extends RestAccessValue {
 
     /**
      * <code>doAccessTokenHandle</code>
-     * <p>the access token handle method.</p>
-     * @param httpRequest {@link io.github.nichetoolkit.rest.RestHttpRequest} <p>the http request parameter is <code>RestHttpRequest</code> type.</p>
-     * @return {@link java.lang.String} <p>the access token handle return object is <code>String</code> type.</p>
+     * <p>The access token handle method.</p>
+     * @param httpRequest {@link io.github.nichetoolkit.rest.RestHttpRequest} <p>The http request parameter is <code>RestHttpRequest</code> type.</p>
+     * @return {@link java.lang.String} <p>The access token handle return object is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestHttpRequest
      * @see java.lang.String
      */
@@ -35,9 +35,9 @@ public interface RestAccessValueAdvice extends RestAccessValue {
 
     /**
      * <code>doAccessAuthHandle</code>
-     * <p>the access auth handle method.</p>
-     * @param httpRequest {@link io.github.nichetoolkit.rest.RestHttpRequest} <p>the http request parameter is <code>RestHttpRequest</code> type.</p>
-     * @return {@link java.lang.String} <p>the access auth handle return object is <code>String</code> type.</p>
+     * <p>The access auth handle method.</p>
+     * @param httpRequest {@link io.github.nichetoolkit.rest.RestHttpRequest} <p>The http request parameter is <code>RestHttpRequest</code> type.</p>
+     * @return {@link java.lang.String} <p>The access auth handle return object is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestHttpRequest
      * @see java.lang.String
      */
@@ -45,10 +45,10 @@ public interface RestAccessValueAdvice extends RestAccessValue {
 
     /**
      * <code>doAttributeHandle</code>
-     * <p>the attribute handle method.</p>
-     * @param httpRequest {@link io.github.nichetoolkit.rest.RestHttpRequest} <p>the http request parameter is <code>RestHttpRequest</code> type.</p>
-     * @param attribute   {@link java.lang.String} <p>the attribute parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>the attribute handle return object is <code>String</code> type.</p>
+     * <p>The attribute handle method.</p>
+     * @param httpRequest {@link io.github.nichetoolkit.rest.RestHttpRequest} <p>The http request parameter is <code>RestHttpRequest</code> type.</p>
+     * @param attribute   {@link java.lang.String} <p>The attribute parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The attribute handle return object is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestHttpRequest
      * @see java.lang.String
      */
@@ -65,10 +65,10 @@ public interface RestAccessValueAdvice extends RestAccessValue {
 
     /**
      * <code>doAttributesHandle</code>
-     * <p>the attributes handle method.</p>
-     * @param httpRequest {@link io.github.nichetoolkit.rest.RestHttpRequest} <p>the http request parameter is <code>RestHttpRequest</code> type.</p>
-     * @param attributes  {@link java.util.Collection} <p>the attributes parameter is <code>Collection</code> type.</p>
-     * @return {@link java.lang.String} <p>the attributes handle return object is <code>String</code> type.</p>
+     * <p>The attributes handle method.</p>
+     * @param httpRequest {@link io.github.nichetoolkit.rest.RestHttpRequest} <p>The http request parameter is <code>RestHttpRequest</code> type.</p>
+     * @param attributes  {@link java.util.Collection} <p>The attributes parameter is <code>Collection</code> type.</p>
+     * @return {@link java.lang.String} <p>The attributes handle return object is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestHttpRequest
      * @see java.util.Collection
      * @see java.lang.String

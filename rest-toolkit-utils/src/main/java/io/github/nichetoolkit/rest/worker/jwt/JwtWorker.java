@@ -33,39 +33,39 @@ public class JwtWorker {
 
     /**
      * <code>jwtBuilder</code>
-     * {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>the <code>jwtBuilder</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>The <code>jwtBuilder</code> field.</p>
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtBuilder
      */
     private JwtBuilder jwtBuilder;
     /**
      * <code>signer</code>
-     * {@link io.fusionauth.jwt.Signer} <p>the <code>signer</code> field.</p>
+     * {@link io.fusionauth.jwt.Signer} <p>The <code>signer</code> field.</p>
      * @see io.fusionauth.jwt.Signer
      */
     private Signer signer;
     /**
      * <code>algorithm</code>
-     * {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>the <code>algorithm</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The <code>algorithm</code> field.</p>
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm
      */
     private JwtAlgorithm algorithm;
     /**
      * <code>verifier</code>
-     * {@link io.fusionauth.jwt.Verifier} <p>the <code>verifier</code> field.</p>
+     * {@link io.fusionauth.jwt.Verifier} <p>The <code>verifier</code> field.</p>
      * @see io.fusionauth.jwt.Verifier
      */
     private Verifier verifier;
 
     /**
      * <code>INSTANCE</code>
-     * {@link io.github.nichetoolkit.rest.worker.jwt.JwtWorker} <p>the constant <code>INSTANCE</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.worker.jwt.JwtWorker} <p>The constant <code>INSTANCE</code> field.</p>
      */
     private static JwtWorker INSTANCE = null;
 
     /**
      * <code>getInstance</code>
-     * <p>the instance getter method.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtWorker} <p>the instance return object is <code>JwtWorker</code> type.</p>
+     * <p>The instance getter method.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtWorker} <p>The instance return object is <code>JwtWorker</code> type.</p>
      */
     public static JwtWorker getInstance() {
         return INSTANCE;
@@ -73,15 +73,15 @@ public class JwtWorker {
 
     /**
      * <code>jwtProperties</code>
-     * {@link io.github.nichetoolkit.rest.configure.RestJwtProperties} <p>the <code>jwtProperties</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.configure.RestJwtProperties} <p>The <code>jwtProperties</code> field.</p>
      * @see io.github.nichetoolkit.rest.configure.RestJwtProperties
      */
     private final RestJwtProperties jwtProperties;
 
     /**
      * <code>JwtWorker</code>
-     * Instantiates a new jwt worker.
-     * @param jwtProperties {@link io.github.nichetoolkit.rest.configure.RestJwtProperties} <p>the jwt properties parameter is <code>RestJwtProperties</code> type.</p>
+     * <p>Instantiates a new jwt worker.</p>
+     * @param jwtProperties {@link io.github.nichetoolkit.rest.configure.RestJwtProperties} <p>The jwt properties parameter is <code>RestJwtProperties</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestJwtProperties
      * @see org.springframework.beans.factory.annotation.Autowired
      */
@@ -96,7 +96,7 @@ public class JwtWorker {
 
     /**
      * <code>jwtWorkerInit</code>
-     * <p>the worker init method.</p>
+     * <p>The worker init method.</p>
      * @see javax.annotation.PostConstruct
      */
     @PostConstruct
@@ -108,9 +108,9 @@ public class JwtWorker {
 
     /**
      * <code>generate</code>
-     * <p>the method.</p>
-     * @param subject {@link java.lang.String} <p>the subject parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param subject {@link java.lang.String} <p>The subject parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public String generate(String subject)  {
@@ -120,10 +120,10 @@ public class JwtWorker {
 
     /**
      * <code>generate</code>
-     * <p>the method.</p>
-     * @param uniqueId {@link java.lang.String} <p>the unique id parameter is <code>String</code> type.</p>
-     * @param subject  {@link java.lang.String} <p>the subject parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param uniqueId {@link java.lang.String} <p>The unique id parameter is <code>String</code> type.</p>
+     * @param subject  {@link java.lang.String} <p>The subject parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public String generate(String uniqueId,String subject)  {
@@ -133,10 +133,10 @@ public class JwtWorker {
 
     /**
      * <code>generate</code>
-     * <p>the method.</p>
-     * @param subject   {@link java.lang.String} <p>the subject parameter is <code>String</code> type.</p>
-     * @param claimsMap {@link java.util.Map} <p>the claims map parameter is <code>Map</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param subject   {@link java.lang.String} <p>The subject parameter is <code>String</code> type.</p>
+     * @param claimsMap {@link java.util.Map} <p>The claims map parameter is <code>Map</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      * @see java.util.Map
      */
@@ -147,11 +147,11 @@ public class JwtWorker {
 
     /**
      * <code>generate</code>
-     * <p>the method.</p>
-     * @param uniqueId  {@link java.lang.String} <p>the unique id parameter is <code>String</code> type.</p>
-     * @param subject   {@link java.lang.String} <p>the subject parameter is <code>String</code> type.</p>
-     * @param claimsMap {@link java.util.Map} <p>the claims map parameter is <code>Map</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param uniqueId  {@link java.lang.String} <p>The unique id parameter is <code>String</code> type.</p>
+     * @param subject   {@link java.lang.String} <p>The subject parameter is <code>String</code> type.</p>
+     * @param claimsMap {@link java.util.Map} <p>The claims map parameter is <code>Map</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      * @see java.util.Map
      */
@@ -162,9 +162,9 @@ public class JwtWorker {
 
     /**
      * <code>parser</code>
-     * <p>the method.</p>
-     * @param token {@link java.lang.String} <p>the token parameter is <code>String</code> type.</p>
-     * @return {@link io.fusionauth.jwt.domain.JWT} <p>the return object is <code>JWT</code> type.</p>
+     * <p>The method.</p>
+     * @param token {@link java.lang.String} <p>The token parameter is <code>String</code> type.</p>
+     * @return {@link io.fusionauth.jwt.domain.JWT} <p>The return object is <code>JWT</code> type.</p>
      * @see java.lang.String
      * @see io.fusionauth.jwt.domain.JWT
      */
@@ -174,9 +174,9 @@ public class JwtWorker {
 
     /**
      * <code>builder</code>
-     * <p>the method.</p>
-     * @param subject {@link java.lang.String} <p>the subject parameter is <code>String</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>the return object is <code>JwtBuilder</code> type.</p>
+     * <p>The method.</p>
+     * @param subject {@link java.lang.String} <p>The subject parameter is <code>String</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>The return object is <code>JwtBuilder</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtBuilder
      */
@@ -187,10 +187,10 @@ public class JwtWorker {
 
     /**
      * <code>builder</code>
-     * <p>the method.</p>
-     * @param uniqueId {@link java.lang.String} <p>the unique id parameter is <code>String</code> type.</p>
-     * @param subject  {@link java.lang.String} <p>the subject parameter is <code>String</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>the return object is <code>JwtBuilder</code> type.</p>
+     * <p>The method.</p>
+     * @param uniqueId {@link java.lang.String} <p>The unique id parameter is <code>String</code> type.</p>
+     * @param subject  {@link java.lang.String} <p>The subject parameter is <code>String</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>The return object is <code>JwtBuilder</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtBuilder
      */
@@ -201,11 +201,11 @@ public class JwtWorker {
 
     /**
      * <code>builder</code>
-     * <p>the method.</p>
-     * @param uniqueId  {@link java.lang.String} <p>the unique id parameter is <code>String</code> type.</p>
-     * @param subject   {@link java.lang.String} <p>the subject parameter is <code>String</code> type.</p>
-     * @param claimsMap {@link java.util.Map} <p>the claims map parameter is <code>Map</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>the return object is <code>JwtBuilder</code> type.</p>
+     * <p>The method.</p>
+     * @param uniqueId  {@link java.lang.String} <p>The unique id parameter is <code>String</code> type.</p>
+     * @param subject   {@link java.lang.String} <p>The subject parameter is <code>String</code> type.</p>
+     * @param claimsMap {@link java.util.Map} <p>The claims map parameter is <code>Map</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>The return object is <code>JwtBuilder</code> type.</p>
      * @see java.lang.String
      * @see java.util.Map
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtBuilder
@@ -217,10 +217,10 @@ public class JwtWorker {
 
     /**
      * <code>builder</code>
-     * <p>the method.</p>
-     * @param subject   {@link java.lang.String} <p>the subject parameter is <code>String</code> type.</p>
-     * @param claimsMap {@link java.util.Map} <p>the claims map parameter is <code>Map</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>the return object is <code>JwtBuilder</code> type.</p>
+     * <p>The method.</p>
+     * @param subject   {@link java.lang.String} <p>The subject parameter is <code>String</code> type.</p>
+     * @param claimsMap {@link java.util.Map} <p>The claims map parameter is <code>Map</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>The return object is <code>JwtBuilder</code> type.</p>
      * @see java.lang.String
      * @see java.util.Map
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtBuilder
@@ -232,9 +232,9 @@ public class JwtWorker {
 
     /**
      * <code>token</code>
-     * <p>the method.</p>
-     * @param subject {@link java.lang.String} <p>the subject parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param subject {@link java.lang.String} <p>The subject parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String token(String subject)  {
@@ -244,10 +244,10 @@ public class JwtWorker {
 
     /**
      * <code>token</code>
-     * <p>the method.</p>
-     * @param uniqueId {@link java.lang.String} <p>the unique id parameter is <code>String</code> type.</p>
-     * @param subject  {@link java.lang.String} <p>the subject parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param uniqueId {@link java.lang.String} <p>The unique id parameter is <code>String</code> type.</p>
+     * @param subject  {@link java.lang.String} <p>The subject parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String token(String uniqueId,String subject)  {
@@ -257,10 +257,10 @@ public class JwtWorker {
 
     /**
      * <code>token</code>
-     * <p>the method.</p>
-     * @param subject   {@link java.lang.String} <p>the subject parameter is <code>String</code> type.</p>
-     * @param claimsMap {@link java.util.Map} <p>the claims map parameter is <code>Map</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param subject   {@link java.lang.String} <p>The subject parameter is <code>String</code> type.</p>
+     * @param claimsMap {@link java.util.Map} <p>The claims map parameter is <code>Map</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      * @see java.util.Map
      */
@@ -271,14 +271,14 @@ public class JwtWorker {
 
     /**
      * <code>token</code>
-     * <p>the method.</p>
-     * @param algorithm      {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>the algorithm parameter is <code>JwtAlgorithm</code> type.</p>
-     * @param privateKey     {@link java.security.PrivateKey} <p>the private key parameter is <code>PrivateKey</code> type.</p>
-     * @param kid            {@link java.lang.String} <p>the kid parameter is <code>String</code> type.</p>
-     * @param cryptoProvider {@link io.fusionauth.security.CryptoProvider} <p>the crypto provider parameter is <code>CryptoProvider</code> type.</p>
-     * @param subject        {@link java.lang.String} <p>the subject parameter is <code>String</code> type.</p>
-     * @param claimsMap      {@link java.util.Map} <p>the claims map parameter is <code>Map</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param algorithm      {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The algorithm parameter is <code>JwtAlgorithm</code> type.</p>
+     * @param privateKey     {@link java.security.PrivateKey} <p>The private key parameter is <code>PrivateKey</code> type.</p>
+     * @param kid            {@link java.lang.String} <p>The kid parameter is <code>String</code> type.</p>
+     * @param cryptoProvider {@link io.fusionauth.security.CryptoProvider} <p>The crypto provider parameter is <code>CryptoProvider</code> type.</p>
+     * @param subject        {@link java.lang.String} <p>The subject parameter is <code>String</code> type.</p>
+     * @param claimsMap      {@link java.util.Map} <p>The claims map parameter is <code>Map</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm
      * @see java.security.PrivateKey
      * @see java.lang.String
@@ -291,13 +291,13 @@ public class JwtWorker {
 
     /**
      * <code>token</code>
-     * <p>the method.</p>
-     * @param algorithm      {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>the algorithm parameter is <code>JwtAlgorithm</code> type.</p>
-     * @param privateKey     {@link java.security.PrivateKey} <p>the private key parameter is <code>PrivateKey</code> type.</p>
-     * @param cryptoProvider {@link io.fusionauth.security.CryptoProvider} <p>the crypto provider parameter is <code>CryptoProvider</code> type.</p>
-     * @param subject        {@link java.lang.String} <p>the subject parameter is <code>String</code> type.</p>
-     * @param claimsMap      {@link java.util.Map} <p>the claims map parameter is <code>Map</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param algorithm      {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The algorithm parameter is <code>JwtAlgorithm</code> type.</p>
+     * @param privateKey     {@link java.security.PrivateKey} <p>The private key parameter is <code>PrivateKey</code> type.</p>
+     * @param cryptoProvider {@link io.fusionauth.security.CryptoProvider} <p>The crypto provider parameter is <code>CryptoProvider</code> type.</p>
+     * @param subject        {@link java.lang.String} <p>The subject parameter is <code>String</code> type.</p>
+     * @param claimsMap      {@link java.util.Map} <p>The claims map parameter is <code>Map</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm
      * @see java.security.PrivateKey
      * @see io.fusionauth.security.CryptoProvider
@@ -310,13 +310,13 @@ public class JwtWorker {
 
     /**
      * <code>token</code>
-     * <p>the method.</p>
-     * @param algorithm  {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>the algorithm parameter is <code>JwtAlgorithm</code> type.</p>
-     * @param privateKey {@link java.security.PrivateKey} <p>the private key parameter is <code>PrivateKey</code> type.</p>
-     * @param kid        {@link java.lang.String} <p>the kid parameter is <code>String</code> type.</p>
-     * @param subject    {@link java.lang.String} <p>the subject parameter is <code>String</code> type.</p>
-     * @param claimsMap  {@link java.util.Map} <p>the claims map parameter is <code>Map</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param algorithm  {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The algorithm parameter is <code>JwtAlgorithm</code> type.</p>
+     * @param privateKey {@link java.security.PrivateKey} <p>The private key parameter is <code>PrivateKey</code> type.</p>
+     * @param kid        {@link java.lang.String} <p>The kid parameter is <code>String</code> type.</p>
+     * @param subject    {@link java.lang.String} <p>The subject parameter is <code>String</code> type.</p>
+     * @param claimsMap  {@link java.util.Map} <p>The claims map parameter is <code>Map</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm
      * @see java.security.PrivateKey
      * @see java.lang.String
@@ -328,12 +328,12 @@ public class JwtWorker {
 
     /**
      * <code>token</code>
-     * <p>the method.</p>
-     * @param algorithm  {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>the algorithm parameter is <code>JwtAlgorithm</code> type.</p>
-     * @param privateKey {@link java.security.PrivateKey} <p>the private key parameter is <code>PrivateKey</code> type.</p>
-     * @param subject    {@link java.lang.String} <p>the subject parameter is <code>String</code> type.</p>
-     * @param claimsMap  {@link java.util.Map} <p>the claims map parameter is <code>Map</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param algorithm  {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The algorithm parameter is <code>JwtAlgorithm</code> type.</p>
+     * @param privateKey {@link java.security.PrivateKey} <p>The private key parameter is <code>PrivateKey</code> type.</p>
+     * @param subject    {@link java.lang.String} <p>The subject parameter is <code>String</code> type.</p>
+     * @param claimsMap  {@link java.util.Map} <p>The claims map parameter is <code>Map</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm
      * @see java.security.PrivateKey
      * @see java.lang.String
@@ -345,12 +345,12 @@ public class JwtWorker {
 
     /**
      * <code>token</code>
-     * <p>the method.</p>
-     * @param algorithm {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>the algorithm parameter is <code>JwtAlgorithm</code> type.</p>
-     * @param secretKey {@link java.lang.String} <p>the secret key parameter is <code>String</code> type.</p>
-     * @param subject   {@link java.lang.String} <p>the subject parameter is <code>String</code> type.</p>
-     * @param claimsMap {@link java.util.Map} <p>the claims map parameter is <code>Map</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param algorithm {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The algorithm parameter is <code>JwtAlgorithm</code> type.</p>
+     * @param secretKey {@link java.lang.String} <p>The secret key parameter is <code>String</code> type.</p>
+     * @param subject   {@link java.lang.String} <p>The subject parameter is <code>String</code> type.</p>
+     * @param claimsMap {@link java.util.Map} <p>The claims map parameter is <code>Map</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm
      * @see java.lang.String
      * @see java.util.Map
@@ -361,13 +361,13 @@ public class JwtWorker {
 
     /**
      * <code>token</code>
-     * <p>the method.</p>
-     * @param algorithm {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>the algorithm parameter is <code>JwtAlgorithm</code> type.</p>
-     * @param secretKey {@link java.lang.String} <p>the secret key parameter is <code>String</code> type.</p>
-     * @param kid       {@link java.lang.String} <p>the kid parameter is <code>String</code> type.</p>
-     * @param subject   {@link java.lang.String} <p>the subject parameter is <code>String</code> type.</p>
-     * @param claimsMap {@link java.util.Map} <p>the claims map parameter is <code>Map</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param algorithm {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The algorithm parameter is <code>JwtAlgorithm</code> type.</p>
+     * @param secretKey {@link java.lang.String} <p>The secret key parameter is <code>String</code> type.</p>
+     * @param kid       {@link java.lang.String} <p>The kid parameter is <code>String</code> type.</p>
+     * @param subject   {@link java.lang.String} <p>The subject parameter is <code>String</code> type.</p>
+     * @param claimsMap {@link java.util.Map} <p>The claims map parameter is <code>Map</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm
      * @see java.lang.String
      * @see java.util.Map
@@ -378,13 +378,13 @@ public class JwtWorker {
 
     /**
      * <code>token</code>
-     * <p>the method.</p>
-     * @param algorithm      {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>the algorithm parameter is <code>JwtAlgorithm</code> type.</p>
-     * @param secretKey      {@link java.lang.String} <p>the secret key parameter is <code>String</code> type.</p>
-     * @param cryptoProvider {@link io.fusionauth.security.CryptoProvider} <p>the crypto provider parameter is <code>CryptoProvider</code> type.</p>
-     * @param subject        {@link java.lang.String} <p>the subject parameter is <code>String</code> type.</p>
-     * @param claimsMap      {@link java.util.Map} <p>the claims map parameter is <code>Map</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param algorithm      {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The algorithm parameter is <code>JwtAlgorithm</code> type.</p>
+     * @param secretKey      {@link java.lang.String} <p>The secret key parameter is <code>String</code> type.</p>
+     * @param cryptoProvider {@link io.fusionauth.security.CryptoProvider} <p>The crypto provider parameter is <code>CryptoProvider</code> type.</p>
+     * @param subject        {@link java.lang.String} <p>The subject parameter is <code>String</code> type.</p>
+     * @param claimsMap      {@link java.util.Map} <p>The claims map parameter is <code>Map</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm
      * @see java.lang.String
      * @see io.fusionauth.security.CryptoProvider
@@ -396,14 +396,14 @@ public class JwtWorker {
 
     /**
      * <code>token</code>
-     * <p>the method.</p>
-     * @param algorithm      {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>the algorithm parameter is <code>JwtAlgorithm</code> type.</p>
-     * @param secretKey      {@link java.lang.String} <p>the secret key parameter is <code>String</code> type.</p>
-     * @param kid            {@link java.lang.String} <p>the kid parameter is <code>String</code> type.</p>
-     * @param cryptoProvider {@link io.fusionauth.security.CryptoProvider} <p>the crypto provider parameter is <code>CryptoProvider</code> type.</p>
-     * @param subject        {@link java.lang.String} <p>the subject parameter is <code>String</code> type.</p>
-     * @param claimsMap      {@link java.util.Map} <p>the claims map parameter is <code>Map</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param algorithm      {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The algorithm parameter is <code>JwtAlgorithm</code> type.</p>
+     * @param secretKey      {@link java.lang.String} <p>The secret key parameter is <code>String</code> type.</p>
+     * @param kid            {@link java.lang.String} <p>The kid parameter is <code>String</code> type.</p>
+     * @param cryptoProvider {@link io.fusionauth.security.CryptoProvider} <p>The crypto provider parameter is <code>CryptoProvider</code> type.</p>
+     * @param subject        {@link java.lang.String} <p>The subject parameter is <code>String</code> type.</p>
+     * @param claimsMap      {@link java.util.Map} <p>The claims map parameter is <code>Map</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm
      * @see java.lang.String
      * @see io.fusionauth.security.CryptoProvider
@@ -415,11 +415,11 @@ public class JwtWorker {
 
     /**
      * <code>token</code>
-     * <p>the method.</p>
-     * @param jwtBuilder {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>the jwt builder parameter is <code>JwtBuilder</code> type.</p>
-     * @param algorithm  {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>the algorithm parameter is <code>JwtAlgorithm</code> type.</p>
-     * @param privateKey {@link java.security.PrivateKey} <p>the private key parameter is <code>PrivateKey</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param jwtBuilder {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>The jwt builder parameter is <code>JwtBuilder</code> type.</p>
+     * @param algorithm  {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The algorithm parameter is <code>JwtAlgorithm</code> type.</p>
+     * @param privateKey {@link java.security.PrivateKey} <p>The private key parameter is <code>PrivateKey</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtBuilder
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm
      * @see java.security.PrivateKey
@@ -431,12 +431,12 @@ public class JwtWorker {
 
     /**
      * <code>token</code>
-     * <p>the method.</p>
-     * @param jwtBuilder {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>the jwt builder parameter is <code>JwtBuilder</code> type.</p>
-     * @param algorithm  {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>the algorithm parameter is <code>JwtAlgorithm</code> type.</p>
-     * @param privateKey {@link java.security.PrivateKey} <p>the private key parameter is <code>PrivateKey</code> type.</p>
-     * @param kid        {@link java.lang.String} <p>the kid parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param jwtBuilder {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>The jwt builder parameter is <code>JwtBuilder</code> type.</p>
+     * @param algorithm  {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The algorithm parameter is <code>JwtAlgorithm</code> type.</p>
+     * @param privateKey {@link java.security.PrivateKey} <p>The private key parameter is <code>PrivateKey</code> type.</p>
+     * @param kid        {@link java.lang.String} <p>The kid parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtBuilder
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm
      * @see java.security.PrivateKey
@@ -448,12 +448,12 @@ public class JwtWorker {
 
     /**
      * <code>token</code>
-     * <p>the method.</p>
-     * @param jwtBuilder     {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>the jwt builder parameter is <code>JwtBuilder</code> type.</p>
-     * @param algorithm      {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>the algorithm parameter is <code>JwtAlgorithm</code> type.</p>
-     * @param privateKey     {@link java.security.PrivateKey} <p>the private key parameter is <code>PrivateKey</code> type.</p>
-     * @param cryptoProvider {@link io.fusionauth.security.CryptoProvider} <p>the crypto provider parameter is <code>CryptoProvider</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param jwtBuilder     {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>The jwt builder parameter is <code>JwtBuilder</code> type.</p>
+     * @param algorithm      {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The algorithm parameter is <code>JwtAlgorithm</code> type.</p>
+     * @param privateKey     {@link java.security.PrivateKey} <p>The private key parameter is <code>PrivateKey</code> type.</p>
+     * @param cryptoProvider {@link io.fusionauth.security.CryptoProvider} <p>The crypto provider parameter is <code>CryptoProvider</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtBuilder
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm
      * @see java.security.PrivateKey
@@ -466,13 +466,13 @@ public class JwtWorker {
 
     /**
      * <code>token</code>
-     * <p>the method.</p>
-     * @param jwtBuilder     {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>the jwt builder parameter is <code>JwtBuilder</code> type.</p>
-     * @param algorithm      {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>the algorithm parameter is <code>JwtAlgorithm</code> type.</p>
-     * @param privateKey     {@link java.security.PrivateKey} <p>the private key parameter is <code>PrivateKey</code> type.</p>
-     * @param kid            {@link java.lang.String} <p>the kid parameter is <code>String</code> type.</p>
-     * @param cryptoProvider {@link io.fusionauth.security.CryptoProvider} <p>the crypto provider parameter is <code>CryptoProvider</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param jwtBuilder     {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>The jwt builder parameter is <code>JwtBuilder</code> type.</p>
+     * @param algorithm      {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The algorithm parameter is <code>JwtAlgorithm</code> type.</p>
+     * @param privateKey     {@link java.security.PrivateKey} <p>The private key parameter is <code>PrivateKey</code> type.</p>
+     * @param kid            {@link java.lang.String} <p>The kid parameter is <code>String</code> type.</p>
+     * @param cryptoProvider {@link io.fusionauth.security.CryptoProvider} <p>The crypto provider parameter is <code>CryptoProvider</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtBuilder
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm
      * @see java.security.PrivateKey
@@ -485,13 +485,13 @@ public class JwtWorker {
 
     /**
      * <code>token</code>
-     * <p>the method.</p>
-     * @param jwtBuilder     {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>the jwt builder parameter is <code>JwtBuilder</code> type.</p>
-     * @param algorithm      {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>the algorithm parameter is <code>JwtAlgorithm</code> type.</p>
-     * @param secretKey      {@link java.lang.String} <p>the secret key parameter is <code>String</code> type.</p>
-     * @param kid            {@link java.lang.String} <p>the kid parameter is <code>String</code> type.</p>
-     * @param cryptoProvider {@link io.fusionauth.security.CryptoProvider} <p>the crypto provider parameter is <code>CryptoProvider</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param jwtBuilder     {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>The jwt builder parameter is <code>JwtBuilder</code> type.</p>
+     * @param algorithm      {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The algorithm parameter is <code>JwtAlgorithm</code> type.</p>
+     * @param secretKey      {@link java.lang.String} <p>The secret key parameter is <code>String</code> type.</p>
+     * @param kid            {@link java.lang.String} <p>The kid parameter is <code>String</code> type.</p>
+     * @param cryptoProvider {@link io.fusionauth.security.CryptoProvider} <p>The crypto provider parameter is <code>CryptoProvider</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtBuilder
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm
      * @see java.lang.String
@@ -503,12 +503,12 @@ public class JwtWorker {
 
     /**
      * <code>token</code>
-     * <p>the method.</p>
-     * @param jwtBuilder {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>the jwt builder parameter is <code>JwtBuilder</code> type.</p>
-     * @param algorithm  {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>the algorithm parameter is <code>JwtAlgorithm</code> type.</p>
-     * @param secretKey  {@link java.lang.String} <p>the secret key parameter is <code>String</code> type.</p>
-     * @param kid        {@link java.lang.String} <p>the kid parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param jwtBuilder {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>The jwt builder parameter is <code>JwtBuilder</code> type.</p>
+     * @param algorithm  {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The algorithm parameter is <code>JwtAlgorithm</code> type.</p>
+     * @param secretKey  {@link java.lang.String} <p>The secret key parameter is <code>String</code> type.</p>
+     * @param kid        {@link java.lang.String} <p>The kid parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtBuilder
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm
      * @see java.lang.String
@@ -519,11 +519,11 @@ public class JwtWorker {
 
     /**
      * <code>token</code>
-     * <p>the method.</p>
-     * @param jwtBuilder {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>the jwt builder parameter is <code>JwtBuilder</code> type.</p>
-     * @param algorithm  {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>the algorithm parameter is <code>JwtAlgorithm</code> type.</p>
-     * @param secretKey  {@link java.lang.String} <p>the secret key parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param jwtBuilder {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>The jwt builder parameter is <code>JwtBuilder</code> type.</p>
+     * @param algorithm  {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The algorithm parameter is <code>JwtAlgorithm</code> type.</p>
+     * @param secretKey  {@link java.lang.String} <p>The secret key parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtBuilder
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm
      * @see java.lang.String
@@ -534,10 +534,10 @@ public class JwtWorker {
 
     /**
      * <code>token</code>
-     * <p>the method.</p>
-     * @param jwtBuilder {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>the jwt builder parameter is <code>JwtBuilder</code> type.</p>
-     * @param signer     {@link io.fusionauth.jwt.Signer} <p>the signer parameter is <code>Signer</code> type.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @param jwtBuilder {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>The jwt builder parameter is <code>JwtBuilder</code> type.</p>
+     * @param signer     {@link io.fusionauth.jwt.Signer} <p>The signer parameter is <code>Signer</code> type.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtBuilder
      * @see io.fusionauth.jwt.Signer
      * @see java.lang.String
@@ -548,9 +548,9 @@ public class JwtWorker {
 
     /**
      * <code>parse</code>
-     * <p>the method.</p>
-     * @param token {@link java.lang.String} <p>the token parameter is <code>String</code> type.</p>
-     * @return {@link io.fusionauth.jwt.domain.JWT} <p>the return object is <code>JWT</code> type.</p>
+     * <p>The method.</p>
+     * @param token {@link java.lang.String} <p>The token parameter is <code>String</code> type.</p>
+     * @return {@link io.fusionauth.jwt.domain.JWT} <p>The return object is <code>JWT</code> type.</p>
      * @see java.lang.String
      * @see io.fusionauth.jwt.domain.JWT
      */
@@ -560,11 +560,11 @@ public class JwtWorker {
 
     /**
      * <code>parse</code>
-     * <p>the method.</p>
-     * @param token     {@link java.lang.String} <p>the token parameter is <code>String</code> type.</p>
-     * @param algorithm {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>the algorithm parameter is <code>JwtAlgorithm</code> type.</p>
-     * @param bytes     byte <p>the bytes parameter is <code>byte</code> type.</p>
-     * @return {@link io.fusionauth.jwt.domain.JWT} <p>the return object is <code>JWT</code> type.</p>
+     * <p>The method.</p>
+     * @param token     {@link java.lang.String} <p>The token parameter is <code>String</code> type.</p>
+     * @param algorithm {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The algorithm parameter is <code>JwtAlgorithm</code> type.</p>
+     * @param bytes     byte <p>The bytes parameter is <code>byte</code> type.</p>
+     * @return {@link io.fusionauth.jwt.domain.JWT} <p>The return object is <code>JWT</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm
      * @see io.fusionauth.jwt.domain.JWT
@@ -575,11 +575,11 @@ public class JwtWorker {
 
     /**
      * <code>parse</code>
-     * <p>the method.</p>
-     * @param token     {@link java.lang.String} <p>the token parameter is <code>String</code> type.</p>
-     * @param algorithm {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>the algorithm parameter is <code>JwtAlgorithm</code> type.</p>
-     * @param path      {@link java.nio.file.Path} <p>the path parameter is <code>Path</code> type.</p>
-     * @return {@link io.fusionauth.jwt.domain.JWT} <p>the return object is <code>JWT</code> type.</p>
+     * <p>The method.</p>
+     * @param token     {@link java.lang.String} <p>The token parameter is <code>String</code> type.</p>
+     * @param algorithm {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The algorithm parameter is <code>JwtAlgorithm</code> type.</p>
+     * @param path      {@link java.nio.file.Path} <p>The path parameter is <code>Path</code> type.</p>
+     * @return {@link io.fusionauth.jwt.domain.JWT} <p>The return object is <code>JWT</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm
      * @see java.nio.file.Path
@@ -591,11 +591,11 @@ public class JwtWorker {
 
     /**
      * <code>parse</code>
-     * <p>the method.</p>
-     * @param token     {@link java.lang.String} <p>the token parameter is <code>String</code> type.</p>
-     * @param algorithm {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>the algorithm parameter is <code>JwtAlgorithm</code> type.</p>
-     * @param publicKey {@link java.security.PublicKey} <p>the public key parameter is <code>PublicKey</code> type.</p>
-     * @return {@link io.fusionauth.jwt.domain.JWT} <p>the return object is <code>JWT</code> type.</p>
+     * <p>The method.</p>
+     * @param token     {@link java.lang.String} <p>The token parameter is <code>String</code> type.</p>
+     * @param algorithm {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The algorithm parameter is <code>JwtAlgorithm</code> type.</p>
+     * @param publicKey {@link java.security.PublicKey} <p>The public key parameter is <code>PublicKey</code> type.</p>
+     * @return {@link io.fusionauth.jwt.domain.JWT} <p>The return object is <code>JWT</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm
      * @see java.security.PublicKey
@@ -607,11 +607,11 @@ public class JwtWorker {
 
     /**
      * <code>parse</code>
-     * <p>the method.</p>
-     * @param token     {@link java.lang.String} <p>the token parameter is <code>String</code> type.</p>
-     * @param algorithm {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>the algorithm parameter is <code>JwtAlgorithm</code> type.</p>
-     * @param secretKey {@link java.lang.String} <p>the secret key parameter is <code>String</code> type.</p>
-     * @return {@link io.fusionauth.jwt.domain.JWT} <p>the return object is <code>JWT</code> type.</p>
+     * <p>The method.</p>
+     * @param token     {@link java.lang.String} <p>The token parameter is <code>String</code> type.</p>
+     * @param algorithm {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The algorithm parameter is <code>JwtAlgorithm</code> type.</p>
+     * @param secretKey {@link java.lang.String} <p>The secret key parameter is <code>String</code> type.</p>
+     * @return {@link io.fusionauth.jwt.domain.JWT} <p>The return object is <code>JWT</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm
      * @see io.fusionauth.jwt.domain.JWT
@@ -622,12 +622,12 @@ public class JwtWorker {
 
     /**
      * <code>parse</code>
-     * <p>the method.</p>
-     * @param token          {@link java.lang.String} <p>the token parameter is <code>String</code> type.</p>
-     * @param algorithm      {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>the algorithm parameter is <code>JwtAlgorithm</code> type.</p>
-     * @param secret         {@link java.lang.String} <p>the secret parameter is <code>String</code> type.</p>
-     * @param cryptoProvider {@link io.fusionauth.security.CryptoProvider} <p>the crypto provider parameter is <code>CryptoProvider</code> type.</p>
-     * @return {@link io.fusionauth.jwt.domain.JWT} <p>the return object is <code>JWT</code> type.</p>
+     * <p>The method.</p>
+     * @param token          {@link java.lang.String} <p>The token parameter is <code>String</code> type.</p>
+     * @param algorithm      {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The algorithm parameter is <code>JwtAlgorithm</code> type.</p>
+     * @param secret         {@link java.lang.String} <p>The secret parameter is <code>String</code> type.</p>
+     * @param cryptoProvider {@link io.fusionauth.security.CryptoProvider} <p>The crypto provider parameter is <code>CryptoProvider</code> type.</p>
+     * @return {@link io.fusionauth.jwt.domain.JWT} <p>The return object is <code>JWT</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm
      * @see io.fusionauth.security.CryptoProvider
@@ -639,12 +639,12 @@ public class JwtWorker {
 
     /**
      * <code>parse</code>
-     * <p>the method.</p>
-     * @param token          {@link java.lang.String} <p>the token parameter is <code>String</code> type.</p>
-     * @param algorithm      {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>the algorithm parameter is <code>JwtAlgorithm</code> type.</p>
-     * @param publicKey      {@link java.security.PublicKey} <p>the public key parameter is <code>PublicKey</code> type.</p>
-     * @param cryptoProvider {@link io.fusionauth.security.CryptoProvider} <p>the crypto provider parameter is <code>CryptoProvider</code> type.</p>
-     * @return {@link io.fusionauth.jwt.domain.JWT} <p>the return object is <code>JWT</code> type.</p>
+     * <p>The method.</p>
+     * @param token          {@link java.lang.String} <p>The token parameter is <code>String</code> type.</p>
+     * @param algorithm      {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The algorithm parameter is <code>JwtAlgorithm</code> type.</p>
+     * @param publicKey      {@link java.security.PublicKey} <p>The public key parameter is <code>PublicKey</code> type.</p>
+     * @param cryptoProvider {@link io.fusionauth.security.CryptoProvider} <p>The crypto provider parameter is <code>CryptoProvider</code> type.</p>
+     * @return {@link io.fusionauth.jwt.domain.JWT} <p>The return object is <code>JWT</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm
      * @see java.security.PublicKey
@@ -657,12 +657,12 @@ public class JwtWorker {
 
     /**
      * <code>parse</code>
-     * <p>the method.</p>
-     * @param token          {@link java.lang.String} <p>the token parameter is <code>String</code> type.</p>
-     * @param algorithm      {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>the algorithm parameter is <code>JwtAlgorithm</code> type.</p>
-     * @param path           {@link java.nio.file.Path} <p>the path parameter is <code>Path</code> type.</p>
-     * @param cryptoProvider {@link io.fusionauth.security.CryptoProvider} <p>the crypto provider parameter is <code>CryptoProvider</code> type.</p>
-     * @return {@link io.fusionauth.jwt.domain.JWT} <p>the return object is <code>JWT</code> type.</p>
+     * <p>The method.</p>
+     * @param token          {@link java.lang.String} <p>The token parameter is <code>String</code> type.</p>
+     * @param algorithm      {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The algorithm parameter is <code>JwtAlgorithm</code> type.</p>
+     * @param path           {@link java.nio.file.Path} <p>The path parameter is <code>Path</code> type.</p>
+     * @param cryptoProvider {@link io.fusionauth.security.CryptoProvider} <p>The crypto provider parameter is <code>CryptoProvider</code> type.</p>
+     * @return {@link io.fusionauth.jwt.domain.JWT} <p>The return object is <code>JWT</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm
      * @see java.nio.file.Path
@@ -675,12 +675,12 @@ public class JwtWorker {
 
     /**
      * <code>parse</code>
-     * <p>the method.</p>
-     * @param token          {@link java.lang.String} <p>the token parameter is <code>String</code> type.</p>
-     * @param algorithm      {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>the algorithm parameter is <code>JwtAlgorithm</code> type.</p>
-     * @param bytes          byte <p>the bytes parameter is <code>byte</code> type.</p>
-     * @param cryptoProvider {@link io.fusionauth.security.CryptoProvider} <p>the crypto provider parameter is <code>CryptoProvider</code> type.</p>
-     * @return {@link io.fusionauth.jwt.domain.JWT} <p>the return object is <code>JWT</code> type.</p>
+     * <p>The method.</p>
+     * @param token          {@link java.lang.String} <p>The token parameter is <code>String</code> type.</p>
+     * @param algorithm      {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The algorithm parameter is <code>JwtAlgorithm</code> type.</p>
+     * @param bytes          byte <p>The bytes parameter is <code>byte</code> type.</p>
+     * @param cryptoProvider {@link io.fusionauth.security.CryptoProvider} <p>The crypto provider parameter is <code>CryptoProvider</code> type.</p>
+     * @return {@link io.fusionauth.jwt.domain.JWT} <p>The return object is <code>JWT</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm
      * @see io.fusionauth.security.CryptoProvider
@@ -692,10 +692,10 @@ public class JwtWorker {
 
     /**
      * <code>parse</code>
-     * <p>the method.</p>
-     * @param token    {@link java.lang.String} <p>the token parameter is <code>String</code> type.</p>
-     * @param verifier {@link io.fusionauth.jwt.Verifier} <p>the verifier parameter is <code>Verifier</code> type.</p>
-     * @return {@link io.fusionauth.jwt.domain.JWT} <p>the return object is <code>JWT</code> type.</p>
+     * <p>The method.</p>
+     * @param token    {@link java.lang.String} <p>The token parameter is <code>String</code> type.</p>
+     * @param verifier {@link io.fusionauth.jwt.Verifier} <p>The verifier parameter is <code>Verifier</code> type.</p>
+     * @return {@link io.fusionauth.jwt.domain.JWT} <p>The return object is <code>JWT</code> type.</p>
      * @see java.lang.String
      * @see io.fusionauth.jwt.Verifier
      * @see io.fusionauth.jwt.domain.JWT

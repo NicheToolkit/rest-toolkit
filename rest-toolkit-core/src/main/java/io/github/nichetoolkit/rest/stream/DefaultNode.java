@@ -8,7 +8,7 @@ import java.util.function.*;
 /**
  * <code>DefaultNode</code>
  * <p>The type default node interface.</p>
- * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+ * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
@@ -16,9 +16,9 @@ public interface DefaultNode<T> {
 
     /**
      * <code>spliterator</code>
-     * <p>the method.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the return object is <code>DefaultSpliterator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The method.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The return object is <code>DefaultSpliterator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -26,9 +26,9 @@ public interface DefaultNode<T> {
 
     /**
      * <code>forEach</code>
-     * <p>the each method.</p>
-     * @param consumer {@link io.github.nichetoolkit.rest.actuator.ConsumerActuator} <p>the consumer parameter is <code>ConsumerActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The each method.</p>
+     * @param consumer {@link io.github.nichetoolkit.rest.actuator.ConsumerActuator} <p>The consumer parameter is <code>ConsumerActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.ConsumerActuator
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -36,8 +36,8 @@ public interface DefaultNode<T> {
 
     /**
      * <code>getChildCount</code>
-     * <p>the child count getter method.</p>
-     * @return int <p>the child count return object is <code>int</code> type.</p>
+     * <p>The child count getter method.</p>
+     * @return int <p>The child count return object is <code>int</code> type.</p>
      */
     default int getChildCount() {
         return 0;
@@ -45,9 +45,9 @@ public interface DefaultNode<T> {
 
     /**
      * <code>getChild</code>
-     * <p>the child getter method.</p>
-     * @param i int <p>the parameter is <code>int</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>the child return object is <code>DefaultNode</code> type.</p>
+     * <p>The child getter method.</p>
+     * @param i int <p>The parameter is <code>int</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The child return object is <code>DefaultNode</code> type.</p>
      */
     default DefaultNode<T> getChild(int i) {
         throw new IndexOutOfBoundsException();
@@ -55,12 +55,12 @@ public interface DefaultNode<T> {
 
     /**
      * <code>truncate</code>
-     * <p>the method.</p>
-     * @param from      long <p>the from parameter is <code>long</code> type.</p>
-     * @param to        long <p>the to parameter is <code>long</code> type.</p>
-     * @param generator {@link java.util.function.IntFunction} <p>the generator parameter is <code>IntFunction</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>the return object is <code>DefaultNode</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The method.</p>
+     * @param from      long <p>The from parameter is <code>long</code> type.</p>
+     * @param to        long <p>The to parameter is <code>long</code> type.</p>
+     * @param generator {@link java.util.function.IntFunction} <p>The generator parameter is <code>IntFunction</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The return object is <code>DefaultNode</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.util.function.IntFunction
      * @see java.lang.SuppressWarnings
      * @see io.github.nichetoolkit.rest.RestException
@@ -84,25 +84,25 @@ public interface DefaultNode<T> {
 
     /**
      * <code>asArray</code>
-     * <p>the array method.</p>
-     * @param generator {@link java.util.function.IntFunction} <p>the generator parameter is <code>IntFunction</code> type.</p>
-     * @return T <p>the array return object is <code>T</code> type.</p>
+     * <p>The array method.</p>
+     * @param generator {@link java.util.function.IntFunction} <p>The generator parameter is <code>IntFunction</code> type.</p>
+     * @return T <p>The array return object is <code>T</code> type.</p>
      * @see java.util.function.IntFunction
      */
     T[] asArray(IntFunction<T[]> generator);
 
     /**
      * <code>copyInto</code>
-     * <p>the into method.</p>
-     * @param array  T <p>the array parameter is <code>T</code> type.</p>
-     * @param offset int <p>the offset parameter is <code>int</code> type.</p>
+     * <p>The into method.</p>
+     * @param array  T <p>The array parameter is <code>T</code> type.</p>
+     * @param offset int <p>The offset parameter is <code>int</code> type.</p>
      */
     void copyInto(T[] array, int offset);
 
     /**
      * <code>getShape</code>
-     * <p>the shape getter method.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultStreamShape} <p>the shape return object is <code>DefaultStreamShape</code> type.</p>
+     * <p>The shape getter method.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultStreamShape} <p>The shape return object is <code>DefaultStreamShape</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultStreamShape
      */
     default DefaultStreamShape getShape() {
@@ -111,15 +111,15 @@ public interface DefaultNode<T> {
 
     /**
      * <code>count</code>
-     * <p>the method.</p>
-     * @return long <p>the return object is <code>long</code> type.</p>
+     * <p>The method.</p>
+     * @return long <p>The return object is <code>long</code> type.</p>
      */
     long count();
 
     /**
      * <code>Builder</code>
      * <p>The type builder interface.</p>
-     * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultSink
      * @since Jdk1.8
@@ -128,8 +128,8 @@ public interface DefaultNode<T> {
 
         /**
          * <code>build</code>
-         * <p>the method.</p>
-         * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>the return object is <code>DefaultNode</code> type.</p>
+         * <p>The method.</p>
+         * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The return object is <code>DefaultNode</code> type.</p>
          */
         DefaultNode<T> build();
 
@@ -138,11 +138,11 @@ public interface DefaultNode<T> {
     /**
      * <code>OfPrimitive</code>
      * <p>The type of primitive interface.</p>
-     * @param <T>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <T_CONS>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <T_ARR>    {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <T_SPLITR> {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator.OfPrimitive} <p>the generic parameter is <code>OfPrimitive</code> type.</p>
-     * @param <T_NODE>   {@link io.github.nichetoolkit.rest.stream.DefaultNode.OfPrimitive} <p>the generic parameter is <code>OfPrimitive</code> type.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T_CONS>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T_ARR>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T_SPLITR> {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator.OfPrimitive} <p>The generic parameter is <code>OfPrimitive</code> type.</p>
+     * @param <T_NODE>   {@link io.github.nichetoolkit.rest.stream.DefaultNode.OfPrimitive} <p>The generic parameter is <code>OfPrimitive</code> type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator.OfPrimitive
      * @since Jdk1.8
@@ -157,9 +157,9 @@ public interface DefaultNode<T> {
 
         /**
          * <code>forEach</code>
-         * <p>the each method.</p>
-         * @param action T_CONS <p>the action parameter is <code>T_CONS</code> type.</p>
-         * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+         * <p>The each method.</p>
+         * @param action T_CONS <p>The action parameter is <code>T_CONS</code> type.</p>
+         * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
          * @see java.lang.SuppressWarnings
          * @see io.github.nichetoolkit.rest.RestException
          */
@@ -188,24 +188,24 @@ public interface DefaultNode<T> {
 
         /**
          * <code>asPrimitiveArray</code>
-         * <p>the primitive array method.</p>
-         * @return T_ARR <p>the primitive array return object is <code>T_ARR</code> type.</p>
+         * <p>The primitive array method.</p>
+         * @return T_ARR <p>The primitive array return object is <code>T_ARR</code> type.</p>
          */
         T_ARR asPrimitiveArray();
 
         /**
          * <code>newArray</code>
-         * <p>the array method.</p>
-         * @param count int <p>the count parameter is <code>int</code> type.</p>
-         * @return T_ARR <p>the array return object is <code>T_ARR</code> type.</p>
+         * <p>The array method.</p>
+         * @param count int <p>The count parameter is <code>int</code> type.</p>
+         * @return T_ARR <p>The array return object is <code>T_ARR</code> type.</p>
          */
         T_ARR newArray(int count);
 
         /**
          * <code>copyInto</code>
-         * <p>the into method.</p>
-         * @param array  T_ARR <p>the array parameter is <code>T_ARR</code> type.</p>
-         * @param offset int <p>the offset parameter is <code>int</code> type.</p>
+         * <p>The into method.</p>
+         * @param array  T_ARR <p>The array parameter is <code>T_ARR</code> type.</p>
+         * @param offset int <p>The offset parameter is <code>int</code> type.</p>
          */
         void copyInto(T_ARR array, int offset);
     }

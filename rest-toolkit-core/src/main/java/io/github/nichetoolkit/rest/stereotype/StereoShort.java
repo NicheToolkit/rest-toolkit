@@ -22,8 +22,8 @@ import java.lang.annotation.*;
 public @interface StereoShort {
     /**
      * <code>value</code>
-     * <p>the method.</p>
-     * @return short <p>the return object is <code>short</code> type.</p>
+     * <p>The method.</p>
+     * @return short <p>The return object is <code>short</code> type.</p>
      */
     short value() default 0;
 }

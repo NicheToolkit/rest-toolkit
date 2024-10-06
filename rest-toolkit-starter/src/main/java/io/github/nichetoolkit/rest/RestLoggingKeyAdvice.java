@@ -15,9 +15,9 @@ public interface RestLoggingKeyAdvice extends RestLoggingKey {
 
     /**
      * <code>doLoggingKeyHandle</code>
-     * <p>the logging key handle method.</p>
-     * @param httpRequest {@link io.github.nichetoolkit.rest.RestHttpRequest} <p>the http request parameter is <code>RestHttpRequest</code> type.</p>
-     * @return {@link java.lang.String} <p>the logging key handle return object is <code>String</code> type.</p>
+     * <p>The logging key handle method.</p>
+     * @param httpRequest {@link io.github.nichetoolkit.rest.RestHttpRequest} <p>The http request parameter is <code>RestHttpRequest</code> type.</p>
+     * @return {@link java.lang.String} <p>The logging key handle return object is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestHttpRequest
      * @see java.lang.String
      */

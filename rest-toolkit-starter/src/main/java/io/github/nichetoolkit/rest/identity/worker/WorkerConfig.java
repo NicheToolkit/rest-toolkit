@@ -15,20 +15,20 @@ import java.util.Objects;
 public class WorkerConfig {
     /**
      * <code>workerId</code>
-     * {@link java.lang.Long} <p>the <code>workerId</code> field.</p>
+     * {@link java.lang.Long} <p>The <code>workerId</code> field.</p>
      * @see java.lang.Long
      */
     private Long workerId;
     /**
      * <code>centerId</code>
-     * {@link java.lang.Long} <p>the <code>centerId</code> field.</p>
+     * {@link java.lang.Long} <p>The <code>centerId</code> field.</p>
      * @see java.lang.Long
      */
     private Long centerId;
 
     /**
      * <code>WorkerConfig</code>
-     * Instantiates a new worker config.
+     * <p>Instantiates a new worker config.</p>
      */
     public WorkerConfig() {
     }

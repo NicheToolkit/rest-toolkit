@@ -23,16 +23,16 @@ import java.lang.annotation.*;
 public @interface RestLogging {
     /**
      * <code>loggingKey</code>
-     * <p>the key method.</p>
-     * @return {@link java.lang.String} <p>the key return object is <code>String</code> type.</p>
+     * <p>The key method.</p>
+     * @return {@link java.lang.String} <p>The key return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     String loggingKey() default "";
 
     /**
      * <code>loggingValue</code>
-     * <p>the value method.</p>
-     * @return {@link java.lang.String} <p>the value return object is <code>String</code> type.</p>
+     * <p>The value method.</p>
+     * @return {@link java.lang.String} <p>The value return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     String loggingValue() default "";

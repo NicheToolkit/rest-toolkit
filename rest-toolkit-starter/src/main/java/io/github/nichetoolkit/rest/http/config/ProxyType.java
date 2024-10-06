@@ -17,38 +17,38 @@ import java.util.Optional;
 public enum ProxyType implements RestValue<String, Proxy.Type> {
     /**
      * <code>DIRECT</code>
-     * <p>the Direct proxy type field.</p>
+     * <p>The direct proxy type field.</p>
      */
     DIRECT("direct",Proxy.Type.DIRECT),
     /**
      * <code>HTTP</code>
-     * <p>the Http proxy type field.</p>
+     * <p>The http proxy type field.</p>
      */
     HTTP("http",Proxy.Type.HTTP),
     /**
      * <code>SOCKS</code>
-     * <p>the Socks proxy type field.</p>
+     * <p>The socks proxy type field.</p>
      */
     SOCKS("socks",Proxy.Type.SOCKS),
     ;
     /**
      * <code>key</code>
-     * {@link java.lang.String} <p>the <code>key</code> field.</p>
+     * {@link java.lang.String} <p>The <code>key</code> field.</p>
      * @see java.lang.String
      */
     private final String key;
     /**
      * <code>value</code>
-     * {@link java.net.Proxy.Type} <p>the <code>value</code> field.</p>
+     * {@link java.net.Proxy.Type} <p>The <code>value</code> field.</p>
      * @see java.net.Proxy.Type
      */
     private final Proxy.Type value;
 
     /**
      * <code>ProxyType</code>
-     * Instantiates a new proxy type.
-     * @param key   {@link java.lang.String} <p>the key parameter is <code>String</code> type.</p>
-     * @param value {@link java.net.Proxy.Type} <p>the value parameter is <code>Type</code> type.</p>
+     * <p>Instantiates a new proxy type.</p>
+     * @param key   {@link java.lang.String} <p>The key parameter is <code>String</code> type.</p>
+     * @param value {@link java.net.Proxy.Type} <p>The value parameter is <code>Type</code> type.</p>
      * @see java.lang.String
      * @see java.net.Proxy.Type
      */
@@ -70,9 +70,9 @@ public enum ProxyType implements RestValue<String, Proxy.Type> {
 
     /**
      * <code>parseKey</code>
-     * <p>the key method.</p>
-     * @param key {@link java.lang.String} <p>the key parameter is <code>String</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.http.config.ProxyType} <p>the key return object is <code>ProxyType</code> type.</p>
+     * <p>The key method.</p>
+     * @param key {@link java.lang.String} <p>The key parameter is <code>String</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.http.config.ProxyType} <p>The key return object is <code>ProxyType</code> type.</p>
      * @see java.lang.String
      * @see com.fasterxml.jackson.annotation.JsonCreator
      */
@@ -84,9 +84,9 @@ public enum ProxyType implements RestValue<String, Proxy.Type> {
 
     /**
      * <code>parseValue</code>
-     * <p>the value method.</p>
-     * @param value {@link java.net.Proxy.Type} <p>the value parameter is <code>Type</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.http.config.ProxyType} <p>the value return object is <code>ProxyType</code> type.</p>
+     * <p>The value method.</p>
+     * @param value {@link java.net.Proxy.Type} <p>The value parameter is <code>Type</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.http.config.ProxyType} <p>The value return object is <code>ProxyType</code> type.</p>
      * @see java.net.Proxy.Type
      */
     public static ProxyType parseValue(Proxy.Type value) {

@@ -15,32 +15,32 @@ public interface RestStatus {
 
     /**
      * <code>name</code>
-     * <p>the method.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     String name();
 
     /**
      * <code>getStatus</code>
-     * <p>the status getter method.</p>
-     * @return {@link java.lang.Integer} <p>the status return object is <code>Integer</code> type.</p>
+     * <p>The status getter method.</p>
+     * @return {@link java.lang.Integer} <p>The status return object is <code>Integer</code> type.</p>
      * @see java.lang.Integer
      */
     Integer getStatus();
 
     /**
      * <code>getMessage</code>
-     * <p>the message getter method.</p>
-     * @return {@link java.lang.String} <p>the message return object is <code>String</code> type.</p>
+     * <p>The message getter method.</p>
+     * @return {@link java.lang.String} <p>The message return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     String getMessage();
 
     /**
      * <code>entry</code>
-     * <p>the method.</p>
-     * @return {@link java.util.Map} <p>the return object is <code>Map</code> type.</p>
+     * <p>The method.</p>
+     * @return {@link java.util.Map} <p>The return object is <code>Map</code> type.</p>
      * @see java.util.Map
      */
     default Map<Integer,String> entry() {
@@ -49,10 +49,10 @@ public interface RestStatus {
 
     /**
      * <code>lists</code>
-     * <p>the method.</p>
-     * @param <T>   {@link io.github.nichetoolkit.rest.RestStatus} <p>the generic parameter is <code>RestStatus</code> type.</p>
-     * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @return {@link java.util.List} <p>the return object is <code>List</code> type.</p>
+     * <p>The method.</p>
+     * @param <T>   {@link io.github.nichetoolkit.rest.RestStatus} <p>The generic parameter is <code>RestStatus</code> type.</p>
+     * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @return {@link java.util.List} <p>The return object is <code>List</code> type.</p>
      * @see java.lang.Class
      * @see java.util.List
      */
@@ -62,10 +62,10 @@ public interface RestStatus {
 
     /**
      * <code>entries</code>
-     * <p>the method.</p>
-     * @param <T>   {@link io.github.nichetoolkit.rest.RestStatus} <p>the generic parameter is <code>RestStatus</code> type.</p>
-     * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @return {@link java.util.List} <p>the return object is <code>List</code> type.</p>
+     * <p>The method.</p>
+     * @param <T>   {@link io.github.nichetoolkit.rest.RestStatus} <p>The generic parameter is <code>RestStatus</code> type.</p>
+     * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @return {@link java.util.List} <p>The return object is <code>List</code> type.</p>
      * @see java.lang.Class
      * @see java.util.List
      */
@@ -75,10 +75,10 @@ public interface RestStatus {
 
     /**
      * <code>statuses</code>
-     * <p>the method.</p>
-     * @param <T>   {@link io.github.nichetoolkit.rest.RestStatus} <p>the generic parameter is <code>RestStatus</code> type.</p>
-     * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @return {@link java.util.List} <p>the return object is <code>List</code> type.</p>
+     * <p>The method.</p>
+     * @param <T>   {@link io.github.nichetoolkit.rest.RestStatus} <p>The generic parameter is <code>RestStatus</code> type.</p>
+     * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @return {@link java.util.List} <p>The return object is <code>List</code> type.</p>
      * @see java.lang.Class
      * @see java.util.List
      */
@@ -88,10 +88,10 @@ public interface RestStatus {
 
     /**
      * <code>messages</code>
-     * <p>the method.</p>
-     * @param <T>   {@link io.github.nichetoolkit.rest.RestStatus} <p>the generic parameter is <code>RestStatus</code> type.</p>
-     * @param clazz {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @return {@link java.util.List} <p>the return object is <code>List</code> type.</p>
+     * <p>The method.</p>
+     * @param <T>   {@link io.github.nichetoolkit.rest.RestStatus} <p>The generic parameter is <code>RestStatus</code> type.</p>
+     * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @return {@link java.util.List} <p>The return object is <code>List</code> type.</p>
      * @see java.lang.Class
      * @see java.util.List
      */
@@ -101,11 +101,11 @@ public interface RestStatus {
 
     /**
      * <code>confirm</code>
-     * <p>the method.</p>
-     * @param <T>    {@link io.github.nichetoolkit.rest.RestStatus} <p>the generic parameter is <code>RestStatus</code> type.</p>
-     * @param clazz  {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @param status {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @return {@link java.lang.Boolean} <p>the return object is <code>Boolean</code> type.</p>
+     * <p>The method.</p>
+     * @param <T>    {@link io.github.nichetoolkit.rest.RestStatus} <p>The generic parameter is <code>RestStatus</code> type.</p>
+     * @param clazz  {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @param status {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @return {@link java.lang.Boolean} <p>The return object is <code>Boolean</code> type.</p>
      * @see java.lang.Class
      * @see java.lang.Integer
      * @see java.lang.Boolean
@@ -116,11 +116,11 @@ public interface RestStatus {
 
     /**
      * <code>parseStatus</code>
-     * <p>the status method.</p>
-     * @param <T>    {@link io.github.nichetoolkit.rest.RestStatus} <p>the generic parameter is <code>RestStatus</code> type.</p>
-     * @param clazz  {@link java.lang.Class} <p>the clazz parameter is <code>Class</code> type.</p>
-     * @param status {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @return T <p>the status return object is <code>T</code> type.</p>
+     * <p>The status method.</p>
+     * @param <T>    {@link io.github.nichetoolkit.rest.RestStatus} <p>The generic parameter is <code>RestStatus</code> type.</p>
+     * @param clazz  {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @param status {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @return T <p>The status return object is <code>T</code> type.</p>
      * @see java.lang.Class
      * @see java.lang.Integer
      * @see java.lang.SuppressWarnings

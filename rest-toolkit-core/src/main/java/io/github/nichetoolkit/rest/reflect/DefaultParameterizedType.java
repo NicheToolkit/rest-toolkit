@@ -14,31 +14,31 @@ import java.util.Arrays;
 public class DefaultParameterizedType implements ParameterizedType {
     /**
      * <code>rawType</code>
-     * {@link java.lang.Class} <p>the <code>rawType</code> field.</p>
+     * {@link java.lang.Class} <p>The <code>rawType</code> field.</p>
      * @see java.lang.Class
      */
     private final Class<?> rawType;
 
     /**
      * <code>ownerType</code>
-     * {@link java.lang.reflect.Type} <p>the <code>ownerType</code> field.</p>
+     * {@link java.lang.reflect.Type} <p>The <code>ownerType</code> field.</p>
      * @see java.lang.reflect.Type
      */
     private final Type ownerType;
 
     /**
      * <code>actualTypeArguments</code>
-     * {@link java.lang.reflect.Type} <p>the <code>actualTypeArguments</code> field.</p>
+     * {@link java.lang.reflect.Type} <p>The <code>actualTypeArguments</code> field.</p>
      * @see java.lang.reflect.Type
      */
     private final Type[] actualTypeArguments;
 
     /**
      * <code>DefaultParameterizedType</code>
-     * Instantiates a new default parameterized type.
-     * @param rawType             {@link java.lang.Class} <p>the raw type parameter is <code>Class</code> type.</p>
-     * @param ownerType           {@link java.lang.reflect.Type} <p>the owner type parameter is <code>Type</code> type.</p>
-     * @param actualTypeArguments {@link java.lang.reflect.Type} <p>the actual type arguments parameter is <code>Type</code> type.</p>
+     * <p>Instantiates a new default parameterized type.</p>
+     * @param rawType             {@link java.lang.Class} <p>The raw type parameter is <code>Class</code> type.</p>
+     * @param ownerType           {@link java.lang.reflect.Type} <p>The owner type parameter is <code>Type</code> type.</p>
+     * @param actualTypeArguments {@link java.lang.reflect.Type} <p>The actual type arguments parameter is <code>Type</code> type.</p>
      * @see java.lang.Class
      * @see java.lang.reflect.Type
      */

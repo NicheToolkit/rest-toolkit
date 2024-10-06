@@ -15,16 +15,16 @@ import org.slf4j.helpers.MessageFormatter;
 public class LoggerUtils {
     /**
      * <code>DEFAULT_LOGGER</code>
-     * {@link org.slf4j.Logger} <p>the constant <code>DEFAULT_LOGGER</code> field.</p>
+     * {@link org.slf4j.Logger} <p>The constant <code>DEFAULT_LOGGER</code> field.</p>
      * @see org.slf4j.Logger
      */
     private static final Logger DEFAULT_LOGGER = LoggerFactory.getLogger(LoggerUtils.class);
 
     /**
      * <code>info</code>
-     * <p>the method.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param append  {@link java.lang.Object} <p>the append parameter is <code>Object</code> type.</p>
+     * <p>The method.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param append  {@link java.lang.Object} <p>The append parameter is <code>Object</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Object
      */
@@ -36,10 +36,10 @@ public class LoggerUtils {
 
     /**
      * <code>info</code>
-     * <p>the method.</p>
-     * @param message   {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param throwable {@link java.lang.Throwable} <p>the throwable parameter is <code>Throwable</code> type.</p>
-     * @param append    {@link java.lang.Object} <p>the append parameter is <code>Object</code> type.</p>
+     * <p>The method.</p>
+     * @param message   {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param throwable {@link java.lang.Throwable} <p>The throwable parameter is <code>Throwable</code> type.</p>
+     * @param append    {@link java.lang.Object} <p>The append parameter is <code>Object</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Throwable
      * @see java.lang.Object
@@ -52,8 +52,8 @@ public class LoggerUtils {
 
     /**
      * <code>info</code>
-     * <p>the method.</p>
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * <p>The method.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
     public static void info(RestStatus status) {
@@ -62,9 +62,9 @@ public class LoggerUtils {
 
     /**
      * <code>info</code>
-     * <p>the method.</p>
-     * @param status    {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param throwable {@link java.lang.Throwable} <p>the throwable parameter is <code>Throwable</code> type.</p>
+     * <p>The method.</p>
+     * @param status    {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param throwable {@link java.lang.Throwable} <p>The throwable parameter is <code>Throwable</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.Throwable
      */
@@ -74,9 +74,9 @@ public class LoggerUtils {
 
     /**
      * <code>debug</code>
-     * <p>the method.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param append  {@link java.lang.Object} <p>the append parameter is <code>Object</code> type.</p>
+     * <p>The method.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param append  {@link java.lang.Object} <p>The append parameter is <code>Object</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Object
      */
@@ -88,10 +88,10 @@ public class LoggerUtils {
 
     /**
      * <code>debug</code>
-     * <p>the method.</p>
-     * @param message   {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param throwable {@link java.lang.Throwable} <p>the throwable parameter is <code>Throwable</code> type.</p>
-     * @param append    {@link java.lang.Object} <p>the append parameter is <code>Object</code> type.</p>
+     * <p>The method.</p>
+     * @param message   {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param throwable {@link java.lang.Throwable} <p>The throwable parameter is <code>Throwable</code> type.</p>
+     * @param append    {@link java.lang.Object} <p>The append parameter is <code>Object</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Throwable
      * @see java.lang.Object
@@ -104,8 +104,8 @@ public class LoggerUtils {
 
     /**
      * <code>debug</code>
-     * <p>the method.</p>
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * <p>The method.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
     public static void debug(RestStatus status) {
@@ -114,9 +114,9 @@ public class LoggerUtils {
 
     /**
      * <code>debug</code>
-     * <p>the method.</p>
-     * @param status    {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param throwable {@link java.lang.Throwable} <p>the throwable parameter is <code>Throwable</code> type.</p>
+     * <p>The method.</p>
+     * @param status    {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param throwable {@link java.lang.Throwable} <p>The throwable parameter is <code>Throwable</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.Throwable
      */
@@ -126,9 +126,9 @@ public class LoggerUtils {
 
     /**
      * <code>warn</code>
-     * <p>the method.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param append  {@link java.lang.Object} <p>the append parameter is <code>Object</code> type.</p>
+     * <p>The method.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param append  {@link java.lang.Object} <p>The append parameter is <code>Object</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Object
      */
@@ -140,10 +140,10 @@ public class LoggerUtils {
 
     /**
      * <code>warn</code>
-     * <p>the method.</p>
-     * @param message   {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param throwable {@link java.lang.Throwable} <p>the throwable parameter is <code>Throwable</code> type.</p>
-     * @param append    {@link java.lang.Object} <p>the append parameter is <code>Object</code> type.</p>
+     * <p>The method.</p>
+     * @param message   {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param throwable {@link java.lang.Throwable} <p>The throwable parameter is <code>Throwable</code> type.</p>
+     * @param append    {@link java.lang.Object} <p>The append parameter is <code>Object</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Throwable
      * @see java.lang.Object
@@ -156,8 +156,8 @@ public class LoggerUtils {
 
     /**
      * <code>warn</code>
-     * <p>the method.</p>
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * <p>The method.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
     public static void warn(RestStatus status) {
@@ -166,9 +166,9 @@ public class LoggerUtils {
 
     /**
      * <code>warn</code>
-     * <p>the method.</p>
-     * @param status    {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param throwable {@link java.lang.Throwable} <p>the throwable parameter is <code>Throwable</code> type.</p>
+     * <p>The method.</p>
+     * @param status    {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param throwable {@link java.lang.Throwable} <p>The throwable parameter is <code>Throwable</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.Throwable
      */
@@ -178,9 +178,9 @@ public class LoggerUtils {
 
     /**
      * <code>error</code>
-     * <p>the method.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param append  {@link java.lang.Object} <p>the append parameter is <code>Object</code> type.</p>
+     * <p>The method.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param append  {@link java.lang.Object} <p>The append parameter is <code>Object</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Object
      */
@@ -192,10 +192,10 @@ public class LoggerUtils {
 
     /**
      * <code>error</code>
-     * <p>the method.</p>
-     * @param message   {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param throwable {@link java.lang.Throwable} <p>the throwable parameter is <code>Throwable</code> type.</p>
-     * @param append    {@link java.lang.Object} <p>the append parameter is <code>Object</code> type.</p>
+     * <p>The method.</p>
+     * @param message   {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param throwable {@link java.lang.Throwable} <p>The throwable parameter is <code>Throwable</code> type.</p>
+     * @param append    {@link java.lang.Object} <p>The append parameter is <code>Object</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Throwable
      * @see java.lang.Object
@@ -208,8 +208,8 @@ public class LoggerUtils {
 
     /**
      * <code>error</code>
-     * <p>the method.</p>
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * <p>The method.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
     public static void error(RestStatus status) {
@@ -218,9 +218,9 @@ public class LoggerUtils {
 
     /**
      * <code>error</code>
-     * <p>the method.</p>
-     * @param status    {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param throwable {@link java.lang.Throwable} <p>the throwable parameter is <code>Throwable</code> type.</p>
+     * <p>The method.</p>
+     * @param status    {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param throwable {@link java.lang.Throwable} <p>The throwable parameter is <code>Throwable</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.Throwable
      */

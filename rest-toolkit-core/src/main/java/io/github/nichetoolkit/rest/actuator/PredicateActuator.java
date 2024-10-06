@@ -9,7 +9,7 @@ import java.util.function.Predicate;
 /**
  * <code>PredicateActuator</code>
  * <p>The type predicate actuator interface.</p>
- * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+ * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.util.function.Predicate
  * @see java.lang.FunctionalInterface
@@ -19,10 +19,10 @@ import java.util.function.Predicate;
 public interface PredicateActuator<T> extends Predicate<T> {
     /**
      * <code>actuate</code>
-     * <p>the method.</p>
-     * @param t T <p>the t parameter is <code>T</code> type.</p>
-     * @return boolean <p>the return object is <code>boolean</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The method.</p>
+     * @param t T <p>The t parameter is <code>T</code> type.</p>
+     * @return boolean <p>The return object is <code>boolean</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
     boolean actuate(T t) throws RestException;
@@ -38,10 +38,10 @@ public interface PredicateActuator<T> extends Predicate<T> {
 
     /**
      * <code>and</code>
-     * <p>the method.</p>
-     * @param other {@link io.github.nichetoolkit.rest.actuator.PredicateActuator} <p>the other parameter is <code>PredicateActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.actuator.PredicateActuator} <p>the return object is <code>PredicateActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The method.</p>
+     * @param other {@link io.github.nichetoolkit.rest.actuator.PredicateActuator} <p>The other parameter is <code>PredicateActuator</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.actuator.PredicateActuator} <p>The return object is <code>PredicateActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
     default PredicateActuator<T> and(PredicateActuator<? super T> other) throws RestException  {
@@ -51,9 +51,9 @@ public interface PredicateActuator<T> extends Predicate<T> {
 
     /**
      * <code>negates</code>
-     * <p>the method.</p>
-     * @return {@link io.github.nichetoolkit.rest.actuator.PredicateActuator} <p>the return object is <code>PredicateActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The method.</p>
+     * @return {@link io.github.nichetoolkit.rest.actuator.PredicateActuator} <p>The return object is <code>PredicateActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
     default PredicateActuator<T> negates() throws RestException  {
@@ -63,10 +63,10 @@ public interface PredicateActuator<T> extends Predicate<T> {
 
     /**
      * <code>or</code>
-     * <p>the method.</p>
-     * @param other {@link io.github.nichetoolkit.rest.actuator.PredicateActuator} <p>the other parameter is <code>PredicateActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.actuator.PredicateActuator} <p>the return object is <code>PredicateActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The method.</p>
+     * @param other {@link io.github.nichetoolkit.rest.actuator.PredicateActuator} <p>The other parameter is <code>PredicateActuator</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.actuator.PredicateActuator} <p>The return object is <code>PredicateActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
     default PredicateActuator<T> or(PredicateActuator<? super T> other) throws RestException  {
@@ -76,11 +76,11 @@ public interface PredicateActuator<T> extends Predicate<T> {
 
     /**
      * <code>isEqual</code>
-     * <p>the equal method.</p>
-     * @param <T>       {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param targetRef {@link java.lang.Object} <p>the target ref parameter is <code>Object</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.actuator.PredicateActuator} <p>the equal return object is <code>PredicateActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The equal method.</p>
+     * @param <T>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param targetRef {@link java.lang.Object} <p>The target ref parameter is <code>Object</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.actuator.PredicateActuator} <p>The equal return object is <code>PredicateActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Object
      * @see io.github.nichetoolkit.rest.RestException
      */

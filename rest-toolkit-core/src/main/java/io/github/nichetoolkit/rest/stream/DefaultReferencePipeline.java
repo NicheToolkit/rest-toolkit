@@ -11,8 +11,8 @@ import java.util.function.*;
 /**
  * <code>DefaultReferencePipeline</code>
  * <p>The type default reference pipeline class.</p>
- * @param <P_IN>  {@link java.lang.Object} <p>the parameter can be of any type.</p>
- * @param <P_OUT> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+ * @param <P_IN>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
+ * @param <P_OUT> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline
  * @see io.github.nichetoolkit.rest.stream.RestStream
@@ -24,10 +24,10 @@ abstract class DefaultReferencePipeline<P_IN, P_OUT>
 
     /**
      * <code>DefaultReferencePipeline</code>
-     * Instantiates a new default reference pipeline.
-     * @param source      {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>the source parameter is <code>SupplierActuator</code> type.</p>
-     * @param sourceFlags int <p>the source flags parameter is <code>int</code> type.</p>
-     * @param parallel    boolean <p>the parallel parameter is <code>boolean</code> type.</p>
+     * <p>Instantiates a new default reference pipeline.</p>
+     * @param source      {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The source parameter is <code>SupplierActuator</code> type.</p>
+     * @param sourceFlags int <p>The source flags parameter is <code>int</code> type.</p>
+     * @param parallel    boolean <p>The parallel parameter is <code>boolean</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
      */
     DefaultReferencePipeline(SupplierActuator<? extends DefaultSpliterator<?>> source,
@@ -37,10 +37,10 @@ abstract class DefaultReferencePipeline<P_IN, P_OUT>
 
     /**
      * <code>DefaultReferencePipeline</code>
-     * Instantiates a new default reference pipeline.
-     * @param source      {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the source parameter is <code>DefaultSpliterator</code> type.</p>
-     * @param sourceFlags int <p>the source flags parameter is <code>int</code> type.</p>
-     * @param parallel    boolean <p>the parallel parameter is <code>boolean</code> type.</p>
+     * <p>Instantiates a new default reference pipeline.</p>
+     * @param source      {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The source parameter is <code>DefaultSpliterator</code> type.</p>
+     * @param sourceFlags int <p>The source flags parameter is <code>int</code> type.</p>
+     * @param parallel    boolean <p>The parallel parameter is <code>boolean</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
      */
     DefaultReferencePipeline(DefaultSpliterator<?> source,
@@ -50,9 +50,9 @@ abstract class DefaultReferencePipeline<P_IN, P_OUT>
 
     /**
      * <code>DefaultReferencePipeline</code>
-     * Instantiates a new default reference pipeline.
-     * @param upstream {@link io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline} <p>the upstream parameter is <code>DefaultAbstractPipeline</code> type.</p>
-     * @param opFlags  int <p>the op flags parameter is <code>int</code> type.</p>
+     * <p>Instantiates a new default reference pipeline.</p>
+     * @param upstream {@link io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline} <p>The upstream parameter is <code>DefaultAbstractPipeline</code> type.</p>
+     * @param opFlags  int <p>The op flags parameter is <code>int</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline
      */
     DefaultReferencePipeline(DefaultAbstractPipeline<?, P_IN, ?> upstream, int opFlags) {
@@ -362,18 +362,18 @@ abstract class DefaultReferencePipeline<P_IN, P_OUT>
     /**
      * <code>Head</code>
      * <p>The type head class.</p>
-     * @param <E_IN>  {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <E_OUT> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param <E_IN>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <E_OUT> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @since Jdk1.8
      */
     static class Head<E_IN, E_OUT> extends DefaultReferencePipeline<E_IN, E_OUT> {
         /**
          * <code>Head</code>
-         * Instantiates a new head.
-         * @param source      {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>the source parameter is <code>SupplierActuator</code> type.</p>
-         * @param sourceFlags int <p>the source flags parameter is <code>int</code> type.</p>
-         * @param parallel    boolean <p>the parallel parameter is <code>boolean</code> type.</p>
+         * <p>Instantiates a new head.</p>
+         * @param source      {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The source parameter is <code>SupplierActuator</code> type.</p>
+         * @param sourceFlags int <p>The source flags parameter is <code>int</code> type.</p>
+         * @param parallel    boolean <p>The parallel parameter is <code>boolean</code> type.</p>
          * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
          */
         Head(SupplierActuator<? extends DefaultSpliterator<?>> source,
@@ -383,10 +383,10 @@ abstract class DefaultReferencePipeline<P_IN, P_OUT>
 
         /**
          * <code>Head</code>
-         * Instantiates a new head.
-         * @param source      {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the source parameter is <code>DefaultSpliterator</code> type.</p>
-         * @param sourceFlags int <p>the source flags parameter is <code>int</code> type.</p>
-         * @param parallel    boolean <p>the parallel parameter is <code>boolean</code> type.</p>
+         * <p>Instantiates a new head.</p>
+         * @param source      {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The source parameter is <code>DefaultSpliterator</code> type.</p>
+         * @param sourceFlags int <p>The source flags parameter is <code>int</code> type.</p>
+         * @param parallel    boolean <p>The parallel parameter is <code>boolean</code> type.</p>
          * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
          */
         Head(DefaultSpliterator<?> source,
@@ -426,8 +426,8 @@ abstract class DefaultReferencePipeline<P_IN, P_OUT>
     /**
      * <code>StatelessOp</code>
      * <p>The type stateless op class.</p>
-     * @param <E_IN>  {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <E_OUT> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param <E_IN>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <E_OUT> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @since Jdk1.8
      */
@@ -435,10 +435,10 @@ abstract class DefaultReferencePipeline<P_IN, P_OUT>
             extends DefaultReferencePipeline<E_IN, E_OUT> {
         /**
          * <code>StatelessOp</code>
-         * Instantiates a new stateless op.
-         * @param upstream   {@link io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline} <p>the upstream parameter is <code>DefaultAbstractPipeline</code> type.</p>
-         * @param inputShape {@link io.github.nichetoolkit.rest.stream.DefaultStreamShape} <p>the input shape parameter is <code>DefaultStreamShape</code> type.</p>
-         * @param opFlags    int <p>the op flags parameter is <code>int</code> type.</p>
+         * <p>Instantiates a new stateless op.</p>
+         * @param upstream   {@link io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline} <p>The upstream parameter is <code>DefaultAbstractPipeline</code> type.</p>
+         * @param inputShape {@link io.github.nichetoolkit.rest.stream.DefaultStreamShape} <p>The input shape parameter is <code>DefaultStreamShape</code> type.</p>
+         * @param opFlags    int <p>The op flags parameter is <code>int</code> type.</p>
          * @see io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline
          * @see io.github.nichetoolkit.rest.stream.DefaultStreamShape
          */
@@ -458,8 +458,8 @@ abstract class DefaultReferencePipeline<P_IN, P_OUT>
     /**
      * <code>StatefulOp</code>
      * <p>The type stateful op class.</p>
-     * @param <E_IN>  {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <E_OUT> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param <E_IN>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <E_OUT> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @since Jdk1.8
      */
@@ -467,10 +467,10 @@ abstract class DefaultReferencePipeline<P_IN, P_OUT>
             extends DefaultReferencePipeline<E_IN, E_OUT> {
         /**
          * <code>StatefulOp</code>
-         * Instantiates a new stateful op.
-         * @param upstream   {@link io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline} <p>the upstream parameter is <code>DefaultAbstractPipeline</code> type.</p>
-         * @param inputShape {@link io.github.nichetoolkit.rest.stream.DefaultStreamShape} <p>the input shape parameter is <code>DefaultStreamShape</code> type.</p>
-         * @param opFlags    int <p>the op flags parameter is <code>int</code> type.</p>
+         * <p>Instantiates a new stateful op.</p>
+         * @param upstream   {@link io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline} <p>The upstream parameter is <code>DefaultAbstractPipeline</code> type.</p>
+         * @param inputShape {@link io.github.nichetoolkit.rest.stream.DefaultStreamShape} <p>The input shape parameter is <code>DefaultStreamShape</code> type.</p>
+         * @param opFlags    int <p>The op flags parameter is <code>int</code> type.</p>
          * @see io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline
          * @see io.github.nichetoolkit.rest.stream.DefaultStreamShape
          */

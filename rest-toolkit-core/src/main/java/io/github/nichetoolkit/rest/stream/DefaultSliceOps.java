@@ -15,17 +15,17 @@ final class DefaultSliceOps {
 
     /**
      * <code>DefaultSliceOps</code>
-     * Instantiates a new default slice ops.
+     * <p>Instantiates a new default slice ops.</p>
      */
     private DefaultSliceOps() { }
 
     /**
      * <code>calcSize</code>
-     * <p>the size method.</p>
-     * @param size  long <p>the size parameter is <code>long</code> type.</p>
-     * @param skip  long <p>the skip parameter is <code>long</code> type.</p>
-     * @param limit long <p>the limit parameter is <code>long</code> type.</p>
-     * @return long <p>the size return object is <code>long</code> type.</p>
+     * <p>The size method.</p>
+     * @param size  long <p>The size parameter is <code>long</code> type.</p>
+     * @param skip  long <p>The skip parameter is <code>long</code> type.</p>
+     * @param limit long <p>The limit parameter is <code>long</code> type.</p>
+     * @return long <p>The size return object is <code>long</code> type.</p>
      */
     private static long calcSize(long size, long skip, long limit) {
         return size >= 0 ? Math.max(-1, Math.min(size - skip, limit)) : -1;
@@ -33,10 +33,10 @@ final class DefaultSliceOps {
 
     /**
      * <code>calcSliceFence</code>
-     * <p>the slice fence method.</p>
-     * @param skip  long <p>the skip parameter is <code>long</code> type.</p>
-     * @param limit long <p>the limit parameter is <code>long</code> type.</p>
-     * @return long <p>the slice fence return object is <code>long</code> type.</p>
+     * <p>The slice fence method.</p>
+     * @param skip  long <p>The skip parameter is <code>long</code> type.</p>
+     * @param limit long <p>The limit parameter is <code>long</code> type.</p>
+     * @return long <p>The slice fence return object is <code>long</code> type.</p>
      */
     private static long calcSliceFence(long skip, long limit) {
         long sliceFence = limit >= 0 ? skip + limit : Long.MAX_VALUE;
@@ -45,14 +45,14 @@ final class DefaultSliceOps {
 
     /**
      * <code>sliceSpliterator</code>
-     * <p>the spliterator method.</p>
-     * @param <P_IN> {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param shape  {@link io.github.nichetoolkit.rest.stream.DefaultStreamShape} <p>the shape parameter is <code>DefaultStreamShape</code> type.</p>
-     * @param s      {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the s parameter is <code>DefaultSpliterator</code> type.</p>
-     * @param skip   long <p>the skip parameter is <code>long</code> type.</p>
-     * @param limit  long <p>the limit parameter is <code>long</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the spliterator return object is <code>DefaultSpliterator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The spliterator method.</p>
+     * @param <P_IN> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param shape  {@link io.github.nichetoolkit.rest.stream.DefaultStreamShape} <p>The shape parameter is <code>DefaultStreamShape</code> type.</p>
+     * @param s      {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The s parameter is <code>DefaultSpliterator</code> type.</p>
+     * @param skip   long <p>The skip parameter is <code>long</code> type.</p>
+     * @param limit  long <p>The limit parameter is <code>long</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The spliterator return object is <code>DefaultSpliterator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultStreamShape
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
      * @see io.github.nichetoolkit.rest.RestException
@@ -71,9 +71,9 @@ final class DefaultSliceOps {
 
     /**
      * <code>castingArray</code>
-     * <p>the array method.</p>
-     * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @return {@link java.util.function.IntFunction} <p>the array return object is <code>IntFunction</code> type.</p>
+     * <p>The array method.</p>
+     * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @return {@link java.util.function.IntFunction} <p>The array return object is <code>IntFunction</code> type.</p>
      * @see java.util.function.IntFunction
      * @see java.lang.SuppressWarnings
      */
@@ -84,13 +84,13 @@ final class DefaultSliceOps {
 
     /**
      * <code>makeRef</code>
-     * <p>the ref method.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param upstream {@link io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline} <p>the upstream parameter is <code>DefaultAbstractPipeline</code> type.</p>
-     * @param skip     long <p>the skip parameter is <code>long</code> type.</p>
-     * @param limit    long <p>the limit parameter is <code>long</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.RestStream} <p>the ref return object is <code>RestStream</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The ref method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param upstream {@link io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline} <p>The upstream parameter is <code>DefaultAbstractPipeline</code> type.</p>
+     * @param skip     long <p>The skip parameter is <code>long</code> type.</p>
+     * @param limit    long <p>The limit parameter is <code>long</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestStream} <p>The ref return object is <code>RestStream</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline
      * @see io.github.nichetoolkit.rest.stream.RestStream
      * @see io.github.nichetoolkit.rest.RestException
@@ -185,9 +185,9 @@ final class DefaultSliceOps {
 
     /**
      * <code>flags</code>
-     * <p>the method.</p>
-     * @param limit long <p>the limit parameter is <code>long</code> type.</p>
-     * @return int <p>the return object is <code>int</code> type.</p>
+     * <p>The method.</p>
+     * @param limit long <p>The limit parameter is <code>long</code> type.</p>
+     * @return int <p>The return object is <code>int</code> type.</p>
      */
     private static int flags(long limit) {
         return DefaultStreamOpFlag.NOT_SIZED | ((limit != -1) ? DefaultStreamOpFlag.IS_SHORT_CIRCUIT : 0);
@@ -196,8 +196,8 @@ final class DefaultSliceOps {
     /**
      * <code>SliceTask</code>
      * <p>The type slice task class.</p>
-     * @param <P_IN>  {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <P_OUT> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param <P_IN>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <P_OUT> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultAbstractShortCircuitTask
      * @since Jdk1.8
@@ -206,47 +206,47 @@ final class DefaultSliceOps {
             extends DefaultAbstractShortCircuitTask<P_IN, P_OUT, DefaultNode<P_OUT>, SliceTask<P_IN, P_OUT>> {
         /**
          * <code>op</code>
-         * {@link io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline} <p>the <code>op</code> field.</p>
+         * {@link io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline} <p>The <code>op</code> field.</p>
          * @see io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline
          */
         private final DefaultAbstractPipeline<P_OUT, P_OUT, ?> op;
         /**
          * <code>generator</code>
-         * {@link java.util.function.IntFunction} <p>the <code>generator</code> field.</p>
+         * {@link java.util.function.IntFunction} <p>The <code>generator</code> field.</p>
          * @see java.util.function.IntFunction
          */
         private final IntFunction<P_OUT[]> generator;
         /**
          * <code>targetOffset</code>
-         * <p>the <code>targetOffset</code> field.</p>
+         * <p>The <code>targetOffset</code> field.</p>
          */
         private final long targetOffset,
         /**
          * <code>targetSize</code>
-         * <p>the Target size field.</p>
+         * <p>The target size field.</p>
          */
         targetSize;
         /**
          * <code>thisDefaultNodeSize</code>
-         * <p>the <code>thisDefaultNodeSize</code> field.</p>
+         * <p>The <code>thisDefaultNodeSize</code> field.</p>
          */
         private long thisDefaultNodeSize;
 
         /**
          * <code>completed</code>
-         * <p>the <code>completed</code> field.</p>
+         * <p>The <code>completed</code> field.</p>
          */
         private volatile boolean completed;
 
         /**
          * <code>SliceTask</code>
-         * Instantiates a new slice task.
-         * @param op          {@link io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline} <p>the op parameter is <code>DefaultAbstractPipeline</code> type.</p>
-         * @param helper      {@link io.github.nichetoolkit.rest.stream.DefaultPipelineHelper} <p>the helper parameter is <code>DefaultPipelineHelper</code> type.</p>
-         * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the spliterator parameter is <code>DefaultSpliterator</code> type.</p>
-         * @param generator   {@link java.util.function.IntFunction} <p>the generator parameter is <code>IntFunction</code> type.</p>
-         * @param offset      long <p>the offset parameter is <code>long</code> type.</p>
-         * @param size        long <p>the size parameter is <code>long</code> type.</p>
+         * <p>Instantiates a new slice task.</p>
+         * @param op          {@link io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline} <p>The op parameter is <code>DefaultAbstractPipeline</code> type.</p>
+         * @param helper      {@link io.github.nichetoolkit.rest.stream.DefaultPipelineHelper} <p>The helper parameter is <code>DefaultPipelineHelper</code> type.</p>
+         * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The spliterator parameter is <code>DefaultSpliterator</code> type.</p>
+         * @param generator   {@link java.util.function.IntFunction} <p>The generator parameter is <code>IntFunction</code> type.</p>
+         * @param offset      long <p>The offset parameter is <code>long</code> type.</p>
+         * @param size        long <p>The size parameter is <code>long</code> type.</p>
          * @see io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline
          * @see io.github.nichetoolkit.rest.stream.DefaultPipelineHelper
          * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
@@ -266,9 +266,9 @@ final class DefaultSliceOps {
 
         /**
          * <code>SliceTask</code>
-         * Instantiates a new slice task.
-         * @param parent      {@link io.github.nichetoolkit.rest.stream.DefaultSliceOps.SliceTask} <p>the parent parameter is <code>SliceTask</code> type.</p>
-         * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the spliterator parameter is <code>DefaultSpliterator</code> type.</p>
+         * <p>Instantiates a new slice task.</p>
+         * @param parent      {@link io.github.nichetoolkit.rest.stream.DefaultSliceOps.SliceTask} <p>The parent parameter is <code>SliceTask</code> type.</p>
+         * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The spliterator parameter is <code>DefaultSpliterator</code> type.</p>
          * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
          */
         SliceTask(SliceTask<P_IN, P_OUT> parent, DefaultSpliterator<P_IN> spliterator) {
@@ -347,10 +347,10 @@ final class DefaultSliceOps {
 
         /**
          * <code>doTruncate</code>
-         * <p>the truncate method.</p>
-         * @param input {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>the input parameter is <code>DefaultNode</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>the truncate return object is <code>DefaultNode</code> type.</p>
-         * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+         * <p>The truncate method.</p>
+         * @param input {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The input parameter is <code>DefaultNode</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The truncate return object is <code>DefaultNode</code> type.</p>
+         * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
          * @see io.github.nichetoolkit.rest.stream.DefaultNode
          * @see io.github.nichetoolkit.rest.RestException
          */
@@ -361,9 +361,9 @@ final class DefaultSliceOps {
 
         /**
          * <code>isLeftCompleted</code>
-         * <p>the left completed method.</p>
-         * @param target long <p>the target parameter is <code>long</code> type.</p>
-         * @return boolean <p>the left completed return object is <code>boolean</code> type.</p>
+         * <p>The left completed method.</p>
+         * @param target long <p>The target parameter is <code>long</code> type.</p>
+         * @return boolean <p>The left completed return object is <code>boolean</code> type.</p>
          */
         private boolean isLeftCompleted(long target) {
             long size = completed ? thisDefaultNodeSize : completedSize(target);
@@ -386,9 +386,9 @@ final class DefaultSliceOps {
 
         /**
          * <code>completedSize</code>
-         * <p>the size method.</p>
-         * @param target long <p>the target parameter is <code>long</code> type.</p>
-         * @return long <p>the size return object is <code>long</code> type.</p>
+         * <p>The size method.</p>
+         * @param target long <p>The target parameter is <code>long</code> type.</p>
+         * @return long <p>The size return object is <code>long</code> type.</p>
          */
         private long completedSize(long target) {
             if (completed)

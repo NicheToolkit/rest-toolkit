@@ -14,7 +14,7 @@ import io.github.nichetoolkit.rest.error.natives.FileErrorException;
 public class FileCopyException extends FileErrorException {
     /**
      * <code>FileCopyException</code>
-     * Instantiates a new file copy exception.
+     * <p>Instantiates a new file copy exception.</p>
      */
     public FileCopyException() {
         super(RestErrorStatus.FILE_COPY_ERROR);
@@ -22,8 +22,8 @@ public class FileCopyException extends FileErrorException {
 
     /**
      * <code>FileCopyException</code>
-     * Instantiates a new file copy exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * <p>Instantiates a new file copy exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
     public FileCopyException(RestStatus status) {
@@ -32,8 +32,8 @@ public class FileCopyException extends FileErrorException {
 
     /**
      * <code>FileCopyException</code>
-     * Instantiates a new file copy exception.
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new file copy exception.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public FileCopyException(String message) {
@@ -42,9 +42,9 @@ public class FileCopyException extends FileErrorException {
 
     /**
      * <code>FileCopyException</code>
-     * Instantiates a new file copy exception.
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new file copy exception.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public FileCopyException(String resource, String message) {

@@ -17,7 +17,7 @@ final class DefaultNodes {
 
     /**
      * <code>DefaultNodes</code>
-     * Instantiates a new default nodes.
+     * <p>Instantiates a new default nodes.</p>
      */
     private DefaultNodes() {
         throw new Error("no instances");
@@ -25,20 +25,20 @@ final class DefaultNodes {
 
     /**
      * <code>MAX_ARRAY_SIZE</code>
-     * <p>the <code>MAX_ARRAY_SIZE</code> field.</p>
+     * <p>The <code>MAX_ARRAY_SIZE</code> field.</p>
      */
     static final long MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8;
 
     /**
      * <code>BAD_SIZE</code>
-     * {@link java.lang.String} <p>the <code>BAD_SIZE</code> field.</p>
+     * {@link java.lang.String} <p>The <code>BAD_SIZE</code> field.</p>
      * @see java.lang.String
      */
     static final String BAD_SIZE = "Stream size exceeds max array size";
 
     /**
      * <code>EMPTY_NODE</code>
-     * {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>the constant <code>EMPTY_NODE</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The constant <code>EMPTY_NODE</code> field.</p>
      * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("rawtypes")
@@ -46,10 +46,10 @@ final class DefaultNodes {
 
     /**
      * <code>emptyDefaultNode</code>
-     * <p>the default node method.</p>
-     * @param <T>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param shape {@link io.github.nichetoolkit.rest.stream.DefaultStreamShape} <p>the shape parameter is <code>DefaultStreamShape</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>the default node return object is <code>DefaultNode</code> type.</p>
+     * <p>The default node method.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param shape {@link io.github.nichetoolkit.rest.stream.DefaultStreamShape} <p>The shape parameter is <code>DefaultStreamShape</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The default node return object is <code>DefaultNode</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultStreamShape
      * @see java.lang.SuppressWarnings
      */
@@ -63,12 +63,12 @@ final class DefaultNodes {
 
     /**
      * <code>conc</code>
-     * <p>the method.</p>
-     * @param <T>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param shape {@link io.github.nichetoolkit.rest.stream.DefaultStreamShape} <p>the shape parameter is <code>DefaultStreamShape</code> type.</p>
-     * @param left  {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>the left parameter is <code>DefaultNode</code> type.</p>
-     * @param right {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>the right parameter is <code>DefaultNode</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>the return object is <code>DefaultNode</code> type.</p>
+     * <p>The method.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param shape {@link io.github.nichetoolkit.rest.stream.DefaultStreamShape} <p>The shape parameter is <code>DefaultStreamShape</code> type.</p>
+     * @param left  {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The left parameter is <code>DefaultNode</code> type.</p>
+     * @param right {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The right parameter is <code>DefaultNode</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The return object is <code>DefaultNode</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultStreamShape
      */
     static <T> DefaultNode<T> conc(DefaultStreamShape shape, DefaultNode<T> left, DefaultNode<T> right) {
@@ -80,10 +80,10 @@ final class DefaultNodes {
 
     /**
      * <code>node</code>
-     * <p>the method.</p>
-     * @param <T>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param array T <p>the array parameter is <code>T</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>the return object is <code>DefaultNode</code> type.</p>
+     * <p>The method.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param array T <p>The array parameter is <code>T</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The return object is <code>DefaultNode</code> type.</p>
      */
     static <T> DefaultNode<T> node(T[] array) {
         return new ArrayDefaultNode<>(array);
@@ -91,10 +91,10 @@ final class DefaultNodes {
 
     /**
      * <code>node</code>
-     * <p>the method.</p>
-     * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param c   {@link java.util.Collection} <p>the c parameter is <code>Collection</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>the return object is <code>DefaultNode</code> type.</p>
+     * <p>The method.</p>
+     * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param c   {@link java.util.Collection} <p>The c parameter is <code>Collection</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The return object is <code>DefaultNode</code> type.</p>
      * @see java.util.Collection
      */
     static <T> DefaultNode<T> node(Collection<T> c) {
@@ -103,11 +103,11 @@ final class DefaultNodes {
 
     /**
      * <code>builder</code>
-     * <p>the method.</p>
-     * @param <T>              {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param exactSizeIfKnown long <p>the exact size if known parameter is <code>long</code> type.</p>
-     * @param generator        {@link java.util.function.IntFunction} <p>the generator parameter is <code>IntFunction</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode.Builder} <p>the return object is <code>Builder</code> type.</p>
+     * <p>The method.</p>
+     * @param <T>              {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param exactSizeIfKnown long <p>The exact size if known parameter is <code>long</code> type.</p>
+     * @param generator        {@link java.util.function.IntFunction} <p>The generator parameter is <code>IntFunction</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode.Builder} <p>The return object is <code>Builder</code> type.</p>
      * @see java.util.function.IntFunction
      * @see io.github.nichetoolkit.rest.stream.DefaultNode.Builder
      */
@@ -119,9 +119,9 @@ final class DefaultNodes {
 
     /**
      * <code>builder</code>
-     * <p>the method.</p>
-     * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode.Builder} <p>the return object is <code>Builder</code> type.</p>
+     * <p>The method.</p>
+     * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode.Builder} <p>The return object is <code>Builder</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultNode.Builder
      */
     static <T> DefaultNode.Builder<T> builder() {
@@ -130,15 +130,15 @@ final class DefaultNodes {
 
     /**
      * <code>collect</code>
-     * <p>the method.</p>
-     * @param <P_IN>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <P_OUT>     {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param helper      {@link io.github.nichetoolkit.rest.stream.DefaultPipelineHelper} <p>the helper parameter is <code>DefaultPipelineHelper</code> type.</p>
-     * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the spliterator parameter is <code>DefaultSpliterator</code> type.</p>
-     * @param flattenTree boolean <p>the flatten tree parameter is <code>boolean</code> type.</p>
-     * @param generator   {@link java.util.function.IntFunction} <p>the generator parameter is <code>IntFunction</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>the return object is <code>DefaultNode</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The method.</p>
+     * @param <P_IN>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <P_OUT>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param helper      {@link io.github.nichetoolkit.rest.stream.DefaultPipelineHelper} <p>The helper parameter is <code>DefaultPipelineHelper</code> type.</p>
+     * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The spliterator parameter is <code>DefaultSpliterator</code> type.</p>
+     * @param flattenTree boolean <p>The flatten tree parameter is <code>boolean</code> type.</p>
+     * @param generator   {@link java.util.function.IntFunction} <p>The generator parameter is <code>IntFunction</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The return object is <code>DefaultNode</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultPipelineHelper
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
      * @see java.util.function.IntFunction
@@ -163,12 +163,12 @@ final class DefaultNodes {
 
     /**
      * <code>flatten</code>
-     * <p>the method.</p>
-     * @param <T>       {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param node      {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>the node parameter is <code>DefaultNode</code> type.</p>
-     * @param generator {@link java.util.function.IntFunction} <p>the generator parameter is <code>IntFunction</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>the return object is <code>DefaultNode</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The method.</p>
+     * @param <T>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param node      {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The node parameter is <code>DefaultNode</code> type.</p>
+     * @param generator {@link java.util.function.IntFunction} <p>The generator parameter is <code>IntFunction</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The return object is <code>DefaultNode</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.util.function.IntFunction
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -188,16 +188,16 @@ final class DefaultNodes {
     /**
      * <code>EmptyDefaultNode</code>
      * <p>The type empty default node class.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <T_ARR>  {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <T_CONS> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T_ARR>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T_CONS> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @since Jdk1.8
      */
     private static abstract class EmptyDefaultNode<T, T_ARR, T_CONS> implements DefaultNode<T> {
         /**
          * <code>EmptyDefaultNode</code>
-         * Instantiates a new empty default node.
+         * <p>Instantiates a new empty default node.</p>
          */
         EmptyDefaultNode() {
         }
@@ -209,9 +209,9 @@ final class DefaultNodes {
 
         /**
          * <code>copyInto</code>
-         * <p>the into method.</p>
-         * @param array  T_ARR <p>the array parameter is <code>T_ARR</code> type.</p>
-         * @param offset int <p>the offset parameter is <code>int</code> type.</p>
+         * <p>The into method.</p>
+         * @param array  T_ARR <p>The array parameter is <code>T_ARR</code> type.</p>
+         * @param offset int <p>The offset parameter is <code>int</code> type.</p>
          */
         public void copyInto(T_ARR array, int offset) {
         }
@@ -223,8 +223,8 @@ final class DefaultNodes {
 
         /**
          * <code>forEach</code>
-         * <p>the each method.</p>
-         * @param consumer T_CONS <p>the consumer parameter is <code>T_CONS</code> type.</p>
+         * <p>The each method.</p>
+         * @param consumer T_CONS <p>The consumer parameter is <code>T_CONS</code> type.</p>
          */
         public void forEach(T_CONS consumer) {
         }
@@ -232,14 +232,14 @@ final class DefaultNodes {
         /**
          * <code>OfRef</code>
          * <p>The type of ref class.</p>
-         * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+         * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @author Cyan (snow22314@outlook.com)
          * @since Jdk1.8
          */
         private static class OfRef<T> extends DefaultNodes.EmptyDefaultNode<T, T[], ConsumerActuator<? super T>> {
             /**
              * <code>OfRef</code>
-             * Instantiates a new of ref.
+             * <p>Instantiates a new of ref.</p>
              */
             private OfRef() {
                 super();
@@ -255,27 +255,27 @@ final class DefaultNodes {
     /**
      * <code>ArrayDefaultNode</code>
      * <p>The type array default node class.</p>
-     * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @since Jdk1.8
      */
     private static class ArrayDefaultNode<T> implements DefaultNode<T> {
         /**
          * <code>array</code>
-         * <p>the <code>array</code> field.</p>
+         * <p>The <code>array</code> field.</p>
          */
         final T[] array;
         /**
          * <code>curSize</code>
-         * <p>the <code>curSize</code> field.</p>
+         * <p>The <code>curSize</code> field.</p>
          */
         int curSize;
 
         /**
          * <code>ArrayDefaultNode</code>
-         * Instantiates a new array default node.
-         * @param size      long <p>the size parameter is <code>long</code> type.</p>
-         * @param generator {@link java.util.function.IntFunction} <p>the generator parameter is <code>IntFunction</code> type.</p>
+         * <p>Instantiates a new array default node.</p>
+         * @param size      long <p>The size parameter is <code>long</code> type.</p>
+         * @param generator {@link java.util.function.IntFunction} <p>The generator parameter is <code>IntFunction</code> type.</p>
          * @see java.util.function.IntFunction
          */
         ArrayDefaultNode(long size, IntFunction<T[]> generator) {
@@ -287,8 +287,8 @@ final class DefaultNodes {
 
         /**
          * <code>ArrayDefaultNode</code>
-         * Instantiates a new array default node.
-         * @param array T <p>the array parameter is <code>T</code> type.</p>
+         * <p>Instantiates a new array default node.</p>
+         * @param array T <p>The array parameter is <code>T</code> type.</p>
          */
         ArrayDefaultNode(T[] array) {
             this.array = array;
@@ -336,22 +336,22 @@ final class DefaultNodes {
     /**
      * <code>CollectionDefaultNode</code>
      * <p>The type collection default node class.</p>
-     * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @since Jdk1.8
      */
     private static final class CollectionDefaultNode<T> implements DefaultNode<T> {
         /**
          * <code>c</code>
-         * {@link java.util.Collection} <p>the <code>c</code> field.</p>
+         * {@link java.util.Collection} <p>The <code>c</code> field.</p>
          * @see java.util.Collection
          */
         private final Collection<T> c;
 
         /**
          * <code>CollectionDefaultNode</code>
-         * Instantiates a new collection default node.
-         * @param c {@link java.util.Collection} <p>the c parameter is <code>Collection</code> type.</p>
+         * <p>Instantiates a new collection default node.</p>
+         * @param c {@link java.util.Collection} <p>The c parameter is <code>Collection</code> type.</p>
          * @see java.util.Collection
          */
         CollectionDefaultNode(Collection<T> c) {
@@ -398,33 +398,33 @@ final class DefaultNodes {
     /**
      * <code>AbstractConcDefaultNode</code>
      * <p>The type abstract conc default node class.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <T_NODE> {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>the generic parameter is <code>DefaultNode</code> type.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T_NODE> {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The generic parameter is <code>DefaultNode</code> type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @since Jdk1.8
      */
     private static abstract class AbstractConcDefaultNode<T, T_NODE extends DefaultNode<T>> implements DefaultNode<T> {
         /**
          * <code>left</code>
-         * <p>the <code>left</code> field.</p>
+         * <p>The <code>left</code> field.</p>
          */
         protected final T_NODE left;
         /**
          * <code>right</code>
-         * <p>the <code>right</code> field.</p>
+         * <p>The <code>right</code> field.</p>
          */
         protected final T_NODE right;
         /**
          * <code>size</code>
-         * <p>the <code>size</code> field.</p>
+         * <p>The <code>size</code> field.</p>
          */
         private final long size;
 
         /**
          * <code>AbstractConcDefaultNode</code>
-         * Instantiates a new abstract conc default node.
-         * @param left  T_NODE <p>the left parameter is <code>T_NODE</code> type.</p>
-         * @param right T_NODE <p>the right parameter is <code>T_NODE</code> type.</p>
+         * <p>Instantiates a new abstract conc default node.</p>
+         * @param left  T_NODE <p>The left parameter is <code>T_NODE</code> type.</p>
+         * @param right T_NODE <p>The right parameter is <code>T_NODE</code> type.</p>
          */
         AbstractConcDefaultNode(T_NODE left, T_NODE right) {
             this.left = left;
@@ -453,7 +453,7 @@ final class DefaultNodes {
     /**
      * <code>ConcDefaultNode</code>
      * <p>The type conc default node class.</p>
-     * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultNodes.AbstractConcDefaultNode
      * @since Jdk1.8
@@ -464,9 +464,9 @@ final class DefaultNodes {
 
         /**
          * <code>ConcDefaultNode</code>
-         * Instantiates a new conc default node.
-         * @param left  {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>the left parameter is <code>DefaultNode</code> type.</p>
-         * @param right {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>the right parameter is <code>DefaultNode</code> type.</p>
+         * <p>Instantiates a new conc default node.</p>
+         * @param left  {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The left parameter is <code>DefaultNode</code> type.</p>
+         * @param right {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The right parameter is <code>DefaultNode</code> type.</p>
          */
         ConcDefaultNode(DefaultNode<T> left, DefaultNode<T> right) {
             super(left, right);
@@ -527,11 +527,11 @@ final class DefaultNodes {
         /**
          * <code>OfPrimitive</code>
          * <p>The type of primitive class.</p>
-         * @param <E>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-         * @param <T_CONS>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
-         * @param <T_ARR>    {@link java.lang.Object} <p>the parameter can be of any type.</p>
-         * @param <T_SPLITR> {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator.OfPrimitive} <p>the generic parameter is <code>OfPrimitive</code> type.</p>
-         * @param <T_NODE>   {@link io.github.nichetoolkit.rest.stream.DefaultNode.OfPrimitive} <p>the generic parameter is <code>OfPrimitive</code> type.</p>
+         * @param <E>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+         * @param <T_CONS>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+         * @param <T_ARR>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
+         * @param <T_SPLITR> {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator.OfPrimitive} <p>The generic parameter is <code>OfPrimitive</code> type.</p>
+         * @param <T_NODE>   {@link io.github.nichetoolkit.rest.stream.DefaultNode.OfPrimitive} <p>The generic parameter is <code>OfPrimitive</code> type.</p>
          * @author Cyan (snow22314@outlook.com)
          * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator.OfPrimitive
          * @see io.github.nichetoolkit.rest.stream.DefaultNode.OfPrimitive
@@ -546,9 +546,9 @@ final class DefaultNodes {
 
             /**
              * <code>OfPrimitive</code>
-             * Instantiates a new of primitive.
-             * @param left  T_NODE <p>the left parameter is <code>T_NODE</code> type.</p>
-             * @param right T_NODE <p>the right parameter is <code>T_NODE</code> type.</p>
+             * <p>Instantiates a new of primitive.</p>
+             * @param left  T_NODE <p>The left parameter is <code>T_NODE</code> type.</p>
+             * @param right T_NODE <p>The right parameter is <code>T_NODE</code> type.</p>
              */
             OfPrimitive(T_NODE left, T_NODE right) {
                 super(left, right);
@@ -589,9 +589,9 @@ final class DefaultNodes {
     /**
      * <code>InternalDefaultNodeSpliterator</code>
      * <p>The type internal default node spliterator class.</p>
-     * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <S> {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the generic parameter is <code>DefaultSpliterator</code> type.</p>
-     * @param <N> {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>the generic parameter is <code>DefaultNode</code> type.</p>
+     * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <S> {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The generic parameter is <code>DefaultSpliterator</code> type.</p>
+     * @param <N> {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The generic parameter is <code>DefaultNode</code> type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
      * @since Jdk1.8
@@ -602,39 +602,39 @@ final class DefaultNodes {
             implements DefaultSpliterator<T> {
         /**
          * <code>curDefaultNode</code>
-         * <p>the <code>curDefaultNode</code> field.</p>
+         * <p>The <code>curDefaultNode</code> field.</p>
          */
         N curDefaultNode;
 
         /**
          * <code>curChildIndex</code>
-         * <p>the <code>curChildIndex</code> field.</p>
+         * <p>The <code>curChildIndex</code> field.</p>
          */
         int curChildIndex;
 
         /**
          * <code>lastDefaultNodeSpliterator</code>
-         * <p>the <code>lastDefaultNodeSpliterator</code> field.</p>
+         * <p>The <code>lastDefaultNodeSpliterator</code> field.</p>
          */
         S lastDefaultNodeSpliterator;
 
         /**
          * <code>tryAdvanceSpliterator</code>
-         * <p>the <code>tryAdvanceSpliterator</code> field.</p>
+         * <p>The <code>tryAdvanceSpliterator</code> field.</p>
          */
         S tryAdvanceSpliterator;
 
         /**
          * <code>tryAdvanceStack</code>
-         * <p>the Try advance stack field.</p>
+         * <p>The try advance stack field.</p>
          * @see java.util.Deque
          */
         Deque<N> tryAdvanceStack;
 
         /**
          * <code>InternalDefaultNodeSpliterator</code>
-         * Instantiates a new internal default node spliterator.
-         * @param curDefaultNode N <p>the cur default node parameter is <code>N</code> type.</p>
+         * <p>Instantiates a new internal default node spliterator.</p>
+         * @param curDefaultNode N <p>The cur default node parameter is <code>N</code> type.</p>
          */
         InternalDefaultNodeSpliterator(N curDefaultNode) {
             this.curDefaultNode = curDefaultNode;
@@ -642,9 +642,9 @@ final class DefaultNodes {
 
         /**
          * <code>initStack</code>
-         * <p>the stack method.</p>
-         * @return {@link java.util.Deque} <p>the stack return object is <code>Deque</code> type.</p>
-         * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+         * <p>The stack method.</p>
+         * @return {@link java.util.Deque} <p>The stack return object is <code>Deque</code> type.</p>
+         * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
          * @see java.util.Deque
          * @see java.lang.SuppressWarnings
          * @see io.github.nichetoolkit.rest.RestException
@@ -659,10 +659,10 @@ final class DefaultNodes {
 
         /**
          * <code>findNextLeafDefaultNode</code>
-         * <p>the next leaf default node method.</p>
-         * @param stack {@link java.util.Deque} <p>the stack parameter is <code>Deque</code> type.</p>
-         * @return N <p>the next leaf default node return object is <code>N</code> type.</p>
-         * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+         * <p>The next leaf default node method.</p>
+         * @param stack {@link java.util.Deque} <p>The stack parameter is <code>Deque</code> type.</p>
+         * @return N <p>The next leaf default node return object is <code>N</code> type.</p>
+         * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
          * @see java.util.Deque
          * @see java.lang.SuppressWarnings
          * @see io.github.nichetoolkit.rest.RestException
@@ -685,9 +685,9 @@ final class DefaultNodes {
 
         /**
          * <code>initTryAdvance</code>
-         * <p>the try advance method.</p>
-         * @return boolean <p>the try advance return object is <code>boolean</code> type.</p>
-         * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+         * <p>The try advance method.</p>
+         * @return boolean <p>The try advance return object is <code>boolean</code> type.</p>
+         * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
          * @see java.lang.SuppressWarnings
          * @see io.github.nichetoolkit.rest.RestException
          */
@@ -755,7 +755,7 @@ final class DefaultNodes {
         /**
          * <code>OfRef</code>
          * <p>The type of ref class.</p>
-         * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+         * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @author Cyan (snow22314@outlook.com)
          * @since Jdk1.8
          */
@@ -764,8 +764,8 @@ final class DefaultNodes {
 
             /**
              * <code>OfRef</code>
-             * Instantiates a new of ref.
-             * @param curDefaultNode {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>the cur default node parameter is <code>DefaultNode</code> type.</p>
+             * <p>Instantiates a new of ref.</p>
+             * @param curDefaultNode {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The cur default node parameter is <code>DefaultNode</code> type.</p>
              */
             OfRef(DefaultNode<T> curDefaultNode) {
                 super(curDefaultNode);
@@ -815,11 +815,11 @@ final class DefaultNodes {
         /**
          * <code>OfPrimitive</code>
          * <p>The type of primitive class.</p>
-         * @param <T>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-         * @param <T_CONS>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
-         * @param <T_ARR>    {@link java.lang.Object} <p>the parameter can be of any type.</p>
-         * @param <T_SPLITR> {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator.OfPrimitive} <p>the generic parameter is <code>OfPrimitive</code> type.</p>
-         * @param <N>        {@link io.github.nichetoolkit.rest.stream.DefaultNode.OfPrimitive} <p>the generic parameter is <code>OfPrimitive</code> type.</p>
+         * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+         * @param <T_CONS>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+         * @param <T_ARR>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
+         * @param <T_SPLITR> {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator.OfPrimitive} <p>The generic parameter is <code>OfPrimitive</code> type.</p>
+         * @param <N>        {@link io.github.nichetoolkit.rest.stream.DefaultNode.OfPrimitive} <p>The generic parameter is <code>OfPrimitive</code> type.</p>
          * @author Cyan (snow22314@outlook.com)
          * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator.OfPrimitive
          * @see io.github.nichetoolkit.rest.stream.DefaultNode.OfPrimitive
@@ -833,8 +833,8 @@ final class DefaultNodes {
 
             /**
              * <code>OfPrimitive</code>
-             * Instantiates a new of primitive.
-             * @param cur N <p>the cur parameter is <code>N</code> type.</p>
+             * <p>Instantiates a new of primitive.</p>
+             * @param cur N <p>The cur parameter is <code>N</code> type.</p>
              */
             OfPrimitive(N cur) {
                 super(cur);
@@ -885,7 +885,7 @@ final class DefaultNodes {
     /**
      * <code>FixedDefaultNodeBuilder</code>
      * <p>The type fixed default node builder class.</p>
-     * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultNodes.ArrayDefaultNode
      * @see io.github.nichetoolkit.rest.stream.DefaultNode.Builder
@@ -897,9 +897,9 @@ final class DefaultNodes {
 
         /**
          * <code>FixedDefaultNodeBuilder</code>
-         * Instantiates a new fixed default node builder.
-         * @param size      long <p>the size parameter is <code>long</code> type.</p>
-         * @param generator {@link java.util.function.IntFunction} <p>the generator parameter is <code>IntFunction</code> type.</p>
+         * <p>Instantiates a new fixed default node builder.</p>
+         * @param size      long <p>The size parameter is <code>long</code> type.</p>
+         * @param generator {@link java.util.function.IntFunction} <p>The generator parameter is <code>IntFunction</code> type.</p>
          * @see java.util.function.IntFunction
          */
         FixedDefaultNodeBuilder(long size, IntFunction<T[]> generator) {
@@ -950,7 +950,7 @@ final class DefaultNodes {
     /**
      * <code>SpinedDefaultNodeBuilder</code>
      * <p>The type spined default node builder class.</p>
-     * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+     * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultSpinedBuffer
      * @see io.github.nichetoolkit.rest.stream.DefaultNode.Builder
@@ -961,13 +961,13 @@ final class DefaultNodes {
             implements DefaultNode<T>, DefaultNode.Builder<T> {
         /**
          * <code>building</code>
-         * <p>the <code>building</code> field.</p>
+         * <p>The <code>building</code> field.</p>
          */
         private boolean building = false;
 
         /**
          * <code>SpinedDefaultNodeBuilder</code>
-         * Instantiates a new spined default node builder.
+         * <p>Instantiates a new spined default node builder.</p>
          */
         SpinedDefaultNodeBuilder() {
         }
@@ -1026,10 +1026,10 @@ final class DefaultNodes {
     /**
      * <code>SizedCollectorTask</code>
      * <p>The type sized collector task class.</p>
-     * @param <P_IN>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <P_OUT>  {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <T_SINK> {@link io.github.nichetoolkit.rest.stream.DefaultSink} <p>the generic parameter is <code>DefaultSink</code> type.</p>
-     * @param <K>      {@link io.github.nichetoolkit.rest.stream.DefaultNodes.SizedCollectorTask} <p>the generic parameter is <code>SizedCollectorTask</code> type.</p>
+     * @param <P_IN>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <P_OUT>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T_SINK> {@link io.github.nichetoolkit.rest.stream.DefaultSink} <p>The generic parameter is <code>DefaultSink</code> type.</p>
+     * @param <K>      {@link io.github.nichetoolkit.rest.stream.DefaultNodes.SizedCollectorTask} <p>The generic parameter is <code>SizedCollectorTask</code> type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultSink
      * @see io.github.nichetoolkit.rest.stream.DefaultCountedCompleter
@@ -1041,49 +1041,49 @@ final class DefaultNodes {
             implements DefaultSink<P_OUT> {
         /**
          * <code>spliterator</code>
-         * {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the <code>spliterator</code> field.</p>
+         * {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The <code>spliterator</code> field.</p>
          * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
          */
         protected final DefaultSpliterator<P_IN> spliterator;
         /**
          * <code>helper</code>
-         * {@link io.github.nichetoolkit.rest.stream.DefaultPipelineHelper} <p>the <code>helper</code> field.</p>
+         * {@link io.github.nichetoolkit.rest.stream.DefaultPipelineHelper} <p>The <code>helper</code> field.</p>
          * @see io.github.nichetoolkit.rest.stream.DefaultPipelineHelper
          */
         protected final DefaultPipelineHelper<P_OUT> helper;
         /**
          * <code>targetSize</code>
-         * <p>the <code>targetSize</code> field.</p>
+         * <p>The <code>targetSize</code> field.</p>
          */
         protected final long targetSize;
         /**
          * <code>offset</code>
-         * <p>the <code>offset</code> field.</p>
+         * <p>The <code>offset</code> field.</p>
          */
         protected long offset;
         /**
          * <code>length</code>
-         * <p>the <code>length</code> field.</p>
+         * <p>The <code>length</code> field.</p>
          */
         protected long length;
         /**
          * <code>index</code>
-         * <p>the <code>index</code> field.</p>
+         * <p>The <code>index</code> field.</p>
          */
         protected int index,
         /**
          * <code>fence</code>
-         * <p>the Fence field.</p>
+         * <p>The fence field.</p>
          */
         fence;
 
         /**
          * <code>SizedCollectorTask</code>
-         * Instantiates a new sized collector task.
-         * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the spliterator parameter is <code>DefaultSpliterator</code> type.</p>
-         * @param helper      {@link io.github.nichetoolkit.rest.stream.DefaultPipelineHelper} <p>the helper parameter is <code>DefaultPipelineHelper</code> type.</p>
-         * @param arrayLength int <p>the array length parameter is <code>int</code> type.</p>
-         * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+         * <p>Instantiates a new sized collector task.</p>
+         * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The spliterator parameter is <code>DefaultSpliterator</code> type.</p>
+         * @param helper      {@link io.github.nichetoolkit.rest.stream.DefaultPipelineHelper} <p>The helper parameter is <code>DefaultPipelineHelper</code> type.</p>
+         * @param arrayLength int <p>The array length parameter is <code>int</code> type.</p>
+         * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
          * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
          * @see io.github.nichetoolkit.rest.stream.DefaultPipelineHelper
          * @see io.github.nichetoolkit.rest.RestException
@@ -1101,13 +1101,13 @@ final class DefaultNodes {
 
         /**
          * <code>SizedCollectorTask</code>
-         * Instantiates a new sized collector task.
-         * @param parent      K <p>the parent parameter is <code>K</code> type.</p>
-         * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the spliterator parameter is <code>DefaultSpliterator</code> type.</p>
-         * @param offset      long <p>the offset parameter is <code>long</code> type.</p>
-         * @param length      long <p>the length parameter is <code>long</code> type.</p>
-         * @param arrayLength int <p>the array length parameter is <code>int</code> type.</p>
-         * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+         * <p>Instantiates a new sized collector task.</p>
+         * @param parent      K <p>The parent parameter is <code>K</code> type.</p>
+         * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The spliterator parameter is <code>DefaultSpliterator</code> type.</p>
+         * @param offset      long <p>The offset parameter is <code>long</code> type.</p>
+         * @param length      long <p>The length parameter is <code>long</code> type.</p>
+         * @param arrayLength int <p>The array length parameter is <code>int</code> type.</p>
+         * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
          * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
          * @see io.github.nichetoolkit.rest.RestException
          */
@@ -1150,12 +1150,12 @@ final class DefaultNodes {
 
         /**
          * <code>makeChild</code>
-         * <p>the child method.</p>
-         * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the spliterator parameter is <code>DefaultSpliterator</code> type.</p>
-         * @param offset      long <p>the offset parameter is <code>long</code> type.</p>
-         * @param size        long <p>the size parameter is <code>long</code> type.</p>
-         * @return K <p>the child return object is <code>K</code> type.</p>
-         * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+         * <p>The child method.</p>
+         * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The spliterator parameter is <code>DefaultSpliterator</code> type.</p>
+         * @param offset      long <p>The offset parameter is <code>long</code> type.</p>
+         * @param size        long <p>The size parameter is <code>long</code> type.</p>
+         * @return K <p>The child return object is <code>K</code> type.</p>
+         * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
          * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
          * @see io.github.nichetoolkit.rest.RestException
          */
@@ -1175,8 +1175,8 @@ final class DefaultNodes {
         /**
          * <code>OfRef</code>
          * <p>The type of ref class.</p>
-         * @param <P_IN>  {@link java.lang.Object} <p>the parameter can be of any type.</p>
-         * @param <P_OUT> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+         * @param <P_IN>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
+         * @param <P_OUT> {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @author Cyan (snow22314@outlook.com)
          * @see io.github.nichetoolkit.rest.stream.DefaultSink
          * @since Jdk1.8
@@ -1186,17 +1186,17 @@ final class DefaultNodes {
                 implements DefaultSink<P_OUT> {
             /**
              * <code>array</code>
-             * <p>the <code>array</code> field.</p>
+             * <p>The <code>array</code> field.</p>
              */
             private final P_OUT[] array;
 
             /**
              * <code>OfRef</code>
-             * Instantiates a new of ref.
-             * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the spliterator parameter is <code>DefaultSpliterator</code> type.</p>
-             * @param helper      {@link io.github.nichetoolkit.rest.stream.DefaultPipelineHelper} <p>the helper parameter is <code>DefaultPipelineHelper</code> type.</p>
-             * @param array       P_OUT <p>the array parameter is <code>P_OUT</code> type.</p>
-             * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+             * <p>Instantiates a new of ref.</p>
+             * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The spliterator parameter is <code>DefaultSpliterator</code> type.</p>
+             * @param helper      {@link io.github.nichetoolkit.rest.stream.DefaultPipelineHelper} <p>The helper parameter is <code>DefaultPipelineHelper</code> type.</p>
+             * @param array       P_OUT <p>The array parameter is <code>P_OUT</code> type.</p>
+             * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
              * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
              * @see io.github.nichetoolkit.rest.stream.DefaultPipelineHelper
              * @see io.github.nichetoolkit.rest.RestException
@@ -1208,12 +1208,12 @@ final class DefaultNodes {
 
             /**
              * <code>OfRef</code>
-             * Instantiates a new of ref.
-             * @param parent      {@link io.github.nichetoolkit.rest.stream.DefaultNodes.SizedCollectorTask.OfRef} <p>the parent parameter is <code>OfRef</code> type.</p>
-             * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the spliterator parameter is <code>DefaultSpliterator</code> type.</p>
-             * @param offset      long <p>the offset parameter is <code>long</code> type.</p>
-             * @param length      long <p>the length parameter is <code>long</code> type.</p>
-             * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+             * <p>Instantiates a new of ref.</p>
+             * @param parent      {@link io.github.nichetoolkit.rest.stream.DefaultNodes.SizedCollectorTask.OfRef} <p>The parent parameter is <code>OfRef</code> type.</p>
+             * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The spliterator parameter is <code>DefaultSpliterator</code> type.</p>
+             * @param offset      long <p>The offset parameter is <code>long</code> type.</p>
+             * @param length      long <p>The length parameter is <code>long</code> type.</p>
+             * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
              * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
              * @see io.github.nichetoolkit.rest.RestException
              */
@@ -1242,9 +1242,9 @@ final class DefaultNodes {
     /**
      * <code>ToArrayTask</code>
      * <p>The type to array task class.</p>
-     * @param <T>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <T_NODE> {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>the generic parameter is <code>DefaultNode</code> type.</p>
-     * @param <K>      {@link io.github.nichetoolkit.rest.stream.DefaultNodes.ToArrayTask} <p>the generic parameter is <code>ToArrayTask</code> type.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T_NODE> {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The generic parameter is <code>DefaultNode</code> type.</p>
+     * @param <K>      {@link io.github.nichetoolkit.rest.stream.DefaultNodes.ToArrayTask} <p>The generic parameter is <code>ToArrayTask</code> type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultCountedCompleter
      * @since Jdk1.8
@@ -1254,20 +1254,20 @@ final class DefaultNodes {
             extends DefaultCountedCompleter<Void> {
         /**
          * <code>node</code>
-         * <p>the <code>node</code> field.</p>
+         * <p>The <code>node</code> field.</p>
          */
         protected final T_NODE node;
         /**
          * <code>offset</code>
-         * <p>the <code>offset</code> field.</p>
+         * <p>The <code>offset</code> field.</p>
          */
         protected final int offset;
 
         /**
          * <code>ToArrayTask</code>
-         * Instantiates a new to array task.
-         * @param node   T_NODE <p>the node parameter is <code>T_NODE</code> type.</p>
-         * @param offset int <p>the offset parameter is <code>int</code> type.</p>
+         * <p>Instantiates a new to array task.</p>
+         * @param node   T_NODE <p>The node parameter is <code>T_NODE</code> type.</p>
+         * @param offset int <p>The offset parameter is <code>int</code> type.</p>
          */
         ToArrayTask(T_NODE node, int offset) {
             this.node = node;
@@ -1276,10 +1276,10 @@ final class DefaultNodes {
 
         /**
          * <code>ToArrayTask</code>
-         * Instantiates a new to array task.
-         * @param parent K <p>the parent parameter is <code>K</code> type.</p>
-         * @param node   T_NODE <p>the node parameter is <code>T_NODE</code> type.</p>
-         * @param offset int <p>the offset parameter is <code>int</code> type.</p>
+         * <p>Instantiates a new to array task.</p>
+         * @param parent K <p>The parent parameter is <code>K</code> type.</p>
+         * @param node   T_NODE <p>The node parameter is <code>T_NODE</code> type.</p>
+         * @param offset int <p>The offset parameter is <code>int</code> type.</p>
          */
         ToArrayTask(K parent, T_NODE node, int offset) {
             super(parent);
@@ -1289,16 +1289,16 @@ final class DefaultNodes {
 
         /**
          * <code>copyDefaultNodeToArray</code>
-         * <p>the default node to array method.</p>
+         * <p>The default node to array method.</p>
          */
         abstract void copyDefaultNodeToArray();
 
         /**
          * <code>makeChild</code>
-         * <p>the child method.</p>
-         * @param childIndex int <p>the child index parameter is <code>int</code> type.</p>
-         * @param offset     int <p>the offset parameter is <code>int</code> type.</p>
-         * @return K <p>the child return object is <code>K</code> type.</p>
+         * <p>The child method.</p>
+         * @param childIndex int <p>The child index parameter is <code>int</code> type.</p>
+         * @param offset     int <p>The offset parameter is <code>int</code> type.</p>
+         * @return K <p>The child return object is <code>K</code> type.</p>
          */
         abstract K makeChild(int childIndex, int offset);
 
@@ -1328,7 +1328,7 @@ final class DefaultNodes {
         /**
          * <code>OfRef</code>
          * <p>The type of ref class.</p>
-         * @param <T> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+         * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @author Cyan (snow22314@outlook.com)
          * @since Jdk1.8
          */
@@ -1336,16 +1336,16 @@ final class DefaultNodes {
                 extends DefaultNodes.ToArrayTask<T, DefaultNode<T>, OfRef<T>> {
             /**
              * <code>array</code>
-             * <p>the <code>array</code> field.</p>
+             * <p>The <code>array</code> field.</p>
              */
             private final T[] array;
 
             /**
              * <code>OfRef</code>
-             * Instantiates a new of ref.
-             * @param node   {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>the node parameter is <code>DefaultNode</code> type.</p>
-             * @param array  T <p>the array parameter is <code>T</code> type.</p>
-             * @param offset int <p>the offset parameter is <code>int</code> type.</p>
+             * <p>Instantiates a new of ref.</p>
+             * @param node   {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The node parameter is <code>DefaultNode</code> type.</p>
+             * @param array  T <p>The array parameter is <code>T</code> type.</p>
+             * @param offset int <p>The offset parameter is <code>int</code> type.</p>
              */
             private OfRef(DefaultNode<T> node, T[] array, int offset) {
                 super(node, offset);
@@ -1354,10 +1354,10 @@ final class DefaultNodes {
 
             /**
              * <code>OfRef</code>
-             * Instantiates a new of ref.
-             * @param parent {@link io.github.nichetoolkit.rest.stream.DefaultNodes.ToArrayTask.OfRef} <p>the parent parameter is <code>OfRef</code> type.</p>
-             * @param node   {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>the node parameter is <code>DefaultNode</code> type.</p>
-             * @param offset int <p>the offset parameter is <code>int</code> type.</p>
+             * <p>Instantiates a new of ref.</p>
+             * @param parent {@link io.github.nichetoolkit.rest.stream.DefaultNodes.ToArrayTask.OfRef} <p>The parent parameter is <code>OfRef</code> type.</p>
+             * @param node   {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The node parameter is <code>DefaultNode</code> type.</p>
+             * @param offset int <p>The offset parameter is <code>int</code> type.</p>
              */
             private OfRef(OfRef<T> parent, DefaultNode<T> node, int offset) {
                 super(parent, node, offset);
@@ -1378,11 +1378,11 @@ final class DefaultNodes {
         /**
          * <code>OfPrimitive</code>
          * <p>The type of primitive class.</p>
-         * @param <T>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-         * @param <T_CONS>   {@link java.lang.Object} <p>the parameter can be of any type.</p>
-         * @param <T_ARR>    {@link java.lang.Object} <p>the parameter can be of any type.</p>
-         * @param <T_SPLITR> {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator.OfPrimitive} <p>the generic parameter is <code>OfPrimitive</code> type.</p>
-         * @param <T_NODE>   {@link io.github.nichetoolkit.rest.stream.DefaultNode.OfPrimitive} <p>the generic parameter is <code>OfPrimitive</code> type.</p>
+         * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+         * @param <T_CONS>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+         * @param <T_ARR>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
+         * @param <T_SPLITR> {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator.OfPrimitive} <p>The generic parameter is <code>OfPrimitive</code> type.</p>
+         * @param <T_NODE>   {@link io.github.nichetoolkit.rest.stream.DefaultNode.OfPrimitive} <p>The generic parameter is <code>OfPrimitive</code> type.</p>
          * @author Cyan (snow22314@outlook.com)
          * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator.OfPrimitive
          * @see io.github.nichetoolkit.rest.stream.DefaultNode.OfPrimitive
@@ -1394,16 +1394,16 @@ final class DefaultNodes {
                 extends DefaultNodes.ToArrayTask<T, T_NODE, OfPrimitive<T, T_CONS, T_ARR, T_SPLITR, T_NODE>> {
             /**
              * <code>array</code>
-             * <p>the <code>array</code> field.</p>
+             * <p>The <code>array</code> field.</p>
              */
             private final T_ARR array;
 
             /**
              * <code>OfPrimitive</code>
-             * Instantiates a new of primitive.
-             * @param node   T_NODE <p>the node parameter is <code>T_NODE</code> type.</p>
-             * @param array  T_ARR <p>the array parameter is <code>T_ARR</code> type.</p>
-             * @param offset int <p>the offset parameter is <code>int</code> type.</p>
+             * <p>Instantiates a new of primitive.</p>
+             * @param node   T_NODE <p>The node parameter is <code>T_NODE</code> type.</p>
+             * @param array  T_ARR <p>The array parameter is <code>T_ARR</code> type.</p>
+             * @param offset int <p>The offset parameter is <code>int</code> type.</p>
              */
             private OfPrimitive(T_NODE node, T_ARR array, int offset) {
                 super(node, offset);
@@ -1412,10 +1412,10 @@ final class DefaultNodes {
 
             /**
              * <code>OfPrimitive</code>
-             * Instantiates a new of primitive.
-             * @param parent {@link io.github.nichetoolkit.rest.stream.DefaultNodes.ToArrayTask.OfPrimitive} <p>the parent parameter is <code>OfPrimitive</code> type.</p>
-             * @param node   T_NODE <p>the node parameter is <code>T_NODE</code> type.</p>
-             * @param offset int <p>the offset parameter is <code>int</code> type.</p>
+             * <p>Instantiates a new of primitive.</p>
+             * @param parent {@link io.github.nichetoolkit.rest.stream.DefaultNodes.ToArrayTask.OfPrimitive} <p>The parent parameter is <code>OfPrimitive</code> type.</p>
+             * @param node   T_NODE <p>The node parameter is <code>T_NODE</code> type.</p>
+             * @param offset int <p>The offset parameter is <code>int</code> type.</p>
              */
             private OfPrimitive(OfPrimitive<T, T_CONS, T_ARR, T_SPLITR, T_NODE> parent, T_NODE node, int offset) {
                 super(parent, node, offset);
@@ -1437,10 +1437,10 @@ final class DefaultNodes {
     /**
      * <code>CollectorTask</code>
      * <p>The type collector task class.</p>
-     * @param <P_IN>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <P_OUT>     {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param <T_NODE>    {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>the generic parameter is <code>DefaultNode</code> type.</p>
-     * @param <T_BUILDER> {@link io.github.nichetoolkit.rest.stream.DefaultNode.Builder} <p>the generic parameter is <code>Builder</code> type.</p>
+     * @param <P_IN>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <P_OUT>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T_NODE>    {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The generic parameter is <code>DefaultNode</code> type.</p>
+     * @param <T_BUILDER> {@link io.github.nichetoolkit.rest.stream.DefaultNode.Builder} <p>The generic parameter is <code>Builder</code> type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultNode.Builder
      * @see io.github.nichetoolkit.rest.stream.DefaultAbstractTask
@@ -1450,30 +1450,30 @@ final class DefaultNodes {
             extends DefaultAbstractTask<P_IN, P_OUT, T_NODE, CollectorTask<P_IN, P_OUT, T_NODE, T_BUILDER>> {
         /**
          * <code>helper</code>
-         * {@link io.github.nichetoolkit.rest.stream.DefaultPipelineHelper} <p>the <code>helper</code> field.</p>
+         * {@link io.github.nichetoolkit.rest.stream.DefaultPipelineHelper} <p>The <code>helper</code> field.</p>
          * @see io.github.nichetoolkit.rest.stream.DefaultPipelineHelper
          */
         protected final DefaultPipelineHelper<P_OUT> helper;
         /**
          * <code>builderFactory</code>
-         * {@link java.util.function.LongFunction} <p>the <code>builderFactory</code> field.</p>
+         * {@link java.util.function.LongFunction} <p>The <code>builderFactory</code> field.</p>
          * @see java.util.function.LongFunction
          */
         protected final LongFunction<T_BUILDER> builderFactory;
         /**
          * <code>concFactory</code>
-         * {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>the <code>concFactory</code> field.</p>
+         * {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>The <code>concFactory</code> field.</p>
          * @see io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator
          */
         protected final BinaryOperatorActuator<T_NODE> concFactory;
 
         /**
          * <code>CollectorTask</code>
-         * Instantiates a new collector task.
-         * @param helper         {@link io.github.nichetoolkit.rest.stream.DefaultPipelineHelper} <p>the helper parameter is <code>DefaultPipelineHelper</code> type.</p>
-         * @param spliterator    {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the spliterator parameter is <code>DefaultSpliterator</code> type.</p>
-         * @param builderFactory {@link java.util.function.LongFunction} <p>the builder factory parameter is <code>LongFunction</code> type.</p>
-         * @param concFactory    {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>the conc factory parameter is <code>BinaryOperatorActuator</code> type.</p>
+         * <p>Instantiates a new collector task.</p>
+         * @param helper         {@link io.github.nichetoolkit.rest.stream.DefaultPipelineHelper} <p>The helper parameter is <code>DefaultPipelineHelper</code> type.</p>
+         * @param spliterator    {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The spliterator parameter is <code>DefaultSpliterator</code> type.</p>
+         * @param builderFactory {@link java.util.function.LongFunction} <p>The builder factory parameter is <code>LongFunction</code> type.</p>
+         * @param concFactory    {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>The conc factory parameter is <code>BinaryOperatorActuator</code> type.</p>
          * @see io.github.nichetoolkit.rest.stream.DefaultPipelineHelper
          * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
          * @see java.util.function.LongFunction
@@ -1491,9 +1491,9 @@ final class DefaultNodes {
 
         /**
          * <code>CollectorTask</code>
-         * Instantiates a new collector task.
-         * @param parent      {@link io.github.nichetoolkit.rest.stream.DefaultNodes.CollectorTask} <p>the parent parameter is <code>CollectorTask</code> type.</p>
-         * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the spliterator parameter is <code>DefaultSpliterator</code> type.</p>
+         * <p>Instantiates a new collector task.</p>
+         * @param parent      {@link io.github.nichetoolkit.rest.stream.DefaultNodes.CollectorTask} <p>The parent parameter is <code>CollectorTask</code> type.</p>
+         * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The spliterator parameter is <code>DefaultSpliterator</code> type.</p>
          * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
          */
         CollectorTask(CollectorTask<P_IN, P_OUT, T_NODE, T_BUILDER> parent,
@@ -1526,8 +1526,8 @@ final class DefaultNodes {
         /**
          * <code>OfRef</code>
          * <p>The type of ref class.</p>
-         * @param <P_IN>  {@link java.lang.Object} <p>the parameter can be of any type.</p>
-         * @param <P_OUT> {@link java.lang.Object} <p>the parameter can be of any type.</p>
+         * @param <P_IN>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
+         * @param <P_OUT> {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @author Cyan (snow22314@outlook.com)
          * @since Jdk1.8
          */
@@ -1535,10 +1535,10 @@ final class DefaultNodes {
                 extends DefaultNodes.CollectorTask<P_IN, P_OUT, DefaultNode<P_OUT>, DefaultNode.Builder<P_OUT>> {
             /**
              * <code>OfRef</code>
-             * Instantiates a new of ref.
-             * @param helper      {@link io.github.nichetoolkit.rest.stream.DefaultPipelineHelper} <p>the helper parameter is <code>DefaultPipelineHelper</code> type.</p>
-             * @param generator   {@link java.util.function.IntFunction} <p>the generator parameter is <code>IntFunction</code> type.</p>
-             * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the spliterator parameter is <code>DefaultSpliterator</code> type.</p>
+             * <p>Instantiates a new of ref.</p>
+             * @param helper      {@link io.github.nichetoolkit.rest.stream.DefaultPipelineHelper} <p>The helper parameter is <code>DefaultPipelineHelper</code> type.</p>
+             * @param generator   {@link java.util.function.IntFunction} <p>The generator parameter is <code>IntFunction</code> type.</p>
+             * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The spliterator parameter is <code>DefaultSpliterator</code> type.</p>
              * @see io.github.nichetoolkit.rest.stream.DefaultPipelineHelper
              * @see java.util.function.IntFunction
              * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator

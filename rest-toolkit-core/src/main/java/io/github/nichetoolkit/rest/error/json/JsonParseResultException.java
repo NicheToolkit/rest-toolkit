@@ -13,7 +13,7 @@ import io.github.nichetoolkit.rest.RestStatus;
 public class JsonParseResultException extends JsonParseErrorException {
     /**
      * <code>JsonParseResultException</code>
-     * Instantiates a new json parse result exception.
+     * <p>Instantiates a new json parse result exception.</p>
      */
     public JsonParseResultException() {
         super(RestErrorStatus.JSON_PARSE_RESULT);
@@ -21,8 +21,8 @@ public class JsonParseResultException extends JsonParseErrorException {
 
     /**
      * <code>JsonParseResultException</code>
-     * Instantiates a new json parse result exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * <p>Instantiates a new json parse result exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
     public JsonParseResultException(RestStatus status) {
@@ -31,8 +31,8 @@ public class JsonParseResultException extends JsonParseErrorException {
 
     /**
      * <code>JsonParseResultException</code>
-     * Instantiates a new json parse result exception.
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new json parse result exception.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public JsonParseResultException(String message) {
@@ -41,9 +41,9 @@ public class JsonParseResultException extends JsonParseErrorException {
 
     /**
      * <code>JsonParseResultException</code>
-     * Instantiates a new json parse result exception.
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new json parse result exception.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public JsonParseResultException(String resource, String message) {
@@ -52,10 +52,10 @@ public class JsonParseResultException extends JsonParseErrorException {
 
     /**
      * <code>JsonParseResultException</code>
-     * Instantiates a new json parse result exception.
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param field    {@link java.lang.String} <p>the field parameter is <code>String</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new json parse result exception.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param field    {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public JsonParseResultException(String resource, String field, String message) {
@@ -64,11 +64,11 @@ public class JsonParseResultException extends JsonParseErrorException {
 
     /**
      * <code>JsonParseResultException</code>
-     * Instantiates a new json parse result exception.
-     * @param resource {@link java.lang.String} <p>the resource parameter is <code>String</code> type.</p>
-     * @param field    {@link java.lang.String} <p>the field parameter is <code>String</code> type.</p>
-     * @param value    {@link java.lang.Object} <p>the value parameter is <code>Object</code> type.</p>
-     * @param message  {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new json parse result exception.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param field    {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
+     * @param value    {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Object
      */

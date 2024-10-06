@@ -9,9 +9,9 @@ package io.github.nichetoolkit.rest;
 public interface RestLoggingKey {
     /**
      * <code>loggingKey</code>
-     * <p>the key method.</p>
-     * @param httpRequest {@link io.github.nichetoolkit.rest.RestHttpRequest} <p>the http request parameter is <code>RestHttpRequest</code> type.</p>
-     * @return {@link java.lang.String} <p>the key return object is <code>String</code> type.</p>
+     * <p>The key method.</p>
+     * @param httpRequest {@link io.github.nichetoolkit.rest.RestHttpRequest} <p>The http request parameter is <code>RestHttpRequest</code> type.</p>
+     * @return {@link java.lang.String} <p>The key return object is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestHttpRequest
      * @see java.lang.String
      */

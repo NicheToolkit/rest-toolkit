@@ -26,8 +26,8 @@ public @interface StereoEntry {
 
     /**
      * <code>name</code>
-     * <p>the method.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.core.annotation.AliasFor
      */
@@ -39,16 +39,16 @@ public @interface StereoEntry {
 
     /**
      * <code>key</code>
-     * <p>the method.</p>
-     * @return {@link java.lang.String} <p>the return object is <code>String</code> type.</p>
+     * <p>The method.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     String key() default "";
 
     /**
      * <code>type</code>
-     * <p>the method.</p>
-     * @return int <p>the return object is <code>int</code> type.</p>
+     * <p>The method.</p>
+     * @return int <p>The return object is <code>int</code> type.</p>
      * @see org.springframework.core.annotation.AliasFor
      */
     @AliasFor(
@@ -59,8 +59,8 @@ public @interface StereoEntry {
 
     /**
      * <code>value</code>
-     * <p>the method.</p>
-     * @return long <p>the return object is <code>long</code> type.</p>
+     * <p>The method.</p>
+     * @return long <p>The return object is <code>long</code> type.</p>
      */
     long value() default 0;
 }

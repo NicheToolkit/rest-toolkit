@@ -10,9 +10,9 @@ import java.util.function.IntFunction;
 /**
  * <code>DefaultAbstractPipeline</code>
  * <p>The type default abstract pipeline class.</p>
- * @param <E_IN>  {@link java.lang.Object} <p>the parameter can be of any type.</p>
- * @param <E_OUT> {@link java.lang.Object} <p>the parameter can be of any type.</p>
- * @param <S>     {@link io.github.nichetoolkit.rest.stream.DefaultBaseStream} <p>the generic parameter is <code>DefaultBaseStream</code> type.</p>
+ * @param <E_IN>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
+ * @param <E_OUT> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+ * @param <S>     {@link io.github.nichetoolkit.rest.stream.DefaultBaseStream} <p>The generic parameter is <code>DefaultBaseStream</code> type.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.stream.DefaultBaseStream
  * @see io.github.nichetoolkit.rest.stream.DefaultPipelineHelper
@@ -22,20 +22,20 @@ abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends DefaultBaseStream<
         extends DefaultPipelineHelper<E_OUT> implements DefaultBaseStream<E_OUT, S> {
     /**
      * <code>MSG_STREAM_LINKED</code>
-     * {@link java.lang.String} <p>the constant <code>MSG_STREAM_LINKED</code> field.</p>
+     * {@link java.lang.String} <p>The constant <code>MSG_STREAM_LINKED</code> field.</p>
      * @see java.lang.String
      */
     private static final String MSG_STREAM_LINKED = "stream has already been operated upon or closed";
     /**
      * <code>MSG_CONSUMED</code>
-     * {@link java.lang.String} <p>the constant <code>MSG_CONSUMED</code> field.</p>
+     * {@link java.lang.String} <p>The constant <code>MSG_CONSUMED</code> field.</p>
      * @see java.lang.String
      */
     private static final String MSG_CONSUMED = "source already consumed or closed";
 
     /**
      * <code>sourceStage</code>
-     * {@link io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline} <p>the <code>sourceStage</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline} <p>The <code>sourceStage</code> field.</p>
      * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("rawtypes")
@@ -43,7 +43,7 @@ abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends DefaultBaseStream<
 
     /**
      * <code>previousStage</code>
-     * {@link io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline} <p>the <code>previousStage</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline} <p>The <code>previousStage</code> field.</p>
      * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("rawtypes")
@@ -51,13 +51,13 @@ abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends DefaultBaseStream<
 
     /**
      * <code>sourceOrOpFlags</code>
-     * <p>the <code>sourceOrOpFlags</code> field.</p>
+     * <p>The <code>sourceOrOpFlags</code> field.</p>
      */
     protected final int sourceOrOpFlags;
 
     /**
      * <code>nextStage</code>
-     * {@link io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline} <p>the <code>nextStage</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline} <p>The <code>nextStage</code> field.</p>
      * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("rawtypes")
@@ -65,61 +65,61 @@ abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends DefaultBaseStream<
 
     /**
      * <code>depth</code>
-     * <p>the <code>depth</code> field.</p>
+     * <p>The <code>depth</code> field.</p>
      */
     private int depth;
 
     /**
      * <code>combinedFlags</code>
-     * <p>the <code>combinedFlags</code> field.</p>
+     * <p>The <code>combinedFlags</code> field.</p>
      */
     private int combinedFlags;
 
     /**
      * <code>sourceSpliterator</code>
-     * {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the <code>sourceSpliterator</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The <code>sourceSpliterator</code> field.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
      */
     private DefaultSpliterator<?> sourceSpliterator;
 
     /**
      * <code>sourceSupplier</code>
-     * {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>the <code>sourceSupplier</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The <code>sourceSupplier</code> field.</p>
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
      */
     private SupplierActuator<? extends DefaultSpliterator<?>> sourceSupplier;
 
     /**
      * <code>linkedOrConsumed</code>
-     * <p>the <code>linkedOrConsumed</code> field.</p>
+     * <p>The <code>linkedOrConsumed</code> field.</p>
      */
     private boolean linkedOrConsumed;
 
     /**
      * <code>sourceAnyStateful</code>
-     * <p>the <code>sourceAnyStateful</code> field.</p>
+     * <p>The <code>sourceAnyStateful</code> field.</p>
      */
     private boolean sourceAnyStateful;
 
     /**
      * <code>sourceCloseAction</code>
-     * {@link java.lang.Runnable} <p>the <code>sourceCloseAction</code> field.</p>
+     * {@link java.lang.Runnable} <p>The <code>sourceCloseAction</code> field.</p>
      * @see java.lang.Runnable
      */
     private Runnable sourceCloseAction;
 
     /**
      * <code>parallel</code>
-     * <p>the <code>parallel</code> field.</p>
+     * <p>The <code>parallel</code> field.</p>
      */
     private boolean parallel;
 
     /**
      * <code>DefaultAbstractPipeline</code>
-     * Instantiates a new default abstract pipeline.
-     * @param source      {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>the source parameter is <code>SupplierActuator</code> type.</p>
-     * @param sourceFlags int <p>the source flags parameter is <code>int</code> type.</p>
-     * @param parallel    boolean <p>the parallel parameter is <code>boolean</code> type.</p>
+     * <p>Instantiates a new default abstract pipeline.</p>
+     * @param source      {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The source parameter is <code>SupplierActuator</code> type.</p>
+     * @param sourceFlags int <p>The source flags parameter is <code>int</code> type.</p>
+     * @param parallel    boolean <p>The parallel parameter is <code>boolean</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
      */
     DefaultAbstractPipeline(SupplierActuator<? extends DefaultSpliterator<?>> source,
@@ -137,10 +137,10 @@ abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends DefaultBaseStream<
 
     /**
      * <code>DefaultAbstractPipeline</code>
-     * Instantiates a new default abstract pipeline.
-     * @param source      {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the source parameter is <code>DefaultSpliterator</code> type.</p>
-     * @param sourceFlags int <p>the source flags parameter is <code>int</code> type.</p>
-     * @param parallel    boolean <p>the parallel parameter is <code>boolean</code> type.</p>
+     * <p>Instantiates a new default abstract pipeline.</p>
+     * @param source      {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The source parameter is <code>DefaultSpliterator</code> type.</p>
+     * @param sourceFlags int <p>The source flags parameter is <code>int</code> type.</p>
+     * @param parallel    boolean <p>The parallel parameter is <code>boolean</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
      */
     DefaultAbstractPipeline(DefaultSpliterator<?> source,
@@ -158,9 +158,9 @@ abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends DefaultBaseStream<
 
     /**
      * <code>DefaultAbstractPipeline</code>
-     * Instantiates a new default abstract pipeline.
-     * @param previousStage {@link io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline} <p>the previous stage parameter is <code>DefaultAbstractPipeline</code> type.</p>
-     * @param opFlags       int <p>the op flags parameter is <code>int</code> type.</p>
+     * <p>Instantiates a new default abstract pipeline.</p>
+     * @param previousStage {@link io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline} <p>The previous stage parameter is <code>DefaultAbstractPipeline</code> type.</p>
+     * @param opFlags       int <p>The op flags parameter is <code>int</code> type.</p>
      */
     DefaultAbstractPipeline(DefaultAbstractPipeline<?, E_IN, ?> previousStage, int opFlags) {
         if (previousStage.linkedOrConsumed)
@@ -179,11 +179,11 @@ abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends DefaultBaseStream<
 
     /**
      * <code>evaluate</code>
-     * <p>the method.</p>
-     * @param <R>        {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param terminalOp {@link io.github.nichetoolkit.rest.stream.DefaultTerminalOp} <p>the terminal op parameter is <code>DefaultTerminalOp</code> type.</p>
-     * @return R <p>the return object is <code>R</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The method.</p>
+     * @param <R>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param terminalOp {@link io.github.nichetoolkit.rest.stream.DefaultTerminalOp} <p>The terminal op parameter is <code>DefaultTerminalOp</code> type.</p>
+     * @return R <p>The return object is <code>R</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultTerminalOp
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -200,10 +200,10 @@ abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends DefaultBaseStream<
 
     /**
      * <code>evaluateToArrayNode</code>
-     * <p>the to array node method.</p>
-     * @param generator {@link java.util.function.IntFunction} <p>the generator parameter is <code>IntFunction</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>the to array node return object is <code>DefaultNode</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The to array node method.</p>
+     * @param generator {@link java.util.function.IntFunction} <p>The generator parameter is <code>IntFunction</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The to array node return object is <code>DefaultNode</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.util.function.IntFunction
      * @see io.github.nichetoolkit.rest.stream.DefaultNode
      * @see java.lang.SuppressWarnings
@@ -225,9 +225,9 @@ abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends DefaultBaseStream<
 
     /**
      * <code>sourceStageSpliterator</code>
-     * <p>the stage spliterator method.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the stage spliterator return object is <code>DefaultSpliterator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The stage spliterator method.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The stage spliterator return object is <code>DefaultSpliterator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
      * @see java.lang.SuppressWarnings
      * @see io.github.nichetoolkit.rest.RestException
@@ -332,9 +332,9 @@ abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends DefaultBaseStream<
 
     /**
      * <code>getStreamFlags</code>
-     * <p>the stream flags getter method.</p>
-     * @return int <p>the stream flags return object is <code>int</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The stream flags getter method.</p>
+     * @return int <p>The stream flags return object is <code>int</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
     final int getStreamFlags() throws RestException {
@@ -343,10 +343,10 @@ abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends DefaultBaseStream<
 
     /**
      * <code>sourceSpliterator</code>
-     * <p>the spliterator method.</p>
-     * @param terminalFlags int <p>the terminal flags parameter is <code>int</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the spliterator return object is <code>DefaultSpliterator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The spliterator method.</p>
+     * @param terminalFlags int <p>The terminal flags parameter is <code>int</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The spliterator return object is <code>DefaultSpliterator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
      * @see java.lang.SuppressWarnings
      * @see io.github.nichetoolkit.rest.RestException
@@ -449,8 +449,8 @@ abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends DefaultBaseStream<
 
     /**
      * <code>isOrdered</code>
-     * <p>the ordered method.</p>
-     * @return boolean <p>the ordered return object is <code>boolean</code> type.</p>
+     * <p>The ordered method.</p>
+     * @return boolean <p>The ordered return object is <code>boolean</code> type.</p>
      */
     final boolean isOrdered() {
         return !DefaultStreamOpFlag.ORDERED.isKnown(combinedFlags);
@@ -496,22 +496,22 @@ abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends DefaultBaseStream<
 
     /**
      * <code>getOutputShape</code>
-     * <p>the output shape getter method.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultStreamShape} <p>the output shape return object is <code>DefaultStreamShape</code> type.</p>
+     * <p>The output shape getter method.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultStreamShape} <p>The output shape return object is <code>DefaultStreamShape</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultStreamShape
      */
     abstract DefaultStreamShape getOutputShape();
 
     /**
      * <code>evaluateToNode</code>
-     * <p>the to node method.</p>
-     * @param <P_IN>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param helper      {@link io.github.nichetoolkit.rest.stream.DefaultPipelineHelper} <p>the helper parameter is <code>DefaultPipelineHelper</code> type.</p>
-     * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the spliterator parameter is <code>DefaultSpliterator</code> type.</p>
-     * @param flattenTree boolean <p>the flatten tree parameter is <code>boolean</code> type.</p>
-     * @param generator   {@link java.util.function.IntFunction} <p>the generator parameter is <code>IntFunction</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>the to node return object is <code>DefaultNode</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The to node method.</p>
+     * @param <P_IN>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param helper      {@link io.github.nichetoolkit.rest.stream.DefaultPipelineHelper} <p>The helper parameter is <code>DefaultPipelineHelper</code> type.</p>
+     * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The spliterator parameter is <code>DefaultSpliterator</code> type.</p>
+     * @param flattenTree boolean <p>The flatten tree parameter is <code>boolean</code> type.</p>
+     * @param generator   {@link java.util.function.IntFunction} <p>The generator parameter is <code>IntFunction</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The to node return object is <code>DefaultNode</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultPipelineHelper
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
      * @see java.util.function.IntFunction
@@ -525,13 +525,13 @@ abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends DefaultBaseStream<
 
     /**
      * <code>wrap</code>
-     * <p>the method.</p>
-     * @param <P_IN>     {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param ph         {@link io.github.nichetoolkit.rest.stream.DefaultPipelineHelper} <p>the ph parameter is <code>DefaultPipelineHelper</code> type.</p>
-     * @param supplier   {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>the supplier parameter is <code>SupplierActuator</code> type.</p>
-     * @param isParallel boolean <p>the is parallel parameter is <code>boolean</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the return object is <code>DefaultSpliterator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The method.</p>
+     * @param <P_IN>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param ph         {@link io.github.nichetoolkit.rest.stream.DefaultPipelineHelper} <p>The ph parameter is <code>DefaultPipelineHelper</code> type.</p>
+     * @param supplier   {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The supplier parameter is <code>SupplierActuator</code> type.</p>
+     * @param isParallel boolean <p>The is parallel parameter is <code>boolean</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The return object is <code>DefaultSpliterator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultPipelineHelper
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
@@ -543,10 +543,10 @@ abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends DefaultBaseStream<
 
     /**
      * <code>lazySpliterator</code>
-     * <p>the spliterator method.</p>
-     * @param supplier {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>the supplier parameter is <code>SupplierActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the spliterator return object is <code>DefaultSpliterator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The spliterator method.</p>
+     * @param supplier {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The supplier parameter is <code>SupplierActuator</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The spliterator return object is <code>DefaultSpliterator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
      * @see io.github.nichetoolkit.rest.RestException
@@ -555,10 +555,10 @@ abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends DefaultBaseStream<
 
     /**
      * <code>forEachWithCancel</code>
-     * <p>the each with cancel method.</p>
-     * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the spliterator parameter is <code>DefaultSpliterator</code> type.</p>
-     * @param sink        {@link io.github.nichetoolkit.rest.stream.DefaultSink} <p>the sink parameter is <code>DefaultSink</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The each with cancel method.</p>
+     * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The spliterator parameter is <code>DefaultSpliterator</code> type.</p>
+     * @param sink        {@link io.github.nichetoolkit.rest.stream.DefaultSink} <p>The sink parameter is <code>DefaultSink</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
      * @see io.github.nichetoolkit.rest.stream.DefaultSink
      * @see io.github.nichetoolkit.rest.RestException
@@ -574,18 +574,18 @@ abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends DefaultBaseStream<
 
     /**
      * <code>opIsStateful</code>
-     * <p>the is stateful method.</p>
-     * @return boolean <p>the is stateful return object is <code>boolean</code> type.</p>
+     * <p>The is stateful method.</p>
+     * @return boolean <p>The is stateful return object is <code>boolean</code> type.</p>
      */
     abstract boolean opIsStateful();
 
     /**
      * <code>opWrapSink</code>
-     * <p>the wrap sink method.</p>
-     * @param flags int <p>the flags parameter is <code>int</code> type.</p>
-     * @param sink  {@link io.github.nichetoolkit.rest.stream.DefaultSink} <p>the sink parameter is <code>DefaultSink</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSink} <p>the wrap sink return object is <code>DefaultSink</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The wrap sink method.</p>
+     * @param flags int <p>The flags parameter is <code>int</code> type.</p>
+     * @param sink  {@link io.github.nichetoolkit.rest.stream.DefaultSink} <p>The sink parameter is <code>DefaultSink</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSink} <p>The wrap sink return object is <code>DefaultSink</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultSink
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -593,13 +593,13 @@ abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends DefaultBaseStream<
 
     /**
      * <code>opEvaluateParallel</code>
-     * <p>the evaluate parallel method.</p>
-     * @param <P_IN>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param helper      {@link io.github.nichetoolkit.rest.stream.DefaultPipelineHelper} <p>the helper parameter is <code>DefaultPipelineHelper</code> type.</p>
-     * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the spliterator parameter is <code>DefaultSpliterator</code> type.</p>
-     * @param generator   {@link java.util.function.IntFunction} <p>the generator parameter is <code>IntFunction</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>the evaluate parallel return object is <code>DefaultNode</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The evaluate parallel method.</p>
+     * @param <P_IN>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param helper      {@link io.github.nichetoolkit.rest.stream.DefaultPipelineHelper} <p>The helper parameter is <code>DefaultPipelineHelper</code> type.</p>
+     * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The spliterator parameter is <code>DefaultSpliterator</code> type.</p>
+     * @param generator   {@link java.util.function.IntFunction} <p>The generator parameter is <code>IntFunction</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The evaluate parallel return object is <code>DefaultNode</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultPipelineHelper
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
      * @see java.util.function.IntFunction
@@ -614,12 +614,12 @@ abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends DefaultBaseStream<
 
     /**
      * <code>opEvaluateParallelLazy</code>
-     * <p>the evaluate parallel lazy method.</p>
-     * @param <P_IN>      {@link java.lang.Object} <p>the parameter can be of any type.</p>
-     * @param helper      {@link io.github.nichetoolkit.rest.stream.DefaultPipelineHelper} <p>the helper parameter is <code>DefaultPipelineHelper</code> type.</p>
-     * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the spliterator parameter is <code>DefaultSpliterator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>the evaluate parallel lazy return object is <code>DefaultSpliterator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>the rest exception is <code>RestException</code> type.</p>
+     * <p>The evaluate parallel lazy method.</p>
+     * @param <P_IN>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param helper      {@link io.github.nichetoolkit.rest.stream.DefaultPipelineHelper} <p>The helper parameter is <code>DefaultPipelineHelper</code> type.</p>
+     * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The spliterator parameter is <code>DefaultSpliterator</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The evaluate parallel lazy return object is <code>DefaultSpliterator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultPipelineHelper
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
      * @see java.lang.SuppressWarnings

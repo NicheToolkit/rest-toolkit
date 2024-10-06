@@ -22,8 +22,8 @@ import java.lang.annotation.*;
 public @interface StereoFloat {
     /**
      * <code>value</code>
-     * <p>the method.</p>
-     * @return float <p>the return object is <code>float</code> type.</p>
+     * <p>The method.</p>
+     * @return float <p>The return object is <code>float</code> type.</p>
      */
     float value() default 0;
 }

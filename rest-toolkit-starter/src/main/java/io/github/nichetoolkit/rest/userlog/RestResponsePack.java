@@ -21,94 +21,94 @@ import lombok.Data;
 public class RestResponsePack {
     /**
      * <code>time</code>
-     * {@link java.lang.Long} <p>the <code>time</code> field.</p>
+     * {@link java.lang.Long} <p>The <code>time</code> field.</p>
      * @see java.lang.Long
      */
     protected Long time;
     /**
      * <code>startTime</code>
-     * {@link java.lang.Long} <p>the <code>startTime</code> field.</p>
+     * {@link java.lang.Long} <p>The <code>startTime</code> field.</p>
      * @see java.lang.Long
      */
     protected Long startTime;
     /**
      * <code>endTime</code>
-     * {@link java.lang.Long} <p>the <code>endTime</code> field.</p>
+     * {@link java.lang.Long} <p>The <code>endTime</code> field.</p>
      * @see java.lang.Long
      */
     protected Long endTime;
     /**
      * <code>costTime</code>
-     * {@link java.lang.Long} <p>the <code>costTime</code> field.</p>
+     * {@link java.lang.Long} <p>The <code>costTime</code> field.</p>
      * @see java.lang.Long
      */
     protected Long costTime;
     /**
      * <code>status</code>
-     * {@link java.lang.Integer} <p>the <code>status</code> field.</p>
+     * {@link java.lang.Integer} <p>The <code>status</code> field.</p>
      * @see java.lang.Integer
      */
     protected Integer status;
     /**
      * <code>message</code>
-     * {@link java.lang.String} <p>the <code>message</code> field.</p>
+     * {@link java.lang.String} <p>The <code>message</code> field.</p>
      * @see java.lang.String
      */
     protected String message;
     /**
      * <code>error</code>
-     * {@link java.lang.String} <p>the <code>error</code> field.</p>
+     * {@link java.lang.String} <p>The <code>error</code> field.</p>
      * @see java.lang.String
      */
     protected String error;
     /**
      * <code>method</code>
-     * {@link java.lang.String} <p>the <code>method</code> field.</p>
+     * {@link java.lang.String} <p>The <code>method</code> field.</p>
      * @see java.lang.String
      */
     protected String method;
     /**
      * <code>mediaType</code>
-     * {@link java.lang.String} <p>the <code>mediaType</code> field.</p>
+     * {@link java.lang.String} <p>The <code>mediaType</code> field.</p>
      * @see java.lang.String
      */
     protected String mediaType;
     /**
      * <code>result</code>
-     * {@link java.lang.String} <p>the <code>result</code> field.</p>
+     * {@link java.lang.String} <p>The <code>result</code> field.</p>
      * @see java.lang.String
      */
     protected String result;
     /**
      * <code>resultString</code>
-     * {@link java.lang.String} <p>the <code>resultString</code> field.</p>
+     * {@link java.lang.String} <p>The <code>resultString</code> field.</p>
      * @see java.lang.String
      */
     protected String resultString;
     /**
      * <code>restResult</code>
-     * {@link io.github.nichetoolkit.rest.RestResult} <p>the <code>restResult</code> field.</p>
+     * {@link io.github.nichetoolkit.rest.RestResult} <p>The <code>restResult</code> field.</p>
      * @see io.github.nichetoolkit.rest.RestResult
      */
     protected RestResult<?> restResult;
     /**
      * <code>data</code>
-     * {@link java.lang.String} <p>the <code>data</code> field.</p>
+     * {@link java.lang.String} <p>The <code>data</code> field.</p>
      * @see java.lang.String
      */
     protected String data;
 
     /**
      * <code>RestResponsePack</code>
-     * Instantiates a new rest response pack.
+     * <p>Instantiates a new rest response pack.</p>
      */
     public RestResponsePack() {
     }
 
     /**
      * <code>RestResponsePack</code>
-     * Instantiates a new rest response pack.
-     * @param builder {@link io.github.nichetoolkit.rest.userlog.RestResponsePack.Builder} <p>the builder parameter is <code>Builder</code> type.</p>
+     * <p>Instantiates a new rest response pack.</p>
+     * @param builder {@link io.github.nichetoolkit.rest.userlog.RestResponsePack.Builder} <p>The builder parameter is <code>Builder</code> type.</p>
      * @see io.github.nichetoolkit.rest.userlog.RestResponsePack.Builder
      */
     private RestResponsePack(Builder builder) {
@@ -129,8 +129,8 @@ public class RestResponsePack {
 
     /**
      * <code>isSuccess</code>
-     * <p>the success method.</p>
-     * @return boolean <p>the success return object is <code>boolean</code> type.</p>
+     * <p>The success method.</p>
+     * @return boolean <p>The success return object is <code>boolean</code> type.</p>
      */
     public boolean isSuccess() {
         return RestErrorStatus.SUCCESS.getStatus().equals(this.status);
@@ -145,94 +145,94 @@ public class RestResponsePack {
     public static class Builder {
         /**
          * <code>time</code>
-         * {@link java.lang.Long} <p>the <code>time</code> field.</p>
+         * {@link java.lang.Long} <p>The <code>time</code> field.</p>
          * @see java.lang.Long
          */
         protected Long time;
         /**
          * <code>startTime</code>
-         * {@link java.lang.Long} <p>the <code>startTime</code> field.</p>
+         * {@link java.lang.Long} <p>The <code>startTime</code> field.</p>
          * @see java.lang.Long
          */
         protected Long startTime;
         /**
          * <code>endTime</code>
-         * {@link java.lang.Long} <p>the <code>endTime</code> field.</p>
+         * {@link java.lang.Long} <p>The <code>endTime</code> field.</p>
          * @see java.lang.Long
          */
         protected Long endTime;
         /**
          * <code>costTime</code>
-         * {@link java.lang.Long} <p>the <code>costTime</code> field.</p>
+         * {@link java.lang.Long} <p>The <code>costTime</code> field.</p>
          * @see java.lang.Long
          */
         protected Long costTime;
         /**
          * <code>status</code>
-         * {@link java.lang.Integer} <p>the <code>status</code> field.</p>
+         * {@link java.lang.Integer} <p>The <code>status</code> field.</p>
          * @see java.lang.Integer
          */
         protected Integer status;
         /**
          * <code>message</code>
-         * {@link java.lang.String} <p>the <code>message</code> field.</p>
+         * {@link java.lang.String} <p>The <code>message</code> field.</p>
          * @see java.lang.String
          */
         protected String message;
         /**
          * <code>error</code>
-         * {@link java.lang.String} <p>the <code>error</code> field.</p>
+         * {@link java.lang.String} <p>The <code>error</code> field.</p>
          * @see java.lang.String
          */
         protected String error;
         /**
          * <code>method</code>
-         * {@link java.lang.String} <p>the <code>method</code> field.</p>
+         * {@link java.lang.String} <p>The <code>method</code> field.</p>
          * @see java.lang.String
          */
         protected String method;
         /**
          * <code>mediaType</code>
-         * {@link java.lang.String} <p>the <code>mediaType</code> field.</p>
+         * {@link java.lang.String} <p>The <code>mediaType</code> field.</p>
          * @see java.lang.String
          */
         protected String mediaType;
         /**
          * <code>result</code>
-         * {@link java.lang.String} <p>the <code>result</code> field.</p>
+         * {@link java.lang.String} <p>The <code>result</code> field.</p>
          * @see java.lang.String
          */
         protected String result;
         /**
          * <code>resultString</code>
-         * {@link java.lang.String} <p>the <code>resultString</code> field.</p>
+         * {@link java.lang.String} <p>The <code>resultString</code> field.</p>
          * @see java.lang.String
          */
         protected String resultString;
         /**
          * <code>restResult</code>
-         * {@link io.github.nichetoolkit.rest.RestResult} <p>the <code>restResult</code> field.</p>
+         * {@link io.github.nichetoolkit.rest.RestResult} <p>The <code>restResult</code> field.</p>
          * @see io.github.nichetoolkit.rest.RestResult
          */
         protected RestResult<?> restResult;
         /**
          * <code>data</code>
-         * {@link java.lang.String} <p>the <code>data</code> field.</p>
+         * {@link java.lang.String} <p>The <code>data</code> field.</p>
          * @see java.lang.String
          */
         protected String data;
 
         /**
          * <code>Builder</code>
-         * Instantiates a new builder.
+         * <p>Instantiates a new builder.</p>
          */
         public Builder() {
         }
 
         /**
          * <code>time</code>
-         * <p>the method.</p>
-         * @return {@link io.github.nichetoolkit.rest.userlog.RestResponsePack.Builder} <p>the return object is <code>Builder</code> type.</p>
+         * <p>The method.</p>
+         * @return {@link io.github.nichetoolkit.rest.userlog.RestResponsePack.Builder} <p>The return object is <code>Builder</code> type.</p>
          */
         public RestResponsePack.Builder time() {
             this.time = System.currentTimeMillis();
@@ -241,9 +241,9 @@ public class RestResponsePack {
 
         /**
          * <code>time</code>
-         * <p>the method.</p>
-         * @param time {@link java.lang.Long} <p>the time parameter is <code>Long</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.userlog.RestResponsePack.Builder} <p>the return object is <code>Builder</code> type.</p>
+         * <p>The method.</p>
+         * @param time {@link java.lang.Long} <p>The time parameter is <code>Long</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.userlog.RestResponsePack.Builder} <p>The return object is <code>Builder</code> type.</p>
          * @see java.lang.Long
          */
         public RestResponsePack.Builder time(Long time) {
@@ -253,9 +253,9 @@ public class RestResponsePack {
 
         /**
          * <code>startTime</code>
-         * <p>the time method.</p>
-         * @param startTime {@link java.lang.Long} <p>the start time parameter is <code>Long</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.userlog.RestResponsePack.Builder} <p>the time return object is <code>Builder</code> type.</p>
+         * <p>The time method.</p>
+         * @param startTime {@link java.lang.Long} <p>The start time parameter is <code>Long</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.userlog.RestResponsePack.Builder} <p>The time return object is <code>Builder</code> type.</p>
          * @see java.lang.Long
          */
         public RestResponsePack.Builder startTime(Long startTime) {
@@ -265,9 +265,9 @@ public class RestResponsePack {
 
         /**
          * <code>endTime</code>
-         * <p>the time method.</p>
-         * @param endTime {@link java.lang.Long} <p>the end time parameter is <code>Long</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.userlog.RestResponsePack.Builder} <p>the time return object is <code>Builder</code> type.</p>
+         * <p>The time method.</p>
+         * @param endTime {@link java.lang.Long} <p>The end time parameter is <code>Long</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.userlog.RestResponsePack.Builder} <p>The time return object is <code>Builder</code> type.</p>
          * @see java.lang.Long
          */
         public RestResponsePack.Builder endTime(Long endTime) {
@@ -277,9 +277,9 @@ public class RestResponsePack {
 
         /**
          * <code>costTime</code>
-         * <p>the time method.</p>
-         * @param costTime {@link java.lang.Long} <p>the cost time parameter is <code>Long</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.userlog.RestResponsePack.Builder} <p>the time return object is <code>Builder</code> type.</p>
+         * <p>The time method.</p>
+         * @param costTime {@link java.lang.Long} <p>The cost time parameter is <code>Long</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.userlog.RestResponsePack.Builder} <p>The time return object is <code>Builder</code> type.</p>
          * @see java.lang.Long
          */
         public RestResponsePack.Builder costTime(Long costTime) {
@@ -290,9 +290,9 @@ public class RestResponsePack {
 
         /**
          * <code>status</code>
-         * <p>the method.</p>
-         * @param status {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.userlog.RestResponsePack.Builder} <p>the return object is <code>Builder</code> type.</p>
+         * <p>The method.</p>
+         * @param status {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.userlog.RestResponsePack.Builder} <p>The return object is <code>Builder</code> type.</p>
          * @see java.lang.Integer
          */
         public RestResponsePack.Builder status(Integer status) {
@@ -302,9 +302,9 @@ public class RestResponsePack {
 
         /**
          * <code>error</code>
-         * <p>the method.</p>
-         * @param error {@link java.lang.String} <p>the error parameter is <code>String</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.userlog.RestResponsePack.Builder} <p>the return object is <code>Builder</code> type.</p>
+         * <p>The method.</p>
+         * @param error {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.userlog.RestResponsePack.Builder} <p>The return object is <code>Builder</code> type.</p>
          * @see java.lang.String
          */
         public RestResponsePack.Builder error(String error) {
@@ -314,9 +314,9 @@ public class RestResponsePack {
 
         /**
          * <code>message</code>
-         * <p>the method.</p>
-         * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.userlog.RestResponsePack.Builder} <p>the return object is <code>Builder</code> type.</p>
+         * <p>The method.</p>
+         * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.userlog.RestResponsePack.Builder} <p>The return object is <code>Builder</code> type.</p>
          * @see java.lang.String
          */
         public RestResponsePack.Builder message(String message) {
@@ -326,9 +326,9 @@ public class RestResponsePack {
 
         /**
          * <code>mediaType</code>
-         * <p>the type method.</p>
-         * @param mediaType {@link java.lang.String} <p>the media type parameter is <code>String</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.userlog.RestResponsePack.Builder} <p>the type return object is <code>Builder</code> type.</p>
+         * <p>The type method.</p>
+         * @param mediaType {@link java.lang.String} <p>The media type parameter is <code>String</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.userlog.RestResponsePack.Builder} <p>The type return object is <code>Builder</code> type.</p>
          * @see java.lang.String
          */
         public RestResponsePack.Builder mediaType(String mediaType) {
@@ -338,9 +338,9 @@ public class RestResponsePack {
 
         /**
          * <code>method</code>
-         * <p>the method.</p>
-         * @param method {@link java.lang.String} <p>the method parameter is <code>String</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.userlog.RestResponsePack.Builder} <p>the return object is <code>Builder</code> type.</p>
+         * <p>The method.</p>
+         * @param method {@link java.lang.String} <p>The method parameter is <code>String</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.userlog.RestResponsePack.Builder} <p>The return object is <code>Builder</code> type.</p>
          * @see java.lang.String
          */
         public RestResponsePack.Builder method(String method) {
@@ -350,9 +350,9 @@ public class RestResponsePack {
 
         /**
          * <code>result</code>
-         * <p>the method.</p>
-         * @param result {@link java.lang.String} <p>the result parameter is <code>String</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.userlog.RestResponsePack.Builder} <p>the return object is <code>Builder</code> type.</p>
+         * <p>The method.</p>
+         * @param result {@link java.lang.String} <p>The result parameter is <code>String</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.userlog.RestResponsePack.Builder} <p>The return object is <code>Builder</code> type.</p>
          * @see java.lang.String
          */
         public RestResponsePack.Builder result(String result) {
@@ -362,9 +362,9 @@ public class RestResponsePack {
 
         /**
          * <code>resultString</code>
-         * <p>the string method.</p>
-         * @param resultString {@link java.lang.String} <p>the result string parameter is <code>String</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.userlog.RestResponsePack.Builder} <p>the string return object is <code>Builder</code> type.</p>
+         * <p>The string method.</p>
+         * @param resultString {@link java.lang.String} <p>The result string parameter is <code>String</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.userlog.RestResponsePack.Builder} <p>The string return object is <code>Builder</code> type.</p>
          * @see java.lang.String
          */
         public RestResponsePack.Builder resultString(String resultString) {
@@ -374,9 +374,9 @@ public class RestResponsePack {
 
         /**
          * <code>restResult</code>
-         * <p>the result method.</p>
-         * @param restResult {@link io.github.nichetoolkit.rest.RestResult} <p>the rest result parameter is <code>RestResult</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.userlog.RestResponsePack.Builder} <p>the result return object is <code>Builder</code> type.</p>
+         * <p>The result method.</p>
+         * @param restResult {@link io.github.nichetoolkit.rest.RestResult} <p>The rest result parameter is <code>RestResult</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.userlog.RestResponsePack.Builder} <p>The result return object is <code>Builder</code> type.</p>
          * @see io.github.nichetoolkit.rest.RestResult
          */
         public RestResponsePack.Builder restResult(RestResult<?> restResult) {
@@ -387,9 +387,9 @@ public class RestResponsePack {
 
         /**
          * <code>data</code>
-         * <p>the method.</p>
-         * @param data {@link java.lang.String} <p>the data parameter is <code>String</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.userlog.RestResponsePack.Builder} <p>the return object is <code>Builder</code> type.</p>
+         * <p>The method.</p>
+         * @param data {@link java.lang.String} <p>The data parameter is <code>String</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.userlog.RestResponsePack.Builder} <p>The return object is <code>Builder</code> type.</p>
          * @see java.lang.String
          */
         public RestResponsePack.Builder data(String data) {
@@ -399,8 +399,8 @@ public class RestResponsePack {
 
         /**
          * <code>build</code>
-         * <p>the method.</p>
-         * @return {@link io.github.nichetoolkit.rest.userlog.RestResponsePack} <p>the return object is <code>RestResponsePack</code> type.</p>
+         * <p>The method.</p>
+         * @return {@link io.github.nichetoolkit.rest.userlog.RestResponsePack} <p>The return object is <code>RestResponsePack</code> type.</p>
          */
         public RestResponsePack build() {
             return new RestResponsePack(this);

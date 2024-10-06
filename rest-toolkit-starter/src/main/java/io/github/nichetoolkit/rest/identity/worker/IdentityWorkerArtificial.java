@@ -18,38 +18,38 @@ import java.util.Objects;
 class IdentityWorkerArtificial implements IdentityWorker {
     /**
      * <code>name</code>
-     * {@link java.lang.String} <p>the <code>name</code> field.</p>
+     * {@link java.lang.String} <p>The <code>name</code> field.</p>
      * @see java.lang.String
      */
     private final String name;
     /**
      * <code>lastTime</code>
-     * {@link java.lang.Long} <p>the <code>lastTime</code> field.</p>
+     * {@link java.lang.Long} <p>The <code>lastTime</code> field.</p>
      * @see java.lang.Long
      */
     private Long lastTime = IdentityWorkerConfig.TIMESTAMP;
     /**
      * <code>lastTag</code>
-     * {@link java.lang.Long} <p>the <code>lastTag</code> field.</p>
+     * {@link java.lang.Long} <p>The <code>lastTag</code> field.</p>
      * @see java.lang.Long
      */
     private Long lastTag = IdentityWorkerConfig.DEFAULT_TAG;
     /**
      * <code>sequence</code>
-     * {@link java.lang.Long} <p>the <code>sequence</code> field.</p>
+     * {@link java.lang.Long} <p>The <code>sequence</code> field.</p>
      * @see java.lang.Long
      */
     private Long sequence = IdentityWorkerConfig.SEQUENCE;
     /**
      * <code>offset</code>
-     * {@link java.lang.Long} <p>the <code>offset</code> field.</p>
+     * {@link java.lang.Long} <p>The <code>offset</code> field.</p>
      * @see java.lang.Long
      */
     private Long offset = IdentityWorkerConfig.OFFSET;
 
     /**
      * <code>IdentityWorkerArtificial</code>
-     * Instantiates a new identity worker artificial.
+     * <p>Instantiates a new identity worker artificial.</p>
      */
     public IdentityWorkerArtificial() {
         this.name = RestConstants.ARTIFICIAL_WORKER_NAME;
@@ -58,8 +58,8 @@ class IdentityWorkerArtificial implements IdentityWorker {
 
     /**
      * <code>IdentityWorkerArtificial</code>
-     * Instantiates a new identity worker artificial.
-     * @param name {@link java.lang.String} <p>the name parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new identity worker artificial.</p>
+     * @param name {@link java.lang.String} <p>The name parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public IdentityWorkerArtificial(String name) {
@@ -69,8 +69,8 @@ class IdentityWorkerArtificial implements IdentityWorker {
 
     /**
      * <code>IdentityWorkerArtificial</code>
-     * Instantiates a new identity worker artificial.
-     * @param offset {@link java.lang.Long} <p>the offset parameter is <code>Long</code> type.</p>
+     * <p>Instantiates a new identity worker artificial.</p>
+     * @param offset {@link java.lang.Long} <p>The offset parameter is <code>Long</code> type.</p>
      * @see java.lang.Long
      */
     public IdentityWorkerArtificial(Long offset) {

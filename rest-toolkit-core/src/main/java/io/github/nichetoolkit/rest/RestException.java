@@ -14,7 +14,7 @@ public class RestException extends DefaultException {
 
     /**
      * <code>RestException</code>
-     * Instantiates a new rest exception.
+     * <p>Instantiates a new rest exception.</p>
      */
     public RestException() {
         super(RestErrorStatus.UNKNOWN_ERROR);
@@ -22,8 +22,8 @@ public class RestException extends DefaultException {
 
     /**
      * <code>RestException</code>
-     * Instantiates a new rest exception.
-     * @param supplier {@link java.util.function.Supplier} <p>the supplier parameter is <code>Supplier</code> type.</p>
+     * <p>Instantiates a new rest exception.</p>
+     * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
      * @see java.util.function.Supplier
      */
     public RestException(Supplier<RestStatus> supplier) {
@@ -32,8 +32,8 @@ public class RestException extends DefaultException {
 
     /**
      * <code>RestException</code>
-     * Instantiates a new rest exception.
-     * @param error {@link io.github.nichetoolkit.rest.RestError} <p>the error parameter is <code>RestError</code> type.</p>
+     * <p>Instantiates a new rest exception.</p>
+     * @param error {@link io.github.nichetoolkit.rest.RestError} <p>The error parameter is <code>RestError</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
      */
     public RestException(RestError error) {
@@ -42,8 +42,8 @@ public class RestException extends DefaultException {
 
     /**
      * <code>RestException</code>
-     * Instantiates a new rest exception.
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new rest exception.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public RestException(String message) {
@@ -52,8 +52,8 @@ public class RestException extends DefaultException {
 
     /**
      * <code>RestException</code>
-     * Instantiates a new rest exception.
-     * @param status {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
+     * <p>Instantiates a new rest exception.</p>
+     * @param status {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
      * @see java.lang.Integer
      */
     public RestException(Integer status) {
@@ -62,8 +62,8 @@ public class RestException extends DefaultException {
 
     /**
      * <code>RestException</code>
-     * Instantiates a new rest exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * <p>Instantiates a new rest exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
     public RestException(RestStatus status) {
@@ -72,8 +72,8 @@ public class RestException extends DefaultException {
 
     /**
      * <code>RestException</code>
-     * Instantiates a new rest exception.
-     * @param cause {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new rest exception.</p>
+     * @param cause {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see java.lang.Throwable
      */
     public RestException(Throwable cause) {
@@ -82,9 +82,9 @@ public class RestException extends DefaultException {
 
     /**
      * <code>RestException</code>
-     * Instantiates a new rest exception.
-     * @param status  {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
+     * <p>Instantiates a new rest exception.</p>
+     * @param status  {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      */
@@ -94,9 +94,9 @@ public class RestException extends DefaultException {
 
     /**
      * <code>RestException</code>
-     * Instantiates a new rest exception.
-     * @param status     {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>the rest status parameter is <code>RestStatus</code> type.</p>
+     * <p>Instantiates a new rest exception.</p>
+     * @param status     {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>The rest status parameter is <code>RestStatus</code> type.</p>
      * @see java.lang.Integer
      * @see io.github.nichetoolkit.rest.RestStatus
      */
@@ -106,9 +106,9 @@ public class RestException extends DefaultException {
 
     /**
      * <code>RestException</code>
-     * Instantiates a new rest exception.
-     * @param status {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param error  {@link io.github.nichetoolkit.rest.RestError} <p>the error parameter is <code>RestError</code> type.</p>
+     * <p>Instantiates a new rest exception.</p>
+     * @param status {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param error  {@link io.github.nichetoolkit.rest.RestError} <p>The error parameter is <code>RestError</code> type.</p>
      * @see java.lang.Integer
      * @see io.github.nichetoolkit.rest.RestError
      */
@@ -118,9 +118,9 @@ public class RestException extends DefaultException {
 
     /**
      * <code>RestException</code>
-     * Instantiates a new rest exception.
-     * @param status {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param cause  {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new rest exception.</p>
+     * @param status {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param cause  {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.Throwable
      */
@@ -130,9 +130,9 @@ public class RestException extends DefaultException {
 
     /**
      * <code>RestException</code>
-     * Instantiates a new rest exception.
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param status  {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
+     * <p>Instantiates a new rest exception.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param status  {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestStatus
      */
@@ -142,9 +142,9 @@ public class RestException extends DefaultException {
 
     /**
      * <code>RestException</code>
-     * Instantiates a new rest exception.
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param error   {@link io.github.nichetoolkit.rest.RestError} <p>the error parameter is <code>RestError</code> type.</p>
+     * <p>Instantiates a new rest exception.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param error   {@link io.github.nichetoolkit.rest.RestError} <p>The error parameter is <code>RestError</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestError
      */
@@ -154,9 +154,9 @@ public class RestException extends DefaultException {
 
     /**
      * <code>RestException</code>
-     * Instantiates a new rest exception.
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param cause   {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new rest exception.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param cause   {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Throwable
      */
@@ -166,9 +166,9 @@ public class RestException extends DefaultException {
 
     /**
      * <code>RestException</code>
-     * Instantiates a new rest exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param error  {@link io.github.nichetoolkit.rest.RestError} <p>the error parameter is <code>RestError</code> type.</p>
+     * <p>Instantiates a new rest exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param error  {@link io.github.nichetoolkit.rest.RestError} <p>The error parameter is <code>RestError</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see io.github.nichetoolkit.rest.RestError
      */
@@ -178,9 +178,9 @@ public class RestException extends DefaultException {
 
     /**
      * <code>RestException</code>
-     * Instantiates a new rest exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param cause  {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new rest exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param cause  {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.Throwable
      */
@@ -190,10 +190,10 @@ public class RestException extends DefaultException {
 
     /**
      * <code>RestException</code>
-     * Instantiates a new rest exception.
-     * @param status  {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param cause   {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new rest exception.</p>
+     * @param status  {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param cause   {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      * @see java.lang.Throwable
@@ -204,10 +204,10 @@ public class RestException extends DefaultException {
 
     /**
      * <code>RestException</code>
-     * Instantiates a new rest exception.
-     * @param status     {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>the rest status parameter is <code>RestStatus</code> type.</p>
-     * @param cause      {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new rest exception.</p>
+     * @param status     {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>The rest status parameter is <code>RestStatus</code> type.</p>
+     * @param cause      {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see java.lang.Integer
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.Throwable
@@ -218,10 +218,10 @@ public class RestException extends DefaultException {
 
     /**
      * <code>RestException</code>
-     * Instantiates a new rest exception.
-     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param error  {@link io.github.nichetoolkit.rest.RestError} <p>the error parameter is <code>RestError</code> type.</p>
-     * @param cause  {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new rest exception.</p>
+     * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param error  {@link io.github.nichetoolkit.rest.RestError} <p>The error parameter is <code>RestError</code> type.</p>
+     * @param cause  {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see io.github.nichetoolkit.rest.RestError
      * @see java.lang.Throwable
@@ -232,10 +232,10 @@ public class RestException extends DefaultException {
 
     /**
      * <code>RestException</code>
-     * Instantiates a new rest exception.
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param status  {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param cause   {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new rest exception.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param status  {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param cause   {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.Throwable
@@ -246,10 +246,10 @@ public class RestException extends DefaultException {
 
     /**
      * <code>RestException</code>
-     * Instantiates a new rest exception.
-     * @param message {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param error   {@link io.github.nichetoolkit.rest.RestError} <p>the error parameter is <code>RestError</code> type.</p>
-     * @param cause   {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
+     * <p>Instantiates a new rest exception.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param error   {@link io.github.nichetoolkit.rest.RestError} <p>The error parameter is <code>RestError</code> type.</p>
+     * @param cause   {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestError
      * @see java.lang.Throwable
@@ -260,11 +260,11 @@ public class RestException extends DefaultException {
 
     /**
      * <code>RestException</code>
-     * Instantiates a new rest exception.
-     * @param message            {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param cause              {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
-     * @param enableSuppression  boolean <p>the enable suppression parameter is <code>boolean</code> type.</p>
-     * @param writableStackTrace boolean <p>the writable stack trace parameter is <code>boolean</code> type.</p>
+     * <p>Instantiates a new rest exception.</p>
+     * @param message            {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param cause              {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
+     * @param enableSuppression  boolean <p>The enable suppression parameter is <code>boolean</code> type.</p>
+     * @param writableStackTrace boolean <p>The writable stack trace parameter is <code>boolean</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Throwable
      */
@@ -274,11 +274,11 @@ public class RestException extends DefaultException {
 
     /**
      * <code>RestException</code>
-     * Instantiates a new rest exception.
-     * @param status             {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param cause              {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
-     * @param enableSuppression  boolean <p>the enable suppression parameter is <code>boolean</code> type.</p>
-     * @param writableStackTrace boolean <p>the writable stack trace parameter is <code>boolean</code> type.</p>
+     * <p>Instantiates a new rest exception.</p>
+     * @param status             {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param cause              {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
+     * @param enableSuppression  boolean <p>The enable suppression parameter is <code>boolean</code> type.</p>
+     * @param writableStackTrace boolean <p>The writable stack trace parameter is <code>boolean</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.Throwable
      */
@@ -288,12 +288,12 @@ public class RestException extends DefaultException {
 
     /**
      * <code>RestException</code>
-     * Instantiates a new rest exception.
-     * @param status             {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param message            {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param cause              {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
-     * @param enableSuppression  boolean <p>the enable suppression parameter is <code>boolean</code> type.</p>
-     * @param writableStackTrace boolean <p>the writable stack trace parameter is <code>boolean</code> type.</p>
+     * <p>Instantiates a new rest exception.</p>
+     * @param status             {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param message            {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param cause              {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
+     * @param enableSuppression  boolean <p>The enable suppression parameter is <code>boolean</code> type.</p>
+     * @param writableStackTrace boolean <p>The writable stack trace parameter is <code>boolean</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      * @see java.lang.Throwable
@@ -304,12 +304,12 @@ public class RestException extends DefaultException {
 
     /**
      * <code>RestException</code>
-     * Instantiates a new rest exception.
-     * @param status             {@link java.lang.Integer} <p>the status parameter is <code>Integer</code> type.</p>
-     * @param restStatus         {@link io.github.nichetoolkit.rest.RestStatus} <p>the rest status parameter is <code>RestStatus</code> type.</p>
-     * @param cause              {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
-     * @param enableSuppression  boolean <p>the enable suppression parameter is <code>boolean</code> type.</p>
-     * @param writableStackTrace boolean <p>the writable stack trace parameter is <code>boolean</code> type.</p>
+     * <p>Instantiates a new rest exception.</p>
+     * @param status             {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param restStatus         {@link io.github.nichetoolkit.rest.RestStatus} <p>The rest status parameter is <code>RestStatus</code> type.</p>
+     * @param cause              {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
+     * @param enableSuppression  boolean <p>The enable suppression parameter is <code>boolean</code> type.</p>
+     * @param writableStackTrace boolean <p>The writable stack trace parameter is <code>boolean</code> type.</p>
      * @see java.lang.Integer
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.Throwable
@@ -320,12 +320,12 @@ public class RestException extends DefaultException {
 
     /**
      * <code>RestException</code>
-     * Instantiates a new rest exception.
-     * @param message            {@link java.lang.String} <p>the message parameter is <code>String</code> type.</p>
-     * @param status             {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param cause              {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
-     * @param enableSuppression  boolean <p>the enable suppression parameter is <code>boolean</code> type.</p>
-     * @param writableStackTrace boolean <p>the writable stack trace parameter is <code>boolean</code> type.</p>
+     * <p>Instantiates a new rest exception.</p>
+     * @param message            {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param status             {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param cause              {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
+     * @param enableSuppression  boolean <p>The enable suppression parameter is <code>boolean</code> type.</p>
+     * @param writableStackTrace boolean <p>The writable stack trace parameter is <code>boolean</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.Throwable
@@ -336,12 +336,12 @@ public class RestException extends DefaultException {
 
     /**
      * <code>RestException</code>
-     * Instantiates a new rest exception.
-     * @param status             {@link io.github.nichetoolkit.rest.RestStatus} <p>the status parameter is <code>RestStatus</code> type.</p>
-     * @param error              {@link io.github.nichetoolkit.rest.RestError} <p>the error parameter is <code>RestError</code> type.</p>
-     * @param cause              {@link java.lang.Throwable} <p>the cause parameter is <code>Throwable</code> type.</p>
-     * @param enableSuppression  boolean <p>the enable suppression parameter is <code>boolean</code> type.</p>
-     * @param writableStackTrace boolean <p>the writable stack trace parameter is <code>boolean</code> type.</p>
+     * <p>Instantiates a new rest exception.</p>
+     * @param status             {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
+     * @param error              {@link io.github.nichetoolkit.rest.RestError} <p>The error parameter is <code>RestError</code> type.</p>
+     * @param cause              {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
+     * @param enableSuppression  boolean <p>The enable suppression parameter is <code>boolean</code> type.</p>
+     * @param writableStackTrace boolean <p>The writable stack trace parameter is <code>boolean</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see io.github.nichetoolkit.rest.RestError
      * @see java.lang.Throwable
