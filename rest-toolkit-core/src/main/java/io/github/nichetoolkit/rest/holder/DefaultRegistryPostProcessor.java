@@ -1,9 +1,7 @@
 package io.github.nichetoolkit.rest.holder;
 
 import io.github.nichetoolkit.rest.RestIntend;
-import io.github.nichetoolkit.rest.RestOptional;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
-import io.github.nichetoolkit.rest.util.LoggerUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
@@ -12,9 +10,7 @@ import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProce
 import org.springframework.core.io.support.SpringFactoriesLoader;
 import org.springframework.lang.NonNull;
 
-import java.util.Collection;
 import java.util.List;
-import java.util.Map;
 
 /**
  * <code>DefaultRegistryPostProcessor</code>
