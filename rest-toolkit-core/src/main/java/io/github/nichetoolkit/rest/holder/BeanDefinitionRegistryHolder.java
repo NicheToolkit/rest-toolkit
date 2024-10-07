@@ -62,7 +62,6 @@ public class BeanDefinitionRegistryHolder {
     public static <T> T registerBeanDefinition(String beanName, Class<T> beanType) {
         BeanDefinition beanDefinition = BeanDefinitionBuilder.genericBeanDefinition(beanType).getBeanDefinition();
         BEAN_DEFINITION_REGISTRY.registerBeanDefinition(beanName, beanDefinition);
-        ApplicationContextHolder.refreshOfContext();
         return ApplicationContextHolder.beanOfType(beanName, beanType);
     }
 
@@ -78,7 +77,6 @@ public class BeanDefinitionRegistryHolder {
         BeanDefinition beanDefinition = BeanDefinitionBuilder.genericBeanDefinition(beanType).getBeanDefinition();
         String beanName = DefaultBeanNameGenerator.INSTANCE.generateBeanName(beanDefinition, BEAN_DEFINITION_REGISTRY);
         BEAN_DEFINITION_REGISTRY.registerBeanDefinition(beanName, beanDefinition);
-        ApplicationContextHolder.refreshOfContext();
         return ApplicationContextHolder.beanOfType(beanName, beanType);
     }
 
