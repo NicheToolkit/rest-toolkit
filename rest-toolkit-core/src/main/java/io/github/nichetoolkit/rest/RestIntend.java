@@ -20,7 +20,6 @@ public interface RestIntend<B extends RestIntend<B>> extends InitializingBean {
 
     @Override
     default void afterPropertiesSet() throws Exception {
-        LoggerUtils.debug("The intend bean of [{}] type for named '{}' has be initiated.", beanType().getName());
     }
 
     /**
@@ -28,6 +27,7 @@ public interface RestIntend<B extends RestIntend<B>> extends InitializingBean {
      * <p>The autowire properties set method.</p>
      */
     default void afterAutowirePropertiesSet() {
+        LoggerUtils.debug("The intend bean of [{}] type for named '{}' has be initiated.", beanType().getName());
     }
 
     /**
