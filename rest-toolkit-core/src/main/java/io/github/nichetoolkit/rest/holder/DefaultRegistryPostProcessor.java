@@ -4,8 +4,6 @@ import io.github.nichetoolkit.rest.RestIntend;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
-import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProcessor;
@@ -26,7 +24,6 @@ import java.util.List;
 public class DefaultRegistryPostProcessor implements BeanDefinitionRegistryPostProcessor {
 
     @Override
-
     public void postProcessBeanDefinitionRegistry(@NonNull BeanDefinitionRegistry beanDefinitionRegistry) throws BeansException {
         BeanDefinitionRegistryHolder.initBeanDefinitionRegistry(beanDefinitionRegistry);
     }
@@ -37,6 +34,13 @@ public class DefaultRegistryPostProcessor implements BeanDefinitionRegistryPostP
         intendBeanRegistryAndAutowireProperties();
     }
 
+    /**
+     * <code>intendBeanRegistryAndAutowireProperties</code>
+     * <p>The bean registry and autowire properties method.</p>
+     * @throws BeansException {@link org.springframework.beans.BeansException} <p>The beans exception is <code>BeansException</code> type.</p>
+     * @see java.lang.SuppressWarnings
+     * @see org.springframework.beans.BeansException
+     */
     @SuppressWarnings("rawtypes")
     private void intendBeanRegistryAndAutowireProperties() throws BeansException {
         List<RestIntend> intendList = SpringFactoriesLoader.loadFactories(RestIntend.class, null);

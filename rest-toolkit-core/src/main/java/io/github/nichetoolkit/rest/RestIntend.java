@@ -23,6 +23,12 @@ public interface RestIntend<B extends RestIntend<B>> extends InitializingBean {
         LoggerUtils.debug("The intend bean of [{}] type for named '{}' has be initiated.", beanType().getName());
     }
 
+    /**
+     * <code>scope</code>
+     * <p>The method.</p>
+     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
     default String scope() {
         return BeanDefinition.SCOPE_SINGLETON;
     }

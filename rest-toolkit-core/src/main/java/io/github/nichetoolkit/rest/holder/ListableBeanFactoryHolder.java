@@ -80,7 +80,6 @@ public class ListableBeanFactoryHolder {
         return createBean;
     }
 
-
     /**
      * <code>createBean</code>
      * <p>The bean method.</p>
@@ -122,7 +121,6 @@ public class ListableBeanFactoryHolder {
         return LISTABLE_BEAN_FACTORY.configureBean(existingBean, beanName);
     }
 
-
     /**
      * <code>createBean</code>
      * <p>The bean method.</p>
@@ -139,7 +137,6 @@ public class ListableBeanFactoryHolder {
         return LISTABLE_BEAN_FACTORY.createBean(beanType, autowireMode, dependencyCheck);
     }
 
-
     /**
      * <code>autowire</code>
      * <p>The method.</p>
@@ -153,7 +150,6 @@ public class ListableBeanFactoryHolder {
     public static Object autowire(Class<?> beanType) throws BeansException {
         return LISTABLE_BEAN_FACTORY.autowire(beanType, AutowireCapableBeanFactory.AUTOWIRE_BY_TYPE, true);
     }
-
 
     /**
      * <code>autowire</code>
