@@ -29,7 +29,7 @@ public interface RestIntend<B extends RestIntend<B>> extends InitializingBean {
      * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
-    default String scope() {
+    default String beanScope() {
         return BeanDefinition.SCOPE_SINGLETON;
     }
 
