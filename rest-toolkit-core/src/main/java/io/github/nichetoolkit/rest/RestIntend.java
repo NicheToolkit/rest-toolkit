@@ -24,9 +24,16 @@ public interface RestIntend<B extends RestIntend<B>> extends InitializingBean {
     }
 
     /**
-     * <code>scope</code>
-     * <p>The method.</p>
-     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
+     * <code>afterAutowirePropertiesSet</code>
+     * <p>The autowire properties set method.</p>
+     */
+    default void afterAutowirePropertiesSet() {
+    }
+
+    /**
+     * <code>beanScope</code>
+     * <p>The scope method.</p>
+     * @return {@link java.lang.String} <p>The scope return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     default String beanScope() {

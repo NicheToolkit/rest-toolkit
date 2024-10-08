@@ -49,6 +49,7 @@ public class DefaultRegistryPostProcessor implements BeanDefinitionRegistryPostP
                 Class<? extends RestIntend> beanType = intend.beanType();
                 intend = BeanDefinitionRegistryHolder.registerRootBeanDefinition(intend.beanName(), intend.beanType(), intend.beanScope());
                 ListableBeanFactoryHolder.autowireBeanProperties(intend);
+                intend.afterAutowirePropertiesSet();
             }
             log.debug("There are {} intend beans has be initiated.", intendList.size());
         }
