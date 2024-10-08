@@ -5,6 +5,7 @@ import io.github.nichetoolkit.rest.reflect.RestGenericTypes;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import io.github.nichetoolkit.rest.util.LoggerUtils;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.config.BeanDefinition;
 
 /**
  * <code>RestIntend</code>
@@ -16,9 +17,14 @@ import org.springframework.beans.factory.InitializingBean;
  */
 public interface RestIntend<B extends RestIntend<B>> extends InitializingBean {
 
+
     @Override
     default void afterPropertiesSet() throws Exception {
-        LoggerUtils.debug("The intend bean of [{}] type for named '{}' has be initiated.", beanType().getName(), beanName());
+        LoggerUtils.debug("The intend bean of [{}] type for named '{}' has be initiated.", beanType().getName());
+    }
+
+    default String scope() {
+        return BeanDefinition.SCOPE_SINGLETON;
     }
 
     /**
@@ -44,28 +50,29 @@ public interface RestIntend<B extends RestIntend<B>> extends InitializingBean {
     /**
      * <code>beanName</code>
      * <p>The name method.</p>
-     * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @param intendType {@link java.lang.Class} <p>The intend type parameter is <code>Class</code> type.</p>
      * @return {@link java.lang.String} <p>The name return object is <code>String</code> type.</p>
      * @see java.lang.Class
      * @see java.lang.String
      */
-    static String beanName(Class<?> clazz) {
-        return GeneralUtils.camelCase(clazz.getSimpleName());
+    static String beanName(Class<?> intendType) {
+        return GeneralUtils.camelCase(intendType.getSimpleName());
     }
+
 
     /**
      * <code>beanType</code>
      * <p>The type method.</p>
-     * @param <B>   {@link io.github.nichetoolkit.rest.RestIntend} <p>The generic parameter is <code>RestIntend</code> type.</p>
-     * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @param <B>        {@link io.github.nichetoolkit.rest.RestIntend} <p>The generic parameter is <code>RestIntend</code> type.</p>
+     * @param intendType {@link java.lang.Class} <p>The intend type parameter is <code>Class</code> type.</p>
      * @return {@link java.lang.Class} <p>The type return object is <code>Class</code> type.</p>
      * @see java.lang.Class
      * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings(value = "unchecked")
-    static <B extends RestIntend<B>> Class<B> beanType(Class<?> clazz) {
+    static <B extends RestIntend<B>> Class<B> beanType(Class<?> intendType) {
         return (Class<B>) RestGenericTypes.resolveClass(RestGenericTypes.resolveType(
-                RestIntend.class.getTypeParameters()[0], clazz, RestIntend.class));
+                RestIntend.class.getTypeParameters()[0], intendType, RestIntend.class));
     }
 
 }

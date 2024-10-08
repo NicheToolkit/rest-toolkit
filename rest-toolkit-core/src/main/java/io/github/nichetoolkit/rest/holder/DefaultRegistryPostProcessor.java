@@ -4,6 +4,8 @@ import io.github.nichetoolkit.rest.RestIntend;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
+import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProcessor;
@@ -40,10 +42,9 @@ public class DefaultRegistryPostProcessor implements BeanDefinitionRegistryPostP
         List<RestIntend> intendList = SpringFactoriesLoader.loadFactories(RestIntend.class, null);
         if (GeneralUtils.isNotEmpty(intendList)) {
             for (RestIntend<?> intend : intendList) {
-                String beanName = intend.beanName();
-                Class<?> beanType = intend.beanType();
-                Object object = BeanDefinitionRegistryHolder.registerBeanDefinition(beanName, beanType);
-                ListableBeanFactoryHolder.autowireBeanProperties(object);
+                Class<? extends RestIntend> beanType = intend.beanType();
+                intend = BeanDefinitionRegistryHolder.registerRootBeanDefinition(intend.beanName(), intend.beanType(), intend.scope());
+                ListableBeanFactoryHolder.autowireBeanProperties(intend);
             }
             log.debug("There are {} intend beans has be initiated.", intendList.size());
         }

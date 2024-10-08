@@ -49,6 +49,39 @@ public class ListableBeanFactoryHolder {
 
 
     /**
+     * <code>createAutowireBean</code>
+     * <p>The autowire bean method.</p>
+     * @param beanType {@link java.lang.Class} <p>The bean type parameter is <code>Class</code> type.</p>
+     * @return {@link java.lang.Object} <p>The autowire bean return object is <code>Object</code> type.</p>
+     * @throws BeansException {@link org.springframework.beans.BeansException} <p>The beans exception is <code>BeansException</code> type.</p>
+     * @see java.lang.Class
+     * @see java.lang.Object
+     * @see org.springframework.beans.BeansException
+     */
+    public static Object createAutowireBean(Class<?> beanType) throws BeansException {
+        return createAutowireBean(beanType, AutowireCapableBeanFactory.AUTOWIRE_BY_TYPE, true);
+    }
+
+    /**
+     * <code>createAutowireBean</code>
+     * <p>The autowire bean method.</p>
+     * @param beanType        {@link java.lang.Class} <p>The bean type parameter is <code>Class</code> type.</p>
+     * @param autowireMode    int <p>The autowire mode parameter is <code>int</code> type.</p>
+     * @param dependencyCheck boolean <p>The dependency check parameter is <code>boolean</code> type.</p>
+     * @return {@link java.lang.Object} <p>The autowire bean return object is <code>Object</code> type.</p>
+     * @throws BeansException {@link org.springframework.beans.BeansException} <p>The beans exception is <code>BeansException</code> type.</p>
+     * @see java.lang.Class
+     * @see java.lang.Object
+     * @see org.springframework.beans.BeansException
+     */
+    public static Object createAutowireBean(Class<?> beanType, int autowireMode, boolean dependencyCheck) throws BeansException {
+        Object createBean = LISTABLE_BEAN_FACTORY.createBean(beanType, autowireMode, dependencyCheck);
+        LISTABLE_BEAN_FACTORY.autowireBeanProperties(createBean, autowireMode, dependencyCheck);
+        return createBean;
+    }
+
+
+    /**
      * <code>createBean</code>
      * <p>The bean method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
@@ -88,6 +121,7 @@ public class ListableBeanFactoryHolder {
     public static Object configureBean(Object existingBean, String beanName) throws BeansException {
         return LISTABLE_BEAN_FACTORY.configureBean(existingBean, beanName);
     }
+
 
     /**
      * <code>createBean</code>

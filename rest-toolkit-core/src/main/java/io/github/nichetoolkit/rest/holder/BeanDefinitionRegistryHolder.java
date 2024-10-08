@@ -50,35 +50,126 @@ public class BeanDefinitionRegistryHolder {
 
 
     /**
-     * <code>registerBeanDefinition</code>
-     * <p>The bean definition method.</p>
+     * <code>registerGenericBeanDefinition</code>
+     * <p>The generic bean definition method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param beanName {@link java.lang.String} <p>The bean name parameter is <code>String</code> type.</p>
      * @param beanType {@link java.lang.Class} <p>The bean type parameter is <code>Class</code> type.</p>
-     * @return T <p>The bean definition return object is <code>T</code> type.</p>
+     * @return T <p>The generic bean definition return object is <code>T</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Class
      */
-    public static <T> T registerBeanDefinition(String beanName, Class<T> beanType) {
-        BeanDefinition beanDefinition = BeanDefinitionBuilder.genericBeanDefinition(beanType).getBeanDefinition();
+    public static <T> T registerGenericBeanDefinition(String beanName, Class<T> beanType) {
+        return registerGenericBeanDefinition(beanName, beanType, BeanDefinition.SCOPE_SINGLETON);
+    }
+
+    /**
+     * <code>registerGenericBeanDefinition</code>
+     * <p>The generic bean definition method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param beanName {@link java.lang.String} <p>The bean name parameter is <code>String</code> type.</p>
+     * @param beanType {@link java.lang.Class} <p>The bean type parameter is <code>Class</code> type.</p>
+     * @param scope    {@link java.lang.String} <p>The scope parameter is <code>String</code> type.</p>
+     * @return T <p>The generic bean definition return object is <code>T</code> type.</p>
+     * @see java.lang.String
+     * @see java.lang.Class
+     */
+    public static <T> T registerGenericBeanDefinition(String beanName, Class<T> beanType, String scope) {
+        BeanDefinition beanDefinition = BeanDefinitionBuilder.genericBeanDefinition(beanType)
+                .setScope(scope).getBeanDefinition();
         BEAN_DEFINITION_REGISTRY.registerBeanDefinition(beanName, beanDefinition);
         return ApplicationContextHolder.beanOfType(beanName, beanType);
     }
 
     /**
-     * <code>registerBeanDefinition</code>
-     * <p>The bean definition method.</p>
+     * <code>registerRootBeanDefinition</code>
+     * <p>The root bean definition method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param beanName {@link java.lang.String} <p>The bean name parameter is <code>String</code> type.</p>
      * @param beanType {@link java.lang.Class} <p>The bean type parameter is <code>Class</code> type.</p>
-     * @return T <p>The bean definition return object is <code>T</code> type.</p>
+     * @return T <p>The root bean definition return object is <code>T</code> type.</p>
+     * @see java.lang.String
      * @see java.lang.Class
      */
-    public static <T> T registerBeanDefinition(Class<T> beanType) {
-        BeanDefinition beanDefinition = BeanDefinitionBuilder.genericBeanDefinition(beanType).getBeanDefinition();
+    public static <T> T registerRootBeanDefinition(String beanName, Class<T> beanType) {
+        return registerRootBeanDefinition(beanName, beanType, BeanDefinition.SCOPE_SINGLETON);
+    }
+
+    /**
+     * <code>registerRootBeanDefinition</code>
+     * <p>The root bean definition method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param beanName {@link java.lang.String} <p>The bean name parameter is <code>String</code> type.</p>
+     * @param beanType {@link java.lang.Class} <p>The bean type parameter is <code>Class</code> type.</p>
+     * @param scope    {@link java.lang.String} <p>The scope parameter is <code>String</code> type.</p>
+     * @return T <p>The root bean definition return object is <code>T</code> type.</p>
+     * @see java.lang.String
+     * @see java.lang.Class
+     */
+    public static <T> T registerRootBeanDefinition(String beanName, Class<T> beanType, String scope) {
+        BeanDefinition beanDefinition = BeanDefinitionBuilder.rootBeanDefinition(beanType)
+                .setScope(scope).getBeanDefinition();
+        BEAN_DEFINITION_REGISTRY.registerBeanDefinition(beanName, beanDefinition);
+        return ApplicationContextHolder.beanOfType(beanName, beanType);
+    }
+
+    /**
+     * <code>registerRootBeanDefinition</code>
+     * <p>The root bean definition method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param beanType {@link java.lang.Class} <p>The bean type parameter is <code>Class</code> type.</p>
+     * @return T <p>The root bean definition return object is <code>T</code> type.</p>
+     * @see java.lang.Class
+     */
+    public static <T> T registerRootBeanDefinition(Class<T> beanType) {
+        return registerRootBeanDefinition(beanType, BeanDefinition.SCOPE_SINGLETON);
+    }
+
+    /**
+     * <code>registerRootBeanDefinition</code>
+     * <p>The root bean definition method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param beanType {@link java.lang.Class} <p>The bean type parameter is <code>Class</code> type.</p>
+     * @param scope    {@link java.lang.String} <p>The scope parameter is <code>String</code> type.</p>
+     * @return T <p>The root bean definition return object is <code>T</code> type.</p>
+     * @see java.lang.Class
+     * @see java.lang.String
+     */
+    public static <T> T registerRootBeanDefinition(Class<T> beanType, String scope) {
+        BeanDefinition beanDefinition = BeanDefinitionBuilder.rootBeanDefinition(beanType).setScope(scope).getBeanDefinition();
         String beanName = DefaultBeanNameGenerator.INSTANCE.generateBeanName(beanDefinition, BEAN_DEFINITION_REGISTRY);
         BEAN_DEFINITION_REGISTRY.registerBeanDefinition(beanName, beanDefinition);
         return ApplicationContextHolder.beanOfType(beanName, beanType);
     }
 
+    /**
+     * <code>registerGenericBeanDefinition</code>
+     * <p>The generic bean definition method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param beanType {@link java.lang.Class} <p>The bean type parameter is <code>Class</code> type.</p>
+     * @return T <p>The generic bean definition return object is <code>T</code> type.</p>
+     * @see java.lang.Class
+     */
+    public static <T> T registerGenericBeanDefinition(Class<T> beanType) {
+        return registerGenericBeanDefinition(beanType, BeanDefinition.SCOPE_SINGLETON);
+    }
+
+    /**
+     * <code>registerGenericBeanDefinition</code>
+     * <p>The generic bean definition method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param beanType {@link java.lang.Class} <p>The bean type parameter is <code>Class</code> type.</p>
+     * @param scope    {@link java.lang.String} <p>The scope parameter is <code>String</code> type.</p>
+     * @return T <p>The generic bean definition return object is <code>T</code> type.</p>
+     * @see java.lang.Class
+     * @see java.lang.String
+     */
+    public static <T> T registerGenericBeanDefinition(Class<T> beanType, String scope) {
+        BeanDefinition beanDefinition = BeanDefinitionBuilder.genericBeanDefinition(beanType)
+                .setScope(scope).getBeanDefinition();
+        String beanName = DefaultBeanNameGenerator.INSTANCE.generateBeanName(beanDefinition, BEAN_DEFINITION_REGISTRY);
+        BEAN_DEFINITION_REGISTRY.registerBeanDefinition(beanName, beanDefinition);
+        return ApplicationContextHolder.beanOfType(beanName, beanType);
+    }
 
 }
