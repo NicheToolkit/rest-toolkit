@@ -49,7 +49,7 @@ public class RestUtilsAutoConfigure {
     @Primary
     @ConditionalOnMissingBean(RadixWorker.class)
     @ConditionalOnProperty(value = "nichetoolkit.rest.radix.enabled", havingValue = "true", matchIfMissing = true)
-    public RadixWorker radixWorker(RestRadixProperties radixProperties) {
+    public static RadixWorker radixWorker(RestRadixProperties radixProperties) {
         return new RadixWorker(radixProperties);
     }
 
@@ -69,7 +69,7 @@ public class RestUtilsAutoConfigure {
     @Primary
     @ConditionalOnMissingBean(JwtWorker.class)
     @ConditionalOnProperty(value = "nichetoolkit.rest.jwt.enabled", havingValue = "true", matchIfMissing = true)
-    public JwtWorker jwtWorker(RestJwtProperties jwtProperties) {
+    public static JwtWorker jwtWorker(RestJwtProperties jwtProperties) {
         return new JwtWorker(jwtProperties);
     }
 
@@ -89,7 +89,7 @@ public class RestUtilsAutoConfigure {
     @Primary
     @ConditionalOnMissingBean(ShaWorker.class)
     @ConditionalOnProperty(value = "nichetoolkit.rest.sha.enabled", havingValue = "true", matchIfMissing = true)
-    public ShaWorker shaWorker(RestShaProperties shaProperties) {
+    public static ShaWorker shaWorker(RestShaProperties shaProperties) {
         return new ShaWorker(shaProperties);
     }
 
@@ -109,7 +109,7 @@ public class RestUtilsAutoConfigure {
     @Primary
     @ConditionalOnMissingBean(RsaWorker.class)
     @ConditionalOnProperty(value = "nichetoolkit.rest.rsa.enabled", havingValue = "true", matchIfMissing = true)
-    public RsaWorker rsaWorker(RestRsaProperties rsaProperties) {
+    public static RsaWorker rsaWorker(RestRsaProperties rsaProperties) {
         return new RsaWorker(rsaProperties);
     }
 

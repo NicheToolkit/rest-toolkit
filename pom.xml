@@ -231,18 +231,6 @@
             </dependency>
 
             <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-tx</artifactId>
-                <version>${springframework.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-jdbc</artifactId>
-                <version>${springframework.version}</version>
-            </dependency>
-
-            <dependency>
                 <groupId>org.apache.tomcat.embed</groupId>
                 <artifactId>tomcat-embed-core</artifactId>
                 <version>${tomcat.version}</version>
@@ -264,12 +252,6 @@
                 <groupId>com.squareup.okio</groupId>
                 <artifactId>okio</artifactId>
                 <version>${squareup.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.postgresql</groupId>
-                <artifactId>postgresql</artifactId>
-                <version>${postgresql.version}</version>
             </dependency>
 
             <dependency>
