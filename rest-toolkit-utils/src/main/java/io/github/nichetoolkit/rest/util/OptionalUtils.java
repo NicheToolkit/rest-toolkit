@@ -10,6 +10,7 @@ import io.github.nichetoolkit.rest.error.often.FieldRepeatException;
 import io.github.nichetoolkit.rest.error.often.IdentityNullException;
 import io.github.nichetoolkit.rest.error.often.NameRepeatException;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 
@@ -83,12 +84,12 @@ public final class OptionalUtils {
             cause = actuator.actuate();
         } else if (object instanceof Optional) {
             Optional<?> optional = (Optional<?>) object;
-            if (optional.isPresent()) {
+            if (!optional.isPresent()) {
                 cause = actuator.actuate();
             }
         } else if (object instanceof RestOptional) {
             RestOptional<?> optional = (RestOptional<?>) object;
-            if (optional.isNullPresent()) {
+            if (optional.isNull()) {
                 cause = actuator.actuate();
             }
         }
@@ -118,12 +119,12 @@ public final class OptionalUtils {
             cause = function.apply(message);
         } else if (object instanceof Optional) {
             Optional<?> optional = (Optional<?>) object;
-            if (optional.isPresent()) {
+            if (!optional.isPresent()) {
                 cause = function.apply(message);
             }
         } else if (object instanceof RestOptional) {
             RestOptional<?> optional = (RestOptional<?>) object;
-            if (optional.isNullPresent()) {
+            if (optional.isNull()) {
                 cause = function.apply(message);
             }
         }
@@ -155,12 +156,12 @@ public final class OptionalUtils {
             cause = actuator.actuate(message);
         } else if (object instanceof Optional) {
             Optional<?> optional = (Optional<?>) object;
-            if (optional.isPresent()) {
+            if (!optional.isPresent()) {
                 cause = actuator.actuate(message);
             }
         } else if (object instanceof RestOptional) {
             RestOptional<?> optional = (RestOptional<?>) object;
-            if (optional.isNullPresent()) {
+            if (optional.isNull()) {
                 cause = actuator.actuate(message);
             }
         }
@@ -190,12 +191,12 @@ public final class OptionalUtils {
             cause = function.apply(resource, message);
         } else if (object instanceof Optional) {
             Optional<?> optional = (Optional<?>) object;
-            if (optional.isPresent()) {
+            if (!optional.isPresent()) {
                 cause = function.apply(resource, message);
             }
         } else if (object instanceof RestOptional) {
             RestOptional<?> optional = (RestOptional<?>) object;
-            if (optional.isNullPresent()) {
+            if (optional.isNull()) {
                 cause = function.apply(resource, message);
             }
         }
@@ -227,12 +228,12 @@ public final class OptionalUtils {
             cause = actuator.actuate(resource, message);
         } else if (object instanceof Optional) {
             Optional<?> optional = (Optional<?>) object;
-            if (optional.isPresent()) {
+            if (!optional.isPresent()) {
                 cause = actuator.actuate(resource, message);
             }
         } else if (object instanceof RestOptional) {
             RestOptional<?> optional = (RestOptional<?>) object;
-            if (optional.isNullPresent()) {
+            if (optional.isNull()) {
                 cause = actuator.actuate(resource, message);
             }
         }
@@ -259,7 +260,7 @@ public final class OptionalUtils {
             cause = supplier.get();
         } else if (object instanceof RestOptional) {
             RestOptional<?> optional = (RestOptional<?>) object;
-            if (optional.isEmptyPresent()) {
+            if (optional.isEmpty()) {
                 cause = supplier.get();
             }
         }
@@ -288,7 +289,7 @@ public final class OptionalUtils {
             cause = actuator.actuate();
         } else if (object instanceof RestOptional) {
             RestOptional<?> optional = (RestOptional<?>) object;
-            if (optional.isEmptyPresent()) {
+            if (optional.isEmpty()) {
                 cause = actuator.actuate();
             }
         }
@@ -317,7 +318,7 @@ public final class OptionalUtils {
             cause = function.apply(message);
         } else if (object instanceof RestOptional) {
             RestOptional<?> optional = (RestOptional<?>) object;
-            if (optional.isEmptyPresent()) {
+            if (optional.isEmpty()) {
                 cause = function.apply(message);
             }
         }
@@ -348,7 +349,7 @@ public final class OptionalUtils {
             cause = actuator.actuate(message);
         } else if (object instanceof RestOptional) {
             RestOptional<?> optional = (RestOptional<?>) object;
-            if (optional.isEmptyPresent()) {
+            if (optional.isEmpty()) {
                 cause = actuator.actuate(message);
             }
         }
@@ -378,7 +379,7 @@ public final class OptionalUtils {
             cause = function.apply(resource, message);
         } else if (object instanceof RestOptional) {
             RestOptional<?> optional = (RestOptional<?>) object;
-            if (optional.isEmptyPresent()) {
+            if (optional.isEmpty()) {
                 cause = function.apply(resource, message);
             }
         }
@@ -410,7 +411,7 @@ public final class OptionalUtils {
             cause = actuator.actuate(resource, message);
         } else if (object instanceof RestOptional) {
             RestOptional<?> optional = (RestOptional<?>) object;
-            if (optional.isEmptyPresent()) {
+            if (optional.isEmpty()) {
                 cause = actuator.actuate(resource, message);
             }
         }
@@ -437,7 +438,7 @@ public final class OptionalUtils {
             cause = supplier.get();
         } else if (object instanceof RestOptional) {
             RestOptional<?> optional = (RestOptional<?>) object;
-            if (optional.isValidPresent()) {
+            if (optional.isInvalid()) {
                 cause = supplier.get();
             }
         }
@@ -466,7 +467,7 @@ public final class OptionalUtils {
             cause = actuator.actuate();
         } else if (object instanceof RestOptional) {
             RestOptional<?> optional = (RestOptional<?>) object;
-            if (optional.isValidPresent()) {
+            if (optional.isInvalid()) {
                 cause = actuator.actuate();
             }
         }
@@ -495,7 +496,7 @@ public final class OptionalUtils {
             cause = function.apply(message);
         } else if (object instanceof RestOptional) {
             RestOptional<?> optional = (RestOptional<?>) object;
-            if (optional.isValidPresent()) {
+            if (optional.isInvalid()) {
                 cause = function.apply(message);
             }
         }
@@ -526,7 +527,7 @@ public final class OptionalUtils {
             cause = actuator.actuate(message);
         } else if (object instanceof RestOptional) {
             RestOptional<?> optional = (RestOptional<?>) object;
-            if (optional.isValidPresent()) {
+            if (optional.isInvalid()) {
                 cause = actuator.actuate(message);
             }
         }
@@ -556,7 +557,7 @@ public final class OptionalUtils {
             cause = function.apply(resource, message);
         } else if (object instanceof RestOptional) {
             RestOptional<?> optional = (RestOptional<?>) object;
-            if (optional.isValidPresent()) {
+            if (optional.isInvalid()) {
                 cause = function.apply(resource, message);
             }
         }
@@ -587,7 +588,7 @@ public final class OptionalUtils {
             cause = actuator.actuate(resource, message);
         } else if (object instanceof RestOptional) {
             RestOptional<?> optional = (RestOptional<?>) object;
-            if (optional.isValidPresent()) {
+            if (optional.isInvalid()) {
                 cause = actuator.actuate(resource, message);
             }
         }
@@ -610,6 +611,23 @@ public final class OptionalUtils {
     }
 
     /**
+     * <code>ofCauseThrow</code>
+     * <p>The cause throw method.</p>
+     * @param <X>   {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param log   {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param cause X <p>The cause parameter is <code>X</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
+     * @see java.lang.Throwable
+     * @see org.slf4j.Logger
+     */
+    public static <X extends Throwable> void ofCauseThrow(Logger log, X cause) throws X {
+        if (GeneralUtils.isNotNull(cause)) {
+            log.error(cause.getMessage());
+            throw cause;
+        }
+    }
+
+    /**
      * <code>ofCauseThrowError</code>
      * <p>The cause throw error method.</p>
      * @param <X>   {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
@@ -617,6 +635,22 @@ public final class OptionalUtils {
      * @see io.github.nichetoolkit.rest.RestError
      */
     public static <X extends RestError> void ofCauseThrowError(X cause) {
+        if (GeneralUtils.isNotNull(cause)) {
+            log.error(cause.getMessage());
+            throw cause;
+        }
+    }
+
+    /**
+     * <code>ofCauseThrowError</code>
+     * <p>The cause throw error method.</p>
+     * @param <X>   {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param log   {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param cause X <p>The cause parameter is <code>X</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestError
+     * @see org.slf4j.Logger
+     */
+    public static <X extends RestError> void ofCauseThrowError(Logger log, X cause) {
         if (GeneralUtils.isNotNull(cause)) {
             log.error(cause.getMessage());
             throw cause;
@@ -639,6 +673,23 @@ public final class OptionalUtils {
     }
 
     /**
+     * <code>ofCauseThrowException</code>
+     * <p>The cause throw exception method.</p>
+     * @param <X>   {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param log   {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param cause {@link io.github.nichetoolkit.rest.RestException} <p>The cause parameter is <code>RestException</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
+     * @see org.slf4j.Logger
+     */
+    public static <X extends RestException> void ofCauseThrowException(Logger log, RestException cause) throws RestException {
+        if (GeneralUtils.isNotNull(cause)) {
+            log.error(cause.getMessage());
+            throw cause;
+        }
+    }
+
+    /**
      * <code>ofTrueThrow</code>
      * <p>The true throw method.</p>
      * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
@@ -651,6 +702,28 @@ public final class OptionalUtils {
      * @see X
      */
     public static <X extends Throwable> void ofTrueThrow(Boolean present, Supplier<X> supplier) throws X {
+        if (GeneralUtils.isNotNull(present) && present) {
+            X cause = supplier.get();
+            log.error(cause.getMessage());
+            throw cause;
+        }
+    }
+
+    /**
+     * <code>ofTrueThrow</code>
+     * <p>The true throw method.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
+     * @see java.lang.Throwable
+     * @see java.lang.Boolean
+     * @see org.slf4j.Logger
+     * @see java.util.function.Supplier
+     * @see X
+     */
+    public static <X extends Throwable> void ofTrueThrow(Boolean present, Logger log, Supplier<X> supplier) throws X {
         if (GeneralUtils.isNotNull(present) && present) {
             X cause = supplier.get();
             log.error(cause.getMessage());
@@ -678,6 +751,26 @@ public final class OptionalUtils {
     }
 
     /**
+     * <code>ofTrueThrowError</code>
+     * <p>The true throw error method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestError
+     * @see java.lang.Boolean
+     * @see org.slf4j.Logger
+     * @see java.util.function.Supplier
+     */
+    public static <X extends RestError> void ofTrueThrowError(Boolean present, Logger log, Supplier<X> supplier) {
+        if (GeneralUtils.isNotNull(present) && present) {
+            X cause = supplier.get();
+            log.error(cause.getMessage());
+            throw cause;
+        }
+    }
+
+    /**
      * <code>ofTrueThrowException</code>
      * <p>The true throw exception method.</p>
      * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
@@ -689,6 +782,27 @@ public final class OptionalUtils {
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
      */
     public static <X extends RestException> void ofTrueThrowException(Boolean present, SupplierActuator<X> actuator) throws RestException {
+        if (GeneralUtils.isNotNull(present) && present) {
+            X cause = actuator.actuate();
+            log.error(cause.getMessage());
+            throw cause;
+        }
+    }
+
+    /**
+     * <code>ofTrueThrowException</code>
+     * <p>The true throw exception method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The actuator parameter is <code>SupplierActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
+     * @see java.lang.Boolean
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
+     */
+    public static <X extends RestException> void ofTrueThrowException(Boolean present, Logger log, SupplierActuator<X> actuator) throws RestException {
         if (GeneralUtils.isNotNull(present) && present) {
             X cause = actuator.actuate();
             log.error(cause.getMessage());
@@ -718,6 +832,30 @@ public final class OptionalUtils {
         }
     }
 
+    /**
+     * <code>ofTrueThrow</code>
+     * <p>The true throw method.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
+     * @see java.lang.Throwable
+     * @see java.lang.Boolean
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see java.util.function.Function
+     * @see X
+     */
+    public static <X extends Throwable> void ofTrueThrow(Boolean present, String message, Logger log, Function<String, X> function) throws X {
+        if (GeneralUtils.isNotNull(present) && present) {
+            X cause = function.apply(message);
+            log.error(cause.getMessage());
+            throw cause;
+        }
+    }
+
 
     /**
      * <code>ofTrueThrowError</code>
@@ -732,6 +870,28 @@ public final class OptionalUtils {
      * @see java.util.function.Function
      */
     public static <X extends RestError> void ofTrueThrowError(Boolean present, String message, Function<String, X> function) {
+        if (GeneralUtils.isNotNull(present) && present) {
+            X cause = function.apply(message);
+            log.error(cause.getMessage());
+            throw cause;
+        }
+    }
+
+    /**
+     * <code>ofTrueThrowError</code>
+     * <p>The true throw error method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestError
+     * @see java.lang.Boolean
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see java.util.function.Function
+     */
+    public static <X extends RestError> void ofTrueThrowError(Boolean present, String message, Logger log, Function<String, X> function) {
         if (GeneralUtils.isNotNull(present) && present) {
             X cause = function.apply(message);
             log.error(cause.getMessage());
@@ -754,6 +914,29 @@ public final class OptionalUtils {
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      */
     public static <X extends RestException> void ofTrueThrowException(Boolean present, String message, FunctionActuator<String, X> actuator) throws RestException {
+        if (GeneralUtils.isNotNull(present) && present) {
+            X cause = actuator.actuate(message);
+            log.error(cause.getMessage());
+            throw cause;
+        }
+    }
+
+    /**
+     * <code>ofTrueThrowException</code>
+     * <p>The true throw exception method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The actuator parameter is <code>FunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
+     * @see java.lang.Boolean
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
+     */
+    public static <X extends RestException> void ofTrueThrowException(Boolean present, String message, Logger log, FunctionActuator<String, X> actuator) throws RestException {
         if (GeneralUtils.isNotNull(present) && present) {
             X cause = actuator.actuate(message);
             log.error(cause.getMessage());
@@ -785,6 +968,32 @@ public final class OptionalUtils {
     }
 
     /**
+     * <code>ofTrueThrow</code>
+     * <p>The true throw method.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
+     * @see java.lang.Throwable
+     * @see java.lang.Boolean
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see java.util.function.BiFunction
+     * @see X
+     */
+    public static <X extends Throwable> void ofTrueThrow(Boolean present, String message, String resource, Logger log, BiFunction<String, String, X> function) throws X {
+        if (GeneralUtils.isNotNull(present) && present) {
+            X cause = function.apply(resource, message);
+            log.error(cause.getMessage());
+            throw cause;
+        }
+    }
+
+
+    /**
      * <code>ofTrueThrowError</code>
      * <p>The true throw error method.</p>
      * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
@@ -798,6 +1007,29 @@ public final class OptionalUtils {
      * @see java.util.function.BiFunction
      */
     public static <X extends RestError> void ofTrueThrowError(Boolean present, String message, String resource, BiFunction<String, String, X> function) {
+        if (GeneralUtils.isNotNull(present) && present) {
+            X cause = function.apply(resource, message);
+            log.error(cause.getMessage());
+            throw cause;
+        }
+    }
+
+    /**
+     * <code>ofTrueThrowError</code>
+     * <p>The true throw error method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestError
+     * @see java.lang.Boolean
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see java.util.function.BiFunction
+     */
+    public static <X extends RestError> void ofTrueThrowError(Boolean present, String message, String resource, Logger log, BiFunction<String, String, X> function) {
         if (GeneralUtils.isNotNull(present) && present) {
             X cause = function.apply(resource, message);
             log.error(cause.getMessage());
@@ -828,6 +1060,30 @@ public final class OptionalUtils {
     }
 
     /**
+     * <code>ofTrueThrowException</code>
+     * <p>The true throw exception method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The actuator parameter is <code>BiFunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
+     * @see java.lang.Boolean
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
+     */
+    public static <X extends RestException> void ofTrueThrowException(Boolean present, String message, String resource, Logger log, BiFunctionActuator<String, String, X> actuator) throws RestException {
+        if (GeneralUtils.isNotNull(present) && present) {
+            X cause = actuator.actuate(resource, message);
+            log.error(cause.getMessage());
+            throw cause;
+        }
+    }
+
+    /**
      * <code>ofFalseThrow</code>
      * <p>The false throw method.</p>
      * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
@@ -840,6 +1096,28 @@ public final class OptionalUtils {
      * @see X
      */
     public static <X extends Throwable> void ofFalseThrow(Boolean present, Supplier<X> supplier) throws X {
+        if (GeneralUtils.isNotNull(present) && !present) {
+            X cause = supplier.get();
+            log.error(cause.getMessage());
+            throw cause;
+        }
+    }
+
+    /**
+     * <code>ofFalseThrow</code>
+     * <p>The false throw method.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
+     * @see java.lang.Throwable
+     * @see java.lang.Boolean
+     * @see org.slf4j.Logger
+     * @see java.util.function.Supplier
+     * @see X
+     */
+    public static <X extends Throwable> void ofFalseThrow(Boolean present, Logger log, Supplier<X> supplier) throws X {
         if (GeneralUtils.isNotNull(present) && !present) {
             X cause = supplier.get();
             log.error(cause.getMessage());
@@ -865,6 +1143,27 @@ public final class OptionalUtils {
         }
     }
 
+
+    /**
+     * <code>ofFalseThrowError</code>
+     * <p>The false throw error method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestError
+     * @see java.lang.Boolean
+     * @see org.slf4j.Logger
+     * @see java.util.function.Supplier
+     */
+    public static <X extends RestError> void ofFalseThrowError(Boolean present, Logger log, Supplier<X> supplier) {
+        if (GeneralUtils.isNotNull(present) && !present) {
+            X cause = supplier.get();
+            log.error(cause.getMessage());
+            throw cause;
+        }
+    }
+
     /**
      * <code>ofFalseThrowException</code>
      * <p>The false throw exception method.</p>
@@ -877,6 +1176,27 @@ public final class OptionalUtils {
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
      */
     public static <X extends RestException> void ofFalseThrowException(Boolean present, SupplierActuator<X> actuator) throws RestException {
+        if (GeneralUtils.isNotNull(present) && !present) {
+            X cause = actuator.actuate();
+            log.error(cause.getMessage());
+            throw cause;
+        }
+    }
+
+    /**
+     * <code>ofFalseThrowException</code>
+     * <p>The false throw exception method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The actuator parameter is <code>SupplierActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
+     * @see java.lang.Boolean
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
+     */
+    public static <X extends RestException> void ofFalseThrowException(Boolean present, Logger log, SupplierActuator<X> actuator) throws RestException {
         if (GeneralUtils.isNotNull(present) && !present) {
             X cause = actuator.actuate();
             log.error(cause.getMessage());
@@ -907,6 +1227,30 @@ public final class OptionalUtils {
     }
 
     /**
+     * <code>ofFalseThrow</code>
+     * <p>The false throw method.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
+     * @see java.lang.Throwable
+     * @see java.lang.Boolean
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see java.util.function.Function
+     * @see X
+     */
+    public static <X extends Throwable> void ofFalseThrow(Boolean present, String message, Logger log, Function<String, X> function) throws X {
+        if (GeneralUtils.isNotNull(present) && !present) {
+            X cause = function.apply(message);
+            log.error(cause.getMessage());
+            throw cause;
+        }
+    }
+
+    /**
      * <code>ofFalseThrowError</code>
      * <p>The false throw error method.</p>
      * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
@@ -919,6 +1263,28 @@ public final class OptionalUtils {
      * @see java.util.function.Function
      */
     public static <X extends RestError> void ofFalseThrowError(Boolean present, String message, Function<String, X> function) {
+        if (GeneralUtils.isNotNull(present) && !present) {
+            X cause = function.apply(message);
+            log.error(cause.getMessage());
+            throw cause;
+        }
+    }
+
+    /**
+     * <code>ofFalseThrowError</code>
+     * <p>The false throw error method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestError
+     * @see java.lang.Boolean
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see java.util.function.Function
+     */
+    public static <X extends RestError> void ofFalseThrowError(Boolean present, String message, Logger log, Function<String, X> function) {
         if (GeneralUtils.isNotNull(present) && !present) {
             X cause = function.apply(message);
             log.error(cause.getMessage());
@@ -940,6 +1306,29 @@ public final class OptionalUtils {
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      */
     public static <X extends RestException> void ofFalseThrowException(Boolean present, String message, FunctionActuator<String, X> actuator) throws RestException {
+        if (GeneralUtils.isNotNull(present) && !present) {
+            X cause = actuator.actuate(message);
+            log.error(cause.getMessage());
+            throw cause;
+        }
+    }
+
+    /**
+     * <code>ofFalseThrowException</code>
+     * <p>The false throw exception method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The actuator parameter is <code>FunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
+     * @see java.lang.Boolean
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
+     */
+    public static <X extends RestException> void ofFalseThrowException(Boolean present, String message, Logger log, FunctionActuator<String, X> actuator) throws RestException {
         if (GeneralUtils.isNotNull(present) && !present) {
             X cause = actuator.actuate(message);
             log.error(cause.getMessage());
@@ -971,6 +1360,31 @@ public final class OptionalUtils {
     }
 
     /**
+     * <code>ofFalseThrow</code>
+     * <p>The false throw method.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
+     * @see java.lang.Throwable
+     * @see java.lang.Boolean
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see java.util.function.BiFunction
+     * @see X
+     */
+    public static <X extends Throwable> void ofFalseThrow(Boolean present, String message, String resource, Logger log, BiFunction<String, String, X> function) throws X {
+        if (GeneralUtils.isNotNull(present) && !present) {
+            X cause = function.apply(resource, message);
+            log.error(cause.getMessage());
+            throw cause;
+        }
+    }
+
+    /**
      * <code>ofFalseThrowError</code>
      * <p>The false throw error method.</p>
      * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
@@ -984,6 +1398,29 @@ public final class OptionalUtils {
      * @see java.util.function.BiFunction
      */
     public static <X extends RestError> void ofFalseThrowError(Boolean present, String message, String resource, BiFunction<String, String, X> function) {
+        if (GeneralUtils.isNotNull(present) && !present) {
+            X cause = function.apply(resource, message);
+            log.error(cause.getMessage());
+            throw cause;
+        }
+    }
+
+    /**
+     * <code>ofFalseThrowError</code>
+     * <p>The false throw error method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestError
+     * @see java.lang.Boolean
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see java.util.function.BiFunction
+     */
+    public static <X extends RestError> void ofFalseThrowError(Boolean present, String message, String resource, Logger log, BiFunction<String, String, X> function) {
         if (GeneralUtils.isNotNull(present) && !present) {
             X cause = function.apply(resource, message);
             log.error(cause.getMessage());
@@ -1014,6 +1451,30 @@ public final class OptionalUtils {
     }
 
     /**
+     * <code>ofFalseThrowException</code>
+     * <p>The false throw exception method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The actuator parameter is <code>BiFunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
+     * @see java.lang.Boolean
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
+     */
+    public static <X extends RestException> void ofFalseThrowException(Boolean present, String message, String resource, Logger log, BiFunctionActuator<String, String, X> actuator) throws RestException {
+        if (GeneralUtils.isNotNull(present) && !present) {
+            X cause = actuator.actuate(resource, message);
+            log.error(cause.getMessage());
+            throw cause;
+        }
+    }
+
+    /**
      * <code>ofNull</code>
      * <p>The null method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
@@ -1029,6 +1490,26 @@ public final class OptionalUtils {
      */
     public static <T, X extends Throwable> void ofNull(@Nullable T object, @NonNull Supplier<X> supplier) throws X {
         ofCauseThrow(xOfNull(object, supplier));
+    }
+
+    /**
+     * <code>ofNull</code>
+     * <p>The null method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
+     * @see java.lang.Throwable
+     * @see org.springframework.lang.Nullable
+     * @see org.slf4j.Logger
+     * @see java.util.function.Supplier
+     * @see org.springframework.lang.NonNull
+     * @see X
+     */
+    public static <T, X extends Throwable> void ofNull(@Nullable T object, Logger log, @NonNull Supplier<X> supplier) throws X {
+        ofCauseThrow(log, xOfNull(object, supplier));
     }
 
     /**
@@ -1048,6 +1529,24 @@ public final class OptionalUtils {
     }
 
     /**
+     * <code>ofNullError</code>
+     * <p>The null error method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestError
+     * @see org.springframework.lang.Nullable
+     * @see org.slf4j.Logger
+     * @see java.util.function.Supplier
+     * @see org.springframework.lang.NonNull
+     */
+    public static <T, X extends RestError> void ofNullError(@Nullable T object, Logger log, @NonNull Supplier<X> supplier) {
+        ofCauseThrowError(log, xOfNull(object, supplier));
+    }
+
+    /**
      * <code>ofNullException</code>
      * <p>The null exception method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
@@ -1062,6 +1561,25 @@ public final class OptionalUtils {
      */
     public static <T, X extends RestException> void ofNullException(@Nullable T object, @NonNull SupplierActuator<X> actuator) throws RestException {
         ofCauseThrowException(xOfNullActuator(object, actuator));
+    }
+
+    /**
+     * <code>ofNullException</code>
+     * <p>The null exception method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The actuator parameter is <code>SupplierActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
+     * @see org.springframework.lang.Nullable
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
+     * @see org.springframework.lang.NonNull
+     */
+    public static <T, X extends RestException> void ofNullException(@Nullable T object, Logger log, @NonNull SupplierActuator<X> actuator) throws RestException {
+        ofCauseThrowException(log, xOfNullActuator(object, actuator));
     }
 
     /**
@@ -1083,6 +1601,26 @@ public final class OptionalUtils {
     }
 
     /**
+     * <code>ofEmpty</code>
+     * <p>The empty method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
+     * @see java.lang.Throwable
+     * @see org.springframework.lang.Nullable
+     * @see org.slf4j.Logger
+     * @see java.util.function.Supplier
+     * @see org.springframework.lang.NonNull
+     * @see X
+     */
+    public static <T, X extends Throwable> void ofEmpty(@Nullable T object, Logger log, @NonNull Supplier<X> supplier) throws X {
+        ofCauseThrow(log, xOfEmpty(object, supplier));
+    }
+
+    /**
      * <code>ofEmptyError</code>
      * <p>The empty error method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
@@ -1096,6 +1634,24 @@ public final class OptionalUtils {
      */
     public static <T, X extends RestError> void ofEmptyError(@Nullable T object, @NonNull Supplier<X> supplier) {
         ofCauseThrowError(xOfEmpty(object, supplier));
+    }
+
+    /**
+     * <code>ofEmptyError</code>
+     * <p>The empty error method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestError
+     * @see org.springframework.lang.Nullable
+     * @see org.slf4j.Logger
+     * @see java.util.function.Supplier
+     * @see org.springframework.lang.NonNull
+     */
+    public static <T, X extends RestError> void ofEmptyError(@Nullable T object, Logger log, @NonNull Supplier<X> supplier) {
+        ofCauseThrowError(log, xOfEmpty(object, supplier));
     }
 
     /**
@@ -1113,6 +1669,25 @@ public final class OptionalUtils {
      */
     public static <T, X extends RestException> void ofEmptyException(@Nullable T object, @NonNull SupplierActuator<X> actuator) throws RestException {
         ofCauseThrowException(xOfEmptyActuator(object, actuator));
+    }
+
+    /**
+     * <code>ofEmptyException</code>
+     * <p>The empty exception method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The actuator parameter is <code>SupplierActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
+     * @see org.springframework.lang.Nullable
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
+     * @see org.springframework.lang.NonNull
+     */
+    public static <T, X extends RestException> void ofEmptyException(@Nullable T object, Logger log, @NonNull SupplierActuator<X> actuator) throws RestException {
+        ofCauseThrowException(log, xOfEmptyActuator(object, actuator));
     }
 
     /**
@@ -1134,6 +1709,26 @@ public final class OptionalUtils {
     }
 
     /**
+     * <code>ofInvalid</code>
+     * <p>The invalid method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
+     * @see java.lang.Throwable
+     * @see org.springframework.lang.Nullable
+     * @see org.slf4j.Logger
+     * @see java.util.function.Supplier
+     * @see org.springframework.lang.NonNull
+     * @see X
+     */
+    public static <T, X extends Throwable> void ofInvalid(@Nullable T object, Logger log, @NonNull Supplier<X> supplier) throws X {
+        ofCauseThrow(log, xOfInvalid(object, supplier));
+    }
+
+    /**
      * <code>ofInvalidError</code>
      * <p>The invalid error method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
@@ -1147,6 +1742,24 @@ public final class OptionalUtils {
      */
     public static <T, X extends RestError> void ofInvalidError(@Nullable T object, @NonNull Supplier<X> supplier) {
         ofCauseThrowError(xOfInvalid(object, supplier));
+    }
+
+    /**
+     * <code>ofInvalidError</code>
+     * <p>The invalid error method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestError
+     * @see org.springframework.lang.Nullable
+     * @see org.slf4j.Logger
+     * @see java.util.function.Supplier
+     * @see org.springframework.lang.NonNull
+     */
+    public static <T, X extends RestError> void ofInvalidError(@Nullable T object, Logger log, @NonNull Supplier<X> supplier) {
+        ofCauseThrowError(log, xOfInvalid(object, supplier));
     }
 
     /**
@@ -1164,6 +1777,25 @@ public final class OptionalUtils {
      */
     public static <T, X extends RestException> void ofInvalidException(@Nullable T object, @NonNull SupplierActuator<X> actuator) throws RestException {
         ofCauseThrowException(xOfInvalidActuator(object, actuator));
+    }
+
+    /**
+     * <code>ofInvalidException</code>
+     * <p>The invalid exception method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The actuator parameter is <code>SupplierActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
+     * @see org.springframework.lang.Nullable
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
+     * @see org.springframework.lang.NonNull
+     */
+    public static <T, X extends RestException> void ofInvalidException(@Nullable T object, Logger log, @NonNull SupplierActuator<X> actuator) throws RestException {
+        ofCauseThrowException(log, xOfInvalidActuator(object, actuator));
     }
 
     /**
@@ -1186,6 +1818,27 @@ public final class OptionalUtils {
     }
 
     /**
+     * <code>ofNull</code>
+     * <p>The null method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
+     * @see java.lang.Throwable
+     * @see org.springframework.lang.Nullable
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see java.util.function.Function
+     * @see X
+     */
+    public static <T, X extends Throwable> void ofNull(@Nullable T object, String message, Logger log, Function<String, X> function) throws X {
+        ofCauseThrow(log, xOfNull(object, message, function));
+    }
+
+    /**
      * <code>ofNullError</code>
      * <p>The null error method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
@@ -1200,6 +1853,25 @@ public final class OptionalUtils {
      */
     public static <T, X extends RestError> void ofNullError(@Nullable T object, String message, Function<String, X> function) {
         ofCauseThrowError(xOfNull(object, message, function));
+    }
+
+    /**
+     * <code>ofNullError</code>
+     * <p>The null error method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestError
+     * @see org.springframework.lang.Nullable
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see java.util.function.Function
+     */
+    public static <T, X extends RestError> void ofNullError(@Nullable T object, String message, Logger log, Function<String, X> function) {
+        ofCauseThrowError(log, xOfNull(object, message, function));
     }
 
     /**
@@ -1218,6 +1890,26 @@ public final class OptionalUtils {
      */
     public static <T, X extends RestException> void ofNullException(@Nullable T object, String message, FunctionActuator<String, X> actuator) throws RestException {
         ofCauseThrowException(xOfNullActuator(object, message, actuator));
+    }
+
+    /**
+     * <code>ofNullException</code>
+     * <p>The null exception method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The actuator parameter is <code>FunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
+     * @see org.springframework.lang.Nullable
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
+     */
+    public static <T, X extends RestException> void ofNullException(@Nullable T object, String message, Logger log, FunctionActuator<String, X> actuator) throws RestException {
+        ofCauseThrowException(log, xOfNullActuator(object, message, actuator));
     }
 
     /**
@@ -1240,6 +1932,27 @@ public final class OptionalUtils {
     }
 
     /**
+     * <code>ofEmpty</code>
+     * <p>The empty method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
+     * @see java.lang.Throwable
+     * @see org.springframework.lang.Nullable
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see java.util.function.Function
+     * @see X
+     */
+    public static <T, X extends Throwable> void ofEmpty(@Nullable T object, String message, Logger log, Function<String, X> function) throws X {
+        ofCauseThrow(log, xOfEmpty(object, message, function));
+    }
+
+    /**
      * <code>ofEmptyError</code>
      * <p>The empty error method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
@@ -1254,6 +1967,25 @@ public final class OptionalUtils {
      */
     public static <T, X extends RestError> void ofEmptyError(@Nullable T object, String message, Function<String, X> function) {
         ofCauseThrowError(xOfEmpty(object, message, function));
+    }
+
+    /**
+     * <code>ofEmptyError</code>
+     * <p>The empty error method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestError
+     * @see org.springframework.lang.Nullable
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see java.util.function.Function
+     */
+    public static <T, X extends RestError> void ofEmptyError(@Nullable T object, String message, Logger log, Function<String, X> function) {
+        ofCauseThrowError(log, xOfEmpty(object, message, function));
     }
 
     /**
@@ -1272,6 +2004,26 @@ public final class OptionalUtils {
      */
     public static <T, X extends RestException> void ofEmptyException(@Nullable T object, String message, FunctionActuator<String, X> actuator) throws RestException {
         ofCauseThrowException(xOfEmptyActuator(object, message, actuator));
+    }
+
+    /**
+     * <code>ofEmptyException</code>
+     * <p>The empty exception method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The actuator parameter is <code>FunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
+     * @see org.springframework.lang.Nullable
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
+     */
+    public static <T, X extends RestException> void ofEmptyException(@Nullable T object, String message, Logger log, FunctionActuator<String, X> actuator) throws RestException {
+        ofCauseThrowException(log, xOfEmptyActuator(object, message, actuator));
     }
 
     /**
@@ -1294,6 +2046,27 @@ public final class OptionalUtils {
     }
 
     /**
+     * <code>ofInvalid</code>
+     * <p>The invalid method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
+     * @see java.lang.Throwable
+     * @see org.springframework.lang.Nullable
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see java.util.function.Function
+     * @see X
+     */
+    public static <T, X extends Throwable> void ofInvalid(@Nullable T object, String message, Logger log, Function<String, X> function) throws X {
+        ofCauseThrow(log, xOfInvalid(object, message, function));
+    }
+
+    /**
      * <code>ofInvalidError</code>
      * <p>The invalid error method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
@@ -1308,6 +2081,25 @@ public final class OptionalUtils {
      */
     public static <T, X extends RestError> void ofInvalidError(@Nullable T object, String message, Function<String, X> function) {
         ofCauseThrowError(xOfInvalid(object, message, function));
+    }
+
+    /**
+     * <code>ofInvalidError</code>
+     * <p>The invalid error method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestError
+     * @see org.springframework.lang.Nullable
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see java.util.function.Function
+     */
+    public static <T, X extends RestError> void ofInvalidError(@Nullable T object, String message, Logger log, Function<String, X> function) {
+        ofCauseThrowError(log, xOfInvalid(object, message, function));
     }
 
     /**
@@ -1326,6 +2118,26 @@ public final class OptionalUtils {
      */
     public static <T, X extends RestException> void ofInvalidException(@Nullable T object, String message, FunctionActuator<String, X> actuator) throws RestException {
         ofCauseThrowException(xOfInvalidActuator(object, message, actuator));
+    }
+
+    /**
+     * <code>ofInvalidException</code>
+     * <p>The invalid exception method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The actuator parameter is <code>FunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
+     * @see org.springframework.lang.Nullable
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
+     */
+    public static <T, X extends RestException> void ofInvalidException(@Nullable T object, String message, Logger log, FunctionActuator<String, X> actuator) throws RestException {
+        ofCauseThrowException(log, xOfInvalidActuator(object, message, actuator));
     }
 
     /**
@@ -1349,6 +2161,28 @@ public final class OptionalUtils {
     }
 
     /**
+     * <code>ofNull</code>
+     * <p>The null method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
+     * @see java.lang.Throwable
+     * @see org.springframework.lang.Nullable
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see java.util.function.BiFunction
+     * @see X
+     */
+    public static <T, X extends Throwable> void ofNull(@Nullable T object, String message, String resource, Logger log, BiFunction<String, String, X> function) throws X {
+        ofCauseThrow(log, xOfNull(object, message, resource, function));
+    }
+
+    /**
      * <code>ofNullError</code>
      * <p>The null error method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
@@ -1364,6 +2198,26 @@ public final class OptionalUtils {
      */
     public static <T, X extends RestError> void ofNullError(@Nullable T object, String message, String resource, BiFunction<String, String, X> function) {
         ofCauseThrowError(xOfNull(object, message, resource, function));
+    }
+
+    /**
+     * <code>ofNullError</code>
+     * <p>The null error method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestError
+     * @see org.springframework.lang.Nullable
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see java.util.function.BiFunction
+     */
+    public static <T, X extends RestError> void ofNullError(@Nullable T object, String message, String resource, Logger log, BiFunction<String, String, X> function) {
+        ofCauseThrowError(log, xOfNull(object, message, resource, function));
     }
 
     /**
@@ -1383,6 +2237,27 @@ public final class OptionalUtils {
      */
     public static <T, X extends RestException> void ofNullException(@Nullable T object, String message, String resource, BiFunctionActuator<String, String, X> actuator) throws RestException {
         ofCauseThrowException(xOfNullActuator(object, message, resource, actuator));
+    }
+
+    /**
+     * <code>ofNullException</code>
+     * <p>The null exception method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The actuator parameter is <code>BiFunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
+     * @see org.springframework.lang.Nullable
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
+     */
+    public static <T, X extends RestException> void ofNullException(@Nullable T object, String message, String resource, Logger log, BiFunctionActuator<String, String, X> actuator) throws RestException {
+        ofCauseThrowException(log, xOfNullActuator(object, message, resource, actuator));
     }
 
     /**
@@ -1406,6 +2281,28 @@ public final class OptionalUtils {
     }
 
     /**
+     * <code>ofEmpty</code>
+     * <p>The empty method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
+     * @see java.lang.Throwable
+     * @see org.springframework.lang.Nullable
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see java.util.function.BiFunction
+     * @see X
+     */
+    public static <T, X extends Throwable> void ofEmpty(@Nullable T object, String message, String resource, Logger log, BiFunction<String, String, X> function) throws X {
+        ofCauseThrow(log, xOfEmpty(object, message, resource, function));
+    }
+
+    /**
      * <code>ofEmptyError</code>
      * <p>The empty error method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
@@ -1421,6 +2318,26 @@ public final class OptionalUtils {
      */
     public static <T, X extends RestError> void ofEmptyError(@Nullable T object, String message, String resource, BiFunction<String, String, X> function) {
         ofCauseThrowError(xOfEmpty(object, message, resource, function));
+    }
+
+    /**
+     * <code>ofEmptyError</code>
+     * <p>The empty error method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestError
+     * @see org.springframework.lang.Nullable
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see java.util.function.BiFunction
+     */
+    public static <T, X extends RestError> void ofEmptyError(@Nullable T object, String message, String resource, Logger log, BiFunction<String, String, X> function) {
+        ofCauseThrowError(log, xOfEmpty(object, message, resource, function));
     }
 
     /**
@@ -1440,6 +2357,27 @@ public final class OptionalUtils {
      */
     public static <T, X extends RestException> void ofEmptyException(@Nullable T object, String message, String resource, BiFunctionActuator<String, String, X> actuator) throws RestException {
         ofCauseThrowException(xOfEmptyActuator(object, message, resource, actuator));
+    }
+
+    /**
+     * <code>ofEmptyException</code>
+     * <p>The empty exception method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The actuator parameter is <code>BiFunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
+     * @see org.springframework.lang.Nullable
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
+     */
+    public static <T, X extends RestException> void ofEmptyException(@Nullable T object, String message, String resource, Logger log, BiFunctionActuator<String, String, X> actuator) throws RestException {
+        ofCauseThrowException(log, xOfEmptyActuator(object, message, resource, actuator));
     }
 
     /**
@@ -1463,6 +2401,28 @@ public final class OptionalUtils {
     }
 
     /**
+     * <code>ofInvalid</code>
+     * <p>The invalid method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
+     * @see java.lang.Throwable
+     * @see org.springframework.lang.Nullable
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see java.util.function.BiFunction
+     * @see X
+     */
+    public static <T, X extends Throwable> void ofInvalid(@Nullable T object, String message, String resource, Logger log, BiFunction<String, String, X> function) throws X {
+        ofCauseThrow(log, xOfInvalid(object, message, resource, function));
+    }
+
+    /**
      * <code>ofInvalidError</code>
      * <p>The invalid error method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
@@ -1478,6 +2438,26 @@ public final class OptionalUtils {
      */
     public static <T, X extends RestError> void ofInvalidError(@Nullable T object, String message, String resource, BiFunction<String, String, X> function) {
         ofCauseThrowError(xOfInvalid(object, message, resource, function));
+    }
+
+    /**
+     * <code>ofInvalidError</code>
+     * <p>The invalid error method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestError
+     * @see org.springframework.lang.Nullable
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see java.util.function.BiFunction
+     */
+    public static <T, X extends RestError> void ofInvalidError(@Nullable T object, String message, String resource, Logger log, BiFunction<String, String, X> function) {
+        ofCauseThrowError(log, xOfInvalid(object, message, resource, function));
     }
 
     /**
@@ -1500,6 +2480,27 @@ public final class OptionalUtils {
     }
 
     /**
+     * <code>ofInvalidException</code>
+     * <p>The invalid exception method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param object   T <p>The object parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The actuator parameter is <code>BiFunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
+     * @see org.springframework.lang.Nullable
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
+     */
+    public static <T, X extends RestException> void ofInvalidException(@Nullable T object, String message, String resource, Logger log, BiFunctionActuator<String, String, X> actuator) throws RestException {
+        ofCauseThrowException(log, xOfInvalidActuator(object, message, resource, actuator));
+    }
+
+    /**
      * <code>ofTrue</code>
      * <p>The true method.</p>
      * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
@@ -1513,6 +2514,24 @@ public final class OptionalUtils {
      */
     public static <X extends Throwable> void ofTrue(Boolean present, Supplier<X> supplier) throws X {
         ofTrueThrow(present, supplier);
+    }
+
+    /**
+     * <code>ofTrue</code>
+     * <p>The true method.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
+     * @see java.lang.Throwable
+     * @see java.lang.Boolean
+     * @see org.slf4j.Logger
+     * @see java.util.function.Supplier
+     * @see X
+     */
+    public static <X extends Throwable> void ofTrue(Boolean present, Logger log, Supplier<X> supplier) throws X {
+        ofTrueThrow(present, log, supplier);
     }
 
     /**
@@ -1530,6 +2549,22 @@ public final class OptionalUtils {
     }
 
     /**
+     * <code>ofTrueError</code>
+     * <p>The true error method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestError
+     * @see java.lang.Boolean
+     * @see org.slf4j.Logger
+     * @see java.util.function.Supplier
+     */
+    public static <X extends RestError> void ofTrueError(Boolean present, Logger log, Supplier<X> supplier) {
+        ofTrueThrowError(present, log, supplier);
+    }
+
+    /**
      * <code>ofTrueException</code>
      * <p>The true exception method.</p>
      * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
@@ -1542,6 +2577,23 @@ public final class OptionalUtils {
      */
     public static <X extends RestException> void ofTrueException(Boolean present, SupplierActuator<X> actuator) throws RestException {
         ofTrueThrowException(present, actuator);
+    }
+
+    /**
+     * <code>ofTrueException</code>
+     * <p>The true exception method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The actuator parameter is <code>SupplierActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
+     * @see java.lang.Boolean
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
+     */
+    public static <X extends RestException> void ofTrueException(Boolean present, Logger log, SupplierActuator<X> actuator) throws RestException {
+        ofTrueThrowException(present, log, actuator);
     }
 
     /**
@@ -1563,6 +2615,26 @@ public final class OptionalUtils {
     }
 
     /**
+     * <code>ofTrue</code>
+     * <p>The true method.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
+     * @see java.lang.Throwable
+     * @see java.lang.Boolean
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see java.util.function.Function
+     * @see X
+     */
+    public static <X extends Throwable> void ofTrue(Boolean present, String message, Logger log, Function<String, X> function) throws X {
+        ofTrueThrow(present, message, log, function);
+    }
+
+    /**
      * <code>ofTrueError</code>
      * <p>The true error method.</p>
      * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
@@ -1576,6 +2648,24 @@ public final class OptionalUtils {
      */
     public static <X extends RestError> void ofTrueError(Boolean present, String message, Function<String, X> function) {
         ofTrueThrowError(present, message, function);
+    }
+
+    /**
+     * <code>ofTrueError</code>
+     * <p>The true error method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestError
+     * @see java.lang.Boolean
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see java.util.function.Function
+     */
+    public static <X extends RestError> void ofTrueError(Boolean present, String message, Logger log, Function<String, X> function) {
+        ofTrueThrowError(present, message, log, function);
     }
 
     /**
@@ -1593,6 +2683,25 @@ public final class OptionalUtils {
      */
     public static <X extends RestException> void ofTrueException(Boolean present, String message, FunctionActuator<String, X> actuator) throws RestException {
         ofTrueThrowException(present, message, actuator);
+    }
+
+    /**
+     * <code>ofTrueException</code>
+     * <p>The true exception method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The actuator parameter is <code>FunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
+     * @see java.lang.Boolean
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
+     */
+    public static <X extends RestException> void ofTrueException(Boolean present, String message, Logger log, FunctionActuator<String, X> actuator) throws RestException {
+        ofTrueThrowException(present, message, log, actuator);
     }
 
     /**
@@ -1615,6 +2724,27 @@ public final class OptionalUtils {
     }
 
     /**
+     * <code>ofTrue</code>
+     * <p>The true method.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
+     * @see java.lang.Throwable
+     * @see java.lang.Boolean
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see java.util.function.BiFunction
+     * @see X
+     */
+    public static <X extends Throwable> void ofTrue(Boolean present, String message, String resource, Logger log, BiFunction<String, String, X> function) throws X {
+        ofTrueThrow(present, message, resource, log, function);
+    }
+
+    /**
      * <code>ofTrueError</code>
      * <p>The true error method.</p>
      * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
@@ -1629,6 +2759,25 @@ public final class OptionalUtils {
      */
     public static <X extends RestError> void ofTrueError(Boolean present, String message, String resource, BiFunction<String, String, X> function) {
         ofTrueThrowError(present, message, resource, function);
+    }
+
+    /**
+     * <code>ofTrueError</code>
+     * <p>The true error method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestError
+     * @see java.lang.Boolean
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see java.util.function.BiFunction
+     */
+    public static <X extends RestError> void ofTrueError(Boolean present, String message, String resource, Logger log, BiFunction<String, String, X> function) {
+        ofTrueThrowError(present, message, resource, log, function);
     }
 
     /**
@@ -1650,6 +2799,26 @@ public final class OptionalUtils {
     }
 
     /**
+     * <code>ofTrueException</code>
+     * <p>The true exception method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The actuator parameter is <code>BiFunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
+     * @see java.lang.Boolean
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
+     */
+    public static <X extends RestException> void ofTrueException(Boolean present, String message, String resource, Logger log, BiFunctionActuator<String, String, X> actuator) throws RestException {
+        ofTrueThrowException(present, message, resource, log, actuator);
+    }
+
+    /**
      * <code>ofFalse</code>
      * <p>The false method.</p>
      * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
@@ -1663,6 +2832,24 @@ public final class OptionalUtils {
      */
     public static <X extends Throwable> void ofFalse(Boolean present, Supplier<X> supplier) throws X {
         ofFalseThrow(present, supplier);
+    }
+
+    /**
+     * <code>ofFalse</code>
+     * <p>The false method.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
+     * @see java.lang.Throwable
+     * @see java.lang.Boolean
+     * @see org.slf4j.Logger
+     * @see java.util.function.Supplier
+     * @see X
+     */
+    public static <X extends Throwable> void ofFalse(Boolean present, Logger log, Supplier<X> supplier) throws X {
+        ofFalseThrow(present, log, supplier);
     }
 
     /**
@@ -1680,6 +2867,22 @@ public final class OptionalUtils {
     }
 
     /**
+     * <code>ofFalseError</code>
+     * <p>The false error method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestError
+     * @see java.lang.Boolean
+     * @see org.slf4j.Logger
+     * @see java.util.function.Supplier
+     */
+    public static <X extends RestError> void ofFalseError(Boolean present, Logger log, Supplier<X> supplier) {
+        ofFalseThrowError(present, log, supplier);
+    }
+
+    /**
      * <code>ofFalseException</code>
      * <p>The false exception method.</p>
      * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
@@ -1692,6 +2895,23 @@ public final class OptionalUtils {
      */
     public static <X extends RestException> void ofFalseException(Boolean present, SupplierActuator<X> actuator) throws RestException {
         ofFalseThrowException(present, actuator);
+    }
+
+    /**
+     * <code>ofFalseException</code>
+     * <p>The false exception method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The actuator parameter is <code>SupplierActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
+     * @see java.lang.Boolean
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
+     */
+    public static <X extends RestException> void ofFalseException(Boolean present, Logger log, SupplierActuator<X> actuator) throws RestException {
+        ofFalseThrowException(present, log, actuator);
     }
 
     /**
@@ -1713,6 +2933,26 @@ public final class OptionalUtils {
     }
 
     /**
+     * <code>ofFalse</code>
+     * <p>The false method.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
+     * @see java.lang.Throwable
+     * @see java.lang.Boolean
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see java.util.function.Function
+     * @see X
+     */
+    public static <X extends Throwable> void ofFalse(Boolean present, String message, Logger log, Function<String, X> function) throws X {
+        ofFalseThrow(present, message, log, function);
+    }
+
+    /**
      * <code>ofFalseError</code>
      * <p>The false error method.</p>
      * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
@@ -1726,6 +2966,24 @@ public final class OptionalUtils {
      */
     public static <X extends RestError> void ofFalseError(Boolean present, String message, Function<String, X> function) {
         ofFalseThrowError(present, message, function);
+    }
+
+    /**
+     * <code>ofFalseError</code>
+     * <p>The false error method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestError
+     * @see java.lang.Boolean
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see java.util.function.Function
+     */
+    public static <X extends RestError> void ofFalseError(Boolean present, String message, Logger log, Function<String, X> function) {
+        ofFalseThrowError(present, message, log, function);
     }
 
     /**
@@ -1743,6 +3001,25 @@ public final class OptionalUtils {
      */
     public static <X extends RestException> void ofFalseException(Boolean present, String message, FunctionActuator<String, X> actuator) throws RestException {
         ofFalseThrowException(present, message, actuator);
+    }
+
+    /**
+     * <code>ofFalseException</code>
+     * <p>The false exception method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The actuator parameter is <code>FunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
+     * @see java.lang.Boolean
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
+     */
+    public static <X extends RestException> void ofFalseException(Boolean present, String message, Logger log, FunctionActuator<String, X> actuator) throws RestException {
+        ofFalseThrowException(present, message, log, actuator);
     }
 
     /**
@@ -1765,6 +3042,27 @@ public final class OptionalUtils {
     }
 
     /**
+     * <code>ofFalse</code>
+     * <p>The false method.</p>
+     * @param <X>      {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
+     * @throws X X <p>The x is <code>X</code> type.</p>
+     * @see java.lang.Throwable
+     * @see java.lang.Boolean
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see java.util.function.BiFunction
+     * @see X
+     */
+    public static <X extends Throwable> void ofFalse(Boolean present, String message, String resource, Logger log, BiFunction<String, String, X> function) throws X {
+        ofFalseThrow(present, message, resource, log, function);
+    }
+
+    /**
      * <code>ofFalseError</code>
      * <p>The false error method.</p>
      * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
@@ -1779,6 +3077,25 @@ public final class OptionalUtils {
      */
     public static <X extends RestError> void ofFalseError(Boolean present, String message, String resource, BiFunction<String, String, X> function) {
         ofFalseThrowError(present, message, resource, function);
+    }
+
+    /**
+     * <code>ofFalseError</code>
+     * <p>The false error method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestError} <p>The generic parameter is <code>RestError</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestError
+     * @see java.lang.Boolean
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see java.util.function.BiFunction
+     */
+    public static <X extends RestError> void ofFalseError(Boolean present, String message, String resource, Logger log, BiFunction<String, String, X> function) {
+        ofFalseThrowError(present, message, resource, log, function);
     }
 
     /**
@@ -1800,6 +3117,26 @@ public final class OptionalUtils {
     }
 
     /**
+     * <code>ofFalseException</code>
+     * <p>The false exception method.</p>
+     * @param <X>      {@link io.github.nichetoolkit.rest.RestException} <p>The generic parameter is <code>RestException</code> type.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @param actuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The actuator parameter is <code>BiFunctionActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestException
+     * @see java.lang.Boolean
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
+     */
+    public static <X extends RestException> void ofFalseException(Boolean present, String message, String resource, Logger log, BiFunctionActuator<String, String, X> actuator) throws RestException {
+        ofFalseThrowException(present, message, resource, log, actuator);
+    }
+
+    /**
      * <code>ofFieldNull</code>
      * <p>The field null method.</p>
      * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
@@ -1809,6 +3146,20 @@ public final class OptionalUtils {
      */
     public static <T> void ofFieldNull(T field) throws RestException {
         ofNullException(field, FieldNullException::new);
+    }
+
+    /**
+     * <code>ofFieldNull</code>
+     * <p>The field null method.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param field T <p>The field parameter is <code>T</code> type.</p>
+     * @param log   {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static <T> void ofFieldNull(T field, Logger log) throws RestException {
+        ofNullException(field, log, FieldNullException::new);
     }
 
     /**
@@ -1828,6 +3179,22 @@ public final class OptionalUtils {
     /**
      * <code>ofFieldNull</code>
      * <p>The field null method.</p>
+     * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param field   T <p>The field parameter is <code>T</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param log     {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static <T> void ofFieldNull(T field, String message, Logger log) throws RestException {
+        ofNullException(field, message, log, FieldNullException::new);
+    }
+
+    /**
+     * <code>ofFieldNull</code>
+     * <p>The field null method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param field    T <p>The field parameter is <code>T</code> type.</p>
      * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
@@ -1841,6 +3208,23 @@ public final class OptionalUtils {
     }
 
     /**
+     * <code>ofFieldNull</code>
+     * <p>The field null method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param field    T <p>The field parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static <T> void ofFieldNull(T field, String message, String resource, Logger log) throws RestException {
+        ofNullException(field, message, resource, log, FieldNullException::new);
+    }
+
+    /**
      * <code>ofFieldEmpty</code>
      * <p>The field empty method.</p>
      * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
@@ -1850,6 +3234,20 @@ public final class OptionalUtils {
      */
     public static <T> void ofFieldEmpty(T field) throws RestException {
         ofEmptyException(field, FieldNullException::new);
+    }
+
+    /**
+     * <code>ofFieldEmpty</code>
+     * <p>The field empty method.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param field T <p>The field parameter is <code>T</code> type.</p>
+     * @param log   {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static <T> void ofFieldEmpty(T field, Logger log) throws RestException {
+        ofEmptyException(field, log, FieldNullException::new);
     }
 
     /**
@@ -1869,6 +3267,22 @@ public final class OptionalUtils {
     /**
      * <code>ofFieldEmpty</code>
      * <p>The field empty method.</p>
+     * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param field   T <p>The field parameter is <code>T</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param log     {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static <T> void ofFieldEmpty(T field, String message, Logger log) throws RestException {
+        ofEmptyException(field, message, log, FieldNullException::new);
+    }
+
+    /**
+     * <code>ofFieldEmpty</code>
+     * <p>The field empty method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param field    T <p>The field parameter is <code>T</code> type.</p>
      * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
@@ -1882,6 +3296,23 @@ public final class OptionalUtils {
     }
 
     /**
+     * <code>ofFieldEmpty</code>
+     * <p>The field empty method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param field    T <p>The field parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static <T> void ofFieldEmpty(T field, String message, String resource, Logger log) throws RestException {
+        ofEmptyException(field, message, resource, log, FieldNullException::new);
+    }
+
+    /**
      * <code>ofFieldInvalid</code>
      * <p>The field invalid method.</p>
      * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
@@ -1891,6 +3322,20 @@ public final class OptionalUtils {
      */
     public static <T> void ofFieldInvalid(T field) throws RestException {
         ofInvalidException(field, FieldNullException::new);
+    }
+
+    /**
+     * <code>ofFieldInvalid</code>
+     * <p>The field invalid method.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param field T <p>The field parameter is <code>T</code> type.</p>
+     * @param log   {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static <T> void ofFieldInvalid(T field, Logger log) throws RestException {
+        ofInvalidException(field, log, FieldNullException::new);
     }
 
     /**
@@ -1910,6 +3355,22 @@ public final class OptionalUtils {
     /**
      * <code>ofFieldInvalid</code>
      * <p>The field invalid method.</p>
+     * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param field   T <p>The field parameter is <code>T</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param log     {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static <T> void ofFieldInvalid(T field, String message, Logger log) throws RestException {
+        ofInvalidException(field, message, log, FieldNullException::new);
+    }
+
+    /**
+     * <code>ofFieldInvalid</code>
+     * <p>The field invalid method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param field    T <p>The field parameter is <code>T</code> type.</p>
      * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
@@ -1923,6 +3384,23 @@ public final class OptionalUtils {
     }
 
     /**
+     * <code>ofFieldInvalid</code>
+     * <p>The field invalid method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param field    T <p>The field parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static <T> void ofFieldInvalid(T field, String message, String resource, Logger log) throws RestException {
+        ofInvalidException(field, message, resource, log, FieldNullException::new);
+    }
+
+    /**
      * <code>ofIdNull</code>
      * <p>The id null method.</p>
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
@@ -1933,6 +3411,21 @@ public final class OptionalUtils {
     public static <T> void ofIdNull(T id) throws RestException {
         ofNullException(id, IdentityNullException::new);
     }
+
+    /**
+     * <code>ofIdNull</code>
+     * <p>The id null method.</p>
+     * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param id  T <p>The id parameter is <code>T</code> type.</p>
+     * @param log {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static <T> void ofIdNull(T id, Logger log) throws RestException {
+        ofNullException(id, log, IdentityNullException::new);
+    }
+
 
     /**
      * <code>ofIdNull</code>
@@ -1951,6 +3444,22 @@ public final class OptionalUtils {
     /**
      * <code>ofIdNull</code>
      * <p>The id null method.</p>
+     * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param id      T <p>The id parameter is <code>T</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param log     {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static <T> void ofIdNull(T id, String message, Logger log) throws RestException {
+        ofNullException(id, message, log, IdentityNullException::new);
+    }
+
+    /**
+     * <code>ofIdNull</code>
+     * <p>The id null method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param id       T <p>The id parameter is <code>T</code> type.</p>
      * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
@@ -1964,6 +3473,23 @@ public final class OptionalUtils {
     }
 
     /**
+     * <code>ofIdNull</code>
+     * <p>The id null method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param id       T <p>The id parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static <T> void ofIdNull(T id, String message, String resource, Logger log) throws RestException {
+        ofNullException(id, message, resource, log, IdentityNullException::new);
+    }
+
+    /**
      * <code>ofIdEmpty</code>
      * <p>The id empty method.</p>
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
@@ -1972,6 +3498,20 @@ public final class OptionalUtils {
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> void ofIdEmpty(T id) throws RestException {
+        ofEmptyException(id, IdentityNullException::new);
+    }
+
+    /**
+     * <code>ofIdEmpty</code>
+     * <p>The id empty method.</p>
+     * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param id  T <p>The id parameter is <code>T</code> type.</p>
+     * @param log {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static <T> void ofIdEmpty(T id, Logger log) throws RestException {
         ofEmptyException(id, IdentityNullException::new);
     }
 
@@ -1992,6 +3532,22 @@ public final class OptionalUtils {
     /**
      * <code>ofIdEmpty</code>
      * <p>The id empty method.</p>
+     * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param id      T <p>The id parameter is <code>T</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param log     {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static <T> void ofIdEmpty(T id, String message, Logger log) throws RestException {
+        ofEmptyException(id, message, log, IdentityNullException::new);
+    }
+
+    /**
+     * <code>ofIdEmpty</code>
+     * <p>The id empty method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param id       T <p>The id parameter is <code>T</code> type.</p>
      * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
@@ -2005,6 +3561,23 @@ public final class OptionalUtils {
     }
 
     /**
+     * <code>ofIdEmpty</code>
+     * <p>The id empty method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param id       T <p>The id parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static <T> void ofIdEmpty(T id, String message, String resource, Logger log) throws RestException {
+        ofEmptyException(id, message, resource, log, IdentityNullException::new);
+    }
+
+    /**
      * <code>ofIdInvalid</code>
      * <p>The id invalid method.</p>
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
@@ -2014,6 +3587,20 @@ public final class OptionalUtils {
      */
     public static <T> void ofIdInvalid(T id) throws RestException {
         ofInvalidException(id, IdentityNullException::new);
+    }
+
+    /**
+     * <code>ofIdInvalid</code>
+     * <p>The id invalid method.</p>
+     * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param id  T <p>The id parameter is <code>T</code> type.</p>
+     * @param log {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static <T> void ofIdInvalid(T id, Logger log) throws RestException {
+        ofInvalidException(id, log, IdentityNullException::new);
     }
 
     /**
@@ -2033,6 +3620,22 @@ public final class OptionalUtils {
     /**
      * <code>ofIdInvalid</code>
      * <p>The id invalid method.</p>
+     * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param id      T <p>The id parameter is <code>T</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param log     {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static <T> void ofIdInvalid(T id, String message, Logger log) throws RestException {
+        ofInvalidException(id, message, log, IdentityNullException::new);
+    }
+
+    /**
+     * <code>ofIdInvalid</code>
+     * <p>The id invalid method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param id       T <p>The id parameter is <code>T</code> type.</p>
      * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
@@ -2046,6 +3649,23 @@ public final class OptionalUtils {
     }
 
     /**
+     * <code>ofIdInvalid</code>
+     * <p>The id invalid method.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param id       T <p>The id parameter is <code>T</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static <T> void ofIdInvalid(T id, String message, String resource, Logger log) throws RestException {
+        ofInvalidException(id, message, resource, log, IdentityNullException::new);
+    }
+
+    /**
      * <code>ofCreate</code>
      * <p>The create method.</p>
      * @param result {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
@@ -2055,6 +3675,20 @@ public final class OptionalUtils {
      */
     public static void ofCreate(Integer result) throws RestException {
         ofInvalidException(result, DataCreateException::new);
+    }
+
+    /**
+     * <code>ofCreate</code>
+     * <p>The create method.</p>
+     * @param result {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @param log    {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.Integer
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static void ofCreate(Integer result, Logger log) throws RestException {
+        ofInvalidException(result, log, DataCreateException::new);
     }
 
     /**
@@ -2074,6 +3708,22 @@ public final class OptionalUtils {
     /**
      * <code>ofCreate</code>
      * <p>The create method.</p>
+     * @param result  {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param log     {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.Integer
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static void ofCreate(Integer result, String message, Logger log) throws RestException {
+        ofInvalidException(result, message, log, DataCreateException::new);
+    }
+
+    /**
+     * <code>ofCreate</code>
+     * <p>The create method.</p>
      * @param result   {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
      * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
@@ -2087,6 +3737,23 @@ public final class OptionalUtils {
     }
 
     /**
+     * <code>ofCreate</code>
+     * <p>The create method.</p>
+     * @param result   {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.Integer
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static void ofCreate(Integer result, String message, String resource, Logger log) throws RestException {
+        ofInvalidException(result, message, resource, log, DataCreateException::new);
+    }
+
+    /**
      * <code>ofUpdate</code>
      * <p>The update method.</p>
      * @param result {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
@@ -2096,6 +3763,20 @@ public final class OptionalUtils {
      */
     public static void ofUpdate(Integer result) throws RestException {
         ofInvalidException(result, DataUpdateException::new);
+    }
+
+    /**
+     * <code>ofUpdate</code>
+     * <p>The update method.</p>
+     * @param result {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @param log    {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.Integer
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static void ofUpdate(Integer result, Logger log) throws RestException {
+        ofInvalidException(result, log, DataUpdateException::new);
     }
 
     /**
@@ -2115,6 +3796,22 @@ public final class OptionalUtils {
     /**
      * <code>ofUpdate</code>
      * <p>The update method.</p>
+     * @param result  {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param log     {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.Integer
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static void ofUpdate(Integer result, String message, Logger log) throws RestException {
+        ofInvalidException(result, message, log, DataUpdateException::new);
+    }
+
+    /**
+     * <code>ofUpdate</code>
+     * <p>The update method.</p>
      * @param result   {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
      * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
@@ -2128,6 +3825,23 @@ public final class OptionalUtils {
     }
 
     /**
+     * <code>ofUpdate</code>
+     * <p>The update method.</p>
+     * @param result   {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.Integer
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static void ofUpdate(Integer result, String message, String resource, Logger log) throws RestException {
+        ofInvalidException(result, message, resource, log, DataUpdateException::new);
+    }
+
+    /**
      * <code>ofSave</code>
      * <p>The save method.</p>
      * @param result {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
@@ -2137,6 +3851,20 @@ public final class OptionalUtils {
      */
     public static void ofSave(Integer result) throws RestException {
         ofInvalidException(result, DataSaveException::new);
+    }
+
+    /**
+     * <code>ofSave</code>
+     * <p>The save method.</p>
+     * @param result {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @param log    {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.Integer
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static void ofSave(Integer result, Logger log) throws RestException {
+        ofInvalidException(result, log, DataSaveException::new);
     }
 
     /**
@@ -2156,6 +3884,22 @@ public final class OptionalUtils {
     /**
      * <code>ofSave</code>
      * <p>The save method.</p>
+     * @param result  {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param log     {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.Integer
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static void ofSave(Integer result, String message, Logger log) throws RestException {
+        ofInvalidException(result, message, log, DataSaveException::new);
+    }
+
+    /**
+     * <code>ofSave</code>
+     * <p>The save method.</p>
      * @param result   {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
      * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
@@ -2166,6 +3910,23 @@ public final class OptionalUtils {
      */
     public static void ofSave(Integer result, String message, String resource) throws RestException {
         ofInvalidException(result, message, resource, DataSaveException::new);
+    }
+
+    /**
+     * <code>ofSave</code>
+     * <p>The save method.</p>
+     * @param result   {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.Integer
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static void ofSave(Integer result, String message, String resource, Logger log) throws RestException {
+        ofInvalidException(result, message, resource, log, DataSaveException::new);
     }
 
     /**
@@ -2183,6 +3944,20 @@ public final class OptionalUtils {
     /**
      * <code>ofInsertAll</code>
      * <p>The insert all method.</p>
+     * @param result {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @param log    {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.Integer
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static void ofInsertAll(Integer result, Logger log) throws RestException {
+        ofInvalidException(result, log, DataBatchInsertException::new);
+    }
+
+    /**
+     * <code>ofInsertAll</code>
+     * <p>The insert all method.</p>
      * @param result  {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
      * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -2192,6 +3967,22 @@ public final class OptionalUtils {
      */
     public static void ofInsertAll(Integer result, String message) throws RestException {
         ofInvalidException(result, message, DataBatchInsertException::new);
+    }
+
+    /**
+     * <code>ofInsertAll</code>
+     * <p>The insert all method.</p>
+     * @param result  {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param log     {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.Integer
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static void ofInsertAll(Integer result, String message, Logger log) throws RestException {
+        ofInvalidException(result, message, log, DataBatchInsertException::new);
     }
 
     /**
@@ -2212,6 +4003,23 @@ public final class OptionalUtils {
     /**
      * <code>ofInsertAll</code>
      * <p>The insert all method.</p>
+     * @param result   {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.Integer
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static void ofInsertAll(Integer result, String message, String resource, Logger log) throws RestException {
+        ofInvalidException(result, message, resource, log, DataBatchInsertException::new);
+    }
+
+    /**
+     * <code>ofInsertAll</code>
+     * <p>The insert all method.</p>
      * @param present {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Boolean
@@ -2219,6 +4027,20 @@ public final class OptionalUtils {
      */
     public static void ofInsertAll(Boolean present) throws RestException {
         ofFalseException(present, DataBatchInsertException::new);
+    }
+
+    /**
+     * <code>ofInsertAll</code>
+     * <p>The insert all method.</p>
+     * @param present {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param log     {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.Boolean
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static void ofInsertAll(Boolean present, Logger log) throws RestException {
+        ofFalseException(present, log, DataBatchInsertException::new);
     }
 
     /**
@@ -2239,6 +4061,23 @@ public final class OptionalUtils {
     /**
      * <code>ofInsertAll</code>
      * <p>The insert all method.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.Boolean
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static void ofInsertAll(Boolean present, String message, String resource, Logger log) throws RestException {
+        ofFalseException(present, message, resource, log, DataBatchInsertException::new);
+    }
+
+    /**
+     * <code>ofInsertAll</code>
+     * <p>The insert all method.</p>
      * @param present {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
      * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -2251,6 +4090,22 @@ public final class OptionalUtils {
     }
 
     /**
+     * <code>ofInsertAll</code>
+     * <p>The insert all method.</p>
+     * @param present {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param log     {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.Boolean
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static void ofInsertAll(Boolean present, String message, Logger log) throws RestException {
+        ofFalseException(present, message, log, DataBatchInsertException::new);
+    }
+
+    /**
      * <code>ofUpdateAll</code>
      * <p>The update all method.</p>
      * @param result {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
@@ -2260,6 +4115,20 @@ public final class OptionalUtils {
      */
     public static void ofUpdateAll(Integer result) throws RestException {
         ofInvalidException(result, DataBatchUpdateException::new);
+    }
+
+    /**
+     * <code>ofUpdateAll</code>
+     * <p>The update all method.</p>
+     * @param result {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @param log    {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.Integer
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static void ofUpdateAll(Integer result, Logger log) throws RestException {
+        ofInvalidException(result, log, DataBatchUpdateException::new);
     }
 
     /**
@@ -2280,6 +4149,23 @@ public final class OptionalUtils {
     /**
      * <code>ofUpdateAll</code>
      * <p>The update all method.</p>
+     * @param result   {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.Integer
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static void ofUpdateAll(Integer result, String message, String resource, Logger log) throws RestException {
+        ofInvalidException(result, message, resource, log, DataBatchUpdateException::new);
+    }
+
+    /**
+     * <code>ofUpdateAll</code>
+     * <p>The update all method.</p>
      * @param result  {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
      * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -2294,6 +4180,22 @@ public final class OptionalUtils {
     /**
      * <code>ofUpdateAll</code>
      * <p>The update all method.</p>
+     * @param result  {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param log     {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.Integer
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static void ofUpdateAll(Integer result, String message, Logger log) throws RestException {
+        ofInvalidException(result, message, log, DataBatchUpdateException::new);
+    }
+
+    /**
+     * <code>ofUpdateAll</code>
+     * <p>The update all method.</p>
      * @param present {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Boolean
@@ -2301,6 +4203,21 @@ public final class OptionalUtils {
      */
     public static void ofUpdateAll(Boolean present) throws RestException {
         ofFalseException(present, DataBatchUpdateException::new);
+    }
+
+
+    /**
+     * <code>ofUpdateAll</code>
+     * <p>The update all method.</p>
+     * @param present {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param log     {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.Boolean
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static void ofUpdateAll(Boolean present, Logger log) throws RestException {
+        ofFalseException(present, log, DataBatchUpdateException::new);
     }
 
     /**
@@ -2321,6 +4238,23 @@ public final class OptionalUtils {
     /**
      * <code>ofUpdateAll</code>
      * <p>The update all method.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.Boolean
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static void ofUpdateAll(Boolean present, String message, String resource, Logger log) throws RestException {
+        ofFalseException(present, message, resource, log, DataBatchUpdateException::new);
+    }
+
+    /**
+     * <code>ofUpdateAll</code>
+     * <p>The update all method.</p>
      * @param present {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
      * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -2333,6 +4267,22 @@ public final class OptionalUtils {
     }
 
     /**
+     * <code>ofUpdateAll</code>
+     * <p>The update all method.</p>
+     * @param present {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param log     {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.Boolean
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static void ofUpdateAll(Boolean present, String message, Logger log) throws RestException {
+        ofFalseException(present, message, log, DataBatchUpdateException::new);
+    }
+
+    /**
      * <code>ofSaveAll</code>
      * <p>The save all method.</p>
      * @param present {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
@@ -2342,6 +4292,20 @@ public final class OptionalUtils {
      */
     public static void ofSaveAll(Boolean present) throws RestException {
         ofFalseException(present, DataBatchSaveException::new);
+    }
+
+    /**
+     * <code>ofSaveAll</code>
+     * <p>The save all method.</p>
+     * @param present {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param log     {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.Boolean
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static void ofSaveAll(Boolean present, Logger log) throws RestException {
+        ofFalseException(present, log, DataBatchSaveException::new);
     }
 
     /**
@@ -2362,6 +4326,23 @@ public final class OptionalUtils {
     /**
      * <code>ofSaveAll</code>
      * <p>The save all method.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.Boolean
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static void ofSaveAll(Boolean present, String message, String resource, Logger log) throws RestException {
+        ofFalseException(present, message, resource, log, DataBatchSaveException::new);
+    }
+
+    /**
+     * <code>ofSaveAll</code>
+     * <p>The save all method.</p>
      * @param present {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
      * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -2374,6 +4355,22 @@ public final class OptionalUtils {
     }
 
     /**
+     * <code>ofSaveAll</code>
+     * <p>The save all method.</p>
+     * @param present {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param log     {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.Boolean
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static void ofSaveAll(Boolean present, String message, Logger log) throws RestException {
+        ofFalseException(present, message, log, DataBatchSaveException::new);
+    }
+
+    /**
      * <code>ofNameRepeat</code>
      * <p>The name repeat method.</p>
      * @param present {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
@@ -2383,6 +4380,20 @@ public final class OptionalUtils {
      */
     public static void ofNameRepeat(Boolean present) throws RestException {
         ofTrueException(present, NameRepeatException::new);
+    }
+
+    /**
+     * <code>ofNameRepeat</code>
+     * <p>The name repeat method.</p>
+     * @param present {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param log     {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.Boolean
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static void ofNameRepeat(Boolean present, Logger log) throws RestException {
+        ofTrueException(present, log, NameRepeatException::new);
     }
 
     /**
@@ -2402,6 +4413,22 @@ public final class OptionalUtils {
     /**
      * <code>ofNameRepeat</code>
      * <p>The name repeat method.</p>
+     * @param present {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param log     {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.Boolean
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static void ofNameRepeat(Boolean present, String message, Logger log) throws RestException {
+        ofTrueException(present, message, log, NameRepeatException::new);
+    }
+
+    /**
+     * <code>ofNameRepeat</code>
+     * <p>The name repeat method.</p>
      * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
      * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
@@ -2411,7 +4438,24 @@ public final class OptionalUtils {
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static void ofNameRepeat(Boolean present, String message, String resource) throws RestException {
-        ofTrueException(present, message, resource, (resource1, message1) -> new NameRepeatException(resource1, null, message1));
+        ofTrueException(present, message, resource, (rse, msg) -> new NameRepeatException(rse, null, msg));
+    }
+
+    /**
+     * <code>ofNameRepeat</code>
+     * <p>The name repeat method.</p>
+     * @param present  {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
+     * @param log      {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.Boolean
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static void ofNameRepeat(Boolean present, String message, String resource, Logger log) throws RestException {
+        ofTrueException(present, message, resource, log, (rse, msg) -> new NameRepeatException(rse, null, msg));
     }
 
     /**
@@ -2424,6 +4468,20 @@ public final class OptionalUtils {
      */
     public static void ofFieldRepeat(Boolean present) throws RestException {
         ofTrueException(present, FieldRepeatException::new);
+    }
+
+    /**
+     * <code>ofFieldRepeat</code>
+     * <p>The field repeat method.</p>
+     * @param present {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param log     {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.Boolean
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static void ofFieldRepeat(Boolean present, Logger log) throws RestException {
+        ofTrueException(present, log, FieldRepeatException::new);
     }
 
     /**
@@ -2445,6 +4503,22 @@ public final class OptionalUtils {
      * <p>The field repeat method.</p>
      * @param present {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
      * @param field   {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
+     * @param log     {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.Boolean
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static void ofFieldRepeat(Boolean present, String field, Logger log) throws RestException {
+        ofTrueException(present, field, log, FieldRepeatException::new);
+    }
+
+    /**
+     * <code>ofFieldRepeat</code>
+     * <p>The field repeat method.</p>
+     * @param present {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param field   {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
      * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Boolean
@@ -2453,5 +4527,22 @@ public final class OptionalUtils {
      */
     public static void ofFieldRepeat(Boolean present, String field, String message) throws RestException {
         ofTrueException(present, message, field, (fld, msg) -> new FieldRepeatException(fld, null, msg));
+    }
+
+    /**
+     * <code>ofFieldRepeat</code>
+     * <p>The field repeat method.</p>
+     * @param present {@link java.lang.Boolean} <p>The present parameter is <code>Boolean</code> type.</p>
+     * @param field   {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param log     {@link org.slf4j.Logger} <p>The log parameter is <code>Logger</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.Boolean
+     * @see java.lang.String
+     * @see org.slf4j.Logger
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public static void ofFieldRepeat(Boolean present, String field, String message, Logger log) throws RestException {
+        ofTrueException(present, message, field, log, (fld, msg) -> new FieldRepeatException(fld, null, msg));
     }
 }
