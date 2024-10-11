@@ -2,7 +2,8 @@ package io.github.nichetoolkit.rest.image;
 
 import io.github.nichetoolkit.rest.constant.UtilConstants;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.imageio.ImageIO;
@@ -16,12 +17,14 @@ import java.io.Serializable;
  * <p>The type image verify class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.io.Serializable
- * @see lombok.Data
+ * @see lombok.Getter
+ * @see lombok.Setter
  * @see lombok.extern.slf4j.Slf4j
  * @see java.lang.SuppressWarnings
  * @since Jdk1.8
  */
-@Data
+@Getter
+@Setter
 @Slf4j
 @SuppressWarnings("SameNameButDifferent")
 public class ImageVerify implements Serializable {

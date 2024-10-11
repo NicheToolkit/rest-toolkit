@@ -1,6 +1,7 @@
 package io.github.nichetoolkit.rest.worker.rsa;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 
@@ -9,10 +10,12 @@ import java.io.Serializable;
  * <p>The type rsa key class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.io.Serializable
- * @see lombok.Data
+ * @see lombok.Getter
+ * @see lombok.Setter
  * @since Jdk1.8
  */
-@Data
+@Getter
+@Setter
 public class RsaKey implements Serializable {
     /**
      * <code>publicKey</code>

@@ -1,7 +1,8 @@
 package io.github.nichetoolkit.rest.configure;
 
 import io.github.nichetoolkit.rest.util.GeneralUtils;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
@@ -9,12 +10,14 @@ import org.springframework.stereotype.Component;
  * <code>RestRadixProperties</code>
  * <p>The type rest radix properties class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @see lombok.Data
+ * @see lombok.Getter
+ * @see lombok.Setter
  * @see org.springframework.stereotype.Component
  * @see org.springframework.boot.context.properties.ConfigurationProperties
  * @since Jdk1.8
  */
-@Data
+@Getter
+@Setter
 @Component
 @ConfigurationProperties(prefix = "nichetoolkit.rest.radix")
 public class RestRadixProperties {

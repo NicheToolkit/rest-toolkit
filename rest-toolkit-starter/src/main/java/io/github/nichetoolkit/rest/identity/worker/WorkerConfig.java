@@ -1,6 +1,7 @@
 package io.github.nichetoolkit.rest.identity.worker;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Objects;
 
@@ -8,10 +9,12 @@ import java.util.Objects;
  * <code>WorkerConfig</code>
  * <p>The type worker config class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @see lombok.Data
+ * @see lombok.Getter
+ * @see lombok.Setter
  * @since Jdk1.8
  */
-@Data
+@Getter
+@Setter
 public class WorkerConfig {
     /**
      * <code>workerId</code>

@@ -2,18 +2,21 @@ package io.github.nichetoolkit.rest.userlog;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * <code>RestRequestPack</code>
  * <p>The type rest request pack class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @see lombok.Data
+ * @see lombok.Getter
+ * @see lombok.Setter
  * @see com.fasterxml.jackson.annotation.JsonInclude
  * @see com.fasterxml.jackson.annotation.JsonIgnoreProperties
  * @since Jdk1.8
  */
-@Data
+@Getter
+@Setter
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class RestRequestPack {

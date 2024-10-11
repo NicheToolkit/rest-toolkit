@@ -1,17 +1,20 @@
 package io.github.nichetoolkit.rest.identity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * <code>ServerConfig</code>
  * <p>The type server config class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @see lombok.Data
+ * @see lombok.Getter
+ * @see lombok.Setter
  * @see java.lang.SuppressWarnings
  * @since Jdk1.8
  */
-@Data
+@Getter
+@Setter
 @SuppressWarnings("SameNameButDifferent")
 public class ServerConfig {
     /**

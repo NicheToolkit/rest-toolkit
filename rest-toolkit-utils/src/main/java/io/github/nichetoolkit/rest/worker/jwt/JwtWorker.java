@@ -7,7 +7,8 @@ import io.fusionauth.security.CryptoProvider;
 import io.github.nichetoolkit.rest.configure.RestJwtProperties;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import io.github.nichetoolkit.rest.util.JsonUtils;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -23,11 +24,13 @@ import java.util.UUID;
  * <code>JwtWorker</code>
  * <p>The type jwt worker class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @see lombok.Data
+ * @see lombok.Getter
+ * @see lombok.Setter
  * @see lombok.extern.slf4j.Slf4j
  * @since Jdk1.8
  */
-@Data
+@Getter
+@Setter
 @Slf4j
 public class JwtWorker {
 

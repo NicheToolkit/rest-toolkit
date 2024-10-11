@@ -161,12 +161,39 @@ public final class RestOptional<T> {
     }
 
     /**
+     * <code>isNull</code>
+     * <p>The null method.</p>
+     * @return boolean <p>The null return object is <code>boolean</code> type.</p>
+     */
+    public boolean isNull() {
+        return GeneralUtils.isNull(value);
+    }
+
+    /**
+     * <code>isEmpty</code>
+     * <p>The empty method.</p>
+     * @return boolean <p>The empty return object is <code>boolean</code> type.</p>
+     */
+    public boolean isEmpty() {
+        return GeneralUtils.isEmpty(value);
+    }
+
+    /**
+     * <code>isInvalid</code>
+     * <p>The invalid method.</p>
+     * @return boolean <p>The invalid return object is <code>boolean</code> type.</p>
+     */
+    public boolean isInvalid() {
+        return GeneralUtils.isInvalid(value);
+    }
+
+    /**
      * <code>isNullPresent</code>
      * <p>The null present method.</p>
      * @return boolean <p>The null present return object is <code>boolean</code> type.</p>
      */
     public boolean isNullPresent() {
-        return GeneralUtils.isNull(value);
+        return GeneralUtils.isNotNull(value);
     }
 
     /**
@@ -175,7 +202,7 @@ public final class RestOptional<T> {
      * @return boolean <p>The empty present return object is <code>boolean</code> type.</p>
      */
     public boolean isEmptyPresent() {
-        return GeneralUtils.isEmpty(value);
+        return GeneralUtils.isNotEmpty(value);
     }
 
     /**
@@ -184,7 +211,7 @@ public final class RestOptional<T> {
      * @return boolean <p>The valid present return object is <code>boolean</code> type.</p>
      */
     public boolean isValidPresent() {
-        return GeneralUtils.isInvalid(value);
+        return GeneralUtils.isValid(value);
     }
 
     /**
@@ -194,7 +221,7 @@ public final class RestOptional<T> {
      * @see java.util.function.Consumer
      */
     public void ifPresent(Consumer<? super T> consumer) {
-        if (GeneralUtils.isNotNull(value))
+        if (isPresent())
             consumer.accept(value);
     }
 
@@ -207,7 +234,7 @@ public final class RestOptional<T> {
      * @see io.github.nichetoolkit.rest.RestException
      */
     public void ifNullPresent(ConsumerActuator<? super T> consumer) throws RestException {
-        if (GeneralUtils.isNotNull(value))
+        if (isNullPresent())
             consumer.actuate(value);
     }
 
@@ -220,7 +247,7 @@ public final class RestOptional<T> {
      * @see io.github.nichetoolkit.rest.RestException
      */
     public void ifEmptyPresent(ConsumerActuator<? super T> consumer) throws RestException {
-        if (GeneralUtils.isNotEmpty(value))
+        if (isEmptyPresent())
             consumer.actuate(value);
     }
 
@@ -233,7 +260,7 @@ public final class RestOptional<T> {
      * @see io.github.nichetoolkit.rest.RestException
      */
     public void ifValidPresent(ConsumerActuator<? super T> consumer) throws RestException {
-        if (GeneralUtils.isValid(value))
+        if (isValidPresent())
             consumer.actuate(value);
     }
 
@@ -246,7 +273,7 @@ public final class RestOptional<T> {
      */
     public RestOptional<T> filter(Predicate<? super T> predicate) {
         Objects.requireNonNull(predicate);
-        if (isPresent())
+        if (isNull())
             return this;
         else
             return predicate.test(value) ? this : empty();
@@ -263,7 +290,7 @@ public final class RestOptional<T> {
      */
     public RestOptional<T> nullFilter(PredicateActuator<? super T> predicate) throws RestException {
         Objects.requireNonNull(predicate);
-        if (isNullPresent())
+        if (isNull())
             return this;
         else
             return predicate.actuate(value) ? this : empty();
@@ -280,7 +307,7 @@ public final class RestOptional<T> {
      */
     public RestOptional<T> emptyFilter(PredicateActuator<? super T> predicate) throws RestException {
         Objects.requireNonNull(predicate);
-        if (isEmptyPresent())
+        if (isEmpty())
             return this;
         else
             return predicate.actuate(value) ? this : empty();
@@ -297,7 +324,7 @@ public final class RestOptional<T> {
      */
     public RestOptional<T> validFilter(PredicateActuator<? super T> predicate) throws RestException {
         Objects.requireNonNull(predicate);
-        if (isValidPresent())
+        if (isInvalid())
             return this;
         else
             return predicate.actuate(value) ? this : empty();
@@ -313,7 +340,7 @@ public final class RestOptional<T> {
      */
     public <U> RestOptional<U> map(Function<? super T, ? extends U> mapper) {
         Objects.requireNonNull(mapper);
-        if (isPresent())
+        if (isNull())
             return empty();
         else {
             return RestOptional.ofNullable(mapper.apply(value));
@@ -332,7 +359,7 @@ public final class RestOptional<T> {
      */
     public <U> RestOptional<U> nullMap(FunctionActuator<? super T, ? extends U> mapper) throws RestException {
         Objects.requireNonNull(mapper);
-        if (isNullPresent())
+        if (isNull())
             return empty();
         else {
             return RestOptional.ofNullable(mapper.actuate(value));
@@ -351,7 +378,7 @@ public final class RestOptional<T> {
      */
     public <U> RestOptional<U> emptyMap(FunctionActuator<? super T, ? extends U> mapper) throws RestException {
         Objects.requireNonNull(mapper);
-        if (isEmptyPresent())
+        if (isEmpty())
             return empty();
         else {
             return RestOptional.ofNullable(mapper.actuate(value));
@@ -370,7 +397,7 @@ public final class RestOptional<T> {
      */
     public <U> RestOptional<U> validMap(FunctionActuator<? super T, ? extends U> mapper) throws RestException {
         Objects.requireNonNull(mapper);
-        if (isValidPresent())
+        if (isInvalid())
             return empty();
         else {
             return RestOptional.ofNullable(mapper.actuate(value));
@@ -387,7 +414,7 @@ public final class RestOptional<T> {
      */
     public <U> RestOptional<U> flatMap(Function<? super T, RestOptional<U>> mapper) {
         Objects.requireNonNull(mapper);
-        if (isPresent())
+        if (isNull())
             return empty();
         else {
             return Objects.requireNonNull(mapper.apply(value));
@@ -406,7 +433,7 @@ public final class RestOptional<T> {
      */
     public <U> RestOptional<U> nullFlatMap(FunctionActuator<? super T, RestOptional<U>> mapper) throws RestException {
         Objects.requireNonNull(mapper);
-        if (isNullPresent())
+        if (isNull())
             return empty();
         else {
             return Objects.requireNonNull(mapper.actuate(value));
@@ -425,7 +452,7 @@ public final class RestOptional<T> {
      */
     public <U> RestOptional<U> emptyFlatMap(FunctionActuator<? super T, RestOptional<U>> mapper) throws RestException {
         Objects.requireNonNull(mapper);
-        if (isEmptyPresent())
+        if (isEmpty())
             return empty();
         else {
             return Objects.requireNonNull(mapper.actuate(value));
@@ -444,7 +471,7 @@ public final class RestOptional<T> {
      */
     public <U> RestOptional<U> validFlatMap(FunctionActuator<? super T, RestOptional<U>> mapper) throws RestException {
         Objects.requireNonNull(mapper);
-        if (isValidPresent())
+        if (isInvalid())
             return empty();
         else {
             return Objects.requireNonNull(mapper.actuate(value));
@@ -459,7 +486,7 @@ public final class RestOptional<T> {
      * @return T <p>The else return object is <code>T</code> type.</p>
      */
     public T orElse(T other) {
-        return value != null ? value : other;
+        return isPresent() ? value : other;
     }
 
     /**
@@ -469,7 +496,7 @@ public final class RestOptional<T> {
      * @return T <p>The else return object is <code>T</code> type.</p>
      */
     public T nullElse(T other) {
-        return value != null ? value : other;
+        return isNullPresent() ? value : other;
     }
 
     /**
@@ -479,7 +506,7 @@ public final class RestOptional<T> {
      * @return T <p>The else return object is <code>T</code> type.</p>
      */
     public T emptyElse(T other) {
-        return GeneralUtils.isNotEmpty(value) ? value : other;
+        return isEmptyPresent() ? value : other;
     }
 
     /**
@@ -489,7 +516,7 @@ public final class RestOptional<T> {
      * @return T <p>The else return object is <code>T</code> type.</p>
      */
     public T validElse(T other) {
-        return GeneralUtils.isValid(value) ? value : other;
+        return isValidPresent() ? value : other;
     }
 
     /**
@@ -500,7 +527,7 @@ public final class RestOptional<T> {
      * @see java.util.function.Supplier
      */
     public T orElseGet(Supplier<? extends T> other) {
-        return value != null ? value : other.get();
+        return isPresent() ? value : other.get();
     }
 
     /**
@@ -513,7 +540,7 @@ public final class RestOptional<T> {
      * @see io.github.nichetoolkit.rest.RestException
      */
     public T nullElseGet(SupplierActuator<? extends T> other) throws RestException {
-        return GeneralUtils.isNotNull(value) ? value : other.actuate();
+        return isNullPresent() ? value : other.actuate();
     }
 
     /**
@@ -526,7 +553,7 @@ public final class RestOptional<T> {
      * @see io.github.nichetoolkit.rest.RestException
      */
     public T emptyElseGet(SupplierActuator<? extends T> other) throws RestException {
-        return GeneralUtils.isNotEmpty(value) ? value : other.actuate();
+        return isEmptyPresent() ? value : other.actuate();
     }
 
     /**
@@ -539,7 +566,7 @@ public final class RestOptional<T> {
      * @see io.github.nichetoolkit.rest.RestException
      */
     public T validElseGet(SupplierActuator<? extends T> other) throws RestException {
-        return GeneralUtils.isValid(value) ? value : other.actuate();
+        return isValidPresent() ? value : other.actuate();
     }
 
     /**
@@ -554,7 +581,7 @@ public final class RestOptional<T> {
      * @see X
      */
     public <X extends Throwable> T orElseThrow(Supplier<? extends X> exception) throws X {
-        if (value != null) {
+        if (isPresent()) {
             return value;
         } else {
             throw exception.get();
@@ -575,7 +602,7 @@ public final class RestOptional<T> {
      * @see io.github.nichetoolkit.rest.RestException
      */
     public <X extends Throwable> T nullElseThrow(SupplierActuator<? extends X> exceptionSupplier) throws X, RestException {
-        if (value != null) {
+        if (isNullPresent()) {
             return value;
         } else {
             throw exceptionSupplier.actuate();
@@ -596,7 +623,7 @@ public final class RestOptional<T> {
      * @see io.github.nichetoolkit.rest.RestException
      */
     public <X extends Throwable> T emptyElseThrow(SupplierActuator<? extends X> exceptionSupplier) throws X, RestException {
-        if (GeneralUtils.isNotEmpty(value)) {
+        if (isEmptyPresent()) {
             return value;
         } else {
             throw exceptionSupplier.actuate();
@@ -617,7 +644,7 @@ public final class RestOptional<T> {
      * @see io.github.nichetoolkit.rest.RestException
      */
     public <X extends Throwable> T validElseThrow(SupplierActuator<? extends X> exceptionSupplier) throws X, RestException {
-        if (GeneralUtils.isValid(value)) {
+        if (isValidPresent()) {
             return value;
         } else {
             throw exceptionSupplier.actuate();

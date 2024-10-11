@@ -1,7 +1,8 @@
 package io.github.nichetoolkit.rest.http.config;
 
 import io.github.nichetoolkit.rest.util.GeneralUtils;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.net.InetSocketAddress;
 import java.net.Proxy;
@@ -10,10 +11,12 @@ import java.net.Proxy;
  * <code>ProxyConfig</code>
  * <p>The type proxy config class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @see lombok.Data
+ * @see lombok.Getter
+ * @see lombok.Setter
  * @since Jdk1.8
  */
-@Data
+@Getter
+@Setter
 public class ProxyConfig {
     /**
      * <code>type</code>

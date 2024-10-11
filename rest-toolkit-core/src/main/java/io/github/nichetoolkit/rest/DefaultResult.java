@@ -2,7 +2,8 @@ package io.github.nichetoolkit.rest;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.Optional;
@@ -14,11 +15,13 @@ import java.util.Optional;
  * @param <S> {@link io.github.nichetoolkit.rest.DefaultResult} <p>The generic parameter is <code>DefaultResult</code> type.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.io.Serializable
- * @see lombok.Data
+ * @see lombok.Getter
+ * @see lombok.Setter
  * @see java.lang.SuppressWarnings
  * @since Jdk1.8
  */
-@Data
+@Getter
+@Setter
 @SuppressWarnings({"UnnecessaryParentheses","unused"})
 class DefaultResult<T,S extends DefaultResult<T,S>> implements Serializable {
     /**

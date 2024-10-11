@@ -1,7 +1,8 @@
 package io.github.nichetoolkit.rest.identity.worker;
 
 import io.github.nichetoolkit.rest.actuator.SupplierActuator;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.lang.NonNull;
 
 /**
@@ -9,11 +10,13 @@ import org.springframework.lang.NonNull;
  * <p>The type identity worker time class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
- * @see lombok.Data
+ * @see lombok.Getter
+ * @see lombok.Setter
  * @see java.lang.SuppressWarnings
  * @since Jdk1.8
  */
-@Data
+@Getter
+@Setter
 @SuppressWarnings("SameNameButDifferent")
 class IdentityWorkerTime implements SupplierActuator<IdentityWorkerTime> {
     /**

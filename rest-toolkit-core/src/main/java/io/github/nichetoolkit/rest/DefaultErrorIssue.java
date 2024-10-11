@@ -1,6 +1,7 @@
 package io.github.nichetoolkit.rest;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 
@@ -9,10 +10,12 @@ import java.io.Serializable;
  * <p>The type default error issue class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.io.Serializable
- * @see lombok.Data
+ * @see lombok.Getter
+ * @see lombok.Setter
  * @since Jdk1.8
  */
-@Data
+@Getter
+@Setter
 class DefaultErrorIssue implements Serializable {
     /**
      * <code>field</code>

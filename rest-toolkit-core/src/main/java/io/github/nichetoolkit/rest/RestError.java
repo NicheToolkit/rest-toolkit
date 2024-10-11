@@ -1,7 +1,8 @@
 package io.github.nichetoolkit.rest;
 
-import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.function.Supplier;
 
@@ -12,12 +13,14 @@ import java.util.function.Supplier;
  * @see io.github.nichetoolkit.rest.DefaultError
  * @see io.github.nichetoolkit.rest.RestStatus
  * @see java.util.function.Supplier
- * @see lombok.Data
+ * @see lombok.Getter
+ * @see lombok.Setter
  * @see lombok.EqualsAndHashCode
  * @see java.lang.SuppressWarnings
  * @since Jdk1.8
  */
-@Data
+@Getter
+@Setter
 @EqualsAndHashCode(callSuper = true)
 @SuppressWarnings("SameNameButDifferent")
 public class RestError extends DefaultError implements RestStatus, Supplier<RestError> {
@@ -1167,6 +1170,14 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
      */
     public static RestError error(String resource, String field, Object value, RestStatus restStatus, Integer status, String error, Throwable cause) {
         return (new RestError.Builder(restStatus)).status(status).resource(resource).message(error).add(new RestErrorIssue(field, value, status, error)).cause(cause).build();
+    }
+
+    @Override
+    public String toString() {
+        String errorType = getClass().getSimpleName();
+        Integer status = getStatus();
+        String message = getLocalizedMessage();
+        return (message != null) ? (errorType + "[" + status + "]: " + message) : errorType;
     }
 
     @Override

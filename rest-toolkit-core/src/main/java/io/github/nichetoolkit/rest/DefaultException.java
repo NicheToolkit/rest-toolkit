@@ -1,8 +1,9 @@
 package io.github.nichetoolkit.rest;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.Optional;
@@ -16,17 +17,19 @@ import java.util.function.Supplier;
  * @see io.github.nichetoolkit.rest.RestStatus
  * @see java.util.function.Supplier
  * @see java.io.Serializable
- * @see lombok.Data
+ * @see lombok.Getter
+ * @see lombok.Setter
  * @see lombok.EqualsAndHashCode
  * @see java.lang.SuppressWarnings
  * @see com.fasterxml.jackson.annotation.JsonIgnoreProperties
  * @since Jdk1.8
  */
-@Data
+@Getter
+@Setter
 @EqualsAndHashCode(callSuper = true)
 @SuppressWarnings("SameNameButDifferent")
-@JsonIgnoreProperties(value = {"cause","stackTrace","localizedMessage","suppressed"})
-public class DefaultException extends Exception implements RestStatus, Supplier<DefaultException>,Serializable {
+@JsonIgnoreProperties(value = {"cause", "stackTrace", "localizedMessage", "suppressed"})
+public class DefaultException extends Exception implements RestStatus, Supplier<DefaultException>, Serializable {
     /**
      * <code>error</code>
      * {@link io.github.nichetoolkit.rest.RestError} <p>The <code>error</code> field.</p>
@@ -132,7 +135,7 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
      */
     protected DefaultException(Integer status, String message) {
         super(message);
-        this.error = RestError.error(status,message);
+        this.error = RestError.error(status, message);
         this.status = status;
     }
 
@@ -147,7 +150,7 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
      */
     protected DefaultException(Integer status, RestStatus restStatus) {
         super(restStatus.getMessage());
-        this.error = RestError.parser(status,restStatus);
+        this.error = RestError.parser(status, restStatus);
         this.status = status;
     }
 
@@ -175,7 +178,7 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
      */
     protected DefaultException(Integer status, Throwable cause) {
         super(cause.getMessage(), cause);
-        this.error = RestError.parser(status,cause);
+        this.error = RestError.parser(status, cause);
         this.status = status;
     }
 
@@ -189,7 +192,7 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
      */
     protected DefaultException(String message, RestStatus status) {
         super(message);
-        this.error = RestError.parser(message,status);
+        this.error = RestError.parser(message, status);
         this.status = status.getStatus();
     }
 
@@ -231,7 +234,7 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
      */
     protected DefaultException(String message, Throwable cause) {
         super(message, cause);
-        this.error = RestError.parser(message,cause);
+        this.error = RestError.parser(message, cause);
     }
 
 
@@ -293,7 +296,7 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
      */
     protected DefaultException(Integer status, RestStatus restStatus, Throwable cause) {
         super(cause.getMessage(), cause);
-        this.error = RestError.parser(status,restStatus);
+        this.error = RestError.parser(status, restStatus);
         this.status = status;
     }
 
@@ -325,7 +328,7 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
      */
     protected DefaultException(String message, RestStatus status, Throwable cause) {
         super(message, cause);
-        this.error = RestError.parser(message,status);
+        this.error = RestError.parser(message, status);
         this.status = status.getStatus();
     }
 
@@ -355,7 +358,7 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
      * @see io.github.nichetoolkit.rest.RestError
      * @see java.lang.Throwable
      */
-    protected DefaultException(RestStatus status, RestError error,  Throwable cause) {
+    protected DefaultException(RestStatus status, RestError error, Throwable cause) {
         super(cause.getMessage(), cause);
         this.error = error;
         this.status = status.getStatus();
@@ -391,7 +394,7 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
      */
     protected DefaultException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
-        this.error = RestError.parser(message,cause);
+        this.error = RestError.parser(message, cause);
         this.status = RestErrorStatus.MISTAKE.getStatus();
     }
 
@@ -442,7 +445,7 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
      */
     protected DefaultException(Integer status, String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
-        this.error = RestError.error(status,message);
+        this.error = RestError.error(status, message);
         this.status = status;
     }
 
@@ -460,7 +463,7 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
      */
     protected DefaultException(Integer status, RestStatus restStatus, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(cause.getMessage(), cause, enableSuppression, writableStackTrace);
-        this.error = RestError.parser(status,restStatus);
+        this.error = RestError.parser(status, restStatus);
         this.status = status;
     }
 
@@ -497,7 +500,7 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
      */
     protected DefaultException(String message, RestStatus status, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
-        this.error = RestError.parser(message,status);
+        this.error = RestError.parser(message, status);
         this.status = status.getStatus();
     }
 
@@ -535,6 +538,14 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
         super(cause.getMessage(), cause, enableSuppression, writableStackTrace);
         this.status = status.getStatus();
         this.error = error;
+    }
+
+    @Override
+    public String toString() {
+        String errorType = getClass().getSimpleName();
+        Integer status = getStatus();
+        String message = getLocalizedMessage();
+        return (message != null) ? (errorType + " [" + status + "]: " + message) : errorType;
     }
 
     /**

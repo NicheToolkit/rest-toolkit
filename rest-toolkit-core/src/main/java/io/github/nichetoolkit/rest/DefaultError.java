@@ -1,8 +1,9 @@
 package io.github.nichetoolkit.rest;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -15,14 +16,16 @@ import java.util.Optional;
  * @author Cyan (snow22314@outlook.com)
  * @see java.lang.Error
  * @see java.io.Serializable
- * @see lombok.Data
+ * @see lombok.Getter
+ * @see lombok.Setter
  * @see lombok.EqualsAndHashCode
  * @see com.fasterxml.jackson.annotation.JsonIgnoreProperties
  * @since Jdk1.8
  */
-@Data
+@Getter
+@Setter
 @EqualsAndHashCode(callSuper = true)
-@JsonIgnoreProperties(value = {"cause","stackTrace","localizedMessage","suppressed"})
+@JsonIgnoreProperties(value = {"cause", "stackTrace", "localizedMessage", "suppressed"})
 class DefaultError extends Error implements Serializable {
     /**
      * <code>domain</code>
@@ -101,7 +104,6 @@ class DefaultError extends Error implements Serializable {
         this.domain = domain;
     }
 
-
     /**
      * <code>DefaultError</code>
      * <p>Instantiates a new default error.</p>
@@ -150,7 +152,7 @@ class DefaultError extends Error implements Serializable {
      * @see java.lang.Integer
      * @see java.lang.Throwable
      */
-    protected DefaultError(String message, Integer domain,Throwable cause) {
+    protected DefaultError(String message, Integer domain, Throwable cause) {
         super(message, cause);
         this.domain = domain;
         if (this.getCause() != null) {
@@ -160,7 +162,6 @@ class DefaultError extends Error implements Serializable {
             this.debug = this.getCause().getClass().getName();
         }
     }
-
 
     /**
      * <code>DefaultError</code>
@@ -193,15 +194,15 @@ class DefaultError extends Error implements Serializable {
      * @see io.github.nichetoolkit.rest.DefaultError.Builder
      */
     protected DefaultError(Builder builder) {
-        super(builder.message,builder.cause);
+        super(builder.message, builder.cause);
         if (this.getCause() != null) {
             StackTraceElement stackTraceElement = this.getCause().getStackTrace()[0];
             this.line = stackTraceElement.getLineNumber();
             this.debug = builder.debug == null ? this.getCause().getClass().getName() : builder.debug;
-            this.resource = builder.resource == null ?  stackTraceElement.getClassName() : builder.resource;
-        }  else {
+            this.resource = builder.resource == null ? stackTraceElement.getClassName() : builder.resource;
+        } else {
             this.debug = builder.debug;
-            this.resource = builder.resource ;
+            this.resource = builder.resource;
             this.issues = builder.issues;
         }
     }
