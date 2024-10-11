@@ -5655,7 +5655,7 @@ public class RestTemplates {
     @SuppressWarnings(value = "unchecked")
     public static <T> T exchangeObject(String url, HttpMethod httpMethod, HttpEntity<?> httpEntity, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
         ResponseEntity<T> response = (ResponseEntity<T>) exchangeEntityObject(url, httpMethod, httpEntity, params, TypeFactory.rawClass(TypeFactory.defaultInstance().constructType(typeReference)));
-        OptionalUtils.ofFalse(GeneralUtils.isNotEmpty(response) && GeneralUtils.isNotEmpty(response.getBody()),"the response entity body is null! ", HttpResultDataNullException::new);
+        OptionalUtils.ofFalse(GeneralUtils.isNotEmpty(response) && GeneralUtils.isNotEmpty(response.getBody()),"the response entity body is null! ",log, HttpResultDataNullException::new);
         return response.getBody();
     }
 
@@ -5681,7 +5681,7 @@ public class RestTemplates {
     @SuppressWarnings(value = "unchecked")
     public static <T> T exchangeObject(String url, HttpMethod httpMethod, HttpEntity httpEntity, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
         ResponseEntity<T> response = (ResponseEntity<T>) exchangeEntityObject(url, httpMethod, httpEntity, params, TypeFactory.rawClass(javaType));
-        OptionalUtils.ofFalse(GeneralUtils.isNotEmpty(response) && GeneralUtils.isNotEmpty(response.getBody()),"the response entity body is null! ", HttpResultDataNullException::new);
+        OptionalUtils.ofFalse(GeneralUtils.isNotEmpty(response) && GeneralUtils.isNotEmpty(response.getBody()),"the response entity body is null! ", log,HttpResultDataNullException::new);
         return response.getBody();
     }
 
@@ -5705,7 +5705,7 @@ public class RestTemplates {
      */
     public static <T> T exchangeObject(String url, HttpMethod httpMethod, HttpEntity httpEntity, MultiValueMap<String, String> params, Class<T> clazz) throws RestException {
         ResponseEntity<T> response = exchangeEntityObject(url, httpMethod, httpEntity, params, clazz);
-        OptionalUtils.ofFalse(GeneralUtils.isNotEmpty(response) && GeneralUtils.isNotEmpty(response.getBody()),"the response entity body is null! ", HttpResultDataNullException::new);
+        OptionalUtils.ofFalse(GeneralUtils.isNotEmpty(response) && GeneralUtils.isNotEmpty(response.getBody()),"the response entity body is null! ", log,HttpResultDataNullException::new);
         return response.getBody();
     }
 
@@ -5726,7 +5726,7 @@ public class RestTemplates {
      */
     public static String exchangeString(String url, HttpMethod httpMethod, HttpEntity httpEntity, MultiValueMap<String, String> params) throws RestException {
         ResponseEntity<String> response = exchangeEntityString(url, httpMethod,httpEntity,params);
-        OptionalUtils.ofFalse(GeneralUtils.isNotEmpty(response) && GeneralUtils.isNotEmpty(response.getBody()),"the response entity body is null! ", HttpResultDataNullException::new);
+        OptionalUtils.ofFalse(GeneralUtils.isNotEmpty(response) && GeneralUtils.isNotEmpty(response.getBody()),"the response entity body is null! ",log, HttpResultDataNullException::new);
         return response.getBody();
     }
 

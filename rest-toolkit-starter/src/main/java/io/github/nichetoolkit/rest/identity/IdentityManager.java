@@ -99,7 +99,7 @@ public class IdentityManager implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
         if (IdentityType.SERVER == identityProperties.getType()) {
             WorkerConfig workerConfig = workerConfig();
-            OptionalUtils.ofNull(workerConfig,"the worker config is parse error",IdentityWorkerException::new);
+            OptionalUtils.ofNull(workerConfig, "The worker config is parse error", log, IdentityWorkerException::new);
             log.debug("The worker   configuration: {}", JsonUtils.parseJson(workerConfig));
             IdentityManager.config(workerConfig);
         }
@@ -137,7 +137,7 @@ public class IdentityManager implements ApplicationRunner {
         String ip = IdentityManager.getEnvironment().getProperty(ServerConfig.IP_ADDRESS);
         String port = IdentityManager.getEnvironment().getProperty(ServerConfig.SERVER_PORT);
         String name = IdentityManager.getEnvironment().getProperty(ServerConfig.APP_NAME);
-        return new ServerConfig(ip,port,name);
+        return new ServerConfig(ip, port, name);
     }
 
     /**
