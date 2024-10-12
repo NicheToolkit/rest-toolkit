@@ -358,12 +358,12 @@ final class DefaultNodes {
             this.c = c;
         }
 
-        // DefaultNode
-
         @Override
         public DefaultSpliterator<T> spliterator() throws RestException {
             DefaultSpliterator<T> spliterator = DefaultSpliterators.spliterator(c, 0);
-            return DefaultStreamSupport.stream(spliterator, false).spliterator();
+            try (RestStream<T> stream = DefaultStreamSupport.stream(spliterator, false)) {
+                return stream.spliterator();
+            }
         }
 
         @Override
