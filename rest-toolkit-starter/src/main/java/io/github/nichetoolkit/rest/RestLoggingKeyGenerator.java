@@ -60,7 +60,7 @@ public abstract class RestLoggingKeyGenerator implements RestLoggingKeyAdvice, R
         List<String> attributes = logbackProperties.getAttributes();
         String attribute = doAttributesHandle(httpRequest, attributes);
         if (GeneralUtils.isEmpty(attribute)) {
-            attribute = IdentityUtils.generateString();
+            attribute = IdentityUtils.valueOfString();
         }
         loggingKey += "-".concat(attribute);
         loggingKey = loggingKey.replaceAll("[=.]", "");

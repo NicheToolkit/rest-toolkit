@@ -48,8 +48,7 @@ public class IdentityWorkerTest {
         Thread thread1 = new Thread(() -> {
             int index = 0;
             while (index < 100000) {
-                String identity = IdentityUtils.commonString();
-//                log.info("[{}]: {}",index,identity);
+                String identity = IdentityUtils.stringOfCommon();
                 identitySet.add(identity);
                 index++;
             }
@@ -64,8 +63,7 @@ public class IdentityWorkerTest {
         Thread thread2 =new Thread(() -> {
             int index = 0;
             while (index < 100000) {
-                String identity = IdentityUtils.commonString();
-//                log.info("[{}]: {}",index,identity);
+                String identity = IdentityUtils.stringOfCommon();
                 identitySet.add(identity);
                 index++;
             }
@@ -83,8 +81,7 @@ public class IdentityWorkerTest {
         Thread thread3 = new Thread(() -> {
             int index = 0;
             while (index < 100000) {
-                String identity = IdentityUtils.commonString();
-//                log.info("[{}]: {}",index,identity);
+                String identity = IdentityUtils.stringOfCommon();
                 identitySet.add(identity);
                 index++;
             }
@@ -98,8 +95,7 @@ public class IdentityWorkerTest {
         Thread thread4 = new Thread(() -> {
             int index = 0;
             while (index < 100000) {
-                String identity = IdentityUtils.commonString();
-//                log.info("[{}]: {}",index,identity);
+                String identity = IdentityUtils.stringOfCommon();
                 identitySet.add(identity);
                 index++;
             }

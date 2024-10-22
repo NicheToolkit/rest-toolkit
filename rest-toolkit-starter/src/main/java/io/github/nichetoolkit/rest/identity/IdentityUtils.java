@@ -1,7 +1,6 @@
 package io.github.nichetoolkit.rest.identity;
 
 import io.github.nichetoolkit.rest.identity.worker.WorkerType;
-import io.github.nichetoolkit.rest.identity.worker.IdentityWorker;
 
 /**
  * <code>IdentityUtils</code>
@@ -12,135 +11,127 @@ import io.github.nichetoolkit.rest.identity.worker.IdentityWorker;
 public class IdentityUtils {
 
     /**
-     * <code>clear</code>
-     * <p>The method.</p>
-     */
-    public static void clear() {
-        IdentityWorker.clear();
-    }
-
-    /**
-     * <code>generateLong</code>
-     * <p>The long method.</p>
+     * <code>valueOfLong</code>
+     * <p>The of long method.</p>
      * @param workerType {@link io.github.nichetoolkit.rest.identity.worker.WorkerType} <p>The worker type parameter is <code>WorkerType</code> type.</p>
-     * @return {@link java.lang.Long} <p>The long return object is <code>Long</code> type.</p>
+     * @return {@link java.lang.Long} <p>The of long return object is <code>Long</code> type.</p>
      * @see io.github.nichetoolkit.rest.identity.worker.WorkerType
      * @see java.lang.Long
      */
-    public static Long generateLong(WorkerType workerType) {
+    public static Long valueOfLong(WorkerType workerType) {
         return IdentityFactory.getInstance().get(workerType).generate();
     }
 
     /**
-     * <code>generateString</code>
-     * <p>The string method.</p>
+     * <code>valueOfString</code>
+     * <p>The of string method.</p>
      * @param workerType {@link io.github.nichetoolkit.rest.identity.worker.WorkerType} <p>The worker type parameter is <code>WorkerType</code> type.</p>
-     * @return {@link java.lang.String} <p>The string return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The of string return object is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.identity.worker.WorkerType
      * @see java.lang.String
      */
-    public static String generateString(WorkerType workerType) {
+    public static String valueOfString(WorkerType workerType) {
         return String.valueOf(IdentityFactory.getInstance().get(workerType).generate());
     }
 
     /**
-     * <code>baseLong</code>
-     * <p>The long method.</p>
-     * @return {@link java.lang.Long} <p>The long return object is <code>Long</code> type.</p>
+     * <code>longOfBase</code>
+     * <p>The of base method.</p>
+     * @return {@link java.lang.Long} <p>The of base return object is <code>Long</code> type.</p>
      * @see java.lang.Long
      */
-    public static Long baseLong() {
-        return generateLong(WorkerType.BASE_WORKER);
+    public static Long longOfBase() {
+        return valueOfLong(WorkerType.BASE_WORKER);
     }
 
     /**
-     * <code>commonLong</code>
-     * <p>The long method.</p>
-     * @return {@link java.lang.Long} <p>The long return object is <code>Long</code> type.</p>
+     * <code>longOfCommon</code>
+     * <p>The of common method.</p>
+     * @return {@link java.lang.Long} <p>The of common return object is <code>Long</code> type.</p>
      * @see java.lang.Long
      */
-    public static Long commonLong() {
-        return generateLong(WorkerType.COMMON_WORKER);
+    public static Long longOfCommon() {
+        return valueOfLong(WorkerType.COMMON_WORKER);
     }
 
     /**
-     * <code>offsetLong</code>
-     * <p>The long method.</p>
-     * @return {@link java.lang.Long} <p>The long return object is <code>Long</code> type.</p>
+     * <code>longOfOffset</code>
+     * <p>The of offset method.</p>
+     * @return {@link java.lang.Long} <p>The of offset return object is <code>Long</code> type.</p>
      * @see java.lang.Long
      */
-    public static Long offsetLong() {
-        return generateLong(WorkerType.OFFSET_WORKER);
+    public static Long longOfOffset() {
+        return valueOfLong(WorkerType.OFFSET_WORKER);
     }
 
     /**
-     * <code>sequenceLong</code>
-     * <p>The long method.</p>
-     * @return {@link java.lang.Long} <p>The long return object is <code>Long</code> type.</p>
+     * <code>longOfSequence</code>
+     * <p>The of sequence method.</p>
+     * @return {@link java.lang.Long} <p>The of sequence return object is <code>Long</code> type.</p>
      * @see java.lang.Long
      */
-    public static Long sequenceLong() {
-        return generateLong(WorkerType.SEQUENCE_WORKER);
+    public static Long longOfSequence() {
+        return valueOfLong(WorkerType.SEQUENCE_WORKER);
     }
 
     /**
-     * <code>generateLong</code>
-     * <p>The long method.</p>
-     * @return {@link java.lang.Long} <p>The long return object is <code>Long</code> type.</p>
+     * <code>valueOfLong</code>
+     * <p>The of long method.</p>
+     * @return {@link java.lang.Long} <p>The of long return object is <code>Long</code> type.</p>
      * @see java.lang.Long
      */
-    public static Long generateLong() {
-        return generateLong(WorkerType.COMMON_WORKER);
+    public static Long valueOfLong() {
+        return valueOfLong(WorkerType.COMMON_WORKER);
     }
 
     /**
-     * <code>baseString</code>
-     * <p>The string method.</p>
-     * @return {@link java.lang.String} <p>The string return object is <code>String</code> type.</p>
+     * <code>stringOfBase</code>
+     * <p>The of base method.</p>
+     * @return {@link java.lang.String} <p>The of base return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
-    public static String baseString() {
-        return generateString(WorkerType.BASE_WORKER);
+    public static String stringOfBase() {
+        return valueOfString(WorkerType.BASE_WORKER);
     }
 
     /**
-     * <code>commonString</code>
-     * <p>The string method.</p>
-     * @return {@link java.lang.String} <p>The string return object is <code>String</code> type.</p>
+     * <code>stringOfCommon</code>
+     * <p>The of common method.</p>
+     * @return {@link java.lang.String} <p>The of common return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
-    public static String commonString() {
-        return generateString(WorkerType.COMMON_WORKER);
+    public static String stringOfCommon() {
+        return valueOfString(WorkerType.COMMON_WORKER);
     }
 
     /**
-     * <code>offsetString</code>
-     * <p>The string method.</p>
-     * @return {@link java.lang.String} <p>The string return object is <code>String</code> type.</p>
+     * <code>stringOfOffset</code>
+     * <p>The of offset method.</p>
+     * @return {@link java.lang.String} <p>The of offset return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
-    public static String offsetString() {
-        return generateString(WorkerType.OFFSET_WORKER);
+    public static String stringOfOffset() {
+        return valueOfString(WorkerType.OFFSET_WORKER);
     }
 
     /**
-     * <code>sequenceString</code>
-     * <p>The string method.</p>
-     * @return {@link java.lang.String} <p>The string return object is <code>String</code> type.</p>
+     * <code>stringOfSequence</code>
+     * <p>The of sequence method.</p>
+     * @return {@link java.lang.String} <p>The of sequence return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
-    public static String sequenceString() {
-        return generateString(WorkerType.SEQUENCE_WORKER);
+    public static String stringOfSequence() {
+        return valueOfString(WorkerType.SEQUENCE_WORKER);
     }
 
     /**
-     * <code>generateString</code>
-     * <p>The string method.</p>
-     * @return {@link java.lang.String} <p>The string return object is <code>String</code> type.</p>
+     * <code>valueOfString</code>
+     * <p>The of string method.</p>
+     * @return {@link java.lang.String} <p>The of string return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
-    public static String generateString() {
-        return generateString(WorkerType.COMMON_WORKER);
+    public static String valueOfString() {
+        return valueOfString(WorkerType.COMMON_WORKER);
     }
 
 

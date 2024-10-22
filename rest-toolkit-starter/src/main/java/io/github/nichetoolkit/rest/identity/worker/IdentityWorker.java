@@ -27,15 +27,6 @@ public interface IdentityWorker {
     Long generate();
 
     /**
-     * <code>clear</code>
-     * <p>The method.</p>
-     */
-    static void clear() {
-        IdentityWorkerConfig.MACHINE_CACHE_SET.clear();
-        IdentityWorkerConfig.ARTIFICIAL_CACHE_SET.clear();
-    }
-
-    /**
      * <code>get</code>
      * <p>The method.</p>
      * @param workerType {@link io.github.nichetoolkit.rest.identity.worker.WorkerType} <p>The worker type parameter is <code>WorkerType</code> type.</p>

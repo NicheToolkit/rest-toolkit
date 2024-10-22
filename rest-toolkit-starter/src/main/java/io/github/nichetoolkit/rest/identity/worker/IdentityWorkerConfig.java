@@ -193,18 +193,5 @@ class IdentityWorkerConfig {
      * @see java.lang.Integer
      */
     static final Integer CACHE_SIZE = 99;
-    /**
-     * <code>ARTIFICIAL_CACHE_SET</code>
-     * {@link java.util.Set} <p>The <code>ARTIFICIAL_CACHE_SET</code> field.</p>
-     * @see java.util.Set
-     */
-    static final Set<Long> ARTIFICIAL_CACHE_SET = new HashSet<>();
-
-    /**
-     * <code>MACHINE_CACHE_SET</code>
-     * {@link java.util.Set} <p>The <code>MACHINE_CACHE_SET</code> field.</p>
-     * @see java.util.Set
-     */
-    static final Set<Long> MACHINE_CACHE_SET = new HashSet<>();
 
 }

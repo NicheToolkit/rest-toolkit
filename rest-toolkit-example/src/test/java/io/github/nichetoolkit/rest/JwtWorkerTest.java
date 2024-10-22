@@ -43,7 +43,7 @@ class JwtWorkerTest {
         String uniqueId = GeneralUtils.uuid();
         log.info("the unique id: {}", uniqueId);
         /* the generate string as subject  */
-        String subject = IdentityUtils.generateString();
+        String subject = IdentityUtils.valueOfString();
         log.info("the subject: {}", subject);
         /* use jwt worker to generate token  */
         String token = jwtWorker.generate(uniqueId, subject);

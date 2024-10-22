@@ -94,8 +94,7 @@ public class RestTestController {
      */
     @GetMapping("/identity")
     public ResponseEntity<RestResult<String>> generalIdentity() throws RestException {
-//        Long identity = IdentityUtils.generateLong();
-        String identity = IdentityUtils.generateString();
+        String identity = IdentityUtils.valueOfString();
         return RestResult.ok(RestErrorStatus.SUCCESS, identity);
     }
 
@@ -147,7 +146,7 @@ public class RestTestController {
      */
     @GetMapping("/radix")
     public ResponseEntity<RestResult<Map<String, Object>>> generalRadix() throws RestException {
-        Long subject = IdentityUtils.generateLong();
+        Long subject = IdentityUtils.valueOfLong();
         String encryptSubject = radixWorker.encrypt(subject);
         Long decryptSubject = radixWorker.decrypt(encryptSubject);
         Map<String, Object> result = new HashMap<>(3);
@@ -189,7 +188,7 @@ public class RestTestController {
     @GetMapping("/jwt")
     public ResponseEntity<RestResult<Map<String, Object>>> generalJwt() throws RestException {
         String uniqueId = GeneralUtils.uuid();
-        Long subject = IdentityUtils.generateLong();
+        Long subject = IdentityUtils.valueOfLong();
 //        String encryptSubject = RadixWorker.encrypts(subject);
         String encryptSubject = radixWorker.encrypt(subject);
 //        Long decryptSubject = RadixWorker.decrypts(encryptSubject);

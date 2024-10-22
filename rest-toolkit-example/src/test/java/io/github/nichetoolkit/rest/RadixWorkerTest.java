@@ -38,7 +38,7 @@ class RadixWorkerTest {
     @Test
     void test() {
         /* the generate long value as default subject  */
-        Long defaultSubject = IdentityUtils.generateLong();
+        Long defaultSubject = IdentityUtils.valueOfLong();
         log.info("the default subject: {}", defaultSubject);
         /* use radix worker to encrypt subject  */
         String encryptSubject = radixWorker.encrypt(defaultSubject);
