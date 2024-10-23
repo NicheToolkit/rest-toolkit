@@ -4,7 +4,7 @@ import java.util.function.Supplier;
 
 /**
  * <code>RestErrorException</code>
- * <p>The type rest error exception class.</p>
+ * <p>The rest error exception class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestException
  * @since Jdk1.8

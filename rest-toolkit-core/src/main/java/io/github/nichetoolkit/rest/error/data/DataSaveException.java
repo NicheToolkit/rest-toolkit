@@ -7,7 +7,7 @@ import io.github.nichetoolkit.rest.error.natives.DataErrorException;
 
 /**
  * <code>DataSaveException</code>
- * <p>The type data save exception class.</p>
+ * <p>The data save exception class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.error.natives.DataErrorException
  * @since Jdk1.8

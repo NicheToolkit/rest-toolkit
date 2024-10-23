@@ -6,7 +6,7 @@ import java.util.Objects;
 
 /**
  * <code>MapPredicateActuator</code>
- * <p>The type map predicate actuator interface.</p>
+ * <p>The map predicate actuator interface.</p>
  * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @param <U> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @param <S> {@link java.lang.Object} <p>The parameter can be of any type.</p>
@@ -19,11 +19,11 @@ public interface MapPredicateActuator<T, U, S> {
 
     /**
      * <code>actuate</code>
-     * <p>The method.</p>
+     * <p>The actuate method.</p>
      * @param t      T <p>The t parameter is <code>T</code> type.</p>
      * @param u      U <p>The u parameter is <code>U</code> type.</p>
      * @param sArray S <p>The s array parameter is <code>S</code> type.</p>
-     * @return boolean <p>The return object is <code>boolean</code> type.</p>
+     * @return boolean <p>The actuate return object is <code>boolean</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.SuppressWarnings
      * @see io.github.nichetoolkit.rest.RestException
@@ -33,9 +33,9 @@ public interface MapPredicateActuator<T, U, S> {
 
     /**
      * <code>and</code>
-     * <p>The method.</p>
+     * <p>The and method.</p>
      * @param other {@link io.github.nichetoolkit.rest.actuator.MapPredicateActuator} <p>The other parameter is <code>MapPredicateActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.actuator.MapPredicateActuator} <p>The return object is <code>MapPredicateActuator</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.actuator.MapPredicateActuator} <p>The and return object is <code>MapPredicateActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -46,8 +46,8 @@ public interface MapPredicateActuator<T, U, S> {
 
     /**
      * <code>negates</code>
-     * <p>The method.</p>
-     * @return {@link io.github.nichetoolkit.rest.actuator.MapPredicateActuator} <p>The return object is <code>MapPredicateActuator</code> type.</p>
+     * <p>The negates method.</p>
+     * @return {@link io.github.nichetoolkit.rest.actuator.MapPredicateActuator} <p>The negates return object is <code>MapPredicateActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -57,9 +57,9 @@ public interface MapPredicateActuator<T, U, S> {
 
     /**
      * <code>or</code>
-     * <p>The method.</p>
+     * <p>The or method.</p>
      * @param other {@link io.github.nichetoolkit.rest.actuator.MapPredicateActuator} <p>The other parameter is <code>MapPredicateActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.actuator.MapPredicateActuator} <p>The return object is <code>MapPredicateActuator</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.actuator.MapPredicateActuator} <p>The or return object is <code>MapPredicateActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */

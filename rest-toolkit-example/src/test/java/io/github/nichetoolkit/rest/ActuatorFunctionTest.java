@@ -8,7 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 /**
  * <code>ActuatorFunctionTest</code>
- * <p>The type actuator function test class.</p>
+ * <p>The actuator function test class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
  * @see org.springframework.boot.test.context.SpringBootTest
@@ -20,7 +20,7 @@ class ActuatorFunctionTest {
 
     /**
      * <code>handle</code>
-     * <p>The method.</p>
+     * <p>The handle method.</p>
      * @param before {@link io.github.nichetoolkit.rest.actuator.AnchorActuator} <p>The before parameter is <code>AnchorActuator</code> type.</p>
      * @param after  {@link io.github.nichetoolkit.rest.actuator.AnchorActuator} <p>The after parameter is <code>AnchorActuator</code> type.</p>
      * @param over   {@link io.github.nichetoolkit.rest.actuator.AnchorActuator} <p>The over parameter is <code>AnchorActuator</code> type.</p>
@@ -37,7 +37,7 @@ class ActuatorFunctionTest {
 
     /**
      * <code>test</code>
-     * <p>The method.</p>
+     * <p>The test method.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see org.junit.jupiter.api.Test
      * @see io.github.nichetoolkit.rest.RestException

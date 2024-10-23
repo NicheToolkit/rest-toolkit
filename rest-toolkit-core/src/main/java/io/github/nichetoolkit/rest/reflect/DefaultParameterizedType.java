@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 /**
  * <code>DefaultParameterizedType</code>
- * <p>The type default parameterized type class.</p>
+ * <p>The default parameterized type class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.lang.reflect.ParameterizedType
  * @since Jdk1.8

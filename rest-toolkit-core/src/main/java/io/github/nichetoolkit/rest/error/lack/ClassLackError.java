@@ -8,7 +8,7 @@ import java.util.function.Supplier;
 
 /**
  * <code>ClassLackError</code>
- * <p>The type class lack error class.</p>
+ * <p>The class lack error class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestError
  * @since Jdk1.8

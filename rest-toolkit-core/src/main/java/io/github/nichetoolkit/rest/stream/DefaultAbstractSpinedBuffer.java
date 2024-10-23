@@ -2,7 +2,7 @@ package io.github.nichetoolkit.rest.stream;
 
 /**
  * <code>DefaultAbstractSpinedBuffer</code>
- * <p>The type default abstract spined buffer class.</p>
+ * <p>The default abstract spined buffer class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
@@ -79,8 +79,8 @@ abstract class DefaultAbstractSpinedBuffer {
 
     /**
      * <code>isEmpty</code>
-     * <p>The empty method.</p>
-     * @return boolean <p>The empty return object is <code>boolean</code> type.</p>
+     * <p>The is empty method.</p>
+     * @return boolean <p>The is empty return object is <code>boolean</code> type.</p>
      */
     public boolean isEmpty() {
         return (spineIndex == 0) && (elementIndex == 0);
@@ -88,8 +88,8 @@ abstract class DefaultAbstractSpinedBuffer {
 
     /**
      * <code>count</code>
-     * <p>The method.</p>
-     * @return long <p>The return object is <code>long</code> type.</p>
+     * <p>The count method.</p>
+     * @return long <p>The count return object is <code>long</code> type.</p>
      */
     public long count() {
         return (spineIndex == 0)
@@ -99,9 +99,9 @@ abstract class DefaultAbstractSpinedBuffer {
 
     /**
      * <code>chunkSize</code>
-     * <p>The size method.</p>
+     * <p>The chunk size method.</p>
      * @param n int <p>The n parameter is <code>int</code> type.</p>
-     * @return int <p>The size return object is <code>int</code> type.</p>
+     * @return int <p>The chunk size return object is <code>int</code> type.</p>
      */
     protected int chunkSize(int n) {
         int power = (n == 0 || n == 1)
@@ -112,7 +112,7 @@ abstract class DefaultAbstractSpinedBuffer {
 
     /**
      * <code>clear</code>
-     * <p>The method.</p>
+     * <p>The clear method.</p>
      */
     public abstract void clear();
 }

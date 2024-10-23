@@ -11,7 +11,7 @@ import java.util.function.Supplier;
 
 /**
  * <code>DefaultException</code>
- * <p>The type default exception class.</p>
+ * <p>The default exception class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.lang.Exception
  * @see io.github.nichetoolkit.rest.RestStatus
@@ -550,8 +550,8 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
 
     /**
      * <code>buildResult</code>
-     * <p>The result method.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
+     * <p>The build result method.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The build result return object is <code>RestResult</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestResult
      */
     public final RestResult<?> buildResult() {

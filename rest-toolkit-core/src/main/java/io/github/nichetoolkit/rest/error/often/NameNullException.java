@@ -6,7 +6,7 @@ import io.github.nichetoolkit.rest.error.natives.FieldErrorException;
 
 /**
  * <code>NameNullException</code>
- * <p>The type name null exception class.</p>
+ * <p>The name null exception class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.error.natives.FieldErrorException
  * @since Jdk1.8

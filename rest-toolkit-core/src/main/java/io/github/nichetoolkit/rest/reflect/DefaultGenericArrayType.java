@@ -5,7 +5,7 @@ import java.lang.reflect.Type;
 
 /**
  * <code>DefaultGenericArrayType</code>
- * <p>The type default generic array type class.</p>
+ * <p>The default generic array type class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.lang.reflect.GenericArrayType
  * @since Jdk1.8

@@ -4,7 +4,7 @@ import io.github.nichetoolkit.rest.RestException;
 
 /**
  * <code>DefaultTerminalOp</code>
- * <p>The type default terminal op interface.</p>
+ * <p>The default terminal op interface.</p>
  * @param <E_IN> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @param <R>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
@@ -13,8 +13,8 @@ import io.github.nichetoolkit.rest.RestException;
 interface DefaultTerminalOp<E_IN, R> {
     /**
      * <code>inputShape</code>
-     * <p>The shape method.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultStreamShape} <p>The shape return object is <code>DefaultStreamShape</code> type.</p>
+     * <p>The input shape method.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultStreamShape} <p>The input shape return object is <code>DefaultStreamShape</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultStreamShape
      */
     default DefaultStreamShape inputShape() {
@@ -23,8 +23,8 @@ interface DefaultTerminalOp<E_IN, R> {
 
     /**
      * <code>getOpFlags</code>
-     * <p>The op flags getter method.</p>
-     * @return int <p>The op flags return object is <code>int</code> type.</p>
+     * <p>The get op flags getter method.</p>
+     * @return int <p>The get op flags return object is <code>int</code> type.</p>
      */
     default int getOpFlags() {
         return 0;
@@ -32,11 +32,11 @@ interface DefaultTerminalOp<E_IN, R> {
 
     /**
      * <code>evaluateParallel</code>
-     * <p>The parallel method.</p>
+     * <p>The evaluate parallel method.</p>
      * @param <P_IN>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param helper      {@link io.github.nichetoolkit.rest.stream.DefaultPipelineHelper} <p>The helper parameter is <code>DefaultPipelineHelper</code> type.</p>
      * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The spliterator parameter is <code>DefaultSpliterator</code> type.</p>
-     * @return R <p>The parallel return object is <code>R</code> type.</p>
+     * @return R <p>The evaluate parallel return object is <code>R</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultPipelineHelper
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
@@ -51,11 +51,11 @@ interface DefaultTerminalOp<E_IN, R> {
 
     /**
      * <code>evaluateSequential</code>
-     * <p>The sequential method.</p>
+     * <p>The evaluate sequential method.</p>
      * @param <P_IN>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param helper      {@link io.github.nichetoolkit.rest.stream.DefaultPipelineHelper} <p>The helper parameter is <code>DefaultPipelineHelper</code> type.</p>
      * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The spliterator parameter is <code>DefaultSpliterator</code> type.</p>
-     * @return R <p>The sequential return object is <code>R</code> type.</p>
+     * @return R <p>The evaluate sequential return object is <code>R</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultPipelineHelper
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator

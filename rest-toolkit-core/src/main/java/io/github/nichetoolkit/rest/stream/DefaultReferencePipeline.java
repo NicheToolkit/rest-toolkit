@@ -10,7 +10,7 @@ import java.util.function.*;
 
 /**
  * <code>DefaultReferencePipeline</code>
- * <p>The type default reference pipeline class.</p>
+ * <p>The default reference pipeline class.</p>
  * @param <P_IN>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @param <P_OUT> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
@@ -361,7 +361,7 @@ abstract class DefaultReferencePipeline<P_IN, P_OUT>
 
     /**
      * <code>Head</code>
-     * <p>The type head class.</p>
+     * <p>The head class.</p>
      * @param <E_IN>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <E_OUT> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
@@ -425,7 +425,7 @@ abstract class DefaultReferencePipeline<P_IN, P_OUT>
 
     /**
      * <code>StatelessOp</code>
-     * <p>The type stateless op class.</p>
+     * <p>The stateless op class.</p>
      * @param <E_IN>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <E_OUT> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
@@ -457,7 +457,7 @@ abstract class DefaultReferencePipeline<P_IN, P_OUT>
 
     /**
      * <code>StatefulOp</code>
-     * <p>The type stateful op class.</p>
+     * <p>The stateful op class.</p>
      * @param <E_IN>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <E_OUT> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)

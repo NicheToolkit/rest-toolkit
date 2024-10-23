@@ -5,7 +5,7 @@ import java.util.Set;
 
 /**
  * <code>IdentityWorkerConfig</code>
- * <p>The type identity worker config class.</p>
+ * <p>The identity worker config class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */

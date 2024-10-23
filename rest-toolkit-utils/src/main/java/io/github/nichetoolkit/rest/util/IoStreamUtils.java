@@ -17,7 +17,7 @@ import java.nio.charset.StandardCharsets;
 
 /**
  * <code>IoStreamUtils</code>
- * <p>The type io stream utils class.</p>
+ * <p>The io stream utils class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
  * @since Jdk1.8
@@ -27,7 +27,7 @@ public class IoStreamUtils {
 
     /**
      * <code>transfer</code>
-     * <p>The method.</p>
+     * <p>The transfer method.</p>
      * @param multipartFile    {@link org.springframework.web.multipart.MultipartFile} <p>The multipart file parameter is <code>MultipartFile</code> type.</p>
      * @param transferFilePath {@link java.lang.String} <p>The transfer file path parameter is <code>String</code> type.</p>
      * @see org.springframework.web.multipart.MultipartFile
@@ -44,7 +44,7 @@ public class IoStreamUtils {
 
     /**
      * <code>transfer</code>
-     * <p>The method.</p>
+     * <p>The transfer method.</p>
      * @param multipartFile {@link org.springframework.web.multipart.MultipartFile} <p>The multipart file parameter is <code>MultipartFile</code> type.</p>
      * @param transferFile  {@link java.io.File} <p>The transfer file parameter is <code>File</code> type.</p>
      * @see org.springframework.web.multipart.MultipartFile
@@ -61,7 +61,7 @@ public class IoStreamUtils {
 
     /**
      * <code>transfer</code>
-     * <p>The method.</p>
+     * <p>The transfer method.</p>
      * @param inputStream  {@link java.io.InputStream} <p>The input stream parameter is <code>InputStream</code> type.</p>
      * @param outputStream {@link java.io.OutputStream} <p>The output stream parameter is <code>OutputStream</code> type.</p>
      * @see java.io.InputStream
@@ -78,9 +78,9 @@ public class IoStreamUtils {
 
     /**
      * <code>read</code>
-     * <p>The method.</p>
+     * <p>The read method.</p>
      * @param inputStream {@link java.io.InputStream} <p>The input stream parameter is <code>InputStream</code> type.</p>
-     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The read return object is <code>String</code> type.</p>
      * @see java.io.InputStream
      * @see java.lang.String
      */
@@ -96,9 +96,9 @@ public class IoStreamUtils {
 
     /**
      * <code>bytes</code>
-     * <p>The method.</p>
+     * <p>The bytes method.</p>
      * @param inputStream {@link java.io.InputStream} <p>The input stream parameter is <code>InputStream</code> type.</p>
-     * @return byte <p>The return object is <code>byte</code> type.</p>
+     * @return byte <p>The bytes return object is <code>byte</code> type.</p>
      * @see java.io.InputStream
      */
     public static byte[] bytes(InputStream inputStream) {
@@ -113,7 +113,7 @@ public class IoStreamUtils {
 
     /**
      * <code>write</code>
-     * <p>The method.</p>
+     * <p>The write method.</p>
      * @param outputStream {@link java.io.OutputStream} <p>The output stream parameter is <code>OutputStream</code> type.</p>
      * @param string       {@link java.lang.String} <p>The string parameter is <code>String</code> type.</p>
      * @see java.io.OutputStream
@@ -130,7 +130,7 @@ public class IoStreamUtils {
 
     /**
      * <code>write</code>
-     * <p>The method.</p>
+     * <p>The write method.</p>
      * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
      * @param file     {@link java.io.File} <p>The file parameter is <code>File</code> type.</p>
      * @see javax.servlet.http.HttpServletResponse
@@ -147,7 +147,7 @@ public class IoStreamUtils {
 
     /**
      * <code>write</code>
-     * <p>The method.</p>
+     * <p>The write method.</p>
      * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
      * @param json     {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
      * @see javax.servlet.http.HttpServletResponse
@@ -164,7 +164,7 @@ public class IoStreamUtils {
 
     /**
      * <code>write</code>
-     * <p>The method.</p>
+     * <p>The write method.</p>
      * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
      * @param data     byte <p>The data parameter is <code>byte</code> type.</p>
      * @see javax.servlet.http.HttpServletResponse
@@ -180,7 +180,7 @@ public class IoStreamUtils {
 
     /**
      * <code>write</code>
-     * <p>The method.</p>
+     * <p>The write method.</p>
      * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
      * @param file     {@link java.io.File} <p>The file parameter is <code>File</code> type.</p>
      * @param filename {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
@@ -203,7 +203,7 @@ public class IoStreamUtils {
 
     /**
      * <code>write</code>
-     * <p>The method.</p>
+     * <p>The write method.</p>
      * @param outputStream {@link java.io.OutputStream} <p>The output stream parameter is <code>OutputStream</code> type.</p>
      * @param data         byte <p>The data parameter is <code>byte</code> type.</p>
      * @see java.io.OutputStream
@@ -219,7 +219,7 @@ public class IoStreamUtils {
 
     /**
      * <code>write</code>
-     * <p>The method.</p>
+     * <p>The write method.</p>
      * @param outputStream {@link java.io.OutputStream} <p>The output stream parameter is <code>OutputStream</code> type.</p>
      * @param inputStream  {@link java.io.InputStream} <p>The input stream parameter is <code>InputStream</code> type.</p>
      * @see java.io.OutputStream
@@ -236,7 +236,7 @@ public class IoStreamUtils {
 
     /**
      * <code>write</code>
-     * <p>The method.</p>
+     * <p>The write method.</p>
      * @param file        {@link java.io.File} <p>The file parameter is <code>File</code> type.</p>
      * @param inputStream {@link java.io.InputStream} <p>The input stream parameter is <code>InputStream</code> type.</p>
      * @see java.io.File
@@ -253,7 +253,7 @@ public class IoStreamUtils {
 
     /**
      * <code>write</code>
-     * <p>The method.</p>
+     * <p>The write method.</p>
      * @param filename    {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
      * @param inputStream {@link java.io.InputStream} <p>The input stream parameter is <code>InputStream</code> type.</p>
      * @see java.lang.String
@@ -270,7 +270,7 @@ public class IoStreamUtils {
 
     /**
      * <code>write</code>
-     * <p>The method.</p>
+     * <p>The write method.</p>
      * @param filename {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
      * @param data     byte <p>The data parameter is <code>byte</code> type.</p>
      * @see java.lang.String
@@ -287,7 +287,7 @@ public class IoStreamUtils {
 
     /**
      * <code>write</code>
-     * <p>The method.</p>
+     * <p>The write method.</p>
      * @param file {@link java.io.File} <p>The file parameter is <code>File</code> type.</p>
      * @param data byte <p>The data parameter is <code>byte</code> type.</p>
      * @see java.io.File

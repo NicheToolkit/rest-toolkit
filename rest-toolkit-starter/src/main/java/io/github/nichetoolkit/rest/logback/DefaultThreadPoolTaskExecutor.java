@@ -13,7 +13,7 @@ import java.util.concurrent.Future;
 
 /**
  * <code>DefaultThreadPoolTaskExecutor</code>
- * <p>The type default thread pool task executor class.</p>
+ * <p>The default thread pool task executor class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor
  * @see lombok.extern.slf4j.Slf4j

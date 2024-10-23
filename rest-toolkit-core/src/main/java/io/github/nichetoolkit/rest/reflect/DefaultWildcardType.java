@@ -5,7 +5,7 @@ import java.lang.reflect.WildcardType;
 
 /**
  * <code>DefaultWildcardType</code>
- * <p>The type default wildcard type class.</p>
+ * <p>The default wildcard type class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.lang.reflect.WildcardType
  * @since Jdk1.8

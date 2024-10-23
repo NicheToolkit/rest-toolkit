@@ -4,7 +4,7 @@ import java.util.*;
 
 /**
  * <code>ShuntUtils</code>
- * <p>The type shunt utils class.</p>
+ * <p>The shunt utils class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
@@ -12,7 +12,7 @@ public class ShuntUtils {
 
     /**
      * <code>shunt</code>
-     * <p>The method.</p>
+     * <p>The shunt method.</p>
      * @param <T>             {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param key             boolean <p>The key parameter is <code>boolean</code> type.</p>
      * @param data            T <p>The data parameter is <code>T</code> type.</p>
@@ -30,7 +30,7 @@ public class ShuntUtils {
 
     /**
      * <code>shunt</code>
-     * <p>The method.</p>
+     * <p>The shunt method.</p>
      * @param <K>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param key      K <p>The key parameter is <code>K</code> type.</p>
@@ -52,7 +52,7 @@ public class ShuntUtils {
 
     /**
      * <code>shunt</code>
-     * <p>The method.</p>
+     * <p>The shunt method.</p>
      * @param <K>            {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T>            {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param key            K <p>The key parameter is <code>K</code> type.</p>
@@ -77,7 +77,7 @@ public class ShuntUtils {
 
     /**
      * <code>shuntNull</code>
-     * <p>The null method.</p>
+     * <p>The shunt null method.</p>
      * @param <K>             {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T>             {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param key             K <p>The key parameter is <code>K</code> type.</p>
@@ -99,7 +99,7 @@ public class ShuntUtils {
 
     /**
      * <code>shuntNull</code>
-     * <p>The null method.</p>
+     * <p>The shunt null method.</p>
      * @param <K>             {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T>             {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param key             K <p>The key parameter is <code>K</code> type.</p>
@@ -120,7 +120,7 @@ public class ShuntUtils {
 
     /**
      * <code>shuntContrast</code>
-     * <p>The contrast method.</p>
+     * <p>The shunt contrast method.</p>
      * @param <T>             {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param srcKey          {@link java.lang.Long} <p>The src key parameter is <code>Long</code> type.</p>
      * @param targetKey       {@link java.lang.Long} <p>The target key parameter is <code>Long</code> type.</p>
@@ -142,7 +142,7 @@ public class ShuntUtils {
 
     /**
      * <code>shuntContrast</code>
-     * <p>The contrast method.</p>
+     * <p>The shunt contrast method.</p>
      * @param <K>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param srcKey            K <p>The src key parameter is <code>K</code> type.</p>
@@ -162,7 +162,7 @@ public class ShuntUtils {
 
     /**
      * <code>shuntContain</code>
-     * <p>The contain method.</p>
+     * <p>The shunt contain method.</p>
      * @param <K>                 {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T>                 {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param srcKey              K <p>The src key parameter is <code>K</code> type.</p>

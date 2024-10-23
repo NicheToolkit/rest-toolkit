@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * <code>RestIdentityProperties</code>
- * <p>The type rest identity properties class.</p>
+ * <p>The rest identity properties class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.Getter
  * @see lombok.Setter
@@ -56,7 +56,7 @@ public class RestIdentityProperties {
 
     /**
      * <code>Server</code>
-     * <p>The type server class.</p>
+     * <p>The server class.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see lombok.Getter
      * @see lombok.Setter
@@ -86,8 +86,8 @@ public class RestIdentityProperties {
 
         /**
          * <code>uri</code>
-         * <p>The method.</p>
-         * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
+         * <p>The uri method.</p>
+         * @return {@link java.lang.String} <p>The uri return object is <code>String</code> type.</p>
          * @throws ParamMissingException {@link io.github.nichetoolkit.rest.error.supply.ParamMissingException} <p>The param missing exception is <code>ParamMissingException</code> type.</p>
          * @see java.lang.String
          * @see io.github.nichetoolkit.rest.error.supply.ParamMissingException
@@ -104,7 +104,7 @@ public class RestIdentityProperties {
 
     /**
      * <code>Config</code>
-     * <p>The type config class.</p>
+     * <p>The config class.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see lombok.Getter
      * @see lombok.Setter

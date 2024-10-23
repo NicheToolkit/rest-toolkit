@@ -6,7 +6,7 @@ import java.lang.annotation.*;
 
 /**
  * <code>StereoEnum</code>
- * <p>The type stereo enum interface.</p>
+ * <p>The stereo enum interface.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.lang.annotation.Annotation
  * @see java.lang.annotation.Target
@@ -23,16 +23,16 @@ public @interface StereoEnum {
 
     /**
      * <code>name</code>
-     * <p>The method.</p>
-     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
+     * <p>The name method.</p>
+     * @return {@link java.lang.String} <p>The name return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     String name() default "";
 
     /**
      * <code>ordinal</code>
-     * <p>The method.</p>
-     * @return int <p>The return object is <code>int</code> type.</p>
+     * <p>The ordinal method.</p>
+     * @return int <p>The ordinal return object is <code>int</code> type.</p>
      */
     int ordinal() default 0;
 

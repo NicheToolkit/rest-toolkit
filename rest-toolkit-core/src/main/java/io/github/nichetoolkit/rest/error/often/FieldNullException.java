@@ -7,7 +7,7 @@ import io.github.nichetoolkit.rest.error.natives.FieldErrorException;
 
 /**
  * <code>FieldNullException</code>
- * <p>The type field null exception class.</p>
+ * <p>The field null exception class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.error.natives.FieldErrorException
  * @since Jdk1.8

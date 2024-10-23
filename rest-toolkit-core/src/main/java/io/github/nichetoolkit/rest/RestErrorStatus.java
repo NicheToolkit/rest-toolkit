@@ -4,7 +4,7 @@ import lombok.Getter;
 
 /**
  * <code>RestErrorStatus</code>
- * <p>The type rest error status enumeration.</p>
+ * <p>The rest error status enumeration.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestStatus
  * @see lombok.Getter

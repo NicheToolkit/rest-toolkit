@@ -6,7 +6,7 @@ import io.github.nichetoolkit.rest.error.natives.DataErrorException;
 
 /**
  * <code>DataBatchInsertException</code>
- * <p>The type data batch insert exception class.</p>
+ * <p>The data batch insert exception class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.error.natives.DataErrorException
  * @since Jdk1.8

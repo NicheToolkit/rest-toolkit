@@ -11,7 +11,7 @@ import java.util.Set;
 
 /**
  * <code>IdentityWorkerTest</code>
- * <p>The type identity worker test class.</p>
+ * <p>The identity worker test class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
  * @see org.springframework.boot.test.context.SpringBootTest
@@ -23,7 +23,7 @@ public class IdentityWorkerTest {
 
     /**
      * <code>test</code>
-     * <p>The method.</p>
+     * <p>The test method.</p>
      * @throws InterruptedException {@link java.lang.InterruptedException} <p>The interrupted exception is <code>InterruptedException</code> type.</p>
      * @see org.junit.jupiter.api.Test
      * @see java.lang.InterruptedException

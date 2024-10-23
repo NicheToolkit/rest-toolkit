@@ -6,7 +6,7 @@ import java.util.function.IntFunction;
 
 /**
  * <code>DefaultPipelineHelper</code>
- * <p>The type default pipeline helper class.</p>
+ * <p>The default pipeline helper class.</p>
  * @param <P_OUT> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
@@ -15,25 +15,25 @@ abstract class DefaultPipelineHelper<P_OUT> {
 
     /**
      * <code>getSourceShape</code>
-     * <p>The source shape getter method.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultStreamShape} <p>The source shape return object is <code>DefaultStreamShape</code> type.</p>
+     * <p>The get source shape getter method.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultStreamShape} <p>The get source shape return object is <code>DefaultStreamShape</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultStreamShape
      */
     abstract DefaultStreamShape getSourceShape();
 
     /**
      * <code>getStreamAndOpFlags</code>
-     * <p>The stream and op flags getter method.</p>
-     * @return int <p>The stream and op flags return object is <code>int</code> type.</p>
+     * <p>The get stream and op flags getter method.</p>
+     * @return int <p>The get stream and op flags return object is <code>int</code> type.</p>
      */
     abstract int getStreamAndOpFlags();
 
     /**
      * <code>exactOutputSizeIfKnown</code>
-     * <p>The output size if known method.</p>
+     * <p>The exact output size if known method.</p>
      * @param <P_IN>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The spliterator parameter is <code>DefaultSpliterator</code> type.</p>
-     * @return long <p>The output size if known return object is <code>long</code> type.</p>
+     * @return long <p>The exact output size if known return object is <code>long</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
      * @see io.github.nichetoolkit.rest.RestException
@@ -42,12 +42,12 @@ abstract class DefaultPipelineHelper<P_OUT> {
 
     /**
      * <code>wrapAndCopyInto</code>
-     * <p>The and copy into method.</p>
+     * <p>The wrap and copy into method.</p>
      * @param <P_IN>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <S>         {@link io.github.nichetoolkit.rest.stream.DefaultSink} <p>The generic parameter is <code>DefaultSink</code> type.</p>
      * @param sink        S <p>The sink parameter is <code>S</code> type.</p>
      * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The spliterator parameter is <code>DefaultSpliterator</code> type.</p>
-     * @return S <p>The and copy into return object is <code>S</code> type.</p>
+     * @return S <p>The wrap and copy into return object is <code>S</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultSink
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
@@ -57,7 +57,7 @@ abstract class DefaultPipelineHelper<P_OUT> {
 
     /**
      * <code>copyInto</code>
-     * <p>The into method.</p>
+     * <p>The copy into method.</p>
      * @param <P_IN>             {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param wrappedDefaultSink {@link io.github.nichetoolkit.rest.stream.DefaultSink} <p>The wrapped default sink parameter is <code>DefaultSink</code> type.</p>
      * @param spliterator        {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The spliterator parameter is <code>DefaultSpliterator</code> type.</p>
@@ -70,7 +70,7 @@ abstract class DefaultPipelineHelper<P_OUT> {
 
     /**
      * <code>copyIntoWithCancel</code>
-     * <p>The into with cancel method.</p>
+     * <p>The copy into with cancel method.</p>
      * @param <P_IN>             {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param wrappedDefaultSink {@link io.github.nichetoolkit.rest.stream.DefaultSink} <p>The wrapped default sink parameter is <code>DefaultSink</code> type.</p>
      * @param spliterator        {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The spliterator parameter is <code>DefaultSpliterator</code> type.</p>
@@ -83,10 +83,10 @@ abstract class DefaultPipelineHelper<P_OUT> {
 
     /**
      * <code>wrapSink</code>
-     * <p>The sink method.</p>
+     * <p>The wrap sink method.</p>
      * @param <P_IN> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param sink   {@link io.github.nichetoolkit.rest.stream.DefaultSink} <p>The sink parameter is <code>DefaultSink</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSink} <p>The sink return object is <code>DefaultSink</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSink} <p>The wrap sink return object is <code>DefaultSink</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultSink
      * @see io.github.nichetoolkit.rest.RestException
@@ -95,10 +95,10 @@ abstract class DefaultPipelineHelper<P_OUT> {
 
     /**
      * <code>wrapSpliterator</code>
-     * <p>The spliterator method.</p>
+     * <p>The wrap spliterator method.</p>
      * @param <P_IN>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The spliterator parameter is <code>DefaultSpliterator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The spliterator return object is <code>DefaultSpliterator</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The wrap spliterator return object is <code>DefaultSpliterator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
      * @see io.github.nichetoolkit.rest.RestException
@@ -107,10 +107,10 @@ abstract class DefaultPipelineHelper<P_OUT> {
 
     /**
      * <code>makeNodeBuilder</code>
-     * <p>The node builder method.</p>
+     * <p>The make node builder method.</p>
      * @param exactSizeIfKnown long <p>The exact size if known parameter is <code>long</code> type.</p>
      * @param generator        {@link java.util.function.IntFunction} <p>The generator parameter is <code>IntFunction</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode.Builder} <p>The node builder return object is <code>Builder</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode.Builder} <p>The make node builder return object is <code>Builder</code> type.</p>
      * @see java.util.function.IntFunction
      * @see io.github.nichetoolkit.rest.stream.DefaultNode.Builder
      */
@@ -119,12 +119,12 @@ abstract class DefaultPipelineHelper<P_OUT> {
 
     /**
      * <code>evaluate</code>
-     * <p>The method.</p>
+     * <p>The evaluate method.</p>
      * @param <P_IN>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The spliterator parameter is <code>DefaultSpliterator</code> type.</p>
      * @param flatten     boolean <p>The flatten parameter is <code>boolean</code> type.</p>
      * @param generator   {@link java.util.function.IntFunction} <p>The generator parameter is <code>IntFunction</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The return object is <code>DefaultNode</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The evaluate return object is <code>DefaultNode</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
      * @see java.util.function.IntFunction

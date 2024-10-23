@@ -5,7 +5,7 @@ import io.github.nichetoolkit.rest.RestException;
 
 /**
  * <code>DefaultBooleanSupplier</code>
- * <p>The type default boolean supplier interface.</p>
+ * <p>The default boolean supplier interface.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.lang.FunctionalInterface
  * @since Jdk1.8
@@ -15,8 +15,8 @@ interface DefaultBooleanSupplier {
 
     /**
      * <code>actuate</code>
-     * <p>The method.</p>
-     * @return boolean <p>The return object is <code>boolean</code> type.</p>
+     * <p>The actuate method.</p>
+     * @return boolean <p>The actuate return object is <code>boolean</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */

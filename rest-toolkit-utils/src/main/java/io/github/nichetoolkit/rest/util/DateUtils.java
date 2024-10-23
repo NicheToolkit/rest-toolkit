@@ -12,7 +12,7 @@ import java.util.Date;
 
 /**
  * <code>DateUtils</code>
- * <p>The type date utils class.</p>
+ * <p>The date utils class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
  * @see java.lang.SuppressWarnings
@@ -24,9 +24,9 @@ public class DateUtils {
 
     /**
      * <code>formatDate</code>
-     * <p>The date method.</p>
+     * <p>The format date method.</p>
      * @param date {@link java.lang.Long} <p>The date parameter is <code>Long</code> type.</p>
-     * @return {@link java.lang.String} <p>The date return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The format date return object is <code>String</code> type.</p>
      * @see java.lang.Long
      * @see java.lang.String
      */
@@ -42,9 +42,9 @@ public class DateUtils {
 
     /**
      * <code>formatTime</code>
-     * <p>The time method.</p>
+     * <p>The format time method.</p>
      * @param time {@link java.lang.Long} <p>The time parameter is <code>Long</code> type.</p>
-     * @return {@link java.lang.String} <p>The time return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The format time return object is <code>String</code> type.</p>
      * @see java.lang.Long
      * @see java.lang.String
      */
@@ -60,9 +60,9 @@ public class DateUtils {
 
     /**
      * <code>formatDate</code>
-     * <p>The date method.</p>
+     * <p>The format date method.</p>
      * @param date {@link java.util.Date} <p>The date parameter is <code>Date</code> type.</p>
-     * @return {@link java.lang.String} <p>The date return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The format date return object is <code>String</code> type.</p>
      * @see java.util.Date
      * @see java.lang.String
      */
@@ -79,9 +79,9 @@ public class DateUtils {
 
     /**
      * <code>formatTime</code>
-     * <p>The time method.</p>
+     * <p>The format time method.</p>
      * @param time {@link java.util.Date} <p>The time parameter is <code>Date</code> type.</p>
-     * @return {@link java.lang.String} <p>The time return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The format time return object is <code>String</code> type.</p>
      * @see java.util.Date
      * @see java.lang.String
      */
@@ -97,10 +97,10 @@ public class DateUtils {
 
     /**
      * <code>format</code>
-     * <p>The method.</p>
+     * <p>The format method.</p>
      * @param date   {@link java.util.Date} <p>The date parameter is <code>Date</code> type.</p>
      * @param format {@link java.lang.String} <p>The format parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The format return object is <code>String</code> type.</p>
      * @see java.util.Date
      * @see java.lang.String
      */
@@ -116,9 +116,9 @@ public class DateUtils {
 
     /**
      * <code>parseDate</code>
-     * <p>The date method.</p>
+     * <p>The parse date method.</p>
      * @param date {@link java.lang.String} <p>The date parameter is <code>String</code> type.</p>
-     * @return {@link java.util.Date} <p>The date return object is <code>Date</code> type.</p>
+     * @return {@link java.util.Date} <p>The parse date return object is <code>Date</code> type.</p>
      * @see java.lang.String
      * @see java.util.Date
      */
@@ -134,9 +134,9 @@ public class DateUtils {
 
     /**
      * <code>parseDateTime</code>
-     * <p>The date time method.</p>
+     * <p>The parse date time method.</p>
      * @param datetime {@link java.lang.String} <p>The datetime parameter is <code>String</code> type.</p>
-     * @return {@link java.util.Date} <p>The date time return object is <code>Date</code> type.</p>
+     * @return {@link java.util.Date} <p>The parse date time return object is <code>Date</code> type.</p>
      * @see java.lang.String
      * @see java.util.Date
      * @see java.lang.Deprecated
@@ -155,9 +155,9 @@ public class DateUtils {
 
     /**
      * <code>parseTime</code>
-     * <p>The time method.</p>
+     * <p>The parse time method.</p>
      * @param time {@link java.lang.String} <p>The time parameter is <code>String</code> type.</p>
-     * @return {@link java.util.Date} <p>The time return object is <code>Date</code> type.</p>
+     * @return {@link java.util.Date} <p>The parse time return object is <code>Date</code> type.</p>
      * @see java.lang.String
      * @see java.util.Date
      */
@@ -173,10 +173,10 @@ public class DateUtils {
 
     /**
      * <code>parse</code>
-     * <p>The method.</p>
+     * <p>The parse method.</p>
      * @param datetime {@link java.lang.String} <p>The datetime parameter is <code>String</code> type.</p>
      * @param format   {@link java.lang.String} <p>The format parameter is <code>String</code> type.</p>
-     * @return {@link java.util.Date} <p>The return object is <code>Date</code> type.</p>
+     * @return {@link java.util.Date} <p>The parse return object is <code>Date</code> type.</p>
      * @see java.lang.String
      * @see java.util.Date
      */
@@ -192,8 +192,8 @@ public class DateUtils {
 
     /**
      * <code>today</code>
-     * <p>The method.</p>
-     * @return {@link java.util.Date} <p>The return object is <code>Date</code> type.</p>
+     * <p>The today method.</p>
+     * @return {@link java.util.Date} <p>The today return object is <code>Date</code> type.</p>
      * @see java.util.Date
      */
     public static Date today() {
@@ -204,9 +204,9 @@ public class DateUtils {
 
     /**
      * <code>getDay</code>
-     * <p>The day getter method.</p>
+     * <p>The get day getter method.</p>
      * @param date {@link java.util.Date} <p>The date parameter is <code>Date</code> type.</p>
-     * @return {@link java.util.Date} <p>The day return object is <code>Date</code> type.</p>
+     * @return {@link java.util.Date} <p>The get day return object is <code>Date</code> type.</p>
      * @see java.util.Date
      */
     public static Date getDay(final Date date) {
@@ -221,9 +221,9 @@ public class DateUtils {
 
     /**
      * <code>getMonth</code>
-     * <p>The month getter method.</p>
+     * <p>The get month getter method.</p>
      * @param date {@link java.util.Date} <p>The date parameter is <code>Date</code> type.</p>
-     * @return {@link java.util.Date} <p>The month return object is <code>Date</code> type.</p>
+     * @return {@link java.util.Date} <p>The get month return object is <code>Date</code> type.</p>
      * @see java.util.Date
      */
     public static Date getMonth(final Date date) {
@@ -239,9 +239,9 @@ public class DateUtils {
 
     /**
      * <code>getYear</code>
-     * <p>The year getter method.</p>
+     * <p>The get year getter method.</p>
      * @param date {@link java.util.Date} <p>The date parameter is <code>Date</code> type.</p>
-     * @return {@link java.util.Date} <p>The year return object is <code>Date</code> type.</p>
+     * @return {@link java.util.Date} <p>The get year return object is <code>Date</code> type.</p>
      * @see java.util.Date
      */
     public static Date getYear(final Date date) {
@@ -258,10 +258,10 @@ public class DateUtils {
 
     /**
      * <code>getDateInt</code>
-     * <p>The date int getter method.</p>
+     * <p>The get date int getter method.</p>
      * @param date  {@link java.util.Date} <p>The date parameter is <code>Date</code> type.</p>
      * @param field int <p>The field parameter is <code>int</code> type.</p>
-     * @return {@link java.lang.Integer} <p>The date int return object is <code>Integer</code> type.</p>
+     * @return {@link java.lang.Integer} <p>The get date int return object is <code>Integer</code> type.</p>
      * @see java.util.Date
      * @see java.lang.Integer
      */
@@ -280,10 +280,10 @@ public class DateUtils {
 
     /**
      * <code>addYears</code>
-     * <p>The years method.</p>
+     * <p>The add years method.</p>
      * @param date   {@link java.util.Date} <p>The date parameter is <code>Date</code> type.</p>
      * @param amount int <p>The amount parameter is <code>int</code> type.</p>
-     * @return {@link java.util.Date} <p>The years return object is <code>Date</code> type.</p>
+     * @return {@link java.util.Date} <p>The add years return object is <code>Date</code> type.</p>
      * @see java.util.Date
      */
     public static Date addYears(final Date date, final int amount) {
@@ -292,10 +292,10 @@ public class DateUtils {
 
     /**
      * <code>addMonths</code>
-     * <p>The months method.</p>
+     * <p>The add months method.</p>
      * @param date   {@link java.util.Date} <p>The date parameter is <code>Date</code> type.</p>
      * @param amount int <p>The amount parameter is <code>int</code> type.</p>
-     * @return {@link java.util.Date} <p>The months return object is <code>Date</code> type.</p>
+     * @return {@link java.util.Date} <p>The add months return object is <code>Date</code> type.</p>
      * @see java.util.Date
      */
     public static Date addMonths(final Date date, final int amount) {
@@ -304,10 +304,10 @@ public class DateUtils {
 
     /**
      * <code>addDays</code>
-     * <p>The days method.</p>
+     * <p>The add days method.</p>
      * @param date   {@link java.util.Date} <p>The date parameter is <code>Date</code> type.</p>
      * @param amount int <p>The amount parameter is <code>int</code> type.</p>
-     * @return {@link java.util.Date} <p>The days return object is <code>Date</code> type.</p>
+     * @return {@link java.util.Date} <p>The add days return object is <code>Date</code> type.</p>
      * @see java.util.Date
      */
     public static Date addDays(final Date date, final int amount) {
@@ -316,10 +316,10 @@ public class DateUtils {
 
     /**
      * <code>addHours</code>
-     * <p>The hours method.</p>
+     * <p>The add hours method.</p>
      * @param date   {@link java.util.Date} <p>The date parameter is <code>Date</code> type.</p>
      * @param amount int <p>The amount parameter is <code>int</code> type.</p>
-     * @return {@link java.util.Date} <p>The hours return object is <code>Date</code> type.</p>
+     * @return {@link java.util.Date} <p>The add hours return object is <code>Date</code> type.</p>
      * @see java.util.Date
      */
     public static Date addHours(final Date date, final int amount) {
@@ -328,10 +328,10 @@ public class DateUtils {
 
     /**
      * <code>addMinutes</code>
-     * <p>The minutes method.</p>
+     * <p>The add minutes method.</p>
      * @param date   {@link java.util.Date} <p>The date parameter is <code>Date</code> type.</p>
      * @param amount int <p>The amount parameter is <code>int</code> type.</p>
-     * @return {@link java.util.Date} <p>The minutes return object is <code>Date</code> type.</p>
+     * @return {@link java.util.Date} <p>The add minutes return object is <code>Date</code> type.</p>
      * @see java.util.Date
      */
     public static Date addMinutes(final Date date, final int amount) {
@@ -340,10 +340,10 @@ public class DateUtils {
 
     /**
      * <code>addSeconds</code>
-     * <p>The seconds method.</p>
+     * <p>The add seconds method.</p>
      * @param date   {@link java.util.Date} <p>The date parameter is <code>Date</code> type.</p>
      * @param amount int <p>The amount parameter is <code>int</code> type.</p>
-     * @return {@link java.util.Date} <p>The seconds return object is <code>Date</code> type.</p>
+     * @return {@link java.util.Date} <p>The add seconds return object is <code>Date</code> type.</p>
      * @see java.util.Date
      */
     public static Date addSeconds(final Date date, final int amount) {
@@ -352,7 +352,7 @@ public class DateUtils {
 
     /**
      * <code>clear</code>
-     * <p>The method.</p>
+     * <p>The clear method.</p>
      * @param calendar {@link java.util.Calendar} <p>The calendar parameter is <code>Calendar</code> type.</p>
      * @see java.util.Calendar
      */
@@ -365,11 +365,11 @@ public class DateUtils {
 
     /**
      * <code>add</code>
-     * <p>The method.</p>
+     * <p>The add method.</p>
      * @param date   {@link java.util.Date} <p>The date parameter is <code>Date</code> type.</p>
      * @param field  int <p>The field parameter is <code>int</code> type.</p>
      * @param amount int <p>The amount parameter is <code>int</code> type.</p>
-     * @return {@link java.util.Date} <p>The return object is <code>Date</code> type.</p>
+     * @return {@link java.util.Date} <p>The add return object is <code>Date</code> type.</p>
      * @see java.util.Date
      */
     private static Date add(final Date date, final int field, final int amount) {

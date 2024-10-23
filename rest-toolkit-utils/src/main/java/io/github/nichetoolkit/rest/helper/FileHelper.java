@@ -15,7 +15,7 @@ import java.util.Map;
 
 /**
  * <code>FileHelper</code>
- * <p>The type file helper class.</p>
+ * <p>The file helper class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
  * @see java.lang.SuppressWarnings
@@ -27,9 +27,9 @@ public class FileHelper {
 
     /**
      * <code>createFile</code>
-     * <p>The file method.</p>
+     * <p>The create file method.</p>
      * @param path {@link java.lang.String} <p>The path parameter is <code>String</code> type.</p>
-     * @return {@link java.io.File} <p>The file return object is <code>File</code> type.</p>
+     * @return {@link java.io.File} <p>The create file return object is <code>File</code> type.</p>
      * @throws FileCreateException {@link io.github.nichetoolkit.rest.error.often.FileCreateException} <p>The file create exception is <code>FileCreateException</code> type.</p>
      * @see java.lang.String
      * @see java.io.File
@@ -41,10 +41,10 @@ public class FileHelper {
 
     /**
      * <code>createFile</code>
-     * <p>The file method.</p>
+     * <p>The create file method.</p>
      * @param path {@link java.lang.String} <p>The path parameter is <code>String</code> type.</p>
      * @param name {@link java.lang.String} <p>The name parameter is <code>String</code> type.</p>
-     * @return {@link java.io.File} <p>The file return object is <code>File</code> type.</p>
+     * @return {@link java.io.File} <p>The create file return object is <code>File</code> type.</p>
      * @throws FileCreateException {@link io.github.nichetoolkit.rest.error.often.FileCreateException} <p>The file create exception is <code>FileCreateException</code> type.</p>
      * @see java.lang.String
      * @see java.io.File
@@ -57,10 +57,10 @@ public class FileHelper {
 
     /**
      * <code>createFile</code>
-     * <p>The file method.</p>
+     * <p>The create file method.</p>
      * @param path    {@link java.lang.String} <p>The path parameter is <code>String</code> type.</p>
      * @param nameMap {@link java.util.Map} <p>The name map parameter is <code>Map</code> type.</p>
-     * @return {@link java.io.File} <p>The file return object is <code>File</code> type.</p>
+     * @return {@link java.io.File} <p>The create file return object is <code>File</code> type.</p>
      * @throws FileCreateException {@link io.github.nichetoolkit.rest.error.often.FileCreateException} <p>The file create exception is <code>FileCreateException</code> type.</p>
      * @see java.lang.String
      * @see java.util.Map
@@ -74,11 +74,11 @@ public class FileHelper {
 
     /**
      * <code>createFile</code>
-     * <p>The file method.</p>
+     * <p>The create file method.</p>
      * @param path {@link java.lang.String} <p>The path parameter is <code>String</code> type.</p>
      * @param name {@link java.lang.String} <p>The name parameter is <code>String</code> type.</p>
      * @param ext  {@link java.lang.String} <p>The ext parameter is <code>String</code> type.</p>
-     * @return {@link java.io.File} <p>The file return object is <code>File</code> type.</p>
+     * @return {@link java.io.File} <p>The create file return object is <code>File</code> type.</p>
      * @throws FileCreateException {@link io.github.nichetoolkit.rest.error.often.FileCreateException} <p>The file create exception is <code>FileCreateException</code> type.</p>
      * @see java.lang.String
      * @see java.io.File
@@ -91,9 +91,9 @@ public class FileHelper {
 
     /**
      * <code>createFile</code>
-     * <p>The file method.</p>
+     * <p>The create file method.</p>
      * @param file {@link java.io.File} <p>The file parameter is <code>File</code> type.</p>
-     * @return {@link java.io.File} <p>The file return object is <code>File</code> type.</p>
+     * @return {@link java.io.File} <p>The create file return object is <code>File</code> type.</p>
      * @throws FileCreateException {@link io.github.nichetoolkit.rest.error.often.FileCreateException} <p>The file create exception is <code>FileCreateException</code> type.</p>
      * @see java.io.File
      * @see java.lang.SuppressWarnings
@@ -117,7 +117,7 @@ public class FileHelper {
 
     /**
      * <code>copyFile</code>
-     * <p>The file method.</p>
+     * <p>The copy file method.</p>
      * @param srcFile    {@link java.io.File} <p>The src file parameter is <code>File</code> type.</p>
      * @param targetFile {@link java.io.File} <p>The target file parameter is <code>File</code> type.</p>
      * @throws FileCopyException {@link io.github.nichetoolkit.rest.error.often.FileCopyException} <p>The file copy exception is <code>FileCopyException</code> type.</p>
@@ -138,7 +138,7 @@ public class FileHelper {
 
     /**
      * <code>copyFile</code>
-     * <p>The file method.</p>
+     * <p>The copy file method.</p>
      * @param srcPath    {@link java.lang.String} <p>The src path parameter is <code>String</code> type.</p>
      * @param targetPath {@link java.lang.String} <p>The target path parameter is <code>String</code> type.</p>
      * @throws FileCopyException {@link io.github.nichetoolkit.rest.error.often.FileCopyException} <p>The file copy exception is <code>FileCopyException</code> type.</p>
@@ -153,9 +153,9 @@ public class FileHelper {
 
     /**
      * <code>deleteFile</code>
-     * <p>The file method.</p>
+     * <p>The delete file method.</p>
      * @param path {@link java.lang.String} <p>The path parameter is <code>String</code> type.</p>
-     * @return boolean <p>The file return object is <code>boolean</code> type.</p>
+     * @return boolean <p>The delete file return object is <code>boolean</code> type.</p>
      * @see java.lang.String
      */
     public static boolean deleteFile(final String path) {
@@ -165,9 +165,9 @@ public class FileHelper {
 
     /**
      * <code>deleteFile</code>
-     * <p>The file method.</p>
+     * <p>The delete file method.</p>
      * @param file {@link java.io.File} <p>The file parameter is <code>File</code> type.</p>
-     * @return boolean <p>The file return object is <code>boolean</code> type.</p>
+     * @return boolean <p>The delete file return object is <code>boolean</code> type.</p>
      * @see java.io.File
      */
     public static boolean deleteFile(final File file) {
@@ -180,9 +180,9 @@ public class FileHelper {
 
     /**
      * <code>clearFile</code>
-     * <p>The file method.</p>
+     * <p>The clear file method.</p>
      * @param path {@link java.lang.String} <p>The path parameter is <code>String</code> type.</p>
-     * @return boolean <p>The file return object is <code>boolean</code> type.</p>
+     * @return boolean <p>The clear file return object is <code>boolean</code> type.</p>
      * @see java.lang.String
      */
     public static boolean clearFile(final String path) {

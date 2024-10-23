@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * <code>RestShaProperties</code>
- * <p>The type rest sha properties class.</p>
+ * <p>The rest sha properties class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.Getter
  * @see lombok.Setter
@@ -53,8 +53,8 @@ public class RestShaProperties {
 
     /**
      * <code>getSecret</code>
-     * <p>The secret getter method.</p>
-     * @return {@link java.lang.String} <p>The secret return object is <code>String</code> type.</p>
+     * <p>The get secret getter method.</p>
+     * @return {@link java.lang.String} <p>The get secret return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public String getSecret() {

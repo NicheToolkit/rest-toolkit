@@ -8,7 +8,7 @@ import java.util.function.Supplier;
 
 /**
  * <code>BeanLackError</code>
- * <p>The type bean lack error class.</p>
+ * <p>The bean lack error class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestError
  * @since Jdk1.8

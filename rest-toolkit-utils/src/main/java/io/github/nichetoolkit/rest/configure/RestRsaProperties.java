@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * <code>RestRsaProperties</code>
- * <p>The type rest rsa properties class.</p>
+ * <p>The rest rsa properties class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.Getter
  * @see lombok.Setter
@@ -60,8 +60,8 @@ public class RestRsaProperties {
 
     /**
      * <code>toRsaKey</code>
-     * <p>The rsa key method.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.rsa.RsaKey} <p>The rsa key return object is <code>RsaKey</code> type.</p>
+     * <p>The to rsa key method.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.rsa.RsaKey} <p>The to rsa key return object is <code>RsaKey</code> type.</p>
      * @see io.github.nichetoolkit.rest.worker.rsa.RsaKey
      */
     public RsaKey toRsaKey() {

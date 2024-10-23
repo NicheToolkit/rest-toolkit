@@ -11,7 +11,7 @@ import java.util.*;
 
 /**
  * <code>DefaultReduceOps</code>
- * <p>The type default reduce ops class.</p>
+ * <p>The default reduce ops class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
@@ -25,13 +25,13 @@ final class DefaultReduceOps {
 
     /**
      * <code>makeRef</code>
-     * <p>The ref method.</p>
+     * <p>The make ref method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <U>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param seed     U <p>The seed parameter is <code>U</code> type.</p>
      * @param reducer  {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The reducer parameter is <code>BiFunctionActuator</code> type.</p>
      * @param combiner {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>The combiner parameter is <code>BinaryOperatorActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultTerminalOp} <p>The ref return object is <code>DefaultTerminalOp</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultTerminalOp} <p>The make ref return object is <code>DefaultTerminalOp</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
      * @see io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator
      * @see io.github.nichetoolkit.rest.stream.DefaultTerminalOp
@@ -66,10 +66,10 @@ final class DefaultReduceOps {
 
     /**
      * <code>makeRef</code>
-     * <p>The ref method.</p>
+     * <p>The make ref method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param operator {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>The operator parameter is <code>BinaryOperatorActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultTerminalOp} <p>The ref return object is <code>DefaultTerminalOp</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultTerminalOp} <p>The make ref return object is <code>DefaultTerminalOp</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator
      * @see io.github.nichetoolkit.rest.stream.DefaultTerminalOp
      */
@@ -117,10 +117,10 @@ final class DefaultReduceOps {
 
     /**
      * <code>makeRef</code>
-     * <p>The ref method.</p>
+     * <p>The make ref method.</p>
      * @param operator     {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>The operator parameter is <code>BinaryOperatorActuator</code> type.</p>
      * @param defaultValue {@link java.lang.Boolean} <p>The default value parameter is <code>Boolean</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultTerminalOp} <p>The ref return object is <code>DefaultTerminalOp</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultTerminalOp} <p>The make ref return object is <code>DefaultTerminalOp</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator
      * @see java.lang.Boolean
      * @see io.github.nichetoolkit.rest.stream.DefaultTerminalOp
@@ -169,11 +169,11 @@ final class DefaultReduceOps {
 
     /**
      * <code>makeRef</code>
-     * <p>The ref method.</p>
+     * <p>The make ref method.</p>
      * @param <T>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <I>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param collector {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The collector parameter is <code>RestCollector</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultTerminalOp} <p>The ref return object is <code>DefaultTerminalOp</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultTerminalOp} <p>The make ref return object is <code>DefaultTerminalOp</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.RestCollector
      * @see io.github.nichetoolkit.rest.stream.DefaultTerminalOp
      */
@@ -216,13 +216,13 @@ final class DefaultReduceOps {
 
     /**
      * <code>makeRef</code>
-     * <p>The ref method.</p>
+     * <p>The make ref method.</p>
      * @param <T>         {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <R>         {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param seedFactory {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The seed factory parameter is <code>SupplierActuator</code> type.</p>
      * @param accumulator {@link io.github.nichetoolkit.rest.actuator.BiConsumerActuator} <p>The accumulator parameter is <code>BiConsumerActuator</code> type.</p>
      * @param reducer     {@link io.github.nichetoolkit.rest.actuator.BiConsumerActuator} <p>The reducer parameter is <code>BiConsumerActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultTerminalOp} <p>The ref return object is <code>DefaultTerminalOp</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultTerminalOp} <p>The make ref return object is <code>DefaultTerminalOp</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
      * @see io.github.nichetoolkit.rest.actuator.BiConsumerActuator
      * @see io.github.nichetoolkit.rest.stream.DefaultTerminalOp
@@ -261,7 +261,7 @@ final class DefaultReduceOps {
 
     /**
      * <code>AccumulatingSink</code>
-     * <p>The type accumulating sink interface.</p>
+     * <p>The accumulating sink interface.</p>
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <R> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <K> {@link io.github.nichetoolkit.rest.stream.DefaultReduceOps.AccumulatingSink} <p>The generic parameter is <code>AccumulatingSink</code> type.</p>
@@ -273,7 +273,7 @@ final class DefaultReduceOps {
             extends DefaultTerminalSink<T, R> {
         /**
          * <code>combine</code>
-         * <p>The method.</p>
+         * <p>The combine method.</p>
          * @param other K <p>The other parameter is <code>K</code> type.</p>
          * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
          * @see io.github.nichetoolkit.rest.RestException
@@ -283,7 +283,7 @@ final class DefaultReduceOps {
 
     /**
      * <code>Box</code>
-     * <p>The type box class.</p>
+     * <p>The box class.</p>
      * @param <U> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @since Jdk1.8
@@ -303,8 +303,8 @@ final class DefaultReduceOps {
 
         /**
          * <code>actuate</code>
-         * <p>The method.</p>
-         * @return U <p>The return object is <code>U</code> type.</p>
+         * <p>The actuate method.</p>
+         * @return U <p>The actuate return object is <code>U</code> type.</p>
          */
         public U actuate() {
             return state;
@@ -313,7 +313,7 @@ final class DefaultReduceOps {
 
     /**
      * <code>ReduceOp</code>
-     * <p>The type reduce op class.</p>
+     * <p>The reduce op class.</p>
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <R> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <S> {@link io.github.nichetoolkit.rest.stream.DefaultReduceOps.AccumulatingSink} <p>The generic parameter is <code>AccumulatingSink</code> type.</p>
@@ -343,8 +343,8 @@ final class DefaultReduceOps {
 
         /**
          * <code>makeSink</code>
-         * <p>The sink method.</p>
-         * @return S <p>The sink return object is <code>S</code> type.</p>
+         * <p>The make sink method.</p>
+         * @return S <p>The make sink return object is <code>S</code> type.</p>
          */
         public abstract S makeSink();
 
@@ -368,7 +368,7 @@ final class DefaultReduceOps {
 
     /**
      * <code>ReduceTask</code>
-     * <p>The type reduce task class.</p>
+     * <p>The reduce task class.</p>
      * @param <P_IN>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <P_OUT> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <R>     {@link java.lang.Object} <p>The parameter can be of any type.</p>

@@ -8,7 +8,7 @@ import java.util.function.Supplier;
 
 /**
  * <code>RestError</code>
- * <p>The type rest error class.</p>
+ * <p>The rest error class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.DefaultError
  * @see io.github.nichetoolkit.rest.RestStatus
@@ -352,9 +352,9 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>parser</code>
-     * <p>The method.</p>
+     * <p>The parser method.</p>
      * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The parser return object is <code>RestError</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
     public static RestError parser(RestStatus status) {
@@ -367,10 +367,10 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>parser</code>
-     * <p>The method.</p>
+     * <p>The parser method.</p>
      * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @param status  {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The parser return object is <code>RestError</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestStatus
      */
@@ -384,10 +384,10 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>parser</code>
-     * <p>The method.</p>
+     * <p>The parser method.</p>
      * @param status     {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
      * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>The rest status parameter is <code>RestStatus</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The parser return object is <code>RestError</code> type.</p>
      * @see java.lang.Integer
      * @see io.github.nichetoolkit.rest.RestStatus
      */
@@ -401,11 +401,11 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>parser</code>
-     * <p>The method.</p>
+     * <p>The parser method.</p>
      * @param status     {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
      * @param message    {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>The rest status parameter is <code>RestStatus</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The parser return object is <code>RestError</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestStatus
@@ -421,9 +421,9 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>parser</code>
-     * <p>The method.</p>
+     * <p>The parser method.</p>
      * @param cause {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The parser return object is <code>RestError</code> type.</p>
      * @see java.lang.Throwable
      */
     public static RestError parser(Throwable cause) {
@@ -438,10 +438,10 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>parser</code>
-     * <p>The method.</p>
+     * <p>The parser method.</p>
      * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @param cause   {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The parser return object is <code>RestError</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Throwable
      */
@@ -457,10 +457,10 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>parser</code>
-     * <p>The method.</p>
+     * <p>The parser method.</p>
      * @param status {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
      * @param cause  {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The parser return object is <code>RestError</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.Throwable
      */
@@ -476,11 +476,11 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>parser</code>
-     * <p>The method.</p>
+     * <p>The parser method.</p>
      * @param status  {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
      * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @param cause   {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The parser return object is <code>RestError</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      * @see java.lang.Throwable
@@ -497,8 +497,8 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * <p>The error method.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      */
     public static RestError error() {
         return (new RestError.Builder(RestErrorStatus.UNKNOWN_ERROR)).add(new RestErrorIssue(RestErrorStatus.UNKNOWN_ERROR)).build();
@@ -506,9 +506,9 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param cause {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see java.lang.Throwable
      */
     public static RestError error(Throwable cause) {
@@ -517,9 +517,9 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param field {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see java.lang.String
      */
     public static RestError error(String field) {
@@ -528,10 +528,10 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param field {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
      * @param cause {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Throwable
      */
@@ -541,10 +541,10 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param field {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
      * @param error {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see java.lang.String
      */
     public static RestError error(String field, String error) {
@@ -553,11 +553,11 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param field {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
      * @param error {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
      * @param cause {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Throwable
      */
@@ -567,11 +567,11 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param field {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
      * @param value {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
      * @param error {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Object
      */
@@ -581,12 +581,12 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param field {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
      * @param value {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
      * @param error {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
      * @param cause {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Object
      * @see java.lang.Throwable
@@ -597,9 +597,9 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
     public static RestError error(RestStatus status) {
@@ -608,10 +608,10 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @param cause  {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.Throwable
      */
@@ -621,10 +621,10 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param field  {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
      * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestStatus
      */
@@ -634,11 +634,11 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param field  {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
      * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @param cause  {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.Throwable
@@ -649,10 +649,10 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param status {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
      * @param error  {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      */
@@ -662,11 +662,11 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param status {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
      * @param error  {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
      * @param cause  {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      * @see java.lang.Throwable
@@ -678,10 +678,10 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param status     {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
      * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>The rest status parameter is <code>RestStatus</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see java.lang.Integer
      * @see io.github.nichetoolkit.rest.RestStatus
      */
@@ -691,11 +691,11 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param status     {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
      * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>The rest status parameter is <code>RestStatus</code> type.</p>
      * @param cause      {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see java.lang.Integer
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.Throwable
@@ -706,10 +706,10 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @param error  {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      */
@@ -719,11 +719,11 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @param error  {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
      * @param cause  {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see java.lang.Throwable
@@ -734,11 +734,11 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param field  {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
      * @param status {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
      * @param error  {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Integer
      */
@@ -748,12 +748,12 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param field  {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
      * @param status {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
      * @param error  {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
      * @param cause  {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Integer
      * @see java.lang.Throwable
@@ -764,12 +764,12 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param field  {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
      * @param value  {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
      * @param status {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
      * @param error  {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Object
      * @see java.lang.Integer
@@ -780,13 +780,13 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param field  {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
      * @param value  {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
      * @param status {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
      * @param error  {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
      * @param cause  {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Object
      * @see java.lang.Integer
@@ -798,11 +798,11 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param field  {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
      * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @param error  {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestStatus
      */
@@ -812,12 +812,12 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param field  {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
      * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @param error  {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
      * @param cause  {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.Throwable
@@ -828,12 +828,12 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param field      {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
      * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>The rest status parameter is <code>RestStatus</code> type.</p>
      * @param status     {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
      * @param error      {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.Integer
@@ -844,13 +844,13 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param field      {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
      * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>The rest status parameter is <code>RestStatus</code> type.</p>
      * @param status     {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
      * @param error      {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
      * @param cause      {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.Integer
@@ -862,11 +862,11 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param field  {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
      * @param value  {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
      * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Object
      * @see io.github.nichetoolkit.rest.RestStatus
@@ -877,12 +877,12 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param field  {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
      * @param value  {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
      * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @param cause  {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Object
      * @see io.github.nichetoolkit.rest.RestStatus
@@ -894,12 +894,12 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param field  {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
      * @param value  {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
      * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @param error  {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Object
      * @see io.github.nichetoolkit.rest.RestStatus
@@ -910,13 +910,13 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param field  {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
      * @param value  {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
      * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @param error  {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
      * @param cause  {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Object
      * @see io.github.nichetoolkit.rest.RestStatus
@@ -928,13 +928,13 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param field      {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
      * @param value      {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
      * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>The rest status parameter is <code>RestStatus</code> type.</p>
      * @param status     {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
      * @param error      {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Object
      * @see io.github.nichetoolkit.rest.RestStatus
@@ -946,14 +946,14 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param field      {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
      * @param value      {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
      * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>The rest status parameter is <code>RestStatus</code> type.</p>
      * @param status     {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
      * @param error      {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
      * @param cause      {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Object
      * @see io.github.nichetoolkit.rest.RestStatus
@@ -966,11 +966,11 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param resource   {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
      * @param field      {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
      * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>The rest status parameter is <code>RestStatus</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestStatus
      */
@@ -980,12 +980,12 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param resource   {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
      * @param field      {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
      * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>The rest status parameter is <code>RestStatus</code> type.</p>
      * @param cause      {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.Throwable
@@ -996,12 +996,12 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param resource   {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
      * @param field      {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
      * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>The rest status parameter is <code>RestStatus</code> type.</p>
      * @param error      {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestStatus
      */
@@ -1011,13 +1011,13 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param resource   {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
      * @param field      {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
      * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>The rest status parameter is <code>RestStatus</code> type.</p>
      * @param error      {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
      * @param cause      {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.Throwable
@@ -1028,12 +1028,12 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param resource   {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
      * @param field      {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
      * @param value      {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
      * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>The rest status parameter is <code>RestStatus</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Object
      * @see io.github.nichetoolkit.rest.RestStatus
@@ -1044,13 +1044,13 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param resource   {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
      * @param field      {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
      * @param value      {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
      * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>The rest status parameter is <code>RestStatus</code> type.</p>
      * @param cause      {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Object
      * @see io.github.nichetoolkit.rest.RestStatus
@@ -1062,13 +1062,13 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param resource   {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
      * @param field      {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
      * @param value      {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
      * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>The rest status parameter is <code>RestStatus</code> type.</p>
      * @param error      {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Object
      * @see io.github.nichetoolkit.rest.RestStatus
@@ -1079,14 +1079,14 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param resource   {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
      * @param field      {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
      * @param value      {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
      * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>The rest status parameter is <code>RestStatus</code> type.</p>
      * @param error      {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
      * @param cause      {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Object
      * @see io.github.nichetoolkit.rest.RestStatus
@@ -1098,13 +1098,13 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param resource   {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
      * @param field      {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
      * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>The rest status parameter is <code>RestStatus</code> type.</p>
      * @param status     {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
      * @param error      {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.Integer
@@ -1115,14 +1115,14 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param resource   {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
      * @param field      {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
      * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>The rest status parameter is <code>RestStatus</code> type.</p>
      * @param status     {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
      * @param error      {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
      * @param cause      {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.Integer
@@ -1134,14 +1134,14 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param resource   {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
      * @param field      {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
      * @param value      {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
      * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>The rest status parameter is <code>RestStatus</code> type.</p>
      * @param status     {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
      * @param error      {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Object
      * @see io.github.nichetoolkit.rest.RestStatus
@@ -1153,7 +1153,7 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param resource   {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
      * @param field      {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
      * @param value      {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
@@ -1161,7 +1161,7 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
      * @param status     {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
      * @param error      {@link java.lang.String} <p>The error parameter is <code>String</code> type.</p>
      * @param cause      {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The return object is <code>RestError</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestError} <p>The error return object is <code>RestError</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Object
      * @see io.github.nichetoolkit.rest.RestStatus
@@ -1193,7 +1193,7 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
     /**
      * <code>Builder</code>
-     * <p>The type builder class.</p>
+     * <p>The builder class.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.DefaultError.Builder
      * @since Jdk1.8
@@ -1234,9 +1234,9 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
         /**
          * <code>name</code>
-         * <p>The method.</p>
+         * <p>The name method.</p>
          * @param name {@link java.lang.String} <p>The name parameter is <code>String</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.RestError.Builder} <p>The return object is <code>Builder</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.RestError.Builder} <p>The name return object is <code>Builder</code> type.</p>
          * @see java.lang.String
          */
         public RestError.Builder name(String name) {
@@ -1246,9 +1246,9 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
         /**
          * <code>name</code>
-         * <p>The method.</p>
+         * <p>The name method.</p>
          * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.RestError.Builder} <p>The return object is <code>Builder</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.RestError.Builder} <p>The name return object is <code>Builder</code> type.</p>
          * @see io.github.nichetoolkit.rest.RestStatus
          */
         public RestError.Builder name(RestStatus status) {
@@ -1258,9 +1258,9 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
         /**
          * <code>status</code>
-         * <p>The method.</p>
+         * <p>The status method.</p>
          * @param status {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.RestError.Builder} <p>The return object is <code>Builder</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.RestError.Builder} <p>The status return object is <code>Builder</code> type.</p>
          * @see java.lang.Integer
          */
         public RestError.Builder status(Integer status) {
@@ -1270,9 +1270,9 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
 
         /**
          * <code>status</code>
-         * <p>The method.</p>
+         * <p>The status method.</p>
          * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.RestError.Builder} <p>The return object is <code>Builder</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.RestError.Builder} <p>The status return object is <code>Builder</code> type.</p>
          * @see io.github.nichetoolkit.rest.RestStatus
          */
         public RestError.Builder status(RestStatus status) {

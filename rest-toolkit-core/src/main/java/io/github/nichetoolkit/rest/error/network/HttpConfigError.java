@@ -8,7 +8,7 @@ import java.util.function.Supplier;
 
 /**
  * <code>HttpConfigError</code>
- * <p>The type http config error class.</p>
+ * <p>The http config error class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestError
  * @since Jdk1.8

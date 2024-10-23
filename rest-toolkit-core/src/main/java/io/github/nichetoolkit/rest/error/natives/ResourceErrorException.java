@@ -7,7 +7,7 @@ import io.github.nichetoolkit.rest.RestStatus;
 
 /**
  * <code>ResourceErrorException</code>
- * <p>The type resource error exception class.</p>
+ * <p>The resource error exception class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestErrorException
  * @since Jdk1.8

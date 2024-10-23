@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * <code>DefaultStreamSpliterators</code>
- * <p>The type default stream spliterators class.</p>
+ * <p>The default stream spliterators class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
@@ -20,7 +20,7 @@ class DefaultStreamSpliterators {
 
     /**
      * <code>AbstractWrappingSpliterator</code>
-     * <p>The type abstract wrapping spliterator class.</p>
+     * <p>The abstract wrapping spliterator class.</p>
      * @param <P_IN>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <P_OUT>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T_BUFFER> {@link io.github.nichetoolkit.rest.stream.DefaultAbstractSpinedBuffer} <p>The generic parameter is <code>DefaultAbstractSpinedBuffer</code> type.</p>
@@ -129,7 +129,7 @@ class DefaultStreamSpliterators {
 
         /**
          * <code>init</code>
-         * <p>The method.</p>
+         * <p>The init method.</p>
          * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
          * @see io.github.nichetoolkit.rest.RestException
          */
@@ -142,8 +142,8 @@ class DefaultStreamSpliterators {
 
         /**
          * <code>doAdvance</code>
-         * <p>The advance method.</p>
-         * @return boolean <p>The advance return object is <code>boolean</code> type.</p>
+         * <p>The do advance method.</p>
+         * @return boolean <p>The do advance return object is <code>boolean</code> type.</p>
          * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
          * @see io.github.nichetoolkit.rest.RestException
          */
@@ -172,16 +172,16 @@ class DefaultStreamSpliterators {
 
         /**
          * <code>wrap</code>
-         * <p>The method.</p>
+         * <p>The wrap method.</p>
          * @param s {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The s parameter is <code>DefaultSpliterator</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.stream.DefaultStreamSpliterators.AbstractWrappingSpliterator} <p>The return object is <code>AbstractWrappingSpliterator</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.stream.DefaultStreamSpliterators.AbstractWrappingSpliterator} <p>The wrap return object is <code>AbstractWrappingSpliterator</code> type.</p>
          * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
          */
         abstract AbstractWrappingSpliterator<P_IN, P_OUT, ?> wrap(DefaultSpliterator<P_IN> s);
 
         /**
          * <code>initPartialTraversalState</code>
-         * <p>The partial traversal state method.</p>
+         * <p>The init partial traversal state method.</p>
          * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
          * @see io.github.nichetoolkit.rest.RestException
          */
@@ -201,8 +201,8 @@ class DefaultStreamSpliterators {
 
         /**
          * <code>fillBuffer</code>
-         * <p>The buffer method.</p>
-         * @return boolean <p>The buffer return object is <code>boolean</code> type.</p>
+         * <p>The fill buffer method.</p>
+         * @return boolean <p>The fill buffer return object is <code>boolean</code> type.</p>
          * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
          * @see io.github.nichetoolkit.rest.RestException
          */
@@ -273,7 +273,7 @@ class DefaultStreamSpliterators {
 
     /**
      * <code>WrappingSpliterator</code>
-     * <p>The type wrapping spliterator class.</p>
+     * <p>The wrapping spliterator class.</p>
      * @param <P_IN>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <P_OUT> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
@@ -352,7 +352,7 @@ class DefaultStreamSpliterators {
 
     /**
      * <code>DelegatingSpliterator</code>
-     * <p>The type delegating spliterator class.</p>
+     * <p>The delegating spliterator class.</p>
      * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T_SPLITR> {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The generic parameter is <code>DefaultSpliterator</code> type.</p>
      * @author Cyan (snow22314@outlook.com)
@@ -386,8 +386,8 @@ class DefaultStreamSpliterators {
 
         /**
          * <code>actuate</code>
-         * <p>The method.</p>
-         * @return T_SPLITR <p>The return object is <code>T_SPLITR</code> type.</p>
+         * <p>The actuate method.</p>
+         * @return T_SPLITR <p>The actuate return object is <code>T_SPLITR</code> type.</p>
          * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
          * @see io.github.nichetoolkit.rest.RestException
          */
@@ -445,7 +445,7 @@ class DefaultStreamSpliterators {
 
         /**
          * <code>OfPrimitive</code>
-         * <p>The type of primitive class.</p>
+         * <p>The of primitive class.</p>
          * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @param <T_CONS>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @param <T_SPLITR> {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator.OfPrimitive} <p>The generic parameter is <code>OfPrimitive</code> type.</p>
@@ -480,7 +480,7 @@ class DefaultStreamSpliterators {
 
     /**
      * <code>SliceSpliterator</code>
-     * <p>The type slice spliterator class.</p>
+     * <p>The slice spliterator class.</p>
      * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T_SPLITR> {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The generic parameter is <code>DefaultSpliterator</code> type.</p>
      * @author Cyan (snow22314@outlook.com)
@@ -537,13 +537,13 @@ class DefaultStreamSpliterators {
 
         /**
          * <code>makeSpliterator</code>
-         * <p>The spliterator method.</p>
+         * <p>The make spliterator method.</p>
          * @param s           T_SPLITR <p>The s parameter is <code>T_SPLITR</code> type.</p>
          * @param sliceOrigin long <p>The slice origin parameter is <code>long</code> type.</p>
          * @param sliceFence  long <p>The slice fence parameter is <code>long</code> type.</p>
          * @param origin      long <p>The origin parameter is <code>long</code> type.</p>
          * @param fence       long <p>The fence parameter is <code>long</code> type.</p>
-         * @return T_SPLITR <p>The spliterator return object is <code>T_SPLITR</code> type.</p>
+         * @return T_SPLITR <p>The make spliterator return object is <code>T_SPLITR</code> type.</p>
          * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
          * @see io.github.nichetoolkit.rest.RestException
          */
@@ -551,8 +551,8 @@ class DefaultStreamSpliterators {
 
         /**
          * <code>trySplit</code>
-         * <p>The split method.</p>
-         * @return T_SPLITR <p>The split return object is <code>T_SPLITR</code> type.</p>
+         * <p>The try split method.</p>
+         * @return T_SPLITR <p>The try split return object is <code>T_SPLITR</code> type.</p>
          * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
          * @see io.github.nichetoolkit.rest.RestException
          */
@@ -588,8 +588,8 @@ class DefaultStreamSpliterators {
 
         /**
          * <code>estimateSize</code>
-         * <p>The size method.</p>
-         * @return long <p>The size return object is <code>long</code> type.</p>
+         * <p>The estimate size method.</p>
+         * @return long <p>The estimate size return object is <code>long</code> type.</p>
          */
         public long estimateSize() {
             return (sliceOrigin < fence)
@@ -598,8 +598,8 @@ class DefaultStreamSpliterators {
 
         /**
          * <code>characteristics</code>
-         * <p>The method.</p>
-         * @return int <p>The return object is <code>int</code> type.</p>
+         * <p>The characteristics method.</p>
+         * @return int <p>The characteristics return object is <code>int</code> type.</p>
          * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
          * @see io.github.nichetoolkit.rest.RestException
          */
@@ -609,7 +609,7 @@ class DefaultStreamSpliterators {
 
         /**
          * <code>OfRef</code>
-         * <p>The type of ref class.</p>
+         * <p>The of ref class.</p>
          * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @author Cyan (snow22314@outlook.com)
          * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
@@ -706,7 +706,7 @@ class DefaultStreamSpliterators {
 
         /**
          * <code>OfPrimitive</code>
-         * <p>The type of primitive class.</p>
+         * <p>The of primitive class.</p>
          * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @param <T_SPLITR> {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator.OfPrimitive} <p>The generic parameter is <code>OfPrimitive</code> type.</p>
          * @param <T_CONS>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
@@ -797,8 +797,8 @@ class DefaultStreamSpliterators {
 
             /**
              * <code>emptyConsumer</code>
-             * <p>The consumer method.</p>
-             * @return T_CONS <p>The consumer return object is <code>T_CONS</code> type.</p>
+             * <p>The empty consumer method.</p>
+             * @return T_CONS <p>The empty consumer return object is <code>T_CONS</code> type.</p>
              */
             protected abstract T_CONS emptyConsumer();
         }
@@ -806,7 +806,7 @@ class DefaultStreamSpliterators {
 
     /**
      * <code>UnorderedSliceSpliterator</code>
-     * <p>The type unordered slice spliterator class.</p>
+     * <p>The unordered slice spliterator class.</p>
      * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T_SPLITR> {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The generic parameter is <code>DefaultSpliterator</code> type.</p>
      * @author Cyan (snow22314@outlook.com)
@@ -879,9 +879,9 @@ class DefaultStreamSpliterators {
 
         /**
          * <code>acquirePermits</code>
-         * <p>The permits method.</p>
+         * <p>The acquire permits method.</p>
          * @param numElements long <p>The num elements parameter is <code>long</code> type.</p>
-         * @return long <p>The permits return object is <code>long</code> type.</p>
+         * @return long <p>The acquire permits return object is <code>long</code> type.</p>
          */
         protected final long acquirePermits(long numElements) {
             long remainingPermits;
@@ -905,7 +905,7 @@ class DefaultStreamSpliterators {
 
         /**
          * <code>PermitStatus</code>
-         * <p>The type permit status enumeration.</p>
+         * <p>The permit status enumeration.</p>
          * @author Cyan (snow22314@outlook.com)
          * @since Jdk1.8
          */
@@ -928,8 +928,8 @@ class DefaultStreamSpliterators {
 
         /**
          * <code>permitStatus</code>
-         * <p>The status method.</p>
-         * @return {@link io.github.nichetoolkit.rest.stream.DefaultStreamSpliterators.UnorderedSliceSpliterator.PermitStatus} <p>The status return object is <code>PermitStatus</code> type.</p>
+         * <p>The permit status method.</p>
+         * @return {@link io.github.nichetoolkit.rest.stream.DefaultStreamSpliterators.UnorderedSliceSpliterator.PermitStatus} <p>The permit status return object is <code>PermitStatus</code> type.</p>
          * @see io.github.nichetoolkit.rest.stream.DefaultStreamSpliterators.UnorderedSliceSpliterator.PermitStatus
          */
         protected final PermitStatus permitStatus() {
@@ -941,8 +941,8 @@ class DefaultStreamSpliterators {
 
         /**
          * <code>trySplit</code>
-         * <p>The split method.</p>
-         * @return T_SPLITR <p>The split return object is <code>T_SPLITR</code> type.</p>
+         * <p>The try split method.</p>
+         * @return T_SPLITR <p>The try split return object is <code>T_SPLITR</code> type.</p>
          * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
          * @see io.github.nichetoolkit.rest.RestException
          */
@@ -956,16 +956,16 @@ class DefaultStreamSpliterators {
 
         /**
          * <code>makeSpliterator</code>
-         * <p>The spliterator method.</p>
+         * <p>The make spliterator method.</p>
          * @param s T_SPLITR <p>The s parameter is <code>T_SPLITR</code> type.</p>
-         * @return T_SPLITR <p>The spliterator return object is <code>T_SPLITR</code> type.</p>
+         * @return T_SPLITR <p>The make spliterator return object is <code>T_SPLITR</code> type.</p>
          */
         protected abstract T_SPLITR makeSpliterator(T_SPLITR s);
 
         /**
          * <code>estimateSize</code>
-         * <p>The size method.</p>
-         * @return long <p>The size return object is <code>long</code> type.</p>
+         * <p>The estimate size method.</p>
+         * @return long <p>The estimate size return object is <code>long</code> type.</p>
          * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
          * @see io.github.nichetoolkit.rest.RestException
          */
@@ -975,8 +975,8 @@ class DefaultStreamSpliterators {
 
         /**
          * <code>characteristics</code>
-         * <p>The method.</p>
-         * @return int <p>The return object is <code>int</code> type.</p>
+         * <p>The characteristics method.</p>
+         * @return int <p>The characteristics return object is <code>int</code> type.</p>
          * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
          * @see io.github.nichetoolkit.rest.RestException
          */
@@ -987,7 +987,7 @@ class DefaultStreamSpliterators {
 
         /**
          * <code>OfRef</code>
-         * <p>The type of ref class.</p>
+         * <p>The of ref class.</p>
          * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @author Cyan (snow22314@outlook.com)
          * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
@@ -1080,7 +1080,7 @@ class DefaultStreamSpliterators {
 
         /**
          * <code>OfPrimitive</code>
-         * <p>The type of primitive class.</p>
+         * <p>The of primitive class.</p>
          * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @param <T_CONS>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @param <T_BUFF>   {@link io.github.nichetoolkit.rest.stream.DefaultStreamSpliterators.ArrayBuffer.OfPrimitive} <p>The generic parameter is <code>OfPrimitive</code> type.</p>
@@ -1137,7 +1137,7 @@ class DefaultStreamSpliterators {
 
             /**
              * <code>actuateConsumed</code>
-             * <p>The consumed method.</p>
+             * <p>The actuate consumed method.</p>
              * @param action T_CONS <p>The action parameter is <code>T_CONS</code> type.</p>
              */
             protected abstract void actuateConsumed(T_CONS action);
@@ -1172,9 +1172,9 @@ class DefaultStreamSpliterators {
 
             /**
              * <code>bufferCreate</code>
-             * <p>The create method.</p>
+             * <p>The buffer create method.</p>
              * @param initialCapacity int <p>The initial capacity parameter is <code>int</code> type.</p>
-             * @return T_BUFF <p>The create return object is <code>T_BUFF</code> type.</p>
+             * @return T_BUFF <p>The buffer create return object is <code>T_BUFF</code> type.</p>
              */
             protected abstract T_BUFF bufferCreate(int initialCapacity);
         }
@@ -1182,7 +1182,7 @@ class DefaultStreamSpliterators {
 
     /**
      * <code>DistinctSpliterator</code>
-     * <p>The type distinct spliterator class.</p>
+     * <p>The distinct spliterator class.</p>
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
@@ -1244,9 +1244,9 @@ class DefaultStreamSpliterators {
 
         /**
          * <code>mapNull</code>
-         * <p>The null method.</p>
+         * <p>The map null method.</p>
          * @param t T <p>The t parameter is <code>T</code> type.</p>
-         * @return T <p>The null return object is <code>T</code> type.</p>
+         * @return T <p>The map null return object is <code>T</code> type.</p>
          * @see java.lang.SuppressWarnings
          */
         @SuppressWarnings("unchecked")
@@ -1301,7 +1301,7 @@ class DefaultStreamSpliterators {
 
     /**
      * <code>InfiniteSupplyingSpliterator</code>
-     * <p>The type infinite supplying spliterator class.</p>
+     * <p>The infinite supplying spliterator class.</p>
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
@@ -1335,7 +1335,7 @@ class DefaultStreamSpliterators {
 
         /**
          * <code>OfRef</code>
-         * <p>The type of ref class.</p>
+         * <p>The of ref class.</p>
          * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @author Cyan (snow22314@outlook.com)
          * @since Jdk1.8
@@ -1379,7 +1379,7 @@ class DefaultStreamSpliterators {
 
     /**
      * <code>ArrayBuffer</code>
-     * <p>The type array buffer class.</p>
+     * <p>The array buffer class.</p>
      * @author Cyan (snow22314@outlook.com)
      * @since Jdk1.8
      */
@@ -1393,7 +1393,7 @@ class DefaultStreamSpliterators {
 
         /**
          * <code>reset</code>
-         * <p>The method.</p>
+         * <p>The reset method.</p>
          */
         void reset() {
             index = 0;
@@ -1401,7 +1401,7 @@ class DefaultStreamSpliterators {
 
         /**
          * <code>OfRef</code>
-         * <p>The type of ref class.</p>
+         * <p>The of ref class.</p>
          * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @author Cyan (snow22314@outlook.com)
          * @see io.github.nichetoolkit.rest.actuator.ConsumerActuator
@@ -1431,7 +1431,7 @@ class DefaultStreamSpliterators {
 
             /**
              * <code>forEach</code>
-             * <p>The each method.</p>
+             * <p>The for each method.</p>
              * @param action {@link io.github.nichetoolkit.rest.actuator.ConsumerActuator} <p>The action parameter is <code>ConsumerActuator</code> type.</p>
              * @param fence  long <p>The fence parameter is <code>long</code> type.</p>
              * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -1449,7 +1449,7 @@ class DefaultStreamSpliterators {
 
         /**
          * <code>OfPrimitive</code>
-         * <p>The type of primitive class.</p>
+         * <p>The of primitive class.</p>
          * @param <T_CONS> {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @author Cyan (snow22314@outlook.com)
          * @since Jdk1.8
@@ -1468,7 +1468,7 @@ class DefaultStreamSpliterators {
 
             /**
              * <code>forEach</code>
-             * <p>The each method.</p>
+             * <p>The for each method.</p>
              * @param action T_CONS <p>The action parameter is <code>T_CONS</code> type.</p>
              * @param fence  long <p>The fence parameter is <code>long</code> type.</p>
              */

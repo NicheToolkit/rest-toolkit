@@ -9,7 +9,7 @@ import java.util.function.*;
 
 /**
  * <code>DefaultForEachOps</code>
- * <p>The type default for each ops class.</p>
+ * <p>The default for each ops class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
@@ -24,11 +24,11 @@ final class DefaultForEachOps {
 
     /**
      * <code>makeRef</code>
-     * <p>The ref method.</p>
+     * <p>The make ref method.</p>
      * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param action  {@link io.github.nichetoolkit.rest.actuator.ConsumerActuator} <p>The action parameter is <code>ConsumerActuator</code> type.</p>
      * @param ordered boolean <p>The ordered parameter is <code>boolean</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultTerminalOp} <p>The ref return object is <code>DefaultTerminalOp</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultTerminalOp} <p>The make ref return object is <code>DefaultTerminalOp</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.ConsumerActuator
      * @see io.github.nichetoolkit.rest.stream.DefaultTerminalOp
      */
@@ -40,7 +40,7 @@ final class DefaultForEachOps {
 
     /**
      * <code>ForEachOp</code>
-     * <p>The type for each op class.</p>
+     * <p>The for each op class.</p>
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultTerminalOp
@@ -92,7 +92,7 @@ final class DefaultForEachOps {
 
         /**
          * <code>OfRef</code>
-         * <p>The type of ref class.</p>
+         * <p>The of ref class.</p>
          * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @author Cyan (snow22314@outlook.com)
          * @since Jdk1.8
@@ -126,7 +126,7 @@ final class DefaultForEachOps {
 
     /**
      * <code>ForEachTask</code>
-     * <p>The type for each task class.</p>
+     * <p>The for each task class.</p>
      * @param <S> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
@@ -230,7 +230,7 @@ final class DefaultForEachOps {
 
     /**
      * <code>ForEachOrderedTask</code>
-     * <p>The type for each ordered task class.</p>
+     * <p>The for each ordered task class.</p>
      * @param <S> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
@@ -331,7 +331,7 @@ final class DefaultForEachOps {
 
         /**
          * <code>doCompute</code>
-         * <p>The compute method.</p>
+         * <p>The do compute method.</p>
          * @param <S>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @param task {@link io.github.nichetoolkit.rest.stream.DefaultForEachOps.ForEachOrderedTask} <p>The task parameter is <code>ForEachOrderedTask</code> type.</p>

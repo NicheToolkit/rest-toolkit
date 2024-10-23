@@ -7,7 +7,7 @@ import lombok.Setter;
 
 /**
  * <code>RestRequestPack</code>
- * <p>The type rest request pack class.</p>
+ * <p>The rest request pack class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.Getter
  * @see lombok.Setter
@@ -94,7 +94,7 @@ public class RestRequestPack {
 
     /**
      * <code>Builder</code>
-     * <p>The type builder class.</p>
+     * <p>The builder class.</p>
      * @author Cyan (snow22314@outlook.com)
      * @since Jdk1.8
      */
@@ -157,9 +157,9 @@ public class RestRequestPack {
 
         /**
          * <code>headers</code>
-         * <p>The method.</p>
+         * <p>The headers method.</p>
          * @param headers {@link java.lang.String} <p>The headers parameter is <code>String</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.userlog.RestRequestPack.Builder} <p>The return object is <code>Builder</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.userlog.RestRequestPack.Builder} <p>The headers return object is <code>Builder</code> type.</p>
          * @see java.lang.String
          */
         public RestRequestPack.Builder headers(String headers) {
@@ -169,9 +169,9 @@ public class RestRequestPack {
 
         /**
          * <code>ipAddress</code>
-         * <p>The address method.</p>
+         * <p>The ip address method.</p>
          * @param ipAddress {@link java.lang.String} <p>The ip address parameter is <code>String</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.userlog.RestRequestPack.Builder} <p>The address return object is <code>Builder</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.userlog.RestRequestPack.Builder} <p>The ip address return object is <code>Builder</code> type.</p>
          * @see java.lang.String
          */
         public RestRequestPack.Builder ipAddress(String ipAddress) {
@@ -181,9 +181,9 @@ public class RestRequestPack {
 
         /**
          * <code>userAgent</code>
-         * <p>The agent method.</p>
+         * <p>The user agent method.</p>
          * @param userAgent {@link java.lang.String} <p>The user agent parameter is <code>String</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.userlog.RestRequestPack.Builder} <p>The agent return object is <code>Builder</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.userlog.RestRequestPack.Builder} <p>The user agent return object is <code>Builder</code> type.</p>
          * @see java.lang.String
          */
         public RestRequestPack.Builder userAgent(String userAgent) {
@@ -193,9 +193,9 @@ public class RestRequestPack {
 
         /**
          * <code>method</code>
-         * <p>The method.</p>
+         * <p>The method method.</p>
          * @param method {@link java.lang.String} <p>The method parameter is <code>String</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.userlog.RestRequestPack.Builder} <p>The return object is <code>Builder</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.userlog.RestRequestPack.Builder} <p>The method return object is <code>Builder</code> type.</p>
          * @see java.lang.String
          */
         public RestRequestPack.Builder method(String method) {
@@ -205,9 +205,9 @@ public class RestRequestPack {
 
         /**
          * <code>url</code>
-         * <p>The method.</p>
+         * <p>The url method.</p>
          * @param url {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.userlog.RestRequestPack.Builder} <p>The return object is <code>Builder</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.userlog.RestRequestPack.Builder} <p>The url return object is <code>Builder</code> type.</p>
          * @see java.lang.String
          */
         public RestRequestPack.Builder url(String url) {
@@ -217,9 +217,9 @@ public class RestRequestPack {
 
         /**
          * <code>params</code>
-         * <p>The method.</p>
+         * <p>The params method.</p>
          * @param params {@link java.lang.String} <p>The params parameter is <code>String</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.userlog.RestRequestPack.Builder} <p>The return object is <code>Builder</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.userlog.RestRequestPack.Builder} <p>The params return object is <code>Builder</code> type.</p>
          * @see java.lang.String
          */
         public RestRequestPack.Builder params(String params) {
@@ -229,9 +229,9 @@ public class RestRequestPack {
 
         /**
          * <code>body</code>
-         * <p>The method.</p>
+         * <p>The body method.</p>
          * @param body {@link java.lang.String} <p>The body parameter is <code>String</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.userlog.RestRequestPack.Builder} <p>The return object is <code>Builder</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.userlog.RestRequestPack.Builder} <p>The body return object is <code>Builder</code> type.</p>
          * @see java.lang.String
          */
         public RestRequestPack.Builder body(String body) {
@@ -241,9 +241,9 @@ public class RestRequestPack {
 
         /**
          * <code>bodyString</code>
-         * <p>The string method.</p>
+         * <p>The body string method.</p>
          * @param bodyString {@link java.lang.String} <p>The body string parameter is <code>String</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.userlog.RestRequestPack.Builder} <p>The string return object is <code>Builder</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.userlog.RestRequestPack.Builder} <p>The body string return object is <code>Builder</code> type.</p>
          * @see java.lang.String
          */
         public RestRequestPack.Builder bodyString(String bodyString) {
@@ -253,8 +253,8 @@ public class RestRequestPack {
 
         /**
          * <code>build</code>
-         * <p>The method.</p>
-         * @return {@link io.github.nichetoolkit.rest.userlog.RestRequestPack} <p>The return object is <code>RestRequestPack</code> type.</p>
+         * <p>The build method.</p>
+         * @return {@link io.github.nichetoolkit.rest.userlog.RestRequestPack} <p>The build return object is <code>RestRequestPack</code> type.</p>
          */
         public RestRequestPack build() {
             return new RestRequestPack(this);

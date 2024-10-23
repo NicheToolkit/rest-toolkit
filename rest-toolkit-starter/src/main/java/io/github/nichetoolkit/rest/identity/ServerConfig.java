@@ -6,7 +6,7 @@ import lombok.Setter;
 
 /**
  * <code>ServerConfig</code>
- * <p>The type server config class.</p>
+ * <p>The server config class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.Getter
  * @see lombok.Setter
@@ -84,8 +84,8 @@ public class ServerConfig {
 
     /**
      * <code>toServer</code>
-     * <p>The server method.</p>
-     * @return {@link java.lang.String} <p>The server return object is <code>String</code> type.</p>
+     * <p>The to server method.</p>
+     * @return {@link java.lang.String} <p>The to server return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public String toServer() {

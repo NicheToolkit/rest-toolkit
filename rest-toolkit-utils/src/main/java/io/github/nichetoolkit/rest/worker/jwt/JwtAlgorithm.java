@@ -24,7 +24,7 @@ import java.util.Optional;
 
 /**
  * <code>JwtAlgorithm</code>
- * <p>The type jwt algorithm enumeration.</p>
+ * <p>The jwt algorithm enumeration.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.worker.jwt.JwtSigner
  * @since Jdk1.8
@@ -1411,7 +1411,7 @@ public enum JwtAlgorithm implements JwtSigner {
 
     /**
      * <code>setSigner</code>
-     * <p>The signer setter method.</p>
+     * <p>The set signer setter method.</p>
      * @param signer {@link io.fusionauth.jwt.Signer} <p>The signer parameter is <code>Signer</code> type.</p>
      * @see io.fusionauth.jwt.Signer
      */
@@ -1421,8 +1421,8 @@ public enum JwtAlgorithm implements JwtSigner {
 
     /**
      * <code>getSigner</code>
-     * <p>The signer getter method.</p>
-     * @return {@link io.fusionauth.jwt.Signer} <p>The signer return object is <code>Signer</code> type.</p>
+     * <p>The get signer getter method.</p>
+     * @return {@link io.fusionauth.jwt.Signer} <p>The get signer return object is <code>Signer</code> type.</p>
      * @see io.fusionauth.jwt.Signer
      */
     public final Signer getSigner() {
@@ -1431,8 +1431,8 @@ public enum JwtAlgorithm implements JwtSigner {
 
     /**
      * <code>getVerifier</code>
-     * <p>The verifier getter method.</p>
-     * @return {@link io.fusionauth.jwt.Verifier} <p>The verifier return object is <code>Verifier</code> type.</p>
+     * <p>The get verifier getter method.</p>
+     * @return {@link io.fusionauth.jwt.Verifier} <p>The get verifier return object is <code>Verifier</code> type.</p>
      * @see io.fusionauth.jwt.Verifier
      */
     public final Verifier getVerifier() {
@@ -1441,7 +1441,7 @@ public enum JwtAlgorithm implements JwtSigner {
 
     /**
      * <code>setVerifier</code>
-     * <p>The verifier setter method.</p>
+     * <p>The set verifier setter method.</p>
      * @param verifier {@link io.fusionauth.jwt.Verifier} <p>The verifier parameter is <code>Verifier</code> type.</p>
      * @see io.fusionauth.jwt.Verifier
      */
@@ -1451,9 +1451,9 @@ public enum JwtAlgorithm implements JwtSigner {
 
     /**
      * <code>parseKey</code>
-     * <p>The key method.</p>
+     * <p>The parse key method.</p>
      * @param key {@link java.lang.Integer} <p>The key parameter is <code>Integer</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The key return object is <code>JwtAlgorithm</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The parse key return object is <code>JwtAlgorithm</code> type.</p>
      * @see java.lang.Integer
      */
     public static JwtAlgorithm parseKey(Integer key) {
@@ -1463,9 +1463,9 @@ public enum JwtAlgorithm implements JwtSigner {
 
     /**
      * <code>parseValue</code>
-     * <p>The value method.</p>
+     * <p>The parse value method.</p>
      * @param value {@link java.lang.String} <p>The value parameter is <code>String</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The value return object is <code>JwtAlgorithm</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The parse value return object is <code>JwtAlgorithm</code> type.</p>
      * @see java.lang.String
      * @see com.fasterxml.jackson.annotation.JsonCreator
      */

@@ -2,7 +2,7 @@ package io.github.nichetoolkit.rest.constant;
 
 /**
  * <code>SystemConstants</code>
- * <p>The type system constants interface.</p>
+ * <p>The system constants interface.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */

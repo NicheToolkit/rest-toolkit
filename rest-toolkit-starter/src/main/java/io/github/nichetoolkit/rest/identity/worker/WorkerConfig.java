@@ -7,7 +7,7 @@ import java.util.Objects;
 
 /**
  * <code>WorkerConfig</code>
- * <p>The type worker config class.</p>
+ * <p>The worker config class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.Getter
  * @see lombok.Setter

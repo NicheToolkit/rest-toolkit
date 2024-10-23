@@ -6,7 +6,7 @@ import java.util.Objects;
 
 /**
  * <code>MapConsumerActuator</code>
- * <p>The type map consumer actuator interface.</p>
+ * <p>The map consumer actuator interface.</p>
  * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @param <U> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @param <S> {@link java.lang.Object} <p>The parameter can be of any type.</p>
@@ -19,7 +19,7 @@ public interface MapConsumerActuator<T, U, S> {
 
     /**
      * <code>actuate</code>
-     * <p>The method.</p>
+     * <p>The actuate method.</p>
      * @param t      T <p>The t parameter is <code>T</code> type.</p>
      * @param u      U <p>The u parameter is <code>U</code> type.</p>
      * @param sArray S <p>The s array parameter is <code>S</code> type.</p>
@@ -32,9 +32,9 @@ public interface MapConsumerActuator<T, U, S> {
 
     /**
      * <code>andThen</code>
-     * <p>The then method.</p>
+     * <p>The and then method.</p>
      * @param after {@link io.github.nichetoolkit.rest.actuator.MapConsumerActuator} <p>The after parameter is <code>MapConsumerActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.actuator.MapConsumerActuator} <p>The then return object is <code>MapConsumerActuator</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.actuator.MapConsumerActuator} <p>The and then return object is <code>MapConsumerActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */

@@ -8,7 +8,7 @@ import java.io.FileNotFoundException;
 
 /**
  * <code>PathUtils</code>
- * <p>The type path utils class.</p>
+ * <p>The path utils class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
@@ -16,8 +16,8 @@ public class PathUtils {
 
     /**
      * <code>getRootPath</code>
-     * <p>The root path getter method.</p>
-     * @return {@link java.lang.String} <p>The root path return object is <code>String</code> type.</p>
+     * <p>The get root path getter method.</p>
+     * @return {@link java.lang.String} <p>The get root path return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String getRootPath() {
@@ -35,9 +35,9 @@ public class PathUtils {
 
     /**
      * <code>getChildPath</code>
-     * <p>The child path getter method.</p>
+     * <p>The get child path getter method.</p>
      * @param childName {@link java.lang.String} <p>The child name parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>The child path return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The get child path return object is <code>String</code> type.</p>
      * @see java.lang.String
      * @see java.lang.SuppressWarnings
      */

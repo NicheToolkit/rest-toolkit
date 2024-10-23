@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * <code>RestExceptionProperties</code>
- * <p>The type rest exception properties class.</p>
+ * <p>The rest exception properties class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see org.springframework.stereotype.Component
  * @see org.springframework.boot.context.properties.ConfigurationProperties
@@ -26,8 +26,8 @@ public class RestExceptionProperties {
 
     /**
      * <code>getConsoleLog</code>
-     * <p>The console log getter method.</p>
-     * @return {@link io.github.nichetoolkit.rest.configure.RestExceptionProperties.ConsoleLog} <p>The console log return object is <code>ConsoleLog</code> type.</p>
+     * <p>The get console log getter method.</p>
+     * @return {@link io.github.nichetoolkit.rest.configure.RestExceptionProperties.ConsoleLog} <p>The get console log return object is <code>ConsoleLog</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestExceptionProperties.ConsoleLog
      */
     public ConsoleLog getConsoleLog() {
@@ -36,7 +36,7 @@ public class RestExceptionProperties {
 
     /**
      * <code>setConsoleLog</code>
-     * <p>The console log setter method.</p>
+     * <p>The set console log setter method.</p>
      * @param consoleLog {@link io.github.nichetoolkit.rest.configure.RestExceptionProperties.ConsoleLog} <p>The console log parameter is <code>ConsoleLog</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestExceptionProperties.ConsoleLog
      */
@@ -46,7 +46,7 @@ public class RestExceptionProperties {
 
     /**
      * <code>ConsoleLog</code>
-     * <p>The type console log class.</p>
+     * <p>The console log class.</p>
      * @author Cyan (snow22314@outlook.com)
      * @since Jdk1.8
      */
@@ -66,8 +66,8 @@ public class RestExceptionProperties {
 
         /**
          * <code>getRestExceptionEnabled</code>
-         * <p>The rest exception enabled getter method.</p>
-         * @return {@link java.lang.Boolean} <p>The rest exception enabled return object is <code>Boolean</code> type.</p>
+         * <p>The get rest exception enabled getter method.</p>
+         * @return {@link java.lang.Boolean} <p>The get rest exception enabled return object is <code>Boolean</code> type.</p>
          * @see java.lang.Boolean
          */
         public Boolean getRestExceptionEnabled() {
@@ -76,7 +76,7 @@ public class RestExceptionProperties {
 
         /**
          * <code>setRestExceptionEnabled</code>
-         * <p>The rest exception enabled setter method.</p>
+         * <p>The set rest exception enabled setter method.</p>
          * @param restExceptionEnabled {@link java.lang.Boolean} <p>The rest exception enabled parameter is <code>Boolean</code> type.</p>
          * @see java.lang.Boolean
          */
@@ -86,8 +86,8 @@ public class RestExceptionProperties {
 
         /**
          * <code>getCommonExceptionEnabled</code>
-         * <p>The common exception enabled getter method.</p>
-         * @return {@link java.lang.Boolean} <p>The common exception enabled return object is <code>Boolean</code> type.</p>
+         * <p>The get common exception enabled getter method.</p>
+         * @return {@link java.lang.Boolean} <p>The get common exception enabled return object is <code>Boolean</code> type.</p>
          * @see java.lang.Boolean
          */
         public Boolean getCommonExceptionEnabled() {
@@ -96,7 +96,7 @@ public class RestExceptionProperties {
 
         /**
          * <code>setCommonExceptionEnabled</code>
-         * <p>The common exception enabled setter method.</p>
+         * <p>The set common exception enabled setter method.</p>
          * @param commonExceptionEnabled {@link java.lang.Boolean} <p>The common exception enabled parameter is <code>Boolean</code> type.</p>
          * @see java.lang.Boolean
          */

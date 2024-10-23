@@ -8,7 +8,7 @@ import java.util.Objects;
 
 /**
  * <code>DefaultMatchOps</code>
- * <p>The type default match ops class.</p>
+ * <p>The default match ops class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
@@ -23,7 +23,7 @@ final class DefaultMatchOps {
 
     /**
      * <code>MatchKind</code>
-     * <p>The type match kind enumeration.</p>
+     * <p>The match kind enumeration.</p>
      * @author Cyan (snow22314@outlook.com)
      * @since Jdk1.8
      */
@@ -72,11 +72,11 @@ final class DefaultMatchOps {
 
     /**
      * <code>makeRef</code>
-     * <p>The ref method.</p>
+     * <p>The make ref method.</p>
      * @param <T>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param predicate {@link io.github.nichetoolkit.rest.actuator.PredicateActuator} <p>The predicate parameter is <code>PredicateActuator</code> type.</p>
      * @param matchKind {@link io.github.nichetoolkit.rest.stream.DefaultMatchOps.MatchKind} <p>The match kind parameter is <code>MatchKind</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultTerminalOp} <p>The ref return object is <code>DefaultTerminalOp</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultTerminalOp} <p>The make ref return object is <code>DefaultTerminalOp</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.PredicateActuator
      * @see io.github.nichetoolkit.rest.stream.DefaultMatchOps.MatchKind
      * @see io.github.nichetoolkit.rest.stream.DefaultTerminalOp
@@ -104,7 +104,7 @@ final class DefaultMatchOps {
 
     /**
      * <code>MatchOp</code>
-     * <p>The type match op class.</p>
+     * <p>The match op class.</p>
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultTerminalOp
@@ -173,7 +173,7 @@ final class DefaultMatchOps {
 
     /**
      * <code>BooleanTerminalSink</code>
-     * <p>The type boolean terminal sink class.</p>
+     * <p>The boolean terminal sink class.</p>
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultSink
@@ -203,8 +203,8 @@ final class DefaultMatchOps {
 
         /**
          * <code>getAndClearState</code>
-         * <p>The and clear state getter method.</p>
-         * @return boolean <p>The and clear state return object is <code>boolean</code> type.</p>
+         * <p>The get and clear state getter method.</p>
+         * @return boolean <p>The get and clear state return object is <code>boolean</code> type.</p>
          */
         public boolean getAndClearState() {
             return value;
@@ -218,7 +218,7 @@ final class DefaultMatchOps {
 
     /**
      * <code>MatchTask</code>
-     * <p>The type match task class.</p>
+     * <p>The match task class.</p>
      * @param <P_IN>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <P_OUT> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)

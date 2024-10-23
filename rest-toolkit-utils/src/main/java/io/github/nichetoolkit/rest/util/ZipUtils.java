@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  * <code>ZipUtils</code>
- * <p>The type zip utils class.</p>
+ * <p>The zip utils class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
  * @see java.lang.SuppressWarnings
@@ -22,11 +22,11 @@ public class ZipUtils {
 
     /**
      * <code>zipFile</code>
-     * <p>The file method.</p>
+     * <p>The zip file method.</p>
      * @param zipPath  {@link java.lang.String} <p>The zip path parameter is <code>String</code> type.</p>
      * @param filename {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
      * @param file     {@link java.io.File} <p>The file parameter is <code>File</code> type.</p>
-     * @return {@link java.io.File} <p>The file return object is <code>File</code> type.</p>
+     * @return {@link java.io.File} <p>The zip file return object is <code>File</code> type.</p>
      * @see java.lang.String
      * @see java.io.File
      */
@@ -42,11 +42,11 @@ public class ZipUtils {
 
     /**
      * <code>zipFiles</code>
-     * <p>The files method.</p>
+     * <p>The zip files method.</p>
      * @param zipPath  {@link java.lang.String} <p>The zip path parameter is <code>String</code> type.</p>
      * @param filename {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
      * @param zipFiles {@link java.util.List} <p>The zip files parameter is <code>List</code> type.</p>
-     * @return {@link java.io.File} <p>The files return object is <code>File</code> type.</p>
+     * @return {@link java.io.File} <p>The zip files return object is <code>File</code> type.</p>
      * @see java.lang.String
      * @see java.util.List
      * @see java.io.File
@@ -63,9 +63,9 @@ public class ZipUtils {
 
     /**
      * <code>gzip</code>
-     * <p>The method.</p>
+     * <p>The gzip method.</p>
      * @param bytes byte <p>The bytes parameter is <code>byte</code> type.</p>
-     * @return byte <p>The return object is <code>byte</code> type.</p>
+     * @return byte <p>The gzip return object is <code>byte</code> type.</p>
      */
     public static byte[] gzip(byte[] bytes) {
         try {
@@ -79,9 +79,9 @@ public class ZipUtils {
 
     /**
      * <code>ungzip</code>
-     * <p>The method.</p>
+     * <p>The ungzip method.</p>
      * @param bytes byte <p>The bytes parameter is <code>byte</code> type.</p>
-     * @return byte <p>The return object is <code>byte</code> type.</p>
+     * @return byte <p>The ungzip return object is <code>byte</code> type.</p>
      */
     public static byte[] ungzip(byte[] bytes) {
         try {

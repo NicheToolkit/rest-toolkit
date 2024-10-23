@@ -15,7 +15,7 @@ import java.util.Map;
 
 /**
  * <code>RestHttpProperties</code>
- * <p>The type rest http properties class.</p>
+ * <p>The rest http properties class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.Getter
  * @see lombok.Setter

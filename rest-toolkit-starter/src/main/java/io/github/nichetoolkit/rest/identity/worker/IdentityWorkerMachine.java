@@ -11,7 +11,7 @@ import java.util.Objects;
 
 /**
  * <code>IdentityWorkerMachine</code>
- * <p>The type identity worker machine class.</p>
+ * <p>The identity worker machine class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
  * @see java.lang.SuppressWarnings

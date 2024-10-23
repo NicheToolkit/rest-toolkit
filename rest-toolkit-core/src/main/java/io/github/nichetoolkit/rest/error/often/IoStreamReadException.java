@@ -6,7 +6,7 @@ import io.github.nichetoolkit.rest.error.natives.IoStreamErrorException;
 
 /**
  * <code>IoStreamReadException</code>
- * <p>The type io stream read exception class.</p>
+ * <p>The io stream read exception class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.error.natives.IoStreamErrorException
  * @since Jdk1.8

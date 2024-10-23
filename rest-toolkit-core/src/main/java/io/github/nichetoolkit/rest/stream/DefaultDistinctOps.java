@@ -9,7 +9,7 @@ import java.util.function.IntFunction;
 
 /**
  * <code>DefaultDistinctOps</code>
- * <p>The type default distinct ops class.</p>
+ * <p>The default distinct ops class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
@@ -24,10 +24,10 @@ final class DefaultDistinctOps {
 
     /**
      * <code>makeRef</code>
-     * <p>The ref method.</p>
+     * <p>The make ref method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param upstream {@link io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline} <p>The upstream parameter is <code>DefaultAbstractPipeline</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultReferencePipeline} <p>The ref return object is <code>DefaultReferencePipeline</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultReferencePipeline} <p>The make ref return object is <code>DefaultReferencePipeline</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline
      * @see io.github.nichetoolkit.rest.stream.DefaultReferencePipeline
      */

@@ -7,7 +7,7 @@ import java.lang.annotation.*;
 
 /**
  * <code>RestNotelog</code>
- * <p>The type rest notelog interface.</p>
+ * <p>The rest notelog interface.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.lang.annotation.Annotation
  * @see java.lang.annotation.Target
@@ -25,8 +25,8 @@ import java.lang.annotation.*;
 public @interface RestNotelog {
     /**
      * <code>value</code>
-     * <p>The method.</p>
-     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
+     * <p>The value method.</p>
+     * @return {@link java.lang.String} <p>The value return object is <code>String</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.core.annotation.AliasFor
      */
@@ -35,16 +35,16 @@ public @interface RestNotelog {
 
     /**
      * <code>notelog</code>
-     * <p>The method.</p>
-     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
+     * <p>The notelog method.</p>
+     * @return {@link java.lang.String} <p>The notelog return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     String notelog() default "";
 
     /**
      * <code>loggingKey</code>
-     * <p>The key method.</p>
-     * @return {@link java.lang.String} <p>The key return object is <code>String</code> type.</p>
+     * <p>The logging key method.</p>
+     * @return {@link java.lang.String} <p>The logging key return object is <code>String</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.core.annotation.AliasFor
      */

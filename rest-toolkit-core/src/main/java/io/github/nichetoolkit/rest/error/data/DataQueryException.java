@@ -6,7 +6,7 @@ import io.github.nichetoolkit.rest.error.natives.DataErrorException;
 
 /**
  * <code>DataQueryException</code>
- * <p>The type data query exception class.</p>
+ * <p>The data query exception class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.error.natives.DataErrorException
  * @since Jdk1.8

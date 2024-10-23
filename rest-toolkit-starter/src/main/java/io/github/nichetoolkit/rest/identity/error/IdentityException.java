@@ -8,7 +8,7 @@ import java.util.function.Supplier;
 
 /**
  * <code>IdentityException</code>
- * <p>The type identity exception class.</p>
+ * <p>The identity exception class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestException
  * @since Jdk1.8

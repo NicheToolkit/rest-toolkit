@@ -6,7 +6,7 @@ import java.lang.annotation.*;
 
 /**
  * <code>StereoLong</code>
- * <p>The type stereo long interface.</p>
+ * <p>The stereo long interface.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.lang.annotation.Annotation
  * @see java.lang.annotation.Target
@@ -22,8 +22,8 @@ import java.lang.annotation.*;
 public @interface StereoLong {
     /**
      * <code>value</code>
-     * <p>The method.</p>
-     * @return long <p>The return object is <code>long</code> type.</p>
+     * <p>The value method.</p>
+     * @return long <p>The value return object is <code>long</code> type.</p>
      */
     long value() default 0;
 }

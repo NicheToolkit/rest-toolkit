@@ -6,7 +6,7 @@ import java.lang.annotation.*;
 
 /**
  * <code>StereoCharacter</code>
- * <p>The type stereo character interface.</p>
+ * <p>The stereo character interface.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.lang.annotation.Annotation
  * @see java.lang.annotation.Target
@@ -22,8 +22,8 @@ import java.lang.annotation.*;
 public @interface StereoCharacter {
     /**
      * <code>value</code>
-     * <p>The method.</p>
-     * @return char <p>The return object is <code>char</code> type.</p>
+     * <p>The value method.</p>
+     * @return char <p>The value return object is <code>char</code> type.</p>
      */
     char value() default Character.MIN_VALUE;
 }

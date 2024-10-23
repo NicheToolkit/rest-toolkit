@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  * <code>RestLogbackProperties</code>
- * <p>The type rest logback properties class.</p>
+ * <p>The rest logback properties class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.Getter
  * @see lombok.Setter
@@ -77,8 +77,8 @@ public class RestLogbackProperties {
 
     /**
      * <code>getAttributes</code>
-     * <p>The attributes getter method.</p>
-     * @return {@link java.util.List} <p>The attributes return object is <code>List</code> type.</p>
+     * <p>The get attributes getter method.</p>
+     * @return {@link java.util.List} <p>The get attributes return object is <code>List</code> type.</p>
      * @see java.util.List
      */
     public List<String> getAttributes() {

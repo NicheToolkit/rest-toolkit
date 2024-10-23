@@ -7,7 +7,7 @@ import io.github.nichetoolkit.rest.error.natives.FieldErrorException;
 
 /**
  * <code>FieldRepeatException</code>
- * <p>The type field repeat exception class.</p>
+ * <p>The field repeat exception class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.error.natives.FieldErrorException
  * @since Jdk1.8

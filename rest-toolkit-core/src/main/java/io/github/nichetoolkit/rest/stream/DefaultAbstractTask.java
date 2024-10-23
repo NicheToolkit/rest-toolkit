@@ -7,7 +7,7 @@ import java.util.concurrent.ForkJoinWorkerThread;
 
 /**
  * <code>DefaultAbstractTask</code>
- * <p>The type default abstract task class.</p>
+ * <p>The default abstract task class.</p>
  * @param <P_IN>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @param <P_OUT> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @param <R>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
@@ -97,8 +97,8 @@ abstract class DefaultAbstractTask<P_IN, P_OUT, R,
 
     /**
      * <code>getLeafTarget</code>
-     * <p>The leaf target getter method.</p>
-     * @return int <p>The leaf target return object is <code>int</code> type.</p>
+     * <p>The get leaf target getter method.</p>
+     * @return int <p>The get leaf target return object is <code>int</code> type.</p>
      */
     public static int getLeafTarget() {
         Thread t = Thread.currentThread();
@@ -111,17 +111,17 @@ abstract class DefaultAbstractTask<P_IN, P_OUT, R,
 
     /**
      * <code>makeChild</code>
-     * <p>The child method.</p>
+     * <p>The make child method.</p>
      * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The spliterator parameter is <code>DefaultSpliterator</code> type.</p>
-     * @return K <p>The child return object is <code>K</code> type.</p>
+     * @return K <p>The make child return object is <code>K</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
      */
     protected abstract K makeChild(DefaultSpliterator<P_IN> spliterator);
 
     /**
      * <code>doLeaf</code>
-     * <p>The leaf method.</p>
-     * @return R <p>The leaf return object is <code>R</code> type.</p>
+     * <p>The do leaf method.</p>
+     * @return R <p>The do leaf return object is <code>R</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -129,9 +129,9 @@ abstract class DefaultAbstractTask<P_IN, P_OUT, R,
 
     /**
      * <code>suggestTargetSize</code>
-     * <p>The target size method.</p>
+     * <p>The suggest target size method.</p>
      * @param sizeEstimate long <p>The size estimate parameter is <code>long</code> type.</p>
-     * @return long <p>The target size return object is <code>long</code> type.</p>
+     * @return long <p>The suggest target size return object is <code>long</code> type.</p>
      */
     public static long suggestTargetSize(long sizeEstimate) {
         long est = sizeEstimate / getLeafTarget();
@@ -140,9 +140,9 @@ abstract class DefaultAbstractTask<P_IN, P_OUT, R,
 
     /**
      * <code>getTargetSize</code>
-     * <p>The target size getter method.</p>
+     * <p>The get target size getter method.</p>
      * @param sizeEstimate long <p>The size estimate parameter is <code>long</code> type.</p>
-     * @return long <p>The target size return object is <code>long</code> type.</p>
+     * @return long <p>The get target size return object is <code>long</code> type.</p>
      */
     protected final long getTargetSize(long sizeEstimate) {
         long s;
@@ -163,8 +163,8 @@ abstract class DefaultAbstractTask<P_IN, P_OUT, R,
 
     /**
      * <code>getLocalResult</code>
-     * <p>The local result getter method.</p>
-     * @return R <p>The local result return object is <code>R</code> type.</p>
+     * <p>The get local result getter method.</p>
+     * @return R <p>The get local result return object is <code>R</code> type.</p>
      */
     protected R getLocalResult() {
         return localResult;
@@ -172,7 +172,7 @@ abstract class DefaultAbstractTask<P_IN, P_OUT, R,
 
     /**
      * <code>setLocalResult</code>
-     * <p>The local result setter method.</p>
+     * <p>The set local result setter method.</p>
      * @param localResult R <p>The local result parameter is <code>R</code> type.</p>
      */
     protected void setLocalResult(R localResult) {
@@ -181,8 +181,8 @@ abstract class DefaultAbstractTask<P_IN, P_OUT, R,
 
     /**
      * <code>isLeaf</code>
-     * <p>The leaf method.</p>
-     * @return boolean <p>The leaf return object is <code>boolean</code> type.</p>
+     * <p>The is leaf method.</p>
+     * @return boolean <p>The is leaf return object is <code>boolean</code> type.</p>
      */
     protected boolean isLeaf() {
         return leftChild != null;
@@ -190,8 +190,8 @@ abstract class DefaultAbstractTask<P_IN, P_OUT, R,
 
     /**
      * <code>isRoot</code>
-     * <p>The root method.</p>
-     * @return boolean <p>The root return object is <code>boolean</code> type.</p>
+     * <p>The is root method.</p>
+     * @return boolean <p>The is root return object is <code>boolean</code> type.</p>
      */
     protected boolean isRoot() {
         return getParent() == null;
@@ -199,8 +199,8 @@ abstract class DefaultAbstractTask<P_IN, P_OUT, R,
 
     /**
      * <code>getParent</code>
-     * <p>The parent getter method.</p>
-     * @return K <p>The parent return object is <code>K</code> type.</p>
+     * <p>The get parent getter method.</p>
+     * @return K <p>The get parent return object is <code>K</code> type.</p>
      * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("unchecked")
@@ -246,8 +246,8 @@ abstract class DefaultAbstractTask<P_IN, P_OUT, R,
 
     /**
      * <code>isLeftmostNode</code>
-     * <p>The leftmost node method.</p>
-     * @return boolean <p>The leftmost node return object is <code>boolean</code> type.</p>
+     * <p>The is leftmost node method.</p>
+     * @return boolean <p>The is leftmost node return object is <code>boolean</code> type.</p>
      */
     protected boolean isLeftmostNode() {
         @SuppressWarnings("unchecked")

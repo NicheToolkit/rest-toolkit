@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * <code>RestInterceptProperties</code>
- * <p>The type rest intercept properties class.</p>
+ * <p>The rest intercept properties class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.Getter
  * @see lombok.Setter

@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 /**
  * <code>DefaultErrorIssue</code>
- * <p>The type default error issue class.</p>
+ * <p>The default error issue class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.io.Serializable
  * @see lombok.Getter
@@ -94,7 +94,7 @@ class DefaultErrorIssue implements Serializable {
 
     /**
      * <code>Builder</code>
-     * <p>The type builder class.</p>
+     * <p>The builder class.</p>
      * @author Cyan (snow22314@outlook.com)
      * @since Jdk1.8
      */
@@ -127,9 +127,9 @@ class DefaultErrorIssue implements Serializable {
 
         /**
          * <code>field</code>
-         * <p>The method.</p>
+         * <p>The field method.</p>
          * @param field {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.DefaultErrorIssue.Builder} <p>The return object is <code>Builder</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.DefaultErrorIssue.Builder} <p>The field return object is <code>Builder</code> type.</p>
          * @see java.lang.String
          */
         public DefaultErrorIssue.Builder field(String field) {
@@ -139,9 +139,9 @@ class DefaultErrorIssue implements Serializable {
 
         /**
          * <code>value</code>
-         * <p>The method.</p>
+         * <p>The value method.</p>
          * @param value {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.DefaultErrorIssue.Builder} <p>The return object is <code>Builder</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.DefaultErrorIssue.Builder} <p>The value return object is <code>Builder</code> type.</p>
          * @see java.lang.Object
          */
         public DefaultErrorIssue.Builder value(Object value) {
@@ -151,9 +151,9 @@ class DefaultErrorIssue implements Serializable {
 
         /**
          * <code>issue</code>
-         * <p>The method.</p>
+         * <p>The issue method.</p>
          * @param issue {@link java.lang.String} <p>The issue parameter is <code>String</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.DefaultErrorIssue.Builder} <p>The return object is <code>Builder</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.DefaultErrorIssue.Builder} <p>The issue return object is <code>Builder</code> type.</p>
          * @see java.lang.String
          */
         public DefaultErrorIssue.Builder issue(String issue) {
@@ -163,8 +163,8 @@ class DefaultErrorIssue implements Serializable {
 
         /**
          * <code>build</code>
-         * <p>The method.</p>
-         * @return {@link io.github.nichetoolkit.rest.DefaultErrorIssue} <p>The return object is <code>DefaultErrorIssue</code> type.</p>
+         * <p>The build method.</p>
+         * @return {@link io.github.nichetoolkit.rest.DefaultErrorIssue} <p>The build return object is <code>DefaultErrorIssue</code> type.</p>
          */
         abstract DefaultErrorIssue build();
     }

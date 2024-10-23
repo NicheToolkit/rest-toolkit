@@ -14,7 +14,7 @@ import java.util.List;
 
 /**
  * <code>PartitionHelper</code>
- * <p>The type partition helper class.</p>
+ * <p>The partition helper class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
@@ -22,7 +22,7 @@ public class PartitionHelper {
 
     /**
      * <code>partition</code>
-     * <p>The method.</p>
+     * <p>The partition method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param dataList      {@link java.util.Collection} <p>The data list parameter is <code>Collection</code> type.</p>
      * @param partitionSize {@link java.lang.Integer} <p>The partition size parameter is <code>Integer</code> type.</p>
@@ -50,13 +50,13 @@ public class PartitionHelper {
 
     /**
      * <code>query</code>
-     * <p>The method.</p>
+     * <p>The query method.</p>
      * @param <I>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param idList    {@link java.util.Collection} <p>The id list parameter is <code>Collection</code> type.</p>
      * @param querySize {@link java.lang.Integer} <p>The query size parameter is <code>Integer</code> type.</p>
      * @param function  {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The function parameter is <code>FunctionActuator</code> type.</p>
-     * @return {@link java.util.List} <p>The return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The query return object is <code>List</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.util.Collection
      * @see java.lang.Integer
@@ -83,12 +83,12 @@ public class PartitionHelper {
 
     /**
      * <code>save</code>
-     * <p>The method.</p>
+     * <p>The save method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param dataList {@link java.util.Collection} <p>The data list parameter is <code>Collection</code> type.</p>
      * @param saveSize {@link java.lang.Integer} <p>The save size parameter is <code>Integer</code> type.</p>
      * @param function {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The function parameter is <code>FunctionActuator</code> type.</p>
-     * @return {@link java.lang.Integer} <p>The return object is <code>Integer</code> type.</p>
+     * @return {@link java.lang.Integer} <p>The save return object is <code>Integer</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.util.Collection
      * @see java.lang.Integer
@@ -113,7 +113,7 @@ public class PartitionHelper {
 
     /**
      * <code>delete</code>
-     * <p>The method.</p>
+     * <p>The delete method.</p>
      * @param <I>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param idList     {@link java.util.Collection} <p>The id list parameter is <code>Collection</code> type.</p>
      * @param deleteSize {@link java.lang.Integer} <p>The delete size parameter is <code>Integer</code> type.</p>

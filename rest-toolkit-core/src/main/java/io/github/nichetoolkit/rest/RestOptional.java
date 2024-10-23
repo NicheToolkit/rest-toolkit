@@ -13,7 +13,7 @@ import java.util.function.Supplier;
 
 /**
  * <code>RestOptional</code>
- * <p>The type rest optional class.</p>
+ * <p>The rest optional class.</p>
  * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
@@ -43,9 +43,9 @@ public final class RestOptional<T> {
 
     /**
      * <code>empty</code>
-     * <p>The method.</p>
+     * <p>The empty method.</p>
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>The return object is <code>RestOptional</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>The empty return object is <code>RestOptional</code> type.</p>
      */
     public static <T> RestOptional<T> empty() {
         @SuppressWarnings("unchecked")
@@ -64,10 +64,10 @@ public final class RestOptional<T> {
 
     /**
      * <code>of</code>
-     * <p>The method.</p>
+     * <p>The of method.</p>
      * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param value T <p>The value parameter is <code>T</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>The return object is <code>RestOptional</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>The of return object is <code>RestOptional</code> type.</p>
      */
     public static <T> RestOptional<T> of(T value) {
         return new RestOptional<>(value);
@@ -75,10 +75,10 @@ public final class RestOptional<T> {
 
     /**
      * <code>ofNullable</code>
-     * <p>The nullable method.</p>
+     * <p>The of nullable method.</p>
      * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param value T <p>The value parameter is <code>T</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>The nullable return object is <code>RestOptional</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>The of nullable return object is <code>RestOptional</code> type.</p>
      */
     public static <T> RestOptional<T> ofNullable(T value) {
         return value == null ? empty() : of(value);
@@ -86,10 +86,10 @@ public final class RestOptional<T> {
 
     /**
      * <code>ofEmptyable</code>
-     * <p>The emptyable method.</p>
+     * <p>The of emptyable method.</p>
      * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param value T <p>The value parameter is <code>T</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>The emptyable return object is <code>RestOptional</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>The of emptyable return object is <code>RestOptional</code> type.</p>
      */
     public static <T> RestOptional<T> ofEmptyable(T value) {
         return GeneralUtils.isEmpty(value) ? empty() : of(value);
@@ -97,10 +97,10 @@ public final class RestOptional<T> {
 
     /**
      * <code>ofValidable</code>
-     * <p>The validable method.</p>
+     * <p>The of validable method.</p>
      * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param value T <p>The value parameter is <code>T</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>The validable return object is <code>RestOptional</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>The of validable return object is <code>RestOptional</code> type.</p>
      */
     public static <T> RestOptional<T> ofValidable(T value) {
         return GeneralUtils.isInvalid(value) ? empty() : of(value);
@@ -108,8 +108,8 @@ public final class RestOptional<T> {
 
     /**
      * <code>get</code>
-     * <p>The method.</p>
-     * @return T <p>The return object is <code>T</code> type.</p>
+     * <p>The get method.</p>
+     * @return T <p>The get return object is <code>T</code> type.</p>
      */
     public T get() {
         return value;
@@ -117,8 +117,8 @@ public final class RestOptional<T> {
 
     /**
      * <code>nullGet</code>
-     * <p>The get method.</p>
-     * @return T <p>The get return object is <code>T</code> type.</p>
+     * <p>The null get method.</p>
+     * @return T <p>The null get return object is <code>T</code> type.</p>
      */
     public T nullGet() {
         if (value == null) {
@@ -129,8 +129,8 @@ public final class RestOptional<T> {
 
     /**
      * <code>emptyGet</code>
-     * <p>The get method.</p>
-     * @return T <p>The get return object is <code>T</code> type.</p>
+     * <p>The empty get method.</p>
+     * @return T <p>The empty get return object is <code>T</code> type.</p>
      */
     public T emptyGet() {
         if (GeneralUtils.isEmpty(value)) {
@@ -141,8 +141,8 @@ public final class RestOptional<T> {
 
     /**
      * <code>validGet</code>
-     * <p>The get method.</p>
-     * @return T <p>The get return object is <code>T</code> type.</p>
+     * <p>The valid get method.</p>
+     * @return T <p>The valid get return object is <code>T</code> type.</p>
      */
     public T validGet() {
         if (GeneralUtils.isInvalid(value)) {
@@ -153,8 +153,8 @@ public final class RestOptional<T> {
 
     /**
      * <code>isPresent</code>
-     * <p>The present method.</p>
-     * @return boolean <p>The present return object is <code>boolean</code> type.</p>
+     * <p>The is present method.</p>
+     * @return boolean <p>The is present return object is <code>boolean</code> type.</p>
      */
     public boolean isPresent() {
         return isNullPresent();
@@ -162,8 +162,8 @@ public final class RestOptional<T> {
 
     /**
      * <code>isNull</code>
-     * <p>The null method.</p>
-     * @return boolean <p>The null return object is <code>boolean</code> type.</p>
+     * <p>The is null method.</p>
+     * @return boolean <p>The is null return object is <code>boolean</code> type.</p>
      */
     public boolean isNull() {
         return GeneralUtils.isNull(value);
@@ -171,8 +171,8 @@ public final class RestOptional<T> {
 
     /**
      * <code>isEmpty</code>
-     * <p>The empty method.</p>
-     * @return boolean <p>The empty return object is <code>boolean</code> type.</p>
+     * <p>The is empty method.</p>
+     * @return boolean <p>The is empty return object is <code>boolean</code> type.</p>
      */
     public boolean isEmpty() {
         return GeneralUtils.isEmpty(value);
@@ -180,8 +180,8 @@ public final class RestOptional<T> {
 
     /**
      * <code>isInvalid</code>
-     * <p>The invalid method.</p>
-     * @return boolean <p>The invalid return object is <code>boolean</code> type.</p>
+     * <p>The is invalid method.</p>
+     * @return boolean <p>The is invalid return object is <code>boolean</code> type.</p>
      */
     public boolean isInvalid() {
         return GeneralUtils.isInvalid(value);
@@ -189,8 +189,8 @@ public final class RestOptional<T> {
 
     /**
      * <code>isNullPresent</code>
-     * <p>The null present method.</p>
-     * @return boolean <p>The null present return object is <code>boolean</code> type.</p>
+     * <p>The is null present method.</p>
+     * @return boolean <p>The is null present return object is <code>boolean</code> type.</p>
      */
     public boolean isNullPresent() {
         return GeneralUtils.isNotNull(value);
@@ -198,8 +198,8 @@ public final class RestOptional<T> {
 
     /**
      * <code>isEmptyPresent</code>
-     * <p>The empty present method.</p>
-     * @return boolean <p>The empty present return object is <code>boolean</code> type.</p>
+     * <p>The is empty present method.</p>
+     * @return boolean <p>The is empty present return object is <code>boolean</code> type.</p>
      */
     public boolean isEmptyPresent() {
         return GeneralUtils.isNotEmpty(value);
@@ -207,8 +207,8 @@ public final class RestOptional<T> {
 
     /**
      * <code>isValidPresent</code>
-     * <p>The valid present method.</p>
-     * @return boolean <p>The valid present return object is <code>boolean</code> type.</p>
+     * <p>The is valid present method.</p>
+     * @return boolean <p>The is valid present return object is <code>boolean</code> type.</p>
      */
     public boolean isValidPresent() {
         return GeneralUtils.isValid(value);
@@ -216,7 +216,7 @@ public final class RestOptional<T> {
 
     /**
      * <code>ifPresent</code>
-     * <p>The present method.</p>
+     * <p>The if present method.</p>
      * @param consumer {@link java.util.function.Consumer} <p>The consumer parameter is <code>Consumer</code> type.</p>
      * @see java.util.function.Consumer
      */
@@ -227,7 +227,7 @@ public final class RestOptional<T> {
 
     /**
      * <code>ifNullPresent</code>
-     * <p>The null present method.</p>
+     * <p>The if null present method.</p>
      * @param consumer {@link io.github.nichetoolkit.rest.actuator.ConsumerActuator} <p>The consumer parameter is <code>ConsumerActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.ConsumerActuator
@@ -240,7 +240,7 @@ public final class RestOptional<T> {
 
     /**
      * <code>ifEmptyPresent</code>
-     * <p>The empty present method.</p>
+     * <p>The if empty present method.</p>
      * @param consumer {@link io.github.nichetoolkit.rest.actuator.ConsumerActuator} <p>The consumer parameter is <code>ConsumerActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.ConsumerActuator
@@ -253,7 +253,7 @@ public final class RestOptional<T> {
 
     /**
      * <code>ifValidPresent</code>
-     * <p>The valid present method.</p>
+     * <p>The if valid present method.</p>
      * @param consumer {@link io.github.nichetoolkit.rest.actuator.ConsumerActuator} <p>The consumer parameter is <code>ConsumerActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.ConsumerActuator
@@ -266,9 +266,9 @@ public final class RestOptional<T> {
 
     /**
      * <code>filter</code>
-     * <p>The method.</p>
+     * <p>The filter method.</p>
      * @param predicate {@link java.util.function.Predicate} <p>The predicate parameter is <code>Predicate</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>The return object is <code>RestOptional</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>The filter return object is <code>RestOptional</code> type.</p>
      * @see java.util.function.Predicate
      */
     public RestOptional<T> filter(Predicate<? super T> predicate) {
@@ -281,9 +281,9 @@ public final class RestOptional<T> {
 
     /**
      * <code>nullFilter</code>
-     * <p>The filter method.</p>
+     * <p>The null filter method.</p>
      * @param predicate {@link io.github.nichetoolkit.rest.actuator.PredicateActuator} <p>The predicate parameter is <code>PredicateActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>The filter return object is <code>RestOptional</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>The null filter return object is <code>RestOptional</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.PredicateActuator
      * @see io.github.nichetoolkit.rest.RestException
@@ -298,9 +298,9 @@ public final class RestOptional<T> {
 
     /**
      * <code>emptyFilter</code>
-     * <p>The filter method.</p>
+     * <p>The empty filter method.</p>
      * @param predicate {@link io.github.nichetoolkit.rest.actuator.PredicateActuator} <p>The predicate parameter is <code>PredicateActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>The filter return object is <code>RestOptional</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>The empty filter return object is <code>RestOptional</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.PredicateActuator
      * @see io.github.nichetoolkit.rest.RestException
@@ -315,9 +315,9 @@ public final class RestOptional<T> {
 
     /**
      * <code>validFilter</code>
-     * <p>The filter method.</p>
+     * <p>The valid filter method.</p>
      * @param predicate {@link io.github.nichetoolkit.rest.actuator.PredicateActuator} <p>The predicate parameter is <code>PredicateActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>The filter return object is <code>RestOptional</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>The valid filter return object is <code>RestOptional</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.PredicateActuator
      * @see io.github.nichetoolkit.rest.RestException
@@ -332,10 +332,10 @@ public final class RestOptional<T> {
 
     /**
      * <code>map</code>
-     * <p>The method.</p>
+     * <p>The map method.</p>
      * @param <U>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param mapper {@link java.util.function.Function} <p>The mapper parameter is <code>Function</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>The return object is <code>RestOptional</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>The map return object is <code>RestOptional</code> type.</p>
      * @see java.util.function.Function
      */
     public <U> RestOptional<U> map(Function<? super T, ? extends U> mapper) {
@@ -349,10 +349,10 @@ public final class RestOptional<T> {
 
     /**
      * <code>nullMap</code>
-     * <p>The map method.</p>
+     * <p>The null map method.</p>
      * @param <U>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param mapper {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The mapper parameter is <code>FunctionActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>The map return object is <code>RestOptional</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>The null map return object is <code>RestOptional</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      * @see io.github.nichetoolkit.rest.RestException
@@ -368,10 +368,10 @@ public final class RestOptional<T> {
 
     /**
      * <code>emptyMap</code>
-     * <p>The map method.</p>
+     * <p>The empty map method.</p>
      * @param <U>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param mapper {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The mapper parameter is <code>FunctionActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>The map return object is <code>RestOptional</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>The empty map return object is <code>RestOptional</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      * @see io.github.nichetoolkit.rest.RestException
@@ -387,10 +387,10 @@ public final class RestOptional<T> {
 
     /**
      * <code>validMap</code>
-     * <p>The map method.</p>
+     * <p>The valid map method.</p>
      * @param <U>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param mapper {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The mapper parameter is <code>FunctionActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>The map return object is <code>RestOptional</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>The valid map return object is <code>RestOptional</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      * @see io.github.nichetoolkit.rest.RestException
@@ -406,10 +406,10 @@ public final class RestOptional<T> {
 
     /**
      * <code>flatMap</code>
-     * <p>The map method.</p>
+     * <p>The flat map method.</p>
      * @param <U>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param mapper {@link java.util.function.Function} <p>The mapper parameter is <code>Function</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>The map return object is <code>RestOptional</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>The flat map return object is <code>RestOptional</code> type.</p>
      * @see java.util.function.Function
      */
     public <U> RestOptional<U> flatMap(Function<? super T, RestOptional<U>> mapper) {
@@ -423,10 +423,10 @@ public final class RestOptional<T> {
 
     /**
      * <code>nullFlatMap</code>
-     * <p>The flat map method.</p>
+     * <p>The null flat map method.</p>
      * @param <U>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param mapper {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The mapper parameter is <code>FunctionActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>The flat map return object is <code>RestOptional</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>The null flat map return object is <code>RestOptional</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      * @see io.github.nichetoolkit.rest.RestException
@@ -442,10 +442,10 @@ public final class RestOptional<T> {
 
     /**
      * <code>emptyFlatMap</code>
-     * <p>The flat map method.</p>
+     * <p>The empty flat map method.</p>
      * @param <U>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param mapper {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The mapper parameter is <code>FunctionActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>The flat map return object is <code>RestOptional</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>The empty flat map return object is <code>RestOptional</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      * @see io.github.nichetoolkit.rest.RestException
@@ -461,10 +461,10 @@ public final class RestOptional<T> {
 
     /**
      * <code>validFlatMap</code>
-     * <p>The flat map method.</p>
+     * <p>The valid flat map method.</p>
      * @param <U>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param mapper {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The mapper parameter is <code>FunctionActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>The flat map return object is <code>RestOptional</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestOptional} <p>The valid flat map return object is <code>RestOptional</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      * @see io.github.nichetoolkit.rest.RestException
@@ -481,9 +481,9 @@ public final class RestOptional<T> {
 
     /**
      * <code>orElse</code>
-     * <p>The else method.</p>
+     * <p>The or else method.</p>
      * @param other T <p>The other parameter is <code>T</code> type.</p>
-     * @return T <p>The else return object is <code>T</code> type.</p>
+     * @return T <p>The or else return object is <code>T</code> type.</p>
      */
     public T orElse(T other) {
         return isPresent() ? value : other;
@@ -491,9 +491,9 @@ public final class RestOptional<T> {
 
     /**
      * <code>nullElse</code>
-     * <p>The else method.</p>
+     * <p>The null else method.</p>
      * @param other T <p>The other parameter is <code>T</code> type.</p>
-     * @return T <p>The else return object is <code>T</code> type.</p>
+     * @return T <p>The null else return object is <code>T</code> type.</p>
      */
     public T nullElse(T other) {
         return isNullPresent() ? value : other;
@@ -501,9 +501,9 @@ public final class RestOptional<T> {
 
     /**
      * <code>emptyElse</code>
-     * <p>The else method.</p>
+     * <p>The empty else method.</p>
      * @param other T <p>The other parameter is <code>T</code> type.</p>
-     * @return T <p>The else return object is <code>T</code> type.</p>
+     * @return T <p>The empty else return object is <code>T</code> type.</p>
      */
     public T emptyElse(T other) {
         return isEmptyPresent() ? value : other;
@@ -511,9 +511,9 @@ public final class RestOptional<T> {
 
     /**
      * <code>validElse</code>
-     * <p>The else method.</p>
+     * <p>The valid else method.</p>
      * @param other T <p>The other parameter is <code>T</code> type.</p>
-     * @return T <p>The else return object is <code>T</code> type.</p>
+     * @return T <p>The valid else return object is <code>T</code> type.</p>
      */
     public T validElse(T other) {
         return isValidPresent() ? value : other;
@@ -521,9 +521,9 @@ public final class RestOptional<T> {
 
     /**
      * <code>orElseGet</code>
-     * <p>The else get method.</p>
+     * <p>The or else get method.</p>
      * @param other {@link java.util.function.Supplier} <p>The other parameter is <code>Supplier</code> type.</p>
-     * @return T <p>The else get return object is <code>T</code> type.</p>
+     * @return T <p>The or else get return object is <code>T</code> type.</p>
      * @see java.util.function.Supplier
      */
     public T orElseGet(Supplier<? extends T> other) {
@@ -532,9 +532,9 @@ public final class RestOptional<T> {
 
     /**
      * <code>nullElseGet</code>
-     * <p>The else get method.</p>
+     * <p>The null else get method.</p>
      * @param other {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The other parameter is <code>SupplierActuator</code> type.</p>
-     * @return T <p>The else get return object is <code>T</code> type.</p>
+     * @return T <p>The null else get return object is <code>T</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
      * @see io.github.nichetoolkit.rest.RestException
@@ -545,9 +545,9 @@ public final class RestOptional<T> {
 
     /**
      * <code>emptyElseGet</code>
-     * <p>The else get method.</p>
+     * <p>The empty else get method.</p>
      * @param other {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The other parameter is <code>SupplierActuator</code> type.</p>
-     * @return T <p>The else get return object is <code>T</code> type.</p>
+     * @return T <p>The empty else get return object is <code>T</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
      * @see io.github.nichetoolkit.rest.RestException
@@ -558,9 +558,9 @@ public final class RestOptional<T> {
 
     /**
      * <code>validElseGet</code>
-     * <p>The else get method.</p>
+     * <p>The valid else get method.</p>
      * @param other {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The other parameter is <code>SupplierActuator</code> type.</p>
-     * @return T <p>The else get return object is <code>T</code> type.</p>
+     * @return T <p>The valid else get return object is <code>T</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
      * @see io.github.nichetoolkit.rest.RestException
@@ -571,10 +571,10 @@ public final class RestOptional<T> {
 
     /**
      * <code>orElseThrow</code>
-     * <p>The else throw method.</p>
+     * <p>The or else throw method.</p>
      * @param <X>       {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
      * @param exception {@link java.util.function.Supplier} <p>The exception parameter is <code>Supplier</code> type.</p>
-     * @return T <p>The else throw return object is <code>T</code> type.</p>
+     * @return T <p>The or else throw return object is <code>T</code> type.</p>
      * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
      * @see java.util.function.Supplier
@@ -590,10 +590,10 @@ public final class RestOptional<T> {
 
     /**
      * <code>nullElseThrow</code>
-     * <p>The else throw method.</p>
+     * <p>The null else throw method.</p>
      * @param <X>               {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
      * @param exceptionSupplier {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The exception supplier parameter is <code>SupplierActuator</code> type.</p>
-     * @return T <p>The else throw return object is <code>T</code> type.</p>
+     * @return T <p>The null else throw return object is <code>T</code> type.</p>
      * @throws X             X <p>The x is <code>X</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Throwable
@@ -611,10 +611,10 @@ public final class RestOptional<T> {
 
     /**
      * <code>emptyElseThrow</code>
-     * <p>The else throw method.</p>
+     * <p>The empty else throw method.</p>
      * @param <X>               {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
      * @param exceptionSupplier {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The exception supplier parameter is <code>SupplierActuator</code> type.</p>
-     * @return T <p>The else throw return object is <code>T</code> type.</p>
+     * @return T <p>The empty else throw return object is <code>T</code> type.</p>
      * @throws X             X <p>The x is <code>X</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Throwable
@@ -632,10 +632,10 @@ public final class RestOptional<T> {
 
     /**
      * <code>validElseThrow</code>
-     * <p>The else throw method.</p>
+     * <p>The valid else throw method.</p>
      * @param <X>               {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
      * @param exceptionSupplier {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The exception supplier parameter is <code>SupplierActuator</code> type.</p>
-     * @return T <p>The else throw return object is <code>T</code> type.</p>
+     * @return T <p>The valid else throw return object is <code>T</code> type.</p>
      * @throws X             X <p>The x is <code>X</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Throwable

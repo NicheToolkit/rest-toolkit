@@ -9,7 +9,7 @@ import java.util.Objects;
 
 /**
  * <code>DefaultSink</code>
- * <p>The type default sink interface.</p>
+ * <p>The default sink interface.</p>
  * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.actuator.ConsumerActuator
@@ -18,7 +18,7 @@ import java.util.Objects;
 public interface DefaultSink<T> extends ConsumerActuator<T> {
     /**
      * <code>begin</code>
-     * <p>The method.</p>
+     * <p>The begin method.</p>
      * @param size long <p>The size parameter is <code>long</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
@@ -27,7 +27,7 @@ public interface DefaultSink<T> extends ConsumerActuator<T> {
 
     /**
      * <code>end</code>
-     * <p>The method.</p>
+     * <p>The end method.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -35,8 +35,8 @@ public interface DefaultSink<T> extends ConsumerActuator<T> {
 
     /**
      * <code>cancellationRequested</code>
-     * <p>The requested method.</p>
-     * @return boolean <p>The requested return object is <code>boolean</code> type.</p>
+     * <p>The cancellation requested method.</p>
+     * @return boolean <p>The cancellation requested return object is <code>boolean</code> type.</p>
      */
     default boolean cancellationRequested() {
         return false;
@@ -44,7 +44,7 @@ public interface DefaultSink<T> extends ConsumerActuator<T> {
 
     /**
      * <code>ChainedReference</code>
-     * <p>The type chained reference class.</p>
+     * <p>The chained reference class.</p>
      * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <E_OUT> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)

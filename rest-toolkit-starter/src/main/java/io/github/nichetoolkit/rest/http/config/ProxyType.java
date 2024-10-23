@@ -9,7 +9,7 @@ import java.util.Optional;
 
 /**
  * <code>ProxyType</code>
- * <p>The type proxy type enumeration.</p>
+ * <p>The proxy type enumeration.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestValue
  * @since Jdk1.8
@@ -70,9 +70,9 @@ public enum ProxyType implements RestValue<String, Proxy.Type> {
 
     /**
      * <code>parseKey</code>
-     * <p>The key method.</p>
+     * <p>The parse key method.</p>
      * @param key {@link java.lang.String} <p>The key parameter is <code>String</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.http.config.ProxyType} <p>The key return object is <code>ProxyType</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.http.config.ProxyType} <p>The parse key return object is <code>ProxyType</code> type.</p>
      * @see java.lang.String
      * @see com.fasterxml.jackson.annotation.JsonCreator
      */
@@ -84,9 +84,9 @@ public enum ProxyType implements RestValue<String, Proxy.Type> {
 
     /**
      * <code>parseValue</code>
-     * <p>The value method.</p>
+     * <p>The parse value method.</p>
      * @param value {@link java.net.Proxy.Type} <p>The value parameter is <code>Type</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.http.config.ProxyType} <p>The value return object is <code>ProxyType</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.http.config.ProxyType} <p>The parse value return object is <code>ProxyType</code> type.</p>
      * @see java.net.Proxy.Type
      */
     public static ProxyType parseValue(Proxy.Type value) {

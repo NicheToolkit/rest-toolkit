@@ -20,7 +20,7 @@ import javax.annotation.PostConstruct;
 
 /**
  * <code>IdentityManager</code>
- * <p>The type identity manager class.</p>
+ * <p>The identity manager class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see org.springframework.boot.ApplicationRunner
  * @see lombok.extern.slf4j.Slf4j
@@ -68,8 +68,8 @@ public class IdentityManager implements ApplicationRunner {
 
     /**
      * <code>getInstance</code>
-     * <p>The instance getter method.</p>
-     * @return {@link io.github.nichetoolkit.rest.identity.IdentityManager} <p>The instance return object is <code>IdentityManager</code> type.</p>
+     * <p>The get instance getter method.</p>
+     * @return {@link io.github.nichetoolkit.rest.identity.IdentityManager} <p>The get instance return object is <code>IdentityManager</code> type.</p>
      */
     public static IdentityManager getInstance() {
         return INSTANCE;
@@ -77,8 +77,8 @@ public class IdentityManager implements ApplicationRunner {
 
     /**
      * <code>getEnvironment</code>
-     * <p>The environment getter method.</p>
-     * @return {@link org.springframework.core.env.Environment} <p>The environment return object is <code>Environment</code> type.</p>
+     * <p>The get environment getter method.</p>
+     * @return {@link org.springframework.core.env.Environment} <p>The get environment return object is <code>Environment</code> type.</p>
      * @see org.springframework.core.env.Environment
      */
     public static Environment getEnvironment() {
@@ -87,7 +87,7 @@ public class IdentityManager implements ApplicationRunner {
 
     /**
      * <code>identityManagerInit</code>
-     * <p>The manager init method.</p>
+     * <p>The identity manager init method.</p>
      * @see javax.annotation.PostConstruct
      */
     @PostConstruct
@@ -107,7 +107,7 @@ public class IdentityManager implements ApplicationRunner {
 
     /**
      * <code>config</code>
-     * <p>The method.</p>
+     * <p>The config method.</p>
      * @param workerId {@link java.lang.Long} <p>The worker id parameter is <code>Long</code> type.</p>
      * @param centerId {@link java.lang.Long} <p>The center id parameter is <code>Long</code> type.</p>
      * @see java.lang.Long
@@ -119,7 +119,7 @@ public class IdentityManager implements ApplicationRunner {
 
     /**
      * <code>config</code>
-     * <p>The method.</p>
+     * <p>The config method.</p>
      * @param config {@link io.github.nichetoolkit.rest.identity.worker.WorkerConfig} <p>The config parameter is <code>WorkerConfig</code> type.</p>
      * @see io.github.nichetoolkit.rest.identity.worker.WorkerConfig
      */
@@ -129,8 +129,8 @@ public class IdentityManager implements ApplicationRunner {
 
     /**
      * <code>serverConfig</code>
-     * <p>The config method.</p>
-     * @return {@link io.github.nichetoolkit.rest.identity.ServerConfig} <p>The config return object is <code>ServerConfig</code> type.</p>
+     * <p>The server config method.</p>
+     * @return {@link io.github.nichetoolkit.rest.identity.ServerConfig} <p>The server config return object is <code>ServerConfig</code> type.</p>
      * @see io.github.nichetoolkit.rest.identity.ServerConfig
      */
     public static ServerConfig serverConfig() {
@@ -142,8 +142,8 @@ public class IdentityManager implements ApplicationRunner {
 
     /**
      * <code>workerConfig</code>
-     * <p>The config method.</p>
-     * @return {@link io.github.nichetoolkit.rest.identity.worker.WorkerConfig} <p>The config return object is <code>WorkerConfig</code> type.</p>
+     * <p>The worker config method.</p>
+     * @return {@link io.github.nichetoolkit.rest.identity.worker.WorkerConfig} <p>The worker config return object is <code>WorkerConfig</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.identity.worker.WorkerConfig
      * @see io.github.nichetoolkit.rest.RestException

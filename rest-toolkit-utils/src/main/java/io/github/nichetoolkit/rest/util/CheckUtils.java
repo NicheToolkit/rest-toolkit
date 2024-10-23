@@ -13,7 +13,7 @@ import io.github.nichetoolkit.rest.error.often.NameRepeatException;
 
 /**
  * <code>CheckUtils</code>
- * <p>The type check utils class.</p>
+ * <p>The check utils class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
  * @see java.lang.SuppressWarnings
@@ -25,7 +25,7 @@ public class CheckUtils {
 
     /**
      * <code>checkNullObject</code>
-     * <p>The null object method.</p>
+     * <p>The check null object method.</p>
      * @param <T>              {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param object           T <p>The object parameter is <code>T</code> type.</p>
      * @param logMessage       {@link java.lang.String} <p>The log message parameter is <code>String</code> type.</p>
@@ -43,7 +43,7 @@ public class CheckUtils {
 
     /**
      * <code>checkNullObject</code>
-     * <p>The null object method.</p>
+     * <p>The check null object method.</p>
      * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param object  T <p>The object parameter is <code>T</code> type.</p>
      * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
@@ -57,7 +57,7 @@ public class CheckUtils {
 
     /**
      * <code>checkNullObject</code>
-     * <p>The null object method.</p>
+     * <p>The check null object method.</p>
      * @param <T>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param object T <p>The object parameter is <code>T</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -72,7 +72,7 @@ public class CheckUtils {
 
     /**
      * <code>checkNullId</code>
-     * <p>The null id method.</p>
+     * <p>The check null id method.</p>
      * @param <T>              {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param id               T <p>The id parameter is <code>T</code> type.</p>
      * @param logMessage       {@link java.lang.String} <p>The log message parameter is <code>String</code> type.</p>
@@ -90,7 +90,7 @@ public class CheckUtils {
 
     /**
      * <code>checkNullId</code>
-     * <p>The null id method.</p>
+     * <p>The check null id method.</p>
      * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param id      T <p>The id parameter is <code>T</code> type.</p>
      * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
@@ -104,7 +104,7 @@ public class CheckUtils {
 
     /**
      * <code>checkNullId</code>
-     * <p>The null id method.</p>
+     * <p>The check null id method.</p>
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param id  T <p>The id parameter is <code>T</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -119,7 +119,7 @@ public class CheckUtils {
 
     /**
      * <code>checkTrueComparer</code>
-     * <p>The true comparer method.</p>
+     * <p>The check true comparer method.</p>
      * @param comparer         {@link java.lang.Boolean} <p>The comparer parameter is <code>Boolean</code> type.</p>
      * @param logMessage       {@link java.lang.String} <p>The log message parameter is <code>String</code> type.</p>
      * @param exceptionMessage {@link java.lang.String} <p>The exception message parameter is <code>String</code> type.</p>
@@ -140,7 +140,7 @@ public class CheckUtils {
 
     /**
      * <code>checkTrueComparer</code>
-     * <p>The true comparer method.</p>
+     * <p>The check true comparer method.</p>
      * @param comparer         {@link java.lang.Boolean} <p>The comparer parameter is <code>Boolean</code> type.</p>
      * @param status           {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @param resource         {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
@@ -162,7 +162,7 @@ public class CheckUtils {
 
     /**
      * <code>checkTrueComparer</code>
-     * <p>The true comparer method.</p>
+     * <p>The check true comparer method.</p>
      * @param comparer         {@link java.lang.Boolean} <p>The comparer parameter is <code>Boolean</code> type.</p>
      * @param message          {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @param resource         {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
@@ -179,7 +179,7 @@ public class CheckUtils {
 
     /**
      * <code>checkFalseComparer</code>
-     * <p>The false comparer method.</p>
+     * <p>The check false comparer method.</p>
      * @param comparer         {@link java.lang.Boolean} <p>The comparer parameter is <code>Boolean</code> type.</p>
      * @param logMessage       {@link java.lang.String} <p>The log message parameter is <code>String</code> type.</p>
      * @param exceptionMessage {@link java.lang.String} <p>The exception message parameter is <code>String</code> type.</p>
@@ -200,7 +200,7 @@ public class CheckUtils {
 
     /**
      * <code>checkFalseComparer</code>
-     * <p>The false comparer method.</p>
+     * <p>The check false comparer method.</p>
      * @param comparer         {@link java.lang.Boolean} <p>The comparer parameter is <code>Boolean</code> type.</p>
      * @param message          {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @param resource         {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
@@ -217,7 +217,7 @@ public class CheckUtils {
 
     /**
      * <code>checkFalseComparer</code>
-     * <p>The false comparer method.</p>
+     * <p>The check false comparer method.</p>
      * @param comparer         {@link java.lang.Boolean} <p>The comparer parameter is <code>Boolean</code> type.</p>
      * @param status           {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @param resource         {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
@@ -236,7 +236,7 @@ public class CheckUtils {
 
     /**
      * <code>checkNullResult</code>
-     * <p>The null result method.</p>
+     * <p>The check null result method.</p>
      * @param result           {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
      * @param logMessage       {@link java.lang.String} <p>The log message parameter is <code>String</code> type.</p>
      * @param exceptionMessage {@link java.lang.String} <p>The exception message parameter is <code>String</code> type.</p>
@@ -257,7 +257,7 @@ public class CheckUtils {
 
     /**
      * <code>checkNullResult</code>
-     * <p>The null result method.</p>
+     * <p>The check null result method.</p>
      * @param result           {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
      * @param status           {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @param resource         {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
@@ -275,7 +275,7 @@ public class CheckUtils {
 
     /**
      * <code>checkNullResult</code>
-     * <p>The null result method.</p>
+     * <p>The check null result method.</p>
      * @param result           {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
      * @param message          {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @param resource         {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
@@ -292,7 +292,7 @@ public class CheckUtils {
 
     /**
      * <code>checkNonNullResult</code>
-     * <p>The non null result method.</p>
+     * <p>The check non null result method.</p>
      * @param result           {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
      * @param logMessage       {@link java.lang.String} <p>The log message parameter is <code>String</code> type.</p>
      * @param exceptionMessage {@link java.lang.String} <p>The exception message parameter is <code>String</code> type.</p>
@@ -313,7 +313,7 @@ public class CheckUtils {
 
     /**
      * <code>checkNonNullResult</code>
-     * <p>The non null result method.</p>
+     * <p>The check non null result method.</p>
      * @param result           {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
      * @param message          {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @param resource         {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
@@ -330,7 +330,7 @@ public class CheckUtils {
 
     /**
      * <code>checkExistResource</code>
-     * <p>The exist resource method.</p>
+     * <p>The check exist resource method.</p>
      * @param exist            {@link java.lang.Boolean} <p>The exist parameter is <code>Boolean</code> type.</p>
      * @param message          {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @param resource         {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
@@ -347,7 +347,7 @@ public class CheckUtils {
 
     /**
      * <code>checkNonExistResource</code>
-     * <p>The non exist resource method.</p>
+     * <p>The check non exist resource method.</p>
      * @param exist            {@link java.lang.Boolean} <p>The exist parameter is <code>Boolean</code> type.</p>
      * @param message          {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @param resource         {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
@@ -364,7 +364,7 @@ public class CheckUtils {
 
     /**
      * <code>checkCreate</code>
-     * <p>The create method.</p>
+     * <p>The check create method.</p>
      * @param result   {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
      * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
@@ -379,7 +379,7 @@ public class CheckUtils {
 
     /**
      * <code>checkCreate</code>
-     * <p>The create method.</p>
+     * <p>The check create method.</p>
      * @param result   {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
      * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -393,7 +393,7 @@ public class CheckUtils {
 
     /**
      * <code>checkBatchCreate</code>
-     * <p>The batch create method.</p>
+     * <p>The check batch create method.</p>
      * @param result   {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
      * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
@@ -408,7 +408,7 @@ public class CheckUtils {
 
     /**
      * <code>checkBatchCreate</code>
-     * <p>The batch create method.</p>
+     * <p>The check batch create method.</p>
      * @param result   {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
      * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -422,7 +422,7 @@ public class CheckUtils {
 
     /**
      * <code>checkUpdate</code>
-     * <p>The update method.</p>
+     * <p>The check update method.</p>
      * @param result   {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
      * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
@@ -437,7 +437,7 @@ public class CheckUtils {
 
     /**
      * <code>checkUpdate</code>
-     * <p>The update method.</p>
+     * <p>The check update method.</p>
      * @param result   {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
      * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -451,7 +451,7 @@ public class CheckUtils {
 
     /**
      * <code>checkBatchUpdate</code>
-     * <p>The batch update method.</p>
+     * <p>The check batch update method.</p>
      * @param result   {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
      * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
@@ -466,7 +466,7 @@ public class CheckUtils {
 
     /**
      * <code>checkBatchUpdate</code>
-     * <p>The batch update method.</p>
+     * <p>The check batch update method.</p>
      * @param result   {@link java.lang.Integer} <p>The result parameter is <code>Integer</code> type.</p>
      * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -480,7 +480,7 @@ public class CheckUtils {
 
     /**
      * <code>checkBatchSave</code>
-     * <p>The batch save method.</p>
+     * <p>The check batch save method.</p>
      * @param result   {@link java.lang.Boolean} <p>The result parameter is <code>Boolean</code> type.</p>
      * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
@@ -495,7 +495,7 @@ public class CheckUtils {
 
     /**
      * <code>checkBatchSave</code>
-     * <p>The batch save method.</p>
+     * <p>The check batch save method.</p>
      * @param result   {@link java.lang.Boolean} <p>The result parameter is <code>Boolean</code> type.</p>
      * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -509,7 +509,7 @@ public class CheckUtils {
 
     /**
      * <code>checkNameRepeat</code>
-     * <p>The name repeat method.</p>
+     * <p>The check name repeat method.</p>
      * @param exist    {@link java.lang.Boolean} <p>The exist parameter is <code>Boolean</code> type.</p>
      * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
      * @param value    {@link java.lang.String} <p>The value parameter is <code>String</code> type.</p>
@@ -527,7 +527,7 @@ public class CheckUtils {
 
     /**
      * <code>checkNameRepeat</code>
-     * <p>The name repeat method.</p>
+     * <p>The check name repeat method.</p>
      * @param exist {@link java.lang.Boolean} <p>The exist parameter is <code>Boolean</code> type.</p>
      * @param value {@link java.lang.String} <p>The value parameter is <code>String</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>

@@ -10,7 +10,7 @@ import java.util.Objects;
 
 /**
  * <code>RestEntry</code>
- * <p>The type rest entry interface.</p>
+ * <p>The rest entry interface.</p>
  * @param <K> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @param <V> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
@@ -21,10 +21,10 @@ public interface RestEntry<K, V> extends Map.Entry<K, V> {
 
     /**
      * <code>comparingByKey</code>
-     * <p>The by key method.</p>
+     * <p>The comparing by key method.</p>
      * @param <K> {@link java.lang.Comparable} <p>The generic parameter is <code>Comparable</code> type.</p>
      * @param <V> {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @return {@link io.github.nichetoolkit.rest.actuator.ComparatorActuator} <p>The by key return object is <code>ComparatorActuator</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.actuator.ComparatorActuator} <p>The comparing by key return object is <code>ComparatorActuator</code> type.</p>
      * @see java.lang.Comparable
      * @see io.github.nichetoolkit.rest.actuator.ComparatorActuator
      */
@@ -35,10 +35,10 @@ public interface RestEntry<K, V> extends Map.Entry<K, V> {
 
     /**
      * <code>comparingByValue</code>
-     * <p>The by value method.</p>
+     * <p>The comparing by value method.</p>
      * @param <K> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <V> {@link java.lang.Comparable} <p>The generic parameter is <code>Comparable</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.actuator.ComparatorActuator} <p>The by value return object is <code>ComparatorActuator</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.actuator.ComparatorActuator} <p>The comparing by value return object is <code>ComparatorActuator</code> type.</p>
      * @see java.lang.Comparable
      * @see io.github.nichetoolkit.rest.actuator.ComparatorActuator
      */
@@ -49,11 +49,11 @@ public interface RestEntry<K, V> extends Map.Entry<K, V> {
 
     /**
      * <code>comparingByKey</code>
-     * <p>The by key method.</p>
+     * <p>The comparing by key method.</p>
      * @param <K> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <V> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param cmp {@link io.github.nichetoolkit.rest.actuator.ComparatorActuator} <p>The cmp parameter is <code>ComparatorActuator</code> type.</p>
-     * @return {@link java.util.Comparator} <p>The by key return object is <code>Comparator</code> type.</p>
+     * @return {@link java.util.Comparator} <p>The comparing by key return object is <code>Comparator</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.ComparatorActuator
      * @see java.util.Comparator
      */
@@ -65,11 +65,11 @@ public interface RestEntry<K, V> extends Map.Entry<K, V> {
 
     /**
      * <code>comparingByValue</code>
-     * <p>The by value method.</p>
+     * <p>The comparing by value method.</p>
      * @param <K> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <V> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param cmp {@link io.github.nichetoolkit.rest.actuator.ComparatorActuator} <p>The cmp parameter is <code>ComparatorActuator</code> type.</p>
-     * @return {@link java.util.Comparator} <p>The by value return object is <code>Comparator</code> type.</p>
+     * @return {@link java.util.Comparator} <p>The comparing by value return object is <code>Comparator</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.ComparatorActuator
      * @see java.util.Comparator
      */

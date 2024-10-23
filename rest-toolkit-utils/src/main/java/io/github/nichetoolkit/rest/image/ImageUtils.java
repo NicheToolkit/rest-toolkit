@@ -10,7 +10,7 @@ import java.awt.image.BufferedImage;
 
 /**
  * <code>ImageUtils</code>
- * <p>The type image utils class.</p>
+ * <p>The image utils class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
  * @see org.springframework.stereotype.Component
@@ -23,8 +23,8 @@ public class ImageUtils {
 
     /**
      * <code>randoms</code>
-     * <p>The method.</p>
-     * @return {@link io.github.nichetoolkit.rest.image.ImageVerify} <p>The return object is <code>ImageVerify</code> type.</p>
+     * <p>The randoms method.</p>
+     * @return {@link io.github.nichetoolkit.rest.image.ImageVerify} <p>The randoms return object is <code>ImageVerify</code> type.</p>
      * @see io.github.nichetoolkit.rest.image.ImageVerify
      */
     public static synchronized ImageVerify randoms() {
@@ -61,8 +61,8 @@ public class ImageUtils {
 
     /**
      * <code>randomChar</code>
-     * <p>The char method.</p>
-     * @return {@link java.lang.Character} <p>The char return object is <code>Character</code> type.</p>
+     * <p>The random char method.</p>
+     * @return {@link java.lang.Character} <p>The random char return object is <code>Character</code> type.</p>
      * @see java.lang.Character
      */
     protected static Character randomChar() {
@@ -72,8 +72,8 @@ public class ImageUtils {
 
     /**
      * <code>randomColor</code>
-     * <p>The color method.</p>
-     * @return {@link java.awt.Color} <p>The color return object is <code>Color</code> type.</p>
+     * <p>The random color method.</p>
+     * @return {@link java.awt.Color} <p>The random color return object is <code>Color</code> type.</p>
      * @see java.awt.Color
      */
     protected static Color randomColor() {
@@ -83,10 +83,10 @@ public class ImageUtils {
 
     /**
      * <code>randomColor</code>
-     * <p>The color method.</p>
+     * <p>The random color method.</p>
      * @param min {@link java.lang.Integer} <p>The min parameter is <code>Integer</code> type.</p>
      * @param max {@link java.lang.Integer} <p>The max parameter is <code>Integer</code> type.</p>
-     * @return {@link java.awt.Color} <p>The color return object is <code>Color</code> type.</p>
+     * @return {@link java.awt.Color} <p>The random color return object is <code>Color</code> type.</p>
      * @see java.lang.Integer
      * @see java.awt.Color
      */
@@ -105,8 +105,8 @@ public class ImageUtils {
 
     /**
      * <code>randomFont</code>
-     * <p>The font method.</p>
-     * @return {@link java.awt.Font} <p>The font return object is <code>Font</code> type.</p>
+     * <p>The random font method.</p>
+     * @return {@link java.awt.Font} <p>The random font return object is <code>Font</code> type.</p>
      * @see java.awt.Font
      */
     protected static Font randomFont() {
@@ -120,8 +120,8 @@ public class ImageUtils {
 
     /**
      * <code>randomTransform</code>
-     * <p>The transform method.</p>
-     * @return {@link java.lang.Integer} <p>The transform return object is <code>Integer</code> type.</p>
+     * <p>The random transform method.</p>
+     * @return {@link java.lang.Integer} <p>The random transform return object is <code>Integer</code> type.</p>
      * @see java.lang.Integer
      */
     protected static Integer randomTransform() {

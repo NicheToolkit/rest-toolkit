@@ -2,7 +2,7 @@ package io.github.nichetoolkit.rest.identity.worker;
 
 /**
  * <code>WorkerType</code>
- * <p>The type worker type enumeration.</p>
+ * <p>The worker type enumeration.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */

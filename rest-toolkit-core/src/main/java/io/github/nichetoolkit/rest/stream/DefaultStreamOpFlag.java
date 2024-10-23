@@ -7,7 +7,7 @@ import java.util.Map;
 
 /**
  * <code>DefaultStreamOpFlag</code>
- * <p>The type default stream op flag enumeration.</p>
+ * <p>The default stream op flag enumeration.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
@@ -51,7 +51,7 @@ enum DefaultStreamOpFlag {
 
     /**
      * <code>Type</code>
-     * <p>The type type enumeration.</p>
+     * <p>The type enumeration.</p>
      * @author Cyan (snow22314@outlook.com)
      * @since Jdk1.8
      */
@@ -107,9 +107,9 @@ enum DefaultStreamOpFlag {
 
     /**
      * <code>set</code>
-     * <p>The method.</p>
+     * <p>The set method.</p>
      * @param t {@link io.github.nichetoolkit.rest.stream.DefaultStreamOpFlag.Type} <p>The t parameter is <code>Type</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultStreamOpFlag.MaskBuilder} <p>The return object is <code>MaskBuilder</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultStreamOpFlag.MaskBuilder} <p>The set return object is <code>MaskBuilder</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultStreamOpFlag.Type
      * @see io.github.nichetoolkit.rest.stream.DefaultStreamOpFlag.MaskBuilder
      */
@@ -119,7 +119,7 @@ enum DefaultStreamOpFlag {
 
     /**
      * <code>MaskBuilder</code>
-     * <p>The type mask builder class.</p>
+     * <p>The mask builder class.</p>
      * @author Cyan (snow22314@outlook.com)
      * @since Jdk1.8
      */
@@ -143,10 +143,10 @@ enum DefaultStreamOpFlag {
 
         /**
          * <code>mask</code>
-         * <p>The method.</p>
+         * <p>The mask method.</p>
          * @param t {@link io.github.nichetoolkit.rest.stream.DefaultStreamOpFlag.Type} <p>The t parameter is <code>Type</code> type.</p>
          * @param i {@link java.lang.Integer} <p>The parameter is <code>Integer</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.stream.DefaultStreamOpFlag.MaskBuilder} <p>The return object is <code>MaskBuilder</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.stream.DefaultStreamOpFlag.MaskBuilder} <p>The mask return object is <code>MaskBuilder</code> type.</p>
          * @see io.github.nichetoolkit.rest.stream.DefaultStreamOpFlag.Type
          * @see java.lang.Integer
          */
@@ -157,9 +157,9 @@ enum DefaultStreamOpFlag {
 
         /**
          * <code>set</code>
-         * <p>The method.</p>
+         * <p>The set method.</p>
          * @param t {@link io.github.nichetoolkit.rest.stream.DefaultStreamOpFlag.Type} <p>The t parameter is <code>Type</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.stream.DefaultStreamOpFlag.MaskBuilder} <p>The return object is <code>MaskBuilder</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.stream.DefaultStreamOpFlag.MaskBuilder} <p>The set return object is <code>MaskBuilder</code> type.</p>
          * @see io.github.nichetoolkit.rest.stream.DefaultStreamOpFlag.Type
          */
         MaskBuilder set(Type t) {
@@ -168,9 +168,9 @@ enum DefaultStreamOpFlag {
 
         /**
          * <code>clear</code>
-         * <p>The method.</p>
+         * <p>The clear method.</p>
          * @param t {@link io.github.nichetoolkit.rest.stream.DefaultStreamOpFlag.Type} <p>The t parameter is <code>Type</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.stream.DefaultStreamOpFlag.MaskBuilder} <p>The return object is <code>MaskBuilder</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.stream.DefaultStreamOpFlag.MaskBuilder} <p>The clear return object is <code>MaskBuilder</code> type.</p>
          * @see io.github.nichetoolkit.rest.stream.DefaultStreamOpFlag.Type
          */
         MaskBuilder clear(Type t) {
@@ -179,8 +179,8 @@ enum DefaultStreamOpFlag {
 
         /**
          * <code>setAndClear</code>
-         * <p>The and clear setter method.</p>
-         * @return {@link io.github.nichetoolkit.rest.stream.DefaultStreamOpFlag.MaskBuilder} <p>The and clear return object is <code>MaskBuilder</code> type.</p>
+         * <p>The set and clear setter method.</p>
+         * @return {@link io.github.nichetoolkit.rest.stream.DefaultStreamOpFlag.MaskBuilder} <p>The set and clear return object is <code>MaskBuilder</code> type.</p>
          */
         MaskBuilder setAndClear() {
             return mask(Type.OP, PRESERVE_BITS);
@@ -188,8 +188,8 @@ enum DefaultStreamOpFlag {
 
         /**
          * <code>build</code>
-         * <p>The method.</p>
-         * @return {@link java.util.Map} <p>The return object is <code>Map</code> type.</p>
+         * <p>The build method.</p>
+         * @return {@link java.util.Map} <p>The build return object is <code>Map</code> type.</p>
          * @see java.util.Map
          */
         Map<Type, Integer> build() {
@@ -250,8 +250,8 @@ enum DefaultStreamOpFlag {
 
     /**
      * <code>set</code>
-     * <p>The method.</p>
-     * @return int <p>The return object is <code>int</code> type.</p>
+     * <p>The set method.</p>
+     * @return int <p>The set return object is <code>int</code> type.</p>
      */
     int set() {
         return set;
@@ -259,8 +259,8 @@ enum DefaultStreamOpFlag {
 
     /**
      * <code>clear</code>
-     * <p>The method.</p>
-     * @return int <p>The return object is <code>int</code> type.</p>
+     * <p>The clear method.</p>
+     * @return int <p>The clear return object is <code>int</code> type.</p>
      */
     int clear() {
         return clear;
@@ -268,8 +268,8 @@ enum DefaultStreamOpFlag {
 
     /**
      * <code>isStreamFlag</code>
-     * <p>The stream flag method.</p>
-     * @return boolean <p>The stream flag return object is <code>boolean</code> type.</p>
+     * <p>The is stream flag method.</p>
+     * @return boolean <p>The is stream flag return object is <code>boolean</code> type.</p>
      */
     boolean isStreamFlag() {
         return maskTable.get(Type.STREAM) > 0;
@@ -277,9 +277,9 @@ enum DefaultStreamOpFlag {
 
     /**
      * <code>isKnown</code>
-     * <p>The known method.</p>
+     * <p>The is known method.</p>
      * @param flags int <p>The flags parameter is <code>int</code> type.</p>
-     * @return boolean <p>The known return object is <code>boolean</code> type.</p>
+     * @return boolean <p>The is known return object is <code>boolean</code> type.</p>
      */
     boolean isKnown(int flags) {
         return (flags & preserve) == set;
@@ -287,9 +287,9 @@ enum DefaultStreamOpFlag {
 
     /**
      * <code>isCleared</code>
-     * <p>The cleared method.</p>
+     * <p>The is cleared method.</p>
      * @param flags int <p>The flags parameter is <code>int</code> type.</p>
-     * @return boolean <p>The cleared return object is <code>boolean</code> type.</p>
+     * @return boolean <p>The is cleared return object is <code>boolean</code> type.</p>
      */
     boolean isCleared(int flags) {
         return (flags & preserve) == clear;
@@ -297,9 +297,9 @@ enum DefaultStreamOpFlag {
 
     /**
      * <code>isPreserved</code>
-     * <p>The preserved method.</p>
+     * <p>The is preserved method.</p>
      * @param flags int <p>The flags parameter is <code>int</code> type.</p>
-     * @return boolean <p>The preserved return object is <code>boolean</code> type.</p>
+     * @return boolean <p>The is preserved return object is <code>boolean</code> type.</p>
      */
     boolean isPreserved(int flags) {
         return (flags & preserve) == preserve;
@@ -307,9 +307,9 @@ enum DefaultStreamOpFlag {
 
     /**
      * <code>canSet</code>
-     * <p>The set method.</p>
+     * <p>The can set method.</p>
      * @param t {@link io.github.nichetoolkit.rest.stream.DefaultStreamOpFlag.Type} <p>The t parameter is <code>Type</code> type.</p>
-     * @return boolean <p>The set return object is <code>boolean</code> type.</p>
+     * @return boolean <p>The can set return object is <code>boolean</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultStreamOpFlag.Type
      */
     boolean canSet(Type t) {
@@ -348,9 +348,9 @@ enum DefaultStreamOpFlag {
 
     /**
      * <code>createMask</code>
-     * <p>The mask method.</p>
+     * <p>The create mask method.</p>
      * @param t {@link io.github.nichetoolkit.rest.stream.DefaultStreamOpFlag.Type} <p>The t parameter is <code>Type</code> type.</p>
-     * @return int <p>The mask return object is <code>int</code> type.</p>
+     * @return int <p>The create mask return object is <code>int</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultStreamOpFlag.Type
      */
     private static int createMask(Type t) {
@@ -369,8 +369,8 @@ enum DefaultStreamOpFlag {
 
     /**
      * <code>createFlagMask</code>
-     * <p>The flag mask method.</p>
-     * @return int <p>The flag mask return object is <code>int</code> type.</p>
+     * <p>The create flag mask method.</p>
+     * @return int <p>The create flag mask return object is <code>int</code> type.</p>
      */
     private static int createFlagMask() {
         int mask = 0;
@@ -454,9 +454,9 @@ enum DefaultStreamOpFlag {
 
     /**
      * <code>getMask</code>
-     * <p>The mask getter method.</p>
+     * <p>The get mask getter method.</p>
      * @param flags int <p>The flags parameter is <code>int</code> type.</p>
-     * @return int <p>The mask return object is <code>int</code> type.</p>
+     * @return int <p>The get mask return object is <code>int</code> type.</p>
      */
     private static int getMask(int flags) {
         return (flags == 0)
@@ -466,10 +466,10 @@ enum DefaultStreamOpFlag {
 
     /**
      * <code>combineOpFlags</code>
-     * <p>The op flags method.</p>
+     * <p>The combine op flags method.</p>
      * @param newStreamOrOpFlags int <p>The new stream or op flags parameter is <code>int</code> type.</p>
      * @param prevCombOpFlags    int <p>The prev comb op flags parameter is <code>int</code> type.</p>
-     * @return int <p>The op flags return object is <code>int</code> type.</p>
+     * @return int <p>The combine op flags return object is <code>int</code> type.</p>
      */
     static int combineOpFlags(int newStreamOrOpFlags, int prevCombOpFlags) {
         return (prevCombOpFlags & DefaultStreamOpFlag.getMask(newStreamOrOpFlags)) | newStreamOrOpFlags;
@@ -477,9 +477,9 @@ enum DefaultStreamOpFlag {
 
     /**
      * <code>toStreamFlags</code>
-     * <p>The stream flags method.</p>
+     * <p>The to stream flags method.</p>
      * @param combOpFlags int <p>The comb op flags parameter is <code>int</code> type.</p>
-     * @return int <p>The stream flags return object is <code>int</code> type.</p>
+     * @return int <p>The to stream flags return object is <code>int</code> type.</p>
      */
     static int toStreamFlags(int combOpFlags) {
         return ((~combOpFlags) >> 1) & FLAG_MASK_IS & combOpFlags;
@@ -487,9 +487,9 @@ enum DefaultStreamOpFlag {
 
     /**
      * <code>toCharacteristics</code>
-     * <p>The characteristics method.</p>
+     * <p>The to characteristics method.</p>
      * @param streamFlags int <p>The stream flags parameter is <code>int</code> type.</p>
-     * @return int <p>The characteristics return object is <code>int</code> type.</p>
+     * @return int <p>The to characteristics return object is <code>int</code> type.</p>
      */
     static int toCharacteristics(int streamFlags) {
         return streamFlags & SPLITERATOR_CHARACTERISTICS_MASK;
@@ -497,9 +497,9 @@ enum DefaultStreamOpFlag {
 
     /**
      * <code>fromCharacteristics</code>
-     * <p>The characteristics method.</p>
+     * <p>The from characteristics method.</p>
      * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The spliterator parameter is <code>DefaultSpliterator</code> type.</p>
-     * @return int <p>The characteristics return object is <code>int</code> type.</p>
+     * @return int <p>The from characteristics return object is <code>int</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
      * @see io.github.nichetoolkit.rest.RestException
@@ -516,9 +516,9 @@ enum DefaultStreamOpFlag {
 
     /**
      * <code>fromCharacteristics</code>
-     * <p>The characteristics method.</p>
+     * <p>The from characteristics method.</p>
      * @param characteristics int <p>The characteristics parameter is <code>int</code> type.</p>
-     * @return int <p>The characteristics return object is <code>int</code> type.</p>
+     * @return int <p>The from characteristics return object is <code>int</code> type.</p>
      */
     static int fromCharacteristics(int characteristics) {
         return characteristics & SPLITERATOR_CHARACTERISTICS_MASK;

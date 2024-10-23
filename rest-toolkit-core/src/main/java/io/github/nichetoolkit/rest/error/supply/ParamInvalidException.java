@@ -7,7 +7,7 @@ import io.github.nichetoolkit.rest.RestStatus;
 
 /**
  * <code>ParamInvalidException</code>
- * <p>The type param invalid exception class.</p>
+ * <p>The param invalid exception class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestErrorException
  * @since Jdk1.8

@@ -6,7 +6,7 @@ import io.github.nichetoolkit.rest.error.natives.XmlErrorException;
 
 /**
  * <code>XmlWriteException</code>
- * <p>The type xml write exception class.</p>
+ * <p>The xml write exception class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.error.natives.XmlErrorException
  * @since Jdk1.8

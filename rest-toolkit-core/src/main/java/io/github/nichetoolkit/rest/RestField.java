@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 
 /**
  * <code>RestField</code>
- * <p>The type rest field interface.</p>
+ * <p>The rest field interface.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestValue
  * @see java.lang.SuppressWarnings
@@ -19,19 +19,19 @@ import java.util.stream.Stream;
 public interface RestField extends RestValue<Integer, String> {
     /**
      * <code>getField</code>
-     * <p>The field getter method.</p>
-     * @return {@link java.lang.String} <p>The field return object is <code>String</code> type.</p>
+     * <p>The get field getter method.</p>
+     * @return {@link java.lang.String} <p>The get field return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     String getField();
 
     /**
      * <code>parseField</code>
-     * <p>The field method.</p>
+     * <p>The parse field method.</p>
      * @param <T>   {@link io.github.nichetoolkit.rest.RestField} <p>The generic parameter is <code>RestField</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
      * @param field {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
-     * @return T <p>The field return object is <code>T</code> type.</p>
+     * @return T <p>The parse field return object is <code>T</code> type.</p>
      * @see java.lang.Class
      * @see java.lang.String
      * @see java.lang.SuppressWarnings
@@ -48,11 +48,11 @@ public interface RestField extends RestValue<Integer, String> {
 
     /**
      * <code>parseField</code>
-     * <p>The field method.</p>
+     * <p>The parse field method.</p>
      * @param <T>    {@link io.github.nichetoolkit.rest.RestField} <p>The generic parameter is <code>RestField</code> type.</p>
      * @param values {@link java.util.Collection} <p>The values parameter is <code>Collection</code> type.</p>
      * @param field  {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
-     * @return T <p>The field return object is <code>T</code> type.</p>
+     * @return T <p>The parse field return object is <code>T</code> type.</p>
      * @see java.util.Collection
      * @see java.lang.String
      * @see java.lang.SuppressWarnings

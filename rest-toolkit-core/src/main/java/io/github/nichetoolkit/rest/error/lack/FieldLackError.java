@@ -8,7 +8,7 @@ import java.util.function.Supplier;
 
 /**
  * <code>FieldLackError</code>
- * <p>The type field lack error class.</p>
+ * <p>The field lack error class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestError
  * @since Jdk1.8

@@ -25,7 +25,7 @@ import java.util.List;
 
 /**
  * <code>DefaultControllerAdvice</code>
- * <p>The type default controller advice class.</p>
+ * <p>The default controller advice class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice
  * @see org.springframework.beans.factory.InitializingBean
@@ -105,8 +105,8 @@ public class DefaultControllerAdvice implements ResponseBodyAdvice<Object>, Init
 
     /**
      * <code>getExceptionAdvices</code>
-     * <p>The exception advices getter method.</p>
-     * @return {@link java.util.List} <p>The exception advices return object is <code>List</code> type.</p>
+     * <p>The get exception advices getter method.</p>
+     * @return {@link java.util.List} <p>The get exception advices return object is <code>List</code> type.</p>
      * @see java.util.List
      */
     public List<RestExceptionAdvice> getExceptionAdvices() {
@@ -116,8 +116,8 @@ public class DefaultControllerAdvice implements ResponseBodyAdvice<Object>, Init
 
     /**
      * <code>getResponseAdvices</code>
-     * <p>The response advices getter method.</p>
-     * @return {@link java.util.List} <p>The response advices return object is <code>List</code> type.</p>
+     * <p>The get response advices getter method.</p>
+     * @return {@link java.util.List} <p>The get response advices return object is <code>List</code> type.</p>
      * @see java.util.List
      */
     public List<RestResponseAdvice> getResponseAdvices() {
@@ -126,11 +126,11 @@ public class DefaultControllerAdvice implements ResponseBodyAdvice<Object>, Init
 
     /**
      * <code>exceptionHandle</code>
-     * <p>The handle method.</p>
+     * <p>The exception handle method.</p>
      * @param exception {@link java.lang.Exception} <p>The exception parameter is <code>Exception</code> type.</p>
      * @param request   {@link javax.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
      * @param response  {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
-     * @return {@link org.springframework.http.ResponseEntity} <p>The handle return object is <code>ResponseEntity</code> type.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>The exception handle return object is <code>ResponseEntity</code> type.</p>
      * @see java.lang.Exception
      * @see javax.servlet.http.HttpServletRequest
      * @see javax.servlet.http.HttpServletResponse
@@ -162,7 +162,7 @@ public class DefaultControllerAdvice implements ResponseBodyAdvice<Object>, Init
 
     /**
      * <code>preExceptionHandle</code>
-     * <p>The exception handle method.</p>
+     * <p>The pre exception handle method.</p>
      * @param exception {@link java.lang.Exception} <p>The exception parameter is <code>Exception</code> type.</p>
      * @param request   {@link javax.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
      * @param response  {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
@@ -180,7 +180,7 @@ public class DefaultControllerAdvice implements ResponseBodyAdvice<Object>, Init
 
     /**
      * <code>doRestExceptionHandle</code>
-     * <p>The rest exception handle method.</p>
+     * <p>The do rest exception handle method.</p>
      * @param restException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception parameter is <code>RestException</code> type.</p>
      * @param request       {@link javax.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
      * @param response      {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
@@ -198,7 +198,7 @@ public class DefaultControllerAdvice implements ResponseBodyAdvice<Object>, Init
 
     /**
      * <code>doExceptionHandle</code>
-     * <p>The exception handle method.</p>
+     * <p>The do exception handle method.</p>
      * @param exception {@link java.lang.Exception} <p>The exception parameter is <code>Exception</code> type.</p>
      * @param request   {@link javax.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
      * @param response  {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>

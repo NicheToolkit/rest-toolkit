@@ -17,7 +17,7 @@ import java.io.OutputStream;
 
 /**
  * <code>XmlUtils</code>
- * <p>The type xml utils class.</p>
+ * <p>The xml utils class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
  * @since Jdk1.8
@@ -27,7 +27,7 @@ public class XmlUtils {
 
     /**
      * <code>encode</code>
-     * <p>The method.</p>
+     * <p>The encode method.</p>
      * @param filename {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
      * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
      * @see java.lang.String
@@ -40,10 +40,10 @@ public class XmlUtils {
 
     /**
      * <code>marshaller</code>
-     * <p>The method.</p>
+     * <p>The marshaller method.</p>
      * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @return {@link javax.xml.bind.Marshaller} <p>The return object is <code>Marshaller</code> type.</p>
+     * @return {@link javax.xml.bind.Marshaller} <p>The marshaller return object is <code>Marshaller</code> type.</p>
      * @see java.lang.Class
      * @see javax.xml.bind.Marshaller
      */
@@ -59,10 +59,10 @@ public class XmlUtils {
 
     /**
      * <code>unmarshaller</code>
-     * <p>The method.</p>
+     * <p>The unmarshaller method.</p>
      * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @return {@link javax.xml.bind.Unmarshaller} <p>The return object is <code>Unmarshaller</code> type.</p>
+     * @return {@link javax.xml.bind.Unmarshaller} <p>The unmarshaller return object is <code>Unmarshaller</code> type.</p>
      * @see java.lang.Class
      * @see javax.xml.bind.Unmarshaller
      */
@@ -78,11 +78,11 @@ public class XmlUtils {
 
     /**
      * <code>read</code>
-     * <p>The method.</p>
+     * <p>The read method.</p>
      * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xmlFile {@link org.springframework.web.multipart.MultipartFile} <p>The xml file parameter is <code>MultipartFile</code> type.</p>
      * @param clazz   {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @return T <p>The return object is <code>T</code> type.</p>
+     * @return T <p>The read return object is <code>T</code> type.</p>
      * @see org.springframework.web.multipart.MultipartFile
      * @see java.lang.Class
      */
@@ -98,11 +98,11 @@ public class XmlUtils {
 
     /**
      * <code>read</code>
-     * <p>The method.</p>
+     * <p>The read method.</p>
      * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xmlFile {@link java.io.File} <p>The xml file parameter is <code>File</code> type.</p>
      * @param clazz   {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @return T <p>The return object is <code>T</code> type.</p>
+     * @return T <p>The read return object is <code>T</code> type.</p>
      * @see java.io.File
      * @see java.lang.Class
      */
@@ -118,12 +118,12 @@ public class XmlUtils {
 
     /**
      * <code>read</code>
-     * <p>The method.</p>
+     * <p>The read method.</p>
      * @param <T>          {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param unmarshaller {@link javax.xml.bind.Unmarshaller} <p>The unmarshaller parameter is <code>Unmarshaller</code> type.</p>
      * @param inputStream  {@link java.io.InputStream} <p>The input stream parameter is <code>InputStream</code> type.</p>
      * @param clazz        {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @return T <p>The return object is <code>T</code> type.</p>
+     * @return T <p>The read return object is <code>T</code> type.</p>
      * @see javax.xml.bind.Unmarshaller
      * @see java.io.InputStream
      * @see java.lang.Class
@@ -140,11 +140,11 @@ public class XmlUtils {
 
     /**
      * <code>read</code>
-     * <p>The method.</p>
+     * <p>The read method.</p>
      * @param <T>         {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param inputStream {@link java.io.InputStream} <p>The input stream parameter is <code>InputStream</code> type.</p>
      * @param clazz       {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @return T <p>The return object is <code>T</code> type.</p>
+     * @return T <p>The read return object is <code>T</code> type.</p>
      * @see java.io.InputStream
      * @see java.lang.Class
      */
@@ -160,7 +160,7 @@ public class XmlUtils {
 
     /**
      * <code>write</code>
-     * <p>The method.</p>
+     * <p>The write method.</p>
      * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param marshaller {@link javax.xml.bind.Marshaller} <p>The marshaller parameter is <code>Marshaller</code> type.</p>
      * @param xmlObject  T <p>The xml object parameter is <code>T</code> type.</p>
@@ -181,7 +181,7 @@ public class XmlUtils {
 
     /**
      * <code>write</code>
-     * <p>The method.</p>
+     * <p>The write method.</p>
      * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param marshaller {@link javax.xml.bind.Marshaller} <p>The marshaller parameter is <code>Marshaller</code> type.</p>
      * @param xmlObject  T <p>The xml object parameter is <code>T</code> type.</p>
@@ -200,7 +200,7 @@ public class XmlUtils {
 
     /**
      * <code>write</code>
-     * <p>The method.</p>
+     * <p>The write method.</p>
      * @param <T>          {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param marshaller   {@link javax.xml.bind.Marshaller} <p>The marshaller parameter is <code>Marshaller</code> type.</p>
      * @param xmlObject    T <p>The xml object parameter is <code>T</code> type.</p>
@@ -219,7 +219,7 @@ public class XmlUtils {
 
     /**
      * <code>write</code>
-     * <p>The method.</p>
+     * <p>The write method.</p>
      * @param <T>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xmlObject T <p>The xml object parameter is <code>T</code> type.</p>
      * @param filename  {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
@@ -238,7 +238,7 @@ public class XmlUtils {
 
     /**
      * <code>write</code>
-     * <p>The method.</p>
+     * <p>The write method.</p>
      * @param <T>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xmlObject T <p>The xml object parameter is <code>T</code> type.</p>
      * @param response  {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
@@ -255,7 +255,7 @@ public class XmlUtils {
 
     /**
      * <code>write</code>
-     * <p>The method.</p>
+     * <p>The write method.</p>
      * @param <T>          {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xmlObject    T <p>The xml object parameter is <code>T</code> type.</p>
      * @param outputStream {@link java.io.OutputStream} <p>The output stream parameter is <code>OutputStream</code> type.</p>

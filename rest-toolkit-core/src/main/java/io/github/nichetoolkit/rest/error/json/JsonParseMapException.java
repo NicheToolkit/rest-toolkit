@@ -5,7 +5,7 @@ import io.github.nichetoolkit.rest.RestStatus;
 
 /**
  * <code>JsonParseMapException</code>
- * <p>The type json parse map exception class.</p>
+ * <p>The json parse map exception class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.error.json.JsonParseErrorException
  * @since Jdk1.8

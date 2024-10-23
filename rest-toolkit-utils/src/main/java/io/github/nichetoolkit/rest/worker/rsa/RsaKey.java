@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 /**
  * <code>RsaKey</code>
- * <p>The type rsa key class.</p>
+ * <p>The rsa key class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.io.Serializable
  * @see lombok.Getter

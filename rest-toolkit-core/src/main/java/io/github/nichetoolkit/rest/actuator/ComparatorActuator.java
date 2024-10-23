@@ -9,7 +9,7 @@ import java.util.Objects;
 
 /**
  * <code>ComparatorActuator</code>
- * <p>The type comparator actuator interface.</p>
+ * <p>The comparator actuator interface.</p>
  * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.util.Comparator
@@ -21,10 +21,10 @@ public interface ComparatorActuator<T> extends Comparator<T> {
 
     /**
      * <code>actuate</code>
-     * <p>The method.</p>
+     * <p>The actuate method.</p>
      * @param o1 T <p>The o 1 parameter is <code>T</code> type.</p>
      * @param o2 T <p>The o 2 parameter is <code>T</code> type.</p>
-     * @return int <p>The return object is <code>int</code> type.</p>
+     * @return int <p>The actuate return object is <code>int</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -45,9 +45,9 @@ public interface ComparatorActuator<T> extends Comparator<T> {
 
     /**
      * <code>thenComparing</code>
-     * <p>The comparing method.</p>
+     * <p>The then comparing method.</p>
      * @param other {@link io.github.nichetoolkit.rest.actuator.ComparatorActuator} <p>The other parameter is <code>ComparatorActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.actuator.ComparatorActuator} <p>The comparing return object is <code>ComparatorActuator</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.actuator.ComparatorActuator} <p>The then comparing return object is <code>ComparatorActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -61,11 +61,11 @@ public interface ComparatorActuator<T> extends Comparator<T> {
 
     /**
      * <code>thenComparing</code>
-     * <p>The comparing method.</p>
+     * <p>The then comparing method.</p>
      * @param <U>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param keyExtractor  {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The key extractor parameter is <code>FunctionActuator</code> type.</p>
      * @param keyComparator {@link io.github.nichetoolkit.rest.actuator.ComparatorActuator} <p>The key comparator parameter is <code>ComparatorActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.actuator.ComparatorActuator} <p>The comparing return object is <code>ComparatorActuator</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.actuator.ComparatorActuator} <p>The then comparing return object is <code>ComparatorActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      * @see io.github.nichetoolkit.rest.RestException
@@ -79,12 +79,12 @@ public interface ComparatorActuator<T> extends Comparator<T> {
 
     /**
      * <code>comparing</code>
-     * <p>The method.</p>
+     * <p>The comparing method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <U>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param keyExtractor  {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The key extractor parameter is <code>FunctionActuator</code> type.</p>
      * @param keyComparator {@link io.github.nichetoolkit.rest.actuator.ComparatorActuator} <p>The key comparator parameter is <code>ComparatorActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.actuator.ComparatorActuator} <p>The return object is <code>ComparatorActuator</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.actuator.ComparatorActuator} <p>The comparing return object is <code>ComparatorActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      * @see io.github.nichetoolkit.rest.RestException

@@ -6,7 +6,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * <code>IdentityWorker</code>
- * <p>The type identity worker interface.</p>
+ * <p>The identity worker interface.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
@@ -20,17 +20,17 @@ public interface IdentityWorker {
 
     /**
      * <code>generate</code>
-     * <p>The method.</p>
-     * @return {@link java.lang.Long} <p>The return object is <code>Long</code> type.</p>
+     * <p>The generate method.</p>
+     * @return {@link java.lang.Long} <p>The generate return object is <code>Long</code> type.</p>
      * @see java.lang.Long
      */
     Long generate();
 
     /**
      * <code>get</code>
-     * <p>The method.</p>
+     * <p>The get method.</p>
      * @param workerType {@link io.github.nichetoolkit.rest.identity.worker.WorkerType} <p>The worker type parameter is <code>WorkerType</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.identity.worker.IdentityWorker} <p>The return object is <code>IdentityWorker</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.identity.worker.IdentityWorker} <p>The get return object is <code>IdentityWorker</code> type.</p>
      * @see io.github.nichetoolkit.rest.identity.worker.WorkerType
      */
     static IdentityWorker get(WorkerType workerType) {
@@ -39,8 +39,8 @@ public interface IdentityWorker {
 
     /**
      * <code>get</code>
-     * <p>The method.</p>
-     * @return {@link io.github.nichetoolkit.rest.identity.worker.IdentityWorker} <p>The return object is <code>IdentityWorker</code> type.</p>
+     * <p>The get method.</p>
+     * @return {@link io.github.nichetoolkit.rest.identity.worker.IdentityWorker} <p>The get return object is <code>IdentityWorker</code> type.</p>
      */
     static IdentityWorker get() {
         if (IDENTITY_WORKER_MAP.containsKey(WorkerType.BASE_WORKER)) {
@@ -52,9 +52,9 @@ public interface IdentityWorker {
 
     /**
      * <code>get</code>
-     * <p>The method.</p>
+     * <p>The get method.</p>
      * @param offset {@link java.lang.Long} <p>The offset parameter is <code>Long</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.identity.worker.IdentityWorker} <p>The return object is <code>IdentityWorker</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.identity.worker.IdentityWorker} <p>The get return object is <code>IdentityWorker</code> type.</p>
      * @see java.lang.Long
      */
     static IdentityWorker get(Long offset) {
@@ -67,10 +67,10 @@ public interface IdentityWorker {
 
     /**
      * <code>get</code>
-     * <p>The method.</p>
+     * <p>The get method.</p>
      * @param workerId {@link java.lang.Long} <p>The worker id parameter is <code>Long</code> type.</p>
      * @param centerId {@link java.lang.Long} <p>The center id parameter is <code>Long</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.identity.worker.IdentityWorker} <p>The return object is <code>IdentityWorker</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.identity.worker.IdentityWorker} <p>The get return object is <code>IdentityWorker</code> type.</p>
      * @see java.lang.Long
      */
     static IdentityWorker get(Long workerId, Long centerId) {
@@ -83,11 +83,11 @@ public interface IdentityWorker {
 
     /**
      * <code>get</code>
-     * <p>The method.</p>
+     * <p>The get method.</p>
      * @param workerId {@link java.lang.Long} <p>The worker id parameter is <code>Long</code> type.</p>
      * @param centerId {@link java.lang.Long} <p>The center id parameter is <code>Long</code> type.</p>
      * @param sequence {@link java.lang.Long} <p>The sequence parameter is <code>Long</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.identity.worker.IdentityWorker} <p>The return object is <code>IdentityWorker</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.identity.worker.IdentityWorker} <p>The get return object is <code>IdentityWorker</code> type.</p>
      * @see java.lang.Long
      */
     static IdentityWorker get(Long workerId, Long centerId, Long sequence) {

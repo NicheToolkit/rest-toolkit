@@ -6,7 +6,7 @@ import java.lang.annotation.*;
 
 /**
  * <code>StereoString</code>
- * <p>The type stereo string interface.</p>
+ * <p>The stereo string interface.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.lang.annotation.Annotation
  * @see java.lang.annotation.Target
@@ -22,8 +22,8 @@ import java.lang.annotation.*;
 public @interface StereoString {
     /**
      * <code>value</code>
-     * <p>The method.</p>
-     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
+     * <p>The value method.</p>
+     * @return {@link java.lang.String} <p>The value return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     String value() default "";

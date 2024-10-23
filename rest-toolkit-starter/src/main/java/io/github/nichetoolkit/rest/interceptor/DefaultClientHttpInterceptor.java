@@ -26,7 +26,7 @@ import java.util.Map;
 
 /**
  * <code>DefaultClientHttpInterceptor</code>
- * <p>The type default client http interceptor class.</p>
+ * <p>The default client http interceptor class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see org.springframework.http.client.ClientHttpRequestInterceptor
  * @see lombok.extern.slf4j.Slf4j

@@ -7,7 +7,7 @@ import io.github.nichetoolkit.rest.RestStatus;
 
 /**
  * <code>JsonParseException</code>
- * <p>The type json parse exception class.</p>
+ * <p>The json parse exception class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestErrorException
  * @since Jdk1.8

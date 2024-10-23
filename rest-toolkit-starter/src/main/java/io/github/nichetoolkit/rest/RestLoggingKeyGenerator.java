@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * <code>RestLoggingKeyGenerator</code>
- * <p>The type rest logging key generator class.</p>
+ * <p>The rest logging key generator class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestLoggingKeyAdvice
  * @see io.github.nichetoolkit.rest.RestAccessValueAdvice

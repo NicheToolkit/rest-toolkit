@@ -10,7 +10,7 @@ import java.util.Objects;
 
 /**
  * <code>EnumPack</code>
- * <p>The type enum pack class.</p>
+ * <p>The enum pack class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.pack.ViewPack
  * @see lombok.Getter
@@ -79,9 +79,9 @@ public class EnumPack extends ViewPack {
 
     /**
      * <code>fromValue</code>
-     * <p>The value method.</p>
+     * <p>The from value method.</p>
      * @param entry {@link io.github.nichetoolkit.rest.RestValue} <p>The entry parameter is <code>RestValue</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.pack.EnumPack} <p>The value return object is <code>EnumPack</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.pack.EnumPack} <p>The from value return object is <code>EnumPack</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestValue
      */
     public static EnumPack fromValue(RestValue<?, ?> entry) {
@@ -90,9 +90,9 @@ public class EnumPack extends ViewPack {
 
     /**
      * <code>fromEnum</code>
-     * <p>The enum method.</p>
+     * <p>The from enum method.</p>
      * @param entry {@link java.lang.Enum} <p>The entry parameter is <code>Enum</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.pack.EnumPack} <p>The enum return object is <code>EnumPack</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.pack.EnumPack} <p>The from enum return object is <code>EnumPack</code> type.</p>
      * @see java.lang.Enum
      */
     public static EnumPack fromEnum(Enum<?> entry) {

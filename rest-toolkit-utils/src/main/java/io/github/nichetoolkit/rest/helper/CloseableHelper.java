@@ -8,7 +8,7 @@ import java.io.IOException;
 
 /**
  * <code>CloseableHelper</code>
- * <p>The type closeable helper class.</p>
+ * <p>The closeable helper class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
  * @since Jdk1.8
@@ -18,7 +18,7 @@ public class CloseableHelper {
 
     /**
      * <code>close</code>
-     * <p>The method.</p>
+     * <p>The close method.</p>
      * @param close {@link java.io.Closeable} <p>The close parameter is <code>Closeable</code> type.</p>
      * @see java.io.Closeable
      */
@@ -32,7 +32,7 @@ public class CloseableHelper {
 
     /**
      * <code>close</code>
-     * <p>The method.</p>
+     * <p>The close method.</p>
      * @param closeable {@link java.io.Closeable} <p>The closeable parameter is <code>Closeable</code> type.</p>
      * @see java.io.Closeable
      */
@@ -47,7 +47,7 @@ public class CloseableHelper {
 
     /**
      * <code>interrupt</code>
-     * <p>The method.</p>
+     * <p>The interrupt method.</p>
      * @param threads {@link java.lang.Thread} <p>The threads parameter is <code>Thread</code> type.</p>
      * @see java.lang.Thread
      */

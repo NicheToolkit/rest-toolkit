@@ -6,7 +6,7 @@ import io.github.nichetoolkit.rest.error.natives.DataErrorException;
 
 /**
  * <code>DataCreateException</code>
- * <p>The type data create exception class.</p>
+ * <p>The data create exception class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.error.natives.DataErrorException
  * @since Jdk1.8

@@ -15,7 +15,7 @@ import java.nio.charset.StandardCharsets;
 
 /**
  * <code>RsaWorkerTest</code>
- * <p>The type rsa worker test class.</p>
+ * <p>The rsa worker test class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
  * @see org.springframework.boot.test.context.SpringBootTest
@@ -36,7 +36,7 @@ class RsaWorkerTest {
 
     /**
      * <code>rsaKey</code>
-     * <p>The key method.</p>
+     * <p>The rsa key method.</p>
      * @see org.junit.jupiter.api.Test
      */
     @Test
@@ -48,7 +48,7 @@ class RsaWorkerTest {
 
     /**
      * <code>test</code>
-     * <p>The method.</p>
+     * <p>The test method.</p>
      * @see org.junit.jupiter.api.Test
      */
     @Test

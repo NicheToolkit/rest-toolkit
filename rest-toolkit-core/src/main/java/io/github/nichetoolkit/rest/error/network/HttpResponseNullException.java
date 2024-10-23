@@ -5,7 +5,7 @@ import io.github.nichetoolkit.rest.RestStatus;
 
 /**
  * <code>HttpResponseNullException</code>
- * <p>The type http response null exception class.</p>
+ * <p>The http response null exception class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.error.network.HttpErrorException
  * @since Jdk1.8

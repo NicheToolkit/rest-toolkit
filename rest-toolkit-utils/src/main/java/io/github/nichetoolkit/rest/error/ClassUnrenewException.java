@@ -5,7 +5,7 @@ import io.github.nichetoolkit.rest.error.natives.ClassErrorException;
 
 /**
  * <code>ClassUnrenewException</code>
- * <p>The type class unrenew exception class.</p>
+ * <p>The class unrenew exception class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.error.natives.ClassErrorException
  * @since Jdk1.8

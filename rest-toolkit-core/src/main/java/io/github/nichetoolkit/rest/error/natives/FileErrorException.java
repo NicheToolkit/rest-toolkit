@@ -7,7 +7,7 @@ import io.github.nichetoolkit.rest.RestStatus;
 
 /**
  * <code>FileErrorException</code>
- * <p>The type file error exception class.</p>
+ * <p>The file error exception class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestErrorException
  * @since Jdk1.8

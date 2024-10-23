@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * <code>ObjectMapperHolder</code>
- * <p>The type object mapper holder class.</p>
+ * <p>The object mapper holder class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
  * @since Jdk1.8
@@ -43,8 +43,8 @@ public class ObjectMapperHolder {
 
     /**
      * <code>objectMapper</code>
-     * <p>The mapper method.</p>
-     * @return {@link com.fasterxml.jackson.databind.ObjectMapper} <p>The mapper return object is <code>ObjectMapper</code> type.</p>
+     * <p>The object mapper method.</p>
+     * @return {@link com.fasterxml.jackson.databind.ObjectMapper} <p>The object mapper return object is <code>ObjectMapper</code> type.</p>
      * @see com.fasterxml.jackson.databind.ObjectMapper
      */
     public static ObjectMapper objectMapper() {

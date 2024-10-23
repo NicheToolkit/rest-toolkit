@@ -10,7 +10,7 @@ import java.util.Objects;
 
 /**
  * <code>ViewPack</code>
- * <p>The type view pack class.</p>
+ * <p>The view pack class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.Getter
  * @see lombok.Setter
@@ -59,9 +59,9 @@ public class ViewPack {
 
     /**
      * <code>nameKey</code>
-     * <p>The key method.</p>
+     * <p>The name key method.</p>
      * @param entry {@link io.github.nichetoolkit.rest.RestValue} <p>The entry parameter is <code>RestValue</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.pack.ViewPack} <p>The key return object is <code>ViewPack</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.pack.ViewPack} <p>The name key return object is <code>ViewPack</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestValue
      */
     public static ViewPack nameKey(RestValue<?,?> entry) {
@@ -70,9 +70,9 @@ public class ViewPack {
 
     /**
      * <code>nameValue</code>
-     * <p>The value method.</p>
+     * <p>The name value method.</p>
      * @param entry {@link io.github.nichetoolkit.rest.RestValue} <p>The entry parameter is <code>RestValue</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.pack.ViewPack} <p>The value return object is <code>ViewPack</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.pack.ViewPack} <p>The name value return object is <code>ViewPack</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestValue
      */
     public static ViewPack nameValue(RestValue<?,?> entry) {
@@ -81,9 +81,9 @@ public class ViewPack {
 
     /**
      * <code>keyName</code>
-     * <p>The name method.</p>
+     * <p>The key name method.</p>
      * @param entry {@link io.github.nichetoolkit.rest.RestValue} <p>The entry parameter is <code>RestValue</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.pack.ViewPack} <p>The name return object is <code>ViewPack</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.pack.ViewPack} <p>The key name return object is <code>ViewPack</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestValue
      */
     public static ViewPack keyName(RestValue<?,?> entry) {
@@ -92,9 +92,9 @@ public class ViewPack {
 
     /**
      * <code>keyValue</code>
-     * <p>The value method.</p>
+     * <p>The key value method.</p>
      * @param entry {@link io.github.nichetoolkit.rest.RestValue} <p>The entry parameter is <code>RestValue</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.pack.ViewPack} <p>The value return object is <code>ViewPack</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.pack.ViewPack} <p>The key value return object is <code>ViewPack</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestValue
      */
     public static ViewPack keyValue(RestValue<?,?> entry) {
@@ -103,9 +103,9 @@ public class ViewPack {
 
     /**
      * <code>valueName</code>
-     * <p>The name method.</p>
+     * <p>The value name method.</p>
      * @param entry {@link io.github.nichetoolkit.rest.RestValue} <p>The entry parameter is <code>RestValue</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.pack.ViewPack} <p>The name return object is <code>ViewPack</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.pack.ViewPack} <p>The value name return object is <code>ViewPack</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestValue
      */
     public static ViewPack valueName(RestValue<?,?> entry) {
@@ -114,9 +114,9 @@ public class ViewPack {
 
     /**
      * <code>valueKey</code>
-     * <p>The key method.</p>
+     * <p>The value key method.</p>
      * @param entry {@link io.github.nichetoolkit.rest.RestValue} <p>The entry parameter is <code>RestValue</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.pack.ViewPack} <p>The key return object is <code>ViewPack</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.pack.ViewPack} <p>The value key return object is <code>ViewPack</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestValue
      */
     public static ViewPack valueKey(RestValue<?,?> entry) {

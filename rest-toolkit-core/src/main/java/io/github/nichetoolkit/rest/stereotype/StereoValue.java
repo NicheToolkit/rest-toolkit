@@ -7,7 +7,7 @@ import java.lang.annotation.*;
 
 /**
  * <code>StereoValue</code>
- * <p>The type stereo value interface.</p>
+ * <p>The stereo value interface.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.lang.annotation.Annotation
  * @see java.lang.annotation.Target
@@ -26,8 +26,8 @@ public @interface StereoValue {
 
     /**
      * <code>name</code>
-     * <p>The method.</p>
-     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
+     * <p>The name method.</p>
+     * @return {@link java.lang.String} <p>The name return object is <code>String</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.core.annotation.AliasFor
      */
@@ -39,8 +39,8 @@ public @interface StereoValue {
 
     /**
      * <code>ordinal</code>
-     * <p>The method.</p>
-     * @return int <p>The return object is <code>int</code> type.</p>
+     * <p>The ordinal method.</p>
+     * @return int <p>The ordinal return object is <code>int</code> type.</p>
      * @see org.springframework.core.annotation.AliasFor
      */
     @AliasFor(
@@ -51,16 +51,16 @@ public @interface StereoValue {
 
     /**
      * <code>key</code>
-     * <p>The method.</p>
-     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
+     * <p>The key method.</p>
+     * @return {@link java.lang.String} <p>The key return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     String key() default "";
 
     /**
      * <code>value</code>
-     * <p>The method.</p>
-     * @return long <p>The return object is <code>long</code> type.</p>
+     * <p>The value method.</p>
+     * @return long <p>The value return object is <code>long</code> type.</p>
      */
     long value() default 0;
 }

@@ -10,7 +10,7 @@ import java.util.Map;
 
 /**
  * <code>RestRequestInterceptHolder</code>
- * <p>The type rest request intercept holder class.</p>
+ * <p>The rest request intercept holder class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
@@ -18,9 +18,9 @@ public class RestRequestInterceptHolder {
 
     /**
      * <code>getRequestParam</code>
-     * <p>The request param getter method.</p>
+     * <p>The get request param getter method.</p>
      * @param request {@link javax.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
-     * @return {@link java.lang.String} <p>The request param return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The get request param return object is <code>String</code> type.</p>
      * @see javax.servlet.http.HttpServletRequest
      * @see java.lang.String
      */
@@ -35,9 +35,9 @@ public class RestRequestInterceptHolder {
 
     /**
      * <code>getRequestBody</code>
-     * <p>The request body getter method.</p>
+     * <p>The get request body getter method.</p>
      * @param request {@link javax.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
-     * @return {@link java.lang.String} <p>The request body return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The get request body return object is <code>String</code> type.</p>
      * @throws IOException {@link java.io.IOException} <p>The io exception is <code>IOException</code> type.</p>
      * @see javax.servlet.http.HttpServletRequest
      * @see java.lang.String

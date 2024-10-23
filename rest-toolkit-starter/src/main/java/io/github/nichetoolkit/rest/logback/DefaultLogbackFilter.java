@@ -21,7 +21,7 @@ import java.io.IOException;
 
 /**
  * <code>DefaultLogbackFilter</code>
- * <p>The type default logback filter class.</p>
+ * <p>The default logback filter class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see org.springframework.web.filter.OncePerRequestFilter
  * @see lombok.extern.slf4j.Slf4j
@@ -107,9 +107,9 @@ public class DefaultLogbackFilter extends OncePerRequestFilter {
 
     /**
      * <code>getRequestId</code>
-     * <p>The request id getter method.</p>
+     * <p>The get request id getter method.</p>
      * @param httpRequest {@link io.github.nichetoolkit.rest.RestHttpRequest} <p>The http request parameter is <code>RestHttpRequest</code> type.</p>
-     * @return {@link java.lang.String} <p>The request id return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The get request id return object is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestHttpRequest
      * @see java.lang.String
      */

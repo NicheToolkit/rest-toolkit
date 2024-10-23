@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * <code>RestRadixProperties</code>
- * <p>The type rest radix properties class.</p>
+ * <p>The rest radix properties class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.Getter
  * @see lombok.Setter
@@ -66,8 +66,8 @@ public class RestRadixProperties {
 
     /**
      * <code>toSupplyChar</code>
-     * <p>The supply char method.</p>
-     * @return char <p>The supply char return object is <code>char</code> type.</p>
+     * <p>The to supply char method.</p>
+     * @return char <p>The to supply char return object is <code>char</code> type.</p>
      */
     public char toSupplyChar() {
         if (GeneralUtils.isNotEmpty(this.supply)) {
@@ -78,8 +78,8 @@ public class RestRadixProperties {
 
     /**
      * <code>toDigitsChar</code>
-     * <p>The digits char method.</p>
-     * @return char <p>The digits char return object is <code>char</code> type.</p>
+     * <p>The to digits char method.</p>
+     * @return char <p>The to digits char return object is <code>char</code> type.</p>
      */
     public char[] toDigitsChar() {
         if (GeneralUtils.isNotEmpty(this.digits)) {

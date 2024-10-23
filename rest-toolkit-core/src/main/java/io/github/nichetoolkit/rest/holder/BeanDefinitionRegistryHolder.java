@@ -9,7 +9,7 @@ import org.springframework.lang.NonNull;
 
 /**
  * <code>BeanDefinitionRegistryHolder</code>
- * <p>The type bean definition registry holder class.</p>
+ * <p>The bean definition registry holder class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
  * @since Jdk1.8
@@ -26,7 +26,7 @@ public class BeanDefinitionRegistryHolder {
 
     /**
      * <code>initBeanDefinitionRegistry</code>
-     * <p>The bean definition registry method.</p>
+     * <p>The init bean definition registry method.</p>
      * @param beanDefinitionRegistry {@link org.springframework.beans.factory.support.BeanDefinitionRegistry} <p>The bean definition registry parameter is <code>BeanDefinitionRegistry</code> type.</p>
      * @see org.springframework.beans.factory.support.BeanDefinitionRegistry
      * @see org.springframework.lang.NonNull
@@ -38,8 +38,8 @@ public class BeanDefinitionRegistryHolder {
 
     /**
      * <code>getBeanDefinitionRegistry</code>
-     * <p>The bean definition registry getter method.</p>
-     * @return {@link org.springframework.beans.factory.support.BeanDefinitionRegistry} <p>The bean definition registry return object is <code>BeanDefinitionRegistry</code> type.</p>
+     * <p>The get bean definition registry getter method.</p>
+     * @return {@link org.springframework.beans.factory.support.BeanDefinitionRegistry} <p>The get bean definition registry return object is <code>BeanDefinitionRegistry</code> type.</p>
      * @see org.springframework.beans.factory.support.BeanDefinitionRegistry
      * @see org.springframework.lang.NonNull
      */
@@ -51,11 +51,11 @@ public class BeanDefinitionRegistryHolder {
 
     /**
      * <code>registerGenericBeanDefinition</code>
-     * <p>The generic bean definition method.</p>
+     * <p>The register generic bean definition method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param beanName {@link java.lang.String} <p>The bean name parameter is <code>String</code> type.</p>
      * @param beanType {@link java.lang.Class} <p>The bean type parameter is <code>Class</code> type.</p>
-     * @return T <p>The generic bean definition return object is <code>T</code> type.</p>
+     * @return T <p>The register generic bean definition return object is <code>T</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Class
      */
@@ -65,12 +65,12 @@ public class BeanDefinitionRegistryHolder {
 
     /**
      * <code>registerGenericBeanDefinition</code>
-     * <p>The generic bean definition method.</p>
+     * <p>The register generic bean definition method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param beanName {@link java.lang.String} <p>The bean name parameter is <code>String</code> type.</p>
      * @param beanType {@link java.lang.Class} <p>The bean type parameter is <code>Class</code> type.</p>
      * @param scope    {@link java.lang.String} <p>The scope parameter is <code>String</code> type.</p>
-     * @return T <p>The generic bean definition return object is <code>T</code> type.</p>
+     * @return T <p>The register generic bean definition return object is <code>T</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Class
      */
@@ -83,11 +83,11 @@ public class BeanDefinitionRegistryHolder {
 
     /**
      * <code>registerRootBeanDefinition</code>
-     * <p>The root bean definition method.</p>
+     * <p>The register root bean definition method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param beanName {@link java.lang.String} <p>The bean name parameter is <code>String</code> type.</p>
      * @param beanType {@link java.lang.Class} <p>The bean type parameter is <code>Class</code> type.</p>
-     * @return T <p>The root bean definition return object is <code>T</code> type.</p>
+     * @return T <p>The register root bean definition return object is <code>T</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Class
      */
@@ -97,12 +97,12 @@ public class BeanDefinitionRegistryHolder {
 
     /**
      * <code>registerRootBeanDefinition</code>
-     * <p>The root bean definition method.</p>
+     * <p>The register root bean definition method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param beanName {@link java.lang.String} <p>The bean name parameter is <code>String</code> type.</p>
      * @param beanType {@link java.lang.Class} <p>The bean type parameter is <code>Class</code> type.</p>
      * @param scope    {@link java.lang.String} <p>The scope parameter is <code>String</code> type.</p>
-     * @return T <p>The root bean definition return object is <code>T</code> type.</p>
+     * @return T <p>The register root bean definition return object is <code>T</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Class
      */
@@ -115,10 +115,10 @@ public class BeanDefinitionRegistryHolder {
 
     /**
      * <code>registerRootBeanDefinition</code>
-     * <p>The root bean definition method.</p>
+     * <p>The register root bean definition method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param beanType {@link java.lang.Class} <p>The bean type parameter is <code>Class</code> type.</p>
-     * @return T <p>The root bean definition return object is <code>T</code> type.</p>
+     * @return T <p>The register root bean definition return object is <code>T</code> type.</p>
      * @see java.lang.Class
      */
     public static <T> T registerRootBeanDefinition(Class<T> beanType) {
@@ -127,11 +127,11 @@ public class BeanDefinitionRegistryHolder {
 
     /**
      * <code>registerRootBeanDefinition</code>
-     * <p>The root bean definition method.</p>
+     * <p>The register root bean definition method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param beanType {@link java.lang.Class} <p>The bean type parameter is <code>Class</code> type.</p>
      * @param scope    {@link java.lang.String} <p>The scope parameter is <code>String</code> type.</p>
-     * @return T <p>The root bean definition return object is <code>T</code> type.</p>
+     * @return T <p>The register root bean definition return object is <code>T</code> type.</p>
      * @see java.lang.Class
      * @see java.lang.String
      */
@@ -144,10 +144,10 @@ public class BeanDefinitionRegistryHolder {
 
     /**
      * <code>registerGenericBeanDefinition</code>
-     * <p>The generic bean definition method.</p>
+     * <p>The register generic bean definition method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param beanType {@link java.lang.Class} <p>The bean type parameter is <code>Class</code> type.</p>
-     * @return T <p>The generic bean definition return object is <code>T</code> type.</p>
+     * @return T <p>The register generic bean definition return object is <code>T</code> type.</p>
      * @see java.lang.Class
      */
     public static <T> T registerGenericBeanDefinition(Class<T> beanType) {
@@ -156,11 +156,11 @@ public class BeanDefinitionRegistryHolder {
 
     /**
      * <code>registerGenericBeanDefinition</code>
-     * <p>The generic bean definition method.</p>
+     * <p>The register generic bean definition method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param beanType {@link java.lang.Class} <p>The bean type parameter is <code>Class</code> type.</p>
      * @param scope    {@link java.lang.String} <p>The scope parameter is <code>String</code> type.</p>
-     * @return T <p>The generic bean definition return object is <code>T</code> type.</p>
+     * @return T <p>The register generic bean definition return object is <code>T</code> type.</p>
      * @see java.lang.Class
      * @see java.lang.String
      */

@@ -14,7 +14,7 @@ import java.util.List;
 
 /**
  * <code>DefaultRegistryPostProcessor</code>
- * <p>The type default registry post processor class.</p>
+ * <p>The default registry post processor class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see org.springframework.beans.factory.support.BeanDefinitionRegistryPostProcessor
  * @see lombok.extern.slf4j.Slf4j
@@ -36,7 +36,7 @@ public class DefaultRegistryPostProcessor implements BeanDefinitionRegistryPostP
 
     /**
      * <code>intendBeanRegistryAndAutowireProperties</code>
-     * <p>The bean registry and autowire properties method.</p>
+     * <p>The intend bean registry and autowire properties method.</p>
      * @throws BeansException {@link org.springframework.beans.BeansException} <p>The beans exception is <code>BeansException</code> type.</p>
      * @see java.lang.SuppressWarnings
      * @see org.springframework.beans.BeansException

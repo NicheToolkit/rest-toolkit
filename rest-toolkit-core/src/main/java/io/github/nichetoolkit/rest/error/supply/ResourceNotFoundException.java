@@ -7,7 +7,7 @@ import io.github.nichetoolkit.rest.RestStatus;
 
 /**
  * <code>ResourceNotFoundException</code>
- * <p>The type resource not found exception class.</p>
+ * <p>The resource not found exception class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestErrorException
  * @since Jdk1.8

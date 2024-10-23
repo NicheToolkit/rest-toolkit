@@ -7,7 +7,7 @@ import java.security.PrivilegedAction;
 
 /**
  * <code>DefaultTripwire</code>
- * <p>The type default tripwire class.</p>
+ * <p>The default tripwire class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
  * @since Jdk1.8
@@ -36,7 +36,7 @@ final class DefaultTripwire {
 
     /**
      * <code>trip</code>
-     * <p>The method.</p>
+     * <p>The trip method.</p>
      * @param trippingClass {@link java.lang.Class} <p>The tripping class parameter is <code>Class</code> type.</p>
      * @param msg           {@link java.lang.String} <p>The msg parameter is <code>String</code> type.</p>
      * @see java.lang.Class

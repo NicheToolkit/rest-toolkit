@@ -5,7 +5,7 @@ import java.security.SecureRandom;
 
 /**
  * <code>UtilConstants</code>
- * <p>The type util constants interface.</p>
+ * <p>The util constants interface.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */

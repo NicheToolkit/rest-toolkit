@@ -12,7 +12,7 @@ import java.util.*;
 
 /**
  * <code>BeanUtils</code>
- * <p>The type bean utils class.</p>
+ * <p>The bean utils class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
  * @since Jdk1.8
@@ -22,9 +22,9 @@ public class BeanUtils {
 
     /**
      * <code>beanOfName</code>
-     * <p>The of name method.</p>
+     * <p>The bean of name method.</p>
      * @param beanName {@link java.lang.String} <p>The bean name parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.Object} <p>The of name return object is <code>Object</code> type.</p>
+     * @return {@link java.lang.Object} <p>The bean of name return object is <code>Object</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Object
      */
@@ -39,10 +39,10 @@ public class BeanUtils {
 
     /**
      * <code>beanOfType</code>
-     * <p>The of type method.</p>
+     * <p>The bean of type method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param beanType {@link java.lang.Class} <p>The bean type parameter is <code>Class</code> type.</p>
-     * @return T <p>The of type return object is <code>T</code> type.</p>
+     * @return T <p>The bean of type return object is <code>T</code> type.</p>
      * @see java.lang.Class
      */
     public static <T> T beanOfType(Class<T> beanType) {
@@ -56,11 +56,11 @@ public class BeanUtils {
 
     /**
      * <code>beanOfType</code>
-     * <p>The of type method.</p>
+     * <p>The bean of type method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param beanName {@link java.lang.String} <p>The bean name parameter is <code>String</code> type.</p>
      * @param beanType {@link java.lang.Class} <p>The bean type parameter is <code>Class</code> type.</p>
-     * @return T <p>The of type return object is <code>T</code> type.</p>
+     * @return T <p>The bean of type return object is <code>T</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Class
      */
@@ -75,10 +75,10 @@ public class BeanUtils {
 
     /**
      * <code>beansOfType</code>
-     * <p>The of type method.</p>
+     * <p>The beans of type method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param beanType {@link java.lang.Class} <p>The bean type parameter is <code>Class</code> type.</p>
-     * @return {@link java.util.List} <p>The of type return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The beans of type return object is <code>List</code> type.</p>
      * @see java.lang.Class
      * @see java.util.List
      */
@@ -93,10 +93,10 @@ public class BeanUtils {
 
     /**
      * <code>beanMapOfType</code>
-     * <p>The map of type method.</p>
+     * <p>The bean map of type method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param beanType {@link java.lang.Class} <p>The bean type parameter is <code>Class</code> type.</p>
-     * @return {@link java.util.Map} <p>The map of type return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The bean map of type return object is <code>Map</code> type.</p>
      * @see java.lang.Class
      * @see java.util.Map
      */
@@ -111,9 +111,9 @@ public class BeanUtils {
 
     /**
      * <code>beansOfAnnotation</code>
-     * <p>The of annotation method.</p>
+     * <p>The beans of annotation method.</p>
      * @param annotationType {@link java.lang.Class} <p>The annotation type parameter is <code>Class</code> type.</p>
-     * @return {@link java.util.List} <p>The of annotation return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The beans of annotation return object is <code>List</code> type.</p>
      * @see java.lang.Class
      * @see java.util.List
      */
@@ -128,9 +128,9 @@ public class BeanUtils {
 
     /**
      * <code>beanMapOfAnnotation</code>
-     * <p>The map of annotation method.</p>
+     * <p>The bean map of annotation method.</p>
      * @param annotationType {@link java.lang.Class} <p>The annotation type parameter is <code>Class</code> type.</p>
-     * @return {@link java.util.Map} <p>The map of annotation return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The bean map of annotation return object is <code>Map</code> type.</p>
      * @see java.lang.Class
      * @see java.util.Map
      */
@@ -145,12 +145,12 @@ public class BeanUtils {
 
     /**
      * <code>copyNullProperties</code>
-     * <p>The null properties method.</p>
+     * <p>The copy null properties method.</p>
      * @param <S>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param source S <p>The source parameter is <code>S</code> type.</p>
      * @param target T <p>The target parameter is <code>T</code> type.</p>
-     * @return T <p>The null properties return object is <code>T</code> type.</p>
+     * @return T <p>The copy null properties return object is <code>T</code> type.</p>
      */
     public static <S,T> T copyNullProperties(S source, T target) {
         org.springframework.beans.BeanUtils.copyProperties(source, target);
@@ -159,10 +159,10 @@ public class BeanUtils {
 
     /**
      * <code>ignoreProperties</code>
-     * <p>The properties method.</p>
+     * <p>The ignore properties method.</p>
      * @param source           {@link java.lang.Object} <p>The source parameter is <code>Object</code> type.</p>
      * @param ignoreProperties {@link java.lang.String} <p>The ignore properties parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>The properties return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The ignore properties return object is <code>String</code> type.</p>
      * @see java.lang.Object
      * @see java.lang.String
      */
@@ -188,12 +188,12 @@ public class BeanUtils {
 
     /**
      * <code>copyNonnullProperties</code>
-     * <p>The nonnull properties method.</p>
+     * <p>The copy nonnull properties method.</p>
      * @param <S>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param source S <p>The source parameter is <code>S</code> type.</p>
      * @param target T <p>The target parameter is <code>T</code> type.</p>
-     * @return T <p>The nonnull properties return object is <code>T</code> type.</p>
+     * @return T <p>The copy nonnull properties return object is <code>T</code> type.</p>
      */
     public static <S,T> T copyNonnullProperties(S source, T target) {
         org.springframework.beans.BeanUtils.copyProperties(source, target,ignoreProperties(source));
@@ -202,13 +202,13 @@ public class BeanUtils {
 
     /**
      * <code>copyNonnullProperties</code>
-     * <p>The nonnull properties method.</p>
+     * <p>The copy nonnull properties method.</p>
      * @param <S>              {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T>              {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param source           S <p>The source parameter is <code>S</code> type.</p>
      * @param target           T <p>The target parameter is <code>T</code> type.</p>
      * @param ignoreProperties {@link java.lang.String} <p>The ignore properties parameter is <code>String</code> type.</p>
-     * @return T <p>The nonnull properties return object is <code>T</code> type.</p>
+     * @return T <p>The copy nonnull properties return object is <code>T</code> type.</p>
      * @see java.lang.String
      */
     public static <S,T> T copyNonnullProperties(S source, T target, String... ignoreProperties) {
@@ -218,14 +218,14 @@ public class BeanUtils {
 
     /**
      * <code>copyProperties</code>
-     * <p>The properties method.</p>
+     * <p>The copy properties method.</p>
      * @param <S>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T>      B <p>The generic parameter is <code>B</code> type.</p>
      * @param <B>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param source   S <p>The source parameter is <code>S</code> type.</p>
      * @param target   T <p>The target parameter is <code>T</code> type.</p>
      * @param editable {@link java.lang.Class} <p>The editable parameter is <code>Class</code> type.</p>
-     * @return T <p>The properties return object is <code>T</code> type.</p>
+     * @return T <p>The copy properties return object is <code>T</code> type.</p>
      * @see java.lang.Class
      */
     public static <S,T extends B,B> T copyProperties(S source, T target, Class<B> editable) {
@@ -235,13 +235,13 @@ public class BeanUtils {
 
     /**
      * <code>copyProperties</code>
-     * <p>The properties method.</p>
+     * <p>The copy properties method.</p>
      * @param <S>              {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T>              {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param source           S <p>The source parameter is <code>S</code> type.</p>
      * @param target           T <p>The target parameter is <code>T</code> type.</p>
      * @param ignoreProperties {@link java.lang.String} <p>The ignore properties parameter is <code>String</code> type.</p>
-     * @return T <p>The properties return object is <code>T</code> type.</p>
+     * @return T <p>The copy properties return object is <code>T</code> type.</p>
      * @see java.lang.String
      */
     public static <S,T> T copyProperties(S source, T target, String... ignoreProperties) {

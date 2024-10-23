@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 
 /**
  * <code>HttpResultFailException</code>
- * <p>The type http result fail exception class.</p>
+ * <p>The http result fail exception class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.error.network.HttpErrorException
  * @since Jdk1.8

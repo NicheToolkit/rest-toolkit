@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * <code>RestUsernoteService</code>
- * <p>The type rest usernote service class.</p>
+ * <p>The rest usernote service class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestUsernoteAdvice
  * @see lombok.extern.slf4j.Slf4j

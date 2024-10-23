@@ -15,7 +15,7 @@ import java.util.Map;
 
 /**
  * <code>DateHelper</code>
- * <p>The type date helper class.</p>
+ * <p>The date helper class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
  * @see java.lang.SuppressWarnings
@@ -27,9 +27,9 @@ public class DateHelper {
 
     /**
      * <code>formatDate</code>
-     * <p>The date method.</p>
+     * <p>The format date method.</p>
      * @param date {@link java.lang.Long} <p>The date parameter is <code>Long</code> type.</p>
-     * @return {@link java.lang.String} <p>The date return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The format date return object is <code>String</code> type.</p>
      * @throws ResourceNotFoundException {@link io.github.nichetoolkit.rest.error.supply.ResourceNotFoundException} <p>The resource not found exception is <code>ResourceNotFoundException</code> type.</p>
      * @see java.lang.Long
      * @see java.lang.String
@@ -41,9 +41,9 @@ public class DateHelper {
 
     /**
      * <code>formatTime</code>
-     * <p>The time method.</p>
+     * <p>The format time method.</p>
      * @param time {@link java.lang.Long} <p>The time parameter is <code>Long</code> type.</p>
-     * @return {@link java.lang.String} <p>The time return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The format time return object is <code>String</code> type.</p>
      * @throws ResourceNotFoundException {@link io.github.nichetoolkit.rest.error.supply.ResourceNotFoundException} <p>The resource not found exception is <code>ResourceNotFoundException</code> type.</p>
      * @see java.lang.Long
      * @see java.lang.String
@@ -55,9 +55,9 @@ public class DateHelper {
 
     /**
      * <code>formatDate</code>
-     * <p>The date method.</p>
+     * <p>The format date method.</p>
      * @param date {@link java.util.Date} <p>The date parameter is <code>Date</code> type.</p>
-     * @return {@link java.lang.String} <p>The date return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The format date return object is <code>String</code> type.</p>
      * @throws ResourceNotFoundException {@link io.github.nichetoolkit.rest.error.supply.ResourceNotFoundException} <p>The resource not found exception is <code>ResourceNotFoundException</code> type.</p>
      * @see java.util.Date
      * @see java.lang.String
@@ -69,9 +69,9 @@ public class DateHelper {
 
     /**
      * <code>formatTime</code>
-     * <p>The time method.</p>
+     * <p>The format time method.</p>
      * @param time {@link java.util.Date} <p>The time parameter is <code>Date</code> type.</p>
-     * @return {@link java.lang.String} <p>The time return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The format time return object is <code>String</code> type.</p>
      * @throws ResourceNotFoundException {@link io.github.nichetoolkit.rest.error.supply.ResourceNotFoundException} <p>The resource not found exception is <code>ResourceNotFoundException</code> type.</p>
      * @see java.util.Date
      * @see java.lang.String
@@ -84,10 +84,10 @@ public class DateHelper {
 
     /**
      * <code>format</code>
-     * <p>The method.</p>
+     * <p>The format method.</p>
      * @param date   {@link java.util.Date} <p>The date parameter is <code>Date</code> type.</p>
      * @param format {@link java.lang.String} <p>The format parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The format return object is <code>String</code> type.</p>
      * @throws ResourceNotFoundException {@link io.github.nichetoolkit.rest.error.supply.ResourceNotFoundException} <p>The resource not found exception is <code>ResourceNotFoundException</code> type.</p>
      * @see java.util.Date
      * @see java.lang.String
@@ -99,9 +99,9 @@ public class DateHelper {
 
     /**
      * <code>parseDate</code>
-     * <p>The date method.</p>
+     * <p>The parse date method.</p>
      * @param date {@link java.lang.String} <p>The date parameter is <code>String</code> type.</p>
-     * @return {@link java.util.Date} <p>The date return object is <code>Date</code> type.</p>
+     * @return {@link java.util.Date} <p>The parse date return object is <code>Date</code> type.</p>
      * @throws ParseErrorException       {@link io.github.nichetoolkit.rest.error.natives.ParseErrorException} <p>The parse error exception is <code>ParseErrorException</code> type.</p>
      * @throws ResourceNotFoundException {@link io.github.nichetoolkit.rest.error.supply.ResourceNotFoundException} <p>The resource not found exception is <code>ResourceNotFoundException</code> type.</p>
      * @see java.lang.String
@@ -115,9 +115,9 @@ public class DateHelper {
 
     /**
      * <code>parseDateTime</code>
-     * <p>The date time method.</p>
+     * <p>The parse date time method.</p>
      * @param datetime {@link java.lang.String} <p>The datetime parameter is <code>String</code> type.</p>
-     * @return {@link java.util.Date} <p>The date time return object is <code>Date</code> type.</p>
+     * @return {@link java.util.Date} <p>The parse date time return object is <code>Date</code> type.</p>
      * @throws ParseErrorException       {@link io.github.nichetoolkit.rest.error.natives.ParseErrorException} <p>The parse error exception is <code>ParseErrorException</code> type.</p>
      * @throws ResourceNotFoundException {@link io.github.nichetoolkit.rest.error.supply.ResourceNotFoundException} <p>The resource not found exception is <code>ResourceNotFoundException</code> type.</p>
      * @see java.lang.String
@@ -134,9 +134,9 @@ public class DateHelper {
 
     /**
      * <code>parseTime</code>
-     * <p>The time method.</p>
+     * <p>The parse time method.</p>
      * @param time {@link java.lang.String} <p>The time parameter is <code>String</code> type.</p>
-     * @return {@link java.util.Date} <p>The time return object is <code>Date</code> type.</p>
+     * @return {@link java.util.Date} <p>The parse time return object is <code>Date</code> type.</p>
      * @throws ParseErrorException       {@link io.github.nichetoolkit.rest.error.natives.ParseErrorException} <p>The parse error exception is <code>ParseErrorException</code> type.</p>
      * @throws ResourceNotFoundException {@link io.github.nichetoolkit.rest.error.supply.ResourceNotFoundException} <p>The resource not found exception is <code>ResourceNotFoundException</code> type.</p>
      * @see java.lang.String
@@ -150,10 +150,10 @@ public class DateHelper {
 
     /**
      * <code>parse</code>
-     * <p>The method.</p>
+     * <p>The parse method.</p>
      * @param datetime {@link java.lang.String} <p>The datetime parameter is <code>String</code> type.</p>
      * @param format   {@link java.lang.String} <p>The format parameter is <code>String</code> type.</p>
-     * @return {@link java.util.Date} <p>The return object is <code>Date</code> type.</p>
+     * @return {@link java.util.Date} <p>The parse return object is <code>Date</code> type.</p>
      * @throws ParseErrorException       {@link io.github.nichetoolkit.rest.error.natives.ParseErrorException} <p>The parse error exception is <code>ParseErrorException</code> type.</p>
      * @throws ResourceNotFoundException {@link io.github.nichetoolkit.rest.error.supply.ResourceNotFoundException} <p>The resource not found exception is <code>ResourceNotFoundException</code> type.</p>
      * @see java.lang.String
@@ -167,10 +167,10 @@ public class DateHelper {
 
     /**
      * <code>parseFormat</code>
-     * <p>The format method.</p>
+     * <p>The parse format method.</p>
      * @param datetime {@link java.lang.String} <p>The datetime parameter is <code>String</code> type.</p>
      * @param format   {@link java.lang.String} <p>The format parameter is <code>String</code> type.</p>
-     * @return {@link java.util.Date} <p>The format return object is <code>Date</code> type.</p>
+     * @return {@link java.util.Date} <p>The parse format return object is <code>Date</code> type.</p>
      * @throws ParseErrorException       {@link io.github.nichetoolkit.rest.error.natives.ParseErrorException} <p>The parse error exception is <code>ParseErrorException</code> type.</p>
      * @throws ResourceNotFoundException {@link io.github.nichetoolkit.rest.error.supply.ResourceNotFoundException} <p>The resource not found exception is <code>ResourceNotFoundException</code> type.</p>
      * @see java.lang.String
@@ -191,9 +191,9 @@ public class DateHelper {
 
     /**
      * <code>switchDateFormat</code>
-     * <p>The date format method.</p>
+     * <p>The switch date format method.</p>
      * @param datetime {@link java.lang.String} <p>The datetime parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>The date format return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The switch date format return object is <code>String</code> type.</p>
      * @throws ResourceNotFoundException {@link io.github.nichetoolkit.rest.error.supply.ResourceNotFoundException} <p>The resource not found exception is <code>ResourceNotFoundException</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.error.supply.ResourceNotFoundException
@@ -225,9 +225,9 @@ public class DateHelper {
 
     /**
      * <code>cacheDateFormat</code>
-     * <p>The date format method.</p>
+     * <p>The cache date format method.</p>
      * @param format {@link java.lang.String} <p>The format parameter is <code>String</code> type.</p>
-     * @return {@link java.text.DateFormat} <p>The date format return object is <code>DateFormat</code> type.</p>
+     * @return {@link java.text.DateFormat} <p>The cache date format return object is <code>DateFormat</code> type.</p>
      * @throws ResourceNotFoundException {@link io.github.nichetoolkit.rest.error.supply.ResourceNotFoundException} <p>The resource not found exception is <code>ResourceNotFoundException</code> type.</p>
      * @see java.lang.String
      * @see java.text.DateFormat

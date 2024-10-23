@@ -12,7 +12,7 @@ import java.util.Optional;
 
 /**
  * <code>DefaultError</code>
- * <p>The type default error class.</p>
+ * <p>The default error class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.lang.Error
  * @see java.io.Serializable
@@ -209,7 +209,7 @@ class DefaultError extends Error implements Serializable {
 
     /**
      * <code>Builder</code>
-     * <p>The type builder class.</p>
+     * <p>The builder class.</p>
      * @author Cyan (snow22314@outlook.com)
      * @since Jdk1.8
      */
@@ -264,9 +264,9 @@ class DefaultError extends Error implements Serializable {
 
         /**
          * <code>message</code>
-         * <p>The method.</p>
+         * <p>The message method.</p>
          * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.DefaultError.Builder} <p>The return object is <code>Builder</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.DefaultError.Builder} <p>The message return object is <code>Builder</code> type.</p>
          * @see java.lang.String
          */
         public DefaultError.Builder message(String message) {
@@ -278,9 +278,9 @@ class DefaultError extends Error implements Serializable {
 
         /**
          * <code>message</code>
-         * <p>The method.</p>
+         * <p>The message method.</p>
          * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.DefaultError.Builder} <p>The return object is <code>Builder</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.DefaultError.Builder} <p>The message return object is <code>Builder</code> type.</p>
          * @see io.github.nichetoolkit.rest.RestStatus
          */
         public DefaultError.Builder message(RestStatus status) {
@@ -290,9 +290,9 @@ class DefaultError extends Error implements Serializable {
 
         /**
          * <code>message</code>
-         * <p>The method.</p>
+         * <p>The message method.</p>
          * @param cause {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.DefaultError.Builder} <p>The return object is <code>Builder</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.DefaultError.Builder} <p>The message return object is <code>Builder</code> type.</p>
          * @see java.lang.Throwable
          */
         public DefaultError.Builder message(Throwable cause) {
@@ -302,9 +302,9 @@ class DefaultError extends Error implements Serializable {
 
         /**
          * <code>debug</code>
-         * <p>The method.</p>
+         * <p>The debug method.</p>
          * @param debug {@link java.lang.String} <p>The debug parameter is <code>String</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.DefaultError.Builder} <p>The return object is <code>Builder</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.DefaultError.Builder} <p>The debug return object is <code>Builder</code> type.</p>
          * @see java.lang.String
          */
         public DefaultError.Builder debug(String debug) {
@@ -314,9 +314,9 @@ class DefaultError extends Error implements Serializable {
 
         /**
          * <code>resource</code>
-         * <p>The method.</p>
+         * <p>The resource method.</p>
          * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.DefaultError.Builder} <p>The return object is <code>Builder</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.DefaultError.Builder} <p>The resource return object is <code>Builder</code> type.</p>
          * @see java.lang.String
          */
         public DefaultError.Builder resource(String resource) {
@@ -326,9 +326,9 @@ class DefaultError extends Error implements Serializable {
 
         /**
          * <code>add</code>
-         * <p>The method.</p>
+         * <p>The add method.</p>
          * @param issue {@link io.github.nichetoolkit.rest.RestErrorIssue} <p>The issue parameter is <code>RestErrorIssue</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.DefaultError.Builder} <p>The return object is <code>Builder</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.DefaultError.Builder} <p>The add return object is <code>Builder</code> type.</p>
          * @see io.github.nichetoolkit.rest.RestErrorIssue
          */
         public DefaultError.Builder add(RestErrorIssue issue) {
@@ -339,9 +339,9 @@ class DefaultError extends Error implements Serializable {
 
         /**
          * <code>cause</code>
-         * <p>The method.</p>
+         * <p>The cause method.</p>
          * @param cause {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.DefaultError.Builder} <p>The return object is <code>Builder</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.DefaultError.Builder} <p>The cause return object is <code>Builder</code> type.</p>
          * @see java.lang.Throwable
          */
         public DefaultError.Builder cause(Throwable cause) {
@@ -351,8 +351,8 @@ class DefaultError extends Error implements Serializable {
 
         /**
          * <code>build</code>
-         * <p>The method.</p>
-         * @return {@link io.github.nichetoolkit.rest.DefaultError} <p>The return object is <code>DefaultError</code> type.</p>
+         * <p>The build method.</p>
+         * @return {@link io.github.nichetoolkit.rest.DefaultError} <p>The build return object is <code>DefaultError</code> type.</p>
          */
         abstract DefaultError build();
     }

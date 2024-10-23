@@ -8,7 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 /**
  * <code>RestStreamTest</code>
- * <p>The type rest stream test class.</p>
+ * <p>The rest stream test class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
  * @see org.springframework.boot.test.context.SpringBootTest
@@ -21,7 +21,7 @@ class RestStreamTest {
 
     /**
      * <code>test</code>
-     * <p>The method.</p>
+     * <p>The test method.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see org.junit.jupiter.api.Test
      * @see io.github.nichetoolkit.rest.RestException

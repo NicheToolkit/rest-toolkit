@@ -16,7 +16,7 @@ import java.util.Set;
 
 /**
  * <code>ShaWorker</code>
- * <p>The type sha worker class.</p>
+ * <p>The sha worker class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
  * @since Jdk1.8
@@ -53,8 +53,8 @@ public class ShaWorker {
 
     /**
      * <code>getInstance</code>
-     * <p>The instance getter method.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.sha.ShaWorker} <p>The instance return object is <code>ShaWorker</code> type.</p>
+     * <p>The get instance getter method.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.sha.ShaWorker} <p>The get instance return object is <code>ShaWorker</code> type.</p>
      */
     public static ShaWorker getInstance() {
         return INSTANCE;
@@ -74,7 +74,7 @@ public class ShaWorker {
 
     /**
      * <code>shaWorkerInit</code>
-     * <p>The worker init method.</p>
+     * <p>The sha worker init method.</p>
      * @see javax.annotation.PostConstruct
      */
     @PostConstruct
@@ -85,9 +85,9 @@ public class ShaWorker {
 
     /**
      * <code>shaEncrypt</code>
-     * <p>The encrypt method.</p>
+     * <p>The sha encrypt method.</p>
      * @param source {@link java.lang.String} <p>The source parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>The encrypt return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The sha encrypt return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     private static String shaEncrypt(String source) {
@@ -96,10 +96,10 @@ public class ShaWorker {
 
     /**
      * <code>encrypt</code>
-     * <p>The method.</p>
+     * <p>The encrypt method.</p>
      * @param source    {@link java.lang.String} <p>The source parameter is <code>String</code> type.</p>
      * @param algorithm {@link io.github.nichetoolkit.rest.worker.sha.ShaAlgorithm} <p>The algorithm parameter is <code>ShaAlgorithm</code> type.</p>
-     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The encrypt return object is <code>String</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.worker.sha.ShaAlgorithm
      */
@@ -119,9 +119,9 @@ public class ShaWorker {
 
     /**
      * <code>encrypt</code>
-     * <p>The method.</p>
+     * <p>The encrypt method.</p>
      * @param source {@link java.lang.String} <p>The source parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The encrypt return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public String encrypt(String source) {
@@ -130,9 +130,9 @@ public class ShaWorker {
 
     /**
      * <code>encrypts</code>
-     * <p>The method.</p>
+     * <p>The encrypts method.</p>
      * @param source {@link java.lang.String} <p>The source parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The encrypts return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String encrypts(String source) {
@@ -141,10 +141,10 @@ public class ShaWorker {
 
     /**
      * <code>encrypts</code>
-     * <p>The method.</p>
+     * <p>The encrypts method.</p>
      * @param source {@link java.lang.String} <p>The source parameter is <code>String</code> type.</p>
      * @param secret {@link java.lang.String} <p>The secret parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The encrypts return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String encrypts(String source, String secret) {
@@ -156,10 +156,10 @@ public class ShaWorker {
 
     /**
      * <code>encrypts</code>
-     * <p>The method.</p>
+     * <p>The encrypts method.</p>
      * @param source {@link java.util.Map} <p>The source parameter is <code>Map</code> type.</p>
      * @param secret {@link java.lang.String} <p>The secret parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The encrypts return object is <code>String</code> type.</p>
      * @see java.util.Map
      * @see java.lang.String
      */

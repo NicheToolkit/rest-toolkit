@@ -7,7 +7,7 @@ import io.github.nichetoolkit.rest.RestErrorException;
 
 /**
  * <code>ParamErrorException</code>
- * <p>The type param error exception class.</p>
+ * <p>The param error exception class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestErrorException
  * @since Jdk1.8

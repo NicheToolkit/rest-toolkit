@@ -8,7 +8,7 @@ import java.util.Objects;
 
 /**
  * <code>DefaultStreams</code>
- * <p>The type default streams class.</p>
+ * <p>The default streams class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
@@ -30,7 +30,7 @@ public final class DefaultStreams {
 
     /**
      * <code>AbstractStreamBuilderImpl</code>
-     * <p>The type abstract stream builder class.</p>
+     * <p>The abstract stream builder class.</p>
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <S> {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The generic parameter is <code>DefaultSpliterator</code> type.</p>
      * @author Cyan (snow22314@outlook.com)
@@ -64,7 +64,7 @@ public final class DefaultStreams {
 
     /**
      * <code>StreamBuilderImpl</code>
-     * <p>The type stream builder class.</p>
+     * <p>The stream builder class.</p>
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultStreams.AbstractStreamBuilderImpl
@@ -165,7 +165,7 @@ public final class DefaultStreams {
 
     /**
      * <code>ConcatSpliterator</code>
-     * <p>The type concat spliterator class.</p>
+     * <p>The concat spliterator class.</p>
      * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T_SPLITR> {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The generic parameter is <code>DefaultSpliterator</code> type.</p>
      * @author Cyan (snow22314@outlook.com)
@@ -274,7 +274,7 @@ public final class DefaultStreams {
 
         /**
          * <code>OfRef</code>
-         * <p>The type of ref class.</p>
+         * <p>The of ref class.</p>
          * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @author Cyan (snow22314@outlook.com)
          * @since Jdk1.8
@@ -296,7 +296,7 @@ public final class DefaultStreams {
 
         /**
          * <code>OfPrimitive</code>
-         * <p>The type of primitive class.</p>
+         * <p>The of primitive class.</p>
          * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @param <T_CONS>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @param <T_SPLITR> {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator.OfPrimitive} <p>The generic parameter is <code>OfPrimitive</code> type.</p>
@@ -346,10 +346,10 @@ public final class DefaultStreams {
 
     /**
      * <code>composeWithExceptions</code>
-     * <p>The with exceptions method.</p>
+     * <p>The compose with exceptions method.</p>
      * @param a {@link java.lang.Runnable} <p>The a parameter is <code>Runnable</code> type.</p>
      * @param b {@link java.lang.Runnable} <p>The b parameter is <code>Runnable</code> type.</p>
-     * @return {@link java.lang.Runnable} <p>The with exceptions return object is <code>Runnable</code> type.</p>
+     * @return {@link java.lang.Runnable} <p>The compose with exceptions return object is <code>Runnable</code> type.</p>
      * @see java.lang.Runnable
      */
     static Runnable composeWithExceptions(Runnable a, Runnable b) {
@@ -373,10 +373,10 @@ public final class DefaultStreams {
 
     /**
      * <code>composedClose</code>
-     * <p>The close method.</p>
+     * <p>The composed close method.</p>
      * @param a {@link io.github.nichetoolkit.rest.stream.DefaultBaseStream} <p>The a parameter is <code>DefaultBaseStream</code> type.</p>
      * @param b {@link io.github.nichetoolkit.rest.stream.DefaultBaseStream} <p>The b parameter is <code>DefaultBaseStream</code> type.</p>
-     * @return {@link java.lang.Runnable} <p>The close return object is <code>Runnable</code> type.</p>
+     * @return {@link java.lang.Runnable} <p>The composed close return object is <code>Runnable</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultBaseStream
      * @see java.lang.Runnable

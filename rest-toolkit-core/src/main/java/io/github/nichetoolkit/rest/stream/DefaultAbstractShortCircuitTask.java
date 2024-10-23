@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * <code>DefaultAbstractShortCircuitTask</code>
- * <p>The type default abstract short circuit task class.</p>
+ * <p>The default abstract short circuit task class.</p>
  * @param <P_IN>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @param <P_OUT> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @param <R>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
@@ -60,8 +60,8 @@ abstract class DefaultAbstractShortCircuitTask<P_IN, P_OUT, R,
 
     /**
      * <code>getEmptyResult</code>
-     * <p>The empty result getter method.</p>
-     * @return R <p>The empty result return object is <code>R</code> type.</p>
+     * <p>The get empty result getter method.</p>
+     * @return R <p>The get empty result return object is <code>R</code> type.</p>
      */
     protected abstract R getEmptyResult();
 
@@ -107,7 +107,7 @@ abstract class DefaultAbstractShortCircuitTask<P_IN, P_OUT, R,
 
     /**
      * <code>shortCircuit</code>
-     * <p>The circuit method.</p>
+     * <p>The short circuit method.</p>
      * @param result R <p>The result parameter is <code>R</code> type.</p>
      */
     protected void shortCircuit(R result) {
@@ -140,7 +140,7 @@ abstract class DefaultAbstractShortCircuitTask<P_IN, P_OUT, R,
 
     /**
      * <code>cancel</code>
-     * <p>The method.</p>
+     * <p>The cancel method.</p>
      */
     protected void cancel() {
         canceled = true;
@@ -148,8 +148,8 @@ abstract class DefaultAbstractShortCircuitTask<P_IN, P_OUT, R,
 
     /**
      * <code>taskCanceled</code>
-     * <p>The canceled method.</p>
-     * @return boolean <p>The canceled return object is <code>boolean</code> type.</p>
+     * <p>The task canceled method.</p>
+     * @return boolean <p>The task canceled return object is <code>boolean</code> type.</p>
      */
     protected boolean taskCanceled() {
         boolean cancel = canceled;
@@ -163,7 +163,7 @@ abstract class DefaultAbstractShortCircuitTask<P_IN, P_OUT, R,
 
     /**
      * <code>cancelLaterNodes</code>
-     * <p>The later nodes method.</p>
+     * <p>The cancel later nodes method.</p>
      * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("unchecked")

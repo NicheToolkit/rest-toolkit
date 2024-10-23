@@ -11,7 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 /**
  * <code>ShaWorkerTest</code>
- * <p>The type sha worker test class.</p>
+ * <p>The sha worker test class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
  * @see org.springframework.boot.test.context.SpringBootTest
@@ -32,7 +32,7 @@ class ShaWorkerTest{
 
     /**
      * <code>test</code>
-     * <p>The method.</p>
+     * <p>The test method.</p>
      * @see org.junit.jupiter.api.Test
      */
     @Test

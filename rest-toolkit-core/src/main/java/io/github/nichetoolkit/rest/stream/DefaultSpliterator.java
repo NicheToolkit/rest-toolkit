@@ -7,7 +7,7 @@ import java.util.*;
 
 /**
  * <code>DefaultSpliterator</code>
- * <p>The type default spliterator interface.</p>
+ * <p>The default spliterator interface.</p>
  * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
@@ -16,9 +16,9 @@ public interface DefaultSpliterator<T> {
 
     /**
      * <code>tryAdvance</code>
-     * <p>The advance method.</p>
+     * <p>The try advance method.</p>
      * @param action {@link io.github.nichetoolkit.rest.actuator.ConsumerActuator} <p>The action parameter is <code>ConsumerActuator</code> type.</p>
-     * @return boolean <p>The advance return object is <code>boolean</code> type.</p>
+     * @return boolean <p>The try advance return object is <code>boolean</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.ConsumerActuator
      * @see io.github.nichetoolkit.rest.RestException
@@ -27,7 +27,7 @@ public interface DefaultSpliterator<T> {
 
     /**
      * <code>forEachRemaining</code>
-     * <p>The each remaining method.</p>
+     * <p>The for each remaining method.</p>
      * @param action {@link io.github.nichetoolkit.rest.actuator.ConsumerActuator} <p>The action parameter is <code>ConsumerActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.ConsumerActuator
@@ -42,8 +42,8 @@ public interface DefaultSpliterator<T> {
 
     /**
      * <code>trySplit</code>
-     * <p>The split method.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The split return object is <code>DefaultSpliterator</code> type.</p>
+     * <p>The try split method.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The try split return object is <code>DefaultSpliterator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -51,8 +51,8 @@ public interface DefaultSpliterator<T> {
 
     /**
      * <code>estimateSize</code>
-     * <p>The size method.</p>
-     * @return long <p>The size return object is <code>long</code> type.</p>
+     * <p>The estimate size method.</p>
+     * @return long <p>The estimate size return object is <code>long</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -60,8 +60,8 @@ public interface DefaultSpliterator<T> {
 
     /**
      * <code>getExactSizeIfKnown</code>
-     * <p>The exact size if known getter method.</p>
-     * @return long <p>The exact size if known return object is <code>long</code> type.</p>
+     * <p>The get exact size if known getter method.</p>
+     * @return long <p>The get exact size if known return object is <code>long</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -71,8 +71,8 @@ public interface DefaultSpliterator<T> {
 
     /**
      * <code>characteristics</code>
-     * <p>The method.</p>
-     * @return int <p>The return object is <code>int</code> type.</p>
+     * <p>The characteristics method.</p>
+     * @return int <p>The characteristics return object is <code>int</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -80,9 +80,9 @@ public interface DefaultSpliterator<T> {
 
     /**
      * <code>hasCharacteristics</code>
-     * <p>The characteristics method.</p>
+     * <p>The has characteristics method.</p>
      * @param characteristics int <p>The characteristics parameter is <code>int</code> type.</p>
-     * @return boolean <p>The characteristics return object is <code>boolean</code> type.</p>
+     * @return boolean <p>The has characteristics return object is <code>boolean</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -92,8 +92,8 @@ public interface DefaultSpliterator<T> {
 
     /**
      * <code>getComparator</code>
-     * <p>The comparator getter method.</p>
-     * @return {@link java.util.Comparator} <p>The comparator return object is <code>Comparator</code> type.</p>
+     * <p>The get comparator getter method.</p>
+     * @return {@link java.util.Comparator} <p>The get comparator return object is <code>Comparator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.util.Comparator
      * @see io.github.nichetoolkit.rest.RestException
@@ -152,7 +152,7 @@ public interface DefaultSpliterator<T> {
 
     /**
      * <code>OfPrimitive</code>
-     * <p>The type of primitive interface.</p>
+     * <p>The of primitive interface.</p>
      * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T_CONS>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T_SPLITR> {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator.OfPrimitive} <p>The generic parameter is <code>OfPrimitive</code> type.</p>
@@ -166,9 +166,9 @@ public interface DefaultSpliterator<T> {
 
         /**
          * <code>tryAdvance</code>
-         * <p>The advance method.</p>
+         * <p>The try advance method.</p>
          * @param action T_CONS <p>The action parameter is <code>T_CONS</code> type.</p>
-         * @return boolean <p>The advance return object is <code>boolean</code> type.</p>
+         * @return boolean <p>The try advance return object is <code>boolean</code> type.</p>
          * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
          * @see java.lang.SuppressWarnings
          * @see io.github.nichetoolkit.rest.RestException
@@ -178,7 +178,7 @@ public interface DefaultSpliterator<T> {
 
         /**
          * <code>forEachRemaining</code>
-         * <p>The each remaining method.</p>
+         * <p>The for each remaining method.</p>
          * @param action T_CONS <p>The action parameter is <code>T_CONS</code> type.</p>
          * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
          * @see java.lang.SuppressWarnings

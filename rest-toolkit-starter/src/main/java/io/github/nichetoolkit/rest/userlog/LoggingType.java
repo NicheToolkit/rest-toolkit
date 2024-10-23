@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * <code>LoggingType</code>
- * <p>The type logging type enumeration.</p>
+ * <p>The logging type enumeration.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestValue
  * @since Jdk1.8
@@ -191,9 +191,9 @@ public enum LoggingType implements RestValue<String, String> {
 
     /**
      * <code>parseKey</code>
-     * <p>The key method.</p>
+     * <p>The parse key method.</p>
      * @param key {@link java.lang.String} <p>The key parameter is <code>String</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.userlog.LoggingType} <p>The key return object is <code>LoggingType</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.userlog.LoggingType} <p>The parse key return object is <code>LoggingType</code> type.</p>
      * @see java.lang.String
      */
     public static LoggingType parseKey(String key) {
@@ -203,9 +203,9 @@ public enum LoggingType implements RestValue<String, String> {
 
     /**
      * <code>parseValue</code>
-     * <p>The value method.</p>
+     * <p>The parse value method.</p>
      * @param value {@link java.lang.String} <p>The value parameter is <code>String</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.userlog.LoggingType} <p>The value return object is <code>LoggingType</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.userlog.LoggingType} <p>The parse value return object is <code>LoggingType</code> type.</p>
      * @see java.lang.String
      * @see com.fasterxml.jackson.annotation.JsonCreator
      */
@@ -218,8 +218,8 @@ public enum LoggingType implements RestValue<String, String> {
 
     /**
      * <code>isSave</code>
-     * <p>The save method.</p>
-     * @return boolean <p>The save return object is <code>boolean</code> type.</p>
+     * <p>The is save method.</p>
+     * @return boolean <p>The is save return object is <code>boolean</code> type.</p>
      */
     public boolean isSave() {
         switch (this) {
@@ -235,8 +235,8 @@ public enum LoggingType implements RestValue<String, String> {
 
     /**
      * <code>isQuery</code>
-     * <p>The query method.</p>
-     * @return boolean <p>The query return object is <code>boolean</code> type.</p>
+     * <p>The is query method.</p>
+     * @return boolean <p>The is query return object is <code>boolean</code> type.</p>
      */
     public boolean isQuery() {
         switch (this) {
@@ -253,8 +253,8 @@ public enum LoggingType implements RestValue<String, String> {
 
     /**
      * <code>isDelete</code>
-     * <p>The delete method.</p>
-     * @return boolean <p>The delete return object is <code>boolean</code> type.</p>
+     * <p>The is delete method.</p>
+     * @return boolean <p>The is delete return object is <code>boolean</code> type.</p>
      */
     public boolean isDelete() {
         switch (this) {

@@ -2,7 +2,7 @@ package io.github.nichetoolkit.rest;
 
 /**
  * <code>ReckonWorkerTest</code>
- * <p>The type reckon worker test class.</p>
+ * <p>The reckon worker test class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
@@ -28,9 +28,9 @@ public class ReckonWorkerTest {
 
     /**
      * <code>ennex</code>
-     * <p>The method.</p>
+     * <p>The ennex method.</p>
      * @param value {@link java.lang.Long} <p>The value parameter is <code>Long</code> type.</p>
-     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The ennex return object is <code>String</code> type.</p>
      * @see java.lang.Long
      * @see java.lang.String
      */
@@ -47,9 +47,9 @@ public class ReckonWorkerTest {
 
     /**
      * <code>denex</code>
-     * <p>The method.</p>
+     * <p>The denex method.</p>
      * @param code {@link java.lang.String} <p>The code parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.Long} <p>The return object is <code>Long</code> type.</p>
+     * @return {@link java.lang.Long} <p>The denex return object is <code>Long</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Long
      */
@@ -70,9 +70,9 @@ public class ReckonWorkerTest {
 
     /**
      * <code>annex</code>
-     * <p>The method.</p>
+     * <p>The annex method.</p>
      * @param level {@link java.lang.Integer} <p>The level parameter is <code>Integer</code> type.</p>
-     * @return {@link java.lang.Long} <p>The return object is <code>Long</code> type.</p>
+     * @return {@link java.lang.Long} <p>The annex return object is <code>Long</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.Long
      */

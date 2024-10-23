@@ -5,7 +5,7 @@ import io.github.nichetoolkit.rest.RestStatus;
 
 /**
  * <code>HttpResultDataNullException</code>
- * <p>The type http result data null exception class.</p>
+ * <p>The http result data null exception class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.error.network.HttpErrorException
  * @since Jdk1.8

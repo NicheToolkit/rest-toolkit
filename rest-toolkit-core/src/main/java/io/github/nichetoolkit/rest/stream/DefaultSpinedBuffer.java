@@ -9,7 +9,7 @@ import java.util.function.*;
 
 /**
  * <code>DefaultSpinedBuffer</code>
- * <p>The type default spined buffer class.</p>
+ * <p>The default spined buffer class.</p>
  * @param <E> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.stream.DefaultAbstractSpinedBuffer
@@ -58,8 +58,8 @@ class DefaultSpinedBuffer<E>
 
     /**
      * <code>capacity</code>
-     * <p>The method.</p>
-     * @return long <p>The return object is <code>long</code> type.</p>
+     * <p>The capacity method.</p>
+     * @return long <p>The capacity return object is <code>long</code> type.</p>
      */
     protected long capacity() {
         return (spineIndex == 0)
@@ -69,7 +69,7 @@ class DefaultSpinedBuffer<E>
 
     /**
      * <code>inflateSpine</code>
-     * <p>The spine method.</p>
+     * <p>The inflate spine method.</p>
      * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("unchecked")
@@ -83,7 +83,7 @@ class DefaultSpinedBuffer<E>
 
     /**
      * <code>ensureCapacity</code>
-     * <p>The capacity method.</p>
+     * <p>The ensure capacity method.</p>
      * @param targetSize long <p>The target size parameter is <code>long</code> type.</p>
      * @see java.lang.SuppressWarnings
      */
@@ -108,7 +108,7 @@ class DefaultSpinedBuffer<E>
 
     /**
      * <code>increaseCapacity</code>
-     * <p>The capacity method.</p>
+     * <p>The increase capacity method.</p>
      */
     protected void increaseCapacity() {
         ensureCapacity(capacity() + 1);
@@ -116,9 +116,9 @@ class DefaultSpinedBuffer<E>
 
     /**
      * <code>get</code>
-     * <p>The method.</p>
+     * <p>The get method.</p>
      * @param index long <p>The index parameter is <code>long</code> type.</p>
-     * @return E <p>The return object is <code>E</code> type.</p>
+     * @return E <p>The get return object is <code>E</code> type.</p>
      */
     public E get(long index) {
         if (spineIndex == 0) {
@@ -138,7 +138,7 @@ class DefaultSpinedBuffer<E>
 
     /**
      * <code>copyInto</code>
-     * <p>The into method.</p>
+     * <p>The copy into method.</p>
      * @param array  E <p>The array parameter is <code>E</code> type.</p>
      * @param offset int <p>The offset parameter is <code>int</code> type.</p>
      */
@@ -161,9 +161,9 @@ class DefaultSpinedBuffer<E>
 
     /**
      * <code>asArray</code>
-     * <p>The array method.</p>
+     * <p>The as array method.</p>
      * @param arrayFactory {@link java.util.function.IntFunction} <p>The array factory parameter is <code>IntFunction</code> type.</p>
-     * @return E <p>The array return object is <code>E</code> type.</p>
+     * @return E <p>The as array return object is <code>E</code> type.</p>
      * @see java.util.function.IntFunction
      */
     public E[] asArray(IntFunction<E[]> arrayFactory) {
@@ -341,7 +341,7 @@ class DefaultSpinedBuffer<E>
 
     /**
      * <code>OfPrimitive</code>
-     * <p>The type of primitive class.</p>
+     * <p>The of primitive class.</p>
      * @param <E>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T_ARR>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T_CONS> {@link java.lang.Object} <p>The parameter can be of any type.</p>
@@ -393,9 +393,9 @@ class DefaultSpinedBuffer<E>
 
         /**
          * <code>newArrayArray</code>
-         * <p>The array array method.</p>
+         * <p>The new array array method.</p>
          * @param size int <p>The size parameter is <code>int</code> type.</p>
-         * @return T_ARR <p>The array array return object is <code>T_ARR</code> type.</p>
+         * @return T_ARR <p>The new array array return object is <code>T_ARR</code> type.</p>
          * @see java.lang.SuppressWarnings
          */
         @SuppressWarnings("SameParameterValue")
@@ -403,23 +403,23 @@ class DefaultSpinedBuffer<E>
 
         /**
          * <code>newArray</code>
-         * <p>The array method.</p>
+         * <p>The new array method.</p>
          * @param size int <p>The size parameter is <code>int</code> type.</p>
-         * @return T_ARR <p>The array return object is <code>T_ARR</code> type.</p>
+         * @return T_ARR <p>The new array return object is <code>T_ARR</code> type.</p>
          */
         public abstract T_ARR newArray(int size);
 
         /**
          * <code>arrayLength</code>
-         * <p>The length method.</p>
+         * <p>The array length method.</p>
          * @param array T_ARR <p>The array parameter is <code>T_ARR</code> type.</p>
-         * @return int <p>The length return object is <code>int</code> type.</p>
+         * @return int <p>The array length return object is <code>int</code> type.</p>
          */
         protected abstract int arrayLength(T_ARR array);
 
         /**
          * <code>arrayForEach</code>
-         * <p>The for each method.</p>
+         * <p>The array for each method.</p>
          * @param array    T_ARR <p>The array parameter is <code>T_ARR</code> type.</p>
          * @param from     int <p>The from parameter is <code>int</code> type.</p>
          * @param to       int <p>The to parameter is <code>int</code> type.</p>
@@ -430,8 +430,8 @@ class DefaultSpinedBuffer<E>
 
         /**
          * <code>capacity</code>
-         * <p>The method.</p>
-         * @return long <p>The return object is <code>long</code> type.</p>
+         * <p>The capacity method.</p>
+         * @return long <p>The capacity return object is <code>long</code> type.</p>
          */
         protected long capacity() {
             return (spineIndex == 0)
@@ -441,7 +441,7 @@ class DefaultSpinedBuffer<E>
 
         /**
          * <code>inflateSpine</code>
-         * <p>The spine method.</p>
+         * <p>The inflate spine method.</p>
          */
         private void inflateSpine() {
             if (spine == null) {
@@ -453,7 +453,7 @@ class DefaultSpinedBuffer<E>
 
         /**
          * <code>ensureCapacity</code>
-         * <p>The capacity method.</p>
+         * <p>The ensure capacity method.</p>
          * @param targetSize long <p>The target size parameter is <code>long</code> type.</p>
          */
         protected final void ensureCapacity(long targetSize) {
@@ -476,7 +476,7 @@ class DefaultSpinedBuffer<E>
 
         /**
          * <code>increaseCapacity</code>
-         * <p>The capacity method.</p>
+         * <p>The increase capacity method.</p>
          */
         protected void increaseCapacity() {
             ensureCapacity(capacity() + 1);
@@ -484,9 +484,9 @@ class DefaultSpinedBuffer<E>
 
         /**
          * <code>chunkFor</code>
-         * <p>The for method.</p>
+         * <p>The chunk for method.</p>
          * @param index long <p>The index parameter is <code>long</code> type.</p>
-         * @return int <p>The for return object is <code>int</code> type.</p>
+         * @return int <p>The chunk for return object is <code>int</code> type.</p>
          */
         protected int chunkFor(long index) {
             if (spineIndex == 0) {
@@ -508,7 +508,7 @@ class DefaultSpinedBuffer<E>
 
         /**
          * <code>copyInto</code>
-         * <p>The into method.</p>
+         * <p>The copy into method.</p>
          * @param array  T_ARR <p>The array parameter is <code>T_ARR</code> type.</p>
          * @param offset int <p>The offset parameter is <code>int</code> type.</p>
          * @see java.lang.SuppressWarnings
@@ -534,8 +534,8 @@ class DefaultSpinedBuffer<E>
 
         /**
          * <code>asPrimitiveArray</code>
-         * <p>The primitive array method.</p>
-         * @return T_ARR <p>The primitive array return object is <code>T_ARR</code> type.</p>
+         * <p>The as primitive array method.</p>
+         * @return T_ARR <p>The as primitive array return object is <code>T_ARR</code> type.</p>
          */
         public T_ARR asPrimitiveArray() {
             long size = count();
@@ -548,7 +548,7 @@ class DefaultSpinedBuffer<E>
 
         /**
          * <code>preAccept</code>
-         * <p>The accept method.</p>
+         * <p>The pre accept method.</p>
          */
         protected void preAccept() {
             if (elementIndex == arrayLength(curChunk)) {
@@ -573,7 +573,7 @@ class DefaultSpinedBuffer<E>
 
         /**
          * <code>forEach</code>
-         * <p>The each method.</p>
+         * <p>The for each method.</p>
          * @param consumer T_CONS <p>The consumer parameter is <code>T_CONS</code> type.</p>
          * @see java.lang.SuppressWarnings
          */
@@ -586,7 +586,7 @@ class DefaultSpinedBuffer<E>
 
         /**
          * <code>BaseSpliterator</code>
-         * <p>The type base spliterator class.</p>
+         * <p>The base spliterator class.</p>
          * @param <T_SPLITR> {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator.OfPrimitive} <p>The generic parameter is <code>OfPrimitive</code> type.</p>
          * @author Cyan (snow22314@outlook.com)
          * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator.OfPrimitive
@@ -642,19 +642,19 @@ class DefaultSpinedBuffer<E>
 
             /**
              * <code>newSpliterator</code>
-             * <p>The spliterator method.</p>
+             * <p>The new spliterator method.</p>
              * @param firstSpineIndex        int <p>The first spine index parameter is <code>int</code> type.</p>
              * @param lastSpineIndex         int <p>The last spine index parameter is <code>int</code> type.</p>
              * @param firstSpineElementIndex int <p>The first spine element index parameter is <code>int</code> type.</p>
              * @param lastSpineElementFence  int <p>The last spine element fence parameter is <code>int</code> type.</p>
-             * @return T_SPLITR <p>The spliterator return object is <code>T_SPLITR</code> type.</p>
+             * @return T_SPLITR <p>The new spliterator return object is <code>T_SPLITR</code> type.</p>
              */
             abstract T_SPLITR newSpliterator(int firstSpineIndex, int lastSpineIndex,
                                              int firstSpineElementIndex, int lastSpineElementFence);
 
             /**
              * <code>arrayForOne</code>
-             * <p>The for one method.</p>
+             * <p>The array for one method.</p>
              * @param array    T_ARR <p>The array parameter is <code>T_ARR</code> type.</p>
              * @param index    int <p>The index parameter is <code>int</code> type.</p>
              * @param consumer T_CONS <p>The consumer parameter is <code>T_CONS</code> type.</p>
@@ -663,11 +663,11 @@ class DefaultSpinedBuffer<E>
 
             /**
              * <code>arraySpliterator</code>
-             * <p>The spliterator method.</p>
+             * <p>The array spliterator method.</p>
              * @param array  T_ARR <p>The array parameter is <code>T_ARR</code> type.</p>
              * @param offset int <p>The offset parameter is <code>int</code> type.</p>
              * @param len    int <p>The len parameter is <code>int</code> type.</p>
-             * @return T_SPLITR <p>The spliterator return object is <code>T_SPLITR</code> type.</p>
+             * @return T_SPLITR <p>The array spliterator return object is <code>T_SPLITR</code> type.</p>
              */
             abstract T_SPLITR arraySpliterator(T_ARR array, int offset, int len);
 

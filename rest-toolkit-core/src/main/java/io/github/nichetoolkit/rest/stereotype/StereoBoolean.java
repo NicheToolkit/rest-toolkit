@@ -7,7 +7,7 @@ import java.lang.annotation.*;
 
 /**
  * <code>StereoBoolean</code>
- * <p>The type stereo boolean interface.</p>
+ * <p>The stereo boolean interface.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.lang.annotation.Annotation
  * @see java.lang.annotation.Target
@@ -23,22 +23,22 @@ import java.lang.annotation.*;
 public @interface StereoBoolean {
     /**
      * <code>value</code>
-     * <p>The method.</p>
-     * @return boolean <p>The return object is <code>boolean</code> type.</p>
+     * <p>The value method.</p>
+     * @return boolean <p>The value return object is <code>boolean</code> type.</p>
      */
     boolean value() default false;
 
     /**
      * <code>getKey</code>
-     * <p>The key getter method.</p>
-     * @return boolean <p>The key return object is <code>boolean</code> type.</p>
+     * <p>The get key getter method.</p>
+     * @return boolean <p>The get key return object is <code>boolean</code> type.</p>
      */
     boolean getKey() default false;
 
     /**
      * <code>getValue</code>
-     * <p>The value getter method.</p>
-     * @return boolean <p>The value return object is <code>boolean</code> type.</p>
+     * <p>The get value getter method.</p>
+     * @return boolean <p>The get value return object is <code>boolean</code> type.</p>
      */
     boolean getValue() default false;
 }

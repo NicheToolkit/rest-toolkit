@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  * <code>IpAddressUtils</code>
- * <p>The type ip address utils class.</p>
+ * <p>The ip address utils class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
@@ -18,8 +18,8 @@ public class IpAddressUtils {
 
     /**
      * <code>getHttpServletRequest</code>
-     * <p>The http servlet request getter method.</p>
-     * @return {@link javax.servlet.http.HttpServletRequest} <p>The http servlet request return object is <code>HttpServletRequest</code> type.</p>
+     * <p>The get http servlet request getter method.</p>
+     * @return {@link javax.servlet.http.HttpServletRequest} <p>The get http servlet request return object is <code>HttpServletRequest</code> type.</p>
      * @see javax.servlet.http.HttpServletRequest
      */
     private static HttpServletRequest getHttpServletRequest() {
@@ -28,8 +28,8 @@ public class IpAddressUtils {
 
     /**
      * <code>ipAddress</code>
-     * <p>The address method.</p>
-     * @return {@link java.lang.String} <p>The address return object is <code>String</code> type.</p>
+     * <p>The ip address method.</p>
+     * @return {@link java.lang.String} <p>The ip address return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String ipAddress() {
@@ -38,9 +38,9 @@ public class IpAddressUtils {
 
     /**
      * <code>ipAddress</code>
-     * <p>The address method.</p>
+     * <p>The ip address method.</p>
      * @param httpServletRequest {@link javax.servlet.http.HttpServletRequest} <p>The http servlet request parameter is <code>HttpServletRequest</code> type.</p>
-     * @return {@link java.lang.String} <p>The address return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The ip address return object is <code>String</code> type.</p>
      * @see javax.servlet.http.HttpServletRequest
      * @see java.lang.String
      */
@@ -50,10 +50,10 @@ public class IpAddressUtils {
 
     /**
      * <code>ipAddress</code>
-     * <p>The address method.</p>
+     * <p>The ip address method.</p>
      * @param httpServletRequest {@link javax.servlet.http.HttpServletRequest} <p>The http servlet request parameter is <code>HttpServletRequest</code> type.</p>
      * @param ignoredIpAddresses {@link java.util.List} <p>The ignored ip addresses parameter is <code>List</code> type.</p>
-     * @return {@link java.lang.String} <p>The address return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The ip address return object is <code>String</code> type.</p>
      * @see javax.servlet.http.HttpServletRequest
      * @see java.util.List
      * @see java.lang.String
@@ -75,9 +75,9 @@ public class IpAddressUtils {
 
     /**
      * <code>ipAddress</code>
-     * <p>The address method.</p>
+     * <p>The ip address method.</p>
      * @param ip {@link java.lang.String} <p>The ip parameter is <code>String</code> type.</p>
-     * @return {@link java.util.List} <p>The address return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The ip address return object is <code>List</code> type.</p>
      * @see java.lang.String
      * @see java.util.List
      */
@@ -87,10 +87,10 @@ public class IpAddressUtils {
 
     /**
      * <code>ipAddress</code>
-     * <p>The address method.</p>
+     * <p>The ip address method.</p>
      * @param ip                 {@link java.lang.String} <p>The ip parameter is <code>String</code> type.</p>
      * @param ignoredIpAddresses {@link java.util.List} <p>The ignored ip addresses parameter is <code>List</code> type.</p>
-     * @return {@link java.util.List} <p>The address return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The ip address return object is <code>List</code> type.</p>
      * @see java.lang.String
      * @see java.util.List
      */
@@ -117,8 +117,8 @@ public class IpAddressUtils {
 
     /**
      * <code>remoteIpAddress</code>
-     * <p>The ip address method.</p>
-     * @return {@link java.lang.String} <p>The ip address return object is <code>String</code> type.</p>
+     * <p>The remote ip address method.</p>
+     * @return {@link java.lang.String} <p>The remote ip address return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String remoteIpAddress() {
@@ -127,9 +127,9 @@ public class IpAddressUtils {
 
     /**
      * <code>remoteIpAddress</code>
-     * <p>The ip address method.</p>
+     * <p>The remote ip address method.</p>
      * @param request {@link javax.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
-     * @return {@link java.lang.String} <p>The ip address return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The remote ip address return object is <code>String</code> type.</p>
      * @see javax.servlet.http.HttpServletRequest
      * @see java.lang.String
      * @see java.lang.SuppressWarnings
@@ -160,8 +160,8 @@ public class IpAddressUtils {
 
     /**
      * <code>userIpAddress</code>
-     * <p>The ip address method.</p>
-     * @return {@link java.lang.String} <p>The ip address return object is <code>String</code> type.</p>
+     * <p>The user ip address method.</p>
+     * @return {@link java.lang.String} <p>The user ip address return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String userIpAddress() {
@@ -170,9 +170,9 @@ public class IpAddressUtils {
 
     /**
      * <code>userIpAddress</code>
-     * <p>The ip address method.</p>
+     * <p>The user ip address method.</p>
      * @param request {@link javax.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
-     * @return {@link java.lang.String} <p>The ip address return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The user ip address return object is <code>String</code> type.</p>
      * @see javax.servlet.http.HttpServletRequest
      * @see java.lang.String
      */
@@ -203,9 +203,9 @@ public class IpAddressUtils {
 
     /**
      * <code>baseIpAddress</code>
-     * <p>The ip address method.</p>
+     * <p>The base ip address method.</p>
      * @param request {@link javax.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
-     * @return {@link java.lang.String} <p>The ip address return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The base ip address return object is <code>String</code> type.</p>
      * @see javax.servlet.http.HttpServletRequest
      * @see java.lang.String
      * @see java.lang.SuppressWarnings

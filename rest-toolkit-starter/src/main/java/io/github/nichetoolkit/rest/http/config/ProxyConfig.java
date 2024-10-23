@@ -9,7 +9,7 @@ import java.net.Proxy;
 
 /**
  * <code>ProxyConfig</code>
- * <p>The type proxy config class.</p>
+ * <p>The proxy config class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.Getter
  * @see lombok.Setter
@@ -46,8 +46,8 @@ public class ProxyConfig {
 
     /**
      * <code>toProxy</code>
-     * <p>The proxy method.</p>
-     * @return {@link java.net.Proxy} <p>The proxy return object is <code>Proxy</code> type.</p>
+     * <p>The to proxy method.</p>
+     * @return {@link java.net.Proxy} <p>The to proxy return object is <code>Proxy</code> type.</p>
      * @see java.net.Proxy
      */
     public Proxy toProxy() {

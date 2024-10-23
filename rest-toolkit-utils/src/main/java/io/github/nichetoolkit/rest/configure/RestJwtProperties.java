@@ -22,7 +22,7 @@ import java.util.List;
 
 /**
  * <code>RestJwtProperties</code>
- * <p>The type rest jwt properties class.</p>
+ * <p>The rest jwt properties class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.Getter
  * @see lombok.Setter
@@ -131,7 +131,7 @@ public class RestJwtProperties {
 
     /**
      * <code>algorithmInit</code>
-     * <p>The init method.</p>
+     * <p>The algorithm init method.</p>
      * @see javax.annotation.PostConstruct
      */
     @PostConstruct
@@ -157,8 +157,8 @@ public class RestJwtProperties {
 
     /**
      * <code>getAudiences</code>
-     * <p>The audiences getter method.</p>
-     * @return {@link java.util.List} <p>The audiences return object is <code>List</code> type.</p>
+     * <p>The get audiences getter method.</p>
+     * @return {@link java.util.List} <p>The get audiences return object is <code>List</code> type.</p>
      * @see java.util.List
      * @see java.lang.SuppressWarnings
      */
@@ -172,8 +172,8 @@ public class RestJwtProperties {
 
     /**
      * <code>toBuilder</code>
-     * <p>The builder method.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>The builder return object is <code>JwtBuilder</code> type.</p>
+     * <p>The to builder method.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>The to builder return object is <code>JwtBuilder</code> type.</p>
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtBuilder
      */
     public JwtBuilder toBuilder() {

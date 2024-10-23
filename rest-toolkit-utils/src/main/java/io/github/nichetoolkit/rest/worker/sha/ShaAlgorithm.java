@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * <code>ShaAlgorithm</code>
- * <p>The type sha algorithm enumeration.</p>
+ * <p>The sha algorithm enumeration.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestAlgorithm
  * @since Jdk1.8
@@ -96,9 +96,9 @@ public enum ShaAlgorithm implements RestAlgorithm<String> {
 
     /**
      * <code>parseKey</code>
-     * <p>The key method.</p>
+     * <p>The parse key method.</p>
      * @param key {@link java.lang.Integer} <p>The key parameter is <code>Integer</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.sha.ShaAlgorithm} <p>The key return object is <code>ShaAlgorithm</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.sha.ShaAlgorithm} <p>The parse key return object is <code>ShaAlgorithm</code> type.</p>
      * @see java.lang.Integer
      * @see org.springframework.lang.NonNull
      * @see com.fasterxml.jackson.annotation.JsonCreator
@@ -111,9 +111,9 @@ public enum ShaAlgorithm implements RestAlgorithm<String> {
 
     /**
      * <code>parseValue</code>
-     * <p>The value method.</p>
+     * <p>The parse value method.</p>
      * @param value {@link java.lang.String} <p>The value parameter is <code>String</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.sha.ShaAlgorithm} <p>The value return object is <code>ShaAlgorithm</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.sha.ShaAlgorithm} <p>The parse value return object is <code>ShaAlgorithm</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.lang.NonNull
      */
@@ -124,9 +124,9 @@ public enum ShaAlgorithm implements RestAlgorithm<String> {
 
     /**
      * <code>parseAlgorithm</code>
-     * <p>The algorithm method.</p>
+     * <p>The parse algorithm method.</p>
      * @param algorithm {@link java.lang.String} <p>The algorithm parameter is <code>String</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.sha.ShaAlgorithm} <p>The algorithm return object is <code>ShaAlgorithm</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.sha.ShaAlgorithm} <p>The parse algorithm return object is <code>ShaAlgorithm</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.lang.NonNull
      */

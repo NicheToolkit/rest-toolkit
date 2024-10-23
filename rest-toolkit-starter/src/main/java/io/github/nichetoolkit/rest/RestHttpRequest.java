@@ -22,7 +22,7 @@ import java.util.*;
 
 /**
  * <code>RestHttpRequest</code>
- * <p>The type rest http request class.</p>
+ * <p>The rest http request class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see javax.servlet.http.HttpServletRequestWrapper
  * @see java.io.Closeable
@@ -101,7 +101,7 @@ public class RestHttpRequest extends HttpServletRequestWrapper implements Closea
 
     /**
      * <code>cacheBody</code>
-     * <p>The body method.</p>
+     * <p>The cache body method.</p>
      * @param request {@link javax.servlet.ServletRequest} <p>The request parameter is <code>ServletRequest</code> type.</p>
      * @see javax.servlet.ServletRequest
      */
@@ -118,8 +118,8 @@ public class RestHttpRequest extends HttpServletRequestWrapper implements Closea
 
     /**
      * <code>getCacheBody</code>
-     * <p>The cache body method.</p>
-     * @return byte <p>The cache body return object is <code>byte</code> type.</p>
+     * <p>The get cache body method.</p>
+     * @return byte <p>The get cache body return object is <code>byte</code> type.</p>
      */
     public byte[] getCacheBody() {
         if (cacheBody != null) {
@@ -155,9 +155,9 @@ public class RestHttpRequest extends HttpServletRequestWrapper implements Closea
 
     /**
      * <code>getRequestURI</code>
-     * <p>The request uri getter method.</p>
+     * <p>The get request uri getter method.</p>
      * @param isNoContext boolean <p>The is no context parameter is <code>boolean</code> type.</p>
-     * @return {@link java.lang.String} <p>The request uri return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The get request uri return object is <code>String</code> type.</p>
      * @see java.lang.String
      * @see java.lang.SuppressWarnings
      */
@@ -172,8 +172,8 @@ public class RestHttpRequest extends HttpServletRequestWrapper implements Closea
 
     /**
      * <code>getParamsJson</code>
-     * <p>The params json getter method.</p>
-     * @return {@link java.lang.String} <p>The params json return object is <code>String</code> type.</p>
+     * <p>The get params json getter method.</p>
+     * @return {@link java.lang.String} <p>The get params json return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public String getParamsJson() {
@@ -186,8 +186,8 @@ public class RestHttpRequest extends HttpServletRequestWrapper implements Closea
 
     /**
      * <code>getParamsMap</code>
-     * <p>The params map getter method.</p>
-     * @return {@link java.util.Map} <p>The params map return object is <code>Map</code> type.</p>
+     * <p>The get params map getter method.</p>
+     * @return {@link java.util.Map} <p>The get params map return object is <code>Map</code> type.</p>
      * @see java.util.Map
      */
     public Map<String, Object> getParamsMap() {
@@ -201,8 +201,8 @@ public class RestHttpRequest extends HttpServletRequestWrapper implements Closea
 
     /**
      * <code>getRequestId</code>
-     * <p>The request id getter method.</p>
-     * @return {@link java.lang.String} <p>The request id return object is <code>String</code> type.</p>
+     * <p>The get request id getter method.</p>
+     * @return {@link java.lang.String} <p>The get request id return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public String getRequestId() {
@@ -215,7 +215,7 @@ public class RestHttpRequest extends HttpServletRequestWrapper implements Closea
 
     /**
      * <code>setRequestId</code>
-     * <p>The request id setter method.</p>
+     * <p>The set request id setter method.</p>
      * @param requestId {@link java.lang.String} <p>The request id parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
@@ -225,7 +225,7 @@ public class RestHttpRequest extends HttpServletRequestWrapper implements Closea
 
     /**
      * <code>setHandlerMethods</code>
-     * <p>The handler methods setter method.</p>
+     * <p>The set handler methods setter method.</p>
      * @param handlerMethod {@link org.springframework.web.method.HandlerMethod} <p>The handler method parameter is <code>HandlerMethod</code> type.</p>
      * @see org.springframework.web.method.HandlerMethod
      * @see java.lang.SuppressWarnings
@@ -244,8 +244,8 @@ public class RestHttpRequest extends HttpServletRequestWrapper implements Closea
 
     /**
      * <code>getUrlParams</code>
-     * <p>The url params getter method.</p>
-     * @return {@link java.util.List} <p>The url params return object is <code>List</code> type.</p>
+     * <p>The get url params getter method.</p>
+     * @return {@link java.util.List} <p>The get url params return object is <code>List</code> type.</p>
      * @see java.util.List
      */
     public List<String> getUrlParams() {
@@ -264,10 +264,10 @@ public class RestHttpRequest extends HttpServletRequestWrapper implements Closea
 
     /**
      * <code>getMethodAnnotation</code>
-     * <p>The method annotation getter method.</p>
+     * <p>The get method annotation getter method.</p>
      * @param <A>            {@link java.lang.annotation.Annotation} <p>The generic parameter is <code>Annotation</code> type.</p>
      * @param annotationType {@link java.lang.Class} <p>The annotation type parameter is <code>Class</code> type.</p>
-     * @return A <p>The method annotation return object is <code>A</code> type.</p>
+     * @return A <p>The get method annotation return object is <code>A</code> type.</p>
      * @see java.lang.annotation.Annotation
      * @see java.lang.Class
      * @see java.lang.SuppressWarnings
@@ -293,9 +293,9 @@ public class RestHttpRequest extends HttpServletRequestWrapper implements Closea
 
     /**
      * <code>isSupportedJson</code>
-     * <p>The supported json method.</p>
+     * <p>The is supported json method.</p>
      * @param value {@link java.lang.String} <p>The value parameter is <code>String</code> type.</p>
-     * @return boolean <p>The supported json return object is <code>boolean</code> type.</p>
+     * @return boolean <p>The is supported json return object is <code>boolean</code> type.</p>
      * @see java.lang.String
      */
     private boolean isSupportedJson(String value) {
@@ -309,7 +309,7 @@ public class RestHttpRequest extends HttpServletRequestWrapper implements Closea
 
     /**
      * <code>cacheMap</code>
-     * <p>The map method.</p>
+     * <p>The cache map method.</p>
      */
     private void cacheMap() {
         if (this.paramsMap != null) {
@@ -344,7 +344,7 @@ public class RestHttpRequest extends HttpServletRequestWrapper implements Closea
 
     /**
      * <code>RequestCachingInputStream</code>
-     * <p>The type request caching input stream class.</p>
+     * <p>The request caching input stream class.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see javax.servlet.ServletInputStream
      * @since Jdk1.8
@@ -400,9 +400,9 @@ public class RestHttpRequest extends HttpServletRequestWrapper implements Closea
 
     /**
      * <code>getHttpRequest</code>
-     * <p>The http request getter method.</p>
+     * <p>The get http request getter method.</p>
      * @param request {@link javax.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestHttpRequest} <p>The http request return object is <code>RestHttpRequest</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestHttpRequest} <p>The get http request return object is <code>RestHttpRequest</code> type.</p>
      * @see javax.servlet.http.HttpServletRequest
      */
     public static RestHttpRequest getHttpRequest(HttpServletRequest request) {

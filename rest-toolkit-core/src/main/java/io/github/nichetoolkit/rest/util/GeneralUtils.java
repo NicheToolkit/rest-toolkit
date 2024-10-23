@@ -20,7 +20,7 @@ import java.util.regex.Pattern;
 
 /**
  * <code>GeneralUtils</code>
- * <p>The type general utils class.</p>
+ * <p>The general utils class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
  * @since Jdk1.8
@@ -50,9 +50,9 @@ public class GeneralUtils {
 
     /**
      * <code>isNotEmpty</code>
-     * <p>The not empty method.</p>
+     * <p>The is not empty method.</p>
      * @param object {@link java.lang.Object} <p>The object parameter is <code>Object</code> type.</p>
-     * @return boolean <p>The not empty return object is <code>boolean</code> type.</p>
+     * @return boolean <p>The is not empty return object is <code>boolean</code> type.</p>
      * @see java.lang.Object
      * @see org.springframework.lang.Nullable
      * @see java.lang.SuppressWarnings
@@ -108,9 +108,9 @@ public class GeneralUtils {
 
     /**
      * <code>isValid</code>
-     * <p>The valid method.</p>
+     * <p>The is valid method.</p>
      * @param object {@link java.lang.Object} <p>The object parameter is <code>Object</code> type.</p>
-     * @return boolean <p>The valid return object is <code>boolean</code> type.</p>
+     * @return boolean <p>The is valid return object is <code>boolean</code> type.</p>
      * @see java.lang.Object
      * @see org.springframework.lang.Nullable
      * @see java.lang.SuppressWarnings
@@ -166,9 +166,9 @@ public class GeneralUtils {
 
     /**
      * <code>isUsable</code>
-     * <p>The usable method.</p>
+     * <p>The is usable method.</p>
      * @param object {@link java.lang.Object} <p>The object parameter is <code>Object</code> type.</p>
-     * @return boolean <p>The usable return object is <code>boolean</code> type.</p>
+     * @return boolean <p>The is usable return object is <code>boolean</code> type.</p>
      * @see java.lang.Object
      * @see org.springframework.lang.Nullable
      * @see java.lang.SuppressWarnings
@@ -202,9 +202,9 @@ public class GeneralUtils {
 
     /**
      * <code>isNotNull</code>
-     * <p>The not null method.</p>
+     * <p>The is not null method.</p>
      * @param object {@link java.lang.Object} <p>The object parameter is <code>Object</code> type.</p>
-     * @return boolean <p>The not null return object is <code>boolean</code> type.</p>
+     * @return boolean <p>The is not null return object is <code>boolean</code> type.</p>
      * @see java.lang.Object
      * @see org.springframework.lang.Nullable
      */
@@ -214,9 +214,9 @@ public class GeneralUtils {
 
     /**
      * <code>isEmpty</code>
-     * <p>The empty method.</p>
+     * <p>The is empty method.</p>
      * @param object {@link java.lang.Object} <p>The object parameter is <code>Object</code> type.</p>
-     * @return boolean <p>The empty return object is <code>boolean</code> type.</p>
+     * @return boolean <p>The is empty return object is <code>boolean</code> type.</p>
      * @see java.lang.Object
      * @see org.springframework.lang.Nullable
      * @see java.lang.SuppressWarnings
@@ -272,9 +272,9 @@ public class GeneralUtils {
 
     /**
      * <code>isInvalid</code>
-     * <p>The invalid method.</p>
+     * <p>The is invalid method.</p>
      * @param object {@link java.lang.Object} <p>The object parameter is <code>Object</code> type.</p>
-     * @return boolean <p>The invalid return object is <code>boolean</code> type.</p>
+     * @return boolean <p>The is invalid return object is <code>boolean</code> type.</p>
      * @see java.lang.Object
      * @see org.springframework.lang.Nullable
      * @see java.lang.SuppressWarnings
@@ -330,9 +330,9 @@ public class GeneralUtils {
 
     /**
      * <code>isUnusable</code>
-     * <p>The unusable method.</p>
+     * <p>The is unusable method.</p>
      * @param object {@link java.lang.Object} <p>The object parameter is <code>Object</code> type.</p>
-     * @return boolean <p>The unusable return object is <code>boolean</code> type.</p>
+     * @return boolean <p>The is unusable return object is <code>boolean</code> type.</p>
      * @see java.lang.Object
      * @see org.springframework.lang.Nullable
      * @see java.lang.SuppressWarnings
@@ -366,9 +366,9 @@ public class GeneralUtils {
 
     /**
      * <code>isNull</code>
-     * <p>The null method.</p>
+     * <p>The is null method.</p>
      * @param object {@link java.lang.Object} <p>The object parameter is <code>Object</code> type.</p>
-     * @return boolean <p>The null return object is <code>boolean</code> type.</p>
+     * @return boolean <p>The is null return object is <code>boolean</code> type.</p>
      * @see java.lang.Object
      * @see org.springframework.lang.Nullable
      */
@@ -378,9 +378,9 @@ public class GeneralUtils {
 
     /**
      * <code>printStackTrace</code>
-     * <p>The stack trace method.</p>
+     * <p>The print stack trace method.</p>
      * @param exception {@link java.lang.Throwable} <p>The exception parameter is <code>Throwable</code> type.</p>
-     * @return {@link java.lang.String} <p>The stack trace return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The print stack trace return object is <code>String</code> type.</p>
      * @see java.lang.Throwable
      * @see java.lang.String
      */
@@ -390,10 +390,10 @@ public class GeneralUtils {
 
     /**
      * <code>printStackTrace</code>
-     * <p>The stack trace method.</p>
+     * <p>The print stack trace method.</p>
      * @param exception {@link java.lang.Throwable} <p>The exception parameter is <code>Throwable</code> type.</p>
      * @param isLogging boolean <p>The is logging parameter is <code>boolean</code> type.</p>
-     * @return {@link java.lang.String} <p>The stack trace return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The print stack trace return object is <code>String</code> type.</p>
      * @see java.lang.Throwable
      * @see java.lang.String
      */
@@ -403,11 +403,11 @@ public class GeneralUtils {
 
     /**
      * <code>printStackTrace</code>
-     * <p>The stack trace method.</p>
+     * <p>The print stack trace method.</p>
      * @param logger    {@link org.slf4j.Logger} <p>The logger parameter is <code>Logger</code> type.</p>
      * @param exception {@link java.lang.Throwable} <p>The exception parameter is <code>Throwable</code> type.</p>
      * @param isLogging boolean <p>The is logging parameter is <code>boolean</code> type.</p>
-     * @return {@link java.lang.String} <p>The stack trace return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The print stack trace return object is <code>String</code> type.</p>
      * @see org.slf4j.Logger
      * @see java.lang.Throwable
      * @see java.lang.String
@@ -435,9 +435,9 @@ public class GeneralUtils {
 
     /**
      * <code>randomHex</code>
-     * <p>The hex method.</p>
+     * <p>The random hex method.</p>
      * @param size int <p>The size parameter is <code>int</code> type.</p>
-     * @return {@link java.lang.String} <p>The hex return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The random hex return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String randomHex(int size) {
@@ -450,9 +450,9 @@ public class GeneralUtils {
 
     /**
      * <code>lineToCamel</code>
-     * <p>The to camel method.</p>
+     * <p>The line to camel method.</p>
      * @param line {@link java.lang.String} <p>The line parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>The to camel return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The line to camel return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String lineToCamel(String line) {
@@ -469,9 +469,9 @@ public class GeneralUtils {
 
     /**
      * <code>camelToLine</code>
-     * <p>The to line method.</p>
+     * <p>The camel to line method.</p>
      * @param camel {@link java.lang.String} <p>The camel parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>The to line return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The camel to line return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String camelToLine(String camel) {
@@ -486,9 +486,9 @@ public class GeneralUtils {
 
     /**
      * <code>camelCase</code>
-     * <p>The case method.</p>
+     * <p>The camel case method.</p>
      * @param pascalCase {@link java.lang.String} <p>The pascal case parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>The case return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The camel case return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String camelCase(String pascalCase) {
@@ -501,9 +501,9 @@ public class GeneralUtils {
 
     /**
      * <code>pascalCase</code>
-     * <p>The case method.</p>
+     * <p>The pascal case method.</p>
      * @param camelCase {@link java.lang.String} <p>The camel case parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>The case return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The pascal case return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String pascalCase(String camelCase) {
@@ -516,9 +516,9 @@ public class GeneralUtils {
 
     /**
      * <code>underline</code>
-     * <p>The method.</p>
+     * <p>The underline method.</p>
      * @param underline {@link java.lang.String} <p>The underline parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The underline return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String underline(String underline) {
@@ -541,9 +541,9 @@ public class GeneralUtils {
 
     /**
      * <code>abbreviate</code>
-     * <p>The method.</p>
+     * <p>The abbreviate method.</p>
      * @param abbreviate {@link java.lang.String} <p>The abbreviate parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The abbreviate return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String abbreviate(String abbreviate) {
@@ -552,11 +552,11 @@ public class GeneralUtils {
 
     /**
      * <code>abbreviate</code>
-     * <p>The method.</p>
+     * <p>The abbreviate method.</p>
      * @param abbreviate  {@link java.lang.String} <p>The abbreviate parameter is <code>String</code> type.</p>
      * @param length      int <p>The length parameter is <code>int</code> type.</p>
      * @param isUnderline boolean <p>The is underline parameter is <code>boolean</code> type.</p>
-     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The abbreviate return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String abbreviate(String abbreviate, int length, boolean isUnderline) {
@@ -590,8 +590,8 @@ public class GeneralUtils {
 
     /**
      * <code>uuid</code>
-     * <p>The method.</p>
-     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
+     * <p>The uuid method.</p>
+     * @return {@link java.lang.String} <p>The uuid return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String uuid() {
@@ -609,7 +609,7 @@ public class GeneralUtils {
 
     /**
      * <code>format</code>
-     * <p>The method.</p>
+     * <p>The format method.</p>
      * @param val    long <p>The val parameter is <code>long</code> type.</p>
      * @param buf    byte <p>The buf parameter is <code>byte</code> type.</p>
      * @param offset int <p>The offset parameter is <code>int</code> type.</p>

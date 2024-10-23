@@ -7,7 +7,7 @@ import io.github.nichetoolkit.rest.RestErrorException;
 
 /**
  * <code>ConvertErrorException</code>
- * <p>The type convert error exception class.</p>
+ * <p>The convert error exception class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestErrorException
  * @since Jdk1.8

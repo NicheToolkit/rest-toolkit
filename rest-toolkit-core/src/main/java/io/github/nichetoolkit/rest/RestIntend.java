@@ -9,7 +9,7 @@ import org.springframework.beans.factory.config.BeanDefinition;
 
 /**
  * <code>RestIntend</code>
- * <p>The type rest intend interface.</p>
+ * <p>The rest intend interface.</p>
  * @param <B> {@link io.github.nichetoolkit.rest.RestIntend} <p>The generic parameter is <code>RestIntend</code> type.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see org.springframework.beans.factory.InitializingBean
@@ -24,7 +24,7 @@ public interface RestIntend<B extends RestIntend<B>> extends InitializingBean {
 
     /**
      * <code>afterAutowirePropertiesSet</code>
-     * <p>The autowire properties set method.</p>
+     * <p>The after autowire properties set method.</p>
      */
     default void afterAutowirePropertiesSet() {
         LoggerUtils.debug("The intend bean of [{}] type for named '{}' has be initiated.", beanType().getName());
@@ -32,8 +32,8 @@ public interface RestIntend<B extends RestIntend<B>> extends InitializingBean {
 
     /**
      * <code>beanScope</code>
-     * <p>The scope method.</p>
-     * @return {@link java.lang.String} <p>The scope return object is <code>String</code> type.</p>
+     * <p>The bean scope method.</p>
+     * @return {@link java.lang.String} <p>The bean scope return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     default String beanScope() {
@@ -42,8 +42,8 @@ public interface RestIntend<B extends RestIntend<B>> extends InitializingBean {
 
     /**
      * <code>beanName</code>
-     * <p>The name method.</p>
-     * @return {@link java.lang.String} <p>The name return object is <code>String</code> type.</p>
+     * <p>The bean name method.</p>
+     * @return {@link java.lang.String} <p>The bean name return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     default String beanName() {
@@ -52,8 +52,8 @@ public interface RestIntend<B extends RestIntend<B>> extends InitializingBean {
 
     /**
      * <code>beanType</code>
-     * <p>The type method.</p>
-     * @return {@link java.lang.Class} <p>The type return object is <code>Class</code> type.</p>
+     * <p>The bean type method.</p>
+     * @return {@link java.lang.Class} <p>The bean type return object is <code>Class</code> type.</p>
      * @see java.lang.Class
      */
     default Class<B> beanType() {
@@ -62,9 +62,9 @@ public interface RestIntend<B extends RestIntend<B>> extends InitializingBean {
 
     /**
      * <code>beanName</code>
-     * <p>The name method.</p>
+     * <p>The bean name method.</p>
      * @param intendType {@link java.lang.Class} <p>The intend type parameter is <code>Class</code> type.</p>
-     * @return {@link java.lang.String} <p>The name return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The bean name return object is <code>String</code> type.</p>
      * @see java.lang.Class
      * @see java.lang.String
      */
@@ -75,10 +75,10 @@ public interface RestIntend<B extends RestIntend<B>> extends InitializingBean {
 
     /**
      * <code>beanType</code>
-     * <p>The type method.</p>
+     * <p>The bean type method.</p>
      * @param <B>        {@link io.github.nichetoolkit.rest.RestIntend} <p>The generic parameter is <code>RestIntend</code> type.</p>
      * @param intendType {@link java.lang.Class} <p>The intend type parameter is <code>Class</code> type.</p>
-     * @return {@link java.lang.Class} <p>The type return object is <code>Class</code> type.</p>
+     * @return {@link java.lang.Class} <p>The bean type return object is <code>Class</code> type.</p>
      * @see java.lang.Class
      * @see java.lang.SuppressWarnings
      */

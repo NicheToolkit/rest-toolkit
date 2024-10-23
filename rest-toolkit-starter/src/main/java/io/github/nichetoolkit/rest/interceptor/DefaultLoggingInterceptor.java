@@ -39,7 +39,7 @@ import java.util.Optional;
 
 /**
  * <code>DefaultLoggingInterceptor</code>
- * <p>The type default logging interceptor class.</p>
+ * <p>The default logging interceptor class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see org.springframework.web.servlet.AsyncHandlerInterceptor
  * @see io.github.nichetoolkit.rest.RestResponseAdvice
@@ -259,12 +259,12 @@ public class DefaultLoggingInterceptor implements AsyncHandlerInterceptor, RestR
 
     /**
      * <code>applyInterceptRequest</code>
-     * <p>The intercept request method.</p>
+     * <p>The apply intercept request method.</p>
      * @param request      {@link javax.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
      * @param response     {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
      * @param throwable    {@link java.lang.Throwable} <p>The throwable parameter is <code>Throwable</code> type.</p>
      * @param restResponse {@link io.github.nichetoolkit.rest.userlog.RestResponsePack} <p>The rest response parameter is <code>RestResponsePack</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.userlog.RestRequestPack} <p>The intercept request return object is <code>RestRequestPack</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.userlog.RestRequestPack} <p>The apply intercept request return object is <code>RestRequestPack</code> type.</p>
      * @see javax.servlet.http.HttpServletRequest
      * @see javax.servlet.http.HttpServletResponse
      * @see java.lang.Throwable
@@ -290,7 +290,7 @@ public class DefaultLoggingInterceptor implements AsyncHandlerInterceptor, RestR
 
     /**
      * <code>applyResponseTime</code>
-     * <p>The response time method.</p>
+     * <p>The apply response time method.</p>
      * @param response     {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
      * @param throwable    {@link java.lang.Throwable} <p>The throwable parameter is <code>Throwable</code> type.</p>
      * @param restResponse {@link io.github.nichetoolkit.rest.userlog.RestResponsePack} <p>The rest response parameter is <code>RestResponsePack</code> type.</p>
@@ -326,7 +326,7 @@ public class DefaultLoggingInterceptor implements AsyncHandlerInterceptor, RestR
 
     /**
      * <code>applyResponseError</code>
-     * <p>The response error method.</p>
+     * <p>The apply response error method.</p>
      * @param response     {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
      * @param throwable    {@link java.lang.Throwable} <p>The throwable parameter is <code>Throwable</code> type.</p>
      * @param restResponse {@link io.github.nichetoolkit.rest.userlog.RestResponsePack} <p>The rest response parameter is <code>RestResponsePack</code> type.</p>
@@ -360,9 +360,9 @@ public class DefaultLoggingInterceptor implements AsyncHandlerInterceptor, RestR
 
     /**
      * <code>applyRequestHeader</code>
-     * <p>The request header method.</p>
+     * <p>The apply request header method.</p>
      * @param request {@link javax.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
-     * @return {@link java.util.Map} <p>The request header return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The apply request header return object is <code>Map</code> type.</p>
      * @see javax.servlet.http.HttpServletRequest
      * @see java.util.Map
      */
@@ -378,7 +378,7 @@ public class DefaultLoggingInterceptor implements AsyncHandlerInterceptor, RestR
 
     /**
      * <code>applyRequestBody</code>
-     * <p>The request body method.</p>
+     * <p>The apply request body method.</p>
      * @param request     {@link javax.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
      * @param restRequest {@link io.github.nichetoolkit.rest.userlog.RestRequestPack} <p>The rest request parameter is <code>RestRequestPack</code> type.</p>
      * @see javax.servlet.http.HttpServletRequest
@@ -408,7 +408,7 @@ public class DefaultLoggingInterceptor implements AsyncHandlerInterceptor, RestR
 
     /**
      * <code>applyInterceptAdvice</code>
-     * <p>The intercept advice method.</p>
+     * <p>The apply intercept advice method.</p>
      * @param requestPack  {@link io.github.nichetoolkit.rest.userlog.RestRequestPack} <p>The request pack parameter is <code>RestRequestPack</code> type.</p>
      * @param responsePack {@link io.github.nichetoolkit.rest.userlog.RestResponsePack} <p>The response pack parameter is <code>RestResponsePack</code> type.</p>
      * @param usernotePack {@link io.github.nichetoolkit.rest.userlog.RestUsernotePack} <p>The usernote pack parameter is <code>RestUsernotePack</code> type.</p>
@@ -425,7 +425,7 @@ public class DefaultLoggingInterceptor implements AsyncHandlerInterceptor, RestR
 
     /**
      * <code>applyInterceptLogging</code>
-     * <p>The intercept logging method.</p>
+     * <p>The apply intercept logging method.</p>
      * @param requestPack  {@link io.github.nichetoolkit.rest.userlog.RestRequestPack} <p>The request pack parameter is <code>RestRequestPack</code> type.</p>
      * @param responsePack {@link io.github.nichetoolkit.rest.userlog.RestResponsePack} <p>The response pack parameter is <code>RestResponsePack</code> type.</p>
      * @param usernotePack {@link io.github.nichetoolkit.rest.userlog.RestUsernotePack} <p>The usernote pack parameter is <code>RestUsernotePack</code> type.</p>

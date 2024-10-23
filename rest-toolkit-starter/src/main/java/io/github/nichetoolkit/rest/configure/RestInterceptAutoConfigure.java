@@ -13,7 +13,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * <code>RestInterceptAutoConfigure</code>
- * <p>The type rest intercept auto configure class.</p>
+ * <p>The rest intercept auto configure class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see org.springframework.web.servlet.config.annotation.WebMvcConfigurer
  * @see lombok.extern.slf4j.Slf4j

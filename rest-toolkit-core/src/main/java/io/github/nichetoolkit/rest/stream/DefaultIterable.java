@@ -8,7 +8,7 @@ import java.util.Objects;
 
 /**
  * <code>DefaultIterable</code>
- * <p>The type default iterable interface.</p>
+ * <p>The default iterable interface.</p>
  * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
@@ -17,8 +17,8 @@ interface DefaultIterable<T> {
 
     /**
      * <code>iterator</code>
-     * <p>The method.</p>
-     * @return {@link java.util.Iterator} <p>The return object is <code>Iterator</code> type.</p>
+     * <p>The iterator method.</p>
+     * @return {@link java.util.Iterator} <p>The iterator return object is <code>Iterator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.util.Iterator
      * @see io.github.nichetoolkit.rest.RestException
@@ -27,7 +27,7 @@ interface DefaultIterable<T> {
 
     /**
      * <code>forEach</code>
-     * <p>The each method.</p>
+     * <p>The for each method.</p>
      * @param action {@link io.github.nichetoolkit.rest.actuator.ConsumerActuator} <p>The action parameter is <code>ConsumerActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.ConsumerActuator
@@ -43,8 +43,8 @@ interface DefaultIterable<T> {
 
     /**
      * <code>spliterator</code>
-     * <p>The method.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The return object is <code>DefaultSpliterator</code> type.</p>
+     * <p>The spliterator method.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The spliterator return object is <code>DefaultSpliterator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
      * @see io.github.nichetoolkit.rest.RestException

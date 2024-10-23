@@ -7,7 +7,7 @@ import io.github.nichetoolkit.rest.actuator.SupplierActuator;
 
 /**
  * <code>DefaultFindOps</code>
- * <p>The type default find ops class.</p>
+ * <p>The default find ops class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
@@ -22,10 +22,10 @@ final class DefaultFindOps {
 
     /**
      * <code>makeRef</code>
-     * <p>The ref method.</p>
+     * <p>The make ref method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param mustFindFirst boolean <p>The must find first parameter is <code>boolean</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultTerminalOp} <p>The ref return object is <code>DefaultTerminalOp</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultTerminalOp} <p>The make ref return object is <code>DefaultTerminalOp</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultTerminalOp
      * @see io.github.nichetoolkit.rest.RestException
@@ -37,10 +37,10 @@ final class DefaultFindOps {
 
     /**
      * <code>makeRef</code>
-     * <p>The ref method.</p>
+     * <p>The make ref method.</p>
      * @param <T>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param predicate {@link io.github.nichetoolkit.rest.actuator.PredicateActuator} <p>The predicate parameter is <code>PredicateActuator</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultTerminalOp} <p>The ref return object is <code>DefaultTerminalOp</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultTerminalOp} <p>The make ref return object is <code>DefaultTerminalOp</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.PredicateActuator
      * @see io.github.nichetoolkit.rest.stream.DefaultTerminalOp
@@ -81,7 +81,7 @@ final class DefaultFindOps {
 
     /**
      * <code>FindOp</code>
-     * <p>The type find op class.</p>
+     * <p>The find op class.</p>
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <O> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
@@ -168,7 +168,7 @@ final class DefaultFindOps {
 
     /**
      * <code>FindSink</code>
-     * <p>The type find sink class.</p>
+     * <p>The find sink class.</p>
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <O> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
@@ -209,7 +209,7 @@ final class DefaultFindOps {
 
         /**
          * <code>OfRef</code>
-         * <p>The type of ref class.</p>
+         * <p>The of ref class.</p>
          * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @author Cyan (snow22314@outlook.com)
          * @since Jdk1.8
@@ -225,7 +225,7 @@ final class DefaultFindOps {
 
     /**
      * <code>FindTask</code>
-     * <p>The type find task class.</p>
+     * <p>The find task class.</p>
      * @param <P_IN>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <P_OUT> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <O>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
@@ -283,7 +283,7 @@ final class DefaultFindOps {
 
         /**
          * <code>foundResult</code>
-         * <p>The result method.</p>
+         * <p>The found result method.</p>
          * @param answer O <p>The answer parameter is <code>O</code> type.</p>
          */
         private void foundResult(O answer) {

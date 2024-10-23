@@ -10,7 +10,7 @@ import java.util.Optional;
 
 /**
  * <code>RestErrorIssue</code>
- * <p>The type rest error issue class.</p>
+ * <p>The rest error issue class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.DefaultErrorIssue
  * @see io.github.nichetoolkit.rest.RestStatus
@@ -189,7 +189,7 @@ public class RestErrorIssue extends DefaultErrorIssue implements RestStatus {
 
     /**
      * <code>Builder</code>
-     * <p>The type builder class.</p>
+     * <p>The builder class.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.DefaultErrorIssue.Builder
      * @since Jdk1.8
@@ -211,9 +211,9 @@ public class RestErrorIssue extends DefaultErrorIssue implements RestStatus {
 
         /**
          * <code>status</code>
-         * <p>The method.</p>
+         * <p>The status method.</p>
          * @param status {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.RestErrorIssue.Builder} <p>The return object is <code>Builder</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.RestErrorIssue.Builder} <p>The status return object is <code>Builder</code> type.</p>
          * @see java.lang.Integer
          */
         public RestErrorIssue.Builder status(Integer status) {

@@ -28,7 +28,7 @@ import java.util.Map;
 
 /**
  * <code>RestTestController</code>
- * <p>The type rest test controller class.</p>
+ * <p>The rest test controller class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
  * @see io.github.nichetoolkit.rest.userlog.stereotype.RestNotelog
@@ -85,8 +85,8 @@ public class RestTestController {
 
     /**
      * <code>generalIdentity</code>
-     * <p>The identity method.</p>
-     * @return {@link org.springframework.http.ResponseEntity} <p>The identity return object is <code>ResponseEntity</code> type.</p>
+     * <p>The general identity method.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>The general identity return object is <code>ResponseEntity</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see org.springframework.http.ResponseEntity
      * @see org.springframework.web.bind.annotation.GetMapping
@@ -100,8 +100,8 @@ public class RestTestController {
 
     /**
      * <code>generalUuid</code>
-     * <p>The uuid method.</p>
-     * @return {@link org.springframework.http.ResponseEntity} <p>The uuid return object is <code>ResponseEntity</code> type.</p>
+     * <p>The general uuid method.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>The general uuid return object is <code>ResponseEntity</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see org.springframework.http.ResponseEntity
      * @see org.springframework.web.bind.annotation.GetMapping
@@ -116,7 +116,7 @@ public class RestTestController {
 
     /**
      * <code>generalImage</code>
-     * <p>The image method.</p>
+     * <p>The general image method.</p>
      * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see javax.servlet.http.HttpServletResponse
@@ -137,8 +137,8 @@ public class RestTestController {
 
     /**
      * <code>generalRadix</code>
-     * <p>The radix method.</p>
-     * @return {@link org.springframework.http.ResponseEntity} <p>The radix return object is <code>ResponseEntity</code> type.</p>
+     * <p>The general radix method.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>The general radix return object is <code>ResponseEntity</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see org.springframework.http.ResponseEntity
      * @see org.springframework.web.bind.annotation.GetMapping
@@ -158,8 +158,8 @@ public class RestTestController {
 
     /**
      * <code>generalSha</code>
-     * <p>The sha method.</p>
-     * @return {@link org.springframework.http.ResponseEntity} <p>The sha return object is <code>ResponseEntity</code> type.</p>
+     * <p>The general sha method.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>The general sha return object is <code>ResponseEntity</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see org.springframework.http.ResponseEntity
      * @see org.springframework.web.bind.annotation.GetMapping
@@ -178,8 +178,8 @@ public class RestTestController {
 
     /**
      * <code>generalJwt</code>
-     * <p>The jwt method.</p>
-     * @return {@link org.springframework.http.ResponseEntity} <p>The jwt return object is <code>ResponseEntity</code> type.</p>
+     * <p>The general jwt method.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>The general jwt return object is <code>ResponseEntity</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see org.springframework.http.ResponseEntity
      * @see org.springframework.web.bind.annotation.GetMapping

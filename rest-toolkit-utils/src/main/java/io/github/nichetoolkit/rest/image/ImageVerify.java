@@ -14,7 +14,7 @@ import java.io.Serializable;
 
 /**
  * <code>ImageVerify</code>
- * <p>The type image verify class.</p>
+ * <p>The image verify class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.io.Serializable
  * @see lombok.Getter
@@ -63,7 +63,7 @@ public class ImageVerify implements Serializable {
 
     /**
      * <code>write</code>
-     * <p>The method.</p>
+     * <p>The write method.</p>
      * @param outputStream {@link java.io.OutputStream} <p>The output stream parameter is <code>OutputStream</code> type.</p>
      * @see java.io.OutputStream
      */
@@ -73,7 +73,7 @@ public class ImageVerify implements Serializable {
 
     /**
      * <code>write</code>
-     * <p>The method.</p>
+     * <p>The write method.</p>
      * @param formatName   {@link java.lang.String} <p>The format name parameter is <code>String</code> type.</p>
      * @param outputStream {@link java.io.OutputStream} <p>The output stream parameter is <code>OutputStream</code> type.</p>
      * @see java.lang.String

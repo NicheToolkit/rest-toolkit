@@ -8,7 +8,7 @@ import java.util.function.Function;
 
 /**
  * <code>CollectUtils</code>
- * <p>The type collect utils class.</p>
+ * <p>The collect utils class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
@@ -16,12 +16,12 @@ public class CollectUtils {
 
     /**
      * <code>collect</code>
-     * <p>The method.</p>
+     * <p>The collect method.</p>
      * @param <K>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <V>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param srcCollection {@link java.util.Collection} <p>The src collection parameter is <code>Collection</code> type.</p>
      * @param function      {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The function parameter is <code>FunctionActuator</code> type.</p>
-     * @return {@link java.util.Map} <p>The return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The collect return object is <code>Map</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.util.Collection
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
@@ -39,12 +39,12 @@ public class CollectUtils {
 
     /**
      * <code>collect</code>
-     * <p>The method.</p>
+     * <p>The collect method.</p>
      * @param <K>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <V>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param srcCollection {@link java.util.Collection} <p>The src collection parameter is <code>Collection</code> type.</p>
      * @param function      {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
-     * @return {@link java.util.Map} <p>The return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The collect return object is <code>Map</code> type.</p>
      * @see java.util.Collection
      * @see java.util.function.Function
      * @see java.util.Map
@@ -60,7 +60,7 @@ public class CollectUtils {
 
     /**
      * <code>collect</code>
-     * <p>The method.</p>
+     * <p>The collect method.</p>
      * @param <K> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <V> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param key K <p>The key parameter is <code>K</code> type.</p>
@@ -80,7 +80,7 @@ public class CollectUtils {
 
     /**
      * <code>collect</code>
-     * <p>The method.</p>
+     * <p>The collect method.</p>
      * @param <T>             {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param key             boolean <p>The key parameter is <code>boolean</code> type.</p>
      * @param data            T <p>The data parameter is <code>T</code> type.</p>
@@ -99,7 +99,7 @@ public class CollectUtils {
 
     /**
      * <code>collect</code>
-     * <p>The method.</p>
+     * <p>The collect method.</p>
      * @param <K>            {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T>            {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param key            K <p>The key parameter is <code>K</code> type.</p>
@@ -123,7 +123,7 @@ public class CollectUtils {
 
     /**
      * <code>collect</code>
-     * <p>The method.</p>
+     * <p>The collect method.</p>
      * @param <K>             {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T>             {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param key             K <p>The key parameter is <code>K</code> type.</p>
@@ -144,7 +144,7 @@ public class CollectUtils {
 
     /**
      * <code>collect</code>
-     * <p>The method.</p>
+     * <p>The collect method.</p>
      * @param <K>             {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T>             {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param key             K <p>The key parameter is <code>K</code> type.</p>
@@ -164,7 +164,7 @@ public class CollectUtils {
 
     /**
      * <code>collect</code>
-     * <p>The method.</p>
+     * <p>The collect method.</p>
      * @param <T>             {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param srcKey          {@link java.lang.Long} <p>The src key parameter is <code>Long</code> type.</p>
      * @param targetKey       {@link java.lang.Long} <p>The target key parameter is <code>Long</code> type.</p>
@@ -185,7 +185,7 @@ public class CollectUtils {
 
     /**
      * <code>collect</code>
-     * <p>The method.</p>
+     * <p>The collect method.</p>
      * @param <K>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param srcKey            K <p>The src key parameter is <code>K</code> type.</p>
@@ -205,7 +205,7 @@ public class CollectUtils {
 
     /**
      * <code>collect</code>
-     * <p>The method.</p>
+     * <p>The collect method.</p>
      * @param <K>                 {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T>                 {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param srcKey              K <p>The src key parameter is <code>K</code> type.</p>

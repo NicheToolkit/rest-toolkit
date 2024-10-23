@@ -4,7 +4,7 @@ import io.github.nichetoolkit.rest.identity.worker.WorkerType;
 
 /**
  * <code>IdentityUtils</code>
- * <p>The type identity utils class.</p>
+ * <p>The identity utils class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
@@ -12,9 +12,9 @@ public class IdentityUtils {
 
     /**
      * <code>valueOfLong</code>
-     * <p>The of long method.</p>
+     * <p>The value of long method.</p>
      * @param workerType {@link io.github.nichetoolkit.rest.identity.worker.WorkerType} <p>The worker type parameter is <code>WorkerType</code> type.</p>
-     * @return {@link java.lang.Long} <p>The of long return object is <code>Long</code> type.</p>
+     * @return {@link java.lang.Long} <p>The value of long return object is <code>Long</code> type.</p>
      * @see io.github.nichetoolkit.rest.identity.worker.WorkerType
      * @see java.lang.Long
      */
@@ -24,9 +24,9 @@ public class IdentityUtils {
 
     /**
      * <code>valueOfString</code>
-     * <p>The of string method.</p>
+     * <p>The value of string method.</p>
      * @param workerType {@link io.github.nichetoolkit.rest.identity.worker.WorkerType} <p>The worker type parameter is <code>WorkerType</code> type.</p>
-     * @return {@link java.lang.String} <p>The of string return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The value of string return object is <code>String</code> type.</p>
      * @see io.github.nichetoolkit.rest.identity.worker.WorkerType
      * @see java.lang.String
      */
@@ -36,8 +36,8 @@ public class IdentityUtils {
 
     /**
      * <code>longOfBase</code>
-     * <p>The of base method.</p>
-     * @return {@link java.lang.Long} <p>The of base return object is <code>Long</code> type.</p>
+     * <p>The long of base method.</p>
+     * @return {@link java.lang.Long} <p>The long of base return object is <code>Long</code> type.</p>
      * @see java.lang.Long
      */
     public static Long longOfBase() {
@@ -46,8 +46,8 @@ public class IdentityUtils {
 
     /**
      * <code>longOfCommon</code>
-     * <p>The of common method.</p>
-     * @return {@link java.lang.Long} <p>The of common return object is <code>Long</code> type.</p>
+     * <p>The long of common method.</p>
+     * @return {@link java.lang.Long} <p>The long of common return object is <code>Long</code> type.</p>
      * @see java.lang.Long
      */
     public static Long longOfCommon() {
@@ -56,8 +56,8 @@ public class IdentityUtils {
 
     /**
      * <code>longOfOffset</code>
-     * <p>The of offset method.</p>
-     * @return {@link java.lang.Long} <p>The of offset return object is <code>Long</code> type.</p>
+     * <p>The long of offset method.</p>
+     * @return {@link java.lang.Long} <p>The long of offset return object is <code>Long</code> type.</p>
      * @see java.lang.Long
      */
     public static Long longOfOffset() {
@@ -66,8 +66,8 @@ public class IdentityUtils {
 
     /**
      * <code>longOfSequence</code>
-     * <p>The of sequence method.</p>
-     * @return {@link java.lang.Long} <p>The of sequence return object is <code>Long</code> type.</p>
+     * <p>The long of sequence method.</p>
+     * @return {@link java.lang.Long} <p>The long of sequence return object is <code>Long</code> type.</p>
      * @see java.lang.Long
      */
     public static Long longOfSequence() {
@@ -76,8 +76,8 @@ public class IdentityUtils {
 
     /**
      * <code>valueOfLong</code>
-     * <p>The of long method.</p>
-     * @return {@link java.lang.Long} <p>The of long return object is <code>Long</code> type.</p>
+     * <p>The value of long method.</p>
+     * @return {@link java.lang.Long} <p>The value of long return object is <code>Long</code> type.</p>
      * @see java.lang.Long
      */
     public static Long valueOfLong() {
@@ -86,8 +86,8 @@ public class IdentityUtils {
 
     /**
      * <code>stringOfBase</code>
-     * <p>The of base method.</p>
-     * @return {@link java.lang.String} <p>The of base return object is <code>String</code> type.</p>
+     * <p>The string of base method.</p>
+     * @return {@link java.lang.String} <p>The string of base return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String stringOfBase() {
@@ -96,8 +96,8 @@ public class IdentityUtils {
 
     /**
      * <code>stringOfCommon</code>
-     * <p>The of common method.</p>
-     * @return {@link java.lang.String} <p>The of common return object is <code>String</code> type.</p>
+     * <p>The string of common method.</p>
+     * @return {@link java.lang.String} <p>The string of common return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String stringOfCommon() {
@@ -106,8 +106,8 @@ public class IdentityUtils {
 
     /**
      * <code>stringOfOffset</code>
-     * <p>The of offset method.</p>
-     * @return {@link java.lang.String} <p>The of offset return object is <code>String</code> type.</p>
+     * <p>The string of offset method.</p>
+     * @return {@link java.lang.String} <p>The string of offset return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String stringOfOffset() {
@@ -116,8 +116,8 @@ public class IdentityUtils {
 
     /**
      * <code>stringOfSequence</code>
-     * <p>The of sequence method.</p>
-     * @return {@link java.lang.String} <p>The of sequence return object is <code>String</code> type.</p>
+     * <p>The string of sequence method.</p>
+     * @return {@link java.lang.String} <p>The string of sequence return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String stringOfSequence() {
@@ -126,8 +126,8 @@ public class IdentityUtils {
 
     /**
      * <code>valueOfString</code>
-     * <p>The of string method.</p>
-     * @return {@link java.lang.String} <p>The of string return object is <code>String</code> type.</p>
+     * <p>The value of string method.</p>
+     * @return {@link java.lang.String} <p>The value of string return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     public static String valueOfString() {

@@ -13,7 +13,7 @@ import java.security.SecureRandom;
 
 /**
  * <code>IdentityFactory</code>
- * <p>The type identity factory class.</p>
+ * <p>The identity factory class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
  * @see java.lang.SuppressWarnings
@@ -50,8 +50,8 @@ public class IdentityFactory {
 
     /**
      * <code>getInstance</code>
-     * <p>The instance getter method.</p>
-     * @return {@link io.github.nichetoolkit.rest.identity.IdentityFactory} <p>The instance return object is <code>IdentityFactory</code> type.</p>
+     * <p>The get instance getter method.</p>
+     * @return {@link io.github.nichetoolkit.rest.identity.IdentityFactory} <p>The get instance return object is <code>IdentityFactory</code> type.</p>
      */
     public static IdentityFactory getInstance() {
         return INSTANCE;
@@ -59,9 +59,9 @@ public class IdentityFactory {
 
     /**
      * <code>get</code>
-     * <p>The method.</p>
+     * <p>The get method.</p>
      * @param workerType {@link io.github.nichetoolkit.rest.identity.worker.WorkerType} <p>The worker type parameter is <code>WorkerType</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.identity.worker.IdentityWorker} <p>The return object is <code>IdentityWorker</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.identity.worker.IdentityWorker} <p>The get return object is <code>IdentityWorker</code> type.</p>
      * @throws RestError {@link io.github.nichetoolkit.rest.RestError} <p>The rest error is <code>RestError</code> type.</p>
      * @see io.github.nichetoolkit.rest.identity.worker.WorkerType
      * @see io.github.nichetoolkit.rest.identity.worker.IdentityWorker
@@ -84,7 +84,7 @@ public class IdentityFactory {
 
     /**
      * <code>identityWorkerInit</code>
-     * <p>The worker init method.</p>
+     * <p>The identity worker init method.</p>
      * @see javax.annotation.PostConstruct
      */
     @PostConstruct

@@ -12,7 +12,7 @@ import java.util.Set;
 
 /**
  * <code>RestCollector</code>
- * <p>The type rest collector interface.</p>
+ * <p>The rest collector interface.</p>
  * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @param <A> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @param <R> {@link java.lang.Object} <p>The parameter can be of any type.</p>
@@ -23,54 +23,54 @@ public interface RestCollector<T, A, R> {
 
     /**
      * <code>supplier</code>
-     * <p>The method.</p>
-     * @return {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The return object is <code>SupplierActuator</code> type.</p>
+     * <p>The supplier method.</p>
+     * @return {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The supplier return object is <code>SupplierActuator</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
      */
     SupplierActuator<A> supplier();
 
     /**
      * <code>accumulator</code>
-     * <p>The method.</p>
-     * @return {@link io.github.nichetoolkit.rest.actuator.BiConsumerActuator} <p>The return object is <code>BiConsumerActuator</code> type.</p>
+     * <p>The accumulator method.</p>
+     * @return {@link io.github.nichetoolkit.rest.actuator.BiConsumerActuator} <p>The accumulator return object is <code>BiConsumerActuator</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.BiConsumerActuator
      */
     BiConsumerActuator<A, T> accumulator();
 
     /**
      * <code>combiner</code>
-     * <p>The method.</p>
-     * @return {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>The return object is <code>BinaryOperatorActuator</code> type.</p>
+     * <p>The combiner method.</p>
+     * @return {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>The combiner return object is <code>BinaryOperatorActuator</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator
      */
     BinaryOperatorActuator<A> combiner();
 
     /**
      * <code>finisher</code>
-     * <p>The method.</p>
-     * @return {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The return object is <code>FunctionActuator</code> type.</p>
+     * <p>The finisher method.</p>
+     * @return {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The finisher return object is <code>FunctionActuator</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      */
     FunctionActuator<A, R> finisher();
 
     /**
      * <code>characteristics</code>
-     * <p>The method.</p>
-     * @return {@link java.util.Set} <p>The return object is <code>Set</code> type.</p>
+     * <p>The characteristics method.</p>
+     * @return {@link java.util.Set} <p>The characteristics return object is <code>Set</code> type.</p>
      * @see java.util.Set
      */
     Set<Characteristics> characteristics();
 
     /**
      * <code>of</code>
-     * <p>The method.</p>
+     * <p>The of method.</p>
      * @param <T>             {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <R>             {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param supplier        {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The supplier parameter is <code>SupplierActuator</code> type.</p>
      * @param accumulator     {@link io.github.nichetoolkit.rest.actuator.BiConsumerActuator} <p>The accumulator parameter is <code>BiConsumerActuator</code> type.</p>
      * @param combiner        {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>The combiner parameter is <code>BinaryOperatorActuator</code> type.</p>
      * @param characteristics {@link io.github.nichetoolkit.rest.stream.RestCollector.Characteristics} <p>The characteristics parameter is <code>Characteristics</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The return object is <code>RestCollector</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The of return object is <code>RestCollector</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
      * @see io.github.nichetoolkit.rest.actuator.BiConsumerActuator
      * @see io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator
@@ -93,7 +93,7 @@ public interface RestCollector<T, A, R> {
 
     /**
      * <code>of</code>
-     * <p>The method.</p>
+     * <p>The of method.</p>
      * @param <T>             {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <A>             {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <R>             {@link java.lang.Object} <p>The parameter can be of any type.</p>
@@ -102,7 +102,7 @@ public interface RestCollector<T, A, R> {
      * @param combiner        {@link io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator} <p>The combiner parameter is <code>BinaryOperatorActuator</code> type.</p>
      * @param finisher        {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The finisher parameter is <code>FunctionActuator</code> type.</p>
      * @param characteristics {@link io.github.nichetoolkit.rest.stream.RestCollector.Characteristics} <p>The characteristics parameter is <code>Characteristics</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The return object is <code>RestCollector</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.RestCollector} <p>The of return object is <code>RestCollector</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
      * @see io.github.nichetoolkit.rest.actuator.BiConsumerActuator
      * @see io.github.nichetoolkit.rest.actuator.BinaryOperatorActuator
@@ -130,7 +130,7 @@ public interface RestCollector<T, A, R> {
 
     /**
      * <code>Characteristics</code>
-     * <p>The type characteristics enumeration.</p>
+     * <p>The characteristics enumeration.</p>
      * @author Cyan (snow22314@outlook.com)
      * @since Jdk1.8
      */

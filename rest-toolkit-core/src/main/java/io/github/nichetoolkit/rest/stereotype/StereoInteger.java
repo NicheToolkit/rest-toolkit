@@ -6,7 +6,7 @@ import java.lang.annotation.*;
 
 /**
  * <code>StereoInteger</code>
- * <p>The type stereo integer interface.</p>
+ * <p>The stereo integer interface.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.lang.annotation.Annotation
  * @see java.lang.annotation.Target
@@ -22,8 +22,8 @@ import java.lang.annotation.*;
 public @interface StereoInteger {
     /**
      * <code>value</code>
-     * <p>The method.</p>
-     * @return int <p>The return object is <code>int</code> type.</p>
+     * <p>The value method.</p>
+     * @return int <p>The value return object is <code>int</code> type.</p>
      */
     int value() default 0;
 }

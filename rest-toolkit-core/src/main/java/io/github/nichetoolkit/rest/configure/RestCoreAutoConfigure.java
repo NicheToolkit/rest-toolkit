@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Primary;
 
 /**
  * <code>RestCoreAutoConfigure</code>
- * <p>The type rest core auto configure class.</p>
+ * <p>The rest core auto configure class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
  * @see org.springframework.context.annotation.Configuration
@@ -33,9 +33,9 @@ public class RestCoreAutoConfigure {
 
     /**
      * <code>objectMapperHolder</code>
-     * <p>The mapper holder method.</p>
+     * <p>The object mapper holder method.</p>
      * @param objectMapper {@link com.fasterxml.jackson.databind.ObjectMapper} <p>The object mapper parameter is <code>ObjectMapper</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.holder.ObjectMapperHolder} <p>The mapper holder return object is <code>ObjectMapperHolder</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.holder.ObjectMapperHolder} <p>The object mapper holder return object is <code>ObjectMapperHolder</code> type.</p>
      * @see com.fasterxml.jackson.databind.ObjectMapper
      * @see io.github.nichetoolkit.rest.holder.ObjectMapperHolder
      * @see org.springframework.context.annotation.Bean

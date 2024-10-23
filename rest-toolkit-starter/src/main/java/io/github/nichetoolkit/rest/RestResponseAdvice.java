@@ -7,7 +7,7 @@ import org.springframework.http.server.ServerHttpResponse;
 
 /**
  * <code>RestResponseAdvice</code>
- * <p>The type rest response advice interface.</p>
+ * <p>The rest response advice interface.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
@@ -15,10 +15,10 @@ public interface RestResponseAdvice {
 
     /**
      * <code>supports</code>
-     * <p>The method.</p>
+     * <p>The supports method.</p>
      * @param params {@link org.springframework.core.MethodParameter} <p>The params parameter is <code>MethodParameter</code> type.</p>
      * @param clazz  {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @return boolean <p>The return object is <code>boolean</code> type.</p>
+     * @return boolean <p>The supports return object is <code>boolean</code> type.</p>
      * @see org.springframework.core.MethodParameter
      * @see java.lang.Class
      */
@@ -28,7 +28,7 @@ public interface RestResponseAdvice {
 
     /**
      * <code>doResponseBodyHandle</code>
-     * <p>The response body handle method.</p>
+     * <p>The do response body handle method.</p>
      * @param resultBody {@link java.lang.Object} <p>The result body parameter is <code>Object</code> type.</p>
      * @param params     {@link org.springframework.core.MethodParameter} <p>The params parameter is <code>MethodParameter</code> type.</p>
      * @param mediaType  {@link org.springframework.http.MediaType} <p>The media type parameter is <code>MediaType</code> type.</p>

@@ -9,7 +9,7 @@ import java.util.function.*;
 
 /**
  * <code>DefaultNodes</code>
- * <p>The type default nodes class.</p>
+ * <p>The default nodes class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
@@ -46,10 +46,10 @@ final class DefaultNodes {
 
     /**
      * <code>emptyDefaultNode</code>
-     * <p>The default node method.</p>
+     * <p>The empty default node method.</p>
      * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param shape {@link io.github.nichetoolkit.rest.stream.DefaultStreamShape} <p>The shape parameter is <code>DefaultStreamShape</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The default node return object is <code>DefaultNode</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The empty default node return object is <code>DefaultNode</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultStreamShape
      * @see java.lang.SuppressWarnings
      */
@@ -63,12 +63,12 @@ final class DefaultNodes {
 
     /**
      * <code>conc</code>
-     * <p>The method.</p>
+     * <p>The conc method.</p>
      * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param shape {@link io.github.nichetoolkit.rest.stream.DefaultStreamShape} <p>The shape parameter is <code>DefaultStreamShape</code> type.</p>
      * @param left  {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The left parameter is <code>DefaultNode</code> type.</p>
      * @param right {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The right parameter is <code>DefaultNode</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The return object is <code>DefaultNode</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The conc return object is <code>DefaultNode</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultStreamShape
      */
     static <T> DefaultNode<T> conc(DefaultStreamShape shape, DefaultNode<T> left, DefaultNode<T> right) {
@@ -80,10 +80,10 @@ final class DefaultNodes {
 
     /**
      * <code>node</code>
-     * <p>The method.</p>
+     * <p>The node method.</p>
      * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param array T <p>The array parameter is <code>T</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The return object is <code>DefaultNode</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The node return object is <code>DefaultNode</code> type.</p>
      */
     static <T> DefaultNode<T> node(T[] array) {
         return new ArrayDefaultNode<>(array);
@@ -91,10 +91,10 @@ final class DefaultNodes {
 
     /**
      * <code>node</code>
-     * <p>The method.</p>
+     * <p>The node method.</p>
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param c   {@link java.util.Collection} <p>The c parameter is <code>Collection</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The return object is <code>DefaultNode</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The node return object is <code>DefaultNode</code> type.</p>
      * @see java.util.Collection
      */
     static <T> DefaultNode<T> node(Collection<T> c) {
@@ -103,11 +103,11 @@ final class DefaultNodes {
 
     /**
      * <code>builder</code>
-     * <p>The method.</p>
+     * <p>The builder method.</p>
      * @param <T>              {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param exactSizeIfKnown long <p>The exact size if known parameter is <code>long</code> type.</p>
      * @param generator        {@link java.util.function.IntFunction} <p>The generator parameter is <code>IntFunction</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode.Builder} <p>The return object is <code>Builder</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode.Builder} <p>The builder return object is <code>Builder</code> type.</p>
      * @see java.util.function.IntFunction
      * @see io.github.nichetoolkit.rest.stream.DefaultNode.Builder
      */
@@ -119,9 +119,9 @@ final class DefaultNodes {
 
     /**
      * <code>builder</code>
-     * <p>The method.</p>
+     * <p>The builder method.</p>
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode.Builder} <p>The return object is <code>Builder</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode.Builder} <p>The builder return object is <code>Builder</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultNode.Builder
      */
     static <T> DefaultNode.Builder<T> builder() {
@@ -130,14 +130,14 @@ final class DefaultNodes {
 
     /**
      * <code>collect</code>
-     * <p>The method.</p>
+     * <p>The collect method.</p>
      * @param <P_IN>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <P_OUT>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param helper      {@link io.github.nichetoolkit.rest.stream.DefaultPipelineHelper} <p>The helper parameter is <code>DefaultPipelineHelper</code> type.</p>
      * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The spliterator parameter is <code>DefaultSpliterator</code> type.</p>
      * @param flattenTree boolean <p>The flatten tree parameter is <code>boolean</code> type.</p>
      * @param generator   {@link java.util.function.IntFunction} <p>The generator parameter is <code>IntFunction</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The return object is <code>DefaultNode</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The collect return object is <code>DefaultNode</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultPipelineHelper
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
@@ -163,11 +163,11 @@ final class DefaultNodes {
 
     /**
      * <code>flatten</code>
-     * <p>The method.</p>
+     * <p>The flatten method.</p>
      * @param <T>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param node      {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The node parameter is <code>DefaultNode</code> type.</p>
      * @param generator {@link java.util.function.IntFunction} <p>The generator parameter is <code>IntFunction</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The return object is <code>DefaultNode</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The flatten return object is <code>DefaultNode</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.util.function.IntFunction
      * @see io.github.nichetoolkit.rest.RestException
@@ -187,7 +187,7 @@ final class DefaultNodes {
 
     /**
      * <code>EmptyDefaultNode</code>
-     * <p>The type empty default node class.</p>
+     * <p>The empty default node class.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T_ARR>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T_CONS> {@link java.lang.Object} <p>The parameter can be of any type.</p>
@@ -209,7 +209,7 @@ final class DefaultNodes {
 
         /**
          * <code>copyInto</code>
-         * <p>The into method.</p>
+         * <p>The copy into method.</p>
          * @param array  T_ARR <p>The array parameter is <code>T_ARR</code> type.</p>
          * @param offset int <p>The offset parameter is <code>int</code> type.</p>
          */
@@ -223,7 +223,7 @@ final class DefaultNodes {
 
         /**
          * <code>forEach</code>
-         * <p>The each method.</p>
+         * <p>The for each method.</p>
          * @param consumer T_CONS <p>The consumer parameter is <code>T_CONS</code> type.</p>
          */
         public void forEach(T_CONS consumer) {
@@ -231,7 +231,7 @@ final class DefaultNodes {
 
         /**
          * <code>OfRef</code>
-         * <p>The type of ref class.</p>
+         * <p>The of ref class.</p>
          * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @author Cyan (snow22314@outlook.com)
          * @since Jdk1.8
@@ -254,7 +254,7 @@ final class DefaultNodes {
 
     /**
      * <code>ArrayDefaultNode</code>
-     * <p>The type array default node class.</p>
+     * <p>The array default node class.</p>
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @since Jdk1.8
@@ -335,7 +335,7 @@ final class DefaultNodes {
 
     /**
      * <code>CollectionDefaultNode</code>
-     * <p>The type collection default node class.</p>
+     * <p>The collection default node class.</p>
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @since Jdk1.8
@@ -397,7 +397,7 @@ final class DefaultNodes {
 
     /**
      * <code>AbstractConcDefaultNode</code>
-     * <p>The type abstract conc default node class.</p>
+     * <p>The abstract conc default node class.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T_NODE> {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The generic parameter is <code>DefaultNode</code> type.</p>
      * @author Cyan (snow22314@outlook.com)
@@ -452,7 +452,7 @@ final class DefaultNodes {
 
     /**
      * <code>ConcDefaultNode</code>
-     * <p>The type conc default node class.</p>
+     * <p>The conc default node class.</p>
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultNodes.AbstractConcDefaultNode
@@ -526,7 +526,7 @@ final class DefaultNodes {
 
         /**
          * <code>OfPrimitive</code>
-         * <p>The type of primitive class.</p>
+         * <p>The of primitive class.</p>
          * @param <E>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @param <T_CONS>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @param <T_ARR>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
@@ -588,7 +588,7 @@ final class DefaultNodes {
 
     /**
      * <code>InternalDefaultNodeSpliterator</code>
-     * <p>The type internal default node spliterator class.</p>
+     * <p>The internal default node spliterator class.</p>
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <S> {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The generic parameter is <code>DefaultSpliterator</code> type.</p>
      * @param <N> {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The generic parameter is <code>DefaultNode</code> type.</p>
@@ -642,8 +642,8 @@ final class DefaultNodes {
 
         /**
          * <code>initStack</code>
-         * <p>The stack method.</p>
-         * @return {@link java.util.Deque} <p>The stack return object is <code>Deque</code> type.</p>
+         * <p>The init stack method.</p>
+         * @return {@link java.util.Deque} <p>The init stack return object is <code>Deque</code> type.</p>
          * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
          * @see java.util.Deque
          * @see java.lang.SuppressWarnings
@@ -659,9 +659,9 @@ final class DefaultNodes {
 
         /**
          * <code>findNextLeafDefaultNode</code>
-         * <p>The next leaf default node method.</p>
+         * <p>The find next leaf default node method.</p>
          * @param stack {@link java.util.Deque} <p>The stack parameter is <code>Deque</code> type.</p>
-         * @return N <p>The next leaf default node return object is <code>N</code> type.</p>
+         * @return N <p>The find next leaf default node return object is <code>N</code> type.</p>
          * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
          * @see java.util.Deque
          * @see java.lang.SuppressWarnings
@@ -685,8 +685,8 @@ final class DefaultNodes {
 
         /**
          * <code>initTryAdvance</code>
-         * <p>The try advance method.</p>
-         * @return boolean <p>The try advance return object is <code>boolean</code> type.</p>
+         * <p>The init try advance method.</p>
+         * @return boolean <p>The init try advance return object is <code>boolean</code> type.</p>
          * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
          * @see java.lang.SuppressWarnings
          * @see io.github.nichetoolkit.rest.RestException
@@ -754,7 +754,7 @@ final class DefaultNodes {
 
         /**
          * <code>OfRef</code>
-         * <p>The type of ref class.</p>
+         * <p>The of ref class.</p>
          * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @author Cyan (snow22314@outlook.com)
          * @since Jdk1.8
@@ -814,7 +814,7 @@ final class DefaultNodes {
 
         /**
          * <code>OfPrimitive</code>
-         * <p>The type of primitive class.</p>
+         * <p>The of primitive class.</p>
          * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @param <T_CONS>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @param <T_ARR>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
@@ -884,7 +884,7 @@ final class DefaultNodes {
 
     /**
      * <code>FixedDefaultNodeBuilder</code>
-     * <p>The type fixed default node builder class.</p>
+     * <p>The fixed default node builder class.</p>
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultNodes.ArrayDefaultNode
@@ -949,7 +949,7 @@ final class DefaultNodes {
 
     /**
      * <code>SpinedDefaultNodeBuilder</code>
-     * <p>The type spined default node builder class.</p>
+     * <p>The spined default node builder class.</p>
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultSpinedBuffer
@@ -1025,7 +1025,7 @@ final class DefaultNodes {
 
     /**
      * <code>SizedCollectorTask</code>
-     * <p>The type sized collector task class.</p>
+     * <p>The sized collector task class.</p>
      * @param <P_IN>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <P_OUT>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T_SINK> {@link io.github.nichetoolkit.rest.stream.DefaultSink} <p>The generic parameter is <code>DefaultSink</code> type.</p>
@@ -1150,11 +1150,11 @@ final class DefaultNodes {
 
         /**
          * <code>makeChild</code>
-         * <p>The child method.</p>
+         * <p>The make child method.</p>
          * @param spliterator {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The spliterator parameter is <code>DefaultSpliterator</code> type.</p>
          * @param offset      long <p>The offset parameter is <code>long</code> type.</p>
          * @param size        long <p>The size parameter is <code>long</code> type.</p>
-         * @return K <p>The child return object is <code>K</code> type.</p>
+         * @return K <p>The make child return object is <code>K</code> type.</p>
          * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
          * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
          * @see io.github.nichetoolkit.rest.RestException
@@ -1174,7 +1174,7 @@ final class DefaultNodes {
 
         /**
          * <code>OfRef</code>
-         * <p>The type of ref class.</p>
+         * <p>The of ref class.</p>
          * @param <P_IN>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @param <P_OUT> {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @author Cyan (snow22314@outlook.com)
@@ -1241,7 +1241,7 @@ final class DefaultNodes {
 
     /**
      * <code>ToArrayTask</code>
-     * <p>The type to array task class.</p>
+     * <p>The to array task class.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T_NODE> {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The generic parameter is <code>DefaultNode</code> type.</p>
      * @param <K>      {@link io.github.nichetoolkit.rest.stream.DefaultNodes.ToArrayTask} <p>The generic parameter is <code>ToArrayTask</code> type.</p>
@@ -1289,16 +1289,16 @@ final class DefaultNodes {
 
         /**
          * <code>copyDefaultNodeToArray</code>
-         * <p>The default node to array method.</p>
+         * <p>The copy default node to array method.</p>
          */
         abstract void copyDefaultNodeToArray();
 
         /**
          * <code>makeChild</code>
-         * <p>The child method.</p>
+         * <p>The make child method.</p>
          * @param childIndex int <p>The child index parameter is <code>int</code> type.</p>
          * @param offset     int <p>The offset parameter is <code>int</code> type.</p>
-         * @return K <p>The child return object is <code>K</code> type.</p>
+         * @return K <p>The make child return object is <code>K</code> type.</p>
          */
         abstract K makeChild(int childIndex, int offset);
 
@@ -1327,7 +1327,7 @@ final class DefaultNodes {
 
         /**
          * <code>OfRef</code>
-         * <p>The type of ref class.</p>
+         * <p>The of ref class.</p>
          * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @author Cyan (snow22314@outlook.com)
          * @since Jdk1.8
@@ -1377,7 +1377,7 @@ final class DefaultNodes {
 
         /**
          * <code>OfPrimitive</code>
-         * <p>The type of primitive class.</p>
+         * <p>The of primitive class.</p>
          * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @param <T_CONS>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @param <T_ARR>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
@@ -1436,7 +1436,7 @@ final class DefaultNodes {
 
     /**
      * <code>CollectorTask</code>
-     * <p>The type collector task class.</p>
+     * <p>The collector task class.</p>
      * @param <P_IN>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <P_OUT>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T_NODE>    {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The generic parameter is <code>DefaultNode</code> type.</p>
@@ -1525,7 +1525,7 @@ final class DefaultNodes {
 
         /**
          * <code>OfRef</code>
-         * <p>The type of ref class.</p>
+         * <p>The of ref class.</p>
          * @param <P_IN>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @param <P_OUT> {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @author Cyan (snow22314@outlook.com)

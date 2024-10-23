@@ -7,7 +7,7 @@ import java.lang.annotation.*;
 
 /**
  * <code>StereoByte</code>
- * <p>The type stereo byte interface.</p>
+ * <p>The stereo byte interface.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.lang.annotation.Annotation
  * @see java.lang.annotation.Target
@@ -23,8 +23,8 @@ import java.lang.annotation.*;
 public @interface StereoByte {
     /**
      * <code>value</code>
-     * <p>The method.</p>
-     * @return byte <p>The return object is <code>byte</code> type.</p>
+     * <p>The value method.</p>
+     * @return byte <p>The value return object is <code>byte</code> type.</p>
      */
     byte value() default 0;
 }

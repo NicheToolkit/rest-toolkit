@@ -11,7 +11,7 @@ import java.util.Map;
 
 /**
  * <code>JwtBuilder</code>
- * <p>The type jwt builder class.</p>
+ * <p>The jwt builder class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
@@ -74,9 +74,9 @@ public class JwtBuilder {
 
     /**
      * <code>audience</code>
-     * <p>The method.</p>
+     * <p>The audience method.</p>
      * @param audience {@link java.lang.Object} <p>The audience parameter is <code>Object</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>The return object is <code>JwtBuilder</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>The audience return object is <code>JwtBuilder</code> type.</p>
      * @see java.lang.Object
      */
     public JwtBuilder audience(Object audience) {
@@ -86,9 +86,9 @@ public class JwtBuilder {
 
     /**
      * <code>expiration</code>
-     * <p>The method.</p>
+     * <p>The expiration method.</p>
      * @param expiration {@link java.time.ZonedDateTime} <p>The expiration parameter is <code>ZonedDateTime</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>The return object is <code>JwtBuilder</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>The expiration return object is <code>JwtBuilder</code> type.</p>
      * @see java.time.ZonedDateTime
      */
     public JwtBuilder expiration(ZonedDateTime expiration) {
@@ -98,9 +98,9 @@ public class JwtBuilder {
 
     /**
      * <code>issuedAt</code>
-     * <p>The at method.</p>
+     * <p>The issued at method.</p>
      * @param issuedAt {@link java.time.ZonedDateTime} <p>The issued at parameter is <code>ZonedDateTime</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>The at return object is <code>JwtBuilder</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>The issued at return object is <code>JwtBuilder</code> type.</p>
      * @see java.time.ZonedDateTime
      */
     public JwtBuilder issuedAt(ZonedDateTime issuedAt) {
@@ -110,9 +110,9 @@ public class JwtBuilder {
 
     /**
      * <code>issuer</code>
-     * <p>The method.</p>
+     * <p>The issuer method.</p>
      * @param issuer {@link java.lang.String} <p>The issuer parameter is <code>String</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>The return object is <code>JwtBuilder</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>The issuer return object is <code>JwtBuilder</code> type.</p>
      * @see java.lang.String
      */
     public JwtBuilder issuer(String issuer) {
@@ -123,9 +123,9 @@ public class JwtBuilder {
 
     /**
      * <code>notBefore</code>
-     * <p>The before method.</p>
+     * <p>The not before method.</p>
      * @param notBefore {@link java.time.ZonedDateTime} <p>The not before parameter is <code>ZonedDateTime</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>The before return object is <code>JwtBuilder</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>The not before return object is <code>JwtBuilder</code> type.</p>
      * @see java.time.ZonedDateTime
      */
     public JwtBuilder notBefore(ZonedDateTime notBefore) {
@@ -136,9 +136,9 @@ public class JwtBuilder {
 
     /**
      * <code>subject</code>
-     * <p>The method.</p>
+     * <p>The subject method.</p>
      * @param subject {@link java.lang.String} <p>The subject parameter is <code>String</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>The return object is <code>JwtBuilder</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>The subject return object is <code>JwtBuilder</code> type.</p>
      * @see java.lang.String
      */
     public JwtBuilder subject(String subject) {
@@ -148,9 +148,9 @@ public class JwtBuilder {
 
     /**
      * <code>uniqueId</code>
-     * <p>The id method.</p>
+     * <p>The unique id method.</p>
      * @param uniqueId {@link java.lang.String} <p>The unique id parameter is <code>String</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>The id return object is <code>JwtBuilder</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>The unique id return object is <code>JwtBuilder</code> type.</p>
      * @see java.lang.String
      */
     public JwtBuilder uniqueId(String uniqueId) {
@@ -160,10 +160,10 @@ public class JwtBuilder {
 
     /**
      * <code>addClaim</code>
-     * <p>The claim method.</p>
+     * <p>The add claim method.</p>
      * @param name  {@link java.lang.String} <p>The name parameter is <code>String</code> type.</p>
      * @param value {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>The claim return object is <code>JwtBuilder</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>The add claim return object is <code>JwtBuilder</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Object
      */
@@ -174,9 +174,9 @@ public class JwtBuilder {
 
     /**
      * <code>addClaim</code>
-     * <p>The claim method.</p>
+     * <p>The add claim method.</p>
      * @param claimMap {@link java.util.Map} <p>The claim map parameter is <code>Map</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>The claim return object is <code>JwtBuilder</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>The add claim return object is <code>JwtBuilder</code> type.</p>
      * @see java.util.Map
      */
     public JwtBuilder addClaim(Map<String,Object> claimMap) {
@@ -186,9 +186,9 @@ public class JwtBuilder {
 
     /**
      * <code>addClaim</code>
-     * <p>The claim method.</p>
+     * <p>The add claim method.</p>
      * @param entries {@link java.util.Collection} <p>The entries parameter is <code>Collection</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>The claim return object is <code>JwtBuilder</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>The add claim return object is <code>JwtBuilder</code> type.</p>
      * @see java.util.Collection
      */
     public JwtBuilder addClaim(Collection<Map.Entry<String,Object>> entries) {
@@ -200,8 +200,8 @@ public class JwtBuilder {
 
     /**
      * <code>toBean</code>
-     * <p>The bean method.</p>
-     * @return {@link io.fusionauth.jwt.domain.JWT} <p>The bean return object is <code>JWT</code> type.</p>
+     * <p>The to bean method.</p>
+     * @return {@link io.fusionauth.jwt.domain.JWT} <p>The to bean return object is <code>JWT</code> type.</p>
      * @see io.fusionauth.jwt.domain.JWT
      */
     public JWT toBean() {
@@ -212,8 +212,8 @@ public class JwtBuilder {
 
     /**
      * <code>build</code>
-     * <p>The method.</p>
-     * @return {@link io.fusionauth.jwt.domain.JWT} <p>The return object is <code>JWT</code> type.</p>
+     * <p>The build method.</p>
+     * @return {@link io.fusionauth.jwt.domain.JWT} <p>The build return object is <code>JWT</code> type.</p>
      * @see io.fusionauth.jwt.domain.JWT
      */
     public JWT build() {
@@ -232,8 +232,8 @@ public class JwtBuilder {
 
     /**
      * <code>builder</code>
-     * <p>The method.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>The return object is <code>JwtBuilder</code> type.</p>
+     * <p>The builder method.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtBuilder} <p>The builder return object is <code>JwtBuilder</code> type.</p>
      */
     public static JwtBuilder builder() {
         return new JwtBuilder();

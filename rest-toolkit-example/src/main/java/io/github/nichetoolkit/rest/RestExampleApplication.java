@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 /**
  * <code>RestExampleApplication</code>
- * <p>The type rest example application class.</p>
+ * <p>The rest example application class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see org.springframework.boot.web.servlet.support.SpringBootServletInitializer
  * @see org.springframework.boot.autoconfigure.SpringBootApplication

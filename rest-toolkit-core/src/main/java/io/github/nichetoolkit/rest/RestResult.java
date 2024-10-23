@@ -13,7 +13,7 @@ import java.util.Date;
 
 /**
  * <code>RestResult</code>
- * <p>The type rest result class.</p>
+ * <p>The rest result class.</p>
  * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.DefaultResult
@@ -127,9 +127,9 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
 
     /**
      * <code>success</code>
-     * <p>The method.</p>
+     * <p>The success method.</p>
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The return object is <code>RestResult</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The success return object is <code>RestResult</code> type.</p>
      */
     public static <T> RestResult success() {
         return (new RestResult.Builder<T>()).restStatus(RestErrorStatus.SUCCESS).build();
@@ -137,10 +137,10 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
 
     /**
      * <code>success</code>
-     * <p>The method.</p>
+     * <p>The success method.</p>
      * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param data T <p>The data parameter is <code>T</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The return object is <code>RestResult</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The success return object is <code>RestResult</code> type.</p>
      */
     public static <T> RestResult<T> success(T data) {
         return (new RestResult.Builder<T>()).restStatus(RestErrorStatus.SUCCESS).data(data).build();
@@ -148,10 +148,10 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
 
     /**
      * <code>success</code>
-     * <p>The method.</p>
+     * <p>The success method.</p>
      * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The return object is <code>RestResult</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The success return object is <code>RestResult</code> type.</p>
      * @see java.lang.String
      */
     public static <T> RestResult success(String message) {
@@ -160,11 +160,11 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
 
     /**
      * <code>success</code>
-     * <p>The method.</p>
+     * <p>The success method.</p>
      * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @param data    T <p>The data parameter is <code>T</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The return object is <code>RestResult</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The success return object is <code>RestResult</code> type.</p>
      * @see java.lang.String
      */
     public static <T> RestResult<T> success(String message, T data) {
@@ -173,10 +173,10 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
 
     /**
      * <code>success</code>
-     * <p>The method.</p>
+     * <p>The success method.</p>
      * @param <T>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The return object is <code>RestResult</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The success return object is <code>RestResult</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
     public static <T> RestResult success(RestStatus status) {
@@ -185,11 +185,11 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
 
     /**
      * <code>success</code>
-     * <p>The method.</p>
+     * <p>The success method.</p>
      * @param <T>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @param data   T <p>The data parameter is <code>T</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The return object is <code>RestResult</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The success return object is <code>RestResult</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
     public static <T> RestResult<T> success(RestStatus status, T data) {
@@ -198,10 +198,10 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
 
     /**
      * <code>mistake</code>
-     * <p>The method.</p>
+     * <p>The mistake method.</p>
      * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The return object is <code>RestResult</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The mistake return object is <code>RestResult</code> type.</p>
      * @see java.lang.String
      */
     public static <T> RestResult mistake(String message) {
@@ -210,11 +210,11 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
 
     /**
      * <code>mistake</code>
-     * <p>The method.</p>
+     * <p>The mistake method.</p>
      * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @param data    T <p>The data parameter is <code>T</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The return object is <code>RestResult</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The mistake return object is <code>RestResult</code> type.</p>
      * @see java.lang.String
      */
     public static <T> RestResult<T> mistake(String message, T data) {
@@ -223,12 +223,12 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
 
     /**
      * <code>mistake</code>
-     * <p>The method.</p>
+     * <p>The mistake method.</p>
      * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param status  {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
      * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @param data    T <p>The data parameter is <code>T</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The return object is <code>RestResult</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The mistake return object is <code>RestResult</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      */
@@ -238,11 +238,11 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
 
     /**
      * <code>mistake</code>
-     * <p>The method.</p>
+     * <p>The mistake method.</p>
      * @param <T>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param status {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
      * @param cause  {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The return object is <code>RestResult</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The mistake return object is <code>RestResult</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.Throwable
      */
@@ -252,11 +252,11 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
 
     /**
      * <code>mistake</code>
-     * <p>The method.</p>
+     * <p>The mistake method.</p>
      * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param status  {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
      * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The return object is <code>RestResult</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The mistake return object is <code>RestResult</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      */
@@ -266,10 +266,10 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
 
     /**
      * <code>mistake</code>
-     * <p>The method.</p>
+     * <p>The mistake method.</p>
      * @param <T>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The return object is <code>RestResult</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The mistake return object is <code>RestResult</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
     public static <T> RestResult mistake(RestStatus status) {
@@ -278,11 +278,11 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
 
     /**
      * <code>mistake</code>
-     * <p>The method.</p>
+     * <p>The mistake method.</p>
      * @param <T>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @param cause  {@link java.lang.Throwable} <p>The cause parameter is <code>Throwable</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The return object is <code>RestResult</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The mistake return object is <code>RestResult</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.Throwable
      */
@@ -292,11 +292,11 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
 
     /**
      * <code>mistake</code>
-     * <p>The method.</p>
+     * <p>The mistake method.</p>
      * @param <T>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @param data   T <p>The data parameter is <code>T</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The return object is <code>RestResult</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The mistake return object is <code>RestResult</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
     public static <T> RestResult<T> mistake(RestStatus status, T data) {
@@ -305,9 +305,9 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
 
     /**
      * <code>defaultBuilder</code>
-     * <p>The builder method.</p>
+     * <p>The default builder method.</p>
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestResult.Builder} <p>The builder return object is <code>Builder</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult.Builder} <p>The default builder return object is <code>Builder</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestResult.Builder
      */
     public static <T> RestResult.Builder<T> defaultBuilder() {
@@ -316,9 +316,9 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
 
     /**
      * <code>ok</code>
-     * <p>The method.</p>
+     * <p>The ok method.</p>
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @return {@link org.springframework.http.ResponseEntity} <p>The return object is <code>ResponseEntity</code> type.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>The ok return object is <code>ResponseEntity</code> type.</p>
      * @see org.springframework.http.ResponseEntity
      */
     public static <T> ResponseEntity<RestResult> ok() {
@@ -327,10 +327,10 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
 
     /**
      * <code>ok</code>
-     * <p>The method.</p>
+     * <p>The ok method.</p>
      * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param data T <p>The data parameter is <code>T</code> type.</p>
-     * @return {@link org.springframework.http.ResponseEntity} <p>The return object is <code>ResponseEntity</code> type.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>The ok return object is <code>ResponseEntity</code> type.</p>
      * @see org.springframework.http.ResponseEntity
      */
     public static <T> ResponseEntity<RestResult<T>> ok(T data) {
@@ -339,10 +339,10 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
 
     /**
      * <code>ok</code>
-     * <p>The method.</p>
+     * <p>The ok method.</p>
      * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
-     * @return {@link org.springframework.http.ResponseEntity} <p>The return object is <code>ResponseEntity</code> type.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>The ok return object is <code>ResponseEntity</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.ResponseEntity
      */
@@ -352,11 +352,11 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
 
     /**
      * <code>ok</code>
-     * <p>The method.</p>
+     * <p>The ok method.</p>
      * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @param data    T <p>The data parameter is <code>T</code> type.</p>
-     * @return {@link org.springframework.http.ResponseEntity} <p>The return object is <code>ResponseEntity</code> type.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>The ok return object is <code>ResponseEntity</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.ResponseEntity
      */
@@ -366,10 +366,10 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
 
     /**
      * <code>ok</code>
-     * <p>The method.</p>
+     * <p>The ok method.</p>
      * @param <T>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
-     * @return {@link org.springframework.http.ResponseEntity} <p>The return object is <code>ResponseEntity</code> type.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>The ok return object is <code>ResponseEntity</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see org.springframework.http.ResponseEntity
      */
@@ -379,11 +379,11 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
 
     /**
      * <code>ok</code>
-     * <p>The method.</p>
+     * <p>The ok method.</p>
      * @param <T>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @param data   T <p>The data parameter is <code>T</code> type.</p>
-     * @return {@link org.springframework.http.ResponseEntity} <p>The return object is <code>ResponseEntity</code> type.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>The ok return object is <code>ResponseEntity</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see org.springframework.http.ResponseEntity
      */
@@ -393,10 +393,10 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
-     * @return {@link org.springframework.http.ResponseEntity} <p>The return object is <code>ResponseEntity</code> type.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>The error return object is <code>ResponseEntity</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.ResponseEntity
      */
@@ -406,11 +406,11 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @param data    T <p>The data parameter is <code>T</code> type.</p>
-     * @return {@link org.springframework.http.ResponseEntity} <p>The return object is <code>ResponseEntity</code> type.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>The error return object is <code>ResponseEntity</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.ResponseEntity
      */
@@ -420,12 +420,12 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param status  {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
      * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @param data    T <p>The data parameter is <code>T</code> type.</p>
-     * @return {@link org.springframework.http.ResponseEntity} <p>The return object is <code>ResponseEntity</code> type.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>The error return object is <code>ResponseEntity</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      * @see org.springframework.http.ResponseEntity
@@ -436,11 +436,11 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param status  {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
      * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
-     * @return {@link org.springframework.http.ResponseEntity} <p>The return object is <code>ResponseEntity</code> type.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>The error return object is <code>ResponseEntity</code> type.</p>
      * @see java.lang.Integer
      * @see java.lang.String
      * @see org.springframework.http.ResponseEntity
@@ -451,10 +451,10 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param <T>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
-     * @return {@link org.springframework.http.ResponseEntity} <p>The return object is <code>ResponseEntity</code> type.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>The error return object is <code>ResponseEntity</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see org.springframework.http.ResponseEntity
      */
@@ -464,11 +464,11 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
 
     /**
      * <code>error</code>
-     * <p>The method.</p>
+     * <p>The error method.</p>
      * @param <T>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @param data   T <p>The data parameter is <code>T</code> type.</p>
-     * @return {@link org.springframework.http.ResponseEntity} <p>The return object is <code>ResponseEntity</code> type.</p>
+     * @return {@link org.springframework.http.ResponseEntity} <p>The error return object is <code>ResponseEntity</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see org.springframework.http.ResponseEntity
      */
@@ -478,7 +478,7 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
 
     /**
      * <code>Builder</code>
-     * <p>The type builder class.</p>
+     * <p>The builder class.</p>
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.DefaultResult.Builder
@@ -545,9 +545,9 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
 
         /**
          * <code>time</code>
-         * <p>The method.</p>
+         * <p>The time method.</p>
          * @param time {@link java.util.Date} <p>The time parameter is <code>Date</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.RestResult.Builder} <p>The return object is <code>Builder</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.RestResult.Builder} <p>The time return object is <code>Builder</code> type.</p>
          * @see java.util.Date
          */
         public RestResult.Builder<T> time(Date time) {
@@ -557,9 +557,9 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
 
         /**
          * <code>time</code>
-         * <p>The method.</p>
+         * <p>The time method.</p>
          * @param time {@link java.lang.Long} <p>The time parameter is <code>Long</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.RestResult.Builder} <p>The return object is <code>Builder</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.RestResult.Builder} <p>The time return object is <code>Builder</code> type.</p>
          * @see java.lang.Long
          */
         public RestResult.Builder<T> time(Long time) {

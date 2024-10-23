@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 
 /**
  * <code>RestArithmetic</code>
- * <p>The type rest arithmetic interface.</p>
+ * <p>The rest arithmetic interface.</p>
  * @param <A> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestValue
@@ -17,19 +17,19 @@ public interface RestArithmetic<A> extends RestValue<Long, String> {
 
     /**
      * <code>getArithmetic</code>
-     * <p>The arithmetic getter method.</p>
-     * @return A <p>The arithmetic return object is <code>A</code> type.</p>
+     * <p>The get arithmetic getter method.</p>
+     * @return A <p>The get arithmetic return object is <code>A</code> type.</p>
      */
     A getArithmetic();
 
     /**
      * <code>parseArithmetic</code>
-     * <p>The arithmetic method.</p>
+     * <p>The parse arithmetic method.</p>
      * @param <A>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T>        {@link io.github.nichetoolkit.rest.RestArithmetic} <p>The generic parameter is <code>RestArithmetic</code> type.</p>
      * @param clazz      {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
      * @param arithmetic A <p>The arithmetic parameter is <code>A</code> type.</p>
-     * @return T <p>The arithmetic return object is <code>T</code> type.</p>
+     * @return T <p>The parse arithmetic return object is <code>T</code> type.</p>
      * @see java.lang.Class
      * @see java.lang.SuppressWarnings
      */

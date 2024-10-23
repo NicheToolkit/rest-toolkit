@@ -7,7 +7,7 @@ import org.springframework.lang.NonNull;
 
 /**
  * <code>IdentityWorkerTime</code>
- * <p>The type identity worker time class.</p>
+ * <p>The identity worker time class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
  * @see lombok.Getter
@@ -53,9 +53,9 @@ class IdentityWorkerTime implements SupplierActuator<IdentityWorkerTime> {
 
     /**
      * <code>sequence</code>
-     * <p>The method.</p>
+     * <p>The sequence method.</p>
      * @param sequence {@link java.lang.Long} <p>The sequence parameter is <code>Long</code> type.</p>
-     * @return {@link java.lang.Long} <p>The return object is <code>Long</code> type.</p>
+     * @return {@link java.lang.Long} <p>The sequence return object is <code>Long</code> type.</p>
      * @see java.lang.Long
      */
     public Long sequence(Long sequence) {
@@ -68,9 +68,9 @@ class IdentityWorkerTime implements SupplierActuator<IdentityWorkerTime> {
 
     /**
      * <code>next</code>
-     * <p>The method.</p>
+     * <p>The next method.</p>
      * @param lastTime {@link java.lang.Long} <p>The last time parameter is <code>Long</code> type.</p>
-     * @return {@link java.lang.Long} <p>The return object is <code>Long</code> type.</p>
+     * @return {@link java.lang.Long} <p>The next return object is <code>Long</code> type.</p>
      * @see java.lang.Long
      */
     public static Long next(Long lastTime) {

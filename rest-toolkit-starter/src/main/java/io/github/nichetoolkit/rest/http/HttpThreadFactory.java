@@ -22,7 +22,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * <code>HttpThreadFactory</code>
- * <p>The type http thread factory class.</p>
+ * <p>The http thread factory class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.util.concurrent.ThreadFactory
  * @since Jdk1.8

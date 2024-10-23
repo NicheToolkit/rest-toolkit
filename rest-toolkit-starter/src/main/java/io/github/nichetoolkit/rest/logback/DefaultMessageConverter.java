@@ -14,7 +14,7 @@ import org.springframework.lang.NonNull;
 
 /**
  * <code>DefaultMessageConverter</code>
- * <p>The type default message converter class.</p>
+ * <p>The default message converter class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see ch.qos.logback.classic.pattern.MessageConverter
  * @see lombok.extern.slf4j.Slf4j
@@ -59,9 +59,9 @@ public class DefaultMessageConverter extends MessageConverter {
 
     /**
      * <code>argumentsFormat</code>
-     * <p>The format method.</p>
+     * <p>The arguments format method.</p>
      * @param arguments {@link java.lang.Object} <p>The arguments parameter is <code>Object</code> type.</p>
-     * @return {@link java.lang.Object} <p>The format return object is <code>Object</code> type.</p>
+     * @return {@link java.lang.Object} <p>The arguments format return object is <code>Object</code> type.</p>
      * @see java.lang.Object
      * @see org.springframework.lang.NonNull
      */
@@ -79,9 +79,9 @@ public class DefaultMessageConverter extends MessageConverter {
 
     /**
      * <code>argumentJson</code>
-     * <p>The json method.</p>
+     * <p>The argument json method.</p>
      * @param argument {@link java.lang.Object} <p>The argument parameter is <code>Object</code> type.</p>
-     * @return {@link java.lang.Object} <p>The json return object is <code>Object</code> type.</p>
+     * @return {@link java.lang.Object} <p>The argument json return object is <code>Object</code> type.</p>
      * @see java.lang.Object
      * @see org.springframework.lang.NonNull
      */

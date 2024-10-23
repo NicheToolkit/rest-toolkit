@@ -13,7 +13,7 @@ import org.springframework.core.env.Environment;
 
 /**
  * <code>RestIdentityAutoConfigure</code>
- * <p>The type rest identity auto configure class.</p>
+ * <p>The rest identity auto configure class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
  * @see org.springframework.boot.autoconfigure.AutoConfiguration
@@ -39,9 +39,9 @@ public class RestIdentityAutoConfigure {
 
     /**
      * <code>identityFactory</code>
-     * <p>The factory method.</p>
+     * <p>The identity factory method.</p>
      * @param identityProperties {@link io.github.nichetoolkit.rest.configure.RestIdentityProperties} <p>The identity properties parameter is <code>RestIdentityProperties</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.identity.IdentityFactory} <p>The factory return object is <code>IdentityFactory</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.identity.IdentityFactory} <p>The identity factory return object is <code>IdentityFactory</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestIdentityProperties
      * @see io.github.nichetoolkit.rest.identity.IdentityFactory
      * @see org.springframework.context.annotation.Bean
@@ -57,10 +57,10 @@ public class RestIdentityAutoConfigure {
 
     /**
      * <code>IdentityManager</code>
-     * <p>The manager method.</p>
+     * <p>The identity manager method.</p>
      * @param identityProperties {@link io.github.nichetoolkit.rest.configure.RestIdentityProperties} <p>The identity properties parameter is <code>RestIdentityProperties</code> type.</p>
      * @param environment        {@link org.springframework.core.env.Environment} <p>The environment parameter is <code>Environment</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.identity.IdentityManager} <p>The manager return object is <code>IdentityManager</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.identity.IdentityManager} <p>The identity manager return object is <code>IdentityManager</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestIdentityProperties
      * @see org.springframework.core.env.Environment
      * @see io.github.nichetoolkit.rest.identity.IdentityManager

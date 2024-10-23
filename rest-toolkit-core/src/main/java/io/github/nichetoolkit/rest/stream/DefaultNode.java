@@ -7,7 +7,7 @@ import java.util.function.*;
 
 /**
  * <code>DefaultNode</code>
- * <p>The type default node interface.</p>
+ * <p>The default node interface.</p>
  * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
@@ -16,8 +16,8 @@ public interface DefaultNode<T> {
 
     /**
      * <code>spliterator</code>
-     * <p>The method.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The return object is <code>DefaultSpliterator</code> type.</p>
+     * <p>The spliterator method.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The spliterator return object is <code>DefaultSpliterator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
      * @see io.github.nichetoolkit.rest.RestException
@@ -26,7 +26,7 @@ public interface DefaultNode<T> {
 
     /**
      * <code>forEach</code>
-     * <p>The each method.</p>
+     * <p>The for each method.</p>
      * @param consumer {@link io.github.nichetoolkit.rest.actuator.ConsumerActuator} <p>The consumer parameter is <code>ConsumerActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.ConsumerActuator
@@ -36,8 +36,8 @@ public interface DefaultNode<T> {
 
     /**
      * <code>getChildCount</code>
-     * <p>The child count getter method.</p>
-     * @return int <p>The child count return object is <code>int</code> type.</p>
+     * <p>The get child count getter method.</p>
+     * @return int <p>The get child count return object is <code>int</code> type.</p>
      */
     default int getChildCount() {
         return 0;
@@ -45,9 +45,9 @@ public interface DefaultNode<T> {
 
     /**
      * <code>getChild</code>
-     * <p>The child getter method.</p>
+     * <p>The get child getter method.</p>
      * @param i int <p>The parameter is <code>int</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The child return object is <code>DefaultNode</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The get child return object is <code>DefaultNode</code> type.</p>
      */
     default DefaultNode<T> getChild(int i) {
         throw new IndexOutOfBoundsException();
@@ -55,11 +55,11 @@ public interface DefaultNode<T> {
 
     /**
      * <code>truncate</code>
-     * <p>The method.</p>
+     * <p>The truncate method.</p>
      * @param from      long <p>The from parameter is <code>long</code> type.</p>
      * @param to        long <p>The to parameter is <code>long</code> type.</p>
      * @param generator {@link java.util.function.IntFunction} <p>The generator parameter is <code>IntFunction</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The return object is <code>DefaultNode</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The truncate return object is <code>DefaultNode</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.util.function.IntFunction
      * @see java.lang.SuppressWarnings
@@ -84,16 +84,16 @@ public interface DefaultNode<T> {
 
     /**
      * <code>asArray</code>
-     * <p>The array method.</p>
+     * <p>The as array method.</p>
      * @param generator {@link java.util.function.IntFunction} <p>The generator parameter is <code>IntFunction</code> type.</p>
-     * @return T <p>The array return object is <code>T</code> type.</p>
+     * @return T <p>The as array return object is <code>T</code> type.</p>
      * @see java.util.function.IntFunction
      */
     T[] asArray(IntFunction<T[]> generator);
 
     /**
      * <code>copyInto</code>
-     * <p>The into method.</p>
+     * <p>The copy into method.</p>
      * @param array  T <p>The array parameter is <code>T</code> type.</p>
      * @param offset int <p>The offset parameter is <code>int</code> type.</p>
      */
@@ -101,8 +101,8 @@ public interface DefaultNode<T> {
 
     /**
      * <code>getShape</code>
-     * <p>The shape getter method.</p>
-     * @return {@link io.github.nichetoolkit.rest.stream.DefaultStreamShape} <p>The shape return object is <code>DefaultStreamShape</code> type.</p>
+     * <p>The get shape getter method.</p>
+     * @return {@link io.github.nichetoolkit.rest.stream.DefaultStreamShape} <p>The get shape return object is <code>DefaultStreamShape</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultStreamShape
      */
     default DefaultStreamShape getShape() {
@@ -111,14 +111,14 @@ public interface DefaultNode<T> {
 
     /**
      * <code>count</code>
-     * <p>The method.</p>
-     * @return long <p>The return object is <code>long</code> type.</p>
+     * <p>The count method.</p>
+     * @return long <p>The count return object is <code>long</code> type.</p>
      */
     long count();
 
     /**
      * <code>Builder</code>
-     * <p>The type builder interface.</p>
+     * <p>The builder interface.</p>
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultSink
@@ -128,8 +128,8 @@ public interface DefaultNode<T> {
 
         /**
          * <code>build</code>
-         * <p>The method.</p>
-         * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The return object is <code>DefaultNode</code> type.</p>
+         * <p>The build method.</p>
+         * @return {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The build return object is <code>DefaultNode</code> type.</p>
          */
         DefaultNode<T> build();
 
@@ -137,7 +137,7 @@ public interface DefaultNode<T> {
 
     /**
      * <code>OfPrimitive</code>
-     * <p>The type of primitive interface.</p>
+     * <p>The of primitive interface.</p>
      * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T_CONS>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T_ARR>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
@@ -157,7 +157,7 @@ public interface DefaultNode<T> {
 
         /**
          * <code>forEach</code>
-         * <p>The each method.</p>
+         * <p>The for each method.</p>
          * @param action T_CONS <p>The action parameter is <code>T_CONS</code> type.</p>
          * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
          * @see java.lang.SuppressWarnings
@@ -188,22 +188,22 @@ public interface DefaultNode<T> {
 
         /**
          * <code>asPrimitiveArray</code>
-         * <p>The primitive array method.</p>
-         * @return T_ARR <p>The primitive array return object is <code>T_ARR</code> type.</p>
+         * <p>The as primitive array method.</p>
+         * @return T_ARR <p>The as primitive array return object is <code>T_ARR</code> type.</p>
          */
         T_ARR asPrimitiveArray();
 
         /**
          * <code>newArray</code>
-         * <p>The array method.</p>
+         * <p>The new array method.</p>
          * @param count int <p>The count parameter is <code>int</code> type.</p>
-         * @return T_ARR <p>The array return object is <code>T_ARR</code> type.</p>
+         * @return T_ARR <p>The new array return object is <code>T_ARR</code> type.</p>
          */
         T_ARR newArray(int count);
 
         /**
          * <code>copyInto</code>
-         * <p>The into method.</p>
+         * <p>The copy into method.</p>
          * @param array  T_ARR <p>The array parameter is <code>T_ARR</code> type.</p>
          * @param offset int <p>The offset parameter is <code>int</code> type.</p>
          */

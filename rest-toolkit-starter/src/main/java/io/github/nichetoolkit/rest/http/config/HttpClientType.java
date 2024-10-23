@@ -8,7 +8,7 @@ import java.util.Optional;
 
 /**
  * <code>HttpClientType</code>
- * <p>The type http client type enumeration.</p>
+ * <p>The http client type enumeration.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestValue
  * @since Jdk1.8
@@ -89,9 +89,9 @@ public enum HttpClientType implements RestValue<String,String> {
 
     /**
      * <code>parseKey</code>
-     * <p>The key method.</p>
+     * <p>The parse key method.</p>
      * @param key {@link java.lang.String} <p>The key parameter is <code>String</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.http.config.HttpClientType} <p>The key return object is <code>HttpClientType</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.http.config.HttpClientType} <p>The parse key return object is <code>HttpClientType</code> type.</p>
      * @see java.lang.String
      * @see com.fasterxml.jackson.annotation.JsonCreator
      */
@@ -103,9 +103,9 @@ public enum HttpClientType implements RestValue<String,String> {
 
     /**
      * <code>parseValue</code>
-     * <p>The value method.</p>
+     * <p>The parse value method.</p>
      * @param value {@link java.lang.String} <p>The value parameter is <code>String</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.http.config.HttpClientType} <p>The value return object is <code>HttpClientType</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.http.config.HttpClientType} <p>The parse value return object is <code>HttpClientType</code> type.</p>
      * @see java.lang.String
      */
     public static HttpClientType parseValue(String value) {

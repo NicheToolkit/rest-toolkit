@@ -6,7 +6,7 @@ import org.springframework.lang.NonNull;
 
 /**
  * <code>DefaultContextInitializer</code>
- * <p>The type default context initializer class.</p>
+ * <p>The default context initializer class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see org.springframework.context.ApplicationContextInitializer
  * @since Jdk1.8

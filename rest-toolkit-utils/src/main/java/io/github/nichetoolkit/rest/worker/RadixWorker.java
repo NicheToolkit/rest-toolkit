@@ -10,7 +10,7 @@ import java.security.SecureRandom;
 
 /**
  * <code>RadixWorker</code>
- * <p>The type radix worker class.</p>
+ * <p>The radix worker class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
  * @since Jdk1.8
@@ -33,8 +33,8 @@ public class RadixWorker {
 
     /**
      * <code>getInstance</code>
-     * <p>The instance getter method.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.RadixWorker} <p>The instance return object is <code>RadixWorker</code> type.</p>
+     * <p>The get instance getter method.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.RadixWorker} <p>The get instance return object is <code>RadixWorker</code> type.</p>
      */
     public static RadixWorker getInstance() {
         return INSTANCE;
@@ -54,7 +54,7 @@ public class RadixWorker {
 
     /**
      * <code>radixWorkerInit</code>
-     * <p>The worker init method.</p>
+     * <p>The radix worker init method.</p>
      * @see javax.annotation.PostConstruct
      */
     @PostConstruct
@@ -65,9 +65,9 @@ public class RadixWorker {
 
     /**
      * <code>encrypt</code>
-     * <p>The method.</p>
+     * <p>The encrypt method.</p>
      * @param source {@link java.lang.Long} <p>The source parameter is <code>Long</code> type.</p>
-     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The encrypt return object is <code>String</code> type.</p>
      * @see java.lang.Long
      * @see java.lang.String
      */
@@ -77,9 +77,9 @@ public class RadixWorker {
 
     /**
      * <code>decrypt</code>
-     * <p>The method.</p>
+     * <p>The decrypt method.</p>
      * @param target {@link java.lang.String} <p>The target parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.Long} <p>The return object is <code>Long</code> type.</p>
+     * @return {@link java.lang.Long} <p>The decrypt return object is <code>Long</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Long
      */
@@ -89,10 +89,10 @@ public class RadixWorker {
 
     /**
      * <code>encrypts</code>
-     * <p>The method.</p>
+     * <p>The encrypts method.</p>
      * @param source     {@link java.lang.Long} <p>The source parameter is <code>Long</code> type.</p>
      * @param properties {@link io.github.nichetoolkit.rest.configure.RestRadixProperties} <p>The properties parameter is <code>RestRadixProperties</code> type.</p>
-     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The encrypts return object is <code>String</code> type.</p>
      * @see java.lang.Long
      * @see io.github.nichetoolkit.rest.configure.RestRadixProperties
      * @see java.lang.String
@@ -103,9 +103,9 @@ public class RadixWorker {
 
     /**
      * <code>encrypts</code>
-     * <p>The method.</p>
+     * <p>The encrypts method.</p>
      * @param source {@link java.lang.Long} <p>The source parameter is <code>Long</code> type.</p>
-     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The encrypts return object is <code>String</code> type.</p>
      * @see java.lang.Long
      * @see java.lang.String
      */
@@ -115,11 +115,11 @@ public class RadixWorker {
 
     /**
      * <code>encrypts</code>
-     * <p>The method.</p>
+     * <p>The encrypts method.</p>
      * @param source {@link java.lang.Long} <p>The source parameter is <code>Long</code> type.</p>
      * @param digits char <p>The digits parameter is <code>char</code> type.</p>
      * @param supply char <p>The supply parameter is <code>char</code> type.</p>
-     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The encrypts return object is <code>String</code> type.</p>
      * @see java.lang.Long
      * @see java.lang.String
      */
@@ -129,12 +129,12 @@ public class RadixWorker {
 
     /**
      * <code>encrypts</code>
-     * <p>The method.</p>
+     * <p>The encrypts method.</p>
      * @param source    {@link java.lang.Long} <p>The source parameter is <code>Long</code> type.</p>
      * @param digits    char <p>The digits parameter is <code>char</code> type.</p>
      * @param supply    char <p>The supply parameter is <code>char</code> type.</p>
      * @param minLength int <p>The min length parameter is <code>int</code> type.</p>
-     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The encrypts return object is <code>String</code> type.</p>
      * @see java.lang.Long
      * @see java.lang.String
      */
@@ -164,10 +164,10 @@ public class RadixWorker {
 
     /**
      * <code>decrypts</code>
-     * <p>The method.</p>
+     * <p>The decrypts method.</p>
      * @param target     {@link java.lang.String} <p>The target parameter is <code>String</code> type.</p>
      * @param properties {@link io.github.nichetoolkit.rest.configure.RestRadixProperties} <p>The properties parameter is <code>RestRadixProperties</code> type.</p>
-     * @return {@link java.lang.Long} <p>The return object is <code>Long</code> type.</p>
+     * @return {@link java.lang.Long} <p>The decrypts return object is <code>Long</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.configure.RestRadixProperties
      * @see java.lang.Long
@@ -178,9 +178,9 @@ public class RadixWorker {
 
     /**
      * <code>decrypts</code>
-     * <p>The method.</p>
+     * <p>The decrypts method.</p>
      * @param target {@link java.lang.String} <p>The target parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.Long} <p>The return object is <code>Long</code> type.</p>
+     * @return {@link java.lang.Long} <p>The decrypts return object is <code>Long</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Long
      */
@@ -190,11 +190,11 @@ public class RadixWorker {
 
     /**
      * <code>decrypts</code>
-     * <p>The method.</p>
+     * <p>The decrypts method.</p>
      * @param target {@link java.lang.String} <p>The target parameter is <code>String</code> type.</p>
      * @param digits char <p>The digits parameter is <code>char</code> type.</p>
      * @param supply char <p>The supply parameter is <code>char</code> type.</p>
-     * @return {@link java.lang.Long} <p>The return object is <code>Long</code> type.</p>
+     * @return {@link java.lang.Long} <p>The decrypts return object is <code>Long</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Long
      */

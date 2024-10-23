@@ -6,7 +6,7 @@ import java.lang.annotation.*;
 
 /**
  * <code>StereoShort</code>
- * <p>The type stereo short interface.</p>
+ * <p>The stereo short interface.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.lang.annotation.Annotation
  * @see java.lang.annotation.Target
@@ -22,8 +22,8 @@ import java.lang.annotation.*;
 public @interface StereoShort {
     /**
      * <code>value</code>
-     * <p>The method.</p>
-     * @return short <p>The return object is <code>short</code> type.</p>
+     * <p>The value method.</p>
+     * @return short <p>The value return object is <code>short</code> type.</p>
      */
     short value() default 0;
 }

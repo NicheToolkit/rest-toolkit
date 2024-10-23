@@ -8,7 +8,7 @@ import java.lang.annotation.*;
 
 /**
  * <code>RestUserlog</code>
- * <p>The type rest userlog interface.</p>
+ * <p>The rest userlog interface.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.lang.annotation.Annotation
  * @see java.lang.annotation.Target
@@ -26,8 +26,8 @@ import java.lang.annotation.*;
 public @interface RestUserlog {
     /**
      * <code>value</code>
-     * <p>The method.</p>
-     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
+     * <p>The value method.</p>
+     * @return {@link java.lang.String} <p>The value return object is <code>String</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.core.annotation.AliasFor
      */
@@ -36,8 +36,8 @@ public @interface RestUserlog {
 
     /**
      * <code>notelog</code>
-     * <p>The method.</p>
-     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
+     * <p>The notelog method.</p>
+     * @return {@link java.lang.String} <p>The notelog return object is <code>String</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.core.annotation.AliasFor
      */
@@ -49,16 +49,16 @@ public @interface RestUserlog {
 
     /**
      * <code>userlog</code>
-     * <p>The method.</p>
-     * @return {@link java.lang.String} <p>The return object is <code>String</code> type.</p>
+     * <p>The userlog method.</p>
+     * @return {@link java.lang.String} <p>The userlog return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
     String userlog() default "";
 
     /**
      * <code>loggingKey</code>
-     * <p>The key method.</p>
-     * @return {@link java.lang.String} <p>The key return object is <code>String</code> type.</p>
+     * <p>The logging key method.</p>
+     * @return {@link java.lang.String} <p>The logging key return object is <code>String</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.core.annotation.AliasFor
      */
@@ -70,8 +70,8 @@ public @interface RestUserlog {
 
     /**
      * <code>loggingValue</code>
-     * <p>The value method.</p>
-     * @return {@link java.lang.String} <p>The value return object is <code>String</code> type.</p>
+     * <p>The logging value method.</p>
+     * @return {@link java.lang.String} <p>The logging value return object is <code>String</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.core.annotation.AliasFor
      */
@@ -84,8 +84,8 @@ public @interface RestUserlog {
 
     /**
      * <code>loggingType</code>
-     * <p>The type method.</p>
-     * @return {@link io.github.nichetoolkit.rest.userlog.LoggingType} <p>The type return object is <code>LoggingType</code> type.</p>
+     * <p>The logging type method.</p>
+     * @return {@link io.github.nichetoolkit.rest.userlog.LoggingType} <p>The logging type return object is <code>LoggingType</code> type.</p>
      * @see io.github.nichetoolkit.rest.userlog.LoggingType
      */
     LoggingType loggingType() default LoggingType.TEST;
