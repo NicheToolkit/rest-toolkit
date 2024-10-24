@@ -2,11 +2,12 @@ package io.github.nichetoolkit.rest.logback;
 
 import ch.qos.logback.classic.pattern.MessageConverter;
 import ch.qos.logback.classic.spi.ILoggingEvent;
-import io.github.nichetoolkit.rest.holder.ApplicationContextHolder;
 import io.github.nichetoolkit.rest.configure.RestLogbackProperties;
+import io.github.nichetoolkit.rest.error.supply.JsonParseException;
+import io.github.nichetoolkit.rest.helper.JsonHelper;
+import io.github.nichetoolkit.rest.holder.ApplicationContextHolder;
 import io.github.nichetoolkit.rest.util.CommonUtils;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
-import io.github.nichetoolkit.rest.util.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.helpers.MessageFormatter;
 import org.springframework.beans.BeanUtils;
@@ -108,7 +109,12 @@ public class DefaultMessageConverter extends MessageConverter {
                 return CommonUtils.substring(((String) argument), argumentLength);
             }
         }
-        String argumentJson = JsonUtils.parseJson(argument);
+        String argumentJson;
+        try {
+            argumentJson = JsonHelper.parseJson(argument);
+        } catch (JsonParseException ignored) {
+            argumentJson = argument.toString();
+        }
         if (GeneralUtils.isNotEmpty(argumentJson)) {
             if (argumentJson.length() < argumentLength) {
                 return argumentJson;
