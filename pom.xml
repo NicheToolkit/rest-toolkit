@@ -126,7 +126,7 @@
         <!-- fix spring-web:5.3.31 CVE-2016-1000027 9.8 vulnerability
                                    CVE-2024-22243 8.1 Vulnerability
                                    CVE-2024-22259 8.1 Vulnerability  -->
-        <springframework.version>6.1.14</springframework.version>
+        <springframework.version>5.3.39</springframework.version>
         <!-- fix snakeyaml:1.30 CVE-2022-25857 7.5 vulnerability
                                 CVE-2022-38751 6.5 vulnerability
                                 CVE-2022-38752 6.5 vulnerability
