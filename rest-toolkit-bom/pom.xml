@@ -2,23 +2,24 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>io.github.nichetoolkit</groupId>
+        <artifactId>rest-toolkit-parent</artifactId>
+        <version>1.1.1-SNAPSHOT</version>
+    </parent>
 
-    <groupId>io.github.nichetoolkit</groupId>
-    <artifactId>rest-toolkit-parent</artifactId>
+    <artifactId>rest-toolkit-bom</artifactId>
     <version>1.1.1-SNAPSHOT</version>
-
-    <modules>
-        <module>rest-toolkit-bom</module>
-        <module>rest-toolkit-core</module>
-        <module>rest-toolkit-utils</module>
-        <module>rest-toolkit-starter</module>
-<!--        <module>rest-toolkit-example</module>-->
-    </modules>
-
-    <name>rest-toolkit-parent</name>
+    <name>rest-toolkit-bom</name>
     <packaging>pom</packaging>
-    <description>rest toolkit parent for Spring Boot</description>
-    <url>https://github.com/NicheToolkit/rest-toolkit</url>
+    <description>Rest toolkit bom project for Spring Boot</description>
+    <url>https://github.com/NicheToolkit/rest-toolkit/tree/master/rest-toolkit-bom</url>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
 
     <licenses>
         <license>
@@ -45,13 +46,6 @@
         <url>git@github.com:NicheToolkit/rest-toolkit.git</url>
     </scm>
 
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.18</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
-
     <distributionManagement>
         <snapshotRepository>
             <id>sonatype-nexus-snapshot</id>
@@ -63,115 +57,8 @@
         </repository>
     </distributionManagement>
 
-    <repositories>
-        <repository>
-            <id>sonatype-nexus-central</id>
-            <name>sonatype maven centrals</name>
-            <url>https://oss.sonatype.org/content/repositories/releases/</url>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-                <updatePolicy>daily</updatePolicy>
-            </snapshots>
-        </repository>
-
-        <repository>
-            <id>sonatype-nexus-release</id>
-            <name>sonatype maven releases</name>
-            <url>https://s01.oss.sonatype.org/content/repositories/releases/</url>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-                <updatePolicy>daily</updatePolicy>
-            </snapshots>
-        </repository>
-
-        <repository>
-            <id>sonatype-nexus-snapshot</id>
-            <name>sonatype maven snapshots</name>
-            <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
-            <releases>
-                <enabled>false</enabled>
-                <updatePolicy>daily</updatePolicy>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-            </snapshots>
-        </repository>
-
-    </repositories>
-
-    <properties>
-        <java.version>1.8</java.version>
-        <jdk.version>1.8</jdk.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-
-        <spring-boot.version>2.7.18</spring-boot.version>
-        <!-- fix logback-core:1.2.12 CVE-2023-6378 7.5 vulnerability
-                                     CVE-2023-6481 7.5 vulnerability -->
-        <!-- fix logback-classic:1.2.12 CVE-2023-6378 7.5 vulnerability -->
-        <logback.version>1.2.13</logback.version>
-        <!-- fix spring-core:5.3.31 CVE-2024-22233 7.5 vulnerability -->
-        <!-- fix spring-web:5.3.31 CVE-2016-1000027 9.8 vulnerability
-                                   CVE-2024-22243 8.1 Vulnerability
-                                   CVE-2024-22259 8.1 Vulnerability  -->
-        <springframework.version>5.3.39</springframework.version>
-        <!-- fix snakeyaml:1.30 CVE-2022-25857 7.5 vulnerability
-                                CVE-2022-38751 6.5 vulnerability
-                                CVE-2022-38752 6.5 vulnerability
-                                CVE-2022-38749 6.5 vulnerability
-                                CVE-2022-38750 5.5 vulnerability
-                                CVE-2022-1471 9.8 vulnerability
-                                CVE-2022-41854 6.5 vulnerability  -->
-        <snakeyaml.version>2.0</snakeyaml.version>
-        <!-- fix tomcat-embed-core:9.0.83 CVE-2024-23672 7.5 vulnerability
-                                          CVE-2024-24549 6.5 vulnerability -->
-        <!-- fix tomcat-embed-websocket:9.0.83 CVE-2024-23672 7.5 vulnerability -->
-        <tomcat.version>9.0.90</tomcat.version>
-        <!-- fix okio:2.8.0 CVE-2023-3635 7.5 vulnerability       -->
-        <squareup.version>3.4.0</squareup.version>
-        <!-- fix postgresql:42.3.8 CVE-2024-1597 10.0 vulnerability    -->
-        <postgresql.version>42.3.9</postgresql.version>
-        <!-- fix json-path:2.7.0 CVE-2023-51074 5.3 vulnerability    -->
-        <jsonpath.version>2.9.0</jsonpath.version>
-
-        <spring-boot-maven-plugin.version>2.7.18</spring-boot-maven-plugin.version>
-        <maven-gpg-plugin.version>3.2.5</maven-gpg-plugin.version>
-        <nexus-staging-maven-plugin.version>1.7.0</nexus-staging-maven-plugin.version>
-        <maven-release-plugin.version>3.1.1</maven-release-plugin.version>
-
-        <rest-toolkit.version>1.1.1-SNAPSHOT</rest-toolkit.version>
-
-        <guava.version>33.3.1-jre</guava.version>
-        <bcprov.version>1.78.1</bcprov.version>
-        <fusionauth-jwt.version>5.3.3</fusionauth-jwt.version>
-    </properties>
-
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-framework-bom</artifactId>
-                <version>${springframework.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>io.github.nichetoolkit</groupId>
-                <artifactId>rest-toolkit-bom</artifactId>
-                <version>${rest-toolkit.version}</version>
-            </dependency>
             <dependency>
                 <groupId>io.github.nichetoolkit</groupId>
                 <artifactId>rest-toolkit-core</artifactId>
@@ -187,52 +74,8 @@
                 <artifactId>rest-toolkit-starter</artifactId>
                 <version>${rest-toolkit.version}</version>
             </dependency>
-
-            <dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava</artifactId>
-                <version>${guava.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.bouncycastle</groupId>
-                <artifactId>bcprov-jdk18on</artifactId>
-                <version>${bcprov.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>io.fusionauth</groupId>
-                <artifactId>fusionauth-jwt</artifactId>
-                <version>${fusionauth-jwt.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>ch.qos.logback</groupId>
-                <artifactId>logback-classic</artifactId>
-                <version>${logback.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.tomcat.embed</groupId>
-                <artifactId>tomcat-embed-core</artifactId>
-                <version>${tomcat.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.yaml</groupId>
-                <artifactId>snakeyaml</artifactId>
-                <version>${snakeyaml.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.squareup.okio</groupId>
-                <artifactId>okio</artifactId>
-                <version>${squareup.version}</version>
-            </dependency>
-
         </dependencies>
     </dependencyManagement>
-
 
     <build>
         <pluginManagement>
@@ -269,9 +112,12 @@
                 </plugin>
             </plugins>
         </pluginManagement>
-
         <finalName>${project.artifactId}</finalName>
         <resources>
+            <resource>
+                <filtering>false</filtering>
+                <directory>src/main/resources</directory>
+            </resource>
             <resource>
                 <directory>src/main/java</directory>
                 <includes>
@@ -349,8 +195,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>8</source>
+                    <target>8</target>
                     <encoding>utf-8</encoding>
                 </configuration>
             </plugin>
