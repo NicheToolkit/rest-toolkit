@@ -8,11 +8,11 @@
     <version>1.1.1-SNAPSHOT</version>
 
     <modules>
+        <module>rest-toolkit-example</module>
         <module>rest-toolkit-bom</module>
         <module>rest-toolkit-core</module>
         <module>rest-toolkit-utils</module>
         <module>rest-toolkit-starter</module>
-        <module>rest-toolkit-example</module>
     </modules>
 
     <name>rest-toolkit-parent</name>

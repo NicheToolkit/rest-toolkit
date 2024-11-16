@@ -28,6 +28,6 @@ class IntendRegistryAndAutowireTest {
     @Test
     void test() throws RestException {
         TestIntend bean = ApplicationContextHolder.beanOfType(TestIntend.class);
-        System.out.println(bean.getExceptionProperties());
+        System.out.println(bean);
     }
 }
