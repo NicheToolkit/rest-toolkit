@@ -5,7 +5,7 @@
 
     <groupId>io.github.nichetoolkit</groupId>
     <artifactId>rest-toolkit-parent</artifactId>
-    <version>1.1.1</version>
+    <version>1.1.2-SNAPSHOT</version>
 
     <modules>
         <module>rest-toolkit-example</module>
@@ -125,7 +125,7 @@
         <nexus-staging-maven-plugin.version>1.7.0</nexus-staging-maven-plugin.version>
         <maven-release-plugin.version>3.1.1</maven-release-plugin.version>
 
-        <rest-toolkit.version>1.1.1</rest-toolkit.version>
+        <rest-toolkit.version>1.1.2-SNAPSHOT</rest-toolkit.version>
 
         <!-- fix spring-core:5.3.31 CVE-2024-22233 7.5 vulnerability -->
         <!-- fix spring-web:5.3.31 CVE-2016-1000027 9.8 vulnerability
