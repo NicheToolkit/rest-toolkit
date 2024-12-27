@@ -5,63 +5,72 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * <code>RestField</code>
  * <p>The rest field interface.</p>
+ * @see  io.github.nichetoolkit.rest.RestValue
+ * @see  java.lang.SuppressWarnings
  * @author Cyan (snow22314@outlook.com)
- * @see io.github.nichetoolkit.rest.RestValue
- * @see java.lang.SuppressWarnings
  * @since Jdk1.8
  */
 @SuppressWarnings("all")
-public interface RestField extends RestValue<Integer, String> {
-    /**
-     * <code>getField</code>
-     * <p>The get field getter method.</p>
-     * @return {@link java.lang.String} <p>The get field return object is <code>String</code> type.</p>
-     * @see java.lang.String
-     */
-    String getField();
+public interface RestField extends RestValue<String, Object> {
 
     /**
-     * <code>parseField</code>
-     * <p>The parse field method.</p>
-     * @param <T>   {@link io.github.nichetoolkit.rest.RestField} <p>The generic parameter is <code>RestField</code> type.</p>
-     * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @param field {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
-     * @return T <p>The parse field return object is <code>T</code> type.</p>
-     * @see java.lang.Class
-     * @see java.lang.String
-     * @see java.lang.SuppressWarnings
+     * <code>getAlias</code>
+     * <p>The get alias getter method.</p>
+     * @return  {@link java.lang.String} <p>The get alias return object is <code>String</code> type.</p>
+     * @see  java.lang.String
      */
-    @SuppressWarnings("Duplicates")
-    static <T extends RestField> T parseField(Class<T> clazz, String field) {
-        if (field != null && clazz.isEnum()) {
-            Map<String, T> valueEnumMap = Stream.of(clazz.getEnumConstants()).collect(Collectors.toMap(RestField::getField, Function.identity(), (oldValue, newValue) -> newValue, HashMap::new));
-            return valueEnumMap.get(field);
-        } else {
-            return null;
-        }
+    String getAlias();
+
+    /**
+     * <code>getName</code>
+     * <p>The get name getter method.</p>
+     * @return  {@link java.lang.String} <p>The get name return object is <code>String</code> type.</p>
+     * @see  java.lang.String
+     */
+    String getName();
+
+    /**
+     * <code>getType</code>
+     * <p>The get type getter method.</p>
+     * @return  {@link io.github.nichetoolkit.rest.RestType} <p>The get type return object is <code>RestType</code> type.</p>
+     * @see  io.github.nichetoolkit.rest.RestType
+     */
+    RestType getType();
+
+    /**
+     * <code>getComment</code>
+     * <p>The get comment getter method.</p>
+     * @return  {@link java.lang.String} <p>The get comment return object is <code>String</code> type.</p>
+     * @see  java.lang.String
+     */
+    String getComment();
+
+
+    @Override
+    default String name() {
+        return getName();
     }
 
     /**
      * <code>parseField</code>
      * <p>The parse field method.</p>
-     * @param <T>    {@link io.github.nichetoolkit.rest.RestField} <p>The generic parameter is <code>RestField</code> type.</p>
+     * @param <T>  {@link io.github.nichetoolkit.rest.RestField} <p>The generic parameter is <code>RestField</code> type.</p>
      * @param values {@link java.util.Collection} <p>The values parameter is <code>Collection</code> type.</p>
-     * @param field  {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
+     * @param name {@link java.lang.String} <p>The name parameter is <code>String</code> type.</p>
+     * @see  java.util.Collection
+     * @see  java.lang.String
+     * @see  java.lang.SuppressWarnings
      * @return T <p>The parse field return object is <code>T</code> type.</p>
-     * @see java.util.Collection
-     * @see java.lang.String
-     * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("Duplicates")
-    static <T extends RestField> T parseField(Collection<T> values, String field) {
-        if (field != null && values != null && !values.isEmpty()) {
-            Map<String, T> valueEnumMap = values.stream().collect(Collectors.toMap(RestField::getField, Function.identity(), (oldValue, newValue) -> newValue, HashMap::new));
-            return valueEnumMap.get(field);
+    static <T extends RestField> T parseField(Collection<T> values, String name) {
+        if (name != null && values != null && !values.isEmpty()) {
+            Map<String, T> valueEnumMap = values.stream().collect(Collectors.toMap(RestField::getName, Function.identity(), (oldValue, newValue) -> newValue, HashMap::new));
+            return valueEnumMap.get(name);
         } else {
             return null;
         }
