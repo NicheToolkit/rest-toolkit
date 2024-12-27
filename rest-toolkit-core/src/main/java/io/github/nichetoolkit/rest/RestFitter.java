@@ -27,7 +27,7 @@ public interface RestFitter<F extends RestFitter<F>> extends InitializingBean {
      * <p>The after autowire properties set method.</p>
      */
     default void afterAutowirePropertiesSet() {
-        LoggerUtils.debug("The intend bean of [{}] type for named '{}' has be initiated.", beanType().getName());
+        LoggerUtils.debug("The fitter bean of [{}] type for named '{}' has be initiated.", beanType().getName());
     }
 
     /**
