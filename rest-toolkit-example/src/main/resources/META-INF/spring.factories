@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=io.github.nichetoolkit.rest.configure.RestExampleAutoConfigure
-io.github.nichetoolkit.rest.RestIntend=io.github.nichetoolkit.rest.TestIntend
+io.github.nichetoolkit.rest.RestFitter=io.github.nichetoolkit.rest.TestFitter

@@ -11,14 +11,14 @@ import javax.annotation.Resource;
  * <code>TestIntend</code>
  * <p>The test intend class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @see io.github.nichetoolkit.rest.RestIntend
+ * @see RestFitter
  * @see lombok.extern.slf4j.Slf4j
  * @see lombok.Setter
  * @since Jdk1.8
  */
 @Slf4j
 @Setter
-public class TestIntend implements RestIntend<TestIntend> {
+public class TestFitter implements RestFitter<TestFitter> {
 
     /**
      * <code>rsaProperties</code>
@@ -31,6 +31,6 @@ public class TestIntend implements RestIntend<TestIntend> {
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        log.info("[TestIntend] > afterPropertiesSet: {}", JsonUtils.parseJson(rsaProperties));
+        log.info("[TestFitter] > afterPropertiesSet: {}", JsonUtils.parseJson(rsaProperties));
     }
 }

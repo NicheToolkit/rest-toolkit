@@ -1,54 +1,91 @@
 package io.github.nichetoolkit.rest;
 
+
 import io.github.nichetoolkit.rest.reflect.RestGenericTypes;
+import io.github.nichetoolkit.rest.util.GeneralUtils;
+import io.github.nichetoolkit.rest.util.LoggerUtils;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.config.BeanDefinition;
 
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+/**
+ * <code>RestIntend</code>
+ * <p>The rest intend interface.</p>
+ * @param <B> {@link RestFitter} <p>The generic parameter is <code>RestIntend</code> type.</p>
+ * @author Cyan (snow22314@outlook.com)
+ * @see org.springframework.beans.factory.InitializingBean
+ * @since Jdk1.8
+ */
+public interface RestFitter<B extends RestFitter<B>> extends InitializingBean {
 
-public interface RestFitter<F> extends InitializingBean {
 
     @Override
     default void afterPropertiesSet() throws Exception {
-        Instance.caching(this.getClass());
     }
 
-    static
+    /**
+     * <code>afterAutowirePropertiesSet</code>
+     * <p>The after autowire properties set method.</p>
+     */
+    default void afterAutowirePropertiesSet() {
+        LoggerUtils.debug("The intend bean of [{}] type for named '{}' has be initiated.", beanType().getName());
+    }
 
+    /**
+     * <code>beanScope</code>
+     * <p>The bean scope method.</p>
+     * @return {@link java.lang.String} <p>The bean scope return object is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
+    default String beanScope() {
+        return BeanDefinition.SCOPE_SINGLETON;
+    }
 
-    @SuppressWarnings("unchecked")
-    default Class<F> fitterClass() {
-        return (Class<F>) RestGenericTypes.resolveClass(RestGenericTypes.resolveType(
-                RestFitter.class.getTypeParameters()[0], this.getClass(), RestFitter.class));
+    /**
+     * <code>beanName</code>
+     * <p>The bean name method.</p>
+     * @return {@link java.lang.String} <p>The bean name return object is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
+    default String beanName() {
+        return beanName(getClass());
+    }
+
+    /**
+     * <code>beanType</code>
+     * <p>The bean type method.</p>
+     * @return {@link java.lang.Class} <p>The bean type return object is <code>Class</code> type.</p>
+     * @see java.lang.Class
+     */
+    default Class<B> beanType() {
+        return beanType(getClass());
+    }
+
+    /**
+     * <code>beanName</code>
+     * <p>The bean name method.</p>
+     * @param intendType {@link java.lang.Class} <p>The intend type parameter is <code>Class</code> type.</p>
+     * @return {@link java.lang.String} <p>The bean name return object is <code>String</code> type.</p>
+     * @see java.lang.Class
+     * @see java.lang.String
+     */
+    static String beanName(Class<?> intendType) {
+        return GeneralUtils.camelCase(intendType.getSimpleName());
     }
 
 
-    default boolean supports(Class<?> alertnessType) {
-        return alertnessType.isAnnotationPresent(RestAlertness.class);
-    }
-
-    @SuppressWarnings({"unchecked","rawtypes"})
-    static <F> Class<F> fitterType(Class<? extends RestFitter> declaringFitterType) {
-        return (Class<F>) Instance.fitterType(declaringFitterType);
-    }
-
-    class Instance {
-        static Map<Class<?>, Class<?>> FITTER_CACHES = new ConcurrentHashMap<>();
-
-        @SuppressWarnings("rawtypes")
-        private static Class<?> fitterType(Class<? extends RestFitter> declaringFitterType) {
-            return FITTER_CACHES.get(declaringFitterType);
-        }
-
-        @SuppressWarnings("rawtypes")
-        private static void caching(Class<? extends RestFitter> declaringFitterType) {
-            Class<?> fitterType = RestGenericTypes.resolveClass(RestGenericTypes.resolveType(
-                    RestFitter.class.getTypeParameters()[0], declaringFitterType, RestFitter.class));
-            if (!FITTER_CACHES.containsKey(declaringFitterType)) {
-                FITTER_CACHES.put(declaringFitterType, fitterType);
-            }
-        }
-
+    /**
+     * <code>beanType</code>
+     * <p>The bean type method.</p>
+     * @param <B>        {@link RestFitter} <p>The generic parameter is <code>RestIntend</code> type.</p>
+     * @param intendType {@link java.lang.Class} <p>The intend type parameter is <code>Class</code> type.</p>
+     * @return {@link java.lang.Class} <p>The bean type return object is <code>Class</code> type.</p>
+     * @see java.lang.Class
+     * @see java.lang.SuppressWarnings
+     */
+    @SuppressWarnings(value = "unchecked")
+    static <B extends RestFitter<B>> Class<B> beanType(Class<?> intendType) {
+        return (Class<B>) RestGenericTypes.resolveClass(RestGenericTypes.resolveType(
+                RestFitter.class.getTypeParameters()[0], intendType, RestFitter.class));
     }
 
 }
