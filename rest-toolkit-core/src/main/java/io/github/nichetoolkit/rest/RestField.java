@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
  * @since Jdk1.8
  */
 @SuppressWarnings("all")
-public interface RestField extends RestValue<String, Object> {
+public interface RestField<F> extends RestValue<String, F> {
 
     /**
      * <code>getAlias</code>
