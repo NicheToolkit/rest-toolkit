@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 /**
  * <code>RestField</code>
  * <p>The rest field interface.</p>
+ * @param <F>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @see  io.github.nichetoolkit.rest.RestValue
  * @see  java.lang.SuppressWarnings
  * @author Cyan (snow22314@outlook.com)
