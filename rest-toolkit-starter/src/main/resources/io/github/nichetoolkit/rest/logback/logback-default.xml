@@ -218,42 +218,14 @@
         不能设置为INHERITED或者同义词NULL。默认是DEBUG
         可以包含零个或多个元素，标识这个appender将会添加到这个logger。
     -->
-    <!--默认环境:打印控制台-->
-    <springProfile name="default">
-        <logger name="io.github.nichetoolkit" level="debug"/>
-        <root level="info" >
-            <appender-ref ref="CONSOLE" />
-            <appender-ref ref="LOGS_FILE" />
-            <appender-ref ref="DEBUG_FILE" />
-            <appender-ref ref="INFO_FILE" />
-            <appender-ref ref="WARN_FILE" />
-            <appender-ref ref="ERROR_FILE" />
-        </root>
-    </springProfile>
-
-    <!--开发环境:打印控制台-->
-    <springProfile name="dev">
-        <logger name="io.github.nichetoolkit" level="debug"/>
-        <root level="info" >
-            <appender-ref ref="CONSOLE" />
-            <appender-ref ref="LOGS_FILE" />
-            <appender-ref ref="DEBUG_FILE" />
-            <appender-ref ref="INFO_FILE" />
-            <appender-ref ref="WARN_FILE" />
-            <appender-ref ref="ERROR_FILE" />
-        </root>
-    </springProfile>
-
-    <!--生产环境:打印控制台-->
-    <springProfile name="pro">
-        <logger name="io.github.nichetoolkit" level="debug"/>
-        <root level="info">
-            <appender-ref ref="CONSOLE" />
-            <appender-ref ref="LOGS_FILE" />
-            <appender-ref ref="DEBUG_FILE" />
-            <appender-ref ref="INFO_FILE" />
-            <appender-ref ref="ERROR_FILE" />
-            <appender-ref ref="WARN_FILE" />
-        </root>
-    </springProfile>
+    <logger name="io.github.nichetoolkit" level="debug"/>
+    <root level="info">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="LOGS_FILE" />
+        <appender-ref ref="DEBUG_FILE" />
+        <appender-ref ref="INFO_FILE" />
+        <appender-ref ref="ERROR_FILE" />
+        <appender-ref ref="WARN_FILE" />
+    </root>
+    
 </included>
