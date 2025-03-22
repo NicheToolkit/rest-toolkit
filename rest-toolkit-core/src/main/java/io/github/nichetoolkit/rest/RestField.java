@@ -50,6 +50,24 @@ public interface RestField<F> extends RestValue<String, F> {
      */
     String getComment();
 
+    /**
+     * <code>notNull</code>
+     * <p>The not null method.</p>
+     * @return  {@link java.lang.Boolean} <p>The not null return object is <code>Boolean</code> type.</p>
+     * @see  java.lang.Boolean
+     */
+    default Boolean notNull() {
+        return false;
+    }
+
+    /**
+     * <code>defaultValue</code>
+     * <p>The default value method.</p>
+     * @return F <p>The default value return object is <code>F</code> type.</p>
+     */
+    default F defaultValue() {
+        return null;
+    }
 
     @Override
     default String name() {
