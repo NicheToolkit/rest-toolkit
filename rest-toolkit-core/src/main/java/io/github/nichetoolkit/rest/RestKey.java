@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 /**
  * <code>RestKey</code>
  * <p>The rest key interface.</p>
- * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
+ * @param <K> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
@@ -18,10 +18,15 @@ public interface RestKey<K> {
     /**
      * <code>name</code>
      * <p>The name method.</p>
-     * @return  {@link java.lang.String} <p>The name return object is <code>String</code> type.</p>
-     * @see  java.lang.String
+     * @return {@link java.lang.String} <p>The name return object is <code>String</code> type.</p>
+     * @see java.lang.String
      */
-    String name();
+    default String name() {
+        if (getKey() == null) {
+            return null;
+        }
+        return this.getKey().toString();
+    }
 
     /**
      * <code>getKey</code>
@@ -33,12 +38,12 @@ public interface RestKey<K> {
     /**
      * <code>values</code>
      * <p>The values method.</p>
-     * @param <T>  {@link io.github.nichetoolkit.rest.RestKey} <p>The generic parameter is <code>RestKey</code> type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>   {@link io.github.nichetoolkit.rest.RestKey} <p>The generic parameter is <code>RestKey</code> type.</p>
+     * @param <K>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.lang.Class
-     * @see  java.util.List
-     * @return  {@link java.util.List} <p>The values return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The values return object is <code>List</code> type.</p>
+     * @see java.lang.Class
+     * @see java.util.List
      */
     static <T extends RestKey<K>,K> List<T> values(Class<T> clazz) {
         return Arrays.asList(clazz.getEnumConstants());
@@ -47,12 +52,12 @@ public interface RestKey<K> {
     /**
      * <code>keys</code>
      * <p>The keys method.</p>
-     * @param <T>  {@link io.github.nichetoolkit.rest.RestKey} <p>The generic parameter is <code>RestKey</code> type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>   {@link io.github.nichetoolkit.rest.RestKey} <p>The generic parameter is <code>RestKey</code> type.</p>
+     * @param <K>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.lang.Class
-     * @see  java.util.List
-     * @return  {@link java.util.List} <p>The keys return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The keys return object is <code>List</code> type.</p>
+     * @see java.lang.Class
+     * @see java.util.List
      */
     static <T extends RestKey<K>,K> List<K> keys(Class<T> clazz) {
         return values(clazz).stream().map(RestKey::getKey).distinct().collect(Collectors.toList());
@@ -64,9 +69,9 @@ public interface RestKey<K> {
      * @param <T>  {@link io.github.nichetoolkit.rest.RestKey} <p>The generic parameter is <code>RestKey</code> type.</p>
      * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param keys T <p>The keys parameter is <code>T</code> type.</p>
-     * @return  {@link java.util.List} <p>The keys return object is <code>List</code> type.</p>
-     * @see  java.util.List
-     * @see  java.lang.SafeVarargs
+     * @return {@link java.util.List} <p>The keys return object is <code>List</code> type.</p>
+     * @see java.util.List
+     * @see java.lang.SafeVarargs
      */
     @SafeVarargs
     static <T extends RestKey<K>,K> List<K> keys(T... keys) {
@@ -82,9 +87,9 @@ public interface RestKey<K> {
      * @param <T>  {@link io.github.nichetoolkit.rest.RestKey} <p>The generic parameter is <code>RestKey</code> type.</p>
      * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param keys {@link java.util.Collection} <p>The keys parameter is <code>Collection</code> type.</p>
-     * @see  java.util.Collection
-     * @see  java.util.List
-     * @return  {@link java.util.List} <p>The keys return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The keys return object is <code>List</code> type.</p>
+     * @see java.util.Collection
+     * @see java.util.List
      */
     static <T extends RestKey<K>,K> List<K> keys(Collection<T> keys) {
         if (GeneralUtils.isEmpty(keys)) {
@@ -96,13 +101,13 @@ public interface RestKey<K> {
     /**
      * <code>parseKey</code>
      * <p>The parse key method.</p>
-     * @param <T>  {@link io.github.nichetoolkit.rest.RestKey} <p>The generic parameter is <code>RestKey</code> type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>   {@link io.github.nichetoolkit.rest.RestKey} <p>The generic parameter is <code>RestKey</code> type.</p>
+     * @param <K>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @param key K <p>The key parameter is <code>K</code> type.</p>
-     * @see  java.lang.Class
-     * @see  java.lang.SuppressWarnings
+     * @param key   K <p>The key parameter is <code>K</code> type.</p>
      * @return T <p>The parse key return object is <code>T</code> type.</p>
+     * @see java.lang.Class
+     * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("Duplicates")
     static <T extends RestKey<K>, K> T parseKey(Class<T> clazz, K key) {
@@ -116,13 +121,13 @@ public interface RestKey<K> {
     /**
      * <code>parseKey</code>
      * <p>The parse key method.</p>
-     * @param <T>  {@link io.github.nichetoolkit.rest.RestKey} <p>The generic parameter is <code>RestKey</code> type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>    {@link io.github.nichetoolkit.rest.RestKey} <p>The generic parameter is <code>RestKey</code> type.</p>
+     * @param <K>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param values {@link java.util.Collection} <p>The values parameter is <code>Collection</code> type.</p>
-     * @param key K <p>The key parameter is <code>K</code> type.</p>
-     * @see  java.util.Collection
-     * @see  java.lang.SuppressWarnings
+     * @param key    K <p>The key parameter is <code>K</code> type.</p>
      * @return T <p>The parse key return object is <code>T</code> type.</p>
+     * @see java.util.Collection
+     * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("Duplicates")
     static <T extends RestKey<K>, K> T parseKey(Collection<T> values, K key) {
@@ -132,5 +137,68 @@ public interface RestKey<K> {
         }
         return null;
     }
+
+
+    /**
+     * <code>of</code>
+     * <p>The of method.</p>
+     * @param <K> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param key K <p>The key parameter is <code>K</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestKey} <p>The of return object is <code>RestKey</code> type.</p>
+     */
+    static <K> RestKey<K> of(K key) {
+        return new OfRestKey<>(key);
+    }
+
+    /**
+     * <code>ofNull</code>
+     * <p>The of null method.</p>
+     * @param <K> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestKey} <p>The of null return object is <code>RestKey</code> type.</p>
+     */
+    static <K> RestKey<K> ofNull() {
+        return new OfRestKey<>(null);
+    }
+
+    /**
+     * <code>OfRestKey</code>
+     * <p>The of rest key class.</p>
+     * @param <K> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @author Cyan (snow22314@outlook.com)
+     * @since Jdk1.8
+     */
+    class OfRestKey<K> implements RestKey<K> {
+        /**
+         * <code>key</code>
+         * <p>The <code>key</code> field.</p>
+         */
+        private final K key;
+
+        /**
+         * <code>OfRestKey</code>
+         * <p>Instantiates a new of rest key.</p>
+         * @param key {@link io.github.nichetoolkit.rest.RestKey} <p>The key parameter is <code>RestKey</code> type.</p>
+         */
+        OfRestKey(RestKey<K> key) {
+            this.key = key.getKey();
+        }
+
+        /**
+         * <code>OfRestKey</code>
+         * <p>Instantiates a new of rest key.</p>
+         * @param key K <p>The key parameter is <code>K</code> type.</p>
+         */
+        OfRestKey(K key) {
+            this.key = key;
+        }
+
+        @Override
+        public K getKey() {
+            return this.key;
+        }
+
+    }
+
+
 
 }

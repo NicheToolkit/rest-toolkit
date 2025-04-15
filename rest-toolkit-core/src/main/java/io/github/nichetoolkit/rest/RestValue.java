@@ -12,17 +12,16 @@ import java.util.stream.Stream;
 /**
  * <code>RestValue</code>
  * <p>The rest value interface.</p>
- * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
- * @param <V>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
- * @see  io.github.nichetoolkit.rest.RestKey
- * @see  io.github.nichetoolkit.rest.RestEntry
+ * @param <K> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+ * @param <V> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
+ * @see io.github.nichetoolkit.rest.RestKey
+ * @see io.github.nichetoolkit.rest.RestEntry
  * @since Jdk1.8
  */
 public interface RestValue<K, V> extends RestKey<K>, RestEntry<K, V> {
 
     V getValue();
-
 
     default V setValue(V value) {
         throw new UnsupportedOperationException();
@@ -31,8 +30,8 @@ public interface RestValue<K, V> extends RestKey<K>, RestEntry<K, V> {
     /**
      * <code>entry</code>
      * <p>The entry method.</p>
-     * @return  {@link java.util.Map} <p>The entry return object is <code>Map</code> type.</p>
-     * @see  java.util.Map
+     * @return {@link java.util.Map} <p>The entry return object is <code>Map</code> type.</p>
+     * @see java.util.Map
      */
     default Map<K, V> entry() {
         return Collections.singletonMap(this.getKey(), this.getValue());
@@ -41,13 +40,13 @@ public interface RestValue<K, V> extends RestKey<K>, RestEntry<K, V> {
     /**
      * <code>lists</code>
      * <p>The lists method.</p>
-     * @param <T>  {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <V>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>   {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
+     * @param <K>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <V>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.lang.Class
-     * @see  java.util.List
-     * @return  {@link java.util.List} <p>The lists return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The lists return object is <code>List</code> type.</p>
+     * @see java.lang.Class
+     * @see java.util.List
      */
     static <T extends RestValue<K, V>, K, V> List<T> lists(Class<T> clazz) {
         return Arrays.asList(clazz.getEnumConstants());
@@ -56,13 +55,13 @@ public interface RestValue<K, V> extends RestKey<K>, RestEntry<K, V> {
     /**
      * <code>entries</code>
      * <p>The entries method.</p>
-     * @param <T>  {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <V>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>   {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
+     * @param <K>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <V>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.lang.Class
-     * @see  java.util.List
-     * @return  {@link java.util.List} <p>The entries return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The entries return object is <code>List</code> type.</p>
+     * @see java.lang.Class
+     * @see java.util.List
      */
     static <T extends RestValue<K, V>, K, V> List<Map<K, V>> entries(Class<T> clazz) {
         return lists(clazz).stream().map(RestValue::entry).distinct().collect(Collectors.toList());
@@ -71,13 +70,13 @@ public interface RestValue<K, V> extends RestKey<K>, RestEntry<K, V> {
     /**
      * <code>nameKey</code>
      * <p>The name key method.</p>
-     * @param <T>  {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <V>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>   {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
+     * @param <K>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <V>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.lang.Class
-     * @see  java.util.List
-     * @return  {@link java.util.List} <p>The name key return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The name key return object is <code>List</code> type.</p>
+     * @see java.lang.Class
+     * @see java.util.List
      */
     static <T extends RestValue<K, V>, K, V> List<ViewPack> nameKey(Class<T> clazz) {
         return lists(clazz).stream().map(ViewPack::nameKey).distinct().collect(Collectors.toList());
@@ -86,13 +85,13 @@ public interface RestValue<K, V> extends RestKey<K>, RestEntry<K, V> {
     /**
      * <code>nameValue</code>
      * <p>The name value method.</p>
-     * @param <T>  {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <V>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>   {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
+     * @param <K>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <V>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.lang.Class
-     * @see  java.util.List
-     * @return  {@link java.util.List} <p>The name value return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The name value return object is <code>List</code> type.</p>
+     * @see java.lang.Class
+     * @see java.util.List
      */
     static <T extends RestValue<K, V>, K, V> List<ViewPack> nameValue(Class<T> clazz) {
         return lists(clazz).stream().map(ViewPack::nameValue).distinct().collect(Collectors.toList());
@@ -101,13 +100,13 @@ public interface RestValue<K, V> extends RestKey<K>, RestEntry<K, V> {
     /**
      * <code>keyValue</code>
      * <p>The key value method.</p>
-     * @param <T>  {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <V>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>   {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
+     * @param <K>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <V>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.lang.Class
-     * @see  java.util.List
-     * @return  {@link java.util.List} <p>The key value return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The key value return object is <code>List</code> type.</p>
+     * @see java.lang.Class
+     * @see java.util.List
      */
     static <T extends RestValue<K, V>, K, V> List<ViewPack> keyValue(Class<T> clazz) {
         return lists(clazz).stream().map(ViewPack::keyValue).distinct().collect(Collectors.toList());
@@ -116,13 +115,13 @@ public interface RestValue<K, V> extends RestKey<K>, RestEntry<K, V> {
     /**
      * <code>valueKey</code>
      * <p>The value key method.</p>
-     * @param <T>  {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <V>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>   {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
+     * @param <K>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <V>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.lang.Class
-     * @see  java.util.List
-     * @return  {@link java.util.List} <p>The value key return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The value key return object is <code>List</code> type.</p>
+     * @see java.lang.Class
+     * @see java.util.List
      */
     static <T extends RestValue<K, V>, K, V> List<ViewPack> valueKey(Class<T> clazz) {
         return lists(clazz).stream().map(ViewPack::valueKey).distinct().collect(Collectors.toList());
@@ -131,13 +130,13 @@ public interface RestValue<K, V> extends RestKey<K>, RestEntry<K, V> {
     /**
      * <code>packEnum</code>
      * <p>The pack enum method.</p>
-     * @param <T>  {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <V>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>   {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
+     * @param <K>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <V>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.lang.Class
-     * @see  java.util.List
-     * @return  {@link java.util.List} <p>The pack enum return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The pack enum return object is <code>List</code> type.</p>
+     * @see java.lang.Class
+     * @see java.util.List
      */
     static <T extends RestValue<K, V>, K, V> List<EnumPack> packEnum(Class<T> clazz) {
         return lists(clazz).stream().map(EnumPack::fromValue).distinct().collect(Collectors.toList());
@@ -146,13 +145,13 @@ public interface RestValue<K, V> extends RestKey<K>, RestEntry<K, V> {
     /**
      * <code>values</code>
      * <p>The values method.</p>
-     * @param <T>  {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <V>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>   {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
+     * @param <K>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <V>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.lang.Class
-     * @see  java.util.List
-     * @return  {@link java.util.List} <p>The values return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The values return object is <code>List</code> type.</p>
+     * @see java.lang.Class
+     * @see java.util.List
      */
     static <T extends RestValue<K, V>, K, V> List<V> values(Class<T> clazz) {
         return lists(clazz).stream().map(RestValue::getValue).distinct().collect(Collectors.toList());
@@ -161,13 +160,13 @@ public interface RestValue<K, V> extends RestKey<K>, RestEntry<K, V> {
     /**
      * <code>values</code>
      * <p>The values method.</p>
-     * @param <T>  {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <V>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>    {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
+     * @param <K>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <V>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param values T <p>The values parameter is <code>T</code> type.</p>
-     * @return  {@link java.util.List} <p>The values return object is <code>List</code> type.</p>
-     * @see  java.util.List
-     * @see  java.lang.SafeVarargs
+     * @return {@link java.util.List} <p>The values return object is <code>List</code> type.</p>
+     * @see java.util.List
+     * @see java.lang.SafeVarargs
      */
     @SafeVarargs
     static <T extends RestValue<K, V>, K, V> List<V> values(T... values) {
@@ -180,13 +179,13 @@ public interface RestValue<K, V> extends RestKey<K>, RestEntry<K, V> {
     /**
      * <code>values</code>
      * <p>The values method.</p>
-     * @param <T>  {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <V>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>    {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
+     * @param <K>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <V>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param values {@link java.util.Collection} <p>The values parameter is <code>Collection</code> type.</p>
-     * @see  java.util.Collection
-     * @see  java.util.List
-     * @return  {@link java.util.List} <p>The values return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The values return object is <code>List</code> type.</p>
+     * @see java.util.Collection
+     * @see java.util.List
      */
     static <T extends RestValue<K, V>, K, V> List<V> values(Collection<T> values) {
         if (GeneralUtils.isEmpty(values)) {
@@ -198,14 +197,14 @@ public interface RestValue<K, V> extends RestKey<K>, RestEntry<K, V> {
     /**
      * <code>confirm</code>
      * <p>The confirm method.</p>
-     * @param <T>  {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <V>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>   {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
+     * @param <K>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <V>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @param key K <p>The key parameter is <code>K</code> type.</p>
-     * @see  java.lang.Class
-     * @see  java.lang.Boolean
-     * @return  {@link java.lang.Boolean} <p>The confirm return object is <code>Boolean</code> type.</p>
+     * @param key   K <p>The key parameter is <code>K</code> type.</p>
+     * @return {@link java.lang.Boolean} <p>The confirm return object is <code>Boolean</code> type.</p>
+     * @see java.lang.Class
+     * @see java.lang.Boolean
      */
     static <T extends RestValue<K, V>, K, V> Boolean confirm(Class<T> clazz, K key) {
         return Optional.ofNullable(parseKey(clazz, key)).isPresent();
@@ -214,14 +213,14 @@ public interface RestValue<K, V> extends RestKey<K>, RestEntry<K, V> {
     /**
      * <code>parseKey</code>
      * <p>The parse key method.</p>
-     * @param <T>  {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <V>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>   {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
+     * @param <K>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <V>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @param key K <p>The key parameter is <code>K</code> type.</p>
-     * @see  java.lang.Class
-     * @see  java.lang.SuppressWarnings
+     * @param key   K <p>The key parameter is <code>K</code> type.</p>
      * @return T <p>The parse key return object is <code>T</code> type.</p>
+     * @see java.lang.Class
+     * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("Duplicates")
     static <T extends RestValue<K, V>, K, V> T parseKey(Class<T> clazz, K key) {
@@ -235,14 +234,14 @@ public interface RestValue<K, V> extends RestKey<K>, RestEntry<K, V> {
     /**
      * <code>parseKey</code>
      * <p>The parse key method.</p>
-     * @param <T>  {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <V>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>    {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
+     * @param <K>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <V>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param values {@link java.util.Collection} <p>The values parameter is <code>Collection</code> type.</p>
-     * @param key K <p>The key parameter is <code>K</code> type.</p>
-     * @see  java.util.Collection
-     * @see  java.lang.SuppressWarnings
+     * @param key    K <p>The key parameter is <code>K</code> type.</p>
      * @return T <p>The parse key return object is <code>T</code> type.</p>
+     * @see java.util.Collection
+     * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("Duplicates")
     static <T extends RestValue<K, V>, K, V> T parseKey(Collection<T> values, K key) {
@@ -256,14 +255,14 @@ public interface RestValue<K, V> extends RestKey<K>, RestEntry<K, V> {
     /**
      * <code>parseValue</code>
      * <p>The parse value method.</p>
-     * @param <T>  {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <V>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>   {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
+     * @param <K>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <V>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
      * @param value V <p>The value parameter is <code>V</code> type.</p>
-     * @see  java.lang.Class
-     * @see  java.lang.SuppressWarnings
      * @return T <p>The parse value return object is <code>T</code> type.</p>
+     * @see java.lang.Class
+     * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("Duplicates")
     static <T extends RestValue<K, V>, K, V> T parseValue(Class<T> clazz, V value) {
@@ -277,14 +276,14 @@ public interface RestValue<K, V> extends RestKey<K>, RestEntry<K, V> {
     /**
      * <code>parseValue</code>
      * <p>The parse value method.</p>
-     * @param <T>  {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <V>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>    {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
+     * @param <K>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <V>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param values {@link java.util.Collection} <p>The values parameter is <code>Collection</code> type.</p>
-     * @param value V <p>The value parameter is <code>V</code> type.</p>
-     * @see  java.util.Collection
-     * @see  java.lang.SuppressWarnings
+     * @param value  V <p>The value parameter is <code>V</code> type.</p>
      * @return T <p>The parse value return object is <code>T</code> type.</p>
+     * @see java.util.Collection
+     * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("Duplicates")
     static <T extends RestValue<K, V>, K, V> T parseValue(Collection<T> values, V value) {
@@ -294,5 +293,87 @@ public interface RestValue<K, V> extends RestKey<K>, RestEntry<K, V> {
         }
         return null;
     }
+
+    /**
+     * <code>of</code>
+     * <p>The of method.</p>
+     * @param <K>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <V>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param key   K <p>The key parameter is <code>K</code> type.</p>
+     * @param value V <p>The value parameter is <code>V</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestValue} <p>The of return object is <code>RestValue</code> type.</p>
+     */
+    static <K, V> RestValue<K, V> of(K key, V value) {
+        return new OfRestValue<>(key, value);
+    }
+
+    /**
+     * <code>of</code>
+     * <p>The of method.</p>
+     * @param <K>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <V>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param entry {@link io.github.nichetoolkit.rest.RestEntry} <p>The entry parameter is <code>RestEntry</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestValue} <p>The of return object is <code>RestValue</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestEntry
+     */
+    static <K, V> RestValue<K, V> of(RestEntry<K, V> entry) {
+        return new OfRestValue<>(entry.getKey(), entry.getValue());
+    }
+
+    /**
+     * <code>ofNull</code>
+     * <p>The of null method.</p>
+     * @param <K> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <V> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestValue} <p>The of null return object is <code>RestValue</code> type.</p>
+     */
+    static <K, V> RestValue<K, V> ofNull() {
+        return new OfRestValue<>(null, null);
+    }
+
+    /**
+     * <code>OfRestValue</code>
+     * <p>The of rest value class.</p>
+     * @param <K> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <V> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @author Cyan (snow22314@outlook.com)
+     * @see io.github.nichetoolkit.rest.RestKey.OfRestKey
+     * @since Jdk1.8
+     */
+    class OfRestValue<K, V> extends RestKey.OfRestKey<K> implements RestValue<K, V> {
+        /**
+         * <code>value</code>
+         * <p>The <code>value</code> field.</p>
+         */
+        private final V value;
+
+        /**
+         * <code>OfRestValue</code>
+         * <p>Instantiates a new of rest value.</p>
+         * @param value {@link io.github.nichetoolkit.rest.RestEntry} <p>The value parameter is <code>RestEntry</code> type.</p>
+         * @see io.github.nichetoolkit.rest.RestEntry
+         */
+        OfRestValue(RestEntry<K, V> value) {
+            super(value.getKey());
+            this.value = value.getValue();
+        }
+
+        /**
+         * <code>OfRestValue</code>
+         * <p>Instantiates a new of rest value.</p>
+         * @param key   K <p>The key parameter is <code>K</code> type.</p>
+         * @param value V <p>The value parameter is <code>V</code> type.</p>
+         */
+        OfRestValue(K key, V value) {
+            super(key);
+            this.value = value;
+        }
+
+        @Override
+        public V getValue() {
+            return value;
+        }
+    }
+
 
 }

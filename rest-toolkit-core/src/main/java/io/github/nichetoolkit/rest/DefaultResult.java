@@ -245,5 +245,4 @@ class DefaultResult<T,S extends DefaultResult<T,S>> implements Serializable {
          */
         abstract DefaultResult<T,S> build();
     }
-
 }
