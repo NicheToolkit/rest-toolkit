@@ -1,6 +1,7 @@
 package io.github.nichetoolkit.rest;
 
 import io.github.nichetoolkit.rest.configure.RestExceptionProperties;
+import io.github.nichetoolkit.rest.fitter.RestFulfilledFitter;
 import io.github.nichetoolkit.rest.holder.ApplicationContextHolder;
 import io.github.nichetoolkit.rest.holder.BeanDefinitionRegistryHolder;
 import io.github.nichetoolkit.rest.holder.ListableBeanFactoryHolder;

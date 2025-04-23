@@ -1,5 +1,6 @@
 package io.github.nichetoolkit.rest.holder;
 
+import io.github.nichetoolkit.rest.fitter.RestUnfulfilledFitter;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
