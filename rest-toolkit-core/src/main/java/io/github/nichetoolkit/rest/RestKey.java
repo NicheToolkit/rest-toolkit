@@ -197,6 +197,18 @@ public interface RestKey<K> {
             return this.key;
         }
 
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            OfRestKey<?> ofRestKey = (OfRestKey<?>) o;
+            return Objects.equals(key, ofRestKey.key);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hashCode(key);
+        }
     }
 
 

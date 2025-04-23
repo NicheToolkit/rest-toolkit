@@ -373,6 +373,20 @@ public interface RestValue<K, V> extends RestKey<K>, RestEntry<K, V> {
         public V getValue() {
             return value;
         }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            if (!super.equals(o)) return false;
+            OfRestValue<?, ?> that = (OfRestValue<?, ?>) o;
+            return Objects.equals(value, that.value);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(super.hashCode(), value);
+        }
     }
 
 
