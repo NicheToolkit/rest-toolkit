@@ -2,12 +2,16 @@ package io.github.nichetoolkit.rest;
 
 import io.github.nichetoolkit.rest.configure.RestExceptionProperties;
 import io.github.nichetoolkit.rest.holder.ApplicationContextHolder;
+import io.github.nichetoolkit.rest.holder.BeanDefinitionRegistryHolder;
+import io.github.nichetoolkit.rest.holder.ListableBeanFactoryHolder;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;
 import org.springframework.core.annotation.Order;
+import org.springframework.core.io.support.SpringFactoriesLoader;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -39,7 +43,13 @@ import java.util.List;
 @Order(0)
 @CrossOrigin
 @RestControllerAdvice
-public class DefaultControllerAdvice implements ResponseBodyAdvice<Object>, InitializingBean {
+public final class DefaultControllerAdvice implements ResponseBodyAdvice<Object>, InitializingBean {
+
+    /**
+     * <code>IS_HAS_INIT_OF_FULFILLED_FITTER</code>
+     * <p>The <code>IS_HAS_INIT_OF_FULFILLED_FITTER</code> field.</p>
+     */
+    static boolean IS_HAS_INIT_OF_FULFILLED_FITTER = false;
     /**
      * <code>exceptionProperties</code>
      * {@link io.github.nichetoolkit.rest.configure.RestExceptionProperties} <p>The <code>exceptionProperties</code> field.</p>
@@ -101,6 +111,36 @@ public class DefaultControllerAdvice implements ResponseBodyAdvice<Object>, Init
         if (this.responseAdvices == null) {
             this.responseAdvices = ApplicationContextHolder.beansOfType(RestResponseAdvice.class);
         }
+        initOfFulfilledFitter();
+    }
+
+    /**
+     * <code>initOfFulfilledFitter</code>
+     * <p>The init of fulfilled fitter method.</p>
+     * @throws BeansException {@link org.springframework.beans.BeansException} <p>The beans exception is <code>BeansException</code> type.</p>
+     * @see java.lang.SuppressWarnings
+     * @see org.springframework.beans.BeansException
+     */
+    @SuppressWarnings("rawtypes")
+    private void initOfFulfilledFitter() throws BeansException {
+        if (IS_HAS_INIT_OF_FULFILLED_FITTER) {
+            return;
+        }
+        IS_HAS_INIT_OF_FULFILLED_FITTER = true;
+        List<RestFulfilledFitter> fulfilledFitters = ApplicationContextHolder.beansOfType(RestFulfilledFitter.class);
+        if (GeneralUtils.isNotEmpty(fulfilledFitters)) {
+            return;
+        }
+        fulfilledFitters = SpringFactoriesLoader.loadFactories(RestFulfilledFitter.class, null);
+        if (GeneralUtils.isEmpty(fulfilledFitters)) {
+            return;
+        }
+        for (RestFulfilledFitter<?> fulfilledFitter : fulfilledFitters) {
+            fulfilledFitter = BeanDefinitionRegistryHolder.registerRootBeanDefinition(fulfilledFitter.beanName(), fulfilledFitter.beanType(), fulfilledFitter.beanScope());
+            ListableBeanFactoryHolder.autowireBeanProperties(fulfilledFitter);
+            fulfilledFitter.afterAutowirePropertiesSet();
+        }
+        log.debug("There are {} fulfilled fitter beans has be initiated.", fulfilledFitters.size());
     }
 
     /**
@@ -112,7 +152,6 @@ public class DefaultControllerAdvice implements ResponseBodyAdvice<Object>, Init
     public List<RestExceptionAdvice> getExceptionAdvices() {
         return this.exceptionAdvices != null && !this.exceptionAdvices.isEmpty() ? this.exceptionAdvices : Collections.emptyList();
     }
-
 
     /**
      * <code>getResponseAdvices</code>
