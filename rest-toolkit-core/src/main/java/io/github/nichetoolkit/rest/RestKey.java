@@ -179,7 +179,7 @@ public interface RestKey<K> {
          * <p>Instantiates a new of rest key.</p>
          * @param key {@link io.github.nichetoolkit.rest.RestKey} <p>The key parameter is <code>RestKey</code> type.</p>
          */
-        OfRestKey(RestKey<K> key) {
+        public OfRestKey(RestKey<K> key) {
             this.key = key.getKey();
         }
 
@@ -188,7 +188,7 @@ public interface RestKey<K> {
          * <p>Instantiates a new of rest key.</p>
          * @param key K <p>The key parameter is <code>K</code> type.</p>
          */
-        OfRestKey(K key) {
+        public OfRestKey(K key) {
             this.key = key;
         }
 

@@ -353,7 +353,7 @@ public interface RestValue<K, V> extends RestKey<K>, RestEntry<K, V> {
          * @param value {@link io.github.nichetoolkit.rest.RestEntry} <p>The value parameter is <code>RestEntry</code> type.</p>
          * @see io.github.nichetoolkit.rest.RestEntry
          */
-        OfRestValue(RestEntry<K, V> value) {
+        public OfRestValue(RestEntry<K, V> value) {
             super(value.getKey());
             this.value = value.getValue();
         }
@@ -364,7 +364,7 @@ public interface RestValue<K, V> extends RestKey<K>, RestEntry<K, V> {
          * @param key   K <p>The key parameter is <code>K</code> type.</p>
          * @param value V <p>The value parameter is <code>V</code> type.</p>
          */
-        OfRestValue(K key, V value) {
+        public OfRestValue(K key, V value) {
             super(key);
             this.value = value;
         }
