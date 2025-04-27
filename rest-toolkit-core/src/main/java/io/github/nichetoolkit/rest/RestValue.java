@@ -345,7 +345,7 @@ public interface RestValue<K, V> extends RestKey<K>, RestEntry<K, V> {
          * <code>value</code>
          * <p>The <code>value</code> field.</p>
          */
-        private final V value;
+        private V value;
 
         /**
          * <code>OfRestValue</code>
@@ -371,6 +371,11 @@ public interface RestValue<K, V> extends RestKey<K>, RestEntry<K, V> {
 
         @Override
         public V getValue() {
+            return value;
+        }
+
+        public V setValue(V value) {
+            this.value = value;
             return value;
         }
 

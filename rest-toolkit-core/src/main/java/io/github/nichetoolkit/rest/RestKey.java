@@ -1,6 +1,7 @@
 package io.github.nichetoolkit.rest;
 
 import io.github.nichetoolkit.rest.util.GeneralUtils;
+import lombok.Setter;
 
 import java.util.*;
 import java.util.function.Function;
@@ -45,7 +46,7 @@ public interface RestKey<K> {
      * @see java.lang.Class
      * @see java.util.List
      */
-    static <T extends RestKey<K>,K> List<T> values(Class<T> clazz) {
+    static <T extends RestKey<K>, K> List<T> values(Class<T> clazz) {
         return Arrays.asList(clazz.getEnumConstants());
     }
 
@@ -59,7 +60,7 @@ public interface RestKey<K> {
      * @see java.lang.Class
      * @see java.util.List
      */
-    static <T extends RestKey<K>,K> List<K> keys(Class<T> clazz) {
+    static <T extends RestKey<K>, K> List<K> keys(Class<T> clazz) {
         return values(clazz).stream().map(RestKey::getKey).distinct().collect(Collectors.toList());
     }
 
@@ -74,7 +75,7 @@ public interface RestKey<K> {
      * @see java.lang.SafeVarargs
      */
     @SafeVarargs
-    static <T extends RestKey<K>,K> List<K> keys(T... keys) {
+    static <T extends RestKey<K>, K> List<K> keys(T... keys) {
         if (GeneralUtils.isEmpty(keys)) {
             return Collections.emptyList();
         }
@@ -91,7 +92,7 @@ public interface RestKey<K> {
      * @see java.util.Collection
      * @see java.util.List
      */
-    static <T extends RestKey<K>,K> List<K> keys(Collection<T> keys) {
+    static <T extends RestKey<K>, K> List<K> keys(Collection<T> keys) {
         if (GeneralUtils.isEmpty(keys)) {
             return Collections.emptyList();
         }
@@ -112,7 +113,7 @@ public interface RestKey<K> {
     @SuppressWarnings("Duplicates")
     static <T extends RestKey<K>, K> T parseKey(Class<T> clazz, K key) {
         if (key != null && clazz.isEnum()) {
-            Map<K, T> keyEnumMap = Stream.of(clazz.getEnumConstants()).collect(Collectors.toMap(RestKey::getKey, Function.identity(),(oldValue,newValue) -> newValue, HashMap::new));
+            Map<K, T> keyEnumMap = Stream.of(clazz.getEnumConstants()).collect(Collectors.toMap(RestKey::getKey, Function.identity(), (oldValue, newValue) -> newValue, HashMap::new));
             return keyEnumMap.get(key);
         }
         return null;
@@ -165,14 +166,16 @@ public interface RestKey<K> {
      * <p>The of rest key class.</p>
      * @param <K> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
+     * @see lombok.Setter
      * @since Jdk1.8
      */
+    @Setter
     class OfRestKey<K> implements RestKey<K> {
         /**
          * <code>key</code>
          * <p>The <code>key</code> field.</p>
          */
-        private final K key;
+        private K key;
 
         /**
          * <code>OfRestKey</code>
@@ -197,6 +200,7 @@ public interface RestKey<K> {
             return this.key;
         }
 
+
         @Override
         public boolean equals(Object o) {
             if (this == o) return true;
@@ -210,7 +214,6 @@ public interface RestKey<K> {
             return Objects.hashCode(key);
         }
     }
-
 
 
 }

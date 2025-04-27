@@ -1,8 +1,11 @@
 package io.github.nichetoolkit.rest;
 
+import lombok.Setter;
+
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -104,6 +107,18 @@ public interface RestField<F> extends RestValue<String, F> {
      * <p>The of method.</p>
      * @param <F>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param name {@link java.lang.String} <p>The name parameter is <code>String</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestField} <p>The of return object is <code>RestField</code> type.</p>
+     * @see java.lang.String
+     */
+    static <F> RestField<F> of(String name) {
+        return new OfRestField<>(name, null);
+    }
+
+    /**
+     * <code>of</code>
+     * <p>The of method.</p>
+     * @param <F>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param name {@link java.lang.String} <p>The name parameter is <code>String</code> type.</p>
      * @param type {@link io.github.nichetoolkit.rest.RestType} <p>The type parameter is <code>RestType</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestField} <p>The of return object is <code>RestField</code> type.</p>
      * @see java.lang.String
@@ -129,21 +144,23 @@ public interface RestField<F> extends RestValue<String, F> {
      * @param <F> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.RestValue.OfRestValue
+     * @see lombok.Setter
      * @since Jdk1.8
      */
+    @Setter
     class OfRestField<F> extends RestValue.OfRestValue<String, F> implements RestField<F> {
         /**
          * <code>name</code>
          * {@link java.lang.String} <p>The <code>name</code> field.</p>
          * @see java.lang.String
          */
-        private final String name;
+        private String name;
         /**
          * <code>type</code>
          * {@link io.github.nichetoolkit.rest.RestType} <p>The <code>type</code> field.</p>
          * @see io.github.nichetoolkit.rest.RestType
          */
-        private final RestType type;
+        private RestType type;
 
         /**
          * <code>OfRestField</code>
@@ -152,7 +169,7 @@ public interface RestField<F> extends RestValue<String, F> {
          * @see java.lang.String
          */
         public OfRestField(String name) {
-            super(name, null);
+            super(null, null);
             this.name = name;
             this.type = RestType.ofNull();
         }
@@ -166,7 +183,7 @@ public interface RestField<F> extends RestValue<String, F> {
          * @see io.github.nichetoolkit.rest.RestType
          */
         public OfRestField(String name, RestType type) {
-            super(name, null);
+            super(null, null);
             this.name = name;
             this.type = type;
         }
@@ -179,6 +196,20 @@ public interface RestField<F> extends RestValue<String, F> {
         @Override
         public RestType getType() {
             return null;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            if (!super.equals(o)) return false;
+            OfRestField<?> that = (OfRestField<?>) o;
+            return Objects.equals(name, that.name);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(super.hashCode(), name);
         }
     }
 
