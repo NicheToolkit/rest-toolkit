@@ -19,7 +19,7 @@ import java.util.stream.Stream;
  * @see io.github.nichetoolkit.rest.RestEntry
  * @since Jdk1.8
  */
-public interface RestValue<K, V> extends RestKey<K>, RestEntry<K, V> {
+public interface RestValue<K, V> extends RestKey<K> {
 
     V getValue();
 

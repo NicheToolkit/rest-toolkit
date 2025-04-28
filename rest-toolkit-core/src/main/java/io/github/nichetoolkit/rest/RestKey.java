@@ -3,6 +3,7 @@ package io.github.nichetoolkit.rest;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -15,7 +16,7 @@ import java.util.stream.Stream;
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
-public interface RestKey<K> {
+public interface RestKey<K> extends Serializable {
     /**
      * <code>name</code>
      * <p>The name method.</p>
