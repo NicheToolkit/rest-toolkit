@@ -14,6 +14,7 @@ import java.util.stream.Stream;
  * <p>The rest key interface.</p>
  * @param <K> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
+ * @see java.io.Serializable
  * @since Jdk1.8
  */
 public interface RestKey<K> extends Serializable {

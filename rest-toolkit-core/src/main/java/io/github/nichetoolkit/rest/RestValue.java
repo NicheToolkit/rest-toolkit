@@ -16,13 +16,23 @@ import java.util.stream.Stream;
  * @param <V> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestKey
- * @see io.github.nichetoolkit.rest.RestEntry
  * @since Jdk1.8
  */
 public interface RestValue<K, V> extends RestKey<K> {
 
+    /**
+     * <code>getValue</code>
+     * <p>The get value getter method.</p>
+     * @return V <p>The get value return object is <code>V</code> type.</p>
+     */
     V getValue();
 
+    /**
+     * <code>setValue</code>
+     * <p>The set value setter method.</p>
+     * @param value V <p>The value parameter is <code>V</code> type.</p>
+     * @return V <p>The set value return object is <code>V</code> type.</p>
+     */
     default V setValue(V value) {
         throw new UnsupportedOperationException();
     }
