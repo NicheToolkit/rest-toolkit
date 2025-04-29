@@ -111,7 +111,7 @@ public interface RestField<F> extends RestValue<String, F> {
      * @see java.lang.String
      */
     static <F> RestField<F> of(String name) {
-        return new OfRestField<>(name, null);
+        return new OfRestField<>(name);
     }
 
     /**
@@ -135,7 +135,7 @@ public interface RestField<F> extends RestValue<String, F> {
      * @return {@link io.github.nichetoolkit.rest.RestField} <p>The of null return object is <code>RestField</code> type.</p>
      */
     static <F> RestField<F> ofNull() {
-        return new OfRestField<>(null);
+        return new OfRestField<>();
     }
 
     /**
@@ -167,7 +167,6 @@ public interface RestField<F> extends RestValue<String, F> {
          * <p>Instantiates a new of rest field.</p>
          */
         public OfRestField() {
-            super();
         }
 
         /**
@@ -177,7 +176,6 @@ public interface RestField<F> extends RestValue<String, F> {
          * @see java.lang.String
          */
         public OfRestField(String name) {
-            super();
             this.name = name;
             this.type = RestType.ofNull();
         }
@@ -191,7 +189,6 @@ public interface RestField<F> extends RestValue<String, F> {
          * @see io.github.nichetoolkit.rest.RestType
          */
         public OfRestField(String name, RestType type) {
-            super();
             this.name = name;
             this.type = type;
         }

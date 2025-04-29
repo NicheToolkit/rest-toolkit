@@ -160,7 +160,7 @@ public interface RestKey<K> extends Serializable {
      * @return {@link io.github.nichetoolkit.rest.RestKey} <p>The of null return object is <code>RestKey</code> type.</p>
      */
     static <K> RestKey<K> ofNull() {
-        return new OfRestKey<>(null);
+        return new OfRestKey<>();
     }
 
     /**

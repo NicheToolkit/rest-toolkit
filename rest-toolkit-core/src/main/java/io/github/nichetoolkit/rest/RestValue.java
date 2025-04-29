@@ -338,7 +338,7 @@ public interface RestValue<K, V> extends RestKey<K> {
      * @return {@link io.github.nichetoolkit.rest.RestValue} <p>The of null return object is <code>RestValue</code> type.</p>
      */
     static <K, V> RestValue<K, V> ofNull() {
-        return new OfRestValue<>(null, null);
+        return new OfRestValue<>();
     }
 
     /**
@@ -362,18 +362,17 @@ public interface RestValue<K, V> extends RestKey<K> {
          * <p>Instantiates a new of rest value.</p>
          */
         public OfRestValue() {
-            super();
         }
 
         /**
          * <code>OfRestValue</code>
          * <p>Instantiates a new of rest value.</p>
-         * @param value {@link io.github.nichetoolkit.rest.RestEntry} <p>The value parameter is <code>RestEntry</code> type.</p>
-         * @see io.github.nichetoolkit.rest.RestEntry
+         * @param entry {@link java.util.Map.Entry} <p>The entry parameter is <code>Entry</code> type.</p>
+         * @see java.util.Map.Entry
          */
-        public OfRestValue(RestEntry<K, V> value) {
-            super(value.getKey());
-            this.value = value.getValue();
+        public OfRestValue(Map.Entry<K, V> entry) {
+            super(entry.getKey());
+            this.value = entry.getValue();
         }
 
         /**
