@@ -28,16 +28,6 @@ public interface RestValue<K, V> extends RestKey<K> {
     V getValue();
 
     /**
-     * <code>setValue</code>
-     * <p>The set value setter method.</p>
-     * @param value V <p>The value parameter is <code>V</code> type.</p>
-     * @return V <p>The set value return object is <code>V</code> type.</p>
-     */
-    default V setValue(V value) {
-        throw new UnsupportedOperationException();
-    }
-
-    /**
      * <code>entry</code>
      * <p>The entry method.</p>
      * @return {@link java.util.Map} <p>The entry return object is <code>Map</code> type.</p>
@@ -391,6 +381,12 @@ public interface RestValue<K, V> extends RestKey<K> {
             return value;
         }
 
+        /**
+         * <code>setValue</code>
+         * <p>The set value setter method.</p>
+         * @param value V <p>The value parameter is <code>V</code> type.</p>
+         * @return V <p>The set value return object is <code>V</code> type.</p>
+         */
         public V setValue(V value) {
             this.value = value;
             return value;

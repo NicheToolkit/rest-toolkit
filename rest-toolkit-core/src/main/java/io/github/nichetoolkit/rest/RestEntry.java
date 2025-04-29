@@ -19,6 +19,11 @@ import java.util.Objects;
  */
 public interface RestEntry<K, V> extends Map.Entry<K, V> {
 
+    @Override
+    default V setValue(V value) {
+        throw new UnsupportedOperationException();
+    }
+
     /**
      * <code>comparingByKey</code>
      * <p>The comparing by key method.</p>
