@@ -360,6 +360,14 @@ public interface RestValue<K, V> extends RestKey<K> {
         /**
          * <code>OfRestValue</code>
          * <p>Instantiates a new of rest value.</p>
+         */
+        public OfRestValue() {
+            super();
+        }
+
+        /**
+         * <code>OfRestValue</code>
+         * <p>Instantiates a new of rest value.</p>
          * @param value {@link io.github.nichetoolkit.rest.RestEntry} <p>The value parameter is <code>RestEntry</code> type.</p>
          * @see io.github.nichetoolkit.rest.RestEntry
          */

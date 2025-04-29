@@ -165,11 +165,19 @@ public interface RestField<F> extends RestValue<String, F> {
         /**
          * <code>OfRestField</code>
          * <p>Instantiates a new of rest field.</p>
+         */
+        public OfRestField() {
+            super();
+        }
+
+        /**
+         * <code>OfRestField</code>
+         * <p>Instantiates a new of rest field.</p>
          * @param name {@link java.lang.String} <p>The name parameter is <code>String</code> type.</p>
          * @see java.lang.String
          */
         public OfRestField(String name) {
-            super(null, null);
+            super();
             this.name = name;
             this.type = RestType.ofNull();
         }
@@ -183,7 +191,7 @@ public interface RestField<F> extends RestValue<String, F> {
          * @see io.github.nichetoolkit.rest.RestType
          */
         public OfRestField(String name, RestType type) {
-            super(null, null);
+            super();
             this.name = name;
             this.type = type;
         }

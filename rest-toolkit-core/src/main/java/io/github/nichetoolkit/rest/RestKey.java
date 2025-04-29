@@ -182,6 +182,13 @@ public interface RestKey<K> extends Serializable {
         /**
          * <code>OfRestKey</code>
          * <p>Instantiates a new of rest key.</p>
+         */
+        public OfRestKey() {
+        }
+
+        /**
+         * <code>OfRestKey</code>
+         * <p>Instantiates a new of rest key.</p>
          * @param key {@link io.github.nichetoolkit.rest.RestKey} <p>The key parameter is <code>RestKey</code> type.</p>
          */
         public OfRestKey(RestKey<K> key) {
