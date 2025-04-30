@@ -46,11 +46,10 @@ public class RestGenericTypes {
      * <code>resolveMapValueType</code>
      * <p>The resolve map value type method.</p>
      * @param sourceType {@link java.lang.Class} <p>The source type parameter is <code>Class</code> type.</p>
-     * @param index      int <p>The index parameter is <code>int</code> type.</p>
      * @return {@link java.lang.Class} <p>The resolve map value type return object is <code>Class</code> type.</p>
      * @see java.lang.Class
      */
-    public static Class<?> resolveMapValueType(Class<?> sourceType, int index) {
+    public static Class<?> resolveMapValueType(Class<?> sourceType) {
         return resolveMapType(sourceType, 1);
     }
 
