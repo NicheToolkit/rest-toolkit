@@ -1,10 +1,7 @@
 package io.github.nichetoolkit.rest.reflect;
 
 import java.lang.reflect.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 /**
  * <code>RestGenericTypes</code>
@@ -13,6 +10,70 @@ import java.util.List;
  * @since Jdk1.8
  */
 public class RestGenericTypes {
+
+
+    /**
+     * <code>resolveListType</code>
+     * <p>The resolve list type method.</p>
+     * @param sourceType {@link java.lang.Class} <p>The source type parameter is <code>Class</code> type.</p>
+     * @return {@link java.lang.Class} <p>The resolve list type return object is <code>Class</code> type.</p>
+     * @see java.lang.Class
+     */
+    public static Class<?> resolveListType(Class<?> sourceType) {
+        Type superClass = sourceType.getGenericSuperclass();
+        if (superClass instanceof ParameterizedType) {
+            ParameterizedType parameterizedType = (ParameterizedType) superClass;
+            Type actualType = parameterizedType.getActualTypeArguments()[0];
+            if (actualType instanceof Class) {
+                return (Class<?>) actualType;
+            }
+        }
+        return Object.class;
+    }
+
+    /**
+     * <code>resolveMapKeyType</code>
+     * <p>The resolve map key type method.</p>
+     * @param sourceType {@link java.lang.Class} <p>The source type parameter is <code>Class</code> type.</p>
+     * @return {@link java.lang.Class} <p>The resolve map key type return object is <code>Class</code> type.</p>
+     * @see java.lang.Class
+     */
+    public static Class<?> resolveMapKeyType(Class<?> sourceType) {
+        return resolveMapType(sourceType, 0);
+    }
+
+    /**
+     * <code>resolveMapValueType</code>
+     * <p>The resolve map value type method.</p>
+     * @param sourceType {@link java.lang.Class} <p>The source type parameter is <code>Class</code> type.</p>
+     * @param index      int <p>The index parameter is <code>int</code> type.</p>
+     * @return {@link java.lang.Class} <p>The resolve map value type return object is <code>Class</code> type.</p>
+     * @see java.lang.Class
+     */
+    public static Class<?> resolveMapValueType(Class<?> sourceType, int index) {
+        return resolveMapType(sourceType, 1);
+    }
+
+    /**
+     * <code>resolveMapType</code>
+     * <p>The resolve map type method.</p>
+     * @param sourceType {@link java.lang.Class} <p>The source type parameter is <code>Class</code> type.</p>
+     * @param index      int <p>The index parameter is <code>int</code> type.</p>
+     * @return {@link java.lang.Class} <p>The resolve map type return object is <code>Class</code> type.</p>
+     * @see java.lang.Class
+     */
+    private static Class<?> resolveMapType(Class<?> sourceType, int index) {
+        Type superClass = sourceType.getGenericSuperclass();
+        if (superClass instanceof ParameterizedType) {
+            ParameterizedType parameterizedType = (ParameterizedType) superClass;
+            Type actualType = parameterizedType.getActualTypeArguments()[index];
+            if (actualType instanceof Class) {
+                return (Class<?>) actualType;
+            }
+        }
+        return Object.class;
+    }
+
 
     /**
      * <code>resolveFieldType</code>
