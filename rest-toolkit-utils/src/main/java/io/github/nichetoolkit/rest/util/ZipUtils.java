@@ -1,11 +1,17 @@
 package io.github.nichetoolkit.rest.util;
 
+import io.github.nichetoolkit.rest.constant.UtilConstants;
 import io.github.nichetoolkit.rest.error.often.FileCreateException;
 import io.github.nichetoolkit.rest.error.often.ZipErrorException;
 import io.github.nichetoolkit.rest.helper.ZipHelper;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 /**
@@ -91,5 +97,99 @@ public class ZipUtils {
             GeneralUtils.printStackTrace(exception);
         }
         return new byte[0];
+    }
+
+    /**
+     * <code>unzip</code>
+     * <p>The unzip method.</p>
+     * @param file {@link java.io.File} <p>The file parameter is <code>File</code> type.</p>
+     * @return {@link java.nio.file.Path} <p>The unzip return object is <code>Path</code> type.</p>
+     * @see java.io.File
+     * @see java.nio.file.Path
+     */
+    public static Path unzip(File file) {
+        Path unzipPath = Paths.get(System.getProperty(UtilConstants.TEMP_SYSTEM_PROPERTY));
+        return unzip(file,unzipPath,GeneralUtils.uuid());
+    }
+
+    /**
+     * <code>unzip</code>
+     * <p>The unzip method.</p>
+     * @param inputStream {@link java.io.InputStream} <p>The input stream parameter is <code>InputStream</code> type.</p>
+     * @return {@link java.nio.file.Path} <p>The unzip return object is <code>Path</code> type.</p>
+     * @see java.io.InputStream
+     * @see java.nio.file.Path
+     */
+    public static Path unzip(InputStream inputStream) {
+        Path unzipPath = Paths.get(System.getProperty(UtilConstants.TEMP_SYSTEM_PROPERTY));
+        return unzip(inputStream,unzipPath,GeneralUtils.uuid());
+    }
+
+    /**
+     * <code>unzip</code>
+     * <p>The unzip method.</p>
+     * @param inputStream {@link java.io.InputStream} <p>The input stream parameter is <code>InputStream</code> type.</p>
+     * @param unzipPath   {@link java.nio.file.Path} <p>The unzip path parameter is <code>Path</code> type.</p>
+     * @return {@link java.nio.file.Path} <p>The unzip return object is <code>Path</code> type.</p>
+     * @see java.io.InputStream
+     * @see java.nio.file.Path
+     */
+    public static Path unzip(InputStream inputStream, Path unzipPath) {
+        return unzip(inputStream,unzipPath,GeneralUtils.uuid());
+    }
+
+    /**
+     * <code>unzip</code>
+     * <p>The unzip method.</p>
+     * @param file      {@link java.io.File} <p>The file parameter is <code>File</code> type.</p>
+     * @param unzipPath {@link java.nio.file.Path} <p>The unzip path parameter is <code>Path</code> type.</p>
+     * @return {@link java.nio.file.Path} <p>The unzip return object is <code>Path</code> type.</p>
+     * @see java.io.File
+     * @see java.nio.file.Path
+     */
+    public static Path unzip(File file, Path unzipPath) {
+        return unzip(file,unzipPath,GeneralUtils.uuid());
+    }
+
+    /**
+     * <code>unzip</code>
+     * <p>The unzip method.</p>
+     * @param file      {@link java.io.File} <p>The file parameter is <code>File</code> type.</p>
+     * @param unzipPath {@link java.nio.file.Path} <p>The unzip path parameter is <code>Path</code> type.</p>
+     * @param filename  {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
+     * @return {@link java.nio.file.Path} <p>The unzip return object is <code>Path</code> type.</p>
+     * @see java.io.File
+     * @see java.nio.file.Path
+     * @see java.lang.String
+     */
+    public static Path unzip(File file, Path unzipPath, String filename) {
+        try(FileInputStream fileInputStream = new FileInputStream(file)) {
+            return unzip(fileInputStream,unzipPath,filename);
+        } catch (IOException exception) {
+            log.error("It is failed during handle file! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
+        }
+        return null;
+    }
+
+    /**
+     * <code>unzip</code>
+     * <p>The unzip method.</p>
+     * @param inputStream {@link java.io.InputStream} <p>The input stream parameter is <code>InputStream</code> type.</p>
+     * @param unzipPath   {@link java.nio.file.Path} <p>The unzip path parameter is <code>Path</code> type.</p>
+     * @param filename    {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
+     * @return {@link java.nio.file.Path} <p>The unzip return object is <code>Path</code> type.</p>
+     * @see java.io.InputStream
+     * @see java.nio.file.Path
+     * @see java.lang.String
+     */
+    public static Path unzip(InputStream inputStream, Path unzipPath, String filename) {
+        try {
+            return ZipHelper.unzip(inputStream,unzipPath,filename);
+        } catch (ZipErrorException exception) {
+            log.error("It is failed during handle unzip file! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
+        }
+        return null;
     }
 }

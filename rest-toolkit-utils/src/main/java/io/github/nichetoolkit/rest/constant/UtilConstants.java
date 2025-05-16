@@ -247,4 +247,11 @@ public interface UtilConstants {
      * @see java.lang.String
      */
     String FILENAME_UTF_8_CONTENT= "attachment;filename*=UTF-8''";
+
+    /**
+     * <code>TEMP_SYSTEM_PROPERTY</code>
+     * {@link java.lang.String} <p>The constant <code>TEMP_SYSTEM_PROPERTY</code> field.</p>
+     * @see java.lang.String
+     */
+    String TEMP_SYSTEM_PROPERTY = "java.io.tmpdir";
 }

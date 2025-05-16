@@ -14,9 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Path;
 import java.text.DecimalFormat;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 /**
  * <code>FileUtils</code>
@@ -42,7 +42,25 @@ public class FileUtils {
         try {
             return FileHelper.createFile(path);
         } catch (FileCreateException exception) {
-            log.error("It is failed during creating file !", exception);
+            log.error("It is failed during creating file!", exception);
+            GeneralUtils.printStackTrace(exception);
+        }
+        return null;
+    }
+
+    /**
+     * <code>createFile</code>
+     * <p>The create file method.</p>
+     * @param path {@link java.nio.file.Path} <p>The path parameter is <code>Path</code> type.</p>
+     * @return {@link java.io.File} <p>The create file return object is <code>File</code> type.</p>
+     * @see java.nio.file.Path
+     * @see java.io.File
+     */
+    public static File createFile(final Path path) {
+        try {
+            return FileHelper.createFile(path);
+        } catch (FileCreateException exception) {
+            log.error("It is failed during creating file with path!", exception);
             GeneralUtils.printStackTrace(exception);
         }
         return null;
@@ -59,9 +77,9 @@ public class FileUtils {
      */
     public static File createFile(final String path, final String name) {
         try {
-            return FileHelper.createFile(path,name);
+            return FileHelper.createFile(path, name);
         } catch (FileCreateException exception) {
-            log.error("It is failed during creating file!", exception);
+            log.error("It is failed during creating file with name!", exception);
             GeneralUtils.printStackTrace(exception);
         }
         return null;
@@ -99,7 +117,7 @@ public class FileUtils {
      */
     public static File createFile(final String path, final String name, final String ext) {
         try {
-            return FileHelper.createFile(path,name,ext);
+            return FileHelper.createFile(path, name, ext);
         } catch (FileCreateException exception) {
             log.error("It is failed during creating file!", exception);
             GeneralUtils.printStackTrace(exception);
@@ -124,6 +142,136 @@ public class FileUtils {
         return null;
     }
 
+
+    /**
+     * <code>listFiles</code>
+     * <p>The list files method.</p>
+     * @param path           {@link java.nio.file.Path} <p>The path parameter is <code>Path</code> type.</p>
+     * @param filenameFilter {@link java.io.FilenameFilter} <p>The filename filter parameter is <code>FilenameFilter</code> type.</p>
+     * @return {@link java.util.List} <p>The list files return object is <code>List</code> type.</p>
+     * @see java.nio.file.Path
+     * @see java.io.FilenameFilter
+     * @see java.util.List
+     */
+    public static List<File> listFiles(final Path path, FilenameFilter filenameFilter) {
+        return listFiles(path.toFile(), filenameFilter);
+    }
+
+    /**
+     * <code>listFiles</code>
+     * <p>The list files method.</p>
+     * @param path       {@link java.nio.file.Path} <p>The path parameter is <code>Path</code> type.</p>
+     * @param fileFilter {@link java.io.FileFilter} <p>The file filter parameter is <code>FileFilter</code> type.</p>
+     * @return {@link java.util.List} <p>The list files return object is <code>List</code> type.</p>
+     * @see java.nio.file.Path
+     * @see java.io.FileFilter
+     * @see java.util.List
+     */
+    public static List<File> listFiles(final Path path, FileFilter fileFilter) {
+        return listFiles(path.toFile(), fileFilter);
+    }
+
+    /**
+     * <code>listFiles</code>
+     * <p>The list files method.</p>
+     * @param path {@link java.nio.file.Path} <p>The path parameter is <code>Path</code> type.</p>
+     * @return {@link java.util.List} <p>The list files return object is <code>List</code> type.</p>
+     * @see java.nio.file.Path
+     * @see java.util.List
+     */
+    public static List<File> listFiles(final Path path) {
+        return listFiles(path.toFile());
+    }
+
+    /**
+     * <code>listFiles</code>
+     * <p>The list files method.</p>
+     * @param file           {@link java.io.File} <p>The file parameter is <code>File</code> type.</p>
+     * @param filenameFilter {@link java.io.FilenameFilter} <p>The filename filter parameter is <code>FilenameFilter</code> type.</p>
+     * @return {@link java.util.List} <p>The list files return object is <code>List</code> type.</p>
+     * @see java.io.File
+     * @see java.io.FilenameFilter
+     * @see java.util.List
+     */
+    public static List<File> listFiles(final File file, FilenameFilter filenameFilter) {
+        if (!file.exists()) {
+            return new ArrayList<>();
+        }
+        File[] files = file.listFiles(filenameFilter);
+        if (GeneralUtils.isEmpty(files)) {
+            return new ArrayList<>();
+        }
+        List<File> fileList = new ArrayList<>();
+        Arrays.stream(files).forEach(innerFile -> {
+            if (innerFile.isDirectory()) {
+                List<File> innerFiles = listFiles(innerFile, filenameFilter);
+                fileList.addAll(innerFiles);
+            } else {
+                fileList.add(innerFile);
+            }
+        });
+        return fileList;
+    }
+
+
+    /**
+     * <code>listFiles</code>
+     * <p>The list files method.</p>
+     * @param file       {@link java.io.File} <p>The file parameter is <code>File</code> type.</p>
+     * @param fileFilter {@link java.io.FileFilter} <p>The file filter parameter is <code>FileFilter</code> type.</p>
+     * @return {@link java.util.List} <p>The list files return object is <code>List</code> type.</p>
+     * @see java.io.File
+     * @see java.io.FileFilter
+     * @see java.util.List
+     */
+    public static List<File> listFiles(final File file, FileFilter fileFilter) {
+        if (!file.exists()) {
+            return new ArrayList<>();
+        }
+        File[] files = file.listFiles(fileFilter);
+        if (GeneralUtils.isEmpty(files)) {
+            return new ArrayList<>();
+        }
+        List<File> fileList = new ArrayList<>();
+        Arrays.stream(files).forEach(innerFile -> {
+            if (innerFile.isDirectory()) {
+                List<File> innerFiles = listFiles(innerFile, fileFilter);
+                fileList.addAll(innerFiles);
+            } else {
+                fileList.add(innerFile);
+            }
+        });
+        return fileList;
+    }
+
+    /**
+     * <code>listFiles</code>
+     * <p>The list files method.</p>
+     * @param file {@link java.io.File} <p>The file parameter is <code>File</code> type.</p>
+     * @return {@link java.util.List} <p>The list files return object is <code>List</code> type.</p>
+     * @see java.io.File
+     * @see java.util.List
+     */
+    public static List<File> listFiles(final File file) {
+        if (!file.exists()) {
+            return new ArrayList<>();
+        }
+        File[] files = file.listFiles();
+        if (GeneralUtils.isEmpty(files)) {
+            return new ArrayList<>();
+        }
+        List<File> fileList = new ArrayList<>();
+        Arrays.stream(files).forEach(innerFile -> {
+            if (innerFile.isDirectory()) {
+                List<File> innerFiles = listFiles(innerFile);
+                fileList.addAll(innerFiles);
+            } else {
+                fileList.add(innerFile);
+            }
+        });
+        return fileList;
+    }
+
     /**
      * <code>copyFile</code>
      * <p>The copy file method.</p>
@@ -131,7 +279,7 @@ public class FileUtils {
      * @param targetFile {@link java.io.File} <p>The target file parameter is <code>File</code> type.</p>
      * @see java.io.File
      */
-    public static void copyFile(final File srcFile,final File targetFile) {
+    public static void copyFile(final File srcFile, final File targetFile) {
         try {
             FileHelper.copyFile(srcFile, targetFile);
         } catch (FileCopyException exception) {
@@ -147,7 +295,7 @@ public class FileUtils {
      * @param targetPath {@link java.lang.String} <p>The target path parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
-    public static void copyFile(final String srcPath,final String targetPath) {
+    public static void copyFile(final String srcPath, final String targetPath) {
         File srcFile = new File(srcPath);
         File targetFile = new File(targetPath);
         copyFile(srcFile, targetFile);
@@ -204,7 +352,7 @@ public class FileUtils {
         String originalFilename = file.getOriginalFilename();
         final String path = cachePath + File.separator + originalFilename;
         File cacheFile = new File(path);
-        IoStreamUtils.transfer(file,cacheFile);
+        IoStreamUtils.transfer(file, cacheFile);
         return cacheFile;
     }
 
@@ -235,7 +383,7 @@ public class FileUtils {
      * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("ResultOfMethodCallIgnored")
-    public static String createPath(final String path,final String child) {
+    public static String createPath(final String path, final String child) {
         File allPath = new File(path, child);
         if (!allPath.exists()) {
             allPath.mkdirs();
@@ -319,7 +467,7 @@ public class FileUtils {
         if (!file.exists()) {
             file.getParentFile().mkdirs();
         }
-        try (FileOutputStream fileOutputStream = new FileOutputStream(file)){
+        try (FileOutputStream fileOutputStream = new FileOutputStream(file)) {
             fileOutputStream.write(data);
             fileOutputStream.flush();
         } catch (IOException exception) {
@@ -356,8 +504,8 @@ public class FileUtils {
      * @return {@link java.lang.String} <p>The suffix return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
-    public static String suffix(final String originalName){
-        if(GeneralUtils.isEmpty(originalName)){
+    public static String suffix(final String originalName) {
+        if (GeneralUtils.isEmpty(originalName)) {
             return "";
         }
         if (!originalName.contains(".")) {
@@ -374,7 +522,7 @@ public class FileUtils {
      * @see java.lang.String
      * @see org.springframework.http.MediaType
      */
-    public static MediaType mediaType(final String filename){
+    public static MediaType mediaType(final String filename) {
         Optional<MediaType> mediaTypeOptional = MediaTypeFactory.getMediaType(filename);
         return mediaTypeOptional.orElse(MediaType.APPLICATION_OCTET_STREAM);
     }
@@ -386,14 +534,14 @@ public class FileUtils {
      * @return {@link java.lang.String} <p>The filename return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
-    public static String filename(final String originalName){
-        if(GeneralUtils.isEmpty(originalName)){
+    public static String filename(final String originalName) {
+        if (GeneralUtils.isEmpty(originalName)) {
             return "";
         }
         if (!originalName.contains(".")) {
             return originalName;
         }
-        return originalName.substring(0,originalName.lastIndexOf("."));
+        return originalName.substring(0, originalName.lastIndexOf("."));
     }
 
     /**

@@ -3,14 +3,16 @@ package io.github.nichetoolkit.rest.helper;
 import io.github.nichetoolkit.rest.constant.UtilConstants;
 import io.github.nichetoolkit.rest.error.often.FileCreateException;
 import io.github.nichetoolkit.rest.error.often.ZipErrorException;
+import io.github.nichetoolkit.rest.util.FileUtils;
+import io.github.nichetoolkit.rest.util.GeneralUtils;
+import io.github.nichetoolkit.rest.util.IoStreamUtils;
 
 import java.io.*;
 import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
-import java.util.zip.GZIPInputStream;
-import java.util.zip.GZIPOutputStream;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipOutputStream;
+import java.util.zip.*;
 
 /**
  * <code>ZipHelper</code>
@@ -77,7 +79,7 @@ public class ZipHelper {
     @SuppressWarnings("Duplicates")
     public static File zipFiles(String zipPath, String filename, List<File> zipFiles) throws ZipErrorException, FileCreateException {
         if (zipFiles.size() == 1) {
-            return zipFile(zipPath,filename,zipFiles.stream().findFirst().get());
+            return zipFile(zipPath, filename, zipFiles.stream().findFirst().get());
         }
         String zipFilePath = zipPath.concat(File.separator).concat(filename)
                 .concat(UtilConstants.SUFFIX_REGEX).concat(UtilConstants.ZIP_SUFFIX);
@@ -148,4 +150,120 @@ public class ZipHelper {
         }
         return bytes;
     }
+
+    /**
+     * <code>unzip</code>
+     * <p>The unzip method.</p>
+     * @param file {@link java.io.File} <p>The file parameter is <code>File</code> type.</p>
+     * @return {@link java.nio.file.Path} <p>The unzip return object is <code>Path</code> type.</p>
+     * @throws ZipErrorException {@link io.github.nichetoolkit.rest.error.often.ZipErrorException} <p>The zip error exception is <code>ZipErrorException</code> type.</p>
+     * @see java.io.File
+     * @see java.nio.file.Path
+     * @see io.github.nichetoolkit.rest.error.often.ZipErrorException
+     */
+    public static Path unzip(File file) throws ZipErrorException {
+        Path unzipPath = Paths.get(System.getProperty(UtilConstants.TEMP_SYSTEM_PROPERTY));
+        return unzip(file,unzipPath,GeneralUtils.uuid());
+    }
+
+    /**
+     * <code>unzip</code>
+     * <p>The unzip method.</p>
+     * @param inputStream {@link java.io.InputStream} <p>The input stream parameter is <code>InputStream</code> type.</p>
+     * @return {@link java.nio.file.Path} <p>The unzip return object is <code>Path</code> type.</p>
+     * @throws ZipErrorException {@link io.github.nichetoolkit.rest.error.often.ZipErrorException} <p>The zip error exception is <code>ZipErrorException</code> type.</p>
+     * @see java.io.InputStream
+     * @see java.nio.file.Path
+     * @see io.github.nichetoolkit.rest.error.often.ZipErrorException
+     */
+    public static Path unzip(InputStream inputStream) throws ZipErrorException {
+        Path unzipPath = Paths.get(System.getProperty(UtilConstants.TEMP_SYSTEM_PROPERTY));
+        return unzip(inputStream,unzipPath,GeneralUtils.uuid());
+    }
+
+    /**
+     * <code>unzip</code>
+     * <p>The unzip method.</p>
+     * @param inputStream {@link java.io.InputStream} <p>The input stream parameter is <code>InputStream</code> type.</p>
+     * @param unzipPath   {@link java.nio.file.Path} <p>The unzip path parameter is <code>Path</code> type.</p>
+     * @return {@link java.nio.file.Path} <p>The unzip return object is <code>Path</code> type.</p>
+     * @throws ZipErrorException {@link io.github.nichetoolkit.rest.error.often.ZipErrorException} <p>The zip error exception is <code>ZipErrorException</code> type.</p>
+     * @see java.io.InputStream
+     * @see java.nio.file.Path
+     * @see io.github.nichetoolkit.rest.error.often.ZipErrorException
+     */
+    public static Path unzip(InputStream inputStream, Path unzipPath) throws ZipErrorException {
+        return unzip(inputStream,unzipPath,GeneralUtils.uuid());
+    }
+
+    /**
+     * <code>unzip</code>
+     * <p>The unzip method.</p>
+     * @param file      {@link java.io.File} <p>The file parameter is <code>File</code> type.</p>
+     * @param unzipPath {@link java.nio.file.Path} <p>The unzip path parameter is <code>Path</code> type.</p>
+     * @return {@link java.nio.file.Path} <p>The unzip return object is <code>Path</code> type.</p>
+     * @throws ZipErrorException {@link io.github.nichetoolkit.rest.error.often.ZipErrorException} <p>The zip error exception is <code>ZipErrorException</code> type.</p>
+     * @see java.io.File
+     * @see java.nio.file.Path
+     * @see io.github.nichetoolkit.rest.error.often.ZipErrorException
+     */
+    public static Path unzip(File file, Path unzipPath) throws ZipErrorException {
+        return unzip(file,unzipPath,GeneralUtils.uuid());
+    }
+
+    /**
+     * <code>unzip</code>
+     * <p>The unzip method.</p>
+     * @param file      {@link java.io.File} <p>The file parameter is <code>File</code> type.</p>
+     * @param unzipPath {@link java.nio.file.Path} <p>The unzip path parameter is <code>Path</code> type.</p>
+     * @param filename  {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
+     * @return {@link java.nio.file.Path} <p>The unzip return object is <code>Path</code> type.</p>
+     * @throws ZipErrorException {@link io.github.nichetoolkit.rest.error.often.ZipErrorException} <p>The zip error exception is <code>ZipErrorException</code> type.</p>
+     * @see java.io.File
+     * @see java.nio.file.Path
+     * @see java.lang.String
+     * @see io.github.nichetoolkit.rest.error.often.ZipErrorException
+     */
+    public static Path unzip(File file, Path unzipPath, String filename) throws ZipErrorException {
+        try(FileInputStream fileInputStream = new FileInputStream(file)) {
+            return unzip(fileInputStream,unzipPath,filename);
+        } catch (IOException exception) {
+            throw new ZipErrorException(exception.getMessage());
+        }
+    }
+
+    /**
+     * <code>unzip</code>
+     * <p>The unzip method.</p>
+     * @param inputStream {@link java.io.InputStream} <p>The input stream parameter is <code>InputStream</code> type.</p>
+     * @param unzipPath   {@link java.nio.file.Path} <p>The unzip path parameter is <code>Path</code> type.</p>
+     * @param filename    {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
+     * @return {@link java.nio.file.Path} <p>The unzip return object is <code>Path</code> type.</p>
+     * @throws ZipErrorException {@link io.github.nichetoolkit.rest.error.often.ZipErrorException} <p>The zip error exception is <code>ZipErrorException</code> type.</p>
+     * @see java.io.InputStream
+     * @see java.nio.file.Path
+     * @see java.lang.String
+     * @see io.github.nichetoolkit.rest.error.often.ZipErrorException
+     */
+    public static Path unzip(InputStream inputStream, Path unzipPath, String filename) throws ZipErrorException {
+        FileUtils.createFile(unzipPath.toFile());
+        Path zipDirectory = Paths.get(unzipPath.toString(), filename);
+        try(ZipInputStream zipInputStream = new ZipInputStream(inputStream)) {
+            ZipEntry entry = zipInputStream.getNextEntry();
+            while (GeneralUtils.isNotEmpty(entry)) {
+                Path filePath = Paths.get(zipDirectory.toString(), entry.getName());
+                if (!entry.isDirectory()) {
+                    IoStreamUtils.write(filePath.toString(), zipInputStream);
+                } else {
+                    Files.createDirectories(filePath);
+                }
+                zipInputStream.closeEntry();
+                entry = zipInputStream.getNextEntry();
+            }
+        } catch (IOException exception) {
+            throw new ZipErrorException(exception.getMessage());
+        }
+        return zipDirectory;
+    }
+
 }
