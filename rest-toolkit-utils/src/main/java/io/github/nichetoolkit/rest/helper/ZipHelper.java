@@ -6,6 +6,7 @@ import io.github.nichetoolkit.rest.error.often.ZipErrorException;
 import io.github.nichetoolkit.rest.util.FileUtils;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import io.github.nichetoolkit.rest.util.IoStreamUtils;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -163,7 +164,22 @@ public class ZipHelper {
      */
     public static Path unzip(File file) throws ZipErrorException {
         Path unzipPath = Paths.get(System.getProperty(UtilConstants.TEMP_SYSTEM_PROPERTY));
-        return unzip(file,unzipPath,GeneralUtils.uuid());
+        return unzip(file, unzipPath, GeneralUtils.uuid());
+    }
+
+    /**
+     * <code>unzip</code>
+     * <p>The unzip method.</p>
+     * @param file {@link org.springframework.web.multipart.MultipartFile} <p>The file parameter is <code>MultipartFile</code> type.</p>
+     * @return {@link java.nio.file.Path} <p>The unzip return object is <code>Path</code> type.</p>
+     * @throws ZipErrorException {@link io.github.nichetoolkit.rest.error.often.ZipErrorException} <p>The zip error exception is <code>ZipErrorException</code> type.</p>
+     * @see org.springframework.web.multipart.MultipartFile
+     * @see java.nio.file.Path
+     * @see io.github.nichetoolkit.rest.error.often.ZipErrorException
+     */
+    public static Path unzip(MultipartFile file) throws ZipErrorException {
+        Path unzipPath = Paths.get(System.getProperty(UtilConstants.TEMP_SYSTEM_PROPERTY));
+        return unzip(file, unzipPath, GeneralUtils.uuid());
     }
 
     /**
@@ -178,7 +194,7 @@ public class ZipHelper {
      */
     public static Path unzip(InputStream inputStream) throws ZipErrorException {
         Path unzipPath = Paths.get(System.getProperty(UtilConstants.TEMP_SYSTEM_PROPERTY));
-        return unzip(inputStream,unzipPath,GeneralUtils.uuid());
+        return unzip(inputStream, unzipPath, GeneralUtils.uuid());
     }
 
     /**
@@ -193,7 +209,7 @@ public class ZipHelper {
      * @see io.github.nichetoolkit.rest.error.often.ZipErrorException
      */
     public static Path unzip(InputStream inputStream, Path unzipPath) throws ZipErrorException {
-        return unzip(inputStream,unzipPath,GeneralUtils.uuid());
+        return unzip(inputStream, unzipPath, GeneralUtils.uuid());
     }
 
     /**
@@ -208,7 +224,43 @@ public class ZipHelper {
      * @see io.github.nichetoolkit.rest.error.often.ZipErrorException
      */
     public static Path unzip(File file, Path unzipPath) throws ZipErrorException {
-        return unzip(file,unzipPath,GeneralUtils.uuid());
+        return unzip(file, unzipPath, GeneralUtils.uuid());
+    }
+
+    /**
+     * <code>unzip</code>
+     * <p>The unzip method.</p>
+     * @param file      {@link org.springframework.web.multipart.MultipartFile} <p>The file parameter is <code>MultipartFile</code> type.</p>
+     * @param unzipPath {@link java.nio.file.Path} <p>The unzip path parameter is <code>Path</code> type.</p>
+     * @return {@link java.nio.file.Path} <p>The unzip return object is <code>Path</code> type.</p>
+     * @throws ZipErrorException {@link io.github.nichetoolkit.rest.error.often.ZipErrorException} <p>The zip error exception is <code>ZipErrorException</code> type.</p>
+     * @see org.springframework.web.multipart.MultipartFile
+     * @see java.nio.file.Path
+     * @see io.github.nichetoolkit.rest.error.often.ZipErrorException
+     */
+    public static Path unzip(MultipartFile file, Path unzipPath) throws ZipErrorException {
+        return unzip(file, unzipPath, GeneralUtils.uuid());
+    }
+
+    /**
+     * <code>unzip</code>
+     * <p>The unzip method.</p>
+     * @param file      {@link org.springframework.web.multipart.MultipartFile} <p>The file parameter is <code>MultipartFile</code> type.</p>
+     * @param unzipPath {@link java.nio.file.Path} <p>The unzip path parameter is <code>Path</code> type.</p>
+     * @param filename  {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
+     * @return {@link java.nio.file.Path} <p>The unzip return object is <code>Path</code> type.</p>
+     * @throws ZipErrorException {@link io.github.nichetoolkit.rest.error.often.ZipErrorException} <p>The zip error exception is <code>ZipErrorException</code> type.</p>
+     * @see org.springframework.web.multipart.MultipartFile
+     * @see java.nio.file.Path
+     * @see java.lang.String
+     * @see io.github.nichetoolkit.rest.error.often.ZipErrorException
+     */
+    public static Path unzip(MultipartFile file, Path unzipPath, String filename) throws ZipErrorException {
+        try (InputStream inputStream = file.getInputStream()) {
+            return unzip(inputStream, unzipPath, filename);
+        } catch (IOException exception) {
+            throw new ZipErrorException(exception.getMessage());
+        }
     }
 
     /**
@@ -225,8 +277,8 @@ public class ZipHelper {
      * @see io.github.nichetoolkit.rest.error.often.ZipErrorException
      */
     public static Path unzip(File file, Path unzipPath, String filename) throws ZipErrorException {
-        try(FileInputStream fileInputStream = new FileInputStream(file)) {
-            return unzip(fileInputStream,unzipPath,filename);
+        try (FileInputStream fileInputStream = new FileInputStream(file)) {
+            return unzip(fileInputStream, unzipPath, filename);
         } catch (IOException exception) {
             throw new ZipErrorException(exception.getMessage());
         }
@@ -248,7 +300,7 @@ public class ZipHelper {
     public static Path unzip(InputStream inputStream, Path unzipPath, String filename) throws ZipErrorException {
         FileUtils.createFile(unzipPath.toFile());
         Path zipDirectory = Paths.get(unzipPath.toString(), filename);
-        try(ZipInputStream zipInputStream = new ZipInputStream(inputStream)) {
+        try (ZipInputStream zipInputStream = new ZipInputStream(inputStream)) {
             ZipEntry entry = zipInputStream.getNextEntry();
             while (GeneralUtils.isNotEmpty(entry)) {
                 Path filePath = Paths.get(zipDirectory.toString(), entry.getName());

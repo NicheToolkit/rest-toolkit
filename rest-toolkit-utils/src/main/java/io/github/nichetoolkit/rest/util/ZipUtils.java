@@ -5,6 +5,7 @@ import io.github.nichetoolkit.rest.error.often.FileCreateException;
 import io.github.nichetoolkit.rest.error.often.ZipErrorException;
 import io.github.nichetoolkit.rest.helper.ZipHelper;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -38,7 +39,7 @@ public class ZipUtils {
      */
     public static File zipFile(String zipPath, String filename, File file) {
         try {
-            return ZipHelper.zipFile(zipPath,filename,file);
+            return ZipHelper.zipFile(zipPath, filename, file);
         } catch (ZipErrorException | FileCreateException exception) {
             log.error("It is failed during handle zip file with filename and file path! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -59,7 +60,7 @@ public class ZipUtils {
      */
     public static File zipFiles(String zipPath, String filename, List<File> zipFiles) {
         try {
-            return ZipHelper.zipFiles(zipPath,filename,zipFiles);
+            return ZipHelper.zipFiles(zipPath, filename, zipFiles);
         } catch (ZipErrorException | FileCreateException exception) {
             log.error("It is failed during handle zip files! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -109,7 +110,20 @@ public class ZipUtils {
      */
     public static Path unzip(File file) {
         Path unzipPath = Paths.get(System.getProperty(UtilConstants.TEMP_SYSTEM_PROPERTY));
-        return unzip(file,unzipPath,GeneralUtils.uuid());
+        return unzip(file, unzipPath, GeneralUtils.uuid());
+    }
+
+    /**
+     * <code>unzip</code>
+     * <p>The unzip method.</p>
+     * @param file {@link org.springframework.web.multipart.MultipartFile} <p>The file parameter is <code>MultipartFile</code> type.</p>
+     * @return {@link java.nio.file.Path} <p>The unzip return object is <code>Path</code> type.</p>
+     * @see org.springframework.web.multipart.MultipartFile
+     * @see java.nio.file.Path
+     */
+    public static Path unzip(MultipartFile file) {
+        Path unzipPath = Paths.get(System.getProperty(UtilConstants.TEMP_SYSTEM_PROPERTY));
+        return unzip(file, unzipPath, GeneralUtils.uuid());
     }
 
     /**
@@ -122,7 +136,7 @@ public class ZipUtils {
      */
     public static Path unzip(InputStream inputStream) {
         Path unzipPath = Paths.get(System.getProperty(UtilConstants.TEMP_SYSTEM_PROPERTY));
-        return unzip(inputStream,unzipPath,GeneralUtils.uuid());
+        return unzip(inputStream, unzipPath, GeneralUtils.uuid());
     }
 
     /**
@@ -135,7 +149,7 @@ public class ZipUtils {
      * @see java.nio.file.Path
      */
     public static Path unzip(InputStream inputStream, Path unzipPath) {
-        return unzip(inputStream,unzipPath,GeneralUtils.uuid());
+        return unzip(inputStream, unzipPath, GeneralUtils.uuid());
     }
 
     /**
@@ -148,7 +162,20 @@ public class ZipUtils {
      * @see java.nio.file.Path
      */
     public static Path unzip(File file, Path unzipPath) {
-        return unzip(file,unzipPath,GeneralUtils.uuid());
+        return unzip(file, unzipPath, GeneralUtils.uuid());
+    }
+
+    /**
+     * <code>unzip</code>
+     * <p>The unzip method.</p>
+     * @param file      {@link org.springframework.web.multipart.MultipartFile} <p>The file parameter is <code>MultipartFile</code> type.</p>
+     * @param unzipPath {@link java.nio.file.Path} <p>The unzip path parameter is <code>Path</code> type.</p>
+     * @return {@link java.nio.file.Path} <p>The unzip return object is <code>Path</code> type.</p>
+     * @see org.springframework.web.multipart.MultipartFile
+     * @see java.nio.file.Path
+     */
+    public static Path unzip(MultipartFile file, Path unzipPath) {
+        return unzip(file, unzipPath, GeneralUtils.uuid());
     }
 
     /**
@@ -163,10 +190,31 @@ public class ZipUtils {
      * @see java.lang.String
      */
     public static Path unzip(File file, Path unzipPath, String filename) {
-        try(FileInputStream fileInputStream = new FileInputStream(file)) {
-            return unzip(fileInputStream,unzipPath,filename);
+        try (FileInputStream fileInputStream = new FileInputStream(file)) {
+            return unzip(fileInputStream, unzipPath, filename);
         } catch (IOException exception) {
             log.error("It is failed during handle file! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
+        }
+        return null;
+    }
+
+    /**
+     * <code>unzip</code>
+     * <p>The unzip method.</p>
+     * @param file      {@link org.springframework.web.multipart.MultipartFile} <p>The file parameter is <code>MultipartFile</code> type.</p>
+     * @param unzipPath {@link java.nio.file.Path} <p>The unzip path parameter is <code>Path</code> type.</p>
+     * @param filename  {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
+     * @return {@link java.nio.file.Path} <p>The unzip return object is <code>Path</code> type.</p>
+     * @see org.springframework.web.multipart.MultipartFile
+     * @see java.nio.file.Path
+     * @see java.lang.String
+     */
+    public static Path unzip(MultipartFile file, Path unzipPath, String filename) {
+        try (InputStream inputStream = file.getInputStream()) {
+            return unzip(inputStream, unzipPath, filename);
+        } catch (IOException exception) {
+            log.error("It is failed during handle multipart file! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
         }
         return null;
@@ -185,7 +233,7 @@ public class ZipUtils {
      */
     public static Path unzip(InputStream inputStream, Path unzipPath, String filename) {
         try {
-            return ZipHelper.unzip(inputStream,unzipPath,filename);
+            return ZipHelper.unzip(inputStream, unzipPath, filename);
         } catch (ZipErrorException exception) {
             log.error("It is failed during handle unzip file! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
