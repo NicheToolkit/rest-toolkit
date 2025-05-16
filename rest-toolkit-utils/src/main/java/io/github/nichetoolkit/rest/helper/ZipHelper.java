@@ -305,7 +305,7 @@ public class ZipHelper {
             while (GeneralUtils.isNotEmpty(entry)) {
                 Path filePath = Paths.get(zipDirectory.toString(), entry.getName());
                 if (!entry.isDirectory()) {
-                    IoStreamUtils.write(filePath.toString(), zipInputStream);
+                    IoStreamUtils.writeOfUnclose(filePath.toString(), zipInputStream);
                 } else {
                     Files.createDirectories(filePath);
                 }

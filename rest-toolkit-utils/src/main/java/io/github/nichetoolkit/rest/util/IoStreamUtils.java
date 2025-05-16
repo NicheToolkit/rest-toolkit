@@ -8,10 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
@@ -77,6 +74,74 @@ public class IoStreamUtils {
     }
 
     /**
+     * <code>transferOfCloseInput</code>
+     * <p>The transfer of close input method.</p>
+     * @param inputStream  {@link java.io.InputStream} <p>The input stream parameter is <code>InputStream</code> type.</p>
+     * @param outputStream {@link java.io.OutputStream} <p>The output stream parameter is <code>OutputStream</code> type.</p>
+     * @see java.io.InputStream
+     * @see java.io.OutputStream
+     */
+    public static void transferOfCloseInput(InputStream inputStream, OutputStream outputStream) {
+        try {
+            IoStreamHelper.transferOfCloseInput(inputStream, outputStream);
+        } catch (IoStreamTransferException exception) {
+            log.error("It is failed during transferring from inputStream to outputStream with close input! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
+        }
+    }
+
+    /**
+     * <code>transferOfCloseOutput</code>
+     * <p>The transfer of close output method.</p>
+     * @param inputStream  {@link java.io.InputStream} <p>The input stream parameter is <code>InputStream</code> type.</p>
+     * @param outputStream {@link java.io.OutputStream} <p>The output stream parameter is <code>OutputStream</code> type.</p>
+     * @see java.io.InputStream
+     * @see java.io.OutputStream
+     */
+    public static void transferOfCloseOutput(InputStream inputStream, OutputStream outputStream) {
+        try {
+            IoStreamHelper.transferOfCloseAll(inputStream, outputStream);
+        } catch (IoStreamTransferException exception) {
+            log.error("It is failed during transferring from inputStream to outputStream with close output! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
+        }
+    }
+
+    /**
+     * <code>transferOfCloseAll</code>
+     * <p>The transfer of close all method.</p>
+     * @param inputStream  {@link java.io.InputStream} <p>The input stream parameter is <code>InputStream</code> type.</p>
+     * @param outputStream {@link java.io.OutputStream} <p>The output stream parameter is <code>OutputStream</code> type.</p>
+     * @see java.io.InputStream
+     * @see java.io.OutputStream
+     */
+    public static void transferOfCloseAll(InputStream inputStream, OutputStream outputStream) {
+        try {
+            IoStreamHelper.transferOfCloseAll(inputStream, outputStream);
+        } catch (IoStreamTransferException exception) {
+            log.error("It is failed during transferring from inputStream to outputStream with close all! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
+        }
+    }
+
+    /**
+     * <code>transferOfUnclose</code>
+     * <p>The transfer of unclose method.</p>
+     * @param inputStream  {@link java.io.InputStream} <p>The input stream parameter is <code>InputStream</code> type.</p>
+     * @param outputStream {@link java.io.OutputStream} <p>The output stream parameter is <code>OutputStream</code> type.</p>
+     * @see java.io.InputStream
+     * @see java.io.OutputStream
+     */
+    public static void transferOfUnclose(InputStream inputStream, OutputStream outputStream) {
+        try {
+            IoStreamHelper.transferOfUnclose(inputStream, outputStream);
+        } catch (IoStreamTransferException exception) {
+            log.error("It is failed during transferring from inputStream to outputStream with unclose! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
+        }
+    }
+
+    /**
      * <code>read</code>
      * <p>The read method.</p>
      * @param inputStream {@link java.io.InputStream} <p>The input stream parameter is <code>InputStream</code> type.</p>
@@ -89,6 +154,42 @@ public class IoStreamUtils {
             return IoStreamHelper.read(inputStream);
         } catch (IoStreamReadException exception) {
             log.error("It is failed during reading of inputStream for 'read' method! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
+            return null;
+        }
+    }
+
+    /**
+     * <code>readOfCloseInput</code>
+     * <p>The read of close input method.</p>
+     * @param inputStream {@link java.io.InputStream} <p>The input stream parameter is <code>InputStream</code> type.</p>
+     * @return {@link java.lang.String} <p>The read of close input return object is <code>String</code> type.</p>
+     * @see java.io.InputStream
+     * @see java.lang.String
+     */
+    public static String readOfCloseInput(InputStream inputStream) {
+        try {
+            return IoStreamHelper.readOfCloseInput(inputStream);
+        } catch (IoStreamReadException exception) {
+            log.error("It is failed during reading of inputStream for 'readOfCloseInput' method! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
+            return null;
+        }
+    }
+
+    /**
+     * <code>readOfUnclose</code>
+     * <p>The read of unclose method.</p>
+     * @param inputStream {@link java.io.InputStream} <p>The input stream parameter is <code>InputStream</code> type.</p>
+     * @return {@link java.lang.String} <p>The read of unclose return object is <code>String</code> type.</p>
+     * @see java.io.InputStream
+     * @see java.lang.String
+     */
+    public static String readOfUnclose(InputStream inputStream) {
+        try {
+            return IoStreamHelper.readOfUnclose(inputStream);
+        } catch (IoStreamReadException exception) {
+            log.error("It is failed during reading of inputStream for 'readOfUnclose' method! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
             return null;
         }
@@ -112,6 +213,40 @@ public class IoStreamUtils {
     }
 
     /**
+     * <code>bytesOfCloseInput</code>
+     * <p>The bytes of close input method.</p>
+     * @param inputStream {@link java.io.InputStream} <p>The input stream parameter is <code>InputStream</code> type.</p>
+     * @return byte <p>The bytes of close input return object is <code>byte</code> type.</p>
+     * @see java.io.InputStream
+     */
+    public static byte[] bytesOfCloseInput(InputStream inputStream) {
+        try {
+            return IoStreamHelper.bytesOfCloseInput(inputStream);
+        } catch (IoStreamReadException exception) {
+            log.error("It is failed during reading of inputStream for 'bytesOfCloseInput' method! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
+            return null;
+        }
+    }
+
+    /**
+     * <code>bytesOfUnclose</code>
+     * <p>The bytes of unclose method.</p>
+     * @param inputStream {@link java.io.InputStream} <p>The input stream parameter is <code>InputStream</code> type.</p>
+     * @return byte <p>The bytes of unclose return object is <code>byte</code> type.</p>
+     * @see java.io.InputStream
+     */
+    public static byte[] bytesOfUnclose(InputStream inputStream) {
+        try {
+            return IoStreamHelper.bytesOfUnclose(inputStream);
+        } catch (IoStreamReadException exception) {
+            log.error("It is failed during reading of inputStream for 'bytesOfUnclose' method! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
+            return null;
+        }
+    }
+
+    /**
      * <code>write</code>
      * <p>The write method.</p>
      * @param outputStream {@link java.io.OutputStream} <p>The output stream parameter is <code>OutputStream</code> type.</p>
@@ -124,6 +259,40 @@ public class IoStreamUtils {
             IoStreamHelper.write(outputStream, string);
         } catch (IoStreamWriteException exception) {
             log.error("It is failed when string write to output stream for 'write' method! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
+        }
+    }
+
+    /**
+     * <code>writeOfCloseOutput</code>
+     * <p>The write of close output method.</p>
+     * @param outputStream {@link java.io.OutputStream} <p>The output stream parameter is <code>OutputStream</code> type.</p>
+     * @param string       {@link java.lang.String} <p>The string parameter is <code>String</code> type.</p>
+     * @see java.io.OutputStream
+     * @see java.lang.String
+     */
+    public static void writeOfCloseOutput(OutputStream outputStream, String string) {
+        try {
+            IoStreamHelper.writeOfCloseOutput(outputStream, string);
+        } catch (IoStreamWriteException exception) {
+            log.error("It is failed when string write to output stream for 'writeOfCloseOutput' method! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
+        }
+    }
+
+    /**
+     * <code>writeOfUnclose</code>
+     * <p>The write of unclose method.</p>
+     * @param outputStream {@link java.io.OutputStream} <p>The output stream parameter is <code>OutputStream</code> type.</p>
+     * @param string       {@link java.lang.String} <p>The string parameter is <code>String</code> type.</p>
+     * @see java.io.OutputStream
+     * @see java.lang.String
+     */
+    public static void writeOfUnclose(OutputStream outputStream, String string) {
+        try {
+            IoStreamHelper.writeOfUnclose(outputStream, string);
+        } catch (IoStreamWriteException exception) {
+            log.error("It is failed when string write to output stream for 'writeOfUnclose' method! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
         }
     }
@@ -146,6 +315,40 @@ public class IoStreamUtils {
     }
 
     /**
+     * <code>writeOfCloseResponse</code>
+     * <p>The write of close response method.</p>
+     * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param file     {@link java.io.File} <p>The file parameter is <code>File</code> type.</p>
+     * @see javax.servlet.http.HttpServletResponse
+     * @see java.io.File
+     */
+    public static void writeOfCloseResponse(HttpServletResponse response, File file) {
+        try {
+            IoStreamHelper.writeOfCloseResponse(response, file);
+        } catch (IoStreamWriteException exception) {
+            log.error("It is failed when file write to response for 'writeOfCloseResponse' method! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
+        }
+    }
+
+    /**
+     * <code>writeOfUnclose</code>
+     * <p>The write of unclose method.</p>
+     * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param file     {@link java.io.File} <p>The file parameter is <code>File</code> type.</p>
+     * @see javax.servlet.http.HttpServletResponse
+     * @see java.io.File
+     */
+    public static void writeOfUnclose(HttpServletResponse response, File file) {
+        try {
+            IoStreamHelper.writeOfUnclose(response, file);
+        } catch (IoStreamWriteException exception) {
+            log.error("It is failed when file write to response for 'writeOfUnclose' method! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
+        }
+    }
+
+    /**
      * <code>write</code>
      * <p>The write method.</p>
      * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
@@ -163,6 +366,40 @@ public class IoStreamUtils {
     }
 
     /**
+     * <code>writeOfCloseResponse</code>
+     * <p>The write of close response method.</p>
+     * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param json     {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @see javax.servlet.http.HttpServletResponse
+     * @see java.lang.String
+     */
+    public static void writeOfCloseResponse(HttpServletResponse response, String json) {
+        try {
+            IoStreamHelper.writeOfCloseResponse(response, json);
+        } catch (IoStreamWriteException exception) {
+            log.error("It is failed when json write to response for 'writeOfCloseResponse' method! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
+        }
+    }
+
+    /**
+     * <code>writeOfUnclose</code>
+     * <p>The write of unclose method.</p>
+     * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param json     {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @see javax.servlet.http.HttpServletResponse
+     * @see java.lang.String
+     */
+    public static void writeOfUnclose(HttpServletResponse response, String json) {
+        try {
+            IoStreamHelper.writeOfUnclose(response, json);
+        } catch (IoStreamWriteException exception) {
+            log.error("It is failed when json write to response for 'writeOfUnclose' method! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
+        }
+    }
+
+    /**
      * <code>write</code>
      * <p>The write method.</p>
      * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
@@ -174,6 +411,38 @@ public class IoStreamUtils {
             IoStreamHelper.write(response, data);
         } catch (IoStreamWriteException exception) {
             log.error("It is failed when data write to response for 'write' method! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
+        }
+    }
+
+    /**
+     * <code>writeOfCloseResponse</code>
+     * <p>The write of close response method.</p>
+     * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param data     byte <p>The data parameter is <code>byte</code> type.</p>
+     * @see javax.servlet.http.HttpServletResponse
+     */
+    public static void writeOfCloseResponse(HttpServletResponse response, byte[] data) {
+        try {
+            IoStreamHelper.writeOfCloseResponse(response, data);
+        } catch (IoStreamWriteException exception) {
+            log.error("It is failed when data write to response for 'writeOfCloseResponse' method! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
+        }
+    }
+
+    /**
+     * <code>writeOfUnclose</code>
+     * <p>The write of unclose method.</p>
+     * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param data     byte <p>The data parameter is <code>byte</code> type.</p>
+     * @see javax.servlet.http.HttpServletResponse
+     */
+    public static void writeOfUnclose(HttpServletResponse response, byte[] data) {
+        try {
+            IoStreamHelper.writeOfUnclose(response, data);
+        } catch (IoStreamWriteException exception) {
+            log.error("It is failed when data write to response for 'writeOfUnclose' method! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
         }
     }
@@ -218,6 +487,38 @@ public class IoStreamUtils {
     }
 
     /**
+     * <code>writeOfCloseOutput</code>
+     * <p>The write of close output method.</p>
+     * @param outputStream {@link java.io.OutputStream} <p>The output stream parameter is <code>OutputStream</code> type.</p>
+     * @param data         byte <p>The data parameter is <code>byte</code> type.</p>
+     * @see java.io.OutputStream
+     */
+    public static void writeOfCloseOutput(OutputStream outputStream, byte[] data) {
+        try {
+            IoStreamHelper.writeOfCloseOutput(outputStream, data);
+        } catch (IoStreamWriteException exception) {
+            log.error("It is failed when data write to outputStream for 'writeOfCloseOutput' method! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
+        }
+    }
+
+    /**
+     * <code>writeOfUnclose</code>
+     * <p>The write of unclose method.</p>
+     * @param outputStream {@link java.io.OutputStream} <p>The output stream parameter is <code>OutputStream</code> type.</p>
+     * @param data         byte <p>The data parameter is <code>byte</code> type.</p>
+     * @see java.io.OutputStream
+     */
+    public static void writeOfUnclose(OutputStream outputStream, byte[] data) {
+        try {
+            IoStreamHelper.writeOfUnclose(outputStream, data);
+        } catch (IoStreamWriteException exception) {
+            log.error("It is failed when data write to outputStream for 'writeOfUnclose' method! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
+        }
+    }
+
+    /**
      * <code>write</code>
      * <p>The write method.</p>
      * @param outputStream {@link java.io.OutputStream} <p>The output stream parameter is <code>OutputStream</code> type.</p>
@@ -252,6 +553,40 @@ public class IoStreamUtils {
     }
 
     /**
+     * <code>writeOfCloseInput</code>
+     * <p>The write of close input method.</p>
+     * @param file        {@link java.io.File} <p>The file parameter is <code>File</code> type.</p>
+     * @param inputStream {@link java.io.InputStream} <p>The input stream parameter is <code>InputStream</code> type.</p>
+     * @see java.io.File
+     * @see java.io.InputStream
+     */
+    public static void writeOfCloseInput(File file, InputStream inputStream) {
+        try {
+            IoStreamHelper.writeOfCloseInput(file, inputStream);
+        } catch (IoStreamWriteException exception) {
+            log.error("It is failed when input stream write to file for 'writeOfCloseInput' method! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
+        }
+    }
+
+    /**
+     * <code>writeOfUnclose</code>
+     * <p>The write of unclose method.</p>
+     * @param file        {@link java.io.File} <p>The file parameter is <code>File</code> type.</p>
+     * @param inputStream {@link java.io.InputStream} <p>The input stream parameter is <code>InputStream</code> type.</p>
+     * @see java.io.File
+     * @see java.io.InputStream
+     */
+    public static void writeOfUnclose(File file, InputStream inputStream) {
+        try {
+            IoStreamHelper.writeOfUnclose(file, inputStream);
+        } catch (IoStreamWriteException exception) {
+            log.error("It is failed when input stream write to file for 'writeOfUnclose' method! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
+        }
+    }
+
+    /**
      * <code>write</code>
      * <p>The write method.</p>
      * @param filename    {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
@@ -264,6 +599,40 @@ public class IoStreamUtils {
             IoStreamHelper.write(filename, inputStream);
         } catch (IoStreamWriteException exception) {
             log.error("It is failed when input stream write to new file for 'write' method! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
+        }
+    }
+
+    /**
+     * <code>writeOfCloseInput</code>
+     * <p>The write of close input method.</p>
+     * @param filename    {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
+     * @param inputStream {@link java.io.InputStream} <p>The input stream parameter is <code>InputStream</code> type.</p>
+     * @see java.lang.String
+     * @see java.io.InputStream
+     */
+    public static void writeOfCloseInput(String filename, InputStream inputStream) {
+        try {
+            IoStreamHelper.writeOfCloseInput(filename, inputStream);
+        } catch (IoStreamWriteException exception) {
+            log.error("It is failed when input stream write to new file for 'writeOfCloseInput' method! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
+        }
+    }
+
+    /**
+     * <code>writeOfUnclose</code>
+     * <p>The write of unclose method.</p>
+     * @param filename    {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
+     * @param inputStream {@link java.io.InputStream} <p>The input stream parameter is <code>InputStream</code> type.</p>
+     * @see java.lang.String
+     * @see java.io.InputStream
+     */
+    public static void writeOfUnclose(String filename, InputStream inputStream) {
+        try {
+            IoStreamHelper.writeOfUnclose(filename, inputStream);
+        } catch (IoStreamWriteException exception) {
+            log.error("It is failed when input stream write to new file for 'writeOfUnclose' method! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
         }
     }
@@ -297,6 +666,74 @@ public class IoStreamUtils {
             IoStreamHelper.write(file, data);
         } catch (IoStreamWriteException exception) {
             log.error("It is failed when bytes write to file for 'write' method! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
+        }
+    }
+
+    /**
+     * <code>writeOfCloseOutput</code>
+     * <p>The write of close output method.</p>
+     * @param outputStream {@link java.io.OutputStream} <p>The output stream parameter is <code>OutputStream</code> type.</p>
+     * @param inputStream  {@link java.io.InputStream} <p>The input stream parameter is <code>InputStream</code> type.</p>
+     * @see java.io.OutputStream
+     * @see java.io.InputStream
+     */
+    public static void writeOfCloseOutput(OutputStream outputStream, InputStream inputStream) {
+        try {
+            IoStreamHelper.writeOfCloseOutput(outputStream, inputStream);
+        } catch (IoStreamWriteException exception) {
+            log.error("It is failed when bytes write to file for 'writeOfCloseOutput' method! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
+        }
+    }
+
+    /**
+     * <code>writeOfCloseInput</code>
+     * <p>The write of close input method.</p>
+     * @param outputStream {@link java.io.OutputStream} <p>The output stream parameter is <code>OutputStream</code> type.</p>
+     * @param inputStream  {@link java.io.InputStream} <p>The input stream parameter is <code>InputStream</code> type.</p>
+     * @see java.io.OutputStream
+     * @see java.io.InputStream
+     */
+    public static void writeOfCloseInput(OutputStream outputStream, InputStream inputStream) {
+        try {
+            IoStreamHelper.writeOfCloseInput(outputStream, inputStream);
+        } catch (IoStreamWriteException exception) {
+            log.error("It is failed when bytes write to file for 'writeOfCloseInput' method! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
+        }
+    }
+
+    /**
+     * <code>writeOfCloseAll</code>
+     * <p>The write of close all method.</p>
+     * @param outputStream {@link java.io.OutputStream} <p>The output stream parameter is <code>OutputStream</code> type.</p>
+     * @param inputStream  {@link java.io.InputStream} <p>The input stream parameter is <code>InputStream</code> type.</p>
+     * @see java.io.OutputStream
+     * @see java.io.InputStream
+     */
+    public static void writeOfCloseAll(OutputStream outputStream, InputStream inputStream) {
+        try {
+            IoStreamHelper.writeOfCloseAll(outputStream, inputStream);
+        } catch (IoStreamWriteException exception) {
+            log.error("It is failed when bytes write to file for 'writeOfCloseAll' method! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
+        }
+    }
+
+    /**
+     * <code>writeOfUnclose</code>
+     * <p>The write of unclose method.</p>
+     * @param outputStream {@link java.io.OutputStream} <p>The output stream parameter is <code>OutputStream</code> type.</p>
+     * @param inputStream  {@link java.io.InputStream} <p>The input stream parameter is <code>InputStream</code> type.</p>
+     * @see java.io.OutputStream
+     * @see java.io.InputStream
+     */
+    public static void writeOfUnclose(OutputStream outputStream, InputStream inputStream) {
+        try {
+            IoStreamHelper.writeOfCloseAll(outputStream, inputStream);
+        } catch (IoStreamWriteException exception) {
+            log.error("It is failed when bytes write to file for 'writeOfUnclose' method! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
         }
     }
