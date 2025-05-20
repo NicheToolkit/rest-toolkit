@@ -84,4 +84,80 @@ public interface RestEntry<K, V> extends Map.Entry<K, V> {
                 (c1, c2) -> cmp.compare(c1.getValue(), c2.getValue());
     }
 
+    /**
+     * <code>of</code>
+     * <p>The of method.</p>
+     * @param <K>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <V>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param key   K <p>The key parameter is <code>K</code> type.</p>
+     * @param value V <p>The value parameter is <code>V</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestEntry} <p>The of return object is <code>RestEntry</code> type.</p>
+     */
+    static <K, V> RestEntry<K, V> of(K key, V value) {
+        return new RestEntry.OfRestEntry<>(key, value);
+    }
+
+    /**
+     * <code>of</code>
+     * <p>The of method.</p>
+     * @param <K>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <V>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param entry {@link io.github.nichetoolkit.rest.RestEntry} <p>The entry parameter is <code>RestEntry</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestEntry} <p>The of return object is <code>RestEntry</code> type.</p>
+     */
+    static <K, V> RestEntry<K, V> of(RestEntry<K, V> entry) {
+        return new RestEntry.OfRestEntry<>(entry);
+    }
+
+    /**
+     * <code>ofNull</code>
+     * <p>The of null method.</p>
+     * @param <K> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <V> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestEntry} <p>The of null return object is <code>RestEntry</code> type.</p>
+     */
+    static <K, V> RestEntry<K, V> ofNull() {
+        return new RestEntry.OfRestEntry<>();
+    }
+
+    /**
+     * <code>OfRestEntry</code>
+     * <p>The of rest entry class.</p>
+     * @param <K> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <V> {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @author Cyan (snow22314@outlook.com)
+     * @see io.github.nichetoolkit.rest.RestValue.OfRestValue
+     * @since Jdk1.8
+     */
+    class OfRestEntry<K, V> extends RestValue.OfRestValue<K, V> implements RestEntry<K, V> {
+
+        /**
+         * <code>OfRestEntry</code>
+         * <p>Instantiates a new of rest entry.</p>
+         */
+        public OfRestEntry() {
+        }
+
+        /**
+         * <code>OfRestEntry</code>
+         * <p>Instantiates a new of rest entry.</p>
+         * @param entry {@link java.util.Map.Entry} <p>The entry parameter is <code>Entry</code> type.</p>
+         * @see java.util.Map.Entry
+         */
+        public OfRestEntry(Map.Entry<K, V> entry) {
+            super(entry);
+        }
+
+        /**
+         * <code>OfRestEntry</code>
+         * <p>Instantiates a new of rest entry.</p>
+         * @param key   K <p>The key parameter is <code>K</code> type.</p>
+         * @param value V <p>The value parameter is <code>V</code> type.</p>
+         */
+        public OfRestEntry(K key, V value) {
+            super(key,value);
+        }
+
+    }
+
 }
