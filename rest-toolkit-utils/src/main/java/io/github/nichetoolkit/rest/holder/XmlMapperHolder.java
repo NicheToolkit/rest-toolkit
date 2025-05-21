@@ -10,9 +10,21 @@ import org.springframework.lang.Nullable;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLOutputFactory;
 
+/**
+ * <code>XmlMapperHolder</code>
+ * <p>The xml mapper holder class.</p>
+ * @author Cyan (snow22314@outlook.com)
+ * @see lombok.extern.slf4j.Slf4j
+ * @since Jdk1.8
+ */
 @Slf4j
 public class XmlMapperHolder {
 
+    /**
+     * <code>XML_MAPPER</code>
+     * {@link com.fasterxml.jackson.dataformat.xml.XmlMapper} <p>The constant <code>XML_MAPPER</code> field.</p>
+     * @see com.fasterxml.jackson.dataformat.xml.XmlMapper
+     */
     private static XmlMapper XML_MAPPER;
 
     static {
@@ -22,6 +34,14 @@ public class XmlMapperHolder {
         XML_MAPPER = new XmlMapper(xmlFactory);
     }
 
+    /**
+     * <code>XmlMapperHolder</code>
+     * <p>Instantiates a new xml mapper holder.</p>
+     * @param xmlMapper {@link com.fasterxml.jackson.dataformat.xml.XmlMapper} <p>The xml mapper parameter is <code>XmlMapper</code> type.</p>
+     * @see com.fasterxml.jackson.dataformat.xml.XmlMapper
+     * @see org.springframework.lang.Nullable
+     * @see org.springframework.beans.factory.annotation.Autowired
+     */
     @Autowired
     public XmlMapperHolder(@Nullable XmlMapper xmlMapper) {
         if (GeneralUtils.isNotEmpty(xmlMapper)) {
@@ -30,6 +50,12 @@ public class XmlMapperHolder {
         }
     }
 
+    /**
+     * <code>xmlMapper</code>
+     * <p>The xml mapper method.</p>
+     * @return {@link com.fasterxml.jackson.dataformat.xml.XmlMapper} <p>The xml mapper return object is <code>XmlMapper</code> type.</p>
+     * @see com.fasterxml.jackson.dataformat.xml.XmlMapper
+     */
     public static XmlMapper xmlMapper() {
         return XML_MAPPER;
     }
