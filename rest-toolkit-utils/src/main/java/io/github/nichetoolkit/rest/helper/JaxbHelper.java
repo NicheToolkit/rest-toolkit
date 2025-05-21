@@ -1,0 +1,302 @@
+package io.github.nichetoolkit.rest.helper;
+
+import io.github.nichetoolkit.rest.error.often.JaxbXmlMarshalException;
+import io.github.nichetoolkit.rest.error.often.JaxbXmlReadException;
+import io.github.nichetoolkit.rest.error.often.JaxbXmlWriteException;
+import io.github.nichetoolkit.rest.util.GeneralUtils;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+import javax.xml.bind.*;
+import javax.xml.transform.stream.StreamSource;
+import java.io.*;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+
+/**
+ * <code>JaxbHelper</code>
+ * <p>The jaxb helper class.</p>
+ * @author Cyan (snow22314@outlook.com)
+ * @since Jdk1.8
+ */
+public class JaxbHelper {
+
+    /**
+     * <code>encode</code>
+     * <p>The encode method.</p>
+     * @param filename {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
+     * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @see java.lang.String
+     * @see javax.servlet.http.HttpServletResponse
+     */
+    public static void encode(String filename, HttpServletResponse response) {
+        String fileName = new String(filename.trim().getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8);
+        try {
+            fileName = URLEncoder.encode(filename, StandardCharsets.UTF_8.toString());
+        } catch (UnsupportedEncodingException ignored) {
+        }
+        String content = "attachment;filename=".concat(fileName);
+        response.setHeader("Content-Disposition", content);
+        response.setHeader("Content-Type", "application/xml;charset=UTF-8");
+        response.setContentType("application/octet-stream");
+    }
+
+    /**
+     * <code>unmarshaller</code>
+     * <p>The unmarshaller method.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @return {@link javax.xml.bind.Unmarshaller} <p>The unmarshaller return object is <code>Unmarshaller</code> type.</p>
+     * @throws JaxbXmlMarshalException {@link JaxbXmlMarshalException} <p>The xml marshal exception is <code>XmlMarshalException</code> type.</p>
+     * @see java.lang.Class
+     * @see javax.xml.bind.Unmarshaller
+     * @see JaxbXmlMarshalException
+     */
+    public static <T> Unmarshaller unmarshaller (Class<T> clazz) throws JaxbXmlMarshalException {
+        try {
+            JAXBContext context = JAXBContext.newInstance(clazz);
+            return context.createUnmarshaller();
+        } catch (JAXBException exception) {
+            throw new JaxbXmlMarshalException(exception.getMessage());
+        }
+    }
+
+
+    /**
+     * <code>marshaller</code>
+     * <p>The marshaller method.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @return {@link javax.xml.bind.Marshaller} <p>The marshaller return object is <code>Marshaller</code> type.</p>
+     * @throws JaxbXmlMarshalException {@link JaxbXmlMarshalException} <p>The xml marshal exception is <code>XmlMarshalException</code> type.</p>
+     * @see java.lang.Class
+     * @see javax.xml.bind.Marshaller
+     * @see JaxbXmlMarshalException
+     */
+    public static <T> Marshaller marshaller(Class<T> clazz) throws JaxbXmlMarshalException {
+        try {
+            JAXBContext context = JAXBContext.newInstance(clazz);
+            return context.createMarshaller();
+        } catch (JAXBException exception) {
+            throw new JaxbXmlMarshalException(exception.getMessage());
+        }
+    }
+
+    /**
+     * <code>read</code>
+     * <p>The read method.</p>
+     * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param xmlFile {@link org.springframework.web.multipart.MultipartFile} <p>The xml file parameter is <code>MultipartFile</code> type.</p>
+     * @param clazz   {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @return T <p>The read return object is <code>T</code> type.</p>
+     * @throws JaxbXmlReadException {@link JaxbXmlReadException} <p>The xml read exception is <code>XmlReadException</code> type.</p>
+     * @see org.springframework.web.multipart.MultipartFile
+     * @see java.lang.Class
+     * @see JaxbXmlReadException
+     */
+    public static <T> T read(MultipartFile xmlFile, Class<T> clazz) throws JaxbXmlReadException {
+        if (GeneralUtils.isEmpty(xmlFile)) {
+            return null;
+        }
+        try (InputStream inputStream = xmlFile.getInputStream()) {
+            return JAXB.unmarshal(inputStream, clazz);
+        } catch (DataBindingException | IOException exception) {
+            throw new JaxbXmlReadException(exception.getMessage());
+        }
+    }
+
+    /**
+     * <code>read</code>
+     * <p>The read method.</p>
+     * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param xmlFile {@link java.io.File} <p>The xml file parameter is <code>File</code> type.</p>
+     * @param clazz   {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @return T <p>The read return object is <code>T</code> type.</p>
+     * @throws JaxbXmlReadException {@link JaxbXmlReadException} <p>The xml read exception is <code>XmlReadException</code> type.</p>
+     * @see java.io.File
+     * @see java.lang.Class
+     * @see JaxbXmlReadException
+     */
+    public static <T> T read(File xmlFile, Class<T> clazz) throws JaxbXmlReadException {
+        if (GeneralUtils.isEmpty(xmlFile) || !xmlFile.exists()) {
+            return null;
+        }
+        try (InputStream inputStream = Files.newInputStream(xmlFile.toPath())) {
+            return JAXB.unmarshal(inputStream, clazz);
+        } catch (DataBindingException | IOException exception) {
+            throw new JaxbXmlReadException(exception.getMessage());
+        }
+    }
+
+    /**
+     * <code>read</code>
+     * <p>The read method.</p>
+     * @param <T>          {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param unmarshaller {@link javax.xml.bind.Unmarshaller} <p>The unmarshaller parameter is <code>Unmarshaller</code> type.</p>
+     * @param inputStream  {@link java.io.InputStream} <p>The input stream parameter is <code>InputStream</code> type.</p>
+     * @param clazz        {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @return T <p>The read return object is <code>T</code> type.</p>
+     * @throws JaxbXmlReadException {@link JaxbXmlReadException} <p>The xml read exception is <code>XmlReadException</code> type.</p>
+     * @see javax.xml.bind.Unmarshaller
+     * @see java.io.InputStream
+     * @see java.lang.Class
+     * @see JaxbXmlReadException
+     */
+    public static <T> T read(Unmarshaller unmarshaller, InputStream inputStream, Class<T> clazz) throws JaxbXmlReadException {
+        if (GeneralUtils.isEmpty(inputStream)) {
+            return null;
+        }
+        try {
+            JAXBElement<T> jaxbElement = unmarshaller.unmarshal(new StreamSource(inputStream), clazz);
+            return jaxbElement.getValue();
+        } catch ( JAXBException | DataBindingException exception) {
+            throw new JaxbXmlReadException(exception.getMessage());
+        }
+    }
+
+    /**
+     * <code>read</code>
+     * <p>The read method.</p>
+     * @param <T>         {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param inputStream {@link java.io.InputStream} <p>The input stream parameter is <code>InputStream</code> type.</p>
+     * @param clazz       {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @return T <p>The read return object is <code>T</code> type.</p>
+     * @throws JaxbXmlReadException {@link JaxbXmlReadException} <p>The xml read exception is <code>XmlReadException</code> type.</p>
+     * @see java.io.InputStream
+     * @see java.lang.Class
+     * @see JaxbXmlReadException
+     */
+    public static <T> T read(InputStream inputStream, Class<T> clazz) throws JaxbXmlReadException {
+        if (GeneralUtils.isEmpty(inputStream)) {
+            return null;
+        }
+        try {
+            return JAXB.unmarshal(inputStream, clazz);
+        } catch ( DataBindingException exception) {
+            throw new JaxbXmlReadException(exception.getMessage());
+        }
+    }
+
+    /**
+     * <code>write</code>
+     * <p>The write method.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param marshaller {@link javax.xml.bind.Marshaller} <p>The marshaller parameter is <code>Marshaller</code> type.</p>
+     * @param xmlObject  T <p>The xml object parameter is <code>T</code> type.</p>
+     * @param filename   {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
+     * @param response   {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @throws JaxbXmlWriteException {@link JaxbXmlWriteException} <p>The xml write exception is <code>XmlWriteException</code> type.</p>
+     * @see javax.xml.bind.Marshaller
+     * @see java.lang.String
+     * @see javax.servlet.http.HttpServletResponse
+     * @see JaxbXmlWriteException
+     */
+    public static <T> void write(Marshaller marshaller, T xmlObject, String filename, HttpServletResponse response) throws JaxbXmlWriteException {
+        if (GeneralUtils.isEmpty(xmlObject)) {
+            return;
+        }
+        try {
+            encode(filename, response);
+            ServletOutputStream outputStream = response.getOutputStream();
+            marshaller.marshal(xmlObject,outputStream);
+        } catch (JAXBException| IOException exception) {
+            throw new JaxbXmlWriteException(exception.getMessage());
+        }
+    }
+
+    /**
+     * <code>write</code>
+     * <p>The write method.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param marshaller {@link javax.xml.bind.Marshaller} <p>The marshaller parameter is <code>Marshaller</code> type.</p>
+     * @param xmlObject  T <p>The xml object parameter is <code>T</code> type.</p>
+     * @param response   {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @throws JaxbXmlWriteException {@link JaxbXmlWriteException} <p>The xml write exception is <code>XmlWriteException</code> type.</p>
+     * @see javax.xml.bind.Marshaller
+     * @see javax.servlet.http.HttpServletResponse
+     * @see JaxbXmlWriteException
+     */
+    public static <T> void write(Marshaller marshaller, T xmlObject, HttpServletResponse response) throws JaxbXmlWriteException {
+        if (GeneralUtils.isEmpty(xmlObject)) {
+            return;
+        }
+        try {
+            ServletOutputStream outputStream = response.getOutputStream();
+            marshaller.marshal(xmlObject,outputStream);
+        } catch (JAXBException| IOException exception) {
+            throw new JaxbXmlWriteException(exception.getMessage());
+        }
+    }
+
+    /**
+     * <code>write</code>
+     * <p>The write method.</p>
+     * @param <T>          {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param marshaller   {@link javax.xml.bind.Marshaller} <p>The marshaller parameter is <code>Marshaller</code> type.</p>
+     * @param xmlObject    T <p>The xml object parameter is <code>T</code> type.</p>
+     * @param outputStream {@link java.io.OutputStream} <p>The output stream parameter is <code>OutputStream</code> type.</p>
+     * @throws JaxbXmlWriteException {@link JaxbXmlWriteException} <p>The xml write exception is <code>XmlWriteException</code> type.</p>
+     * @see javax.xml.bind.Marshaller
+     * @see java.io.OutputStream
+     * @see JaxbXmlWriteException
+     */
+    public static <T> void write(Marshaller marshaller, T xmlObject, OutputStream outputStream) throws JaxbXmlWriteException {
+        if (GeneralUtils.isEmpty(xmlObject)) {
+            return;
+        }
+        try {
+            marshaller.marshal(xmlObject,outputStream);
+        } catch (JAXBException exception) {
+            throw new JaxbXmlWriteException(exception.getMessage());
+        }
+    }
+
+    /**
+     * <code>write</code>
+     * <p>The write method.</p>
+     * @param <T>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param xmlObject T <p>The xml object parameter is <code>T</code> type.</p>
+     * @param filename  {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
+     * @param response  {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @throws JaxbXmlWriteException {@link JaxbXmlWriteException} <p>The xml write exception is <code>XmlWriteException</code> type.</p>
+     * @see java.lang.String
+     * @see javax.servlet.http.HttpServletResponse
+     * @see JaxbXmlWriteException
+     */
+    public static <T> void write(T xmlObject, String filename, HttpServletResponse response) throws JaxbXmlWriteException {
+        if (GeneralUtils.isEmpty(xmlObject)) {
+            return;
+        }
+        try {
+            encode(filename,response);
+            ServletOutputStream outputStream = response.getOutputStream();
+            JAXB.marshal(xmlObject,outputStream);
+        } catch (IOException exception) {
+            throw new JaxbXmlWriteException(exception.getMessage());
+        }
+    }
+
+    /**
+     * <code>write</code>
+     * <p>The write method.</p>
+     * @param <T>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param xmlObject T <p>The xml object parameter is <code>T</code> type.</p>
+     * @param response  {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @throws JaxbXmlWriteException {@link JaxbXmlWriteException} <p>The xml write exception is <code>XmlWriteException</code> type.</p>
+     * @see javax.servlet.http.HttpServletResponse
+     * @see JaxbXmlWriteException
+     */
+    public static <T> void write(T xmlObject, HttpServletResponse response) throws JaxbXmlWriteException {
+        if (GeneralUtils.isEmpty(xmlObject)) {
+            return;
+        }
+        try {
+            ServletOutputStream outputStream = response.getOutputStream();
+            JAXB.marshal(xmlObject,outputStream);
+        } catch (IOException exception) {
+            throw new JaxbXmlWriteException(exception.getMessage());
+        }
+    }
+}

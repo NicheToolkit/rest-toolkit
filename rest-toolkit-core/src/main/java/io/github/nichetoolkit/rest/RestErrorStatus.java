@@ -136,6 +136,7 @@ public enum RestErrorStatus implements RestStatus {
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>PARSE_ERROR</code> field.</p>
      */
     PARSE_ERROR(10100, "it has encountered a parse related error"),
+
     /**
      * <code>JSON_PARSE_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>JSON_PARSE_ERROR</code> field.</p>
@@ -171,11 +172,53 @@ public enum RestErrorStatus implements RestStatus {
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>JSON_PARSE_RESULT</code> field.</p>
      */
     JSON_PARSE_RESULT(10116, "it has encountered a json parse result type error"),
+
     /**
      * <code>JSON_DESERIALIZE_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>JSON_DESERIALIZE_ERROR</code> field.</p>
      */
     JSON_DESERIALIZE_ERROR(10120, "it has encountered a json deserialize related error"),
+
+    /**
+     * <code>XML_PARSE_ERROR</code>
+     * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>XML_PARSE_ERROR</code> field.</p>
+     */
+    XML_PARSE_ERROR(10130, "it has encountered a xml parse related error"),
+    /**
+     * <code>XML_PARSE_BEAN</code>
+     * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>XML_PARSE_BEAN</code> field.</p>
+     */
+    XML_PARSE_BEAN(10131, "it has encountered a xml parse bean error"),
+    /**
+     * <code>XML_PARSE_CONVERT</code>
+     * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>XML_PARSE_CONVERT</code> field.</p>
+     */
+    XML_PARSE_CONVERT(10132, "it has encountered a xml parse convert type error"),
+    /**
+     * <code>XML_PARSE_LIST</code>
+     * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>XML_PARSE_LIST</code> field.</p>
+     */
+    XML_PARSE_LIST(10133, "it has encountered a xml parse list type error"),
+    /**
+     * <code>XML_PARSE_SET</code>
+     * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>XML_PARSE_SET</code> field.</p>
+     */
+    XML_PARSE_SET(10134, "it has encountered a xml parse set type error"),
+    /**
+     * <code>XML_PARSE_MAP</code>
+     * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>XML_PARSE_MAP</code> field.</p>
+     */
+    XML_PARSE_MAP(10135, "it has encountered a xml parse map type error"),
+    /**
+     * <code>XML_PARSE_RESULT</code>
+     * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>XML_PARSE_RESULT</code> field.</p>
+     */
+    XML_PARSE_RESULT(10136, "it has encountered a xml parse result type error"),
+    /**
+     * <code>XML_DESERIALIZE_ERROR</code>
+     * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>XML_DESERIALIZE_ERROR</code> field.</p>
+     */
+    XML_DESERIALIZE_ERROR(10130, "it has encountered a xml deserialize related error"),
 
     /**
      * <code>RESOURCE_ERROR</code>
@@ -492,25 +535,25 @@ public enum RestErrorStatus implements RestStatus {
     IO_STREAM_TRANSFER_ERROR(10623, "it has encountered a io-stream transfer error"),
 
     /**
-     * <code>XML_ERROR</code>
-     * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>XML_ERROR</code> field.</p>
+     * <code>JAXB_XML_ERROR</code>
+     * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>JAXB_XML_ERROR</code> field.</p>
      */
-    XML_ERROR(10630, "it has encountered a xml file related error"),
+    JAXB_XML_ERROR(10630, "it has encountered a xml file related error"),
     /**
-     * <code>XML_READ_ERROR</code>
-     * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>XML_READ_ERROR</code> field.</p>
+     * <code>JAXB_XML_READ_ERROR</code>
+     * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>JAXB_XML_READ_ERROR</code> field.</p>
      */
-    XML_READ_ERROR(10631, "it has encountered a xml file read error"),
+    JAXB_XML_READ_ERROR(10631, "it has encountered a xml file read error"),
     /**
-     * <code>XML_WRITE_ERROR</code>
-     * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>XML_WRITE_ERROR</code> field.</p>
+     * <code>JAXB_XML_WRITE_ERROR</code>
+     * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>JAXB_XML_WRITE_ERROR</code> field.</p>
      */
-    XML_WRITE_ERROR(10632, "it has encountered a xml file write error"),
+    JAXB_XML_WRITE_ERROR(10632, "it has encountered a xml file write error"),
     /**
-     * <code>XML_MARSHAL_ERROR</code>
-     * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>XML_MARSHAL_ERROR</code> field.</p>
+     * <code>JAXB_XML_MARSHAL_ERROR</code>
+     * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>JAXB_XML_MARSHAL_ERROR</code> field.</p>
      */
-    XML_MARSHAL_ERROR(10633, "it has encountered a xml file marshal error"),
+    JAXB_XML_MARSHAL_ERROR(10633, "it has encountered a xml file marshal error"),
 
     /**
      * <code>ZIP_ERROR</code>
