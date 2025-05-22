@@ -168,10 +168,15 @@ public enum RestErrorStatus implements RestStatus {
      */
     JSON_PARSE_MAP(10115, "it has encountered a json parse map type error"),
     /**
+     * <code>JSON_PARSE_ARRAY</code>
+     * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>JSON_PARSE_ARRAY</code> field.</p>
+     */
+    JSON_PARSE_ARRAY(10116, "it has encountered a json parse array type error"),
+    /**
      * <code>JSON_PARSE_RESULT</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>JSON_PARSE_RESULT</code> field.</p>
      */
-    JSON_PARSE_RESULT(10116, "it has encountered a json parse result type error"),
+    JSON_PARSE_RESULT(10117, "it has encountered a json parse result type error"),
 
     /**
      * <code>JSON_DESERIALIZE_ERROR</code>
@@ -210,10 +215,10 @@ public enum RestErrorStatus implements RestStatus {
      */
     XML_PARSE_MAP(10135, "it has encountered a xml parse map type error"),
     /**
-     * <code>XML_PARSE_RESULT</code>
-     * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>XML_PARSE_RESULT</code> field.</p>
+     * <code>XML_PARSE_ARRAY</code>
+     * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>XML_PARSE_ARRAY</code> field.</p>
      */
-    XML_PARSE_RESULT(10136, "it has encountered a xml parse result type error"),
+    XML_PARSE_ARRAY(10136, "it has encountered a xml parse array type error"),
     /**
      * <code>XML_DESERIALIZE_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>XML_DESERIALIZE_ERROR</code> field.</p>

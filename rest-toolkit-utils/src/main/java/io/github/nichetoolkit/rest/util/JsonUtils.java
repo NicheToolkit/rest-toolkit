@@ -8,10 +8,7 @@ import com.fasterxml.jackson.databind.type.MapType;
 import com.fasterxml.jackson.databind.type.TypeFactory;
 import io.github.nichetoolkit.rest.RestResult;
 import io.github.nichetoolkit.rest.error.ClassUnsupportedException;
-import io.github.nichetoolkit.rest.error.json.JsonParseBeanException;
-import io.github.nichetoolkit.rest.error.json.JsonParseListException;
-import io.github.nichetoolkit.rest.error.json.JsonParseMapException;
-import io.github.nichetoolkit.rest.error.json.JsonParseSetException;
+import io.github.nichetoolkit.rest.error.json.*;
 import io.github.nichetoolkit.rest.error.supply.JsonParseException;
 import io.github.nichetoolkit.rest.helper.JsonHelper;
 import lombok.extern.slf4j.Slf4j;
@@ -380,7 +377,7 @@ public class JsonUtils {
     public static <T> T[] parseArray(String json, ArrayType arrayType) {
         try {
             return JsonHelper.parseArray(json, arrayType);
-        } catch (JsonParseListException exception) {
+        } catch (JsonParseArrayException exception) {
             log.error("It is failed during json to parse as array of bean with array type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
             return null;
@@ -400,7 +397,7 @@ public class JsonUtils {
     public static <T> T[] parseArray(String json, TypeReference<T> typeReference) {
         try {
             return JsonHelper.parseArray(json, typeReference);
-        } catch (JsonParseListException exception) {
+        } catch (JsonParseArrayException exception) {
             log.error("It is failed during json to parse as array of bean! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
             return null;
@@ -667,7 +664,7 @@ public class JsonUtils {
     public static RestResult<String> parseResult(String json) {
         try {
             return JsonHelper.parseResult(json);
-        } catch (JsonParseBeanException exception) {
+        } catch (JsonParseResultException exception) {
             log.error("It is failed during json to parse as result of restResult! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
             return null;

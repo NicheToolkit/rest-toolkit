@@ -2,10 +2,8 @@ package io.github.nichetoolkit.rest.holder;
 
 import com.fasterxml.jackson.dataformat.xml.XmlFactory;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import io.github.nichetoolkit.rest.util.GeneralUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.lang.Nullable;
 
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLOutputFactory;
@@ -34,6 +32,8 @@ public class XmlMapperHolder {
         XML_MAPPER = new XmlMapper(xmlFactory);
     }
 
+    public XmlMapperHolder() {
+    }
     /**
      * <code>XmlMapperHolder</code>
      * <p>Instantiates a new xml mapper holder.</p>
@@ -42,12 +42,10 @@ public class XmlMapperHolder {
      * @see org.springframework.lang.Nullable
      * @see org.springframework.beans.factory.annotation.Autowired
      */
-    @Autowired
-    public XmlMapperHolder(@Nullable XmlMapper xmlMapper) {
-        if (GeneralUtils.isNotEmpty(xmlMapper)) {
-            XML_MAPPER = xmlMapper;
-            log.debug("The xml mapper holder has be initiated");
-        }
+    @Autowired(required = false)
+    public XmlMapperHolder(XmlMapper xmlMapper) {
+        XML_MAPPER = xmlMapper;
+        log.debug("The xml mapper holder has be initiated");
     }
 
     /**

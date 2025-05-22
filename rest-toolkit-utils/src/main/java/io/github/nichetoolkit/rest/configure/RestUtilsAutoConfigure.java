@@ -1,15 +1,13 @@
 package io.github.nichetoolkit.rest.configure;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import io.github.nichetoolkit.rest.holder.ObjectMapperHolder;
 import io.github.nichetoolkit.rest.holder.XmlMapperHolder;
 import io.github.nichetoolkit.rest.worker.RadixWorker;
 import io.github.nichetoolkit.rest.worker.jwt.JwtWorker;
 import io.github.nichetoolkit.rest.worker.rsa.RsaWorker;
 import io.github.nichetoolkit.rest.worker.sha.ShaWorker;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
@@ -128,16 +126,35 @@ public class RestUtilsAutoConfigure {
      * @see io.github.nichetoolkit.rest.holder.XmlMapperHolder
      * @see org.springframework.context.annotation.Bean
      * @see org.springframework.context.annotation.Primary
-     * @see org.springframework.beans.factory.annotation.Autowired
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnBean
      * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
      * @see java.lang.SuppressWarnings
      */
     @Bean
     @Primary
-    @Autowired(required = false)
+    @ConditionalOnBean(XmlMapper.class)
     @ConditionalOnMissingBean(XmlMapperHolder.class)
     @SuppressWarnings("InstantiationOfUtilityClass")
     public XmlMapperHolder xmlMapperHolder(XmlMapper xmlMapper) {
         return new XmlMapperHolder(xmlMapper);
+    }
+
+
+    /**
+     * <code>xmlMapperHolders</code>
+     * <p>The xml mapper holders method.</p>
+     * @return {@link io.github.nichetoolkit.rest.holder.XmlMapperHolder} <p>The xml mapper holders return object is <code>XmlMapperHolder</code> type.</p>
+     * @see io.github.nichetoolkit.rest.holder.XmlMapperHolder
+     * @see org.springframework.context.annotation.Bean
+     * @see org.springframework.context.annotation.Primary
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
+     * @see java.lang.SuppressWarnings
+     */
+    @Bean
+    @Primary
+    @ConditionalOnMissingBean({XmlMapperHolder.class, XmlMapper.class})
+    @SuppressWarnings("InstantiationOfUtilityClass")
+    public XmlMapperHolder xmlMapperHolders() {
+        return new XmlMapperHolder();
     }
 }
