@@ -10,8 +10,8 @@ import com.fasterxml.jackson.databind.type.CollectionType;
 import com.fasterxml.jackson.databind.type.MapType;
 import com.fasterxml.jackson.databind.type.TypeFactory;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import io.github.nichetoolkit.rest.error.xml.*;
 import io.github.nichetoolkit.rest.error.supply.XmlParseException;
+import io.github.nichetoolkit.rest.error.xml.*;
 import io.github.nichetoolkit.rest.holder.XmlMapperHolder;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -23,14 +23,14 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * <code>XmlHelper</code>
- * <p>The xml helper class.</p>
+ * <code>XmlPurityHelper</code>
+ * <p>The xml purity helper class.</p>
  * @see  lombok.extern.slf4j.Slf4j
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
 @Slf4j
-public class XmlHelper {
+public class XmlPurityHelper {
 
     /**
      * <code>parseXml</code>
@@ -47,7 +47,7 @@ public class XmlHelper {
             return;
         }
         try {
-            XmlMapperHolder.xmlMapper().writeValue(file,target);
+            XmlMapperHolder.purityMapper().writeValue(file,target);
         } catch (IOException exception) {
             throw new XmlParseException("parseXml", target.getClass().getName(), exception.getMessage());
         }
@@ -68,7 +68,7 @@ public class XmlHelper {
             return;
         }
         try {
-            XmlMapperHolder.xmlMapper().writeValue(outputStream,target);
+            XmlMapperHolder.purityMapper().writeValue(outputStream,target);
         } catch (IOException exception) {
             throw new XmlParseException("parseXml", target.getClass().getName(), exception.getMessage());
         }
@@ -89,7 +89,7 @@ public class XmlHelper {
             return;
         }
         try {
-            XmlMapperHolder.xmlMapper().writeValue(writer,target);
+            XmlMapperHolder.purityMapper().writeValue(writer,target);
         } catch (IOException exception) {
             throw new XmlParseException("parseXml", target.getClass().getName(), exception.getMessage());
         }
@@ -110,7 +110,7 @@ public class XmlHelper {
             return null;
         }
         try {
-            return XmlMapperHolder.xmlMapper().writeValueAsString(target);
+            return XmlMapperHolder.purityMapper().writeValueAsString(target);
         } catch (JsonProcessingException exception) {
             throw new XmlParseException("parseXml", target.getClass().getName(), exception.getMessage());
         }
@@ -130,7 +130,7 @@ public class XmlHelper {
             return null;
         }
         try {
-            return XmlMapperHolder.xmlMapper().writeValueAsBytes(target);
+            return XmlMapperHolder.purityMapper().writeValueAsBytes(target);
         } catch (JsonProcessingException exception) {
             throw new XmlParseException("parseXmlAsBytes", target.getClass().getName(), exception.getMessage());
         }
@@ -153,7 +153,7 @@ public class XmlHelper {
             return null;
         }
         try {
-            return XmlMapperHolder.xmlMapper().writerFor(typeReference).writeValueAsString(target);
+            return XmlMapperHolder.purityMapper().writerFor(typeReference).writeValueAsString(target);
         } catch (JsonProcessingException exception) {
             throw new XmlParseException("parseXml", target.getClass().getName(), exception.getMessage());
         }
@@ -174,7 +174,7 @@ public class XmlHelper {
             return null;
         }
         try {
-            XmlMapper mapper = new XmlMapper();
+            XmlMapper mapper = XmlMapperHolder.ofPurityMapper();
             mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
             return mapper.writeValueAsString(target);
         } catch (JsonProcessingException exception) {
@@ -199,7 +199,7 @@ public class XmlHelper {
             return null;
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, clazz);
+            return XmlMapperHolder.purityMapper().readValue(xml, clazz);
         } catch (IOException exception) {
             throw new XmlParseBeanException("parseBean", clazz.getName(), xml, exception.getMessage());
         }
@@ -222,7 +222,7 @@ public class XmlHelper {
             return null;
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, clazz);
+            return XmlMapperHolder.purityMapper().readValue(xml, clazz);
         } catch (IOException exception) {
             throw new XmlParseBeanException("parseBean", clazz.getName(), xml, exception.getMessage());
         }
@@ -244,7 +244,7 @@ public class XmlHelper {
             return null;
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, clazz);
+            return XmlMapperHolder.purityMapper().readValue(xml, clazz);
         } catch (IOException exception) {
             throw new XmlParseBeanException("parseBean", clazz.getName(), xml, exception.getMessage());
         }
@@ -267,7 +267,7 @@ public class XmlHelper {
             return null;
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, clazz);
+            return XmlMapperHolder.purityMapper().readValue(xml, clazz);
         } catch (IOException exception) {
             throw new XmlParseBeanException("parseBean", clazz.getName(), xml, exception.getMessage());
         }
@@ -290,7 +290,7 @@ public class XmlHelper {
             return null;
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, clazz);
+            return XmlMapperHolder.purityMapper().readValue(xml, clazz);
         } catch (JsonProcessingException exception) {
             throw new XmlParseBeanException("parseBean", clazz.getName(), xml, exception.getMessage());
         }
@@ -313,7 +313,7 @@ public class XmlHelper {
             return null;
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, typeReference);
+            return XmlMapperHolder.purityMapper().readValue(xml, typeReference);
         } catch (IOException exception) {
             throw new XmlParseBeanException("parseBean", typeReference.getType().getTypeName(), xml, exception.getMessage());
         }
@@ -336,7 +336,7 @@ public class XmlHelper {
             return null;
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, typeReference);
+            return XmlMapperHolder.purityMapper().readValue(xml, typeReference);
         } catch (IOException exception) {
             throw new XmlParseBeanException("parseBean", typeReference.getType().getTypeName(), xml, exception.getMessage());
         }
@@ -358,7 +358,7 @@ public class XmlHelper {
             return null;
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, typeReference);
+            return XmlMapperHolder.purityMapper().readValue(xml, typeReference);
         } catch (IOException exception) {
             throw new XmlParseBeanException("parseBean", typeReference.getType().getTypeName(), xml, exception.getMessage());
         }
@@ -381,7 +381,7 @@ public class XmlHelper {
             return null;
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, typeReference);
+            return XmlMapperHolder.purityMapper().readValue(xml, typeReference);
         } catch (IOException exception) {
             throw new XmlParseBeanException("parseBean", typeReference.getType().getTypeName(), xml, exception.getMessage());
         }
@@ -404,7 +404,7 @@ public class XmlHelper {
             return null;
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, typeReference);
+            return XmlMapperHolder.purityMapper().readValue(xml, typeReference);
         } catch (JsonProcessingException exception) {
             throw new XmlParseBeanException("parseBean", typeReference.getType().getTypeName(), xml, exception.getMessage());
         }
@@ -427,7 +427,7 @@ public class XmlHelper {
             return null;
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, javaType);
+            return XmlMapperHolder.purityMapper().readValue(xml, javaType);
         } catch (IOException exception) {
             throw new XmlParseBeanException("parseBean", javaType.getRawClass().getName(), xml, exception.getMessage());
         }
@@ -450,7 +450,7 @@ public class XmlHelper {
             return null;
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, javaType);
+            return XmlMapperHolder.purityMapper().readValue(xml, javaType);
         } catch (IOException exception) {
             throw new XmlParseBeanException("parseBean", javaType.getRawClass().getName(), xml, exception.getMessage());
         }
@@ -472,7 +472,7 @@ public class XmlHelper {
             return null;
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, javaType);
+            return XmlMapperHolder.purityMapper().readValue(xml, javaType);
         } catch (IOException exception) {
             throw new XmlParseBeanException("parseBean", javaType.getRawClass().getName(), xml, exception.getMessage());
         }
@@ -495,7 +495,7 @@ public class XmlHelper {
             return null;
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, javaType);
+            return XmlMapperHolder.purityMapper().readValue(xml, javaType);
         } catch (IOException exception) {
             throw new XmlParseBeanException("parseBean", javaType.getRawClass().getName(), xml, exception.getMessage());
         }
@@ -518,7 +518,7 @@ public class XmlHelper {
             return null;
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, javaType);
+            return XmlMapperHolder.purityMapper().readValue(xml, javaType);
         } catch (JsonProcessingException exception) {
             throw new XmlParseBeanException("parseBean", javaType.getRawClass().getName(), xml, exception.getMessage());
         }
@@ -635,7 +635,7 @@ public class XmlHelper {
             return null;
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, arrayType);
+            return XmlMapperHolder.purityMapper().readValue(xml, arrayType);
         } catch (IOException exception) {
             throw new XmlParseArrayException("parseArray", arrayType.getRawClass().getName(), xml, exception.getMessage());
         }
@@ -658,7 +658,7 @@ public class XmlHelper {
             return null;
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, arrayType);
+            return XmlMapperHolder.purityMapper().readValue(xml, arrayType);
         } catch (IOException exception) {
             throw new XmlParseArrayException("parseArray", arrayType.getRawClass().getName(), xml, exception.getMessage());
         }
@@ -680,7 +680,7 @@ public class XmlHelper {
             return null;
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, arrayType);
+            return XmlMapperHolder.purityMapper().readValue(xml, arrayType);
         } catch (IOException exception) {
             throw new XmlParseArrayException("parseArray", arrayType.getRawClass().getName(), xml, exception.getMessage());
         }
@@ -703,7 +703,7 @@ public class XmlHelper {
             return null;
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, arrayType);
+            return XmlMapperHolder.purityMapper().readValue(xml, arrayType);
         } catch (IOException exception) {
             throw new XmlParseArrayException("parseArray", arrayType.getRawClass().getName(), xml, exception.getMessage());
         }
@@ -726,7 +726,7 @@ public class XmlHelper {
             return null;
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, arrayType);
+            return XmlMapperHolder.purityMapper().readValue(xml, arrayType);
         } catch (JsonProcessingException exception) {
             throw new XmlParseArrayException("parseArray", arrayType.getRawClass().getName(), xml, exception.getMessage());
         }
@@ -918,7 +918,7 @@ public class XmlHelper {
             return Collections.emptyList();
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, listType);
+            return XmlMapperHolder.purityMapper().readValue(xml, listType);
         } catch (IOException exception) {
             throw new XmlParseListException("parseList", listType.getRawClass().getName(),xml, exception.getMessage());
         }
@@ -942,7 +942,7 @@ public class XmlHelper {
             return Collections.emptyList();
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, listType);
+            return XmlMapperHolder.purityMapper().readValue(xml, listType);
         } catch (IOException exception) {
             throw new XmlParseListException("parseList", listType.getRawClass().getName(),xml, exception.getMessage());
         }
@@ -965,7 +965,7 @@ public class XmlHelper {
             return Collections.emptyList();
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, listType);
+            return XmlMapperHolder.purityMapper().readValue(xml, listType);
         } catch (IOException exception) {
             throw new XmlParseListException("parseList", listType.getRawClass().getName(),xml, exception.getMessage());
         }
@@ -989,7 +989,7 @@ public class XmlHelper {
             return Collections.emptyList();
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, listType);
+            return XmlMapperHolder.purityMapper().readValue(xml, listType);
         } catch (IOException exception) {
             throw new XmlParseListException("parseList", listType.getRawClass().getName(),xml, exception.getMessage());
         }
@@ -1013,7 +1013,7 @@ public class XmlHelper {
             return Collections.emptyList();
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, listType);
+            return XmlMapperHolder.purityMapper().readValue(xml, listType);
         } catch (JsonProcessingException exception) {
             throw new XmlParseListException("parseList", listType.getRawClass().getName(),xml, exception.getMessage());
         }
@@ -1037,7 +1037,7 @@ public class XmlHelper {
             return Collections.emptyList();
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, typeReference);
+            return XmlMapperHolder.purityMapper().readValue(xml, typeReference);
         } catch (IOException exception) {
             throw new XmlParseListException("parseList", typeReference.getType().getTypeName(), xml, exception.getMessage());
         }
@@ -1061,7 +1061,7 @@ public class XmlHelper {
             return Collections.emptyList();
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, typeReference);
+            return XmlMapperHolder.purityMapper().readValue(xml, typeReference);
         } catch (IOException exception) {
             throw new XmlParseListException("parseList", typeReference.getType().getTypeName(), xml, exception.getMessage());
         }
@@ -1084,7 +1084,7 @@ public class XmlHelper {
             return Collections.emptyList();
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, typeReference);
+            return XmlMapperHolder.purityMapper().readValue(xml, typeReference);
         } catch (IOException exception) {
             throw new XmlParseListException("parseList", typeReference.getType().getTypeName(), xml, exception.getMessage());
         }
@@ -1108,7 +1108,7 @@ public class XmlHelper {
             return Collections.emptyList();
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, typeReference);
+            return XmlMapperHolder.purityMapper().readValue(xml, typeReference);
         } catch (IOException exception) {
             throw new XmlParseListException("parseList", typeReference.getType().getTypeName(), xml, exception.getMessage());
         }
@@ -1132,7 +1132,7 @@ public class XmlHelper {
             return Collections.emptyList();
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, typeReference);
+            return XmlMapperHolder.purityMapper().readValue(xml, typeReference);
         } catch (JsonProcessingException exception) {
             throw new XmlParseListException("parseList", typeReference.getType().getTypeName(), xml, exception.getMessage());
         }
@@ -1339,7 +1339,7 @@ public class XmlHelper {
             return Collections.emptySet();
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, setType);
+            return XmlMapperHolder.purityMapper().readValue(xml, setType);
         } catch (IOException exception) {
             throw new XmlParseSetException("parseSet",setType.getRawClass().getName(),xml,  exception.getMessage());
         }
@@ -1363,7 +1363,7 @@ public class XmlHelper {
             return Collections.emptySet();
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, setType);
+            return XmlMapperHolder.purityMapper().readValue(xml, setType);
         } catch (IOException exception) {
             throw new XmlParseSetException("parseSet",setType.getRawClass().getName(),xml,  exception.getMessage());
         }
@@ -1386,7 +1386,7 @@ public class XmlHelper {
             return Collections.emptySet();
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, setType);
+            return XmlMapperHolder.purityMapper().readValue(xml, setType);
         } catch (IOException exception) {
             throw new XmlParseSetException("parseSet",setType.getRawClass().getName(),xml,  exception.getMessage());
         }
@@ -1410,7 +1410,7 @@ public class XmlHelper {
             return Collections.emptySet();
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, setType);
+            return XmlMapperHolder.purityMapper().readValue(xml, setType);
         } catch (IOException exception) {
             throw new XmlParseSetException("parseSet",setType.getRawClass().getName(),xml,  exception.getMessage());
         }
@@ -1434,7 +1434,7 @@ public class XmlHelper {
             return Collections.emptySet();
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, setType);
+            return XmlMapperHolder.purityMapper().readValue(xml, setType);
         } catch (JsonProcessingException exception) {
             throw new XmlParseSetException("parseSet",setType.getRawClass().getName(),xml,  exception.getMessage());
         }
@@ -1458,7 +1458,7 @@ public class XmlHelper {
             return Collections.emptySet();
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, typeReference);
+            return XmlMapperHolder.purityMapper().readValue(xml, typeReference);
         } catch (IOException exception) {
             throw new XmlParseSetException("parseSet",typeReference.getType().getTypeName(),xml,  exception.getMessage());
         }
@@ -1482,7 +1482,7 @@ public class XmlHelper {
             return Collections.emptySet();
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, typeReference);
+            return XmlMapperHolder.purityMapper().readValue(xml, typeReference);
         } catch (IOException exception) {
             throw new XmlParseSetException("parseSet",typeReference.getType().getTypeName(),xml,  exception.getMessage());
         }
@@ -1505,7 +1505,7 @@ public class XmlHelper {
             return Collections.emptySet();
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, typeReference);
+            return XmlMapperHolder.purityMapper().readValue(xml, typeReference);
         } catch (IOException exception) {
             throw new XmlParseSetException("parseSet",typeReference.getType().getTypeName(),xml,  exception.getMessage());
         }
@@ -1529,7 +1529,7 @@ public class XmlHelper {
             return Collections.emptySet();
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, typeReference);
+            return XmlMapperHolder.purityMapper().readValue(xml, typeReference);
         } catch (IOException exception) {
             throw new XmlParseSetException("parseSet",typeReference.getType().getTypeName(),xml,  exception.getMessage());
         }
@@ -1553,7 +1553,7 @@ public class XmlHelper {
             return Collections.emptySet();
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, typeReference);
+            return XmlMapperHolder.purityMapper().readValue(xml, typeReference);
         } catch (JsonProcessingException exception) {
             throw new XmlParseSetException("parseSet",typeReference.getType().getTypeName(),xml,  exception.getMessage());
         }
@@ -1761,7 +1761,7 @@ public class XmlHelper {
             return Collections.emptyMap();
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, mapType);
+            return XmlMapperHolder.purityMapper().readValue(xml, mapType);
         } catch (IOException exception) {
             throw new XmlParseMapException("parseMap", mapType.getRawClass().getName(),xml, exception.getMessage());
         }
@@ -1786,7 +1786,7 @@ public class XmlHelper {
             return Collections.emptyMap();
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, mapType);
+            return XmlMapperHolder.purityMapper().readValue(xml, mapType);
         } catch (IOException exception) {
             throw new XmlParseMapException("parseMap", mapType.getRawClass().getName(),xml, exception.getMessage());
         }
@@ -1810,7 +1810,7 @@ public class XmlHelper {
             return Collections.emptyMap();
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, mapType);
+            return XmlMapperHolder.purityMapper().readValue(xml, mapType);
         } catch (IOException exception) {
             throw new XmlParseMapException("parseMap", mapType.getRawClass().getName(),xml, exception.getMessage());
         }
@@ -1835,7 +1835,7 @@ public class XmlHelper {
             return Collections.emptyMap();
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, mapType);
+            return XmlMapperHolder.purityMapper().readValue(xml, mapType);
         } catch (IOException exception) {
             throw new XmlParseMapException("parseMap", mapType.getRawClass().getName(),xml, exception.getMessage());
         }
@@ -1860,7 +1860,7 @@ public class XmlHelper {
             return Collections.emptyMap();
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, mapType);
+            return XmlMapperHolder.purityMapper().readValue(xml, mapType);
         } catch (JsonProcessingException exception) {
             throw new XmlParseMapException("parseMap", mapType.getRawClass().getName(),xml, exception.getMessage());
         }
@@ -1885,7 +1885,7 @@ public class XmlHelper {
             return Collections.emptyMap();
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, typeReference);
+            return XmlMapperHolder.purityMapper().readValue(xml, typeReference);
         } catch (IOException exception) {
             throw new XmlParseMapException("parseMap", typeReference.getType().getTypeName(),xml, exception.getMessage());
         }
@@ -1910,7 +1910,7 @@ public class XmlHelper {
             return Collections.emptyMap();
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, typeReference);
+            return XmlMapperHolder.purityMapper().readValue(xml, typeReference);
         } catch (IOException exception) {
             throw new XmlParseMapException("parseMap", typeReference.getType().getTypeName(),xml, exception.getMessage());
         }
@@ -1934,7 +1934,7 @@ public class XmlHelper {
             return Collections.emptyMap();
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, typeReference);
+            return XmlMapperHolder.purityMapper().readValue(xml, typeReference);
         } catch (IOException exception) {
             throw new XmlParseMapException("parseMap", typeReference.getType().getTypeName(),xml, exception.getMessage());
         }
@@ -1959,7 +1959,7 @@ public class XmlHelper {
             return Collections.emptyMap();
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, typeReference);
+            return XmlMapperHolder.purityMapper().readValue(xml, typeReference);
         } catch (IOException exception) {
             throw new XmlParseMapException("parseMap", typeReference.getType().getTypeName(),xml, exception.getMessage());
         }
@@ -1984,7 +1984,7 @@ public class XmlHelper {
             return Collections.emptyMap();
         }
         try {
-            return XmlMapperHolder.xmlMapper().readValue(xml, typeReference);
+            return XmlMapperHolder.purityMapper().readValue(xml, typeReference);
         } catch (JsonProcessingException exception) {
             throw new XmlParseMapException("parseMap", typeReference.getType().getTypeName(),xml, exception.getMessage());
         }
@@ -2904,7 +2904,7 @@ public class XmlHelper {
             return null;
         }
         try {
-            return XmlMapperHolder.xmlMapper().convertValue(value, clazz);
+            return XmlMapperHolder.purityMapper().convertValue(value, clazz);
         } catch (IllegalArgumentException exception) {
             throw new XmlParseConvertException("parseConvert", clazz.getName(), value.getClass().getName(), exception.getMessage());
         }
@@ -2927,7 +2927,7 @@ public class XmlHelper {
             return null;
         }
         try {
-            return XmlMapperHolder.xmlMapper().convertValue(value, typeReference);
+            return XmlMapperHolder.purityMapper().convertValue(value, typeReference);
         } catch (IllegalArgumentException exception) {
             throw new XmlParseConvertException("parseConvert", typeReference.getType().getTypeName(), value.getClass().getName(), exception.getMessage());
         }
@@ -2950,7 +2950,7 @@ public class XmlHelper {
             return null;
         }
         try {
-            return XmlMapperHolder.xmlMapper().convertValue(value, javaType);
+            return XmlMapperHolder.purityMapper().convertValue(value, javaType);
         } catch (IllegalArgumentException exception) {
             throw new XmlParseConvertException("parseConvert", javaType.getRawClass().getName(), value.getClass().getName(), exception.getMessage());
         }

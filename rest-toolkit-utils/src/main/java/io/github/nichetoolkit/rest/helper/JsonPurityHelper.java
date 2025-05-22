@@ -25,14 +25,14 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * <code>JsonHelper</code>
- * <p>The json helper class.</p>
+ * <code>JsonPurityHelper</code>
+ * <p>The json purity helper class.</p>
  * @see  lombok.extern.slf4j.Slf4j
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
 @Slf4j
-public class JsonHelper {
+public class JsonPurityHelper {
 
     /**
      * <code>parseJson</code>
@@ -49,7 +49,7 @@ public class JsonHelper {
             return;
         }
         try {
-            ObjectMapperHolder.objectMapper().writeValue(file, target);
+            ObjectMapperHolder.purityMapper().writeValue(file, target);
         } catch (IOException exception) {
             throw new JsonParseException("parseJson", target.getClass().getName(), exception.getMessage());
         }
@@ -70,7 +70,7 @@ public class JsonHelper {
             return;
         }
         try {
-            ObjectMapperHolder.objectMapper().writeValue(outputStream, target);
+            ObjectMapperHolder.purityMapper().writeValue(outputStream, target);
         } catch (IOException exception) {
             throw new JsonParseException("parseJson", target.getClass().getName(), exception.getMessage());
         }
@@ -91,7 +91,7 @@ public class JsonHelper {
             return;
         }
         try {
-            ObjectMapperHolder.objectMapper().writeValue(writer, target);
+            ObjectMapperHolder.purityMapper().writeValue(writer, target);
         } catch (IOException exception) {
             throw new JsonParseException("parseJson", target.getClass().getName(), exception.getMessage());
         }
@@ -112,7 +112,7 @@ public class JsonHelper {
             return null;
         }
         try {
-            return ObjectMapperHolder.objectMapper().writeValueAsString(target);
+            return ObjectMapperHolder.purityMapper().writeValueAsString(target);
         } catch (JsonProcessingException exception) {
             throw new JsonParseException("parseJson", target.getClass().getName(), exception.getMessage());
         }
@@ -132,7 +132,7 @@ public class JsonHelper {
             return null;
         }
         try {
-            return ObjectMapperHolder.objectMapper().writeValueAsBytes(target);
+            return ObjectMapperHolder.purityMapper().writeValueAsBytes(target);
         } catch (JsonProcessingException exception) {
             throw new JsonParseException("parseJsonAsBytes", target.getClass().getName(), exception.getMessage());
         }
@@ -155,7 +155,7 @@ public class JsonHelper {
             return null;
         }
         try {
-            return ObjectMapperHolder.objectMapper().writerFor(typeReference).writeValueAsString(target);
+            return ObjectMapperHolder.purityMapper().writerFor(typeReference).writeValueAsString(target);
         } catch (JsonProcessingException exception) {
             throw new JsonParseException("parseJson", target.getClass().getName(), exception.getMessage());
         }
@@ -201,7 +201,7 @@ public class JsonHelper {
             return null;
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, clazz);
+            return ObjectMapperHolder.purityMapper().readValue(json, clazz);
         } catch (IOException exception) {
             throw new JsonParseBeanException("parseBean", clazz.getName(), json, exception.getMessage());
         }
@@ -224,7 +224,7 @@ public class JsonHelper {
             return null;
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, clazz);
+            return ObjectMapperHolder.purityMapper().readValue(json, clazz);
         } catch (IOException exception) {
             throw new JsonParseBeanException("parseBean", clazz.getName(), json, exception.getMessage());
         }
@@ -246,7 +246,7 @@ public class JsonHelper {
             return null;
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, clazz);
+            return ObjectMapperHolder.purityMapper().readValue(json, clazz);
         } catch (IOException exception) {
             throw new JsonParseBeanException("parseBean", clazz.getName(), json, exception.getMessage());
         }
@@ -269,7 +269,7 @@ public class JsonHelper {
             return null;
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, clazz);
+            return ObjectMapperHolder.purityMapper().readValue(json, clazz);
         } catch (IOException exception) {
             throw new JsonParseBeanException("parseBean", clazz.getName(), json, exception.getMessage());
         }
@@ -292,7 +292,7 @@ public class JsonHelper {
             return null;
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, clazz);
+            return ObjectMapperHolder.purityMapper().readValue(json, clazz);
         } catch (JsonProcessingException exception) {
             throw new JsonParseBeanException("parseBean", clazz.getName(), json, exception.getMessage());
         }
@@ -315,7 +315,7 @@ public class JsonHelper {
             return null;
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, typeReference);
+            return ObjectMapperHolder.purityMapper().readValue(json, typeReference);
         } catch (IOException exception) {
             throw new JsonParseBeanException("parseBean", typeReference.getType().getTypeName(), json, exception.getMessage());
         }
@@ -338,7 +338,7 @@ public class JsonHelper {
             return null;
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, typeReference);
+            return ObjectMapperHolder.purityMapper().readValue(json, typeReference);
         } catch (IOException exception) {
             throw new JsonParseBeanException("parseBean", typeReference.getType().getTypeName(), json, exception.getMessage());
         }
@@ -360,7 +360,7 @@ public class JsonHelper {
             return null;
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, typeReference);
+            return ObjectMapperHolder.purityMapper().readValue(json, typeReference);
         } catch (IOException exception) {
             throw new JsonParseBeanException("parseBean", typeReference.getType().getTypeName(), json, exception.getMessage());
         }
@@ -383,7 +383,7 @@ public class JsonHelper {
             return null;
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, typeReference);
+            return ObjectMapperHolder.purityMapper().readValue(json, typeReference);
         } catch (IOException exception) {
             throw new JsonParseBeanException("parseBean", typeReference.getType().getTypeName(), json, exception.getMessage());
         }
@@ -406,7 +406,7 @@ public class JsonHelper {
             return null;
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, typeReference);
+            return ObjectMapperHolder.purityMapper().readValue(json, typeReference);
         } catch (JsonProcessingException exception) {
             throw new JsonParseBeanException("parseBean", typeReference.getType().getTypeName(), json, exception.getMessage());
         }
@@ -429,7 +429,7 @@ public class JsonHelper {
             return null;
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, javaType);
+            return ObjectMapperHolder.purityMapper().readValue(json, javaType);
         } catch (IOException exception) {
             throw new JsonParseBeanException("parseBean", javaType.getRawClass().getName(), json, exception.getMessage());
         }
@@ -452,7 +452,7 @@ public class JsonHelper {
             return null;
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, javaType);
+            return ObjectMapperHolder.purityMapper().readValue(json, javaType);
         } catch (IOException exception) {
             throw new JsonParseBeanException("parseBean", javaType.getRawClass().getName(), json, exception.getMessage());
         }
@@ -474,7 +474,7 @@ public class JsonHelper {
             return null;
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, javaType);
+            return ObjectMapperHolder.purityMapper().readValue(json, javaType);
         } catch (IOException exception) {
             throw new JsonParseBeanException("parseBean", javaType.getRawClass().getName(), json, exception.getMessage());
         }
@@ -497,7 +497,7 @@ public class JsonHelper {
             return null;
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, javaType);
+            return ObjectMapperHolder.purityMapper().readValue(json, javaType);
         } catch (IOException exception) {
             throw new JsonParseBeanException("parseBean", javaType.getRawClass().getName(), json, exception.getMessage());
         }
@@ -520,7 +520,7 @@ public class JsonHelper {
             return null;
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, javaType);
+            return ObjectMapperHolder.purityMapper().readValue(json, javaType);
         } catch (JsonProcessingException exception) {
             throw new JsonParseBeanException("parseBean", javaType.getRawClass().getName(), json, exception.getMessage());
         }
@@ -637,7 +637,7 @@ public class JsonHelper {
             return null;
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, arrayType);
+            return ObjectMapperHolder.purityMapper().readValue(json, arrayType);
         } catch (IOException exception) {
             throw new JsonParseArrayException("parseArray", arrayType.getRawClass().getName(), json, exception.getMessage());
         }
@@ -660,7 +660,7 @@ public class JsonHelper {
             return null;
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, arrayType);
+            return ObjectMapperHolder.purityMapper().readValue(json, arrayType);
         } catch (IOException exception) {
             throw new JsonParseArrayException("parseArray", arrayType.getRawClass().getName(), json, exception.getMessage());
         }
@@ -682,7 +682,7 @@ public class JsonHelper {
             return null;
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, arrayType);
+            return ObjectMapperHolder.purityMapper().readValue(json, arrayType);
         } catch (IOException exception) {
             throw new JsonParseArrayException("parseArray", arrayType.getRawClass().getName(), json, exception.getMessage());
         }
@@ -705,7 +705,7 @@ public class JsonHelper {
             return null;
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, arrayType);
+            return ObjectMapperHolder.purityMapper().readValue(json, arrayType);
         } catch (IOException exception) {
             throw new JsonParseArrayException("parseArray", arrayType.getRawClass().getName(), json, exception.getMessage());
         }
@@ -728,7 +728,7 @@ public class JsonHelper {
             return null;
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, arrayType);
+            return ObjectMapperHolder.purityMapper().readValue(json, arrayType);
         } catch (JsonProcessingException exception) {
             throw new JsonParseArrayException("parseArray", arrayType.getRawClass().getName(), json, exception.getMessage());
         }
@@ -920,7 +920,7 @@ public class JsonHelper {
             return Collections.emptyList();
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, listType);
+            return ObjectMapperHolder.purityMapper().readValue(json, listType);
         } catch (IOException exception) {
             throw new JsonParseListException("parseList", listType.getRawClass().getName(), json, exception.getMessage());
         }
@@ -944,7 +944,7 @@ public class JsonHelper {
             return Collections.emptyList();
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, listType);
+            return ObjectMapperHolder.purityMapper().readValue(json, listType);
         } catch (IOException exception) {
             throw new JsonParseListException("parseList", listType.getRawClass().getName(), json, exception.getMessage());
         }
@@ -967,7 +967,7 @@ public class JsonHelper {
             return Collections.emptyList();
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, listType);
+            return ObjectMapperHolder.purityMapper().readValue(json, listType);
         } catch (IOException exception) {
             throw new JsonParseListException("parseList", listType.getRawClass().getName(), json, exception.getMessage());
         }
@@ -991,7 +991,7 @@ public class JsonHelper {
             return Collections.emptyList();
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, listType);
+            return ObjectMapperHolder.purityMapper().readValue(json, listType);
         } catch (IOException exception) {
             throw new JsonParseListException("parseList", listType.getRawClass().getName(), json, exception.getMessage());
         }
@@ -1015,7 +1015,7 @@ public class JsonHelper {
             return Collections.emptyList();
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, listType);
+            return ObjectMapperHolder.purityMapper().readValue(json, listType);
         } catch (JsonProcessingException exception) {
             throw new JsonParseListException("parseList", listType.getRawClass().getName(), json, exception.getMessage());
         }
@@ -1039,7 +1039,7 @@ public class JsonHelper {
             return Collections.emptyList();
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, typeReference);
+            return ObjectMapperHolder.purityMapper().readValue(json, typeReference);
         } catch (IOException exception) {
             throw new JsonParseListException("parseList", typeReference.getType().getTypeName(), json, exception.getMessage());
         }
@@ -1063,7 +1063,7 @@ public class JsonHelper {
             return Collections.emptyList();
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, typeReference);
+            return ObjectMapperHolder.purityMapper().readValue(json, typeReference);
         } catch (IOException exception) {
             throw new JsonParseListException("parseList", typeReference.getType().getTypeName(), json, exception.getMessage());
         }
@@ -1086,7 +1086,7 @@ public class JsonHelper {
             return Collections.emptyList();
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, typeReference);
+            return ObjectMapperHolder.purityMapper().readValue(json, typeReference);
         } catch (IOException exception) {
             throw new JsonParseListException("parseList", typeReference.getType().getTypeName(), json, exception.getMessage());
         }
@@ -1110,7 +1110,7 @@ public class JsonHelper {
             return Collections.emptyList();
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, typeReference);
+            return ObjectMapperHolder.purityMapper().readValue(json, typeReference);
         } catch (IOException exception) {
             throw new JsonParseListException("parseList", typeReference.getType().getTypeName(), json, exception.getMessage());
         }
@@ -1134,7 +1134,7 @@ public class JsonHelper {
             return Collections.emptyList();
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, typeReference);
+            return ObjectMapperHolder.purityMapper().readValue(json, typeReference);
         } catch (JsonProcessingException exception) {
             throw new JsonParseListException("parseList", typeReference.getType().getTypeName(), json, exception.getMessage());
         }
@@ -1341,7 +1341,7 @@ public class JsonHelper {
             return Collections.emptySet();
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, setType);
+            return ObjectMapperHolder.purityMapper().readValue(json, setType);
         } catch (IOException exception) {
             throw new JsonParseSetException("parseSet", setType.getRawClass().getName(), json, exception.getMessage());
         }
@@ -1365,7 +1365,7 @@ public class JsonHelper {
             return Collections.emptySet();
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, setType);
+            return ObjectMapperHolder.purityMapper().readValue(json, setType);
         } catch (IOException exception) {
             throw new JsonParseSetException("parseSet", setType.getRawClass().getName(), json, exception.getMessage());
         }
@@ -1388,7 +1388,7 @@ public class JsonHelper {
             return Collections.emptySet();
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, setType);
+            return ObjectMapperHolder.purityMapper().readValue(json, setType);
         } catch (IOException exception) {
             throw new JsonParseSetException("parseSet", setType.getRawClass().getName(), json, exception.getMessage());
         }
@@ -1412,7 +1412,7 @@ public class JsonHelper {
             return Collections.emptySet();
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, setType);
+            return ObjectMapperHolder.purityMapper().readValue(json, setType);
         } catch (IOException exception) {
             throw new JsonParseSetException("parseSet", setType.getRawClass().getName(), json, exception.getMessage());
         }
@@ -1436,7 +1436,7 @@ public class JsonHelper {
             return Collections.emptySet();
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, setType);
+            return ObjectMapperHolder.purityMapper().readValue(json, setType);
         } catch (JsonProcessingException exception) {
             throw new JsonParseSetException("parseSet", setType.getRawClass().getName(), json, exception.getMessage());
         }
@@ -1460,7 +1460,7 @@ public class JsonHelper {
             return Collections.emptySet();
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, typeReference);
+            return ObjectMapperHolder.purityMapper().readValue(json, typeReference);
         } catch (IOException exception) {
             throw new JsonParseSetException("parseSet", typeReference.getType().getTypeName(), json, exception.getMessage());
         }
@@ -1484,7 +1484,7 @@ public class JsonHelper {
             return Collections.emptySet();
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, typeReference);
+            return ObjectMapperHolder.purityMapper().readValue(json, typeReference);
         } catch (IOException exception) {
             throw new JsonParseSetException("parseSet", typeReference.getType().getTypeName(), json, exception.getMessage());
         }
@@ -1507,7 +1507,7 @@ public class JsonHelper {
             return Collections.emptySet();
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, typeReference);
+            return ObjectMapperHolder.purityMapper().readValue(json, typeReference);
         } catch (IOException exception) {
             throw new JsonParseSetException("parseSet", typeReference.getType().getTypeName(), json, exception.getMessage());
         }
@@ -1531,7 +1531,7 @@ public class JsonHelper {
             return Collections.emptySet();
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, typeReference);
+            return ObjectMapperHolder.purityMapper().readValue(json, typeReference);
         } catch (IOException exception) {
             throw new JsonParseSetException("parseSet", typeReference.getType().getTypeName(), json, exception.getMessage());
         }
@@ -1555,7 +1555,7 @@ public class JsonHelper {
             return Collections.emptySet();
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, typeReference);
+            return ObjectMapperHolder.purityMapper().readValue(json, typeReference);
         } catch (JsonProcessingException exception) {
             throw new JsonParseSetException("parseSet", typeReference.getType().getTypeName(), json, exception.getMessage());
         }
@@ -1763,7 +1763,7 @@ public class JsonHelper {
             return Collections.emptyMap();
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, mapType);
+            return ObjectMapperHolder.purityMapper().readValue(json, mapType);
         } catch (IOException exception) {
             throw new JsonParseMapException("parseMap", mapType.getRawClass().getName(), json, exception.getMessage());
         }
@@ -1788,7 +1788,7 @@ public class JsonHelper {
             return Collections.emptyMap();
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, mapType);
+            return ObjectMapperHolder.purityMapper().readValue(json, mapType);
         } catch (IOException exception) {
             throw new JsonParseMapException("parseMap", mapType.getRawClass().getName(), json, exception.getMessage());
         }
@@ -1812,7 +1812,7 @@ public class JsonHelper {
             return Collections.emptyMap();
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, mapType);
+            return ObjectMapperHolder.purityMapper().readValue(json, mapType);
         } catch (IOException exception) {
             throw new JsonParseMapException("parseMap", mapType.getRawClass().getName(), json, exception.getMessage());
         }
@@ -1837,7 +1837,7 @@ public class JsonHelper {
             return Collections.emptyMap();
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, mapType);
+            return ObjectMapperHolder.purityMapper().readValue(json, mapType);
         } catch (IOException exception) {
             throw new JsonParseMapException("parseMap", mapType.getRawClass().getName(), json, exception.getMessage());
         }
@@ -1862,7 +1862,7 @@ public class JsonHelper {
             return Collections.emptyMap();
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, mapType);
+            return ObjectMapperHolder.purityMapper().readValue(json, mapType);
         } catch (JsonProcessingException exception) {
             throw new JsonParseMapException("parseMap", mapType.getRawClass().getName(), json, exception.getMessage());
         }
@@ -1887,7 +1887,7 @@ public class JsonHelper {
             return Collections.emptyMap();
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, typeReference);
+            return ObjectMapperHolder.purityMapper().readValue(json, typeReference);
         } catch (IOException exception) {
             throw new JsonParseMapException("parseMap", typeReference.getType().getTypeName(), json, exception.getMessage());
         }
@@ -1912,7 +1912,7 @@ public class JsonHelper {
             return Collections.emptyMap();
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, typeReference);
+            return ObjectMapperHolder.purityMapper().readValue(json, typeReference);
         } catch (IOException exception) {
             throw new JsonParseMapException("parseMap", typeReference.getType().getTypeName(), json, exception.getMessage());
         }
@@ -1936,7 +1936,7 @@ public class JsonHelper {
             return Collections.emptyMap();
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, typeReference);
+            return ObjectMapperHolder.purityMapper().readValue(json, typeReference);
         } catch (IOException exception) {
             throw new JsonParseMapException("parseMap", typeReference.getType().getTypeName(), json, exception.getMessage());
         }
@@ -1961,7 +1961,7 @@ public class JsonHelper {
             return Collections.emptyMap();
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, typeReference);
+            return ObjectMapperHolder.purityMapper().readValue(json, typeReference);
         } catch (IOException exception) {
             throw new JsonParseMapException("parseMap", typeReference.getType().getTypeName(), json, exception.getMessage());
         }
@@ -1986,7 +1986,7 @@ public class JsonHelper {
             return Collections.emptyMap();
         }
         try {
-            return ObjectMapperHolder.objectMapper().readValue(json, typeReference);
+            return ObjectMapperHolder.purityMapper().readValue(json, typeReference);
         } catch (JsonProcessingException exception) {
             throw new JsonParseMapException("parseMap", typeReference.getType().getTypeName(), json, exception.getMessage());
         }
@@ -3172,8 +3172,8 @@ public class JsonHelper {
             return null;
         }
         try {
-            JsonNode jsonNode = ObjectMapperHolder.objectMapper().readTree(json);
-           return parseResult(jsonNode);
+            JsonNode jsonNode = ObjectMapperHolder.purityMapper().readTree(json);
+           return JsonHelper.parseResult(jsonNode);
         } catch (IOException exception) {
             throw new JsonParseResultException("parseResult", RestResult.class.getName(), json, exception.getMessage());
         }
@@ -3194,8 +3194,8 @@ public class JsonHelper {
             return null;
         }
         try {
-            JsonNode jsonNode = ObjectMapperHolder.objectMapper().readTree(json);
-            return parseResult(jsonNode);
+            JsonNode jsonNode = ObjectMapperHolder.purityMapper().readTree(json);
+            return JsonHelper.parseResult(jsonNode);
         } catch (IOException exception) {
             throw new JsonParseResultException("parseResult", RestResult.class.getName(), json, exception.getMessage());
         }
@@ -3215,8 +3215,8 @@ public class JsonHelper {
             return null;
         }
         try {
-            JsonNode jsonNode = ObjectMapperHolder.objectMapper().readTree(json);
-            return parseResult(jsonNode);
+            JsonNode jsonNode = ObjectMapperHolder.purityMapper().readTree(json);
+            return JsonHelper.parseResult(jsonNode);
         } catch (IOException exception) {
             throw new JsonParseResultException("parseResult", RestResult.class.getName(), json, exception.getMessage());
         }
@@ -3237,8 +3237,8 @@ public class JsonHelper {
             return null;
         }
         try {
-            JsonNode jsonNode = ObjectMapperHolder.objectMapper().readTree(json);
-            return parseResult(jsonNode);
+            JsonNode jsonNode = ObjectMapperHolder.purityMapper().readTree(json);
+            return JsonHelper.parseResult(jsonNode);
         } catch (IOException exception) {
             throw new JsonParseResultException("parseResult", RestResult.class.getName(), json, exception.getMessage());
         }
@@ -3259,39 +3259,11 @@ public class JsonHelper {
             return null;
         }
         try {
-            JsonNode jsonNode = ObjectMapperHolder.objectMapper().readTree(json);
-            return parseResult(jsonNode);
+            JsonNode jsonNode = ObjectMapperHolder.purityMapper().readTree(json);
+            return JsonHelper.parseResult(jsonNode);
         } catch (JsonProcessingException exception) {
             throw new JsonParseResultException("parseResult", RestResult.class.getName(), json, exception.getMessage());
         }
-    }
-
-    /**
-     * <code>parseResult</code>
-     * <p>The parse result method.</p>
-     * @param jsonNode {@link com.fasterxml.jackson.databind.JsonNode} <p>The json node parameter is <code>JsonNode</code> type.</p>
-     * @see  com.fasterxml.jackson.databind.JsonNode
-     * @see  io.github.nichetoolkit.rest.RestResult
-     * @return  {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
-     */
-    public static RestResult<String> parseResult(JsonNode jsonNode) {
-        if (GeneralUtils.isEmpty(jsonNode)) {
-            return null;
-        }
-        RestResult<String> restResult = new RestResult<>();
-        JsonNode status = jsonNode.get(RestResult.STATUS_NAME);
-        if (GeneralUtils.isNotEmpty(status)) {
-            restResult.setStatus(status.asInt());
-        }
-        JsonNode message = jsonNode.get(RestResult.MESSAGE_NAME);
-        if (GeneralUtils.isNotEmpty(message)) {
-            restResult.setMessage(message.toString());
-        }
-        JsonNode data = jsonNode.get(RestResult.DATA_NAME);
-        if (GeneralUtils.isNotEmpty(data)) {
-            restResult.setData(data.toString());
-        }
-        return restResult;
     }
 
     /**
@@ -3311,7 +3283,7 @@ public class JsonHelper {
             return null;
         }
         try {
-            return ObjectMapperHolder.objectMapper().convertValue(value, clazz);
+            return ObjectMapperHolder.purityMapper().convertValue(value, clazz);
         } catch (IllegalArgumentException exception) {
             throw new JsonParseConvertException("parseConvert", clazz.getName(), value.getClass().getName(), exception.getMessage());
         }
@@ -3334,7 +3306,7 @@ public class JsonHelper {
             return null;
         }
         try {
-            return ObjectMapperHolder.objectMapper().convertValue(value, typeReference);
+            return ObjectMapperHolder.purityMapper().convertValue(value, typeReference);
         } catch (IllegalArgumentException exception) {
             throw new JsonParseConvertException("parseConvert", typeReference.getType().getTypeName(), value.getClass().getName(), exception.getMessage());
         }
@@ -3357,7 +3329,7 @@ public class JsonHelper {
             return null;
         }
         try {
-            return ObjectMapperHolder.objectMapper().convertValue(value, javaType);
+            return ObjectMapperHolder.purityMapper().convertValue(value, javaType);
         } catch (IllegalArgumentException exception) {
             throw new JsonParseConvertException("parseConvert", javaType.getRawClass().getName(), value.getClass().getName(), exception.getMessage());
         }
