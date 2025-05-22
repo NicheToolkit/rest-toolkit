@@ -1024,4 +1024,37 @@ public class XmlHelper {
         return parseMapMap(xml, Map.class, Map.class, wrapKeyClazz, contentKeyClazz, contentValueClazz);
     }
 
+    public static <T> T parseConvert(Object value, Class<T> clazz) throws XmlParseConvertException {
+        if (GeneralUtils.isEmpty(value)) {
+            return null;
+        }
+        try {
+            return XmlMapperHolder.xmlMapper().convertValue(value, clazz);
+        } catch (IllegalArgumentException exception) {
+            throw new XmlParseConvertException("parseConvert", clazz.getName(), value.getClass().getName(), exception.getMessage());
+        }
+    }
+
+    public static <T> T parseConvert(Object value, TypeReference<T> typeReference) throws XmlParseConvertException {
+        if (GeneralUtils.isEmpty(value)) {
+            return null;
+        }
+        try {
+            return XmlMapperHolder.xmlMapper().convertValue(value, typeReference);
+        } catch (IllegalArgumentException exception) {
+            throw new XmlParseConvertException("parseConvert", typeReference.getType().getTypeName(), value.getClass().getName(), exception.getMessage());
+        }
+    }
+
+    public static <T> T parseConvert(Object value, JavaType javaType) throws XmlParseConvertException {
+        if (GeneralUtils.isEmpty(value)) {
+            return null;
+        }
+        try {
+            return XmlMapperHolder.xmlMapper().convertValue(value, javaType);
+        } catch (IllegalArgumentException exception) {
+            throw new XmlParseConvertException("parseConvert", javaType.getRawClass().getName(), value.getClass().getName(), exception.getMessage());
+        }
+    }
+
 }
