@@ -306,8 +306,7 @@ public class ZipHelper {
                 Path filePath = Paths.get(zipDirectory.toString(), entry.getName());
                 if (!entry.isDirectory()) {
                     Path parent = filePath.getParent();
-                    File parentFile = parent.toFile();
-                    if (!parentFile.exists() && parentFile.isDirectory()) {
+                    if (!parent.toFile().exists()) {
                         Files.createDirectories(parent);
                     }
                     IoStreamUtils.writeOfUnclose(filePath, zipInputStream);
