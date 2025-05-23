@@ -28,7 +28,7 @@ public class DeserializeUtils {
      * @see  java.util.Map
      * @return  {@link java.util.Map} <p>The deserializer bean return object is <code>Map</code> type.</p>
      */
-    public static Map<String, Object> deserializerBean(JsonParser parser) {
+    public static Map<String, JsonNode> deserializerBean(JsonParser parser) {
         try {
             return DeserializeHelper.deserializerBean(parser);
         } catch (JsonDeserializeException exception) {
@@ -46,7 +46,7 @@ public class DeserializeUtils {
      * @see  java.util.Map
      * @return  {@link java.util.Map} <p>The deserializer bean return object is <code>Map</code> type.</p>
      */
-    public static Map<String, Object> deserializerBean(JsonNode jsonNode) {
+    public static Map<String, JsonNode> deserializerBean(JsonNode jsonNode) {
         return DeserializeHelper.deserializerBean(jsonNode);
     }
 
@@ -88,7 +88,7 @@ public class DeserializeUtils {
      * @see  java.util.List
      * @return  {@link java.util.List} <p>The deserializer bean list return object is <code>List</code> type.</p>
      */
-    public static List<Map<String, Object>> deserializerBeanList(JsonParser parser) {
+    public static List<Map<String, JsonNode>> deserializerBeanList(JsonParser parser) {
         try {
             return DeserializeHelper.deserializerBeanList(parser);
         } catch (JsonDeserializeException exception) {
@@ -106,7 +106,7 @@ public class DeserializeUtils {
      * @see  java.util.List
      * @return  {@link java.util.List} <p>The deserializer bean list return object is <code>List</code> type.</p>
      */
-    public static List<Map<String, Object>> deserializerBeanList(JsonNode jsonNode) {
+    public static List<Map<String, JsonNode>> deserializerBeanList(JsonNode jsonNode) {
         return DeserializeHelper.deserializerBeanList(jsonNode);
     }
 
@@ -118,7 +118,7 @@ public class DeserializeUtils {
      * @see  java.util.Map
      * @return  {@link java.util.Map} <p>The deserializer map return object is <code>Map</code> type.</p>
      */
-    public static Map<String, Object> deserializerMap(JsonParser parser) {
+    public static Map<String, JsonNode> deserializerMap(JsonParser parser) {
         try {
             return DeserializeHelper.deserializerMap(parser);
         } catch (JsonDeserializeException exception) {
@@ -136,7 +136,7 @@ public class DeserializeUtils {
      * @see  java.util.Map
      * @return  {@link java.util.Map} <p>The deserializer map return object is <code>Map</code> type.</p>
      */
-    public static Map<String, Object> deserializerMap(JsonNode jsonNode) {
+    public static Map<String, JsonNode> deserializerMap(JsonNode jsonNode) {
         return DeserializeHelper.deserializerMap(jsonNode);
     }
 
@@ -149,7 +149,7 @@ public class DeserializeUtils {
      * @see  java.util.Map
      * @return  {@link java.util.Map} <p>The deserializer bean map return object is <code>Map</code> type.</p>
      */
-    public static Map<String,Map<String, Object>> deserializerBeanMap(JsonParser parser){
+    public static Map<String,Map<String, JsonNode>> deserializerBeanMap(JsonParser parser){
         try {
             return DeserializeHelper.deserializerBeanMap(parser);
         } catch (JsonDeserializeException exception) {
@@ -167,7 +167,7 @@ public class DeserializeUtils {
      * @see  java.util.Map
      * @return  {@link java.util.Map} <p>The deserializer bean map return object is <code>Map</code> type.</p>
      */
-    public static Map<String,Map<String, Object>> deserializerBeanMap(JsonNode jsonNode) {
+    public static Map<String,Map<String, JsonNode>> deserializerBeanMap(JsonNode jsonNode) {
         return DeserializeHelper.deserializerBeanMap(jsonNode);
     }
 }
