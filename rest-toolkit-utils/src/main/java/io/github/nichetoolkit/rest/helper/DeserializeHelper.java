@@ -83,6 +83,8 @@ public class DeserializeHelper {
             for (JsonNode objectNode : jsonNode) {
                 resultList.add(objectNode);
             }
+        } else {
+            resultList.add(jsonNode);
         }
         return resultList;
     }
