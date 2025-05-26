@@ -5,9 +5,9 @@ import lombok.Getter;
 /**
  * <code>RestErrorStatus</code>
  * <p>The rest error status enumeration.</p>
+ * @see  io.github.nichetoolkit.rest.RestStatus
+ * @see  lombok.Getter
  * @author Cyan (snow22314@outlook.com)
- * @see io.github.nichetoolkit.rest.RestStatus
- * @see lombok.Getter
  * @since Jdk1.8
  */
 @Getter
@@ -26,8 +26,8 @@ public enum RestErrorStatus implements RestStatus {
     /**
      * <code>FAILED</code>
      * <p>The failed rest error status field.</p>
-     * @see java.lang.Deprecated
-     * @deprecated <p>The <code>FAILED</code> field has be deprecated.</p>
+     * @deprecated  <p>The <code>FAILED</code> field has be deprecated.</p>
+     * @see  java.lang.Deprecated
      */
     @Deprecated
     FAILED(400, "failed"),
@@ -554,11 +554,17 @@ public enum RestErrorStatus implements RestStatus {
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>JAXB_XML_WRITE_ERROR</code> field.</p>
      */
     JAXB_XML_WRITE_ERROR(10632, "it has encountered a xml file write error"),
+
+    /**
+     * <code>JAXB_XML_PROPERTY_ERROR</code>
+     * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>JAXB_XML_PROPERTY_ERROR</code> field.</p>
+     */
+    JAXB_XML_PROPERTY_ERROR(10633, "it has encountered a xml file set property error"),
     /**
      * <code>JAXB_XML_MARSHAL_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>JAXB_XML_MARSHAL_ERROR</code> field.</p>
      */
-    JAXB_XML_MARSHAL_ERROR(10633, "it has encountered a xml file marshal error"),
+    JAXB_XML_MARSHAL_ERROR(10634, "it has encountered a xml file marshal error"),
 
     /**
      * <code>ZIP_ERROR</code>
@@ -580,23 +586,23 @@ public enum RestErrorStatus implements RestStatus {
     /**
      * <code>status</code>
      * {@link java.lang.Integer} <p>The <code>status</code> field.</p>
-     * @see java.lang.Integer
+     * @see  java.lang.Integer
      */
     private final Integer status;
     /**
      * <code>message</code>
      * {@link java.lang.String} <p>The <code>message</code> field.</p>
-     * @see java.lang.String
+     * @see  java.lang.String
      */
     private final String message;
 
     /**
      * <code>RestErrorStatus</code>
      * <p>Instantiates a new rest error status.</p>
-     * @param status  {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param status {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
      * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
-     * @see java.lang.Integer
-     * @see java.lang.String
+     * @see  java.lang.Integer
+     * @see  java.lang.String
      */
     RestErrorStatus(Integer status, String message) {
         this.status = status;
