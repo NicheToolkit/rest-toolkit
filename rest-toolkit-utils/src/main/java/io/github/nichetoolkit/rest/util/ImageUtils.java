@@ -310,11 +310,9 @@ public class ImageUtils {
      * <p>The bytes png method.</p>
      * @param bufferedImage {@link java.awt.image.BufferedImage} <p>The buffered image parameter is <code>BufferedImage</code> type.</p>
      * @return byte <p>The bytes png return object is <code>byte</code> type.</p>
-     * @throws ImageTransferException {@link io.github.nichetoolkit.rest.error.image.ImageTransferException} <p>The image transfer exception is <code>ImageTransferException</code> type.</p>
      * @see java.awt.image.BufferedImage
-     * @see io.github.nichetoolkit.rest.error.image.ImageTransferException
      */
-    public static byte[] bytesPng(BufferedImage bufferedImage) throws ImageTransferException {
+    public static byte[] bytesPng(BufferedImage bufferedImage) {
         return bytes(bufferedImage, UtilConstants.PNG_IMAGE_SUFFIX);
     }
 
@@ -323,11 +321,9 @@ public class ImageUtils {
      * <p>The bytes jpeg method.</p>
      * @param bufferedImage {@link java.awt.image.BufferedImage} <p>The buffered image parameter is <code>BufferedImage</code> type.</p>
      * @return byte <p>The bytes jpeg return object is <code>byte</code> type.</p>
-     * @throws ImageTransferException {@link io.github.nichetoolkit.rest.error.image.ImageTransferException} <p>The image transfer exception is <code>ImageTransferException</code> type.</p>
      * @see java.awt.image.BufferedImage
-     * @see io.github.nichetoolkit.rest.error.image.ImageTransferException
      */
-    public static byte[] bytesJpeg(BufferedImage bufferedImage) throws ImageTransferException {
+    public static byte[] bytesJpeg(BufferedImage bufferedImage) {
         return bytes(bufferedImage, UtilConstants.JPEG_IMAGE_SUFFIX);
     }
 
