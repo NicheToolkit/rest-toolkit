@@ -7,22 +7,73 @@ import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.security.SecureRandom;
 
+/**
+ * <code>ImageWorker</code>
+ * <p>The image worker class.</p>
+ * @author Cyan (snow22314@outlook.com)
+ * @since Jdk1.8
+ */
 public class ImageWorker {
 
+    /**
+     * <code>SECURE_RANDOM</code>
+     * {@link java.security.SecureRandom} <p>The constant <code>SECURE_RANDOM</code> field.</p>
+     * @see java.security.SecureRandom
+     */
     private static final SecureRandom SECURE_RANDOM = new SecureRandom();
 
+    /**
+     * <code>random</code>
+     * <p>The random method.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.img.ImageVerify} <p>The random return object is <code>ImageVerify</code> type.</p>
+     * @see io.github.nichetoolkit.rest.worker.img.ImageVerify
+     */
     public static synchronized ImageVerify random() {
         return random(UtilConstants.DEFAULT_IMAGE_WIDTH, UtilConstants.DEFAULT_IMAGE_HEIGHT);
     }
 
+    /**
+     * <code>random</code>
+     * <p>The random method.</p>
+     * @param width  {@link java.lang.Integer} <p>The width parameter is <code>Integer</code> type.</p>
+     * @param height {@link java.lang.Integer} <p>The height parameter is <code>Integer</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.img.ImageVerify} <p>The random return object is <code>ImageVerify</code> type.</p>
+     * @see java.lang.Integer
+     * @see io.github.nichetoolkit.rest.worker.img.ImageVerify
+     */
     public static synchronized ImageVerify random(Integer width, Integer height) {
         return random(width, height, UtilConstants.DEFAULT_IMAGE_COLOR);
     }
 
+    /**
+     * <code>random</code>
+     * <p>The random method.</p>
+     * @param width   {@link java.lang.Integer} <p>The width parameter is <code>Integer</code> type.</p>
+     * @param height  {@link java.lang.Integer} <p>The height parameter is <code>Integer</code> type.</p>
+     * @param bgColor {@link java.awt.Color} <p>The bg color parameter is <code>Color</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.img.ImageVerify} <p>The random return object is <code>ImageVerify</code> type.</p>
+     * @see java.lang.Integer
+     * @see java.awt.Color
+     * @see io.github.nichetoolkit.rest.worker.img.ImageVerify
+     */
     public static synchronized ImageVerify random(Integer width, Integer height, Color bgColor) {
         return random(width, height, BufferedImage.TYPE_INT_RGB, bgColor, 170, 200);
     }
 
+    /**
+     * <code>random</code>
+     * <p>The random method.</p>
+     * @param width   {@link java.lang.Integer} <p>The width parameter is <code>Integer</code> type.</p>
+     * @param height  {@link java.lang.Integer} <p>The height parameter is <code>Integer</code> type.</p>
+     * @param type    int <p>The type parameter is <code>int</code> type.</p>
+     * @param bgColor {@link java.awt.Color} <p>The bg color parameter is <code>Color</code> type.</p>
+     * @param fgStart int <p>The fg start parameter is <code>int</code> type.</p>
+     * @param fgEnd   int <p>The fg end parameter is <code>int</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.img.ImageVerify} <p>The random return object is <code>ImageVerify</code> type.</p>
+     * @see java.lang.Integer
+     * @see java.awt.Color
+     * @see io.github.nichetoolkit.rest.worker.img.ImageVerify
+     */
     public static synchronized ImageVerify random(Integer width, Integer height, int type, Color bgColor, int fgStart, int fgEnd) {
         BufferedImage image = new BufferedImage(width, height, type);
         Graphics2D graphics = (Graphics2D) image.getGraphics();
@@ -52,16 +103,37 @@ public class ImageWorker {
         return new ImageVerify(contentBuilder.toString(), image);
     }
 
+    /**
+     * <code>randomChar</code>
+     * <p>The random char method.</p>
+     * @return {@link java.lang.Character} <p>The random char return object is <code>Character</code> type.</p>
+     * @see java.lang.Character
+     */
     public static Character randomChar() {
         int index = SECURE_RANDOM.nextInt(UtilConstants.BASE_STRING.length());
         return UtilConstants.BASE_STRING.charAt(index);
     }
 
+    /**
+     * <code>randomColor</code>
+     * <p>The random color method.</p>
+     * @return {@link java.awt.Color} <p>The random color return object is <code>Color</code> type.</p>
+     * @see java.awt.Color
+     */
     public static Color randomColor() {
         return randomColor(0, 150);
     }
 
 
+    /**
+     * <code>randomColor</code>
+     * <p>The random color method.</p>
+     * @param min {@link java.lang.Integer} <p>The min parameter is <code>Integer</code> type.</p>
+     * @param max {@link java.lang.Integer} <p>The max parameter is <code>Integer</code> type.</p>
+     * @return {@link java.awt.Color} <p>The random color return object is <code>Color</code> type.</p>
+     * @see java.lang.Integer
+     * @see java.awt.Color
+     */
     public static Color randomColor(Integer min, Integer max) {
         if (min > 255) {
             min = 255;
@@ -75,6 +147,12 @@ public class ImageWorker {
         return new Color(red, green, blue);
     }
 
+    /**
+     * <code>randomFont</code>
+     * <p>The random font method.</p>
+     * @return {@link java.awt.Font} <p>The random font return object is <code>Font</code> type.</p>
+     * @see java.awt.Font
+     */
     public static Font randomFont() {
         int index = SECURE_RANDOM.nextInt(UtilConstants.FONT_NAME_ARRAY.length);
         String fontName = UtilConstants.FONT_NAME_ARRAY[index];
@@ -84,6 +162,12 @@ public class ImageWorker {
         return new Font(fontName, style, size);
     }
 
+    /**
+     * <code>randomTransform</code>
+     * <p>The random transform method.</p>
+     * @return {@link java.lang.Integer} <p>The random transform return object is <code>Integer</code> type.</p>
+     * @see java.lang.Integer
+     */
     public static Integer randomTransform() {
         int index = SECURE_RANDOM.nextInt(UtilConstants.AFFINE_TRANSFORM_ARRAY.length);
         return UtilConstants.AFFINE_TRANSFORM_ARRAY[index];
