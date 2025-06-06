@@ -700,6 +700,62 @@ public class ImageUtils {
     }
 
     /**
+     * <code>simplePng</code>
+     * <p>The simple png method.</p>
+     * @param bufferedImage {@link java.awt.image.BufferedImage} <p>The buffered image parameter is <code>BufferedImage</code> type.</p>
+     * @param width         {@link java.lang.Integer} <p>The width parameter is <code>Integer</code> type.</p>
+     * @param height        {@link java.lang.Integer} <p>The height parameter is <code>Integer</code> type.</p>
+     * @param quality       {@link java.lang.Double} <p>The quality parameter is <code>Double</code> type.</p>
+     * @return {@link java.awt.image.BufferedImage} <p>The simple png return object is <code>BufferedImage</code> type.</p>
+     * @see java.awt.image.BufferedImage
+     * @see java.lang.Integer
+     * @see java.lang.Double
+     */
+    public static BufferedImage simplePng(BufferedImage bufferedImage, Integer width, Integer height, Double quality) {
+        return simple(bufferedImage, width, height, quality, UtilConstants.PNG_IMAGE_SUFFIX);
+    }
+
+    /**
+     * <code>simpleJpeg</code>
+     * <p>The simple jpeg method.</p>
+     * @param bufferedImage {@link java.awt.image.BufferedImage} <p>The buffered image parameter is <code>BufferedImage</code> type.</p>
+     * @param width         {@link java.lang.Integer} <p>The width parameter is <code>Integer</code> type.</p>
+     * @param height        {@link java.lang.Integer} <p>The height parameter is <code>Integer</code> type.</p>
+     * @param quality       {@link java.lang.Double} <p>The quality parameter is <code>Double</code> type.</p>
+     * @return {@link java.awt.image.BufferedImage} <p>The simple jpeg return object is <code>BufferedImage</code> type.</p>
+     * @see java.awt.image.BufferedImage
+     * @see java.lang.Integer
+     * @see java.lang.Double
+     */
+    public static BufferedImage simpleJpeg(BufferedImage bufferedImage, Integer width, Integer height, Double quality) {
+        return simple(bufferedImage, width, height, quality, UtilConstants.JPEG_IMAGE_SUFFIX);
+    }
+
+    /**
+     * <code>simple</code>
+     * <p>The simple method.</p>
+     * @param bufferedImage {@link java.awt.image.BufferedImage} <p>The buffered image parameter is <code>BufferedImage</code> type.</p>
+     * @param width         {@link java.lang.Integer} <p>The width parameter is <code>Integer</code> type.</p>
+     * @param height        {@link java.lang.Integer} <p>The height parameter is <code>Integer</code> type.</p>
+     * @param quality       {@link java.lang.Double} <p>The quality parameter is <code>Double</code> type.</p>
+     * @param suffix        {@link java.lang.String} <p>The suffix parameter is <code>String</code> type.</p>
+     * @return {@link java.awt.image.BufferedImage} <p>The simple return object is <code>BufferedImage</code> type.</p>
+     * @see java.awt.image.BufferedImage
+     * @see java.lang.Integer
+     * @see java.lang.Double
+     * @see java.lang.String
+     */
+    public static BufferedImage simple(BufferedImage bufferedImage, Integer width, Integer height, Double quality, String suffix) {
+        try {
+            return Thumbnails.of(bufferedImage).size(width,height).outputFormat(suffix).outputQuality(quality).asBufferedImage();
+        } catch (IOException exception) {
+            log.error("It has encountered an error during inputStream to scale as bufferedImage!", exception);
+            GeneralUtils.printStackTrace(exception);
+            return null;
+        }
+    }
+
+    /**
      * <code>sizePng</code>
      * <p>The size png method.</p>
      * @param inputStream {@link java.io.InputStream} <p>The input stream parameter is <code>InputStream</code> type.</p>
