@@ -8,6 +8,7 @@ import io.github.nichetoolkit.rest.helper.ImageHelper;
 import lombok.extern.slf4j.Slf4j;
 import net.coobird.thumbnailator.Thumbnails;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -70,6 +71,49 @@ public class ImageUtils {
     public static void write(BufferedImage bufferedImage, OutputStream outputStream, String suffix) {
         try {
             ImageHelper.write(bufferedImage, outputStream, suffix);
+        } catch (ImageWriteException exception) {
+            log.error("It has encountered an error during bufferedImage to write with outputStream.", exception);
+            GeneralUtils.printStackTrace(exception);
+        }
+    }
+
+    /**
+     * <code>writePng</code>
+     * <p>The write png method.</p>
+     * @param bufferedImage {@link java.awt.image.BufferedImage} <p>The buffered image parameter is <code>BufferedImage</code> type.</p>
+     * @param response      {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @see java.awt.image.BufferedImage
+     * @see javax.servlet.http.HttpServletResponse
+     */
+    public static void writePng(BufferedImage bufferedImage, HttpServletResponse response) {
+        write(bufferedImage, response, UtilConstants.PNG_IMAGE_SUFFIX);
+    }
+
+    /**
+     * <code>writeJpeg</code>
+     * <p>The write jpeg method.</p>
+     * @param bufferedImage {@link java.awt.image.BufferedImage} <p>The buffered image parameter is <code>BufferedImage</code> type.</p>
+     * @param response      {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @see java.awt.image.BufferedImage
+     * @see javax.servlet.http.HttpServletResponse
+     */
+    public static void writeJpeg(BufferedImage bufferedImage, HttpServletResponse response) {
+        write(bufferedImage, response, UtilConstants.JPEG_IMAGE_SUFFIX);
+    }
+
+    /**
+     * <code>write</code>
+     * <p>The write method.</p>
+     * @param bufferedImage {@link java.awt.image.BufferedImage} <p>The buffered image parameter is <code>BufferedImage</code> type.</p>
+     * @param response      {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param suffix        {@link java.lang.String} <p>The suffix parameter is <code>String</code> type.</p>
+     * @see java.awt.image.BufferedImage
+     * @see javax.servlet.http.HttpServletResponse
+     * @see java.lang.String
+     */
+    public static void write(BufferedImage bufferedImage, HttpServletResponse response, String suffix) {
+        try {
+            ImageHelper.write(bufferedImage, response, suffix);
         } catch (ImageWriteException exception) {
             log.error("It has encountered an error during bufferedImage to write with outputStream.", exception);
             GeneralUtils.printStackTrace(exception);

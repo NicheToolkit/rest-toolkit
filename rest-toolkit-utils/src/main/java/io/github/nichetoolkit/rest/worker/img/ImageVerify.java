@@ -1,14 +1,13 @@
 package io.github.nichetoolkit.rest.worker.img;
 
-import io.github.nichetoolkit.rest.constant.UtilConstants;
-import io.github.nichetoolkit.rest.util.GeneralUtils;
+import io.github.nichetoolkit.rest.error.image.ImageWriteException;
+import io.github.nichetoolkit.rest.helper.ImageHelper;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.imageio.ImageIO;
+import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.io.OutputStream;
 import java.io.Serializable;
 
@@ -62,30 +61,79 @@ public class ImageVerify implements Serializable {
     }
 
     /**
+     * <code>writePng</code>
+     * <p>The write png method.</p>
+     * @param outputStream {@link java.io.OutputStream} <p>The output stream parameter is <code>OutputStream</code> type.</p>
+     * @throws ImageWriteException {@link io.github.nichetoolkit.rest.error.image.ImageWriteException} <p>The image write exception is <code>ImageWriteException</code> type.</p>
+     * @see java.io.OutputStream
+     * @see io.github.nichetoolkit.rest.error.image.ImageWriteException
+     */
+    public void writePng(OutputStream outputStream) throws ImageWriteException {
+        ImageHelper.writePng(image, outputStream);
+    }
+
+    /**
      * <code>writeJpeg</code>
      * <p>The write jpeg method.</p>
      * @param outputStream {@link java.io.OutputStream} <p>The output stream parameter is <code>OutputStream</code> type.</p>
+     * @throws ImageWriteException {@link io.github.nichetoolkit.rest.error.image.ImageWriteException} <p>The image write exception is <code>ImageWriteException</code> type.</p>
      * @see java.io.OutputStream
+     * @see io.github.nichetoolkit.rest.error.image.ImageWriteException
      */
-    public void writeJpeg(OutputStream outputStream) {
-        write(UtilConstants.JPEG_IMAGE_SUFFIX,outputStream);
+    public void writeJpeg(OutputStream outputStream) throws ImageWriteException {
+        ImageHelper.writeJpeg(image, outputStream);
     }
 
     /**
      * <code>write</code>
      * <p>The write method.</p>
-     * @param suffix       {@link java.lang.String} <p>The suffix parameter is <code>String</code> type.</p>
      * @param outputStream {@link java.io.OutputStream} <p>The output stream parameter is <code>OutputStream</code> type.</p>
-     * @see java.lang.String
+     * @param suffix       {@link java.lang.String} <p>The suffix parameter is <code>String</code> type.</p>
+     * @throws ImageWriteException {@link io.github.nichetoolkit.rest.error.image.ImageWriteException} <p>The image write exception is <code>ImageWriteException</code> type.</p>
      * @see java.io.OutputStream
+     * @see java.lang.String
+     * @see io.github.nichetoolkit.rest.error.image.ImageWriteException
      */
-    public void write(String suffix,OutputStream outputStream) {
-        try {
-            ImageIO.write(image, suffix, outputStream);
-        } catch (IOException exception) {
-            log.error("It is failed during image writing to output stream!", exception);
-            GeneralUtils.printStackTrace(exception);
-        }
+    public void write(OutputStream outputStream, String suffix) throws ImageWriteException {
+        ImageHelper.write(image, outputStream, suffix);
+    }
+
+    /**
+     * <code>writePng</code>
+     * <p>The write png method.</p>
+     * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @throws ImageWriteException {@link io.github.nichetoolkit.rest.error.image.ImageWriteException} <p>The image write exception is <code>ImageWriteException</code> type.</p>
+     * @see javax.servlet.http.HttpServletResponse
+     * @see io.github.nichetoolkit.rest.error.image.ImageWriteException
+     */
+    public void writePng(HttpServletResponse response) throws ImageWriteException {
+        ImageHelper.writePng(image, response);
+    }
+
+    /**
+     * <code>writeJpeg</code>
+     * <p>The write jpeg method.</p>
+     * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @throws ImageWriteException {@link io.github.nichetoolkit.rest.error.image.ImageWriteException} <p>The image write exception is <code>ImageWriteException</code> type.</p>
+     * @see javax.servlet.http.HttpServletResponse
+     * @see io.github.nichetoolkit.rest.error.image.ImageWriteException
+     */
+    public void writeJpeg(HttpServletResponse response) throws ImageWriteException {
+        ImageHelper.writeJpeg(image, response);
+    }
+
+    /**
+     * <code>write</code>
+     * <p>The write method.</p>
+     * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param suffix   {@link java.lang.String} <p>The suffix parameter is <code>String</code> type.</p>
+     * @throws ImageWriteException {@link io.github.nichetoolkit.rest.error.image.ImageWriteException} <p>The image write exception is <code>ImageWriteException</code> type.</p>
+     * @see javax.servlet.http.HttpServletResponse
+     * @see java.lang.String
+     * @see io.github.nichetoolkit.rest.error.image.ImageWriteException
+     */
+    public void write(HttpServletResponse response, String suffix) throws ImageWriteException {
+        ImageHelper.write(image, response, suffix);
     }
 
 }

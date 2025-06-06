@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
@@ -128,11 +127,7 @@ public class RestTestController {
         ImageVerify imageVerify = ImageWorker.random();
         response.setContentType(MediaType.IMAGE_JPEG_VALUE);
         response.setCharacterEncoding(StandardCharsets.UTF_8.name());
-        try {
-            imageVerify.write(response.getOutputStream());
-        } catch (IOException exception) {
-            GeneralUtils.printStackTrace(log,exception,true);
-        }
+        imageVerify.writeJpeg(response);
     }
 
     /**
