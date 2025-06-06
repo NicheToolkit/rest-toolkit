@@ -5,11 +5,11 @@ import io.github.nichetoolkit.rest.RestErrorStatus;
 import io.github.nichetoolkit.rest.RestException;
 import io.github.nichetoolkit.rest.RestResult;
 import io.github.nichetoolkit.rest.identity.IdentityUtils;
-import io.github.nichetoolkit.rest.image.ImageUtils;
-import io.github.nichetoolkit.rest.image.ImageVerify;
+import io.github.nichetoolkit.rest.worker.img.ImageVerify;
 import io.github.nichetoolkit.rest.userlog.stereotype.RestNotelog;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import io.github.nichetoolkit.rest.worker.RadixWorker;
+import io.github.nichetoolkit.rest.worker.img.ImageWorker;
 import io.github.nichetoolkit.rest.worker.jwt.JwtWorker;
 import io.github.nichetoolkit.rest.worker.sha.ShaWorker;
 import lombok.extern.slf4j.Slf4j;
@@ -125,7 +125,7 @@ public class RestTestController {
      */
     @GetMapping("/image")
     public void generalImage(HttpServletResponse response) throws RestException {
-        ImageVerify imageVerify = ImageUtils.randoms();
+        ImageVerify imageVerify = ImageWorker.random();
         response.setContentType(MediaType.IMAGE_JPEG_VALUE);
         response.setCharacterEncoding(StandardCharsets.UTF_8.name());
         try {

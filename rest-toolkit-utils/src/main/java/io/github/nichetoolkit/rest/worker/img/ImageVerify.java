@@ -1,4 +1,4 @@
-package io.github.nichetoolkit.rest.image;
+package io.github.nichetoolkit.rest.worker.img;
 
 import io.github.nichetoolkit.rest.constant.UtilConstants;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
@@ -62,26 +62,26 @@ public class ImageVerify implements Serializable {
     }
 
     /**
-     * <code>write</code>
-     * <p>The write method.</p>
+     * <code>writeJpeg</code>
+     * <p>The write jpeg method.</p>
      * @param outputStream {@link java.io.OutputStream} <p>The output stream parameter is <code>OutputStream</code> type.</p>
      * @see java.io.OutputStream
      */
-    public void write(OutputStream outputStream) {
-        write(UtilConstants.IMAGE_SUFFIX,outputStream);
+    public void writeJpeg(OutputStream outputStream) {
+        write(UtilConstants.JPEG_IMAGE_SUFFIX,outputStream);
     }
 
     /**
      * <code>write</code>
      * <p>The write method.</p>
-     * @param formatName   {@link java.lang.String} <p>The format name parameter is <code>String</code> type.</p>
+     * @param suffix       {@link java.lang.String} <p>The suffix parameter is <code>String</code> type.</p>
      * @param outputStream {@link java.io.OutputStream} <p>The output stream parameter is <code>OutputStream</code> type.</p>
      * @see java.lang.String
      * @see java.io.OutputStream
      */
-    public void write(String formatName,OutputStream outputStream) {
+    public void write(String suffix,OutputStream outputStream) {
         try {
-            ImageIO.write(image, formatName, outputStream);
+            ImageIO.write(image, suffix, outputStream);
         } catch (IOException exception) {
             log.error("It is failed during image writing to output stream!", exception);
             GeneralUtils.printStackTrace(exception);

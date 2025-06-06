@@ -12,6 +12,20 @@ import java.security.SecureRandom;
 public interface UtilConstants {
 
     /**
+     * <code>PNG_IMAGE_SUFFIX</code>
+     * {@link java.lang.String} <p>The constant <code>PNG_IMAGE_SUFFIX</code> field.</p>
+     * @see java.lang.String
+     */
+    String PNG_IMAGE_SUFFIX = "png";
+
+    /**
+     * <code>JPEG_IMAGE_SUFFIX</code>
+     * {@link java.lang.String} <p>The constant <code>JPEG_IMAGE_SUFFIX</code> field.</p>
+     * @see java.lang.String
+     */
+    String JPEG_IMAGE_SUFFIX = "jpeg";
+
+    /**
      * <code>ROOT_PREFIX</code>
      * {@link java.lang.String} <p>The constant <code>ROOT_PREFIX</code> field.</p>
      * @see java.lang.String
@@ -163,13 +177,6 @@ public interface UtilConstants {
      * @see java.lang.String
      */
     String ZIP_SUFFIX = "zip";
-
-    /**
-     * <code>IMAGE_SUFFIX</code>
-     * {@link java.lang.String} <p>The constant <code>IMAGE_SUFFIX</code> field.</p>
-     * @see java.lang.String
-     */
-    String IMAGE_SUFFIX = "jpeg";
 
     /**
      * <code>UNKNOWN_HEADER</code>

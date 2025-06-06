@@ -31,6 +31,45 @@ import java.util.*;
 public class FileUtils {
 
     /**
+     * <code>createTempFile</code>
+     * <p>The create temp file method.</p>
+     * @param path   {@link java.nio.file.Path} <p>The path parameter is <code>Path</code> type.</p>
+     * @param prefix {@link java.lang.String} <p>The prefix parameter is <code>String</code> type.</p>
+     * @param suffix {@link java.lang.String} <p>The suffix parameter is <code>String</code> type.</p>
+     * @return {@link java.nio.file.Path} <p>The create temp file return object is <code>Path</code> type.</p>
+     * @see java.nio.file.Path
+     * @see java.lang.String
+     */
+    public static Path createTempFile(Path path, String prefix, String suffix) {
+        try {
+            return FileHelper.createTempFile(path,prefix,suffix);
+        } catch (FileCreateException exception) {
+            log.error("It is failed during creating temp file!", exception);
+            GeneralUtils.printStackTrace(exception);
+        }
+        return null;
+    }
+
+    /**
+     * <code>createTempFile</code>
+     * <p>The create temp file method.</p>
+     * @param prefix {@link java.lang.String} <p>The prefix parameter is <code>String</code> type.</p>
+     * @param suffix {@link java.lang.String} <p>The suffix parameter is <code>String</code> type.</p>
+     * @return {@link java.nio.file.Path} <p>The create temp file return object is <code>Path</code> type.</p>
+     * @see java.lang.String
+     * @see java.nio.file.Path
+     */
+    public static Path createTempFile(String prefix, String suffix) {
+        try {
+            return FileHelper.createTempFile(prefix,suffix);
+        } catch (FileCreateException exception) {
+            log.error("It is failed during creating temp file!", exception);
+            GeneralUtils.printStackTrace(exception);
+        }
+        return null;
+    }
+
+    /**
      * <code>createFile</code>
      * <p>The create file method.</p>
      * @param path {@link java.lang.String} <p>The path parameter is <code>String</code> type.</p>

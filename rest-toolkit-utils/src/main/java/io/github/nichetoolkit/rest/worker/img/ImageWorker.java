@@ -1,34 +1,26 @@
-package io.github.nichetoolkit.rest.image;
+package io.github.nichetoolkit.rest.worker.img;
 
 import io.github.nichetoolkit.rest.constant.UtilConstants;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
 
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 
 /**
- * <code>ImageUtils</code>
- * <p>The image utils class.</p>
+ * <code>ImageWorker</code>
+ * <p>The image worker class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @see lombok.extern.slf4j.Slf4j
- * @see org.springframework.stereotype.Component
  * @since Jdk1.8
  */
-@Slf4j
-@Component
-public class ImageUtils {
-
+public class ImageWorker {
 
     /**
-     * <code>randoms</code>
-     * <p>The randoms method.</p>
-     * @return {@link io.github.nichetoolkit.rest.image.ImageVerify} <p>The randoms return object is <code>ImageVerify</code> type.</p>
-     * @see io.github.nichetoolkit.rest.image.ImageVerify
+     * <code>random</code>
+     * <p>The random method.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.img.ImageVerify} <p>The random return object is <code>ImageVerify</code> type.</p>
+     * @see io.github.nichetoolkit.rest.worker.img.ImageVerify
      */
-    public static synchronized ImageVerify randoms() {
-
+    public static synchronized ImageVerify random() {
         /* 渲染图片 */
         BufferedImage image = new BufferedImage(UtilConstants.DEFAULT_IMAGE_WIDTH, UtilConstants.DEFAULT_IMAGE_HEIGHT, BufferedImage.TYPE_INT_RGB);
         Graphics2D graphics = (Graphics2D) image.getGraphics();
@@ -44,7 +36,6 @@ public class ImageUtils {
             graphics.setColor(randomColor(170, 200));
             graphics.drawLine(startX, startY, endX, endY);
         }
-        /* 验证码 */
         StringBuilder contentBuilder = new StringBuilder();
         for (int i = 0; i < 4; ++i) {
             String character = String.valueOf(randomChar());
@@ -65,7 +56,7 @@ public class ImageUtils {
      * @return {@link java.lang.Character} <p>The random char return object is <code>Character</code> type.</p>
      * @see java.lang.Character
      */
-    protected static Character randomChar() {
+    public static Character randomChar() {
         int index = UtilConstants.SECURE_RANDOM.nextInt(UtilConstants.BASE_STRING.length());
         return UtilConstants.BASE_STRING.charAt(index);
     }
@@ -76,7 +67,7 @@ public class ImageUtils {
      * @return {@link java.awt.Color} <p>The random color return object is <code>Color</code> type.</p>
      * @see java.awt.Color
      */
-    protected static Color randomColor() {
+    public static Color randomColor() {
         return randomColor(0,150);
     }
 
@@ -90,7 +81,7 @@ public class ImageUtils {
      * @see java.lang.Integer
      * @see java.awt.Color
      */
-    protected static Color randomColor(Integer min, Integer max) {
+    public static Color randomColor(Integer min, Integer max) {
         if (min > 255) {
             min = 255;
         }
@@ -109,7 +100,7 @@ public class ImageUtils {
      * @return {@link java.awt.Font} <p>The random font return object is <code>Font</code> type.</p>
      * @see java.awt.Font
      */
-    protected static Font randomFont() {
+    public static Font randomFont() {
         int index = UtilConstants.SECURE_RANDOM.nextInt(UtilConstants.FONT_NAME_ARRAY.length);
         String fontName = UtilConstants.FONT_NAME_ARRAY[index];
         int style = UtilConstants.SECURE_RANDOM.nextInt(4);
@@ -124,7 +115,7 @@ public class ImageUtils {
      * @return {@link java.lang.Integer} <p>The random transform return object is <code>Integer</code> type.</p>
      * @see java.lang.Integer
      */
-    protected static Integer randomTransform() {
+    public static Integer randomTransform() {
         int index = UtilConstants.SECURE_RANDOM.nextInt(UtilConstants.AFFINE_TRANSFORM_ARRAY.length);
         return UtilConstants.AFFINE_TRANSFORM_ARRAY[index];
     }
