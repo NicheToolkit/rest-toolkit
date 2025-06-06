@@ -1,7 +1,6 @@
 package io.github.nichetoolkit.rest.constant;
 
 import java.awt.*;
-import java.security.SecureRandom;
 
 /**
  * <code>UtilConstants</code>
@@ -45,13 +44,6 @@ public interface UtilConstants {
      * @see java.lang.String
      */
     String EMPTY_PREFIX = "";
-
-    /**
-     * <code>SECURE_RANDOM</code>
-     * {@link java.security.SecureRandom} <p>The constant <code>SECURE_RANDOM</code> field.</p>
-     * @see java.security.SecureRandom
-     */
-    SecureRandom SECURE_RANDOM = new SecureRandom();
 
     /**
      * <code>BASE_SYMBOL</code>
