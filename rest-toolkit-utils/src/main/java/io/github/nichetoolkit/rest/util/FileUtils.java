@@ -343,6 +343,18 @@ public class FileUtils {
     /**
      * <code>deleteFile</code>
      * <p>The delete file method.</p>
+     * @param path {@link java.nio.file.Path} <p>The path parameter is <code>Path</code> type.</p>
+     * @return {@link java.lang.Boolean} <p>The delete file return object is <code>Boolean</code> type.</p>
+     * @see java.nio.file.Path
+     * @see java.lang.Boolean
+     */
+    public static Boolean deleteFile(final Path path) {
+        return FileHelper.deleteFile(path.toFile());
+    }
+
+    /**
+     * <code>deleteFile</code>
+     * <p>The delete file method.</p>
      * @param path {@link java.lang.String} <p>The path parameter is <code>String</code> type.</p>
      * @return {@link java.lang.Boolean} <p>The delete file return object is <code>Boolean</code> type.</p>
      * @see java.lang.String
@@ -462,6 +474,17 @@ public class FileUtils {
     public static boolean clear(final String path) {
         File file = new File(path);
         return clear(file);
+    }
+
+    /**
+     * <code>clear</code>
+     * <p>The clear method.</p>
+     * @param path {@link java.nio.file.Path} <p>The path parameter is <code>Path</code> type.</p>
+     * @return boolean <p>The clear return object is <code>boolean</code> type.</p>
+     * @see java.nio.file.Path
+     */
+    public static boolean clear(final Path path) {
+        return clear(path.toFile());
     }
 
     /**
