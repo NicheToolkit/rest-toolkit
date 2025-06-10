@@ -13,7 +13,8 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.List;
+import java.util.Collection;
+import java.util.Map;
 import java.util.zip.*;
 
 /**
@@ -248,19 +249,149 @@ public class ZipHelper {
         }
     }
 
+
+    /**
+     * <code>zips</code>
+     * <p>The zips method.</p>
+     * @param zipPath   {@link java.nio.file.Path} <p>The zip path parameter is <code>Path</code> type.</p>
+     * @param zipInputs {@link java.util.Map} <p>The zip inputs parameter is <code>Map</code> type.</p>
+     * @throws ZipErrorException      {@link io.github.nichetoolkit.rest.error.often.ZipErrorException} <p>The zip error exception is <code>ZipErrorException</code> type.</p>
+     * @throws IoStreamWriteException {@link io.github.nichetoolkit.rest.error.often.IoStreamWriteException} <p>The io stream write exception is <code>IoStreamWriteException</code> type.</p>
+     * @see java.nio.file.Path
+     * @see java.util.Map
+     * @see io.github.nichetoolkit.rest.error.often.ZipErrorException
+     * @see io.github.nichetoolkit.rest.error.often.IoStreamWriteException
+     */
+    public static void zips(Path zipPath, Map<String,InputStream> zipInputs) throws ZipErrorException, IoStreamWriteException {
+        Path fileName = zipPath.getFileName();
+        zips(zipPath, fileName.toString(), zipInputs);
+    }
+
+    /**
+     * <code>zips</code>
+     * <p>The zips method.</p>
+     * @param zipPath   {@link java.lang.String} <p>The zip path parameter is <code>String</code> type.</p>
+     * @param filename  {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
+     * @param zipInputs {@link java.util.Map} <p>The zip inputs parameter is <code>Map</code> type.</p>
+     * @throws ZipErrorException      {@link io.github.nichetoolkit.rest.error.often.ZipErrorException} <p>The zip error exception is <code>ZipErrorException</code> type.</p>
+     * @throws IoStreamWriteException {@link io.github.nichetoolkit.rest.error.often.IoStreamWriteException} <p>The io stream write exception is <code>IoStreamWriteException</code> type.</p>
+     * @see java.lang.String
+     * @see java.util.Map
+     * @see io.github.nichetoolkit.rest.error.often.ZipErrorException
+     * @see io.github.nichetoolkit.rest.error.often.IoStreamWriteException
+     */
+    public static void zips(String zipPath, String filename, Map<String,InputStream> zipInputs) throws ZipErrorException, IoStreamWriteException {
+        if (zipInputs.size() == 1) {
+            Map.Entry<String, InputStream> entry = zipInputs.entrySet().stream().findFirst().get();
+            zip(zipPath, entry.getKey(), entry.getValue());
+            return;
+        }
+        try (ZipOutputStream zipOutputStream = new ZipOutputStream(Files.newOutputStream(Paths.get(zipPath)))) {
+            zipOutputStream.setComment(filename);
+            for (Map.Entry<String, InputStream> entry : zipInputs.entrySet()) {
+                String fileName = entry.getKey();
+                InputStream inputStream = entry.getValue();
+                zip(zipOutputStream, fileName, inputStream);
+            }
+        } catch (IOException exception) {
+            throw new ZipErrorException(exception.getMessage());
+        }
+    }
+
+    /**
+     * <code>zips</code>
+     * <p>The zips method.</p>
+     * @param zipPath   {@link java.nio.file.Path} <p>The zip path parameter is <code>Path</code> type.</p>
+     * @param filename  {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
+     * @param zipInputs {@link java.util.Map} <p>The zip inputs parameter is <code>Map</code> type.</p>
+     * @throws ZipErrorException      {@link io.github.nichetoolkit.rest.error.often.ZipErrorException} <p>The zip error exception is <code>ZipErrorException</code> type.</p>
+     * @throws IoStreamWriteException {@link io.github.nichetoolkit.rest.error.often.IoStreamWriteException} <p>The io stream write exception is <code>IoStreamWriteException</code> type.</p>
+     * @see java.nio.file.Path
+     * @see java.lang.String
+     * @see java.util.Map
+     * @see io.github.nichetoolkit.rest.error.often.ZipErrorException
+     * @see io.github.nichetoolkit.rest.error.often.IoStreamWriteException
+     */
+    public static void zips(Path zipPath, String filename, Map<String,InputStream> zipInputs) throws ZipErrorException, IoStreamWriteException {
+        if (zipInputs.size() == 1) {
+            Map.Entry<String, InputStream> entry = zipInputs.entrySet().stream().findFirst().get();
+            zip(zipPath, entry.getKey(), entry.getValue());
+            return;
+        }
+        try (ZipOutputStream zipOutputStream = new ZipOutputStream(Files.newOutputStream(zipPath))) {
+            zipOutputStream.setComment(filename);
+            for (Map.Entry<String, InputStream> entry : zipInputs.entrySet()) {
+                String fileName = entry.getKey();
+                InputStream inputStream = entry.getValue();
+                zip(zipOutputStream, fileName, inputStream);
+            }
+        } catch (IOException exception) {
+            throw new ZipErrorException(exception.getMessage());
+        }
+    }
+
+    /**
+     * <code>zips</code>
+     * <p>The zips method.</p>
+     * @param zipFile   {@link java.io.File} <p>The zip file parameter is <code>File</code> type.</p>
+     * @param zipInputs {@link java.util.Map} <p>The zip inputs parameter is <code>Map</code> type.</p>
+     * @throws ZipErrorException      {@link io.github.nichetoolkit.rest.error.often.ZipErrorException} <p>The zip error exception is <code>ZipErrorException</code> type.</p>
+     * @throws IoStreamWriteException {@link io.github.nichetoolkit.rest.error.often.IoStreamWriteException} <p>The io stream write exception is <code>IoStreamWriteException</code> type.</p>
+     * @see java.io.File
+     * @see java.util.Map
+     * @see io.github.nichetoolkit.rest.error.often.ZipErrorException
+     * @see io.github.nichetoolkit.rest.error.often.IoStreamWriteException
+     */
+    public static void zips(File zipFile, Map<String,InputStream> zipInputs) throws ZipErrorException, IoStreamWriteException {
+        String fileName = zipFile.getName();
+        zips(zipFile,fileName,zipInputs);
+    }
+
+    /**
+     * <code>zips</code>
+     * <p>The zips method.</p>
+     * @param zipFile   {@link java.io.File} <p>The zip file parameter is <code>File</code> type.</p>
+     * @param filename  {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
+     * @param zipInputs {@link java.util.Map} <p>The zip inputs parameter is <code>Map</code> type.</p>
+     * @throws ZipErrorException      {@link io.github.nichetoolkit.rest.error.often.ZipErrorException} <p>The zip error exception is <code>ZipErrorException</code> type.</p>
+     * @throws IoStreamWriteException {@link io.github.nichetoolkit.rest.error.often.IoStreamWriteException} <p>The io stream write exception is <code>IoStreamWriteException</code> type.</p>
+     * @see java.io.File
+     * @see java.lang.String
+     * @see java.util.Map
+     * @see io.github.nichetoolkit.rest.error.often.ZipErrorException
+     * @see io.github.nichetoolkit.rest.error.often.IoStreamWriteException
+     */
+    public static void zips(File zipFile, String filename, Map<String,InputStream> zipInputs) throws ZipErrorException, IoStreamWriteException {
+        if (zipInputs.size() == 1) {
+            Map.Entry<String, InputStream> entry = zipInputs.entrySet().stream().findFirst().get();
+            zip(zipFile, entry.getKey(), entry.getValue());
+            return;
+        }
+        try (ZipOutputStream zipOutputStream = new ZipOutputStream(Files.newOutputStream(zipFile.toPath()))) {
+            zipOutputStream.setComment(filename);
+            for (Map.Entry<String, InputStream> entry : zipInputs.entrySet()) {
+                String fileName = entry.getKey();
+                InputStream inputStream = entry.getValue();
+                zip(zipOutputStream, fileName, inputStream);
+            }
+        } catch (IOException exception) {
+            throw new ZipErrorException(exception.getMessage());
+        }
+    }
+
     /**
      * <code>zips</code>
      * <p>The zips method.</p>
      * @param zipPath  {@link java.nio.file.Path} <p>The zip path parameter is <code>Path</code> type.</p>
-     * @param zipFiles {@link java.util.List} <p>The zip files parameter is <code>List</code> type.</p>
+     * @param zipFiles {@link java.util.Collection} <p>The zip files parameter is <code>Collection</code> type.</p>
      * @throws ZipErrorException      {@link io.github.nichetoolkit.rest.error.often.ZipErrorException} <p>The zip error exception is <code>ZipErrorException</code> type.</p>
      * @throws IoStreamWriteException {@link io.github.nichetoolkit.rest.error.often.IoStreamWriteException} <p>The io stream write exception is <code>IoStreamWriteException</code> type.</p>
      * @see java.nio.file.Path
-     * @see java.util.List
+     * @see java.util.Collection
      * @see io.github.nichetoolkit.rest.error.often.ZipErrorException
      * @see io.github.nichetoolkit.rest.error.often.IoStreamWriteException
      */
-    public static void zips(Path zipPath, List<File> zipFiles) throws ZipErrorException, IoStreamWriteException {
+    public static void zips(Path zipPath, Collection<File> zipFiles) throws ZipErrorException, IoStreamWriteException {
         Path fileName = zipPath.getFileName();
         zips(zipPath, fileName.toString(), zipFiles);
     }
@@ -270,15 +401,15 @@ public class ZipHelper {
      * <p>The zips method.</p>
      * @param zipPath  {@link java.lang.String} <p>The zip path parameter is <code>String</code> type.</p>
      * @param filename {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
-     * @param zipFiles {@link java.util.List} <p>The zip files parameter is <code>List</code> type.</p>
+     * @param zipFiles {@link java.util.Collection} <p>The zip files parameter is <code>Collection</code> type.</p>
      * @throws ZipErrorException      {@link io.github.nichetoolkit.rest.error.often.ZipErrorException} <p>The zip error exception is <code>ZipErrorException</code> type.</p>
      * @throws IoStreamWriteException {@link io.github.nichetoolkit.rest.error.often.IoStreamWriteException} <p>The io stream write exception is <code>IoStreamWriteException</code> type.</p>
      * @see java.lang.String
-     * @see java.util.List
+     * @see java.util.Collection
      * @see io.github.nichetoolkit.rest.error.often.ZipErrorException
      * @see io.github.nichetoolkit.rest.error.often.IoStreamWriteException
      */
-    public static void zips(String zipPath, String filename, List<File> zipFiles) throws ZipErrorException, IoStreamWriteException {
+    public static void zips(String zipPath, String filename, Collection<File> zipFiles) throws ZipErrorException, IoStreamWriteException {
         if (zipFiles.size() == 1) {
             zip(zipPath, filename, zipFiles.stream().findFirst().get());
             return;
@@ -300,16 +431,16 @@ public class ZipHelper {
      * <p>The zips method.</p>
      * @param zipPath  {@link java.nio.file.Path} <p>The zip path parameter is <code>Path</code> type.</p>
      * @param filename {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
-     * @param zipFiles {@link java.util.List} <p>The zip files parameter is <code>List</code> type.</p>
+     * @param zipFiles {@link java.util.Collection} <p>The zip files parameter is <code>Collection</code> type.</p>
      * @throws ZipErrorException      {@link io.github.nichetoolkit.rest.error.often.ZipErrorException} <p>The zip error exception is <code>ZipErrorException</code> type.</p>
      * @throws IoStreamWriteException {@link io.github.nichetoolkit.rest.error.often.IoStreamWriteException} <p>The io stream write exception is <code>IoStreamWriteException</code> type.</p>
      * @see java.nio.file.Path
      * @see java.lang.String
-     * @see java.util.List
+     * @see java.util.Collection
      * @see io.github.nichetoolkit.rest.error.often.ZipErrorException
      * @see io.github.nichetoolkit.rest.error.often.IoStreamWriteException
      */
-    public static void zips(Path zipPath, String filename, List<File> zipFiles) throws ZipErrorException, IoStreamWriteException {
+    public static void zips(Path zipPath, String filename, Collection<File> zipFiles) throws ZipErrorException, IoStreamWriteException {
         if (zipFiles.size() == 1) {
             zip(zipPath, filename, zipFiles.stream().findFirst().get());
             return;
@@ -330,15 +461,15 @@ public class ZipHelper {
      * <code>zips</code>
      * <p>The zips method.</p>
      * @param zipFile  {@link java.io.File} <p>The zip file parameter is <code>File</code> type.</p>
-     * @param zipFiles {@link java.util.List} <p>The zip files parameter is <code>List</code> type.</p>
+     * @param zipFiles {@link java.util.Collection} <p>The zip files parameter is <code>Collection</code> type.</p>
      * @throws ZipErrorException      {@link io.github.nichetoolkit.rest.error.often.ZipErrorException} <p>The zip error exception is <code>ZipErrorException</code> type.</p>
      * @throws IoStreamWriteException {@link io.github.nichetoolkit.rest.error.often.IoStreamWriteException} <p>The io stream write exception is <code>IoStreamWriteException</code> type.</p>
      * @see java.io.File
-     * @see java.util.List
+     * @see java.util.Collection
      * @see io.github.nichetoolkit.rest.error.often.ZipErrorException
      * @see io.github.nichetoolkit.rest.error.often.IoStreamWriteException
      */
-    public static void zips(File zipFile, List<File> zipFiles) throws ZipErrorException, IoStreamWriteException {
+    public static void zips(File zipFile, Collection<File> zipFiles) throws ZipErrorException, IoStreamWriteException {
         String fileName = zipFile.getName();
         zips(zipFile,fileName,zipFiles);
     }
@@ -348,16 +479,16 @@ public class ZipHelper {
      * <p>The zips method.</p>
      * @param zipFile  {@link java.io.File} <p>The zip file parameter is <code>File</code> type.</p>
      * @param fileName {@link java.lang.String} <p>The file name parameter is <code>String</code> type.</p>
-     * @param zipFiles {@link java.util.List} <p>The zip files parameter is <code>List</code> type.</p>
+     * @param zipFiles {@link java.util.Collection} <p>The zip files parameter is <code>Collection</code> type.</p>
      * @throws ZipErrorException      {@link io.github.nichetoolkit.rest.error.often.ZipErrorException} <p>The zip error exception is <code>ZipErrorException</code> type.</p>
      * @throws IoStreamWriteException {@link io.github.nichetoolkit.rest.error.often.IoStreamWriteException} <p>The io stream write exception is <code>IoStreamWriteException</code> type.</p>
      * @see java.io.File
      * @see java.lang.String
-     * @see java.util.List
+     * @see java.util.Collection
      * @see io.github.nichetoolkit.rest.error.often.ZipErrorException
      * @see io.github.nichetoolkit.rest.error.often.IoStreamWriteException
      */
-    public static void zips(File zipFile, String fileName, List<File> zipFiles) throws ZipErrorException, IoStreamWriteException {
+    public static void zips(File zipFile, String fileName, Collection<File> zipFiles) throws ZipErrorException, IoStreamWriteException {
         if (zipFiles.size() == 1) {
             zip(zipFile, fileName, zipFiles.stream().findFirst().get());
             return;

@@ -14,7 +14,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.List;
+import java.util.Collection;
+import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -228,16 +229,107 @@ public class ZipUtils {
         }
     }
 
+
+    /**
+     * <code>zips</code>
+     * <p>The zips method.</p>
+     * @param zipPath   {@link java.lang.String} <p>The zip path parameter is <code>String</code> type.</p>
+     * @param filename  {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
+     * @param zipInputs {@link java.util.Map} <p>The zip inputs parameter is <code>Map</code> type.</p>
+     * @see java.lang.String
+     * @see java.util.Map
+     */
+    public static void zips(String zipPath, String filename, Map<String,InputStream> zipInputs) {
+        try {
+            ZipHelper.zips(zipPath, filename, zipInputs);
+        } catch (ZipErrorException | IoStreamWriteException exception) {
+            log.error("It is failed during handle file to path with filename and zip inputs! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
+        }
+    }
+
+    /**
+     * <code>zips</code>
+     * <p>The zips method.</p>
+     * @param zipPath   {@link java.nio.file.Path} <p>The zip path parameter is <code>Path</code> type.</p>
+     * @param zipInputs {@link java.util.Map} <p>The zip inputs parameter is <code>Map</code> type.</p>
+     * @see java.nio.file.Path
+     * @see java.util.Map
+     */
+    public static void zips(Path zipPath, Map<String,InputStream> zipInputs) {
+        try {
+            ZipHelper.zips(zipPath, zipInputs);
+        } catch (ZipErrorException | IoStreamWriteException exception) {
+            log.error("It is failed during handle file to zip path with zip inputs! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
+        }
+    }
+
+    /**
+     * <code>zips</code>
+     * <p>The zips method.</p>
+     * @param zipPath   {@link java.nio.file.Path} <p>The zip path parameter is <code>Path</code> type.</p>
+     * @param filename  {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
+     * @param zipInputs {@link java.util.Map} <p>The zip inputs parameter is <code>Map</code> type.</p>
+     * @see java.nio.file.Path
+     * @see java.lang.String
+     * @see java.util.Map
+     */
+    public static void zips(Path zipPath, String filename, Map<String,InputStream> zipInputs) {
+        try {
+            ZipHelper.zips(zipPath, filename, zipInputs);
+        } catch (ZipErrorException | IoStreamWriteException exception) {
+            log.error("It is failed during handle file to zip path with filename and zip inputs! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
+        }
+    }
+
+    /**
+     * <code>zips</code>
+     * <p>The zips method.</p>
+     * @param zipFile   {@link java.io.File} <p>The zip file parameter is <code>File</code> type.</p>
+     * @param zipInputs {@link java.util.Map} <p>The zip inputs parameter is <code>Map</code> type.</p>
+     * @see java.io.File
+     * @see java.util.Map
+     */
+    public static void zips(File zipFile, Map<String,InputStream> zipInputs) {
+        try {
+            ZipHelper.zips(zipFile, zipInputs);
+        } catch (ZipErrorException | IoStreamWriteException exception) {
+            log.error("It is failed during handle file to zip file with zip inputs! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
+        }
+    }
+
+    /**
+     * <code>zips</code>
+     * <p>The zips method.</p>
+     * @param zipFile   {@link java.io.File} <p>The zip file parameter is <code>File</code> type.</p>
+     * @param filename  {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
+     * @param zipInputs {@link java.util.Map} <p>The zip inputs parameter is <code>Map</code> type.</p>
+     * @see java.io.File
+     * @see java.lang.String
+     * @see java.util.Map
+     */
+    public static void zips(File zipFile, String filename, Map<String,InputStream> zipInputs) {
+        try {
+            ZipHelper.zips(zipFile, filename, zipInputs);
+        } catch (ZipErrorException | IoStreamWriteException exception) {
+            log.error("It is failed during handle file to zip file with filename and zip inputs! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
+        }
+    }
+
     /**
      * <code>zips</code>
      * <p>The zips method.</p>
      * @param zipPath  {@link java.lang.String} <p>The zip path parameter is <code>String</code> type.</p>
      * @param filename {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
-     * @param zipFiles {@link java.util.List} <p>The zip files parameter is <code>List</code> type.</p>
+     * @param zipFiles {@link java.util.Collection} <p>The zip files parameter is <code>Collection</code> type.</p>
      * @see java.lang.String
-     * @see java.util.List
+     * @see java.util.Collection
      */
-    public static void zips(String zipPath, String filename, List<File> zipFiles) {
+    public static void zips(String zipPath, String filename, Collection<File> zipFiles) {
         try {
             ZipHelper.zips(zipPath, filename, zipFiles);
         } catch (ZipErrorException | IoStreamWriteException exception) {
@@ -250,11 +342,11 @@ public class ZipUtils {
      * <code>zips</code>
      * <p>The zips method.</p>
      * @param zipPath  {@link java.nio.file.Path} <p>The zip path parameter is <code>Path</code> type.</p>
-     * @param zipFiles {@link java.util.List} <p>The zip files parameter is <code>List</code> type.</p>
+     * @param zipFiles {@link java.util.Collection} <p>The zip files parameter is <code>Collection</code> type.</p>
      * @see java.nio.file.Path
-     * @see java.util.List
+     * @see java.util.Collection
      */
-    public static void zips(Path zipPath, List<File> zipFiles) {
+    public static void zips(Path zipPath, Collection<File> zipFiles) {
         try {
             ZipHelper.zips(zipPath, zipFiles);
         } catch (ZipErrorException | IoStreamWriteException exception) {
@@ -268,12 +360,12 @@ public class ZipUtils {
      * <p>The zips method.</p>
      * @param zipPath  {@link java.nio.file.Path} <p>The zip path parameter is <code>Path</code> type.</p>
      * @param filename {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
-     * @param zipFiles {@link java.util.List} <p>The zip files parameter is <code>List</code> type.</p>
+     * @param zipFiles {@link java.util.Collection} <p>The zip files parameter is <code>Collection</code> type.</p>
      * @see java.nio.file.Path
      * @see java.lang.String
-     * @see java.util.List
+     * @see java.util.Collection
      */
-    public static void zips(Path zipPath, String filename, List<File> zipFiles) {
+    public static void zips(Path zipPath, String filename, Collection<File> zipFiles) {
         try {
             ZipHelper.zips(zipPath, filename, zipFiles);
         } catch (ZipErrorException | IoStreamWriteException exception) {
@@ -286,11 +378,11 @@ public class ZipUtils {
      * <code>zips</code>
      * <p>The zips method.</p>
      * @param zipFile  {@link java.io.File} <p>The zip file parameter is <code>File</code> type.</p>
-     * @param zipFiles {@link java.util.List} <p>The zip files parameter is <code>List</code> type.</p>
+     * @param zipFiles {@link java.util.Collection} <p>The zip files parameter is <code>Collection</code> type.</p>
      * @see java.io.File
-     * @see java.util.List
+     * @see java.util.Collection
      */
-    public static void zips(File zipFile, List<File> zipFiles) {
+    public static void zips(File zipFile, Collection<File> zipFiles) {
         try {
             ZipHelper.zips(zipFile, zipFiles);
         } catch (ZipErrorException | IoStreamWriteException exception) {
@@ -304,12 +396,12 @@ public class ZipUtils {
      * <p>The zips method.</p>
      * @param zipFile  {@link java.io.File} <p>The zip file parameter is <code>File</code> type.</p>
      * @param filename {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
-     * @param zipFiles {@link java.util.List} <p>The zip files parameter is <code>List</code> type.</p>
+     * @param zipFiles {@link java.util.Collection} <p>The zip files parameter is <code>Collection</code> type.</p>
      * @see java.io.File
      * @see java.lang.String
-     * @see java.util.List
+     * @see java.util.Collection
      */
-    public static void zips(File zipFile, String filename, List<File> zipFiles) {
+    public static void zips(File zipFile, String filename, Collection<File> zipFiles) {
         try {
             ZipHelper.zips(zipFile, filename, zipFiles);
         } catch (ZipErrorException | IoStreamWriteException exception) {
