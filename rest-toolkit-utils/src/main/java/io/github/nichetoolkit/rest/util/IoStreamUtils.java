@@ -199,6 +199,23 @@ public class IoStreamUtils {
     /**
      * <code>bytes</code>
      * <p>The bytes method.</p>
+     * @param file {@link org.springframework.web.multipart.MultipartFile} <p>The file parameter is <code>MultipartFile</code> type.</p>
+     * @return byte <p>The bytes return object is <code>byte</code> type.</p>
+     * @see org.springframework.web.multipart.MultipartFile
+     */
+    public static byte[] bytes(MultipartFile file) {
+        try {
+            return IoStreamHelper.bytes(file);
+        } catch (IoStreamReadException exception) {
+            log.error("It is failed during reading of multipart file for 'bytes' method! {}", exception.getMessage());
+            GeneralUtils.printStackTrace(exception);
+            return null;
+        }
+    }
+
+    /**
+     * <code>bytes</code>
+     * <p>The bytes method.</p>
      * @param file {@link java.io.File} <p>The file parameter is <code>File</code> type.</p>
      * @return byte <p>The bytes return object is <code>byte</code> type.</p>
      * @see java.io.File
