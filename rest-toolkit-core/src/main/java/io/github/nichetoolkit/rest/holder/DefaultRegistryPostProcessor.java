@@ -1,5 +1,6 @@
 package io.github.nichetoolkit.rest.holder;
 
+import io.github.nichetoolkit.rest.RestOrder;
 import io.github.nichetoolkit.rest.fitter.RestUnfulfilledFitter;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -61,6 +62,7 @@ public class DefaultRegistryPostProcessor implements BeanDefinitionRegistryPostP
         if (GeneralUtils.isEmpty(unfulfilledFitters)) {
             return;
         }
+        unfulfilledFitters.sort(RestOrder::compareTo);
         for (RestUnfulfilledFitter<?> unfulfilledFitter : unfulfilledFitters) {
             unfulfilledFitter = BeanDefinitionRegistryHolder.registerRootBeanDefinition(unfulfilledFitter.beanName(), unfulfilledFitter.beanType(), unfulfilledFitter.beanScope());
             ListableBeanFactoryHolder.autowireBeanProperties(unfulfilledFitter);

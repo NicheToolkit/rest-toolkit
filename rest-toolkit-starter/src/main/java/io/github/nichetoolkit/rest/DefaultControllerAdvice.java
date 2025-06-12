@@ -136,6 +136,7 @@ public final class DefaultControllerAdvice implements ResponseBodyAdvice<Object>
         if (GeneralUtils.isEmpty(fulfilledFitters)) {
             return;
         }
+        fulfilledFitters.sort(RestOrder::compareTo);
         for (RestFulfilledFitter<?> fulfilledFitter : fulfilledFitters) {
             fulfilledFitter = BeanDefinitionRegistryHolder.registerRootBeanDefinition(fulfilledFitter.beanName(), fulfilledFitter.beanType(), fulfilledFitter.beanScope());
             ListableBeanFactoryHolder.autowireBeanProperties(fulfilledFitter);
