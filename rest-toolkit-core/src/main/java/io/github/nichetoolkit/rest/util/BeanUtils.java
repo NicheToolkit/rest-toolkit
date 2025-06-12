@@ -8,6 +8,7 @@ import org.springframework.beans.BeansException;
 
 import java.beans.PropertyDescriptor;
 import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
 import java.util.*;
 
 /**
@@ -176,8 +177,14 @@ public class BeanUtils {
             emptyNames = new HashSet<>();
         }
         for (PropertyDescriptor pd : pds) {
-            Object srcValue = src.getPropertyValue(pd.getName());
-            if (srcValue == null) {
+            Method readMethod = pd.getReadMethod();
+            Method writeMethod = pd.getWriteMethod();
+            if (GeneralUtils.isNotEmpty(readMethod) && GeneralUtils.isNotEmpty(writeMethod)) {
+                Object srcValue = src.getPropertyValue(pd.getName());
+                if (srcValue == null) {
+                    emptyNames.add(pd.getName());
+                }
+            } else {
                 emptyNames.add(pd.getName());
             }
         }
