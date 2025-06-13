@@ -32,7 +32,7 @@ final class DefaultFindOps {
      */
     public static <T> DefaultTerminalOp<T, RestOptional<T>> makeRef(boolean mustFindFirst) throws RestException {
         return new FindOp<>(mustFindFirst, DefaultStreamShape.REFERENCE, RestOptional.empty(),
-                RestOptional::isNullPresent, FindSink.OfRef::new);
+                RestOptional::isNull, FindSink.OfRef::new);
     }
 
     /**
@@ -71,7 +71,7 @@ final class DefaultFindOps {
 
         return new FindOp<>(false, DefaultStreamShape.REFERENCE, RestOptional.empty(),
                 (RestOptional<T> t) -> {
-                    if (t.isNullPresent()) {
+                    if (t.isNull()) {
                         return predicate.actuate(t.get());
                     } else {
                         return false;

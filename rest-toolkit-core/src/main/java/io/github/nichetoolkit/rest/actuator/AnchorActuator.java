@@ -1,5 +1,6 @@
 package io.github.nichetoolkit.rest.actuator;
 
+import io.github.nichetoolkit.rest.RestError;
 import io.github.nichetoolkit.rest.RestException;
 
 import java.util.Objects;
@@ -8,11 +9,12 @@ import java.util.Objects;
  * <code>AnchorActuator</code>
  * <p>The anchor actuator interface.</p>
  * @author Cyan (snow22314@outlook.com)
+ * @see io.github.nichetoolkit.rest.actuator.AnchorFunction
  * @see java.lang.FunctionalInterface
  * @since Jdk1.8
  */
 @FunctionalInterface
-public interface AnchorActuator {
+public interface AnchorActuator extends AnchorFunction {
     /**
      * <code>actuate</code>
      * <p>The actuate method.</p>
@@ -21,6 +23,14 @@ public interface AnchorActuator {
      */
     void actuate() throws RestException;
 
+    @Override
+    default void apply() {
+        try {
+            actuate();
+        } catch (RestException e) {
+            throw new RestError(e);
+        }
+    }
 
     /**
      * <code>andThen</code>
