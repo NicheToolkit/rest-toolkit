@@ -175,10 +175,12 @@ public class ApplicationContextHolder {
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param beanType {@link java.lang.Class} <p>The bean type parameter is <code>Class</code> type.</p>
      * @return {@link java.util.List} <p>The beans of type return object is <code>List</code> type.</p>
+     * @throws BeansException {@link org.springframework.beans.BeansException} <p>The beans exception is <code>BeansException</code> type.</p>
      * @see java.lang.Class
      * @see java.util.List
+     * @see org.springframework.beans.BeansException
      */
-    public static <T> List<T> beansOfType(Class<T> beanType) {
+    public static <T> List<T> beansOfType(Class<T> beanType) throws BeansException{
         return beansOfType(beanType, true, false);
     }
 
@@ -190,10 +192,12 @@ public class ApplicationContextHolder {
      * @param includeNonSingletons boolean <p>The include non singletons parameter is <code>boolean</code> type.</p>
      * @param allowEagerInit       boolean <p>The allow eager init parameter is <code>boolean</code> type.</p>
      * @return {@link java.util.List} <p>The beans of type return object is <code>List</code> type.</p>
+     * @throws BeansException {@link org.springframework.beans.BeansException} <p>The beans exception is <code>BeansException</code> type.</p>
      * @see java.lang.Class
      * @see java.util.List
+     * @see org.springframework.beans.BeansException
      */
-    public static <T> List<T> beansOfType(Class<T> beanType, boolean includeNonSingletons, boolean allowEagerInit) {
+    public static <T> List<T> beansOfType(Class<T> beanType, boolean includeNonSingletons, boolean allowEagerInit)throws BeansException {
         Map<String, T> beansOfType = beanMapOfType(beanType, includeNonSingletons, allowEagerInit);
         if (!beansOfType.isEmpty()) {
             List<T> beans = new ArrayList<>(beansOfType.values());
@@ -209,10 +213,12 @@ public class ApplicationContextHolder {
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param beanType {@link java.lang.Class} <p>The bean type parameter is <code>Class</code> type.</p>
      * @return {@link java.util.Map} <p>The bean map of type return object is <code>Map</code> type.</p>
+     * @throws BeansException {@link org.springframework.beans.BeansException} <p>The beans exception is <code>BeansException</code> type.</p>
      * @see java.lang.Class
      * @see java.util.Map
+     * @see org.springframework.beans.BeansException
      */
-    public static <T> Map<String, T> beanMapOfType(Class<T> beanType) {
+    public static <T> Map<String, T> beanMapOfType(Class<T> beanType)throws BeansException {
         return beanMapOfType(beanType, true, false);
     }
 
@@ -224,10 +230,12 @@ public class ApplicationContextHolder {
      * @param includeNonSingletons boolean <p>The include non singletons parameter is <code>boolean</code> type.</p>
      * @param allowEagerInit       boolean <p>The allow eager init parameter is <code>boolean</code> type.</p>
      * @return {@link java.util.Map} <p>The bean map of type return object is <code>Map</code> type.</p>
+     * @throws BeansException {@link org.springframework.beans.BeansException} <p>The beans exception is <code>BeansException</code> type.</p>
      * @see java.lang.Class
      * @see java.util.Map
+     * @see org.springframework.beans.BeansException
      */
-    public static <T> Map<String, T> beanMapOfType(Class<T> beanType, boolean includeNonSingletons, boolean allowEagerInit) {
+    public static <T> Map<String, T> beanMapOfType(Class<T> beanType, boolean includeNonSingletons, boolean allowEagerInit)throws BeansException {
         return APPLICATION_CONTEXT.getBeansOfType(beanType, includeNonSingletons, allowEagerInit);
     }
 
@@ -236,10 +244,12 @@ public class ApplicationContextHolder {
      * <p>The bean map of annotation method.</p>
      * @param annotationType {@link java.lang.Class} <p>The annotation type parameter is <code>Class</code> type.</p>
      * @return {@link java.util.Map} <p>The bean map of annotation return object is <code>Map</code> type.</p>
+     * @throws BeansException {@link org.springframework.beans.BeansException} <p>The beans exception is <code>BeansException</code> type.</p>
      * @see java.lang.Class
      * @see java.util.Map
+     * @see org.springframework.beans.BeansException
      */
-    public static Map<String, Object> beanMapOfAnnotation(Class<? extends Annotation> annotationType) {
+    public static Map<String, Object> beanMapOfAnnotation(Class<? extends Annotation> annotationType)throws BeansException {
         return APPLICATION_CONTEXT.getBeansWithAnnotation(annotationType);
     }
 
@@ -248,10 +258,12 @@ public class ApplicationContextHolder {
      * <p>The beans of annotation method.</p>
      * @param annotationType {@link java.lang.Class} <p>The annotation type parameter is <code>Class</code> type.</p>
      * @return {@link java.util.List} <p>The beans of annotation return object is <code>List</code> type.</p>
+     * @throws BeansException {@link org.springframework.beans.BeansException} <p>The beans exception is <code>BeansException</code> type.</p>
      * @see java.lang.Class
      * @see java.util.List
+     * @see org.springframework.beans.BeansException
      */
-    public static List<Object> beansOfAnnotation(Class<? extends Annotation> annotationType) {
+    public static List<Object> beansOfAnnotation(Class<? extends Annotation> annotationType)throws BeansException {
         Map<String, Object> beansOfType = beanMapOfAnnotation(annotationType);
         if (!beansOfType.isEmpty()) {
             List<Object> beans = new ArrayList<>(beansOfType.values());
