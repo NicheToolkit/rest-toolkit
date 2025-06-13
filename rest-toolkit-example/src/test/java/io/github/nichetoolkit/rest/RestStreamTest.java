@@ -30,6 +30,6 @@ class RestStreamTest {
     void test() throws RestException {
         Integer[] testArray = {1,5,3,2,3,4};
         RestOptional<Integer> anyFirst = RestStream.stream(testArray).findAny(value -> value > 2);
-        anyFirst.ifNullPresent(value -> System.out.println(">: " + value));
+        anyFirst.isNotEmpty(value -> System.out.println(">: " + value));
     }
 }

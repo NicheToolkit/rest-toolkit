@@ -55,7 +55,7 @@ public final class OptionalUtils {
             }
         } else if (object instanceof RestOptional) {
             RestOptional<?> optional = (RestOptional<?>) object;
-            if (optional.isNullPresent()) {
+            if (optional.isNull()) {
                 cause = supplier.get();
             }
         }
