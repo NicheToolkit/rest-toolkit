@@ -512,7 +512,7 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
      * @see java.lang.Throwable
      */
     public static RestError error(Throwable cause) {
-        return (new RestError.Builder(RestErrorStatus.UNKNOWN_ERROR)).message(cause).add(new RestErrorIssue(RestErrorStatus.UNKNOWN_ERROR)).cause(cause).build();
+        return (new RestError.Builder(RestErrorStatus.UNKNOWN_ERROR)).message(cause).add(new RestErrorIssue(RestErrorStatus.UNKNOWN_ERROR,cause)).cause(cause).build();
     }
 
     /**
@@ -536,7 +536,7 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
      * @see java.lang.Throwable
      */
     public static RestError error(String field, Throwable cause) {
-        return (new RestError.Builder(RestErrorStatus.UNKNOWN_ERROR)).resource(field).message(cause).add(new RestErrorIssue(field, RestErrorStatus.UNKNOWN_ERROR)).cause(cause).build();
+        return (new RestError.Builder(RestErrorStatus.UNKNOWN_ERROR)).resource(field).message(cause).add(new RestErrorIssue(field, RestErrorStatus.UNKNOWN_ERROR,cause)).cause(cause).build();
     }
 
     /**
@@ -562,7 +562,7 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
      * @see java.lang.Throwable
      */
     public static RestError error(String field, String error, Throwable cause) {
-        return (new RestError.Builder(RestErrorStatus.UNKNOWN_ERROR)).resource(field).message(error).add(new RestErrorIssue(field, RestErrorStatus.UNKNOWN_ERROR, error)).cause(cause).build();
+        return (new RestError.Builder(RestErrorStatus.UNKNOWN_ERROR)).resource(field).message(error).add(new RestErrorIssue(field, RestErrorStatus.UNKNOWN_ERROR, cause)).cause(cause).build();
     }
 
     /**
@@ -592,7 +592,7 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
      * @see java.lang.Throwable
      */
     public static RestError error(String field, Object value, String error, Throwable cause) {
-        return (new RestError.Builder(RestErrorStatus.UNKNOWN_ERROR)).resource(field).message(error).add(new RestErrorIssue(field, value, RestErrorStatus.UNKNOWN_ERROR, error)).cause(cause).build();
+        return (new RestError.Builder(RestErrorStatus.UNKNOWN_ERROR)).resource(field).message(error).add(new RestErrorIssue(field, value, RestErrorStatus.UNKNOWN_ERROR, cause)).cause(cause).build();
     }
 
     /**
@@ -616,7 +616,7 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
      * @see java.lang.Throwable
      */
     public static RestError error(RestStatus status, Throwable cause) {
-        return (new RestError.Builder(status)).message(cause).add(new RestErrorIssue(status)).cause(cause).build();
+        return (new RestError.Builder(status)).message(cause).add(new RestErrorIssue(status,cause)).cause(cause).build();
     }
 
     /**
@@ -644,7 +644,7 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
      * @see java.lang.Throwable
      */
     public static RestError error(String field, RestStatus status, Throwable cause) {
-        return (new RestError.Builder(status)).resource(field).message(cause).add(new RestErrorIssue(field, status)).cause(cause).build();
+        return (new RestError.Builder(status)).resource(field).message(cause).add(new RestErrorIssue(field, status,cause)).cause(cause).build();
     }
 
     /**
@@ -672,7 +672,7 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
      * @see java.lang.Throwable
      */
     public static RestError error(Integer status, String error, Throwable cause) {
-        return (new Builder()).status(status).message(error).add(new RestErrorIssue(status, error)).cause(cause).build();
+        return (new Builder()).status(status).message(error).add(new RestErrorIssue(status, cause)).cause(cause).build();
     }
 
 
@@ -701,7 +701,7 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
      * @see java.lang.Throwable
      */
     public static RestError error(Integer status, RestStatus restStatus, Throwable cause) {
-        return (new Builder(restStatus)).status(status).message(cause).add(new RestErrorIssue(status, restStatus)).cause(cause).build();
+        return (new Builder(restStatus)).status(status).message(cause).add(new RestErrorIssue(status, cause)).cause(cause).build();
     }
 
     /**
@@ -729,7 +729,7 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
      * @see java.lang.Throwable
      */
     public static RestError error(RestStatus status, String error, Throwable cause) {
-        return (new RestError.Builder(status)).message(error).add(new RestErrorIssue(status, error)).cause(cause).build();
+        return (new RestError.Builder(status)).message(error).add(new RestErrorIssue(status, cause)).cause(cause).build();
     }
 
     /**
@@ -759,7 +759,7 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
      * @see java.lang.Throwable
      */
     public static RestError error(String field, Integer status, String error, Throwable cause) {
-        return (new RestError.Builder()).status(status).resource(field).message(error).add(new RestErrorIssue(field, status, error)).cause(cause).build();
+        return (new RestError.Builder()).status(status).resource(field).message(error).add(new RestErrorIssue(field, status, cause)).cause(cause).build();
     }
 
     /**
@@ -793,7 +793,7 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
      * @see java.lang.Throwable
      */
     public static RestError error(String field, Object value, Integer status, String error, Throwable cause) {
-        return (new RestError.Builder()).status(status).resource(field).message(error).add(new RestErrorIssue(field, value, status, error)).cause(cause).build();
+        return (new RestError.Builder()).status(status).resource(field).message(error).add(new RestErrorIssue(field, value, status, cause)).cause(cause).build();
     }
 
     /**
@@ -823,7 +823,7 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
      * @see java.lang.Throwable
      */
     public static RestError error(String field, RestStatus status, String error, Throwable cause) {
-        return (new RestError.Builder(status)).resource(field).message(error).add(new RestErrorIssue(field, status, error)).cause(cause).build();
+        return (new RestError.Builder(status)).resource(field).message(error).add(new RestErrorIssue(field, status, cause)).cause(cause).build();
     }
 
     /**
@@ -857,7 +857,7 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
      * @see java.lang.Throwable
      */
     public static RestError error(String field, RestStatus restStatus, Integer status, String error, Throwable cause) {
-        return (new Builder(restStatus)).status(status).message(error).resource(field).add(new RestErrorIssue(field, status, error)).cause(cause).build();
+        return (new Builder(restStatus)).status(status).message(error).resource(field).add(new RestErrorIssue(field, status, cause)).cause(cause).build();
     }
 
     /**
@@ -889,7 +889,7 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
      * @see java.lang.Throwable
      */
     public static RestError error(String field, Object value, RestStatus status, Throwable cause) {
-        return (new RestError.Builder(status)).resource(field).message(cause).add(new RestErrorIssue(field, value, status)).cause(cause).build();
+        return (new RestError.Builder(status)).resource(field).message(cause).add(new RestErrorIssue(field, value, status, cause)).cause(cause).build();
     }
 
     /**
@@ -923,7 +923,7 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
      * @see java.lang.Throwable
      */
     public static RestError error(String field, Object value, RestStatus status, String error, Throwable cause) {
-        return (new RestError.Builder(status)).resource(field).message(error).add(new RestErrorIssue(field, value, status, error)).cause(cause).build();
+        return (new RestError.Builder(status)).resource(field).message(error).add(new RestErrorIssue(field, value, status, cause)).cause(cause).build();
     }
 
     /**
@@ -961,7 +961,7 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
      * @see java.lang.Throwable
      */
     public static RestError error(String field, Object value, RestStatus restStatus, Integer status, String error, Throwable cause) {
-        return (new Builder(restStatus)).status(status).resource(field).message(error).add(new RestErrorIssue(field, value, status, error)).cause(cause).build();
+        return (new Builder(restStatus)).status(status).resource(field).message(error).add(new RestErrorIssue(field, value, status, cause)).cause(cause).build();
     }
 
     /**
@@ -991,7 +991,7 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
      * @see java.lang.Throwable
      */
     public static RestError error(String resource, String field, RestStatus restStatus, Throwable cause) {
-        return (new RestError.Builder(restStatus)).resource(resource).message(cause).add(new RestErrorIssue(field, restStatus)).cause(cause).build();
+        return (new RestError.Builder(restStatus)).resource(resource).message(cause).add(new RestErrorIssue(field, restStatus,cause)).cause(cause).build();
     }
 
     /**
@@ -1023,7 +1023,7 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
      * @see java.lang.Throwable
      */
     public static RestError error(String resource, String field, RestStatus restStatus, String error, Throwable cause) {
-        return (new RestError.Builder(restStatus)).resource(resource).message(error).add(new RestErrorIssue(field, restStatus, error)).cause(cause).build();
+        return (new RestError.Builder(restStatus)).resource(resource).message(error).add(new RestErrorIssue(field, restStatus, cause)).cause(cause).build();
     }
 
     /**
@@ -1057,7 +1057,7 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
      * @see java.lang.Throwable
      */
     public static RestError error(String resource, String field, Object value, RestStatus restStatus, Throwable cause) {
-        return (new Builder(restStatus)).resource(resource).message(cause).add(new RestErrorIssue(field, value, restStatus)).cause(cause).build();
+        return (new Builder(restStatus)).resource(resource).message(cause).add(new RestErrorIssue(field, value, restStatus,cause)).cause(cause).build();
     }
 
     /**
@@ -1093,7 +1093,7 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
      * @see java.lang.Throwable
      */
     public static RestError error(String resource, String field, Object value, RestStatus restStatus, String error, Throwable cause) {
-        return (new RestError.Builder(restStatus)).resource(resource).message(error).add(new RestErrorIssue(field, value, restStatus, error)).cause(cause).build();
+        return (new RestError.Builder(restStatus)).resource(resource).message(error).add(new RestErrorIssue(field, value, restStatus, cause)).cause(cause).build();
     }
 
     /**
@@ -1129,7 +1129,7 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
      * @see java.lang.Throwable
      */
     public static RestError error(String resource, String field, RestStatus restStatus, Integer status, String error, Throwable cause) {
-        return (new RestError.Builder(restStatus)).status(status).resource(resource).message(error).add(new RestErrorIssue(field, status, error)).cause(cause).build();
+        return (new RestError.Builder(restStatus)).status(status).resource(resource).message(error).add(new RestErrorIssue(field, status, cause)).cause(cause).build();
     }
 
     /**
@@ -1169,7 +1169,7 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
      * @see java.lang.Throwable
      */
     public static RestError error(String resource, String field, Object value, RestStatus restStatus, Integer status, String error, Throwable cause) {
-        return (new RestError.Builder(restStatus)).status(status).resource(resource).message(error).add(new RestErrorIssue(field, value, status, error)).cause(cause).build();
+        return (new RestError.Builder(restStatus)).status(status).resource(resource).message(error).add(new RestErrorIssue(field, value, status, cause)).cause(cause).build();
     }
 
     @Override
