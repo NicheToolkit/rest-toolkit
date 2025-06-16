@@ -16,6 +16,7 @@ public class DefaultContextInitializer implements ApplicationContextInitializer<
     @Override
     public void initialize(@NonNull ConfigurableApplicationContext applicationContext) {
         ApplicationContextHolder.initApplicationContext(applicationContext);
+        MessageSourceHolder.initMessageSource(applicationContext);
         applicationContext.addBeanFactoryPostProcessor(new DefaultRegistryPostProcessor());
     }
 }
