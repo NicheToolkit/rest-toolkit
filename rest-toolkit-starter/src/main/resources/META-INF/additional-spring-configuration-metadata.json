@@ -16,6 +16,11 @@
       "type": "io.github.nichetoolkit.rest.configure.RestHttpProperties"
     },
     {
+      "name": "nichetoolkit.rest.i18n",
+      "sourceType": "io.github.nichetoolkit.rest.configure.RestI18nProperties",
+      "type": "io.github.nichetoolkit.rest.configure.RestI18nProperties"
+    },
+    {
       "name": "nichetoolkit.rest.logback",
       "sourceType": "io.github.nichetoolkit.rest.configure.RestLogbackProperties",
       "type": "io.github.nichetoolkit.rest.configure.RestLogbackProperties"
@@ -167,10 +172,10 @@
     },
     {
       "name": "nichetoolkit.rest.http.charset",
-      "type": "java.nio.charset.Charset",
-      "sourceType": "java.nio.charset.Charset",
+      "type": "io.github.nichetoolkit.rest.type.CharsetType",
+      "sourceType": "io.github.nichetoolkit.rest.type.CharsetType",
       "description": "the charset encoding of http client configuration.",
-      "defaultValue": "utf_8"
+      "defaultValue": "UTF_8"
     },
     {
       "name": "nichetoolkit.rest.http.encoding-mode",
@@ -217,6 +222,41 @@
       "type": "java.lang.Integer",
       "sourceType": "java.lang.Integer",
       "description": "the proxy port of http client configuration."
+    },
+    {
+      "name": "nichetoolkit.rest.i18n.enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "java.lang.Boolean",
+      "description": "the switch of i18n configuration.",
+      "defaultValue": false
+    },
+    {
+      "name": "nichetoolkit.rest.i18n.param-name",
+      "type": "java.lang.String",
+      "sourceType": "java.lang.String",
+      "description": "the param name of i18n configuration.",
+      "defaultValue": "language"
+    },
+    {
+      "name": "nichetoolkit.rest.i18n.basename",
+      "type": "java.lang.String",
+      "sourceType": "java.lang.String",
+      "description": "the basename of i18n configuration.",
+      "defaultValue": "i18n/messages"
+    },
+    {
+      "name": "nichetoolkit.rest.i18n.locale",
+      "type": "io.github.nichetoolkit.rest.type.LocaleType",
+      "sourceType": "io.github.nichetoolkit.rest.type.LocaleType",
+      "description": "the locale type of i18n configuration.",
+      "defaultValue": "ENGLISH"
+    },
+    {
+      "name": "nichetoolkit.rest.i18n.charset",
+      "type": "io.github.nichetoolkit.rest.type.CharsetType",
+      "sourceType": "io.github.nichetoolkit.rest.type.CharsetType",
+      "description": "the charset encoding of i18n configuration.",
+      "defaultValue": "UTF_8"
     },
     {
       "name": "nichetoolkit.rest.logback.enabled",
@@ -344,6 +384,19 @@
         {
           "value": true,
           "description": "the switch of http client configuration opened."
+        }
+      ]
+    },
+    {
+      "name": "nichetoolkit.rest.i18n.enabled",
+      "values": [
+        {
+          "value": false,
+          "description": "the switch of i18n configuration closed."
+        },
+        {
+          "value": true,
+          "description": "the switch of i18n configuration opened."
         }
       ]
     },

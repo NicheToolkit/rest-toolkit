@@ -5,6 +5,7 @@ import io.github.nichetoolkit.rest.http.HttpThreadFactory;
 import io.github.nichetoolkit.rest.http.RestTemplates;
 import io.github.nichetoolkit.rest.http.config.HttpClientType;
 import io.github.nichetoolkit.rest.interceptor.DefaultClientHttpInterceptor;
+import io.github.nichetoolkit.rest.type.CharsetType;
 import io.github.nichetoolkit.rest.util.BeanUtils;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import io.github.nichetoolkit.rest.util.JsonUtils;
@@ -51,7 +52,6 @@ import javax.net.ssl.*;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.net.ProxySelector;
-import java.nio.charset.Charset;
 import java.security.KeyManagementException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
@@ -534,8 +534,8 @@ public class RestHttpAutoConfigure {
         if (null != converterTarget) {
             messageConverters.remove(converterTarget);
         }
-        Charset defaultCharset = httpProperties.getCharset();
-        messageConverters.add(1, new StringHttpMessageConverter(defaultCharset));
+        CharsetType charset = httpProperties.getCharset();
+        messageConverters.add(1, new StringHttpMessageConverter(charset.getValue()));
     }
 
 }

@@ -2,6 +2,7 @@ package io.github.nichetoolkit.rest.configure;
 
 import io.github.nichetoolkit.rest.http.config.HttpClientType;
 import io.github.nichetoolkit.rest.http.config.ProxyConfig;
+import io.github.nichetoolkit.rest.type.CharsetType;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -9,8 +10,6 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 import org.springframework.stereotype.Component;
 import org.springframework.web.util.DefaultUriBuilderFactory;
 
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 /**
@@ -79,7 +78,7 @@ public class RestHttpProperties {
      * {@link java.nio.charset.Charset} <p>The <code>charset</code> field.</p>
      * @see java.nio.charset.Charset
      */
-    private Charset charset = StandardCharsets.UTF_8;
+    private CharsetType charset = CharsetType.UTF_8;
 
     /**
      * <code>encodingMode</code>

@@ -2,6 +2,7 @@ package io.github.nichetoolkit.rest.holder;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.MessageSource;
+import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 
 /**
@@ -30,6 +31,11 @@ public class MessageSourceHolder {
     static void initMessageSource(@Nullable MessageSource messageSource) {
         MESSAGE_SOURCE = messageSource;
         log.debug("The message source context holder has be initiated");
+    }
+
+   public static void refreshMessageSource(@NonNull MessageSource messageSource) {
+        MESSAGE_SOURCE = messageSource;
+        log.debug("The message source context holder has be refreshed");
     }
 
     /**
