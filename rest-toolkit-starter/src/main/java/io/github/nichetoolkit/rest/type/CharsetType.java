@@ -2,6 +2,7 @@ package io.github.nichetoolkit.rest.type;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.github.nichetoolkit.rest.RestKey;
 import io.github.nichetoolkit.rest.RestValue;
 
 import java.nio.charset.Charset;
@@ -38,7 +39,7 @@ public enum CharsetType implements RestValue<String, Charset> {
 
     @JsonCreator
     public static CharsetType parseKey(String key) {
-        CharsetType sortTypeEnum = RestValue.parseKey(CharsetType.class, key);
+        CharsetType sortTypeEnum = RestKey.parseKey(CharsetType.class, key);
         return Optional.ofNullable(sortTypeEnum).orElse(CharsetType.UTF_8);
     }
 

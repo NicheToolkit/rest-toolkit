@@ -15,6 +15,7 @@ import io.fusionauth.jwt.rsa.RSAPSSVerifier;
 import io.fusionauth.jwt.rsa.RSASigner;
 import io.fusionauth.jwt.rsa.RSAVerifier;
 import io.fusionauth.security.CryptoProvider;
+import io.github.nichetoolkit.rest.RestKey;
 import io.github.nichetoolkit.rest.RestValue;
 
 import java.nio.file.Path;
@@ -1457,7 +1458,7 @@ public enum JwtAlgorithm implements JwtSigner {
      * @see java.lang.Integer
      */
     public static JwtAlgorithm parseKey(Integer key) {
-        JwtAlgorithm sortTypeEnum = RestValue.parseKey(JwtAlgorithm.class, key);
+        JwtAlgorithm sortTypeEnum = RestKey.parseKey(JwtAlgorithm.class, key);
         return Optional.ofNullable(sortTypeEnum).orElse(JwtAlgorithm.HS256);
     }
 

@@ -207,49 +207,7 @@ public interface RestValue<K, V> extends RestKey<K> {
      * @see java.lang.Boolean
      */
     static <T extends RestValue<K, V>, K, V> Boolean confirm(Class<T> clazz, K key) {
-        return Optional.ofNullable(parseKey(clazz, key)).isPresent();
-    }
-
-    /**
-     * <code>parseKey</code>
-     * <p>The parse key method.</p>
-     * @param <T>   {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
-     * @param <K>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <V>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @param key   K <p>The key parameter is <code>K</code> type.</p>
-     * @return T <p>The parse key return object is <code>T</code> type.</p>
-     * @see java.lang.Class
-     * @see java.lang.SuppressWarnings
-     */
-    @SuppressWarnings("Duplicates")
-    static <T extends RestValue<K, V>, K, V> T parseKey(Class<T> clazz, K key) {
-        if (key != null && clazz.isEnum()) {
-            Map<K, T> keyEnumMap = Stream.of(clazz.getEnumConstants()).collect(Collectors.toMap(RestValue::getKey, Function.identity(), (oldValue, newValue) -> newValue, HashMap::new));
-            return keyEnumMap.get(key);
-        }
-        return null;
-    }
-
-    /**
-     * <code>parseKey</code>
-     * <p>The parse key method.</p>
-     * @param <T>    {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
-     * @param <K>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <V>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param values {@link java.util.Collection} <p>The values parameter is <code>Collection</code> type.</p>
-     * @param key    K <p>The key parameter is <code>K</code> type.</p>
-     * @return T <p>The parse key return object is <code>T</code> type.</p>
-     * @see java.util.Collection
-     * @see java.lang.SuppressWarnings
-     */
-    @SuppressWarnings("Duplicates")
-    static <T extends RestValue<K, V>, K, V> T parseKey(Collection<T> values, K key) {
-        if (key != null && values != null && !values.isEmpty()) {
-            Map<K, T> keyEnumMap = values.stream().collect(Collectors.toMap(RestKey::getKey, Function.identity(), (oldValue, newValue) -> newValue, HashMap::new));
-            return keyEnumMap.get(key);
-        }
-        return null;
+        return Optional.ofNullable(RestKey.parseKey(clazz, key)).isPresent();
     }
 
     /**

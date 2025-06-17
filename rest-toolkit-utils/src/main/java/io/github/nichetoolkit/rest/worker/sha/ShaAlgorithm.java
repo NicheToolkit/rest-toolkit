@@ -3,6 +3,7 @@ package io.github.nichetoolkit.rest.worker.sha;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.github.nichetoolkit.rest.RestAlgorithm;
+import io.github.nichetoolkit.rest.RestKey;
 import io.github.nichetoolkit.rest.RestValue;
 import org.springframework.lang.NonNull;
 
@@ -105,7 +106,7 @@ public enum ShaAlgorithm implements RestAlgorithm<String> {
      */
     @JsonCreator
     public static ShaAlgorithm parseKey(@NonNull Integer key) {
-        ShaAlgorithm typeEnum = RestValue.parseKey(ShaAlgorithm.class, key);
+        ShaAlgorithm typeEnum = RestKey.parseKey(ShaAlgorithm.class, key);
         return Optional.ofNullable(typeEnum).orElse(ShaAlgorithm.SHA256);
     }
 

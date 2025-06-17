@@ -101,6 +101,7 @@ public interface RestKey<K> extends Serializable {
         return keys.stream().map(RestKey::getKey).distinct().collect(Collectors.toList());
     }
 
+
     /**
      * <code>parseKey</code>
      * <p>The parse key method.</p>
@@ -124,6 +125,26 @@ public interface RestKey<K> extends Serializable {
     /**
      * <code>parseKey</code>
      * <p>The parse key method.</p>
+     * @param <T>      {@link io.github.nichetoolkit.rest.RestKey} <p>The generic parameter is <code>RestKey</code> type.</p>
+     * @param <K>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param clazz    {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @param key      K <p>The key parameter is <code>K</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
+     * @return T <p>The parse key return object is <code>T</code> type.</p>
+     * @see java.lang.Class
+     * @see java.util.function.Function
+     */
+    static <T extends RestKey<?>, K> T parseKey(Class<T> clazz, K key, Function<T, K> function) {
+        if (key != null && clazz.isEnum()) {
+            Map<K, T> keyEnumMap = Stream.of(clazz.getEnumConstants()).collect(Collectors.toMap(function, Function.identity(), (oldValue, newValue) -> newValue, HashMap::new));
+            return keyEnumMap.get(key);
+        }
+        return null;
+    }
+
+    /**
+     * <code>parseKey</code>
+     * <p>The parse key method.</p>
      * @param <T>    {@link io.github.nichetoolkit.rest.RestKey} <p>The generic parameter is <code>RestKey</code> type.</p>
      * @param <K>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param values {@link java.util.Collection} <p>The values parameter is <code>Collection</code> type.</p>
@@ -136,6 +157,28 @@ public interface RestKey<K> extends Serializable {
     static <T extends RestKey<K>, K> T parseKey(Collection<T> values, K key) {
         if (key != null && values != null && !values.isEmpty()) {
             Map<K, T> valueEnumMap = values.stream().collect(Collectors.toMap(RestKey::getKey, Function.identity()));
+            return valueEnumMap.get(key);
+        }
+        return null;
+    }
+
+    /**
+     * <code>parseKey</code>
+     * <p>The parse key method.</p>
+     * @param <T>      {@link io.github.nichetoolkit.rest.RestKey} <p>The generic parameter is <code>RestKey</code> type.</p>
+     * @param <K>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param values   {@link java.util.Collection} <p>The values parameter is <code>Collection</code> type.</p>
+     * @param key      K <p>The key parameter is <code>K</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
+     * @return T <p>The parse key return object is <code>T</code> type.</p>
+     * @see java.util.Collection
+     * @see java.util.function.Function
+     * @see java.lang.SuppressWarnings
+     */
+    @SuppressWarnings("Duplicates")
+    static <T extends RestKey<?>, K> T parseKey(Collection<T> values, K key, Function<T, K> function) {
+        if (key != null && values != null && !values.isEmpty()) {
+            Map<K, T> valueEnumMap = values.stream().collect(Collectors.toMap(function, Function.identity()));
             return valueEnumMap.get(key);
         }
         return null;

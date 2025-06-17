@@ -2,6 +2,7 @@ package io.github.nichetoolkit.rest.userlog;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.github.nichetoolkit.rest.RestKey;
 import io.github.nichetoolkit.rest.RestValue;
 import io.github.nichetoolkit.rest.pack.EnumPack;
 import io.github.nichetoolkit.rest.util.JsonUtils;
@@ -197,7 +198,7 @@ public enum LoggingType implements RestValue<String, String> {
      * @see java.lang.String
      */
     public static LoggingType parseKey(String key) {
-        LoggingType sortTypeEnum = RestValue.parseKey(LoggingType.class, key);
+        LoggingType sortTypeEnum = RestKey.parseKey(LoggingType.class, key);
         return Optional.ofNullable(sortTypeEnum).orElse(LoggingType.TEST);
     }
 

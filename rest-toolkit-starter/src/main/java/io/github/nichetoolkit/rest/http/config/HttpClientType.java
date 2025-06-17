@@ -2,6 +2,7 @@ package io.github.nichetoolkit.rest.http.config;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.github.nichetoolkit.rest.RestKey;
 import io.github.nichetoolkit.rest.RestValue;
 
 import java.util.Optional;
@@ -97,7 +98,7 @@ public enum HttpClientType implements RestValue<String,String> {
      */
     @JsonCreator
     public static HttpClientType parseKey(String key) {
-        HttpClientType sortTypeEnum = RestValue.parseKey(HttpClientType.class, key);
+        HttpClientType sortTypeEnum = RestKey.parseKey(HttpClientType.class, key);
         return Optional.ofNullable(sortTypeEnum).orElse(HttpClientType.DEFAULT);
     }
 

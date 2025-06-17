@@ -2,6 +2,7 @@ package io.github.nichetoolkit.rest.type;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.github.nichetoolkit.rest.RestKey;
 import io.github.nichetoolkit.rest.RestValue;
 
 import java.util.Locale;
@@ -154,7 +155,7 @@ public enum LocaleType implements RestValue<String, Locale> {
      */
     @JsonCreator
     public static LocaleType parseKey(String key) {
-        LocaleType sortTypeEnum = RestValue.parseKey(LocaleType.class, key);
+        LocaleType sortTypeEnum = RestKey.parseKey(LocaleType.class, key);
         return Optional.ofNullable(sortTypeEnum).orElse(LocaleType.ENGLISH);
     }
 

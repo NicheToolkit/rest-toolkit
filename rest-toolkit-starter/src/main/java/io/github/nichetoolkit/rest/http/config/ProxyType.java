@@ -2,6 +2,7 @@ package io.github.nichetoolkit.rest.http.config;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import io.github.nichetoolkit.rest.RestKey;
 import io.github.nichetoolkit.rest.RestValue;
 
 import java.net.Proxy;
@@ -78,7 +79,7 @@ public enum ProxyType implements RestValue<String, Proxy.Type> {
      */
     @JsonCreator
     public static ProxyType parseKey(String key) {
-        ProxyType sortTypeEnum = RestValue.parseKey(ProxyType.class, key);
+        ProxyType sortTypeEnum = RestKey.parseKey(ProxyType.class, key);
         return Optional.ofNullable(sortTypeEnum).orElse(ProxyType.SOCKS);
     }
 
