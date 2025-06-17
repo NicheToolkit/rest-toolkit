@@ -149,7 +149,7 @@ public enum LocaleType implements RestValue<String, Locale> {
      * <code>parseKey</code>
      * <p>The parse key method.</p>
      * @param key {@link java.lang.String} <p>The key parameter is <code>String</code> type.</p>
-     * @return {@link LocaleType} <p>The parse key return object is <code>LocaleType</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.type.LocaleType} <p>The parse key return object is <code>LocaleType</code> type.</p>
      * @see java.lang.String
      * @see com.fasterxml.jackson.annotation.JsonCreator
      */
@@ -163,7 +163,7 @@ public enum LocaleType implements RestValue<String, Locale> {
      * <code>parseValue</code>
      * <p>The parse value method.</p>
      * @param value {@link java.util.Locale} <p>The value parameter is <code>Locale</code> type.</p>
-     * @return {@link LocaleType} <p>The parse value return object is <code>LocaleType</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.type.LocaleType} <p>The parse value return object is <code>LocaleType</code> type.</p>
      * @see java.util.Locale
      */
     public static LocaleType parseValue(Locale value) {
