@@ -9,16 +9,11 @@ import java.util.stream.Stream;
  * <code>RestStatus</code>
  * <p>The rest status interface.</p>
  * @author Cyan (snow22314@outlook.com)
+ * @see io.github.nichetoolkit.rest.RestValue
  * @since Jdk1.8
  */
-public interface RestStatus {
+public interface RestStatus extends RestValue<Integer,String> {
 
-    /**
-     * <code>name</code>
-     * <p>The name method.</p>
-     * @return {@link java.lang.String} <p>The name return object is <code>String</code> type.</p>
-     * @see java.lang.String
-     */
     String name();
 
     /**
@@ -29,6 +24,11 @@ public interface RestStatus {
      */
     Integer getStatus();
 
+    @Override
+    default Integer getKey() {
+        return getStatus();
+    }
+
     /**
      * <code>getMessage</code>
      * <p>The get message getter method.</p>
@@ -37,14 +37,9 @@ public interface RestStatus {
      */
     String getMessage();
 
-    /**
-     * <code>entry</code>
-     * <p>The entry method.</p>
-     * @return {@link java.util.Map} <p>The entry return object is <code>Map</code> type.</p>
-     * @see java.util.Map
-     */
-    default Map<Integer,String> entry() {
-        return Collections.singletonMap(this.getStatus(),this.getMessage());
+    @Override
+    default String getValue() {
+        return getMessage();
     }
 
     /**
