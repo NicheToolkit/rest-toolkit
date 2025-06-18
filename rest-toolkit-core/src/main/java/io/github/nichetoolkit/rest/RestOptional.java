@@ -835,177 +835,177 @@ public final class RestOptional<T> {
     }
 
     /**
-     * <code>ofElse</code>
-     * <p>The of else method.</p>
+     * <code>ofElseGet</code>
+     * <p>The of else get method.</p>
      * @param other {@link io.github.nichetoolkit.rest.actuator.AnchorFunction} <p>The other parameter is <code>AnchorFunction</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.AnchorFunction
      */
-    public void ofElse(AnchorFunction other) {
+    public void ofElseGet(AnchorFunction other) {
         ifNull(other);
     }
 
     /**
-     * <code>ofElseGet</code>
-     * <p>The of else get method.</p>
+     * <code>ofElse</code>
+     * <p>The of else method.</p>
      * @param other {@link io.github.nichetoolkit.rest.actuator.AnchorActuator} <p>The other parameter is <code>AnchorActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.AnchorActuator
      * @see io.github.nichetoolkit.rest.RestException
      */
-    public void ofElseGet(AnchorActuator other) throws RestException {
+    public void ofElse(AnchorActuator other) throws RestException {
         isNull(other);
-    }
-
-    /**
-     * <code>orNull</code>
-     * <p>The or null method.</p>
-     * @param other {@link java.util.function.Supplier} <p>The other parameter is <code>Supplier</code> type.</p>
-     * @return T <p>The or null return object is <code>T</code> type.</p>
-     * @see java.util.function.Supplier
-     */
-    public T orNull(Supplier<? extends T> other) {
-        return isNotNull() ? value : other.get();
     }
 
     /**
      * <code>orNullGet</code>
      * <p>The or null get method.</p>
-     * @param other {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The other parameter is <code>SupplierActuator</code> type.</p>
+     * @param other {@link java.util.function.Supplier} <p>The other parameter is <code>Supplier</code> type.</p>
      * @return T <p>The or null get return object is <code>T</code> type.</p>
+     * @see java.util.function.Supplier
+     */
+    public T orNullGet(Supplier<? extends T> other) {
+        return isNotNull() ? value : other.get();
+    }
+
+    /**
+     * <code>orNull</code>
+     * <p>The or null method.</p>
+     * @param other {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The other parameter is <code>SupplierActuator</code> type.</p>
+     * @return T <p>The or null return object is <code>T</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
      * @see io.github.nichetoolkit.rest.RestException
      */
-    public T orNullGet(SupplierActuator<? extends T> other) throws RestException {
+    public T orNull(SupplierActuator<? extends T> other) throws RestException {
         return isNotNull() ? value : other.actuate();
-    }
-
-    /**
-     * <code>ofNullGet</code>
-     * <p>The of null get method.</p>
-     * @param other {@link io.github.nichetoolkit.rest.actuator.AnchorActuator} <p>The other parameter is <code>AnchorActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
-     * @see io.github.nichetoolkit.rest.actuator.AnchorActuator
-     * @see io.github.nichetoolkit.rest.RestException
-     */
-    public void ofNullGet(AnchorActuator other) throws RestException {
-        isNull(other);
     }
 
     /**
      * <code>ofNull</code>
      * <p>The of null method.</p>
-     * @param other {@link io.github.nichetoolkit.rest.actuator.AnchorFunction} <p>The other parameter is <code>AnchorFunction</code> type.</p>
-     * @see io.github.nichetoolkit.rest.actuator.AnchorFunction
+     * @param other {@link io.github.nichetoolkit.rest.actuator.AnchorActuator} <p>The other parameter is <code>AnchorActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.actuator.AnchorActuator
+     * @see io.github.nichetoolkit.rest.RestException
      */
-    public void ofNull(AnchorFunction other) {
-        ifNull(other);
+    public void ofNull(AnchorActuator other) throws RestException {
+        isNull(other);
     }
 
     /**
-     * <code>orEmptyGet</code>
-     * <p>The or empty get method.</p>
-     * @param other {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The other parameter is <code>SupplierActuator</code> type.</p>
-     * @return T <p>The or empty get return object is <code>T</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
-     * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
-     * @see io.github.nichetoolkit.rest.RestException
+     * <code>ofNullGet</code>
+     * <p>The of null get method.</p>
+     * @param other {@link io.github.nichetoolkit.rest.actuator.AnchorFunction} <p>The other parameter is <code>AnchorFunction</code> type.</p>
+     * @see io.github.nichetoolkit.rest.actuator.AnchorFunction
      */
-    public T orEmptyGet(SupplierActuator<? extends T> other) throws RestException {
-        return isNotEmpty() ? value : other.actuate();
+    public void ofNullGet(AnchorFunction other) {
+        ifNull(other);
     }
 
     /**
      * <code>orEmpty</code>
      * <p>The or empty method.</p>
-     * @param other {@link java.util.function.Supplier} <p>The other parameter is <code>Supplier</code> type.</p>
+     * @param other {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The other parameter is <code>SupplierActuator</code> type.</p>
      * @return T <p>The or empty return object is <code>T</code> type.</p>
-     * @see java.util.function.Supplier
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
+     * @see io.github.nichetoolkit.rest.RestException
      */
-    public T orEmpty(Supplier<? extends T> other) {
-        return isNotEmpty() ? value : other.get();
+    public T orEmpty(SupplierActuator<? extends T> other) throws RestException {
+        return isNotEmpty() ? value : other.actuate();
     }
 
     /**
-     * <code>ofEmptyGet</code>
-     * <p>The of empty get method.</p>
-     * @param other {@link io.github.nichetoolkit.rest.actuator.AnchorActuator} <p>The other parameter is <code>AnchorActuator</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
-     * @see io.github.nichetoolkit.rest.actuator.AnchorActuator
-     * @see io.github.nichetoolkit.rest.RestException
+     * <code>orEmptyGet</code>
+     * <p>The or empty get method.</p>
+     * @param other {@link java.util.function.Supplier} <p>The other parameter is <code>Supplier</code> type.</p>
+     * @return T <p>The or empty get return object is <code>T</code> type.</p>
+     * @see java.util.function.Supplier
      */
-    public void ofEmptyGet(AnchorActuator other) throws RestException {
-        isEmpty(other);
+    public T orEmptyGet(Supplier<? extends T> other) {
+        return isNotEmpty() ? value : other.get();
     }
 
     /**
      * <code>ofEmpty</code>
      * <p>The of empty method.</p>
-     * @param other {@link io.github.nichetoolkit.rest.actuator.AnchorFunction} <p>The other parameter is <code>AnchorFunction</code> type.</p>
-     * @see io.github.nichetoolkit.rest.actuator.AnchorFunction
-     */
-    public void ofEmpty(AnchorFunction other) {
-        ifEmpty(other);
-    }
-
-    /**
-     * <code>orValidGet</code>
-     * <p>The or valid get method.</p>
-     * @param other {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The other parameter is <code>SupplierActuator</code> type.</p>
-     * @return T <p>The or valid get return object is <code>T</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
-     * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
-     * @see io.github.nichetoolkit.rest.RestException
-     */
-    public T orValidGet(SupplierActuator<? extends T> other) throws RestException {
-        return isValid() ? value : other.actuate();
-    }
-
-    /**
-     * <code>orValid</code>
-     * <p>The or valid method.</p>
-     * @param other {@link java.util.function.Supplier} <p>The other parameter is <code>Supplier</code> type.</p>
-     * @return T <p>The or valid return object is <code>T</code> type.</p>
-     * @see java.util.function.Supplier
-     */
-    public T orValid(Supplier<? extends T> other) {
-        return isValid() ? value : other.get();
-    }
-
-    /**
-     * <code>ofValidGet</code>
-     * <p>The of valid get method.</p>
      * @param other {@link io.github.nichetoolkit.rest.actuator.AnchorActuator} <p>The other parameter is <code>AnchorActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.AnchorActuator
      * @see io.github.nichetoolkit.rest.RestException
      */
-    public void ofValidGet(AnchorActuator other) throws RestException {
-        isInvalid(other);
+    public void ofEmpty(AnchorActuator other) throws RestException {
+        isEmpty(other);
+    }
+
+    /**
+     * <code>ofEmptyGet</code>
+     * <p>The of empty get method.</p>
+     * @param other {@link io.github.nichetoolkit.rest.actuator.AnchorFunction} <p>The other parameter is <code>AnchorFunction</code> type.</p>
+     * @see io.github.nichetoolkit.rest.actuator.AnchorFunction
+     */
+    public void ofEmptyGet(AnchorFunction other) {
+        ifEmpty(other);
+    }
+
+    /**
+     * <code>orValid</code>
+     * <p>The or valid method.</p>
+     * @param other {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The other parameter is <code>SupplierActuator</code> type.</p>
+     * @return T <p>The or valid return object is <code>T</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public T orValid(SupplierActuator<? extends T> other) throws RestException {
+        return isValid() ? value : other.actuate();
+    }
+
+    /**
+     * <code>orValidGet</code>
+     * <p>The or valid get method.</p>
+     * @param other {@link java.util.function.Supplier} <p>The other parameter is <code>Supplier</code> type.</p>
+     * @return T <p>The or valid get return object is <code>T</code> type.</p>
+     * @see java.util.function.Supplier
+     */
+    public T orValidGet(Supplier<? extends T> other) {
+        return isValid() ? value : other.get();
     }
 
     /**
      * <code>ofValid</code>
      * <p>The of valid method.</p>
+     * @param other {@link io.github.nichetoolkit.rest.actuator.AnchorActuator} <p>The other parameter is <code>AnchorActuator</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.actuator.AnchorActuator
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public void ofValid(AnchorActuator other) throws RestException {
+        isInvalid(other);
+    }
+
+    /**
+     * <code>ofValidGet</code>
+     * <p>The of valid get method.</p>
      * @param other {@link io.github.nichetoolkit.rest.actuator.AnchorFunction} <p>The other parameter is <code>AnchorFunction</code> type.</p>
      * @see io.github.nichetoolkit.rest.actuator.AnchorFunction
      */
-    public void ofValid(AnchorFunction other) {
+    public void ofValidGet(AnchorFunction other) {
         ifInvalid(other);
     }
 
     /**
-     * <code>elseThrow</code>
-     * <p>The else throw method.</p>
+     * <code>orElseThrow</code>
+     * <p>The or else throw method.</p>
      * @param <X>       {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
      * @param exception {@link java.util.function.Supplier} <p>The exception parameter is <code>Supplier</code> type.</p>
-     * @return T <p>The else throw return object is <code>T</code> type.</p>
+     * @return T <p>The or else throw return object is <code>T</code> type.</p>
      * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
      * @see java.util.function.Supplier
      * @see X
      */
-    public <X extends Throwable> T elseThrow(Supplier<? extends X> exception) throws X {
+    public <X extends Throwable> T orElseThrow(Supplier<? extends X> exception) throws X {
         if (isPresent()) {
             return value;
         } else {
@@ -1014,11 +1014,11 @@ public final class RestOptional<T> {
     }
 
     /**
-     * <code>orElseThrow</code>
-     * <p>The or else throw method.</p>
+     * <code>ofElseThrow</code>
+     * <p>The of else throw method.</p>
      * @param <X>       {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
      * @param exception {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The exception parameter is <code>SupplierActuator</code> type.</p>
-     * @return T <p>The or else throw return object is <code>T</code> type.</p>
+     * @return T <p>The of else throw return object is <code>T</code> type.</p>
      * @throws X             X <p>The x is <code>X</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Throwable
@@ -1026,7 +1026,7 @@ public final class RestOptional<T> {
      * @see X
      * @see io.github.nichetoolkit.rest.RestException
      */
-    public <X extends Throwable> T orElseThrow(SupplierActuator<? extends X> exception) throws X, RestException {
+    public <X extends Throwable> T ofElseThrow(SupplierActuator<? extends X> exception) throws X, RestException {
         if (isPresent()) {
             return value;
         } else {
@@ -1035,11 +1035,11 @@ public final class RestOptional<T> {
     }
 
     /**
-     * <code>orNullThrow</code>
-     * <p>The or null throw method.</p>
+     * <code>ofNullThrow</code>
+     * <p>The of null throw method.</p>
      * @param <X>               {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
      * @param exceptionSupplier {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The exception supplier parameter is <code>SupplierActuator</code> type.</p>
-     * @return T <p>The or null throw return object is <code>T</code> type.</p>
+     * @return T <p>The of null throw return object is <code>T</code> type.</p>
      * @throws X             X <p>The x is <code>X</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Throwable
@@ -1047,7 +1047,7 @@ public final class RestOptional<T> {
      * @see X
      * @see io.github.nichetoolkit.rest.RestException
      */
-    public <X extends Throwable> T orNullThrow(SupplierActuator<? extends X> exceptionSupplier) throws X, RestException {
+    public <X extends Throwable> T ofNullThrow(SupplierActuator<? extends X> exceptionSupplier) throws X, RestException {
         if (isNotNull()) {
             return value;
         } else {
@@ -1056,21 +1056,42 @@ public final class RestOptional<T> {
     }
 
     /**
-     * <code>nullThrow</code>
-     * <p>The null throw method.</p>
+     * <code>orNullThrow</code>
+     * <p>The or null throw method.</p>
      * @param <X>               {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
      * @param exceptionSupplier {@link java.util.function.Supplier} <p>The exception supplier parameter is <code>Supplier</code> type.</p>
-     * @return T <p>The null throw return object is <code>T</code> type.</p>
+     * @return T <p>The or null throw return object is <code>T</code> type.</p>
      * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
      * @see java.util.function.Supplier
      * @see X
      */
-    public <X extends Throwable> T nullThrow(Supplier<? extends X> exceptionSupplier) throws X {
+    public <X extends Throwable> T orNullThrow(Supplier<? extends X> exceptionSupplier) throws X {
         if (isNotNull()) {
             return value;
         } else {
             throw exceptionSupplier.get();
+        }
+    }
+
+    /**
+     * <code>ofEmptyThrow</code>
+     * <p>The of empty throw method.</p>
+     * @param <X>               {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
+     * @param exceptionSupplier {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The exception supplier parameter is <code>SupplierActuator</code> type.</p>
+     * @return T <p>The of empty throw return object is <code>T</code> type.</p>
+     * @throws X             X <p>The x is <code>X</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * @see java.lang.Throwable
+     * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
+     * @see X
+     * @see io.github.nichetoolkit.rest.RestException
+     */
+    public <X extends Throwable> T ofEmptyThrow(SupplierActuator<? extends X> exceptionSupplier) throws X, RestException {
+        if (isNotEmpty()) {
+            return value;
+        } else {
+            throw exceptionSupplier.actuate();
         }
     }
 
@@ -1078,35 +1099,14 @@ public final class RestOptional<T> {
      * <code>orEmptyThrow</code>
      * <p>The or empty throw method.</p>
      * @param <X>               {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
-     * @param exceptionSupplier {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The exception supplier parameter is <code>SupplierActuator</code> type.</p>
-     * @return T <p>The or empty throw return object is <code>T</code> type.</p>
-     * @throws X             X <p>The x is <code>X</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
-     * @see java.lang.Throwable
-     * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
-     * @see X
-     * @see io.github.nichetoolkit.rest.RestException
-     */
-    public <X extends Throwable> T orEmptyThrow(SupplierActuator<? extends X> exceptionSupplier) throws X, RestException {
-        if (isNotEmpty()) {
-            return value;
-        } else {
-            throw exceptionSupplier.actuate();
-        }
-    }
-
-    /**
-     * <code>emptyThrow</code>
-     * <p>The empty throw method.</p>
-     * @param <X>               {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
      * @param exceptionSupplier {@link java.util.function.Supplier} <p>The exception supplier parameter is <code>Supplier</code> type.</p>
-     * @return T <p>The empty throw return object is <code>T</code> type.</p>
+     * @return T <p>The or empty throw return object is <code>T</code> type.</p>
      * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
      * @see java.util.function.Supplier
      * @see X
      */
-    public <X extends Throwable> T emptyThrow(Supplier<? extends X> exceptionSupplier) throws X {
+    public <X extends Throwable> T orEmptyThrow(Supplier<? extends X> exceptionSupplier) throws X {
         if (isNotEmpty()) {
             return value;
         } else {
@@ -1115,11 +1115,11 @@ public final class RestOptional<T> {
     }
 
     /**
-     * <code>orValidThrow</code>
-     * <p>The or valid throw method.</p>
+     * <code>ofValidThrow</code>
+     * <p>The of valid throw method.</p>
      * @param <X>               {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
      * @param exceptionSupplier {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The exception supplier parameter is <code>SupplierActuator</code> type.</p>
-     * @return T <p>The or valid throw return object is <code>T</code> type.</p>
+     * @return T <p>The of valid throw return object is <code>T</code> type.</p>
      * @throws X             X <p>The x is <code>X</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Throwable
@@ -1127,7 +1127,7 @@ public final class RestOptional<T> {
      * @see X
      * @see io.github.nichetoolkit.rest.RestException
      */
-    public <X extends Throwable> T orValidThrow(SupplierActuator<? extends X> exceptionSupplier) throws X, RestException {
+    public <X extends Throwable> T ofValidThrow(SupplierActuator<? extends X> exceptionSupplier) throws X, RestException {
         if (isValid()) {
             return value;
         } else {
@@ -1136,17 +1136,17 @@ public final class RestOptional<T> {
     }
 
     /**
-     * <code>validThrow</code>
-     * <p>The valid throw method.</p>
+     * <code>orValidThrow</code>
+     * <p>The or valid throw method.</p>
      * @param <X>               {@link java.lang.Throwable} <p>The generic parameter is <code>Throwable</code> type.</p>
      * @param exceptionSupplier {@link java.util.function.Supplier} <p>The exception supplier parameter is <code>Supplier</code> type.</p>
-     * @return T <p>The valid throw return object is <code>T</code> type.</p>
+     * @return T <p>The or valid throw return object is <code>T</code> type.</p>
      * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
      * @see java.util.function.Supplier
      * @see X
      */
-    public <X extends Throwable> T validThrow(Supplier<? extends X> exceptionSupplier) throws X {
+    public <X extends Throwable> T orValidThrow(Supplier<? extends X> exceptionSupplier) throws X {
         if (isValid()) {
             return value;
         } else {
