@@ -2,6 +2,7 @@ package io.github.nichetoolkit.rest;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 import java.io.Serializable;
 
@@ -16,6 +17,7 @@ import java.io.Serializable;
  */
 @Getter
 @Setter
+@SuperBuilder
 class DefaultErrorIssue implements Serializable {
     /**
      * <code>field</code>

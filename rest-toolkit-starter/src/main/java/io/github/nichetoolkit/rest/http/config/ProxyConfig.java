@@ -3,7 +3,9 @@ package io.github.nichetoolkit.rest.http.config;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 
@@ -11,13 +13,16 @@ import java.net.Proxy;
  * <code>ProxyConfig</code>
  * <p>The proxy config class.</p>
  * @author Cyan (snow22314@outlook.com)
+ * @see java.io.Serializable
  * @see lombok.Getter
  * @see lombok.Setter
+ * @see lombok.experimental.SuperBuilder
  * @since Jdk1.8
  */
 @Getter
 @Setter
-public class ProxyConfig {
+@SuperBuilder
+public class ProxyConfig implements Serializable {
     /**
      * <code>type</code>
      * {@link io.github.nichetoolkit.rest.http.config.ProxyType} <p>The <code>type</code> field.</p>

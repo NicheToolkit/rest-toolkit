@@ -274,7 +274,7 @@ public class DefaultLoggingInterceptor implements AsyncHandlerInterceptor, RestR
      */
     public RestRequestPack applyInterceptRequest(HttpServletRequest request, HttpServletResponse response, @Nullable Throwable throwable, RestResponsePack restResponse) {
         applyResponseTime(response, throwable, restResponse);
-        RestRequestPack.Builder requestBuilder = new RestRequestPack.Builder();
+        RestRequestPack.RestRequestPackBuilder<?, ?> requestBuilder = RestRequestPack.builder();
         Map<String, String> headerMap = applyRequestHeader(request);
         RestRequestPack restRequest = requestBuilder.headers(JsonUtils.parseJson(headerMap))
                 .ipAddress(IpAddressUtils.baseIpAddress(request))

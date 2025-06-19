@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import io.github.nichetoolkit.rest.RestValue;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 import java.util.Objects;
 
@@ -15,12 +16,14 @@ import java.util.Objects;
  * @see io.github.nichetoolkit.rest.pack.ViewPack
  * @see lombok.Getter
  * @see lombok.Setter
+ * @see lombok.experimental.SuperBuilder
  * @see com.fasterxml.jackson.annotation.JsonInclude
  * @see com.fasterxml.jackson.annotation.JsonIgnoreProperties
  * @since Jdk1.8
  */
 @Getter
 @Setter
+@SuperBuilder
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class EnumPack extends ViewPack {

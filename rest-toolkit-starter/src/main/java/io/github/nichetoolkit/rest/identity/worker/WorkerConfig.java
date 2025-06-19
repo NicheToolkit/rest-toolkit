@@ -2,20 +2,25 @@ package io.github.nichetoolkit.rest.identity.worker;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  * <code>WorkerConfig</code>
  * <p>The worker config class.</p>
  * @author Cyan (snow22314@outlook.com)
+ * @see java.io.Serializable
  * @see lombok.Getter
  * @see lombok.Setter
+ * @see lombok.experimental.SuperBuilder
  * @since Jdk1.8
  */
 @Getter
 @Setter
-public class WorkerConfig {
+@SuperBuilder
+public class WorkerConfig implements Serializable {
     /**
      * <code>workerId</code>
      * {@link java.lang.Long} <p>The <code>workerId</code> field.</p>

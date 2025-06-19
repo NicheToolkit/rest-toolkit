@@ -5,24 +5,29 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import io.github.nichetoolkit.rest.RestValue;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  * <code>ViewPack</code>
  * <p>The view pack class.</p>
  * @author Cyan (snow22314@outlook.com)
+ * @see java.io.Serializable
  * @see lombok.Getter
  * @see lombok.Setter
+ * @see lombok.experimental.SuperBuilder
  * @see com.fasterxml.jackson.annotation.JsonInclude
  * @see com.fasterxml.jackson.annotation.JsonIgnoreProperties
  * @since Jdk1.8
  */
 @Getter
 @Setter
+@SuperBuilder
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ViewPack {
+public class ViewPack implements Serializable {
     /**
      * <code>name</code>
      * {@link java.lang.String} <p>The <code>name</code> field.</p>

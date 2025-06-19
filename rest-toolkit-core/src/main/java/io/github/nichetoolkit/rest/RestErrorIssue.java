@@ -3,6 +3,7 @@ package io.github.nichetoolkit.rest;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 import java.util.Collections;
 import java.util.Map;
@@ -16,11 +17,13 @@ import java.util.Optional;
  * @see io.github.nichetoolkit.rest.RestStatus
  * @see lombok.Getter
  * @see lombok.Setter
+ * @see lombok.experimental.SuperBuilder
  * @see lombok.EqualsAndHashCode
  * @since Jdk1.8
  */
 @Getter
 @Setter
+@SuperBuilder
 @EqualsAndHashCode(callSuper = true)
 public class RestErrorIssue extends DefaultErrorIssue implements RestStatus {
 
