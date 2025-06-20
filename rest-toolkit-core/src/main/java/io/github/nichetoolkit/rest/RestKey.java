@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.*;
+import java.util.function.BiPredicate;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -123,6 +124,24 @@ public interface RestKey<K> extends Serializable {
     }
 
     /**
+     * <code>findKey</code>
+     * <p>The find key method.</p>
+     * @param <T>   {@link io.github.nichetoolkit.rest.RestKey} <p>The generic parameter is <code>RestKey</code> type.</p>
+     * @param <K>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @param key   K <p>The key parameter is <code>K</code> type.</p>
+     * @return {@link java.util.Optional} <p>The find key return object is <code>Optional</code> type.</p>
+     * @see java.lang.Class
+     * @see java.util.Optional
+     */
+    static <T extends RestKey<K>, K> Optional<T> findKey(Class<T> clazz, K key) {
+        if (key != null && clazz.isEnum()) {
+            return Stream.of(clazz.getEnumConstants()).filter(content -> Objects.equals(key, content.getKey())).findAny();
+        }
+        return Optional.empty();
+    }
+
+    /**
      * <code>parseKey</code>
      * <p>The parse key method.</p>
      * @param <T>      {@link io.github.nichetoolkit.rest.RestKey} <p>The generic parameter is <code>RestKey</code> type.</p>
@@ -143,23 +162,101 @@ public interface RestKey<K> extends Serializable {
     }
 
     /**
+     * <code>findKey</code>
+     * <p>The find key method.</p>
+     * @param <T>      {@link io.github.nichetoolkit.rest.RestKey} <p>The generic parameter is <code>RestKey</code> type.</p>
+     * @param <K>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param clazz    {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @param key      K <p>The key parameter is <code>K</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
+     * @return {@link java.util.Optional} <p>The find key return object is <code>Optional</code> type.</p>
+     * @see java.lang.Class
+     * @see java.util.function.Function
+     * @see java.util.Optional
+     */
+    static <T extends RestKey<K>, K> Optional<T> findKey(Class<T> clazz, K key, Function<T, K> function) {
+        if (key != null && clazz.isEnum()) {
+            return Stream.of(clazz.getEnumConstants()).filter(content -> Objects.equals(key, function.apply(content))).findAny();
+        }
+        return Optional.empty();
+    }
+
+    /**
+     * <code>findKey</code>
+     * <p>The find key method.</p>
+     * @param <T>       {@link io.github.nichetoolkit.rest.RestKey} <p>The generic parameter is <code>RestKey</code> type.</p>
+     * @param <K>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param clazz     {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @param key       K <p>The key parameter is <code>K</code> type.</p>
+     * @param predicate {@link java.util.function.BiPredicate} <p>The predicate parameter is <code>BiPredicate</code> type.</p>
+     * @return {@link java.util.Optional} <p>The find key return object is <code>Optional</code> type.</p>
+     * @see java.lang.Class
+     * @see java.util.function.BiPredicate
+     * @see java.util.Optional
+     */
+    static <T extends RestKey<K>, K> Optional<T> findKey(Class<T> clazz, K key, BiPredicate<T, K> predicate) {
+        if (key != null && clazz.isEnum()) {
+            return Stream.of(clazz.getEnumConstants()).filter(content -> predicate.test(content, key)).findAny();
+        }
+        return Optional.empty();
+    }
+
+    /**
+     * <code>findKey</code>
+     * <p>The find key method.</p>
+     * @param <T>        {@link io.github.nichetoolkit.rest.RestKey} <p>The generic parameter is <code>RestKey</code> type.</p>
+     * @param <K>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param clazz      {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @param key        K <p>The key parameter is <code>K</code> type.</p>
+     * @param comparator {@link java.util.Comparator} <p>The comparator parameter is <code>Comparator</code> type.</p>
+     * @return {@link java.util.Optional} <p>The find key return object is <code>Optional</code> type.</p>
+     * @see java.lang.Class
+     * @see java.util.Comparator
+     * @see java.util.Optional
+     */
+    static <T extends RestKey<K>, K> Optional<T> findKey(Class<T> clazz, K key, Comparator<K> comparator) {
+        if (key != null && clazz.isEnum()) {
+            return Stream.of(clazz.getEnumConstants()).filter(content -> comparator.compare(content.getKey(), key) == 0).findAny();
+        }
+        return Optional.empty();
+    }
+
+    /**
      * <code>parseKey</code>
      * <p>The parse key method.</p>
-     * @param <T>    {@link io.github.nichetoolkit.rest.RestKey} <p>The generic parameter is <code>RestKey</code> type.</p>
-     * @param <K>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param values {@link java.util.Collection} <p>The values parameter is <code>Collection</code> type.</p>
-     * @param key    K <p>The key parameter is <code>K</code> type.</p>
+     * @param <T>  {@link io.github.nichetoolkit.rest.RestKey} <p>The generic parameter is <code>RestKey</code> type.</p>
+     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param keys {@link java.util.Collection} <p>The keys parameter is <code>Collection</code> type.</p>
+     * @param key  K <p>The key parameter is <code>K</code> type.</p>
      * @return T <p>The parse key return object is <code>T</code> type.</p>
      * @see java.util.Collection
      * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("Duplicates")
-    static <T extends RestKey<K>, K> T parseKey(Collection<T> values, K key) {
-        if (key != null && values != null && !values.isEmpty()) {
-            Map<K, T> valueEnumMap = values.stream().collect(Collectors.toMap(RestKey::getKey, Function.identity()));
+    static <T extends RestKey<K>, K> T parseKey(Collection<T> keys, K key) {
+        if (key != null && keys != null && !keys.isEmpty()) {
+            Map<K, T> valueEnumMap = keys.stream().collect(Collectors.toMap(RestKey::getKey, Function.identity()));
             return valueEnumMap.get(key);
         }
         return null;
+    }
+
+    /**
+     * <code>findKey</code>
+     * <p>The find key method.</p>
+     * @param <T>  {@link io.github.nichetoolkit.rest.RestKey} <p>The generic parameter is <code>RestKey</code> type.</p>
+     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param keys {@link java.util.Collection} <p>The keys parameter is <code>Collection</code> type.</p>
+     * @param key  K <p>The key parameter is <code>K</code> type.</p>
+     * @return {@link java.util.Optional} <p>The find key return object is <code>Optional</code> type.</p>
+     * @see java.util.Collection
+     * @see java.util.Optional
+     */
+    static <T extends RestKey<K>, K> Optional<T> findKey(Collection<T> keys, K key) {
+        if (key != null && keys != null && !keys.isEmpty()) {
+            return keys.stream().filter(content -> Objects.equals(key, content.getKey())).findAny();
+        }
+        return Optional.empty();
     }
 
     /**
@@ -167,7 +264,7 @@ public interface RestKey<K> extends Serializable {
      * <p>The parse key method.</p>
      * @param <T>      {@link io.github.nichetoolkit.rest.RestKey} <p>The generic parameter is <code>RestKey</code> type.</p>
      * @param <K>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param values   {@link java.util.Collection} <p>The values parameter is <code>Collection</code> type.</p>
+     * @param keys     {@link java.util.Collection} <p>The keys parameter is <code>Collection</code> type.</p>
      * @param key      K <p>The key parameter is <code>K</code> type.</p>
      * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
      * @return T <p>The parse key return object is <code>T</code> type.</p>
@@ -176,14 +273,73 @@ public interface RestKey<K> extends Serializable {
      * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("Duplicates")
-    static <T extends RestKey<?>, K> T parseKey(Collection<T> values, K key, Function<T, K> function) {
-        if (key != null && values != null && !values.isEmpty()) {
-            Map<K, T> valueEnumMap = values.stream().collect(Collectors.toMap(function, Function.identity()));
+    static <T extends RestKey<?>, K> T parseKey(Collection<T> keys, K key, Function<T, K> function) {
+        if (key != null && keys != null && !keys.isEmpty()) {
+            Map<K, T> valueEnumMap = keys.stream().collect(Collectors.toMap(function, Function.identity()));
             return valueEnumMap.get(key);
         }
         return null;
     }
 
+    /**
+     * <code>findKey</code>
+     * <p>The find key method.</p>
+     * @param <T>      {@link io.github.nichetoolkit.rest.RestKey} <p>The generic parameter is <code>RestKey</code> type.</p>
+     * @param <K>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param keys     {@link java.util.Collection} <p>The keys parameter is <code>Collection</code> type.</p>
+     * @param key      K <p>The key parameter is <code>K</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
+     * @return {@link java.util.Optional} <p>The find key return object is <code>Optional</code> type.</p>
+     * @see java.util.Collection
+     * @see java.util.function.Function
+     * @see java.util.Optional
+     */
+    static <T extends RestKey<K>, K> Optional<T> findKey(Collection<T> keys, K key, Function<T, K> function) {
+        if (key != null && keys != null && !keys.isEmpty()) {
+            return keys.stream().filter(content -> Objects.equals(key, function.apply(content))).findAny();
+        }
+        return Optional.empty();
+    }
+
+    /**
+     * <code>findKey</code>
+     * <p>The find key method.</p>
+     * @param <T>       {@link io.github.nichetoolkit.rest.RestKey} <p>The generic parameter is <code>RestKey</code> type.</p>
+     * @param <K>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param keys      {@link java.util.Collection} <p>The keys parameter is <code>Collection</code> type.</p>
+     * @param key       K <p>The key parameter is <code>K</code> type.</p>
+     * @param predicate {@link java.util.function.BiPredicate} <p>The predicate parameter is <code>BiPredicate</code> type.</p>
+     * @return {@link java.util.Optional} <p>The find key return object is <code>Optional</code> type.</p>
+     * @see java.util.Collection
+     * @see java.util.function.BiPredicate
+     * @see java.util.Optional
+     */
+    static <T extends RestKey<K>, K> Optional<T> findKey(Collection<T> keys, K key, BiPredicate<T, K> predicate) {
+        if (key != null && keys != null && !keys.isEmpty()) {
+            return keys.stream().filter(content -> predicate.test(content, key)).findAny();
+        }
+        return Optional.empty();
+    }
+
+    /**
+     * <code>findKey</code>
+     * <p>The find key method.</p>
+     * @param <T>        {@link io.github.nichetoolkit.rest.RestKey} <p>The generic parameter is <code>RestKey</code> type.</p>
+     * @param <K>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param keys       {@link java.util.Collection} <p>The keys parameter is <code>Collection</code> type.</p>
+     * @param key        K <p>The key parameter is <code>K</code> type.</p>
+     * @param comparator {@link java.util.Comparator} <p>The comparator parameter is <code>Comparator</code> type.</p>
+     * @return {@link java.util.Optional} <p>The find key return object is <code>Optional</code> type.</p>
+     * @see java.util.Collection
+     * @see java.util.Comparator
+     * @see java.util.Optional
+     */
+    static <T extends RestKey<K>, K> Optional<T> findKey(Collection<T> keys, K key, Comparator<K> comparator) {
+        if (key != null && keys != null && !keys.isEmpty()) {
+            return keys.stream().filter(content -> comparator.compare(content.getKey(), key) == 0).findAny();
+        }
+        return Optional.empty();
+    }
 
     /**
      * <code>of</code>

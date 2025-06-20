@@ -5,6 +5,7 @@ import io.github.nichetoolkit.rest.pack.ViewPack;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 
 import java.util.*;
+import java.util.function.BiPredicate;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -234,6 +235,109 @@ public interface RestValue<K, V> extends RestKey<K> {
     /**
      * <code>parseValue</code>
      * <p>The parse value method.</p>
+     * @param <T>      {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
+     * @param <K>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <V>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param clazz    {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @param value    V <p>The value parameter is <code>V</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
+     * @return T <p>The parse value return object is <code>T</code> type.</p>
+     * @see java.lang.Class
+     * @see java.util.function.Function
+     */
+    static <T extends RestValue<K, V>, K, V> T parseValue(Class<T> clazz, V value, Function<T,V> function) {
+        if (value != null && clazz.isEnum()) {
+            Map<V, T> valueEnumMap = Stream.of(clazz.getEnumConstants()).collect(Collectors.toMap(function, Function.identity(), (oldValue, newValue) -> newValue, HashMap::new));
+            return valueEnumMap.get(value);
+        }
+        return null;
+    }
+
+    /**
+     * <code>findValue</code>
+     * <p>The find value method.</p>
+     * @param <T>   {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
+     * @param <K>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <V>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @param value V <p>The value parameter is <code>V</code> type.</p>
+     * @return {@link java.util.Optional} <p>The find value return object is <code>Optional</code> type.</p>
+     * @see java.lang.Class
+     * @see java.util.Optional
+     */
+    static <T extends RestValue<K, V>, K, V> Optional<T> findValue(Class<T> clazz, V value) {
+        if (value != null && clazz.isEnum()) {
+            return Stream.of(clazz.getEnumConstants()).filter(content -> Objects.equals(value, content.getValue())).findAny();
+        }
+        return Optional.empty();
+    }
+
+    /**
+     * <code>findValue</code>
+     * <p>The find value method.</p>
+     * @param <T>      {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
+     * @param <K>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <V>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param clazz    {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @param value    V <p>The value parameter is <code>V</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
+     * @return {@link java.util.Optional} <p>The find value return object is <code>Optional</code> type.</p>
+     * @see java.lang.Class
+     * @see java.util.function.Function
+     * @see java.util.Optional
+     */
+    static <T extends RestValue<K, V>, K, V> Optional<T> findValue(Class<T> clazz, V value, Function<T, V> function) {
+        if (value != null && clazz.isEnum()) {
+            return Stream.of(clazz.getEnumConstants()).filter(content -> Objects.equals(value, function.apply(content))).findAny();
+        }
+        return Optional.empty();
+    }
+
+    /**
+     * <code>findValue</code>
+     * <p>The find value method.</p>
+     * @param <T>       {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
+     * @param <K>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <V>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param clazz     {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @param value     V <p>The value parameter is <code>V</code> type.</p>
+     * @param predicate {@link java.util.function.BiPredicate} <p>The predicate parameter is <code>BiPredicate</code> type.</p>
+     * @return {@link java.util.Optional} <p>The find value return object is <code>Optional</code> type.</p>
+     * @see java.lang.Class
+     * @see java.util.function.BiPredicate
+     * @see java.util.Optional
+     */
+    static <T extends RestValue<K, V>, K, V> Optional<T> findValue(Class<T> clazz, V value, BiPredicate<T, V> predicate) {
+        if (value != null && clazz.isEnum()) {
+            return Stream.of(clazz.getEnumConstants()).filter(content -> predicate.test(content, value)).findAny();
+        }
+        return Optional.empty();
+    }
+
+    /**
+     * <code>findValue</code>
+     * <p>The find value method.</p>
+     * @param <T>        {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
+     * @param <K>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <V>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param clazz      {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @param value      V <p>The value parameter is <code>V</code> type.</p>
+     * @param comparator {@link java.util.Comparator} <p>The comparator parameter is <code>Comparator</code> type.</p>
+     * @return {@link java.util.Optional} <p>The find value return object is <code>Optional</code> type.</p>
+     * @see java.lang.Class
+     * @see java.util.Comparator
+     * @see java.util.Optional
+     */
+    static <T extends RestValue<K, V>, K, V> Optional<T> findValue(Class<T> clazz, V value, Comparator<V> comparator) {
+        if (value != null && clazz.isEnum()) {
+            return Stream.of(clazz.getEnumConstants()).filter(content -> comparator.compare(content.getValue(), value) == 0).findAny();
+        }
+        return Optional.empty();
+    }
+
+    /**
+     * <code>parseValue</code>
+     * <p>The parse value method.</p>
      * @param <T>    {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
      * @param <K>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <V>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
@@ -250,6 +354,109 @@ public interface RestValue<K, V> extends RestKey<K> {
             return valueEnumMap.get(value);
         }
         return null;
+    }
+
+    /**
+     * <code>parseValue</code>
+     * <p>The parse value method.</p>
+     * @param <T>      {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
+     * @param <K>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <V>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param values   {@link java.util.Collection} <p>The values parameter is <code>Collection</code> type.</p>
+     * @param value    V <p>The value parameter is <code>V</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
+     * @return T <p>The parse value return object is <code>T</code> type.</p>
+     * @see java.util.Collection
+     * @see java.util.function.Function
+     */
+    static <T extends RestValue<K, V>, K, V> T parseValue(Collection<T> values, V value, Function<T,V> function) {
+        if (value != null && values != null && !values.isEmpty()) {
+            Map<V, T> valueEnumMap = values.stream().collect(Collectors.toMap(function, Function.identity()));
+            return valueEnumMap.get(value);
+        }
+        return null;
+    }
+
+    /**
+     * <code>findValue</code>
+     * <p>The find value method.</p>
+     * @param <T>    {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
+     * @param <K>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <V>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param values {@link java.util.Collection} <p>The values parameter is <code>Collection</code> type.</p>
+     * @param value  V <p>The value parameter is <code>V</code> type.</p>
+     * @return {@link java.util.Optional} <p>The find value return object is <code>Optional</code> type.</p>
+     * @see java.util.Collection
+     * @see java.util.Optional
+     */
+    static <T extends RestValue<K, V>, K, V> Optional<T> findValue(Collection<T> values, V value) {
+        if (value != null && values != null && !values.isEmpty()) {
+            return values.stream().filter(content -> Objects.equals(value, content.getValue())).findAny();
+        }
+        return Optional.empty();
+    }
+
+    /**
+     * <code>findValue</code>
+     * <p>The find value method.</p>
+     * @param <T>      {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
+     * @param <K>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <V>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param values   {@link java.util.Collection} <p>The values parameter is <code>Collection</code> type.</p>
+     * @param value    V <p>The value parameter is <code>V</code> type.</p>
+     * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
+     * @return {@link java.util.Optional} <p>The find value return object is <code>Optional</code> type.</p>
+     * @see java.util.Collection
+     * @see java.util.function.Function
+     * @see java.util.Optional
+     */
+    static <T extends RestValue<K, V>, K, V> Optional<T> findValue(Collection<T> values, V value, Function<T, V> function) {
+        if (value != null && values != null && !values.isEmpty()) {
+            return values.stream().filter(content -> Objects.equals(value, function.apply(content))).findAny();
+        }
+        return Optional.empty();
+    }
+
+    /**
+     * <code>findValue</code>
+     * <p>The find value method.</p>
+     * @param <T>       {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
+     * @param <K>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <V>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param values    {@link java.util.Collection} <p>The values parameter is <code>Collection</code> type.</p>
+     * @param value     V <p>The value parameter is <code>V</code> type.</p>
+     * @param predicate {@link java.util.function.BiPredicate} <p>The predicate parameter is <code>BiPredicate</code> type.</p>
+     * @return {@link java.util.Optional} <p>The find value return object is <code>Optional</code> type.</p>
+     * @see java.util.Collection
+     * @see java.util.function.BiPredicate
+     * @see java.util.Optional
+     */
+    static <T extends RestValue<K, V>, K, V> Optional<T> findValue(Collection<T> values, V value, BiPredicate<T, V> predicate) {
+        if (value != null && values != null && !values.isEmpty()) {
+            return values.stream().filter(content -> predicate.test(content, value)).findAny();
+        }
+        return Optional.empty();
+    }
+
+    /**
+     * <code>findValue</code>
+     * <p>The find value method.</p>
+     * @param <T>        {@link io.github.nichetoolkit.rest.RestValue} <p>The generic parameter is <code>RestValue</code> type.</p>
+     * @param <K>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <V>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param values     {@link java.util.Collection} <p>The values parameter is <code>Collection</code> type.</p>
+     * @param value      V <p>The value parameter is <code>V</code> type.</p>
+     * @param comparator {@link java.util.Comparator} <p>The comparator parameter is <code>Comparator</code> type.</p>
+     * @return {@link java.util.Optional} <p>The find value return object is <code>Optional</code> type.</p>
+     * @see java.util.Collection
+     * @see java.util.Comparator
+     * @see java.util.Optional
+     */
+    static <T extends RestValue<K, V>, K, V> Optional<T> findValue(Collection<T> values, V value, Comparator<V> comparator) {
+        if (value != null && values != null && !values.isEmpty()) {
+            return values.stream().filter(content -> comparator.compare(content.getValue(), value) == 0).findAny();
+        }
+        return Optional.empty();
     }
 
     /**
