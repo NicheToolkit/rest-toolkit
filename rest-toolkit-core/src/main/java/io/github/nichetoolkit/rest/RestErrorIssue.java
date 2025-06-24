@@ -44,17 +44,6 @@ public class RestErrorIssue extends DefaultErrorIssue implements RestStatus {
     /**
      * <code>RestErrorIssue</code>
      * <p>Instantiates a new rest error issue.</p>
-     * @param builder {@link io.github.nichetoolkit.rest.RestErrorIssue.Builder} <p>The builder parameter is <code>Builder</code> type.</p>
-     * @see io.github.nichetoolkit.rest.RestErrorIssue.Builder
-     */
-    public RestErrorIssue(RestErrorIssue.Builder builder) {
-        super(builder);
-        this.status = builder.status;
-    }
-
-    /**
-     * <code>RestErrorIssue</code>
-     * <p>Instantiates a new rest error issue.</p>
      * @param status {@link io.github.nichetoolkit.rest.RestStatus} <p>The status parameter is <code>RestStatus</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestStatus
      */
@@ -280,67 +269,14 @@ public class RestErrorIssue extends DefaultErrorIssue implements RestStatus {
         this.status = status.getStatus();
     }
 
-    /**
-     * <code>Builder</code>
-     * <p>The builder class.</p>
-     * @author Cyan (snow22314@outlook.com)
-     * @see io.github.nichetoolkit.rest.DefaultErrorIssue.Builder
-     * @since Jdk1.8
-     */
-    public static class Builder extends DefaultErrorIssue.Builder {
-        /**
-         * <code>status</code>
-         * {@link java.lang.Integer} <p>The <code>status</code> field.</p>
-         * @see java.lang.Integer
-         */
-        protected Integer status;
-
-        /**
-         * <code>Builder</code>
-         * <p>Instantiates a new builder.</p>
-         */
-        public Builder() {
-        }
-
-        /**
-         * <code>status</code>
-         * <p>The status method.</p>
-         * @param status {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.RestErrorIssue.Builder} <p>The status return object is <code>Builder</code> type.</p>
-         * @see java.lang.Integer
-         */
-        public RestErrorIssue.Builder status(Integer status) {
-            this.status = status;
-            return this;
-        }
-
-        @Override
-        public RestErrorIssue.Builder field(String field) {
-            this.field = field;
-            return this;
-        }
-
-        @Override
-        public RestErrorIssue.Builder value(Object value) {
-            this.value = value;
-            return this;
-        }
-
-        @Override
-        public RestErrorIssue.Builder issue(String issue) {
-            this.issue = issue;
-            return this;
-        }
-
-        @Override
-        public RestErrorIssue build() {
-            return new RestErrorIssue(this);
-        }
-    }
-
     @Override
     public String name() {
         return Optional.ofNullable(this.getField()).orElse("io.github.nichetoolkit.rest error issue");
+    }
+
+    @Override
+    public Integer getKey() {
+        return RestStatus.super.getKey();
     }
 
     @Override

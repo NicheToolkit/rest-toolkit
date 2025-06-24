@@ -5,17 +5,17 @@ import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * <code>DefaultErrorIssue</code>
  * <p>The default error issue class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.io.Serializable
- * @see lombok.Getter
  * @see lombok.Setter
+ * @see lombok.experimental.SuperBuilder
  * @since Jdk1.8
  */
-@Getter
 @Setter
 @SuperBuilder
 class DefaultErrorIssue implements Serializable {
@@ -23,7 +23,9 @@ class DefaultErrorIssue implements Serializable {
      * <code>field</code>
      * {@link java.lang.String} <p>The <code>field</code> field.</p>
      * @see java.lang.String
+     * @see lombok.Getter
      */
+    @Getter
     private String field;
     /**
      * <code>value</code>
@@ -35,7 +37,9 @@ class DefaultErrorIssue implements Serializable {
      * <code>issue</code>
      * {@link java.lang.String} <p>The <code>issue</code> field.</p>
      * @see java.lang.String
+     * @see lombok.Getter
      */
+    @Getter
     private String issue;
 
     /**
@@ -43,18 +47,6 @@ class DefaultErrorIssue implements Serializable {
      * <p>Instantiates a new default error issue.</p>
      */
     protected DefaultErrorIssue() {
-    }
-
-    /**
-     * <code>DefaultErrorIssue</code>
-     * <p>Instantiates a new default error issue.</p>
-     * @param builder {@link io.github.nichetoolkit.rest.DefaultErrorIssue.Builder} <p>The builder parameter is <code>Builder</code> type.</p>
-     * @see io.github.nichetoolkit.rest.DefaultErrorIssue.Builder
-     */
-    protected DefaultErrorIssue(DefaultErrorIssue.Builder builder) {
-        this.field = builder.field;
-        this.value = builder.value;
-        this.issue = builder.issue;
     }
 
     /**
@@ -95,79 +87,22 @@ class DefaultErrorIssue implements Serializable {
     }
 
     /**
-     * <code>Builder</code>
-     * <p>The builder class.</p>
-     * @author Cyan (snow22314@outlook.com)
-     * @since Jdk1.8
+     * <code>getValue</code>
+     * <p>The get value getter method.</p>
+     * @return {@link java.lang.String} <p>The get value return object is <code>String</code> type.</p>
+     * @see java.lang.String
      */
-    public static abstract class Builder {
-        /**
-         * <code>field</code>
-         * {@link java.lang.String} <p>The <code>field</code> field.</p>
-         * @see java.lang.String
-         */
-        protected String field;
-        /**
-         * <code>value</code>
-         * {@link java.lang.Object} <p>The <code>value</code> field.</p>
-         * @see java.lang.Object
-         */
-        protected Object value;
-        /**
-         * <code>issue</code>
-         * {@link java.lang.String} <p>The <code>issue</code> field.</p>
-         * @see java.lang.String
-         */
-        protected String issue;
+    public String getValue() {
+        return Objects.toString(value);
+    }
 
-        /**
-         * <code>Builder</code>
-         * <p>Instantiates a new builder.</p>
-         */
-        public Builder() {
-        }
-
-        /**
-         * <code>field</code>
-         * <p>The field method.</p>
-         * @param field {@link java.lang.String} <p>The field parameter is <code>String</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.DefaultErrorIssue.Builder} <p>The field return object is <code>Builder</code> type.</p>
-         * @see java.lang.String
-         */
-        public DefaultErrorIssue.Builder field(String field) {
-            this.field = field;
-            return this;
-        }
-
-        /**
-         * <code>value</code>
-         * <p>The value method.</p>
-         * @param value {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.DefaultErrorIssue.Builder} <p>The value return object is <code>Builder</code> type.</p>
-         * @see java.lang.Object
-         */
-        public DefaultErrorIssue.Builder value(Object value) {
-            this.value = value;
-            return this;
-        }
-
-        /**
-         * <code>issue</code>
-         * <p>The issue method.</p>
-         * @param issue {@link java.lang.String} <p>The issue parameter is <code>String</code> type.</p>
-         * @return {@link io.github.nichetoolkit.rest.DefaultErrorIssue.Builder} <p>The issue return object is <code>Builder</code> type.</p>
-         * @see java.lang.String
-         */
-        public DefaultErrorIssue.Builder issue(String issue) {
-            this.issue = issue;
-            return this;
-        }
-
-        /**
-         * <code>build</code>
-         * <p>The build method.</p>
-         * @return {@link io.github.nichetoolkit.rest.DefaultErrorIssue} <p>The build return object is <code>DefaultErrorIssue</code> type.</p>
-         */
-        abstract DefaultErrorIssue build();
+    /**
+     * <code>getObjectValue</code>
+     * <p>The get object value getter method.</p>
+     * @return {@link java.lang.Object} <p>The get object value return object is <code>Object</code> type.</p>
+     * @see java.lang.Object
+     */
+    public Object getObjectValue() {
+        return this.value;
     }
 }

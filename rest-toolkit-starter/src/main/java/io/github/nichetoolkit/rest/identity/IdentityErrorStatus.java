@@ -69,24 +69,4 @@ public enum IdentityErrorStatus implements RestStatus {
         this.status = status;
         this.message = message;
     }
-
-    /**
-     * <code>getName</code>
-     * <p>The get name getter method.</p>
-     * @return {@link java.lang.String} <p>The get name return object is <code>String</code> type.</p>
-     * @see java.lang.String
-     */
-    public String getName() {
-        return this.name().toLowerCase().replace("_", " ");
-    }
-
-    @Override
-    public Integer getStatus() {
-        return this.status;
-    }
-
-    @Override
-    public String getMessage() {
-        return this.message;
-    }
 }
