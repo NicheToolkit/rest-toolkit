@@ -20,7 +20,7 @@
 
 - [Maven Central Repository](https://mvnrepository.com/search?q=io.github.nichetoolkit)
 
-- [Sonatype Central Repository](https://central.sonatype.dev/search?q=io.github.nichetoolkit)
+- [Sonatype Central Repository](https://central.sonatype.com/search?q=io.github.nichetoolkit)
 
 # Dependent & Environment
 
