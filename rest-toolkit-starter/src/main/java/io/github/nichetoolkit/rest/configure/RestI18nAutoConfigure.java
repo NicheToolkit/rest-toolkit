@@ -32,7 +32,7 @@ import java.util.Locale;
 @AutoConfiguration
 @SuppressWarnings("SameNameButDifferent")
 @ComponentScan(basePackages = {"io.github.nichetoolkit.rest"})
-@ConditionalOnProperty(value = "nichetoolkit.rest.i18n.enabled", havingValue = "true", matchIfMissing = true)
+@ConditionalOnProperty(value = "nichetoolkit.rest.i18n.enabled", havingValue = "true")
 public class RestI18nAutoConfigure implements WebMvcConfigurer {
 
     /**

@@ -26,7 +26,7 @@ import org.springframework.core.env.Environment;
 @AutoConfiguration
 @SuppressWarnings("SameNameButDifferent")
 @ComponentScan(basePackages = {"io.github.nichetoolkit.rest"})
-@ConditionalOnProperty(value = "nichetoolkit.rest.identity.enabled", havingValue = "true", matchIfMissing = true)
+@ConditionalOnProperty(value = "nichetoolkit.rest.identity.enabled", havingValue = "true")
 public class RestIdentityAutoConfigure {
 
     /**

@@ -75,7 +75,7 @@ import java.util.concurrent.TimeUnit;
 @AutoConfiguration
 @SuppressWarnings("SameNameButDifferent")
 @ComponentScan(basePackages = {"io.github.nichetoolkit.rest"})
-@ConditionalOnProperty(value = "nichetoolkit.rest.http.enabled", havingValue = "true", matchIfMissing = true)
+@ConditionalOnProperty(value = "nichetoolkit.rest.http.enabled", havingValue = "true")
 public class RestHttpAutoConfigure {
 
     /**
@@ -146,7 +146,7 @@ public class RestHttpAutoConfigure {
      * @since Jdk1.8
      */
     @Configuration
-    @ConditionalOnProperty(value = "nichetoolkit.rest.http.http-type", havingValue = "default", matchIfMissing = true)
+    @ConditionalOnProperty(value = "nichetoolkit.rest.http.http-type", havingValue = "default")
     public class DefaultRestTemplateAutoConfigure {
         /**
          * <code>DefaultRestTemplateAutoConfigure</code>
@@ -208,7 +208,7 @@ public class RestHttpAutoConfigure {
      */
     @Configuration
     @ConditionalOnClass({RestTemplate.class,OkHttpClient.class})
-    @ConditionalOnProperty(value = "nichetoolkit.rest.http.http-type", havingValue = "ok_http_client", matchIfMissing = true)
+    @ConditionalOnProperty(value = "nichetoolkit.rest.http.http-type", havingValue = "ok_http_client")
     public class OkHttpRestTemplateAutoConfigure {
         /**
          * <code>OkHttpRestTemplateAutoConfigure</code>
@@ -324,7 +324,7 @@ public class RestHttpAutoConfigure {
      */
     @Configuration
     @ConditionalOnClass({RestTemplate.class,HttpClient.class})
-    @ConditionalOnProperty(value = "nichetoolkit.rest.http.http-type", havingValue = "http_client", matchIfMissing = true)
+    @ConditionalOnProperty(value = "nichetoolkit.rest.http.http-type", havingValue = "http_client")
     public class HttpClientRestTemplateAutoConfigure {
         /**
          * <code>HttpClientRestTemplateAutoConfigure</code>

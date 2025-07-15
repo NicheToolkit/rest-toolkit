@@ -61,7 +61,7 @@ public class RestLogbackAutoConfigure {
      */
     @Bean
     @ConditionalOnMissingBean(RestLoggingKey.class)
-    @ConditionalOnProperty(value = "nichetoolkit.rest.logback.enabled", havingValue = "true", matchIfMissing = true)
+    @ConditionalOnProperty(value = "nichetoolkit.rest.logback.enabled", havingValue = "true")
     public RestLoggingKey loggingKeyGenerator() {
         return new RestLoggingKeyGenerator(logbackProperties) {
             @Override

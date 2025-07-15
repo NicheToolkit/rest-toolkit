@@ -27,7 +27,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @AutoConfiguration
 @SuppressWarnings("SameNameButDifferent")
 @ComponentScan(basePackages = {"io.github.nichetoolkit.rest"})
-@ConditionalOnProperty(value = "nichetoolkit.rest.intercept.enabled", havingValue = "true", matchIfMissing = true)
+@ConditionalOnProperty(value = "nichetoolkit.rest.intercept.enabled", havingValue = "true")
 public class RestInterceptAutoConfigure implements WebMvcConfigurer {
     /**
      * <code>handlerInterceptor</code>
