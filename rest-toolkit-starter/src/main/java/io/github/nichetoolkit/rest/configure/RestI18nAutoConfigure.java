@@ -124,7 +124,6 @@ public class RestI18nAutoConfigure implements WebMvcConfigurer {
      * @return {@link io.github.nichetoolkit.rest.RestI18nBasename} <p>The rest i 18 n basename return object is <code>RestI18nBasename</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestI18nBasename
      * @see org.springframework.context.annotation.Bean
-     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
      */
     @Bean
     public RestI18nBasename restI18nBasename() {
