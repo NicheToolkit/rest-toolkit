@@ -127,7 +127,6 @@ public class RestI18nAutoConfigure implements WebMvcConfigurer {
      * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
      */
     @Bean
-    @ConditionalOnMissingBean(RestI18nBasename.class)
     public RestI18nBasename restI18nBasename() {
         return () -> Collections.singleton(RestConstants.REST_I18N);
     }
