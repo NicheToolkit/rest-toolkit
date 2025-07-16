@@ -239,8 +239,8 @@
     },
     {
       "name": "nichetoolkit.rest.i18n.basename",
-      "type": "java.lang.String",
-      "sourceType": "java.lang.String",
+      "type": "java.lang.String[]",
+      "sourceType": "java.lang.String[]",
       "description": "the basename of i18n configuration.",
       "defaultValue": "i18n/messages"
     },

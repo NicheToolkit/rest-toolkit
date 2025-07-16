@@ -30,17 +30,7 @@ import java.util.function.Supplier;
 @SuppressWarnings("SameNameButDifferent")
 @JsonIgnoreProperties(value = {"cause", "stackTrace", "localizedMessage", "suppressed"})
 public class DefaultException extends Exception implements RestStatus, Supplier<DefaultException>, Serializable {
-    /**
-     * <code>error</code>
-     * {@link io.github.nichetoolkit.rest.RestError} <p>The <code>error</code> field.</p>
-     * @see io.github.nichetoolkit.rest.RestError
-     */
     private RestError error;
-    /**
-     * <code>status</code>
-     * {@link java.lang.Integer} <p>The <code>status</code> field.</p>
-     * @see java.lang.Integer
-     */
     private Integer status;
 
     /**
@@ -557,6 +547,19 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
     public final RestResult<?> buildResult() {
         return RestResult.defaultBuilder().status(this.status).message(getMessage()).data(this.error).build();
     }
+
+    /**
+     * <code>buildResult</code>
+     * <p>The build result method.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The build result return object is <code>RestResult</code> type.</p>
+     * @see java.lang.String
+     * @see io.github.nichetoolkit.rest.RestResult
+     */
+    public final RestResult<?> buildResult(String message) {
+        return RestResult.defaultBuilder().status(this.status).message(message).data(this.error).build();
+    }
+
 
     @Override
     public String name() {

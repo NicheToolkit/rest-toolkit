@@ -40,7 +40,7 @@ public class RestI18nProperties {
      * {@link java.lang.String} <p>The <code>basename</code> field.</p>
      * @see java.lang.String
      */
-    private String basename = "i18n/messages";
+    private String[] basename = {"i18n/messages"};
     /**
      * <code>locale</code>
      * {@link io.github.nichetoolkit.rest.type.LocaleType} <p>The <code>locale</code> field.</p>
@@ -53,4 +53,5 @@ public class RestI18nProperties {
      * @see io.github.nichetoolkit.rest.type.CharsetType
      */
     private CharsetType charset = CharsetType.UTF_8;
+
 }

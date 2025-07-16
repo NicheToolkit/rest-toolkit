@@ -20,6 +20,20 @@
       "sourceType": "java.lang.Boolean",
       "description": "the switch of common exception in console log.",
       "defaultValue": true
+    },
+    {
+      "name": "nichetoolkit.rest.error.message-i18n.transform-enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "java.lang.Boolean",
+      "description": "the switch of message i18n transform in console log.",
+      "defaultValue": false
+    },
+    {
+      "name": "nichetoolkit.rest.error.message-i18n.message-prefix",
+      "type": "java.lang.String",
+      "sourceType": "java.lang.String",
+      "description": "the message i18n prefix transform in console log.",
+      "defaultValue": "i18n@"
     }
   ],
   "hints": [

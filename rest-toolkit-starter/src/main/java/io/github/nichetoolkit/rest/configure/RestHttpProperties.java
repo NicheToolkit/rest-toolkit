@@ -75,8 +75,8 @@ public class RestHttpProperties {
 
     /**
      * <code>charset</code>
-     * {@link java.nio.charset.Charset} <p>The <code>charset</code> field.</p>
-     * @see java.nio.charset.Charset
+     * {@link io.github.nichetoolkit.rest.type.CharsetType} <p>The <code>charset</code> field.</p>
+     * @see io.github.nichetoolkit.rest.type.CharsetType
      */
     private CharsetType charset = CharsetType.UTF_8;
 

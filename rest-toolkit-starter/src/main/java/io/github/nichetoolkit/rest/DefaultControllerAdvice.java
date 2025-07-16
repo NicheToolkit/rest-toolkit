@@ -6,6 +6,7 @@ import io.github.nichetoolkit.rest.holder.ApplicationContextHolder;
 import io.github.nichetoolkit.rest.holder.BeanDefinitionRegistryHolder;
 import io.github.nichetoolkit.rest.holder.ListableBeanFactoryHolder;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
+import io.github.nichetoolkit.rest.util.I18nUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.InitializingBean;
@@ -190,7 +191,20 @@ public final class DefaultControllerAdvice implements ResponseBodyAdvice<Object>
             if (restExceptionEnabled) {
                 GeneralUtils.printStackTrace(log,exception,true);
             }
-            return ResponseEntity.ok(restException.buildResult());
+            Boolean transformEnabled = exceptionProperties.getMessageI18n().getTransformEnabled();
+            if (transformEnabled) {
+                String messagePrefix = exceptionProperties.getMessageI18n().getMessagePrefix();
+                String message = restException.getMessage();
+                if (message.startsWith(messagePrefix)) {
+                    message = message.substring(messagePrefix.length());
+                    String i18nMessage = I18nUtils.message(message);
+                    return ResponseEntity.ok(restException.buildResult(i18nMessage));
+                } else {
+                    return ResponseEntity.ok(restException.buildResult());
+                }
+            } else {
+                return ResponseEntity.ok(restException.buildResult());
+            }
         } else {
             doExceptionHandle(exception, request, response);
             boolean commonExceptionEnabled = exceptionProperties.getConsoleLog().getCommonExceptionEnabled();
