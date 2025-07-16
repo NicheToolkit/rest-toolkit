@@ -10,16 +10,11 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.context.support.ResourceBundleMessageSource;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
-import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.lang.NonNull;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver;
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
@@ -140,19 +135,21 @@ public class RestI18nAutoConfigure implements WebMvcConfigurer {
     /**
      * <code>messageSource</code>
      * <p>The message source method.</p>
-     * @param i18nBasename {@link io.github.nichetoolkit.rest.RestI18nBasename} <p>The 18 n basename parameter is <code>RestI18nBasename</code> type.</p>
+     * @param i18nBasenameList {@link java.util.List} <p>The 18 n basename list parameter is <code>List</code> type.</p>
      * @return {@link org.springframework.context.support.ResourceBundleMessageSource} <p>The message source return object is <code>ResourceBundleMessageSource</code> type.</p>
-     * @see io.github.nichetoolkit.rest.RestI18nBasename
+     * @see java.util.List
      * @see org.springframework.context.support.ResourceBundleMessageSource
      * @see org.springframework.context.annotation.Bean
      */
     @Bean
-    public ResourceBundleMessageSource messageSource(RestI18nBasename i18nBasename) {
+    public ResourceBundleMessageSource messageSource(List<RestI18nBasename> i18nBasenameList) {
         Locale.setDefault(this.i18nProperties.getLocale().getValue());
         ResourceBundleMessageSource source = new ResourceBundleMessageSource();
         String[] basename = this.i18nProperties.getBasename();
         Set<String> basenameSet = new HashSet<>(Arrays.asList(basename));
-        basenameSet.addAll(i18nBasename.getBaseNames());
+        i18nBasenameList.forEach(i18nBasename -> {
+            basenameSet.addAll(i18nBasename.getBaseNames());
+        });
         source.setBasenames(basenameSet.toArray(new String[0]));
         source.setUseCodeAsDefaultMessage(false);
         source.setDefaultEncoding(this.i18nProperties.getCharset().getKey());
