@@ -27,7 +27,7 @@ public class I18nHelper {
     public static String message(String source) throws ResourceNotFoundException {
         try {
             Locale locale = LocaleContextHolder.getLocale();
-            return MessageSourceHolder.messageSource().getMessage(source, null, locale);
+            return MessageSourceHolder.messageSource().getMessage(source, null, null, locale);
         } catch (NoSuchMessageException exception) {
             throw new ResourceNotFoundException(source, exception.getMessage());
         }
@@ -61,7 +61,7 @@ public class I18nHelper {
     public static String message(String source, Object... args) throws ResourceNotFoundException {
         try {
             Locale locale = LocaleContextHolder.getLocale();
-            return MessageSourceHolder.messageSource().getMessage(source, args, locale);
+            return MessageSourceHolder.messageSource().getMessage(source, args,null, locale);
         } catch (NoSuchMessageException exception) {
             throw new ResourceNotFoundException(source, exception.getMessage());
         }

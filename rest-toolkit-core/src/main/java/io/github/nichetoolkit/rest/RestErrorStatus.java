@@ -1,13 +1,14 @@
 package io.github.nichetoolkit.rest;
 
+import io.github.nichetoolkit.rest.util.I18nUtils;
 import lombok.Getter;
 
 /**
  * <code>RestErrorStatus</code>
  * <p>The rest error status enumeration.</p>
- * @see  io.github.nichetoolkit.rest.RestStatus
- * @see  lombok.Getter
  * @author Cyan (snow22314@outlook.com)
+ * @see io.github.nichetoolkit.rest.RestStatus
+ * @see lombok.Getter
  * @since Jdk1.8
  */
 @Getter
@@ -26,84 +27,81 @@ public enum RestErrorStatus implements RestStatus {
     /**
      * <code>FAILED</code>
      * <p>The failed rest error status field.</p>
-     * @deprecated  <p>The <code>FAILED</code> field has be deprecated.</p>
-     * @see  java.lang.Deprecated
      */
-    @Deprecated
     FAILED(400, "failed"),
 
     /**
      * <code>HTTP_CONFIG_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>HTTP_CONFIG_ERROR</code> field.</p>
      */
-    HTTP_CONFIG_ERROR(8000, "the http request has encountered a configuration related error"),
+    HTTP_CONFIG_ERROR(8000, "The http request has encountered a configuration related error"),
     /**
      * <code>HTTP_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>HTTP_ERROR</code> field.</p>
      */
-    HTTP_ERROR(8001, "the http request has encountered an error"),
+    HTTP_ERROR(8001, "The http request has encountered an error"),
     /**
      * <code>HTTP_RESPONSE_NULL</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>HTTP_RESPONSE_NULL</code> field.</p>
      */
-    HTTP_RESPONSE_NULL(8011, "the response of the http request is empty"),
+    HTTP_RESPONSE_NULL(8011, "The response of the http request is empty"),
     /**
      * <code>HTTP_RESULT_FAILED</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>HTTP_RESULT_FAILED</code> field.</p>
      */
-    HTTP_RESULT_FAILED(8012, "the result of the http request is failed"),
+    HTTP_RESULT_FAILED(8012, "The result of the http request is failed"),
     /**
      * <code>HTTP_RESULT_DATA_NULL</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>HTTP_RESULT_DATA_NULL</code> field.</p>
      */
-    HTTP_RESULT_DATA_NULL(8013, "the result data of the http request is empty"),
+    HTTP_RESULT_DATA_NULL(8013, "The result data of the http request is empty"),
 
     /**
      * <code>UNKNOWN_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>UNKNOWN_ERROR</code> field.</p>
      */
-    UNKNOWN_ERROR(8888, "it has encountered an unknown error"),
+    UNKNOWN_ERROR(8888, "It has encountered an unknown error"),
 
     /**
      * <code>BEAN_LACK_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>BEAN_LACK_ERROR</code> field.</p>
      */
-    BEAN_LACK_ERROR(9101, "it has encountered a bean lack error"),
+    BEAN_LACK_ERROR(9101, "It has encountered a bean lack error"),
     /**
      * <code>INTERFACE_LACK_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>INTERFACE_LACK_ERROR</code> field.</p>
      */
-    INTERFACE_LACK_ERROR(9111, "it has encountered an interface lack error"),
+    INTERFACE_LACK_ERROR(9111, "It has encountered an interface lack error"),
     /**
      * <code>METHOD_LACK_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>METHOD_LACK_ERROR</code> field.</p>
      */
-    METHOD_LACK_ERROR(9112, "it has encountered a method lack error"),
+    METHOD_LACK_ERROR(9112, "It has encountered a method lack error"),
     /**
      * <code>CONFIGURE_LACK_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>CONFIGURE_LACK_ERROR</code> field.</p>
      */
-    CONFIGURE_LACK_ERROR(9113, "it has encountered a configuration lack error"),
+    CONFIGURE_LACK_ERROR(9113, "It has encountered a configuration lack error"),
     /**
      * <code>ACCESSIBLE_LACK_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>ACCESSIBLE_LACK_ERROR</code> field.</p>
      */
-    ACCESSIBLE_LACK_ERROR(9114, "it has encountered a field accessible lack error"),
+    ACCESSIBLE_LACK_ERROR(9114, "It has encountered a field accessible lack error"),
     /**
      * <code>INSTANCE_LACK_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>INSTANCE_LACK_ERROR</code> field.</p>
      */
-    INSTANCE_LACK_ERROR(9115, "it has encountered a instance lack error"),
+    INSTANCE_LACK_ERROR(9115, "It has encountered a instance lack error"),
     /**
      * <code>CLASS_LACK_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>CLASS_LACK_ERROR</code> field.</p>
      */
-    CLASS_LACK_ERROR(9116, "it has encountered a class lack error"),
+    CLASS_LACK_ERROR(9116, "It has encountered a class lack error"),
     /**
      * <code>FIELD_LACK_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>FIELD_LACK_ERROR</code> field.</p>
      */
-    FIELD_LACK_ERROR(9117, "it has encountered a field lack error"),
+    FIELD_LACK_ERROR(9117, "It has encountered a field lack error"),
 
 
     /**
@@ -120,494 +118,499 @@ public enum RestErrorStatus implements RestStatus {
      * <code>PARAM_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>PARAM_ERROR</code> field.</p>
      */
-    PARAM_ERROR(10010, "it has encountered a param related error"),
+    PARAM_ERROR(10010, "It has encountered a param related error"),
     /**
      * <code>PARAM_INVALID</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>PARAM_INVALID</code> field.</p>
      */
-    PARAM_INVALID(10012, "it has encountered a param invalid error"),
+    PARAM_INVALID(10012, "The param is invalid."),
     /**
      * <code>PARAM_MISSING</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>PARAM_MISSING</code> field.</p>
      */
-    PARAM_MISSING(10011, "it has encountered a param missing error"),
+    PARAM_MISSING(10011, "The param is missing."),
     /**
      * <code>PARSE_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>PARSE_ERROR</code> field.</p>
      */
-    PARSE_ERROR(10100, "it has encountered a parse related error"),
+    PARSE_ERROR(10100, "It has encountered a parse related error"),
 
     /**
      * <code>JSON_PARSE_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>JSON_PARSE_ERROR</code> field.</p>
      */
-    JSON_PARSE_ERROR(10110, "it has encountered a json parse related error"),
+    JSON_PARSE_ERROR(10110, "It has encountered a json parse related error"),
     /**
      * <code>JSON_PARSE_BEAN</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>JSON_PARSE_BEAN</code> field.</p>
      */
-    JSON_PARSE_BEAN(10111, "it has encountered a json parse bean error"),
+    JSON_PARSE_BEAN(10111, "It has encountered a json parse bean error"),
     /**
      * <code>JSON_PARSE_CONVERT</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>JSON_PARSE_CONVERT</code> field.</p>
      */
-    JSON_PARSE_CONVERT(10112, "it has encountered a json parse convert type error"),
+    JSON_PARSE_CONVERT(10112, "It has encountered a json parse convert type error"),
     /**
      * <code>JSON_PARSE_LIST</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>JSON_PARSE_LIST</code> field.</p>
      */
-    JSON_PARSE_LIST(10113, "it has encountered a json parse list type error"),
+    JSON_PARSE_LIST(10113, "It has encountered a json parse list type error"),
     /**
      * <code>JSON_PARSE_SET</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>JSON_PARSE_SET</code> field.</p>
      */
-    JSON_PARSE_SET(10114, "it has encountered a json parse set type error"),
+    JSON_PARSE_SET(10114, "It has encountered a json parse set type error"),
     /**
      * <code>JSON_PARSE_MAP</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>JSON_PARSE_MAP</code> field.</p>
      */
-    JSON_PARSE_MAP(10115, "it has encountered a json parse map type error"),
+    JSON_PARSE_MAP(10115, "It has encountered a json parse map type error"),
     /**
      * <code>JSON_PARSE_ARRAY</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>JSON_PARSE_ARRAY</code> field.</p>
      */
-    JSON_PARSE_ARRAY(10116, "it has encountered a json parse array type error"),
+    JSON_PARSE_ARRAY(10116, "It has encountered a json parse array type error"),
     /**
      * <code>JSON_PARSE_RESULT</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>JSON_PARSE_RESULT</code> field.</p>
      */
-    JSON_PARSE_RESULT(10117, "it has encountered a json parse result type error"),
+    JSON_PARSE_RESULT(10117, "It has encountered a json parse result type error"),
 
     /**
      * <code>JSON_DESERIALIZE_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>JSON_DESERIALIZE_ERROR</code> field.</p>
      */
-    JSON_DESERIALIZE_ERROR(10120, "it has encountered a json deserialize related error"),
+    JSON_DESERIALIZE_ERROR(10120, "It has encountered a json deserialize related error"),
 
     /**
      * <code>XML_PARSE_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>XML_PARSE_ERROR</code> field.</p>
      */
-    XML_PARSE_ERROR(10130, "it has encountered a xml parse related error"),
+    XML_PARSE_ERROR(10130, "It has encountered a xml parse related error"),
     /**
      * <code>XML_PARSE_BEAN</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>XML_PARSE_BEAN</code> field.</p>
      */
-    XML_PARSE_BEAN(10131, "it has encountered a xml parse bean error"),
+    XML_PARSE_BEAN(10131, "It has encountered a xml parse bean error"),
     /**
      * <code>XML_PARSE_CONVERT</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>XML_PARSE_CONVERT</code> field.</p>
      */
-    XML_PARSE_CONVERT(10132, "it has encountered a xml parse convert type error"),
+    XML_PARSE_CONVERT(10132, "It has encountered a xml parse convert type error"),
     /**
      * <code>XML_PARSE_LIST</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>XML_PARSE_LIST</code> field.</p>
      */
-    XML_PARSE_LIST(10133, "it has encountered a xml parse list type error"),
+    XML_PARSE_LIST(10133, "It has encountered a xml parse list type error"),
     /**
      * <code>XML_PARSE_SET</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>XML_PARSE_SET</code> field.</p>
      */
-    XML_PARSE_SET(10134, "it has encountered a xml parse set type error"),
+    XML_PARSE_SET(10134, "It has encountered a xml parse set type error"),
     /**
      * <code>XML_PARSE_MAP</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>XML_PARSE_MAP</code> field.</p>
      */
-    XML_PARSE_MAP(10135, "it has encountered a xml parse map type error"),
+    XML_PARSE_MAP(10135, "It has encountered a xml parse map type error"),
     /**
      * <code>XML_PARSE_ARRAY</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>XML_PARSE_ARRAY</code> field.</p>
      */
-    XML_PARSE_ARRAY(10136, "it has encountered a xml parse array type error"),
+    XML_PARSE_ARRAY(10136, "It has encountered a xml parse array type error"),
     /**
      * <code>XML_DESERIALIZE_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>XML_DESERIALIZE_ERROR</code> field.</p>
      */
-    XML_DESERIALIZE_ERROR(10130, "it has encountered a xml deserialize related error"),
+    XML_DESERIALIZE_ERROR(10130, "It has encountered a xml deserialize related error"),
 
     /**
      * <code>RESOURCE_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>RESOURCE_ERROR</code> field.</p>
      */
-    RESOURCE_ERROR(10200, "it has encountered a resource related error"),
+    RESOURCE_ERROR(10200, "It has encountered a resource related error"),
     /**
      * <code>RESOURCE_NOT_FOUND</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>RESOURCE_NOT_FOUND</code> field.</p>
      */
-    RESOURCE_NOT_FOUND(10201, "the resource required is no found"),
+    RESOURCE_NOT_FOUND(10201, "The resource required is no found"),
     /**
      * <code>RESOURCE_UNAVAILABLE</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>RESOURCE_UNAVAILABLE</code> field.</p>
      */
-    RESOURCE_UNAVAILABLE(10202, "the resource required is unavailable"),
+    RESOURCE_UNAVAILABLE(10202, "The resource required is unavailable"),
 
     /**
      * <code>FILE_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>FILE_ERROR</code> field.</p>
      */
-    FILE_ERROR(10210, "it has encountered a file related error"),
+    FILE_ERROR(10210, "It has encountered a file related error"),
     /**
      * <code>FILE_NOT_EXIST</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>FILE_NOT_EXIST</code> field.</p>
      */
-    FILE_NOT_EXIST(10211, "the file required is no exist"),
+    FILE_NOT_EXIST(10211, "The file required is no exist"),
     /**
      * <code>FILE_IS_EXIST</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>FILE_IS_EXIST</code> field.</p>
      */
-    FILE_IS_EXIST(10212, "the file required is exist"),
+    FILE_IS_EXIST(10212, "The file required is already exist"),
     /**
      * <code>FILE_UNAVAILABLE</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>FILE_UNAVAILABLE</code> field.</p>
      */
-    FILE_UNAVAILABLE(10213, "the file required is unavailable"),
+    FILE_UNAVAILABLE(10213, "The file required is unavailable"),
 
     /**
      * <code>FILE_CREATE_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>FILE_CREATE_ERROR</code> field.</p>
      */
-    FILE_CREATE_ERROR(10214, "it has encountered a file created error"),
+    FILE_CREATE_ERROR(10214, "It has encountered a file created related error"),
     /**
      * <code>FILE_COPY_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>FILE_COPY_ERROR</code> field.</p>
      */
-    FILE_COPY_ERROR(10215, "it has encountered a file copied error"),
+    FILE_COPY_ERROR(10215, "It has encountered a file copied related error"),
 
     /**
      * <code>AUTH_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>AUTH_ERROR</code> field.</p>
      */
-    AUTH_ERROR(10300, "it has encountered a auth related error"),
+    AUTH_ERROR(10300, "It has encountered a auth related error"),
     /**
      * <code>AUTH_DENIED</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>AUTH_DENIED</code> field.</p>
      */
-    AUTH_DENIED(10302, "the auth is denied"),
+    AUTH_DENIED(10302, "The auth is denied"),
     /**
      * <code>AUTH_FORBIDDEN</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>AUTH_FORBIDDEN</code> field.</p>
      */
-    AUTH_FORBIDDEN(10301, "the auth is forbidden"),
+    AUTH_FORBIDDEN(10301, "The auth is forbidden"),
 
     /**
      * <code>TOKEN_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>TOKEN_ERROR</code> field.</p>
      */
-    TOKEN_ERROR(10310, "it has encountered a token related error"),
+    TOKEN_ERROR(10310, "It has encountered a token related error"),
     /**
      * <code>TOKEN_FAILED</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>TOKEN_FAILED</code> field.</p>
      */
-    TOKEN_FAILED(10311, "the token verification is failed"),
+    TOKEN_FAILED(10311, "The token verification is failed"),
     /**
      * <code>TOKEN_INVALID</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>TOKEN_INVALID</code> field.</p>
      */
-    TOKEN_INVALID(10312, "the token verification is invalid"),
+    TOKEN_INVALID(10312, "The token verification is invalid"),
     /**
      * <code>TOKEN_EXPIRED</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>TOKEN_EXPIRED</code> field.</p>
      */
-    TOKEN_EXPIRED(10313, "the token verification is expired"),
+    TOKEN_EXPIRED(10313, "The token verification is expired"),
 
     /**
      * <code>LOGIN_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>LOGIN_ERROR</code> field.</p>
      */
-    LOGIN_ERROR(10320, "it has encountered a login related error"),
+    LOGIN_ERROR(10320, "It has encountered a login related error"),
     /**
      * <code>LOGIN_FAILED</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>LOGIN_FAILED</code> field.</p>
      */
-    LOGIN_FAILED(10321, "the login verification is expired"),
+    LOGIN_FAILED(10321, "The login verification is failed"),
     /**
      * <code>LOGIN_INFO_INVALID</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>LOGIN_INFO_INVALID</code> field.</p>
      */
-    LOGIN_INFO_INVALID(10322, "the login info verification is invalid"),
+    LOGIN_INFO_INVALID(10322, "The login info verification is invalid"),
     /**
      * <code>LOGIN_INFO_EXPIRED</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>LOGIN_INFO_EXPIRED</code> field.</p>
      */
-    LOGIN_INFO_EXPIRED(10323, "the login info verification is expired"),
+    LOGIN_INFO_EXPIRED(10323, "The login info verification is expired"),
 
     /**
      * <code>SERVICE_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>SERVICE_ERROR</code> field.</p>
      */
-    SERVICE_ERROR(10400, "it has encountered an error"),
+    SERVICE_ERROR(10400, "It has encountered an service related error"),
     /**
      * <code>SERVICE_UNAVAILABLE</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>SERVICE_UNAVAILABLE</code> field.</p>
      */
-    SERVICE_UNAVAILABLE(10401, "it is unavailable"),
+    SERVICE_UNAVAILABLE(10401, "The service is unavailable"),
 
     /**
      * <code>CONFIG_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>CONFIG_ERROR</code> field.</p>
      */
-    CONFIG_ERROR(10410, "it has encountered a configuration related error"),
+    CONFIG_ERROR(10410, "It has encountered a configuration related error"),
     /**
      * <code>CONFIG_INVALID</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>CONFIG_INVALID</code> field.</p>
      */
-    CONFIG_INVALID(10411, "the configuration is invalid"),
+    CONFIG_INVALID(10411, "The configuration is invalid"),
     /**
      * <code>CONFIG_UNAVAILABLE</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>CONFIG_UNAVAILABLE</code> field.</p>
      */
-    CONFIG_UNAVAILABLE(10412, "the configuration is unavailable"),
+    CONFIG_UNAVAILABLE(10412, "The configuration is unavailable"),
 
 
     /**
      * <code>CONVERT_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>CONVERT_ERROR</code> field.</p>
      */
-    CONVERT_ERROR(10420, "it has encountered a convert type related error"),
+    CONVERT_ERROR(10420, "It has encountered a convert type related error"),
     /**
      * <code>CONVERT_TYPE_UNSUPPORTED</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>CONVERT_TYPE_UNSUPPORTED</code> field.</p>
      */
-    CONVERT_TYPE_UNSUPPORTED(10421, "the convert type is unsupported"),
+    CONVERT_TYPE_UNSUPPORTED(10421, "The convert type is unsupported"),
     /**
      * <code>CONVERT_TYPE_UNKNOWN</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>CONVERT_TYPE_UNKNOWN</code> field.</p>
      */
-    CONVERT_TYPE_UNKNOWN(10422, "the convert type is unknown"),
+    CONVERT_TYPE_UNKNOWN(10422, "The convert type is unknown"),
 
     /**
      * <code>CLASS_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>CLASS_ERROR</code> field.</p>
      */
-    CLASS_ERROR(10430, "it has encountered a class type related error"),
+    CLASS_ERROR(10430, "It has encountered a class type related error"),
     /**
      * <code>CLASS_TYPE_UNSUPPORTED</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>CLASS_TYPE_UNSUPPORTED</code> field.</p>
      */
-    CLASS_TYPE_UNSUPPORTED(10431, "the class type is unsupported"),
+    CLASS_TYPE_UNSUPPORTED(10431, "The class type is unsupported"),
     /**
      * <code>CLASS_TYPE_UNKNOWN</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>CLASS_TYPE_UNKNOWN</code> field.</p>
      */
-    CLASS_TYPE_UNKNOWN(10432, "the class type is unknown"),
+    CLASS_TYPE_UNKNOWN(10432, "The class type is unknown"),
     /**
      * <code>CLASS_TYPE_UNRENEW</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>CLASS_TYPE_UNRENEW</code> field.</p>
      */
-    CLASS_TYPE_UNRENEW(10433, "the class type is unrenew"),
+    CLASS_TYPE_UNRENEW(10433, "The class type is cannot re new."),
 
     /**
      * <code>FIELD_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>FIELD_ERROR</code> field.</p>
      */
-    FIELD_ERROR(10500, "it has encountered a field related error"),
+    FIELD_ERROR(10500, "It has encountered a field related error"),
     /**
      * <code>FIELD_IS_NULL</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>FIELD_IS_NULL</code> field.</p>
      */
-    FIELD_IS_NULL(10501, "the field is empty"),
+    FIELD_IS_NULL(10501, "The field is empty"),
     /**
      * <code>FIELD_REPEATED</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>FIELD_REPEATED</code> field.</p>
      */
-    FIELD_REPEATED(10502, "the field is repeated"),
+    FIELD_REPEATED(10502, "The field is repeated"),
     /**
      * <code>FIELD_NOT_EXIST</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>FIELD_NOT_EXIST</code> field.</p>
      */
-    FIELD_NOT_EXIST(10503, "the field is not exist"),
+    FIELD_NOT_EXIST(10503, "The field is not exist"),
     /**
      * <code>FIELD_IS_EXIST</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>FIELD_IS_EXIST</code> field.</p>
      */
-    FIELD_IS_EXIST(10504, "the field is exist already"),
+    FIELD_IS_EXIST(10504, "The field is exist already"),
     /**
      * <code>NAME_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>NAME_ERROR</code> field.</p>
      */
-    NAME_ERROR(10510, "it has encountered a name related error"),
+    NAME_ERROR(10510, "It has encountered a named related error"),
     /**
      * <code>NAME_IS_NULL</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>NAME_IS_NULL</code> field.</p>
      */
-    NAME_IS_NULL(10511, "the name is empty"),
+    NAME_IS_NULL(10511, "The name is empty"),
     /**
      * <code>NAME_REPEATED</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>NAME_REPEATED</code> field.</p>
      */
-    NAME_REPEATED(10512, "the name is repeated"),
+    NAME_REPEATED(10512, "The name is repeated"),
     /**
      * <code>IDENTITY_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>IDENTITY_ERROR</code> field.</p>
      */
-    IDENTITY_ERROR(10520, "it has encountered a identity related error"),
+    IDENTITY_ERROR(10520, "It has encountered a identity related error"),
     /**
      * <code>IDENTITY_IS_NULL</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>IDENTITY_IS_NULL</code> field.</p>
      */
-    IDENTITY_IS_NULL(10521, "the identity is empty"),
+    IDENTITY_IS_NULL(10521, "The identity is empty"),
     /**
      * <code>IDENTITY_REPEATED</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>IDENTITY_REPEATED</code> field.</p>
      */
-    IDENTITY_REPEATED(10522, "the identity is repeated"),
+    IDENTITY_REPEATED(10522, "The identity is repeated"),
     /**
      * <code>DATA_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>DATA_ERROR</code> field.</p>
      */
-    DATA_ERROR(10600, "it has encountered a data related error"),
+    DATA_ERROR(10600, "It has encountered a data related error"),
     /**
      * <code>DATA_CREATE_FAILED</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>DATA_CREATE_FAILED</code> field.</p>
      */
-    DATA_CREATE_FAILED(10601, "the data create failed"),
+    DATA_CREATE_FAILED(10601, "The data create failed"),
     /**
      * <code>DATA_UPDATE_FAILED</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>DATA_UPDATE_FAILED</code> field.</p>
      */
-    DATA_UPDATE_FAILED(10602, "the data update failed"),
+    DATA_UPDATE_FAILED(10602, "The data update failed"),
     /**
      * <code>DATA_SAVE_FAILED</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>DATA_SAVE_FAILED</code> field.</p>
      */
-    DATA_SAVE_FAILED(10603, "the data save failed"),
+    DATA_SAVE_FAILED(10603, "The data save failed"),
     /**
      * <code>DATA_DELETE_FAILED</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>DATA_DELETE_FAILED</code> field.</p>
      */
-    DATA_DELETE_FAILED(10604, "the data delete failed"),
+    DATA_DELETE_FAILED(10604, "The data delete failed"),
     /**
      * <code>DATA_QUERY_FAILED</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>DATA_QUERY_FAILED</code> field.</p>
      */
-    DATA_QUERY_FAILED(10605, "the data query failed"),
+    DATA_QUERY_FAILED(10605, "The data query failed"),
     /**
      * <code>DATA_TRANSFORM_FAILED</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>DATA_TRANSFORM_FAILED</code> field.</p>
      */
-    DATA_TRANSFORM_FAILED(10606, "the data transform failed"),
+    DATA_TRANSFORM_FAILED(10606, "The data transform failed"),
 
     /**
      * <code>DATA_ALL_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>DATA_ALL_ERROR</code> field.</p>
      */
-    DATA_ALL_ERROR(10610, "it has encountered a batch data related error"),
+    DATA_ALL_ERROR(10610, "It has encountered a batch data related error"),
     /**
      * <code>DATA_INSERT_ALL_FAILED</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>DATA_INSERT_ALL_FAILED</code> field.</p>
      */
-    DATA_INSERT_ALL_FAILED(10611, "the batch data insert failed"),
+    DATA_INSERT_ALL_FAILED(10611, "The batch data insert failed"),
     /**
      * <code>DATA_UPDATE_ALL_FAILED</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>DATA_UPDATE_ALL_FAILED</code> field.</p>
      */
-    DATA_UPDATE_ALL_FAILED(10612, "the batch data update failed"),
+    DATA_UPDATE_ALL_FAILED(10612, "The batch data update failed"),
     /**
      * <code>DATA_SAVE_ALL_FAILED</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>DATA_SAVE_ALL_FAILED</code> field.</p>
      */
-    DATA_SAVE_ALL_FAILED(10613, "the batch data save failed"),
+    DATA_SAVE_ALL_FAILED(10613, "The batch data save failed"),
     /**
      * <code>DATA_DELETE_ALL_FAILED</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>DATA_DELETE_ALL_FAILED</code> field.</p>
      */
-    DATA_DELETE_ALL_FAILED(10614, "the batch data delete failed"),
+    DATA_DELETE_ALL_FAILED(10614, "The batch data delete failed"),
     /**
      * <code>DATA_QUERY_ALL_FAILED</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>DATA_QUERY_ALL_FAILED</code> field.</p>
      */
-    DATA_QUERY_ALL_FAILED(10615, "the batch data query failed"),
+    DATA_QUERY_ALL_FAILED(10615, "The batch data query failed"),
 
     /**
      * <code>IO_STREAM_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>IO_STREAM_ERROR</code> field.</p>
      */
-    IO_STREAM_ERROR(10620, "it has encountered a io-stream related error"),
+    IO_STREAM_ERROR(10620, "It has encountered a io-stream related error"),
     /**
      * <code>IO_STREAM_READ_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>IO_STREAM_READ_ERROR</code> field.</p>
      */
-    IO_STREAM_READ_ERROR(10621, "it has encountered a io-stream read error"),
+    IO_STREAM_READ_ERROR(10621, "It has encountered a io-stream read error"),
     /**
      * <code>IO_STREAM_WRITE_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>IO_STREAM_WRITE_ERROR</code> field.</p>
      */
-    IO_STREAM_WRITE_ERROR(10622, "it has encountered a io-stream write error"),
+    IO_STREAM_WRITE_ERROR(10622, "It has encountered a io-stream write error"),
     /**
      * <code>IO_STREAM_TRANSFER_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>IO_STREAM_TRANSFER_ERROR</code> field.</p>
      */
-    IO_STREAM_TRANSFER_ERROR(10623, "it has encountered a io-stream transfer error"),
+    IO_STREAM_TRANSFER_ERROR(10623, "It has encountered a io-stream transfer error"),
 
     /**
      * <code>JAXB_XML_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>JAXB_XML_ERROR</code> field.</p>
      */
-    JAXB_XML_ERROR(10630, "it has encountered a xml file related error"),
+    JAXB_XML_ERROR(10630, "It has encountered a xml file related error"),
     /**
      * <code>JAXB_XML_READ_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>JAXB_XML_READ_ERROR</code> field.</p>
      */
-    JAXB_XML_READ_ERROR(10631, "it has encountered a xml file read error"),
+    JAXB_XML_READ_ERROR(10631, "It has encountered a xml file read error"),
     /**
      * <code>JAXB_XML_WRITE_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>JAXB_XML_WRITE_ERROR</code> field.</p>
      */
-    JAXB_XML_WRITE_ERROR(10632, "it has encountered a xml file write error"),
+    JAXB_XML_WRITE_ERROR(10632, "It has encountered a xml file write error"),
 
     /**
      * <code>JAXB_XML_PROPERTY_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>JAXB_XML_PROPERTY_ERROR</code> field.</p>
      */
-    JAXB_XML_PROPERTY_ERROR(10633, "it has encountered a xml file set property error"),
+    JAXB_XML_PROPERTY_ERROR(10633, "It has encountered a xml file set property error"),
     /**
      * <code>JAXB_XML_MARSHAL_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>JAXB_XML_MARSHAL_ERROR</code> field.</p>
      */
-    JAXB_XML_MARSHAL_ERROR(10634, "it has encountered a xml file marshal error"),
+    JAXB_XML_MARSHAL_ERROR(10634, "It has encountered a xml file marshal error"),
 
     /**
      * <code>ZIP_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>ZIP_ERROR</code> field.</p>
      */
-    ZIP_ERROR(10640, "it has encountered a zip file related error"),
+    ZIP_ERROR(10640, "It has encountered a zip file related error"),
     /**
      * <code>ZIP_READ_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>ZIP_READ_ERROR</code> field.</p>
      */
-    ZIP_READ_ERROR(10641, "it has encountered a zip file read error"),
+    ZIP_READ_ERROR(10641, "It has encountered a zip file read error"),
     /**
      * <code>ZIP_WRITE_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>ZIP_WRITE_ERROR</code> field.</p>
      */
-    ZIP_WRITE_ERROR(10642, "it has encountered a zip file write error"),
+    ZIP_WRITE_ERROR(10642, "It has encountered a zip file write error"),
     ;
 
     /**
      * <code>status</code>
      * {@link java.lang.Integer} <p>The <code>status</code> field.</p>
-     * @see  java.lang.Integer
+     * @see java.lang.Integer
      */
     private final Integer status;
     /**
      * <code>message</code>
      * {@link java.lang.String} <p>The <code>message</code> field.</p>
-     * @see  java.lang.String
+     * @see java.lang.String
      */
     private final String message;
 
     /**
      * <code>RestErrorStatus</code>
      * <p>Instantiates a new rest error status.</p>
-     * @param status {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
+     * @param status  {@link java.lang.Integer} <p>The status parameter is <code>Integer</code> type.</p>
      * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
-     * @see  java.lang.Integer
-     * @see  java.lang.String
+     * @see java.lang.Integer
+     * @see java.lang.String
      */
     RestErrorStatus(Integer status, String message) {
         this.status = status;
         this.message = message;
     }
 
+
+    @Override
+    public String getMessage() {
+        return I18nUtils.message(name(), this.message);
+    }
 
 }

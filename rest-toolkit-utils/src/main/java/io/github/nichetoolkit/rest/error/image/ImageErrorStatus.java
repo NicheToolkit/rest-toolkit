@@ -1,6 +1,7 @@
 package io.github.nichetoolkit.rest.error.image;
 
 import io.github.nichetoolkit.rest.RestStatus;
+import io.github.nichetoolkit.rest.util.I18nUtils;
 import lombok.Getter;
 
 /**
@@ -17,22 +18,22 @@ public enum ImageErrorStatus implements RestStatus {
      * <code>IMAGE_FILE_ERROR</code>
      * {@link io.github.nichetoolkit.rest.error.image.ImageErrorStatus} <p>The <code>IMAGE_FILE_ERROR</code> field.</p>
      */
-    IMAGE_FILE_ERROR(11100, "The server has encountered an error with image file."),
+    IMAGE_FILE_ERROR(11100, "It has encountered a image file related error"),
     /**
      * <code>IMAGE_READ_ERROR</code>
      * {@link io.github.nichetoolkit.rest.error.image.ImageErrorStatus} <p>The <code>IMAGE_READ_ERROR</code> field.</p>
      */
-    IMAGE_READ_ERROR(11101, "The server has encountered an error with image file reading."),
+    IMAGE_READ_ERROR(11101, "It has encountered a image file read error"),
     /**
      * <code>IMAGE_WRITE_ERROR</code>
      * {@link io.github.nichetoolkit.rest.error.image.ImageErrorStatus} <p>The <code>IMAGE_WRITE_ERROR</code> field.</p>
      */
-    IMAGE_WRITE_ERROR(11102, "The server has encountered an error with image file writing."),
+    IMAGE_WRITE_ERROR(11102, "It has encountered a image file write error"),
     /**
      * <code>IMAGE_TRANSFER_ERROR</code>
      * {@link io.github.nichetoolkit.rest.error.image.ImageErrorStatus} <p>The <code>IMAGE_TRANSFER_ERROR</code> field.</p>
      */
-    IMAGE_TRANSFER_ERROR(11103, "The server has encountered an error with image file transferring."),
+    IMAGE_TRANSFER_ERROR(11103, "It has encountered a image file transfer error"),
     ;
 
     /**
@@ -59,5 +60,10 @@ public enum ImageErrorStatus implements RestStatus {
     ImageErrorStatus(Integer status, String message) {
         this.status = status;
         this.message = message;
+    }
+
+    @Override
+    public String getMessage() {
+        return I18nUtils.message(name(), this.message);
     }
 }

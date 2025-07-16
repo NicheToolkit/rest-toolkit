@@ -17,6 +17,12 @@ import java.util.Objects;
 @SuppressWarnings("SameNameButDifferent")
 class IdentityWorkerArtificial implements IdentityWorker {
     /**
+     * <code>ARTIFICIAL_WORKER_NAME</code>
+     * {@link java.lang.String} <p>The constant <code>ARTIFICIAL_WORKER_NAME</code> field.</p>
+     * @see java.lang.String
+     */
+    private final static String ARTIFICIAL_WORKER_NAME = "DefaultArtificialWorker";
+    /**
      * <code>name</code>
      * {@link java.lang.String} <p>The <code>name</code> field.</p>
      * @see java.lang.String
@@ -52,7 +58,7 @@ class IdentityWorkerArtificial implements IdentityWorker {
      * <p>Instantiates a new identity worker artificial.</p>
      */
     public IdentityWorkerArtificial() {
-        this.name = RestConstants.ARTIFICIAL_WORKER_NAME;
+        this.name = ARTIFICIAL_WORKER_NAME;
         IDENTITY_WORKER_MAP.put(WorkerType.BASE_WORKER, this);
     }
 
@@ -74,7 +80,7 @@ class IdentityWorkerArtificial implements IdentityWorker {
      * @see java.lang.Long
      */
     public IdentityWorkerArtificial(Long offset) {
-        this.name = RestConstants.ARTIFICIAL_WORKER_NAME;
+        this.name = ARTIFICIAL_WORKER_NAME;
         if (offset > IdentityWorkerConfig.SEQUENCE) {
             this.sequence = offset;
         }

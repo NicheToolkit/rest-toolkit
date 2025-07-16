@@ -1,7 +1,6 @@
 package io.github.nichetoolkit.rest.identity.worker;
 
 
-import io.github.nichetoolkit.rest.constant.RestConstants;
 import io.github.nichetoolkit.rest.identity.IdentityErrorStatus;
 import io.github.nichetoolkit.rest.identity.error.IdentityWorkerError;
 import lombok.extern.slf4j.Slf4j;
@@ -20,6 +19,13 @@ import java.util.Objects;
 @Slf4j
 @SuppressWarnings("SameNameButDifferent")
 class IdentityWorkerMachine implements IdentityWorker {
+
+    /**
+     * <code>MACHINE_WORKER_NAME</code>
+     * {@link java.lang.String} <p>The constant <code>MACHINE_WORKER_NAME</code> field.</p>
+     * @see java.lang.String
+     */
+    private static final String MACHINE_WORKER_NAME = "DefaultMachineWorker";
     /**
      * <code>name</code>
      * {@link java.lang.String} <p>The <code>name</code> field.</p>
@@ -67,7 +73,7 @@ class IdentityWorkerMachine implements IdentityWorker {
      * @see org.springframework.lang.NonNull
      */
     public IdentityWorkerMachine(@NonNull Long workerId, @NonNull Long centerId, Long sequence) {
-        this(RestConstants.MACHINE_WORKER_NAME, workerId, centerId, sequence);
+        this(MACHINE_WORKER_NAME, workerId, centerId, sequence);
     }
 
     /**

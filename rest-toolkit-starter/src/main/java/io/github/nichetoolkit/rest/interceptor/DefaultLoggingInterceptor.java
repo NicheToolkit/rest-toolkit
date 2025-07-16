@@ -311,14 +311,14 @@ public class DefaultLoggingInterceptor implements AsyncHandlerInterceptor, RestR
 
             if (status != HttpStatus.OK.value()) {
                 restResponse.setStatus(status);
-                restResponse.setMessage(Optional.ofNullable(throwable).map(Throwable::getMessage).orElse(RestConstants.OK_MESSAGE));
+                restResponse.setMessage(Optional.ofNullable(throwable).map(Throwable::getMessage).orElse(RestErrorStatus.FAILED.getMessage()));
             } else {
                 RestResult<?> restResult = restResponse.getRestResult();
                 if (GeneralUtils.isNotEmpty(restResult)) {
                     restResponse.setStatus(restResult.getStatus());
                     restResponse.setMessage(restResult.getMessage());
                 } else {
-                    restResponse.setMessage(Optional.ofNullable(throwable).map(Throwable::getMessage).orElse(RestConstants.OK_MESSAGE));
+                    restResponse.setMessage(Optional.ofNullable(throwable).map(Throwable::getMessage).orElse(RestErrorStatus.SUCCESS.getMessage()));
                 }
             }
         }
@@ -341,8 +341,8 @@ public class DefaultLoggingInterceptor implements AsyncHandlerInterceptor, RestR
                 String messageContent;
                 String errorContent;
                 if (GeneralUtils.isEmpty(throwable) && GeneralUtils.isEmpty(exception)) {
-                    messageContent = RestConstants.UNKNOWN_ERROR;
-                    errorContent = RestConstants.UNKNOWN_ERROR;
+                    messageContent = RestErrorStatus.UNKNOWN_ERROR.getMessage();
+                    errorContent = RestErrorStatus.UNKNOWN_ERROR.getMessage();
                 } else if (GeneralUtils.isNotEmpty(throwable)) {
                     messageContent = throwable.getMessage();
                     errorContent = throwable.toString();

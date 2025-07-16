@@ -1,5 +1,7 @@
 package io.github.nichetoolkit.rest.configure;
 
+import io.github.nichetoolkit.rest.RestI18nBasename;
+import io.github.nichetoolkit.rest.constant.RestConstants;
 import io.github.nichetoolkit.rest.holder.MessageSourceHolder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +24,7 @@ import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
-import java.util.Locale;
+import java.util.*;
 
 /**
  * <code>RestI18nAutoConfigure</code>
@@ -122,18 +124,37 @@ public class RestI18nAutoConfigure implements WebMvcConfigurer {
     }
 
     /**
+     * <code>restI18nBasename</code>
+     * <p>The rest i 18 n basename method.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestI18nBasename} <p>The rest i 18 n basename return object is <code>RestI18nBasename</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestI18nBasename
+     * @see org.springframework.context.annotation.Bean
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
+     */
+    @Bean
+    @ConditionalOnMissingBean(RestI18nBasename.class)
+    public RestI18nBasename restI18nBasename() {
+        return () -> Collections.singleton(RestConstants.REST_I18N);
+    }
+
+    /**
      * <code>messageSource</code>
      * <p>The message source method.</p>
+     * @param i18nBasename {@link io.github.nichetoolkit.rest.RestI18nBasename} <p>The 18 n basename parameter is <code>RestI18nBasename</code> type.</p>
      * @return {@link org.springframework.context.support.ResourceBundleMessageSource} <p>The message source return object is <code>ResourceBundleMessageSource</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestI18nBasename
      * @see org.springframework.context.support.ResourceBundleMessageSource
      * @see org.springframework.context.annotation.Bean
      */
     @Bean
-    public ResourceBundleMessageSource messageSource() {
+    public ResourceBundleMessageSource messageSource(RestI18nBasename i18nBasename) {
         Locale.setDefault(this.i18nProperties.getLocale().getValue());
         ResourceBundleMessageSource source = new ResourceBundleMessageSource();
-        source.setBasenames(this.i18nProperties.getBasename());
-        source.setUseCodeAsDefaultMessage(true);
+        String[] basename = this.i18nProperties.getBasename();
+        Set<String> basenameSet = new HashSet<>(Arrays.asList(basename));
+        basenameSet.addAll(i18nBasename.getBaseNames());
+        source.setBasenames(basenameSet.toArray(new String[0]));
+        source.setUseCodeAsDefaultMessage(false);
         source.setDefaultEncoding(this.i18nProperties.getCharset().getKey());
         MessageSourceHolder.refreshMessageSource(source);
         return source;
