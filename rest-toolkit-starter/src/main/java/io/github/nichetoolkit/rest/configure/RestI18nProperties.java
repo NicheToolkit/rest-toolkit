@@ -30,17 +30,33 @@ public class RestI18nProperties {
     private Boolean enabled = false;
 
     /**
+     * <code>interceptEnabled</code>
+     * {@link java.lang.Boolean} <p>The <code>interceptEnabled</code> field.</p>
+     * @see java.lang.Boolean
+     */
+    private Boolean interceptorEnabled = false;
+
+    /**
+     * <code>interceptEnabled</code>
+     * {@link java.lang.Boolean} <p>The <code>interceptEnabled</code> field.</p>
+     * @see java.lang.Boolean
+     */
+    private Boolean sessionResolverEnabled = false;
+
+    /**
      * <code>paramName</code>
      * {@link java.lang.String} <p>The <code>paramName</code> field.</p>
      * @see java.lang.String
      */
     private String paramName = "language";
+
     /**
      * <code>basename</code>
      * {@link java.lang.String} <p>The <code>basename</code> field.</p>
      * @see java.lang.String
      */
     private String[] basename = {"i18n/messages"};
+
     /**
      * <code>locale</code>
      * {@link io.github.nichetoolkit.rest.type.LocaleType} <p>The <code>locale</code> field.</p>

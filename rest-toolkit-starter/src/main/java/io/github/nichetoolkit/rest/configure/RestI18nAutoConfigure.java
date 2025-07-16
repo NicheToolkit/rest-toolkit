@@ -4,13 +4,16 @@ import io.github.nichetoolkit.rest.holder.MessageSourceHolder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.lang.NonNull;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
@@ -63,7 +66,8 @@ public class RestI18nAutoConfigure implements WebMvcConfigurer {
      * @see org.springframework.context.annotation.Bean
      */
     @Bean
-    public LocaleResolver localeResolver() {
+    @ConditionalOnProperty(value = "nichetoolkit.rest.i18n.session-resolver-enabled", havingValue = "true")
+    public LocaleResolver sessionLocaleResolver() {
         SessionLocaleResolver sessionLocaleResolver = new SessionLocaleResolver();
         sessionLocaleResolver.setDefaultLocale(this.i18nProperties.getLocale().getValue());
         return sessionLocaleResolver;
@@ -77,17 +81,22 @@ public class RestI18nAutoConfigure implements WebMvcConfigurer {
      * @see org.springframework.context.annotation.Bean
      */
     @Bean
+    @ConditionalOnProperty(value = "nichetoolkit.rest.i18n.interceptor-enabled", havingValue = "true")
     public LocaleChangeInterceptor localeChangeInterceptor() {
         LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
         localeChangeInterceptor.setParamName(this.i18nProperties.getParamName());
         return localeChangeInterceptor;
     }
 
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(localeChangeInterceptor());
-    }
 
+    @Override
+    public void addInterceptors(@NonNull InterceptorRegistry registry) {
+        if (this.i18nProperties.getInterceptorEnabled()) {
+            LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
+            localeChangeInterceptor.setParamName(this.i18nProperties.getParamName());
+            registry.addInterceptor(localeChangeInterceptor);
+        }
+    }
 
     /**
      * <code>messageSource</code>

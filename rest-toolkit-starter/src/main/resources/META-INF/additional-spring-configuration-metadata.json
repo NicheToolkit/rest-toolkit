@@ -259,6 +259,20 @@
       "defaultValue": "UTF_8"
     },
     {
+      "name": "nichetoolkit.rest.i18n.interceptor-enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "java.lang.Boolean",
+      "description": "the switch of param interceptor i18n configuration.",
+      "defaultValue": "false"
+    },
+    {
+      "name": "nichetoolkit.rest.i18n.session-resolver-enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "java.lang.Boolean",
+      "description": "the switch of session resolver i18n configuration.",
+      "defaultValue": "false"
+    },
+    {
       "name": "nichetoolkit.rest.logback.enabled",
       "type": "java.lang.Boolean",
       "sourceType": "java.lang.Boolean",
@@ -384,6 +398,32 @@
         {
           "value": true,
           "description": "the switch of http client configuration opened."
+        }
+      ]
+    },
+    {
+      "name": "nichetoolkit.rest.i18n.interceptor-enabled",
+      "values": [
+        {
+          "value": false,
+          "description": "the switch of interceptor i18n configuration closed."
+        },
+        {
+          "value": true,
+          "description": "the switch of interceptor i18n configuration opened."
+        }
+      ]
+    },
+    {
+      "name": "nichetoolkit.rest.i18n.session-resolver-enabled",
+      "values": [
+        {
+          "value": false,
+          "description": "the switch of session resolver i18n configuration closed."
+        },
+        {
+          "value": true,
+          "description": "the switch of session resolver i18n configuration opened."
         }
       ]
     },
