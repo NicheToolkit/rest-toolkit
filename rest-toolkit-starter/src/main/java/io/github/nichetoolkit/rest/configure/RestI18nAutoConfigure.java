@@ -8,12 +8,17 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.lang.NonNull;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver;
+import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
@@ -59,11 +64,12 @@ public class RestI18nAutoConfigure implements WebMvcConfigurer {
     }
 
     /**
-     * <code>localeResolver</code>
-     * <p>The locale resolver method.</p>
-     * @return {@link org.springframework.web.servlet.LocaleResolver} <p>The locale resolver return object is <code>LocaleResolver</code> type.</p>
+     * <code>sessionLocaleResolver</code>
+     * <p>The session locale resolver method.</p>
+     * @return {@link org.springframework.web.servlet.LocaleResolver} <p>The session locale resolver return object is <code>LocaleResolver</code> type.</p>
      * @see org.springframework.web.servlet.LocaleResolver
      * @see org.springframework.context.annotation.Bean
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
      */
     @Bean
     @ConditionalOnProperty(value = "nichetoolkit.rest.i18n.session-resolver-enabled", havingValue = "true")
@@ -74,11 +80,28 @@ public class RestI18nAutoConfigure implements WebMvcConfigurer {
     }
 
     /**
+     * <code>cookieLocaleResolver</code>
+     * <p>The cookie locale resolver method.</p>
+     * @return {@link org.springframework.web.servlet.LocaleResolver} <p>The cookie locale resolver return object is <code>LocaleResolver</code> type.</p>
+     * @see org.springframework.web.servlet.LocaleResolver
+     * @see org.springframework.context.annotation.Bean
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
+     */
+    @Bean
+    @ConditionalOnProperty(value = "nichetoolkit.rest.i18n.cookie-resolver-enabled", havingValue = "true")
+    public LocaleResolver cookieLocaleResolver() {
+        CookieLocaleResolver cookieLocaleResolver = new CookieLocaleResolver();
+        cookieLocaleResolver.setDefaultLocale(this.i18nProperties.getLocale().getValue());
+        return cookieLocaleResolver;
+    }
+
+    /**
      * <code>localeChangeInterceptor</code>
      * <p>The locale change interceptor method.</p>
      * @return {@link org.springframework.web.servlet.i18n.LocaleChangeInterceptor} <p>The locale change interceptor return object is <code>LocaleChangeInterceptor</code> type.</p>
      * @see org.springframework.web.servlet.i18n.LocaleChangeInterceptor
      * @see org.springframework.context.annotation.Bean
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
      */
     @Bean
     @ConditionalOnProperty(value = "nichetoolkit.rest.i18n.interceptor-enabled", havingValue = "true")

@@ -30,18 +30,25 @@ public class RestI18nProperties {
     private Boolean enabled = false;
 
     /**
-     * <code>interceptEnabled</code>
-     * {@link java.lang.Boolean} <p>The <code>interceptEnabled</code> field.</p>
+     * <code>interceptorEnabled</code>
+     * {@link java.lang.Boolean} <p>The <code>interceptorEnabled</code> field.</p>
      * @see java.lang.Boolean
      */
     private Boolean interceptorEnabled = false;
 
     /**
-     * <code>interceptEnabled</code>
-     * {@link java.lang.Boolean} <p>The <code>interceptEnabled</code> field.</p>
+     * <code>sessionResolverEnabled</code>
+     * {@link java.lang.Boolean} <p>The <code>sessionResolverEnabled</code> field.</p>
      * @see java.lang.Boolean
      */
     private Boolean sessionResolverEnabled = false;
+
+    /**
+     * <code>cookieResolverEnabled</code>
+     * {@link java.lang.Boolean} <p>The <code>cookieResolverEnabled</code> field.</p>
+     * @see java.lang.Boolean
+     */
+    private Boolean cookieResolverEnabled = false;
 
     /**
      * <code>paramName</code>

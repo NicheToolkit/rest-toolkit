@@ -273,6 +273,13 @@
       "defaultValue": "false"
     },
     {
+      "name": "nichetoolkit.rest.i18n.cookie-resolver-enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "java.lang.Boolean",
+      "description": "the switch of cookie resolver i18n configuration.",
+      "defaultValue": "false"
+    },
+    {
       "name": "nichetoolkit.rest.logback.enabled",
       "type": "java.lang.Boolean",
       "sourceType": "java.lang.Boolean",
@@ -424,6 +431,19 @@
         {
           "value": true,
           "description": "the switch of session resolver i18n configuration opened."
+        }
+      ]
+    },
+    {
+      "name": "nichetoolkit.rest.i18n.cookie-resolver-enabled",
+      "values": [
+        {
+          "value": false,
+          "description": "the switch of cookie resolver i18n configuration closed."
+        },
+        {
+          "value": true,
+          "description": "the switch of cookie resolver i18n configuration opened."
         }
       ]
     },
