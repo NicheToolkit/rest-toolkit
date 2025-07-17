@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.lang.NonNull;
 import org.springframework.web.servlet.LocaleResolver;
@@ -24,7 +25,6 @@ import java.util.*;
  * <code>RestI18nAutoConfigure</code>
  * <p>The rest i 18 n auto configure class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @see org.springframework.web.servlet.config.annotation.WebMvcConfigurer
  * @see lombok.extern.slf4j.Slf4j
  * @see org.springframework.boot.autoconfigure.AutoConfiguration
  * @see java.lang.SuppressWarnings
@@ -37,7 +37,7 @@ import java.util.*;
 @SuppressWarnings("SameNameButDifferent")
 @ComponentScan(basePackages = {"io.github.nichetoolkit.rest"})
 @ConditionalOnProperty(value = "nichetoolkit.rest.i18n.enabled", havingValue = "true")
-public class RestI18nAutoConfigure implements WebMvcConfigurer {
+public class RestI18nAutoConfigure {
 
     /**
      * <code>i18nProperties</code>
@@ -91,31 +91,6 @@ public class RestI18nAutoConfigure implements WebMvcConfigurer {
         return cookieLocaleResolver;
     }
 
-    /**
-     * <code>localeChangeInterceptor</code>
-     * <p>The locale change interceptor method.</p>
-     * @return {@link org.springframework.web.servlet.i18n.LocaleChangeInterceptor} <p>The locale change interceptor return object is <code>LocaleChangeInterceptor</code> type.</p>
-     * @see org.springframework.web.servlet.i18n.LocaleChangeInterceptor
-     * @see org.springframework.context.annotation.Bean
-     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
-     */
-    @Bean
-    @ConditionalOnProperty(value = "nichetoolkit.rest.i18n.interceptor-enabled", havingValue = "true")
-    public LocaleChangeInterceptor localeChangeInterceptor() {
-        LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
-        localeChangeInterceptor.setParamName(this.i18nProperties.getParamName());
-        return localeChangeInterceptor;
-    }
-
-
-    @Override
-    public void addInterceptors(@NonNull InterceptorRegistry registry) {
-        if (this.i18nProperties.getInterceptorEnabled()) {
-            LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
-            localeChangeInterceptor.setParamName(this.i18nProperties.getParamName());
-            registry.addInterceptor(localeChangeInterceptor);
-        }
-    }
 
     /**
      * <code>restI18nBasename</code>
@@ -151,4 +126,38 @@ public class RestI18nAutoConfigure implements WebMvcConfigurer {
         MessageSourceHolder.refreshMessageSource(source);
         return source;
     }
+
+    /**
+     * <code>I18nLocaleChangeAutoConfigure</code>
+     * <p>The 18 n locale change auto configure class.</p>
+     * @author Cyan (snow22314@outlook.com)
+     * @see org.springframework.web.servlet.config.annotation.WebMvcConfigurer
+     * @see org.springframework.context.annotation.Configuration
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
+     * @since Jdk1.8
+     */
+    @Configuration
+    @ConditionalOnProperty(value = "nichetoolkit.rest.i18n.interceptor-enabled", havingValue = "true")
+    public class I18nLocaleChangeAutoConfigure implements WebMvcConfigurer {
+
+        /**
+         * <code>localeChangeInterceptor</code>
+         * <p>The locale change interceptor method.</p>
+         * @return {@link org.springframework.web.servlet.i18n.LocaleChangeInterceptor} <p>The locale change interceptor return object is <code>LocaleChangeInterceptor</code> type.</p>
+         * @see org.springframework.web.servlet.i18n.LocaleChangeInterceptor
+         * @see org.springframework.context.annotation.Bean
+         */
+        @Bean
+        public LocaleChangeInterceptor localeChangeInterceptor() {
+            LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
+            localeChangeInterceptor.setParamName(i18nProperties.getParamName());
+            return localeChangeInterceptor;
+        }
+
+        @Override
+        public void addInterceptors(@NonNull InterceptorRegistry registry) {
+            registry.addInterceptor(localeChangeInterceptor());
+        }
+    }
+
 }
