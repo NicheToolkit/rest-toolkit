@@ -10,7 +10,7 @@ import java.util.Set;
  * @see java.io.Serializable
  * @since Jdk1.8
  */
-public interface RestI18nBasename extends Serializable {
+public interface RestI18n extends Serializable {
     /**
      * <code>getBaseNames</code>
      * <p>The get base names getter method.</p>

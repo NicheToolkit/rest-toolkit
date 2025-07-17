@@ -1,12 +1,11 @@
 package io.github.nichetoolkit.rest.configure;
 
-import io.github.nichetoolkit.rest.RestI18nBasename;
+import io.github.nichetoolkit.rest.RestI18n;
 import io.github.nichetoolkit.rest.constant.RestConstants;
 import io.github.nichetoolkit.rest.holder.MessageSourceHolder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -121,12 +120,12 @@ public class RestI18nAutoConfigure implements WebMvcConfigurer {
     /**
      * <code>restI18nBasename</code>
      * <p>The rest i 18 n basename method.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestI18nBasename} <p>The rest i 18 n basename return object is <code>RestI18nBasename</code> type.</p>
-     * @see io.github.nichetoolkit.rest.RestI18nBasename
+     * @return {@link io.github.nichetoolkit.rest.RestI18n} <p>The rest i 18 n basename return object is <code>RestI18n</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestI18n
      * @see org.springframework.context.annotation.Bean
      */
     @Bean
-    public RestI18nBasename restI18nBasename() {
+    public RestI18n restI18nBasename() {
         return () -> Collections.singleton(RestConstants.REST_I18N);
     }
 
@@ -140,14 +139,12 @@ public class RestI18nAutoConfigure implements WebMvcConfigurer {
      * @see org.springframework.context.annotation.Bean
      */
     @Bean
-    public ResourceBundleMessageSource messageSource(List<RestI18nBasename> i18nBasenameList) {
+    public ResourceBundleMessageSource messageSource(List<RestI18n> i18nBasenameList) {
         Locale.setDefault(this.i18nProperties.getLocale().getValue());
         ResourceBundleMessageSource source = new ResourceBundleMessageSource();
         String[] basename = this.i18nProperties.getBasename();
         Set<String> basenameSet = new HashSet<>(Arrays.asList(basename));
-        i18nBasenameList.forEach(i18nBasename -> {
-            basenameSet.addAll(i18nBasename.getBaseNames());
-        });
+        i18nBasenameList.forEach(i18nBasename -> basenameSet.addAll(i18nBasename.getBaseNames()));
         source.setBasenames(basenameSet.toArray(new String[0]));
         source.setUseCodeAsDefaultMessage(false);
         source.setDefaultEncoding(this.i18nProperties.getCharset().getKey());
