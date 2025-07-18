@@ -1,8 +1,15 @@
 package io.github.nichetoolkit.rest.configure;
 
+import io.github.nichetoolkit.rest.DefaultControllerAdvice;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.Bean;
+import org.springframework.core.annotation.Order;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 /**
  * <code>RestStarterAutoConfigure</code>
@@ -18,6 +25,7 @@ import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 @AutoConfiguration
 @SuppressWarnings("SameNameButDifferent")
 @AutoConfigureAfter(RestUtilsAutoConfigure.class)
+@EnableConfigurationProperties(RestExceptionProperties.class)
 public class RestStarterAutoConfigure {
     /**
      * <code>RestStarterAutoConfigure</code>
@@ -27,4 +35,10 @@ public class RestStarterAutoConfigure {
         log.debug("The auto configuration for [rest-starter] initiated");
     }
 
+    @Bean
+    @Order(0)
+    @ConditionalOnMissingBean(ResponseBodyAdvice.class)
+    public DefaultControllerAdvice controllerAdvice(RestExceptionProperties errorProperties) {
+        return new DefaultControllerAdvice(errorProperties);
+    }
 }

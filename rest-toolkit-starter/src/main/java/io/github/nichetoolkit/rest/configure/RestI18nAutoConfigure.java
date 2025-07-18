@@ -5,6 +5,7 @@ import io.github.nichetoolkit.rest.constant.RestConstants;
 import io.github.nichetoolkit.rest.holder.MessageSourceHolder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.MessageSource;
@@ -35,6 +36,7 @@ import java.util.*;
 @SuppressWarnings("SameNameButDifferent")
 @EnableConfigurationProperties(RestI18nProperties.class)
 @ConditionalOnProperty(value = "nichetoolkit.rest.i18n.enabled", havingValue = "true")
+@ImportAutoConfiguration({RestI18nAutoConfigure.I18nMessageSourceAutoConfigure.class})
 public class RestI18nAutoConfigure {
 
     /**
@@ -126,6 +128,7 @@ public class RestI18nAutoConfigure {
          */
         public I18nMessageSourceAutoConfigure(List<RestI18n> i18nBasename) {
             this.i18nBasename = i18nBasename;
+            log.debug("The auto configuration for [i18n-message] initiated");
         }
 
 

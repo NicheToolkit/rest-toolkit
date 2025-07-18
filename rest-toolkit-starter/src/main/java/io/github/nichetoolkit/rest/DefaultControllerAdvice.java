@@ -42,7 +42,6 @@ import java.util.List;
  * @since Jdk1.8
  */
 @Slf4j
-@Order(0)
 @CrossOrigin
 @RestControllerAdvice
 public final class DefaultControllerAdvice implements ResponseBodyAdvice<Object>, InitializingBean {
