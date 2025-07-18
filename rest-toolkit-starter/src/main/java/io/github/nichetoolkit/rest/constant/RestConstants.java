@@ -7,6 +7,8 @@ package io.github.nichetoolkit.rest.constant;
  * @since Jdk1.8
  */
 public interface RestConstants {
+
+     String CLASS_PATH = "classpath:";
      /**
       * <code>REST_I18N</code>
       * {@link java.lang.String} <p>The constant <code>REST_I18N</code> field.</p>

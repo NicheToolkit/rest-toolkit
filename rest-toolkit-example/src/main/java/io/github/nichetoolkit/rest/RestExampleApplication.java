@@ -4,7 +4,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
-import org.springframework.context.annotation.ComponentScan;
 
 /**
  * <code>RestExampleApplication</code>
@@ -12,11 +11,9 @@ import org.springframework.context.annotation.ComponentScan;
  * @author Cyan (snow22314@outlook.com)
  * @see org.springframework.boot.web.servlet.support.SpringBootServletInitializer
  * @see org.springframework.boot.autoconfigure.SpringBootApplication
- * @see org.springframework.context.annotation.ComponentScan
  * @since Jdk1.8
  */
 @SpringBootApplication
-@ComponentScan(basePackages = "io.github.nichetoolkit")
 public class RestExampleApplication extends SpringBootServletInitializer {
 
     /**

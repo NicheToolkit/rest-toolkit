@@ -9,10 +9,10 @@ import io.github.nichetoolkit.rest.logback.DefaultMessageConverter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 
 /**
  * <code>RestLogbackAutoConfigure</code>
@@ -21,13 +21,11 @@ import org.springframework.context.annotation.ComponentScan;
  * @see lombok.extern.slf4j.Slf4j
  * @see org.springframework.boot.autoconfigure.AutoConfiguration
  * @see java.lang.SuppressWarnings
- * @see org.springframework.context.annotation.ComponentScan
  * @since Jdk1.8
  */
 @Slf4j
 @AutoConfiguration
 @SuppressWarnings("SameNameButDifferent")
-@ComponentScan(basePackages = {"io.github.nichetoolkit.rest"})
 public class RestLogbackAutoConfigure {
 
     /**

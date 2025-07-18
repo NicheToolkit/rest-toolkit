@@ -1,23 +1,23 @@
 package io.github.nichetoolkit.rest.configure;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 
 /**
  * <code>RestStarterAutoConfigure</code>
  * <p>The rest starter auto configure class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
- * @see org.springframework.context.annotation.Configuration
+ * @see org.springframework.boot.autoconfigure.AutoConfiguration
  * @see java.lang.SuppressWarnings
- * @see org.springframework.context.annotation.ComponentScan
+ * @see org.springframework.boot.autoconfigure.AutoConfigureAfter
  * @since Jdk1.8
  */
 @Slf4j
-@Configuration
+@AutoConfiguration
 @SuppressWarnings("SameNameButDifferent")
-@ComponentScan(basePackages = {"io.github.nichetoolkit.rest"})
+@AutoConfigureAfter(RestUtilsAutoConfigure.class)
 public class RestStarterAutoConfigure {
     /**
      * <code>RestStarterAutoConfigure</code>

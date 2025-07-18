@@ -6,9 +6,12 @@ import io.github.nichetoolkit.rest.holder.MessageSourceHolder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.lang.NonNull;
@@ -26,16 +29,13 @@ import java.util.*;
  * <p>The rest i 18 n auto configure class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
- * @see org.springframework.boot.autoconfigure.AutoConfiguration
  * @see java.lang.SuppressWarnings
- * @see org.springframework.context.annotation.ComponentScan
+ * @see org.springframework.boot.autoconfigure.AutoConfiguration
  * @see org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
  * @since Jdk1.8
  */
 @Slf4j
-@AutoConfiguration
 @SuppressWarnings("SameNameButDifferent")
-@ComponentScan(basePackages = {"io.github.nichetoolkit.rest"})
 @ConditionalOnProperty(value = "nichetoolkit.rest.i18n.enabled", havingValue = "true")
 public class RestI18nAutoConfigure {
 
@@ -57,6 +57,18 @@ public class RestI18nAutoConfigure {
     public RestI18nAutoConfigure(RestI18nProperties i18nProperties) {
         this.i18nProperties = i18nProperties;
         log.debug("The auto configuration for [rest-i18n] initiated");
+    }
+
+    /**
+     * <code>restI18nBasename</code>
+     * <p>The rest i 18 n basename method.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestI18n} <p>The rest i 18 n basename return object is <code>RestI18n</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestI18n
+     * @see org.springframework.context.annotation.Bean
+     */
+    @Bean
+    public RestI18n restI18nBasename() {
+        return () -> Collections.singleton(RestConstants.REST_I18N);
     }
 
     /**
@@ -91,40 +103,56 @@ public class RestI18nAutoConfigure {
         return cookieLocaleResolver;
     }
 
-
     /**
-     * <code>restI18nBasename</code>
-     * <p>The rest i 18 n basename method.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestI18n} <p>The rest i 18 n basename return object is <code>RestI18n</code> type.</p>
-     * @see io.github.nichetoolkit.rest.RestI18n
-     * @see org.springframework.context.annotation.Bean
+     * <code>I18nMessageSourceAutoConfigure</code>
+     * <p>The 18 n message source auto configure class.</p>
+     * @author Cyan (snow22314@outlook.com)
+     * @see org.springframework.context.annotation.Configuration
+     * @since Jdk1.8
      */
-    @Bean
-    public RestI18n restI18nBasename() {
-        return () -> Collections.singleton(RestConstants.REST_I18N);
-    }
+    @Configuration
+    public class I18nMessageSourceAutoConfigure {
 
-    /**
-     * <code>messageSource</code>
-     * <p>The message source method.</p>
-     * @param i18nBasenameList {@link java.util.List} <p>The 18 n basename list parameter is <code>List</code> type.</p>
-     * @return {@link org.springframework.context.support.ResourceBundleMessageSource} <p>The message source return object is <code>ResourceBundleMessageSource</code> type.</p>
-     * @see java.util.List
-     * @see org.springframework.context.support.ResourceBundleMessageSource
-     * @see org.springframework.context.annotation.Bean
-     */
-    @Bean
-    public ResourceBundleMessageSource messageSource(List<RestI18n> i18nBasenameList) {
-        Locale.setDefault(this.i18nProperties.getLocale().getValue());
-        ResourceBundleMessageSource source = new ResourceBundleMessageSource();
-        String[] basename = this.i18nProperties.getBasename();
-        Set<String> basenameSet = new HashSet<>(Arrays.asList(basename));
-        i18nBasenameList.forEach(i18nBasename -> basenameSet.addAll(i18nBasename.getBaseNames()));
-        source.setBasenames(basenameSet.toArray(new String[0]));
-        source.setUseCodeAsDefaultMessage(false);
-        source.setDefaultEncoding(this.i18nProperties.getCharset().getKey());
-        MessageSourceHolder.refreshMessageSource(source);
-        return source;
+        /**
+         * <code>i18nBasename</code>
+         * {@link java.util.List} <p>The <code>i18nBasename</code> field.</p>
+         * @see java.util.List
+         */
+        private final List<RestI18n> i18nBasename;
+
+        /**
+         * <code>I18nMessageSourceAutoConfigure</code>
+         * <p>Instantiates a new 18 n message source auto configure.</p>
+         * @param i18nBasename {@link java.util.List} <p>The 18 n basename parameter is <code>List</code> type.</p>
+         * @see java.util.List
+         */
+        public I18nMessageSourceAutoConfigure(List<RestI18n> i18nBasename) {
+            this.i18nBasename = i18nBasename;
+        }
+
+
+        /**
+         * <code>messageSource</code>
+         * <p>The message source method.</p>
+         * @return {@link org.springframework.context.MessageSource} <p>The message source return object is <code>MessageSource</code> type.</p>
+         * @see org.springframework.context.MessageSource
+         * @see org.springframework.context.annotation.Bean
+         * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
+         */
+        @Bean
+        @ConditionalOnMissingBean(MessageSource.class)
+        public MessageSource messageSource() {
+            Locale.setDefault(i18nProperties.getLocale().getValue());
+            ResourceBundleMessageSource source = new ResourceBundleMessageSource();
+            String[] basenameArray = i18nProperties.getBasename();
+            Set<String> basenameSet = new HashSet<>(Arrays.asList(basenameArray));
+            i18nBasename.forEach(basename -> basenameSet.addAll(basename.getBaseNames()));
+            source.setBasenames(basenameSet.toArray(new String[0]));
+            source.setUseCodeAsDefaultMessage(false);
+            source.setDefaultEncoding(i18nProperties.getCharset().getKey());
+            MessageSourceHolder.refreshMessageSource(source);
+            return source;
+        }
     }
 
     /**
