@@ -35,9 +35,11 @@ import org.apache.http.ssl.SSLContextBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.*;
@@ -67,12 +69,14 @@ import java.util.concurrent.TimeUnit;
  * @see lombok.extern.slf4j.Slf4j
  * @see org.springframework.boot.autoconfigure.AutoConfiguration
  * @see java.lang.SuppressWarnings
+ * @see org.springframework.boot.context.properties.EnableConfigurationProperties
  * @see org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
  * @since Jdk1.8
  */
 @Slf4j
 @AutoConfiguration
 @SuppressWarnings("SameNameButDifferent")
+@EnableConfigurationProperties({RestInterceptProperties.class,RestHttpProperties.class})
 @ConditionalOnProperty(value = "nichetoolkit.rest.http.enabled", havingValue = "true")
 public class RestHttpAutoConfigure {
 
@@ -82,12 +86,7 @@ public class RestHttpAutoConfigure {
      * @see io.github.nichetoolkit.rest.configure.RestInterceptProperties
      */
     private final RestInterceptProperties interceptProperties;
-    /**
-     * <code>httpInterceptor</code>
-     * {@link io.github.nichetoolkit.rest.interceptor.DefaultClientHttpInterceptor} <p>The <code>httpInterceptor</code> field.</p>
-     * @see io.github.nichetoolkit.rest.interceptor.DefaultClientHttpInterceptor
-     */
-    private final DefaultClientHttpInterceptor httpInterceptor;
+
     /**
      * <code>httpProperties</code>
      * {@link io.github.nichetoolkit.rest.configure.RestHttpProperties} <p>The <code>httpProperties</code> field.</p>
@@ -99,20 +98,32 @@ public class RestHttpAutoConfigure {
      * <code>RestHttpAutoConfigure</code>
      * <p>Instantiates a new rest http auto configure.</p>
      * @param httpProperties      {@link io.github.nichetoolkit.rest.configure.RestHttpProperties} <p>The http properties parameter is <code>RestHttpProperties</code> type.</p>
-     * @param httpInterceptor     {@link io.github.nichetoolkit.rest.interceptor.DefaultClientHttpInterceptor} <p>The http interceptor parameter is <code>DefaultClientHttpInterceptor</code> type.</p>
      * @param interceptProperties {@link io.github.nichetoolkit.rest.configure.RestInterceptProperties} <p>The intercept properties parameter is <code>RestInterceptProperties</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestHttpProperties
-     * @see io.github.nichetoolkit.rest.interceptor.DefaultClientHttpInterceptor
      * @see io.github.nichetoolkit.rest.configure.RestInterceptProperties
      * @see org.springframework.beans.factory.annotation.Autowired
      */
     @Autowired
-    public RestHttpAutoConfigure(RestHttpProperties httpProperties, DefaultClientHttpInterceptor httpInterceptor, RestInterceptProperties interceptProperties) {
+    public RestHttpAutoConfigure(RestHttpProperties httpProperties, RestInterceptProperties interceptProperties) {
         log.debug("The auto configuration for [rest-http] initiated");
         this.httpProperties = httpProperties;
-        this.httpInterceptor = httpInterceptor;
         this.interceptProperties = interceptProperties;
     }
+
+    /**
+     * <code>defaultClientHttpInterceptor</code>
+     * <p>The default client http interceptor method.</p>
+     * @return {@link io.github.nichetoolkit.rest.interceptor.DefaultClientHttpInterceptor} <p>The default client http interceptor return object is <code>DefaultClientHttpInterceptor</code> type.</p>
+     * @see io.github.nichetoolkit.rest.interceptor.DefaultClientHttpInterceptor
+     * @see org.springframework.context.annotation.Bean
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
+     */
+    @Bean
+    @ConditionalOnMissingBean(DefaultClientHttpInterceptor.class)
+    public DefaultClientHttpInterceptor defaultClientHttpInterceptor() {
+        return new DefaultClientHttpInterceptor( this.interceptProperties);
+    }
+
 
     /**
      * <code>restTemplates</code>
@@ -158,14 +169,16 @@ public class RestHttpAutoConfigure {
          * <code>restTemplate</code>
          * <p>The rest template method.</p>
          * @param simpleClientHttpRequestFactory {@link org.springframework.http.client.SimpleClientHttpRequestFactory} <p>The simple client http request factory parameter is <code>SimpleClientHttpRequestFactory</code> type.</p>
+         * @param clientHttpInterceptor          {@link io.github.nichetoolkit.rest.interceptor.DefaultClientHttpInterceptor} <p>The client http interceptor parameter is <code>DefaultClientHttpInterceptor</code> type.</p>
          * @return {@link org.springframework.web.client.RestTemplate} <p>The rest template return object is <code>RestTemplate</code> type.</p>
          * @see org.springframework.http.client.SimpleClientHttpRequestFactory
+         * @see io.github.nichetoolkit.rest.interceptor.DefaultClientHttpInterceptor
          * @see org.springframework.web.client.RestTemplate
          * @see org.springframework.context.annotation.Bean
          */
         @Bean(name = HttpClientType.DEFAULT_BEAN)
-        public RestTemplate restTemplate(SimpleClientHttpRequestFactory simpleClientHttpRequestFactory) {
-            return createRestTemplate(simpleClientHttpRequestFactory);
+        public RestTemplate restTemplate(SimpleClientHttpRequestFactory simpleClientHttpRequestFactory,DefaultClientHttpInterceptor clientHttpInterceptor) {
+            return createRestTemplate(simpleClientHttpRequestFactory,clientHttpInterceptor);
         }
 
         /**
@@ -220,14 +233,16 @@ public class RestHttpAutoConfigure {
          * <code>okHttpTemplate</code>
          * <p>The ok http template method.</p>
          * @param okHttp3ClientHttpRequestFactory {@link org.springframework.http.client.OkHttp3ClientHttpRequestFactory} <p>The ok http 3 client http request factory parameter is <code>OkHttp3ClientHttpRequestFactory</code> type.</p>
+         * @param clientHttpInterceptor           {@link io.github.nichetoolkit.rest.interceptor.DefaultClientHttpInterceptor} <p>The client http interceptor parameter is <code>DefaultClientHttpInterceptor</code> type.</p>
          * @return {@link org.springframework.web.client.RestTemplate} <p>The ok http template return object is <code>RestTemplate</code> type.</p>
          * @see org.springframework.http.client.OkHttp3ClientHttpRequestFactory
+         * @see io.github.nichetoolkit.rest.interceptor.DefaultClientHttpInterceptor
          * @see org.springframework.web.client.RestTemplate
          * @see org.springframework.context.annotation.Bean
          */
         @Bean(name = HttpClientType.OKHTTP3_BEAN)
-        public RestTemplate okHttpTemplate(OkHttp3ClientHttpRequestFactory okHttp3ClientHttpRequestFactory) {
-            return createRestTemplate(okHttp3ClientHttpRequestFactory);
+        public RestTemplate okHttpTemplate(OkHttp3ClientHttpRequestFactory okHttp3ClientHttpRequestFactory,DefaultClientHttpInterceptor clientHttpInterceptor) {
+            return createRestTemplate(okHttp3ClientHttpRequestFactory,clientHttpInterceptor);
         }
 
         /**
@@ -336,14 +351,16 @@ public class RestHttpAutoConfigure {
          * <code>httpTemplate</code>
          * <p>The http template method.</p>
          * @param httpComponentsClientHttpRequestFactory {@link org.springframework.http.client.HttpComponentsClientHttpRequestFactory} <p>The http components client http request factory parameter is <code>HttpComponentsClientHttpRequestFactory</code> type.</p>
+         * @param clientHttpInterceptor                  {@link io.github.nichetoolkit.rest.interceptor.DefaultClientHttpInterceptor} <p>The client http interceptor parameter is <code>DefaultClientHttpInterceptor</code> type.</p>
          * @return {@link org.springframework.web.client.RestTemplate} <p>The http template return object is <code>RestTemplate</code> type.</p>
          * @see org.springframework.http.client.HttpComponentsClientHttpRequestFactory
+         * @see io.github.nichetoolkit.rest.interceptor.DefaultClientHttpInterceptor
          * @see org.springframework.web.client.RestTemplate
          * @see org.springframework.context.annotation.Bean
          */
         @Bean(name = HttpClientType.HTTPCLIENT_BEAN)
-        public RestTemplate httpTemplate(HttpComponentsClientHttpRequestFactory httpComponentsClientHttpRequestFactory) {
-            return createRestTemplate(httpComponentsClientHttpRequestFactory);
+        public RestTemplate httpTemplate(HttpComponentsClientHttpRequestFactory httpComponentsClientHttpRequestFactory,DefaultClientHttpInterceptor clientHttpInterceptor) {
+            return createRestTemplate(httpComponentsClientHttpRequestFactory,clientHttpInterceptor);
         }
 
         /**
@@ -495,15 +512,17 @@ public class RestHttpAutoConfigure {
     /**
      * <code>createRestTemplate</code>
      * <p>The create rest template method.</p>
-     * @param factory {@link org.springframework.http.client.ClientHttpRequestFactory} <p>The factory parameter is <code>ClientHttpRequestFactory</code> type.</p>
+     * @param factory               {@link org.springframework.http.client.ClientHttpRequestFactory} <p>The factory parameter is <code>ClientHttpRequestFactory</code> type.</p>
+     * @param clientHttpInterceptor {@link io.github.nichetoolkit.rest.interceptor.DefaultClientHttpInterceptor} <p>The client http interceptor parameter is <code>DefaultClientHttpInterceptor</code> type.</p>
      * @return {@link org.springframework.web.client.RestTemplate} <p>The create rest template return object is <code>RestTemplate</code> type.</p>
      * @see org.springframework.http.client.ClientHttpRequestFactory
+     * @see io.github.nichetoolkit.rest.interceptor.DefaultClientHttpInterceptor
      * @see org.springframework.web.client.RestTemplate
      */
-    private RestTemplate createRestTemplate(ClientHttpRequestFactory factory) {
+    private RestTemplate createRestTemplate(ClientHttpRequestFactory factory,DefaultClientHttpInterceptor clientHttpInterceptor) {
         RestTemplate restTemplate = new RestTemplate(new BufferingClientHttpRequestFactory(factory));
         if (interceptProperties.getEnabled()) {
-            restTemplate.getInterceptors().add(httpInterceptor);
+            restTemplate.getInterceptors().add(clientHttpInterceptor);
         }
         modifyDefaultCharset(restTemplate);
         DefaultUriBuilderFactory uriFactory = new DefaultUriBuilderFactory();

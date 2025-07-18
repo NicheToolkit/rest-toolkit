@@ -4,7 +4,6 @@ import io.github.nichetoolkit.rest.util.GeneralUtils;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -16,13 +15,11 @@ import java.util.List;
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.Getter
  * @see lombok.Setter
- * @see org.springframework.stereotype.Component
  * @see org.springframework.boot.context.properties.ConfigurationProperties
  * @since Jdk1.8
  */
 @Getter
 @Setter
-@Component
 @ConfigurationProperties(prefix = "nichetoolkit.rest.logback")
 public class RestLogbackProperties {
 

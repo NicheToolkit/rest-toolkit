@@ -6,7 +6,6 @@ import io.github.nichetoolkit.rest.util.CommonUtils;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import io.github.nichetoolkit.rest.util.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpRequest;
@@ -15,7 +14,6 @@ import org.springframework.http.client.ClientHttpRequestExecution;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.lang.NonNull;
-import org.springframework.stereotype.Component;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -30,12 +28,10 @@ import java.util.Map;
  * @author Cyan (snow22314@outlook.com)
  * @see org.springframework.http.client.ClientHttpRequestInterceptor
  * @see lombok.extern.slf4j.Slf4j
- * @see org.springframework.stereotype.Component
  * @see java.lang.SuppressWarnings
  * @since Jdk1.8
  */
 @Slf4j
-@Component
 @SuppressWarnings("SameNameButDifferent")
 public class DefaultClientHttpInterceptor implements ClientHttpRequestInterceptor {
     /**
@@ -50,9 +46,7 @@ public class DefaultClientHttpInterceptor implements ClientHttpRequestIntercepto
      * <p>Instantiates a new default client http interceptor.</p>
      * @param interceptProperties {@link io.github.nichetoolkit.rest.configure.RestInterceptProperties} <p>The intercept properties parameter is <code>RestInterceptProperties</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestInterceptProperties
-     * @see org.springframework.beans.factory.annotation.Autowired
      */
-    @Autowired
     public DefaultClientHttpInterceptor(RestInterceptProperties interceptProperties) {
         this.interceptProperties = interceptProperties;
     }

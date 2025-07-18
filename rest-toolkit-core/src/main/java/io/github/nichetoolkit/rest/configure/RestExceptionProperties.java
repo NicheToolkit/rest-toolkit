@@ -1,11 +1,9 @@
 package io.github.nichetoolkit.rest.configure;
 
-import io.github.nichetoolkit.rest.type.CharsetType;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
-import org.springframework.stereotype.Component;
 
 /**
  * <code>RestExceptionProperties</code>
@@ -13,24 +11,34 @@ import org.springframework.stereotype.Component;
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.Getter
  * @see lombok.Setter
- * @see org.springframework.stereotype.Component
  * @see org.springframework.boot.context.properties.ConfigurationProperties
  * @since Jdk1.8
  */
 @Getter
 @Setter
-@Component
 @ConfigurationProperties(prefix = "nichetoolkit.rest.error")
 public class RestExceptionProperties {
+    /**
+     * <code>consoleLog</code>
+     * {@link io.github.nichetoolkit.rest.configure.RestExceptionProperties.ConsoleLog} <p>The <code>consoleLog</code> field.</p>
+     * @see io.github.nichetoolkit.rest.configure.RestExceptionProperties.ConsoleLog
+     * @see org.springframework.boot.context.properties.NestedConfigurationProperty
+     */
     @NestedConfigurationProperty
     private ConsoleLog consoleLog = new ConsoleLog();
 
+    /**
+     * <code>messageI18n</code>
+     * {@link io.github.nichetoolkit.rest.configure.RestExceptionProperties.MessageI18n} <p>The <code>messageI18n</code> field.</p>
+     * @see io.github.nichetoolkit.rest.configure.RestExceptionProperties.MessageI18n
+     * @see org.springframework.boot.context.properties.NestedConfigurationProperty
+     */
     @NestedConfigurationProperty
     private MessageI18n messageI18n = new MessageI18n();
 
     /**
-     * <code>Console</code>
-     * <p>The console class.</p>
+     * <code>ConsoleLog</code>
+     * <p>The console log class.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see lombok.Getter
      * @see lombok.Setter
@@ -39,14 +47,24 @@ public class RestExceptionProperties {
     @Getter
     @Setter
     public static class ConsoleLog {
+        /**
+         * <code>restExceptionEnabled</code>
+         * {@link java.lang.Boolean} <p>The <code>restExceptionEnabled</code> field.</p>
+         * @see java.lang.Boolean
+         */
         private Boolean restExceptionEnabled = false;
+        /**
+         * <code>commonExceptionEnabled</code>
+         * {@link java.lang.Boolean} <p>The <code>commonExceptionEnabled</code> field.</p>
+         * @see java.lang.Boolean
+         */
         private Boolean commonExceptionEnabled = true;
     }
 
 
     /**
-     * <code>Message</code>
-     * <p>The message class.</p>
+     * <code>MessageI18n</code>
+     * <p>The message i 18 n class.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see lombok.Getter
      * @see lombok.Setter
@@ -55,7 +73,17 @@ public class RestExceptionProperties {
     @Getter
     @Setter
     public static class MessageI18n {
+        /**
+         * <code>transformEnabled</code>
+         * {@link java.lang.Boolean} <p>The <code>transformEnabled</code> field.</p>
+         * @see java.lang.Boolean
+         */
         private Boolean transformEnabled = false;
+        /**
+         * <code>messagePrefix</code>
+         * {@link java.lang.String} <p>The <code>messagePrefix</code> field.</p>
+         * @see java.lang.String
+         */
         private String messagePrefix = "i18n@";
     }
 }

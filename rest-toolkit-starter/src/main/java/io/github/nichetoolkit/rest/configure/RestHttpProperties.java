@@ -7,7 +7,6 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
-import org.springframework.stereotype.Component;
 import org.springframework.web.util.DefaultUriBuilderFactory;
 
 import java.util.Map;
@@ -18,13 +17,11 @@ import java.util.Map;
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.Getter
  * @see lombok.Setter
- * @see org.springframework.stereotype.Component
  * @see org.springframework.boot.context.properties.ConfigurationProperties
  * @since Jdk1.8
  */
 @Getter
 @Setter
-@Component
 @ConfigurationProperties(prefix = "nichetoolkit.rest.http")
 public class RestHttpProperties {
     /**

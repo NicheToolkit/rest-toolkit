@@ -9,7 +9,6 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.time.ZoneId;
@@ -26,13 +25,11 @@ import java.util.List;
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.Getter
  * @see lombok.Setter
- * @see org.springframework.stereotype.Component
  * @see org.springframework.boot.context.properties.ConfigurationProperties
  * @since Jdk1.8
  */
 @Getter
 @Setter
-@Component
 @ConfigurationProperties(prefix = "nichetoolkit.rest.jwt")
 public class RestJwtProperties {
     /**

@@ -33,13 +33,6 @@ public class DefaultMessageConverter extends MessageConverter {
     /**
      * <code>DefaultMessageConverter</code>
      * <p>Instantiates a new default message converter.</p>
-     */
-    public DefaultMessageConverter() {
-    }
-
-    /**
-     * <code>DefaultMessageConverter</code>
-     * <p>Instantiates a new default message converter.</p>
      * @param logbackProperties {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>The logback properties parameter is <code>RestLogbackProperties</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestLogbackProperties
      */

@@ -5,11 +5,8 @@ import io.github.nichetoolkit.rest.constant.RestConstants;
 import io.github.nichetoolkit.rest.holder.MessageSourceHolder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfiguration;
-import org.springframework.boot.autoconfigure.AutoConfigureAfter;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -30,12 +27,13 @@ import java.util.*;
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
  * @see java.lang.SuppressWarnings
- * @see org.springframework.boot.autoconfigure.AutoConfiguration
+ * @see org.springframework.boot.context.properties.EnableConfigurationProperties
  * @see org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
  * @since Jdk1.8
  */
 @Slf4j
 @SuppressWarnings("SameNameButDifferent")
+@EnableConfigurationProperties(RestI18nProperties.class)
 @ConditionalOnProperty(value = "nichetoolkit.rest.i18n.enabled", havingValue = "true")
 public class RestI18nAutoConfigure {
 
@@ -137,10 +135,8 @@ public class RestI18nAutoConfigure {
          * @return {@link org.springframework.context.MessageSource} <p>The message source return object is <code>MessageSource</code> type.</p>
          * @see org.springframework.context.MessageSource
          * @see org.springframework.context.annotation.Bean
-         * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
          */
         @Bean
-        @ConditionalOnMissingBean(MessageSource.class)
         public MessageSource messageSource() {
             Locale.setDefault(i18nProperties.getLocale().getValue());
             ResourceBundleMessageSource source = new ResourceBundleMessageSource();

@@ -11,22 +11,18 @@ import io.github.nichetoolkit.rest.userlog.stereotype.RestUserlog;
 import io.github.nichetoolkit.rest.util.*;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;
-import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
-import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.AsyncHandlerInterceptor;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -46,17 +42,9 @@ import java.util.Optional;
  * @see io.github.nichetoolkit.rest.RestExceptionAdvice
  * @see javax.servlet.Filter
  * @see lombok.extern.slf4j.Slf4j
- * @see javax.servlet.annotation.WebFilter
- * @see org.springframework.stereotype.Component
- * @see java.lang.SuppressWarnings
- * @see org.springframework.core.annotation.Order
  * @since Jdk1.8
  */
 @Slf4j
-@WebFilter
-@Component
-@SuppressWarnings("SameNameButDifferent")
-@Order(1000)
 public class DefaultLoggingInterceptor implements AsyncHandlerInterceptor, RestResponseAdvice, RestExceptionAdvice, Filter {
     /**
      * <code>START_TIME_HOLDER</code>
@@ -89,9 +77,7 @@ public class DefaultLoggingInterceptor implements AsyncHandlerInterceptor, RestR
      * <p>Instantiates a new default logging interceptor.</p>
      * @param interceptProperties {@link io.github.nichetoolkit.rest.configure.RestInterceptProperties} <p>The intercept properties parameter is <code>RestInterceptProperties</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestInterceptProperties
-     * @see org.springframework.beans.factory.annotation.Autowired
      */
-    @Autowired
     public DefaultLoggingInterceptor(RestInterceptProperties interceptProperties) {
         this.interceptProperties = interceptProperties;
     }

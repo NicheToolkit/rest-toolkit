@@ -5,14 +5,20 @@ import ch.qos.logback.classic.pattern.MessageConverter;
 import io.github.nichetoolkit.rest.RestHttpRequest;
 import io.github.nichetoolkit.rest.RestLoggingKey;
 import io.github.nichetoolkit.rest.RestLoggingKeyGenerator;
+import io.github.nichetoolkit.rest.logback.DefaultLogbackFilter;
 import io.github.nichetoolkit.rest.logback.DefaultMessageConverter;
+import io.github.nichetoolkit.rest.logback.DefaultThreadPoolTaskExecutor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
-import org.springframework.boot.autoconfigure.AutoConfigureAfter;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 /**
  * <code>RestLogbackAutoConfigure</code>
@@ -21,11 +27,13 @@ import org.springframework.context.annotation.Bean;
  * @see lombok.extern.slf4j.Slf4j
  * @see org.springframework.boot.autoconfigure.AutoConfiguration
  * @see java.lang.SuppressWarnings
+ * @see org.springframework.boot.context.properties.EnableConfigurationProperties
  * @since Jdk1.8
  */
 @Slf4j
 @AutoConfiguration
 @SuppressWarnings("SameNameButDifferent")
+@EnableConfigurationProperties(RestLogbackProperties.class)
 public class RestLogbackAutoConfigure {
 
     /**
@@ -48,6 +56,7 @@ public class RestLogbackAutoConfigure {
         log.debug("The auto configuration for [rest-logback] initiated");
     }
 
+
     /**
      * <code>loggingKeyGenerator</code>
      * <p>The logging key generator method.</p>
@@ -61,7 +70,7 @@ public class RestLogbackAutoConfigure {
     @ConditionalOnMissingBean(RestLoggingKey.class)
     @ConditionalOnProperty(value = "nichetoolkit.rest.logback.enabled", havingValue = "true")
     public RestLoggingKey loggingKeyGenerator() {
-        return new RestLoggingKeyGenerator(logbackProperties) {
+        return new RestLoggingKeyGenerator(this.logbackProperties) {
             @Override
             public String doAccessTokenHandle(RestHttpRequest requestWrapper) {
                 return null;
@@ -85,7 +94,57 @@ public class RestLogbackAutoConfigure {
     @Bean
     @ConditionalOnMissingBean(MessageConverter.class)
     public DefaultMessageConverter messageConverter() {
-        return new DefaultMessageConverter(logbackProperties);
+        return new DefaultMessageConverter(this.logbackProperties);
     }
 
+
+    /**
+     * <code>logbackFilter</code>
+     * <p>The logback filter method.</p>
+     * @param loggingKey {@link io.github.nichetoolkit.rest.RestLoggingKey} <p>The logging key parameter is <code>RestLoggingKey</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.logback.DefaultLogbackFilter} <p>The logback filter return object is <code>DefaultLogbackFilter</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestLoggingKey
+     * @see io.github.nichetoolkit.rest.logback.DefaultLogbackFilter
+     * @see org.springframework.context.annotation.Bean
+     * @see org.springframework.core.annotation.Order
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnBean
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
+     */
+    @Bean
+    @Order(value = Ordered.HIGHEST_PRECEDENCE + 100)
+    @ConditionalOnBean(RestLoggingKey.class)
+    @ConditionalOnMissingBean(DefaultLogbackFilter.class)
+    public DefaultLogbackFilter logbackFilter(RestLoggingKey loggingKey) {
+        return new DefaultLogbackFilter(this.logbackProperties, loggingKey);
+    }
+
+    /**
+     * <code>logbackFilter</code>
+     * <p>The logback filter method.</p>
+     * @return {@link io.github.nichetoolkit.rest.logback.DefaultLogbackFilter} <p>The logback filter return object is <code>DefaultLogbackFilter</code> type.</p>
+     * @see io.github.nichetoolkit.rest.logback.DefaultLogbackFilter
+     * @see org.springframework.context.annotation.Bean
+     * @see org.springframework.core.annotation.Order
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
+     */
+    @Bean
+    @Order(value = Ordered.HIGHEST_PRECEDENCE + 100)
+    @ConditionalOnMissingBean({DefaultLogbackFilter.class,RestLoggingKey.class})
+    public DefaultLogbackFilter logbackFilter() {
+        return new DefaultLogbackFilter(this.logbackProperties);
+    }
+
+    /**
+     * <code>threadPoolTaskExecutor</code>
+     * <p>The thread pool task executor method.</p>
+     * @return {@link org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor} <p>The thread pool task executor return object is <code>ThreadPoolTaskExecutor</code> type.</p>
+     * @see org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor
+     * @see org.springframework.context.annotation.Bean
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
+     */
+    @Bean
+    @ConditionalOnMissingBean({ThreadPoolTaskExecutor.class})
+    public ThreadPoolTaskExecutor threadPoolTaskExecutor() {
+        return new DefaultThreadPoolTaskExecutor();
+    }
 }

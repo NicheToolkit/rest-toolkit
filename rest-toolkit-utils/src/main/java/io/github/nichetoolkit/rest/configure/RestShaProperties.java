@@ -6,7 +6,6 @@ import io.github.nichetoolkit.rest.worker.sha.ShaAlgorithm;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
 
 /**
  * <code>RestShaProperties</code>
@@ -14,13 +13,11 @@ import org.springframework.stereotype.Component;
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.Getter
  * @see lombok.Setter
- * @see org.springframework.stereotype.Component
  * @see org.springframework.boot.context.properties.ConfigurationProperties
  * @since Jdk1.8
  */
 @Getter
 @Setter
-@Component
 @ConfigurationProperties(prefix = "nichetoolkit.rest.sha")
 public class RestShaProperties {
 
