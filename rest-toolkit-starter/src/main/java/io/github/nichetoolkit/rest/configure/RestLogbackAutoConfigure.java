@@ -2,6 +2,7 @@ package io.github.nichetoolkit.rest.configure;
 
 
 import ch.qos.logback.classic.pattern.MessageConverter;
+import io.github.nichetoolkit.rest.DefaultControllerAdvice;
 import io.github.nichetoolkit.rest.RestHttpRequest;
 import io.github.nichetoolkit.rest.RestLoggingKey;
 import io.github.nichetoolkit.rest.RestLoggingKeyGenerator;
@@ -54,6 +55,24 @@ public class RestLogbackAutoConfigure {
     public RestLogbackAutoConfigure(RestLogbackProperties logbackProperties) {
         this.logbackProperties = logbackProperties;
         log.debug("The auto configuration for [rest-logback] initiated");
+    }
+
+    /**
+     * <code>controllerAdvice</code>
+     * <p>The controller advice method.</p>
+     * @param errorProperties {@link io.github.nichetoolkit.rest.configure.RestExceptionProperties} <p>The error properties parameter is <code>RestExceptionProperties</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.DefaultControllerAdvice} <p>The controller advice return object is <code>DefaultControllerAdvice</code> type.</p>
+     * @see io.github.nichetoolkit.rest.configure.RestExceptionProperties
+     * @see io.github.nichetoolkit.rest.DefaultControllerAdvice
+     * @see org.springframework.context.annotation.Bean
+     * @see org.springframework.core.annotation.Order
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
+     */
+    @Bean
+    @Order(Integer.MIN_VALUE)
+    @ConditionalOnMissingBean(DefaultControllerAdvice.class)
+    public DefaultControllerAdvice controllerAdvice(RestExceptionProperties errorProperties) {
+        return new DefaultControllerAdvice(errorProperties);
     }
 
 
