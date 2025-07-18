@@ -3,6 +3,7 @@ package io.github.nichetoolkit.rest.configure;
 import io.github.nichetoolkit.rest.RestI18n;
 import io.github.nichetoolkit.rest.constant.RestConstants;
 import io.github.nichetoolkit.rest.holder.MessageSourceHolder;
+import io.github.nichetoolkit.rest.util.GeneralUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
@@ -144,7 +145,10 @@ public class RestI18nAutoConfigure {
             Locale.setDefault(i18nProperties.getLocale().getValue());
             ResourceBundleMessageSource source = new ResourceBundleMessageSource();
             String[] basenameArray = i18nProperties.getBasename();
-            Set<String> basenameSet = new HashSet<>(Arrays.asList(basenameArray));
+            Set<String> basenameSet = new HashSet<>();
+            if (GeneralUtils.isNotEmpty(basenameArray)) {
+                basenameSet.addAll(Arrays.asList(basenameArray));
+            }
             i18nBasename.forEach(basename -> basenameSet.addAll(basename.getBaseNames()));
             source.setBasenames(basenameSet.toArray(new String[0]));
             source.setUseCodeAsDefaultMessage(false);

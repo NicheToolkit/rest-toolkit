@@ -59,7 +59,7 @@ public class RestI18nProperties {
      * {@link java.lang.String} <p>The <code>basename</code> field.</p>
      * @see java.lang.String
      */
-    private String[] basename = {"i18n/messages"};
+    private String[] basename;
 
     /**
      * <code>locale</code>
