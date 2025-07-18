@@ -8,6 +8,8 @@ import io.github.nichetoolkit.rest.helper.JsonHelper;
 import io.github.nichetoolkit.rest.holder.ApplicationContextHolder;
 import io.github.nichetoolkit.rest.util.CommonUtils;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.helpers.MessageFormatter;
 import org.springframework.beans.BeanUtils;
@@ -19,9 +21,11 @@ import org.springframework.lang.NonNull;
  * @author Cyan (snow22314@outlook.com)
  * @see ch.qos.logback.classic.pattern.MessageConverter
  * @see lombok.extern.slf4j.Slf4j
+ * @see lombok.NoArgsConstructor
  * @since Jdk1.8
  */
 @Slf4j
+@NoArgsConstructor
 public class DefaultMessageConverter extends MessageConverter {
     /**
      * <code>logbackProperties</code>
