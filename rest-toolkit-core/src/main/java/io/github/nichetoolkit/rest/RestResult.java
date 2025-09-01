@@ -126,6 +126,16 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
     }
 
     /**
+     * <code>getCode</code>
+     * <p>The get code getter method.</p>
+     * @return {@link java.lang.Integer} <p>The get code return object is <code>Integer</code> type.</p>
+     * @see java.lang.Integer
+     */
+    public Integer getCode() {
+        return getStatus();
+    }
+
+    /**
      * <code>success</code>
      * <p>The success method.</p>
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
