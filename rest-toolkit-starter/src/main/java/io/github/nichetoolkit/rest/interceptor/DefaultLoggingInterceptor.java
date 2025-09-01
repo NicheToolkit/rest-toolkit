@@ -3,7 +3,7 @@ package io.github.nichetoolkit.rest.interceptor;
 import io.github.nichetoolkit.rest.*;
 import io.github.nichetoolkit.rest.configure.RestInterceptProperties;
 import io.github.nichetoolkit.rest.constant.RestConstants;
-import io.github.nichetoolkit.rest.DefaultControllerAdvice;
+import io.github.nichetoolkit.rest.RestControllerHandler;
 import io.github.nichetoolkit.rest.userlog.*;
 import io.github.nichetoolkit.rest.userlog.stereotype.RestLogging;
 import io.github.nichetoolkit.rest.userlog.stereotype.RestNotelog;
@@ -96,7 +96,7 @@ public class DefaultLoggingInterceptor implements AsyncHandlerInterceptor, RestR
             return false;
         }
         Class<?> declaringClass = params.getDeclaringClass();
-        if (declaringClass == DefaultControllerAdvice.class) {
+        if (declaringClass == RestControllerHandler.class) {
             return true;
         }
         if (!interceptProperties.getUserlogEnabled() && !interceptProperties.getLoggingEnabled()) {

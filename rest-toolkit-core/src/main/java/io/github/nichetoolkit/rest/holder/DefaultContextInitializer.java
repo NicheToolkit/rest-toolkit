@@ -18,5 +18,6 @@ public class DefaultContextInitializer implements ApplicationContextInitializer<
         ApplicationContextHolder.initApplicationContext(applicationContext);
         MessageSourceHolder.initMessageSource(applicationContext);
         applicationContext.addBeanFactoryPostProcessor(new DefaultRegistryPostProcessor());
+
     }
 }
