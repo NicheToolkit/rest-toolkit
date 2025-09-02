@@ -19,6 +19,11 @@
       "name": "nichetoolkit.rest.rsa",
       "sourceType": "io.github.nichetoolkit.rest.configure.RestRsaProperties",
       "type": "io.github.nichetoolkit.rest.configure.RestRsaProperties"
+    },
+    {
+      "name": "nichetoolkit.rest.aes",
+      "sourceType": "io.github.nichetoolkit.rest.configure.RestAesProperties",
+      "type": "io.github.nichetoolkit.rest.configure.RestAesProperties"
     }
   ],
   "properties": [
@@ -175,6 +180,25 @@
       "sourceType": "java.lang.Boolean",
       "description": "the auto verify switch of rsa worker.",
       "defaultValue": true
+    },
+    {
+      "name": "nichetoolkit.rest.aes.enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "java.lang.Boolean",
+      "description": "the switch of aes worker.",
+      "defaultValue": false
+    },
+    {
+      "name": "nichetoolkit.rest.aes.secret-key",
+      "type": "java.lang.String",
+      "sourceType": "java.lang.String",
+      "description": "the secret key of aes worker."
+    },
+    {
+      "name": "nichetoolkit.rest.aes.secret-iv",
+      "type": "java.lang.String",
+      "sourceType": "java.lang.String",
+      "description": "the secret iv of aes worker."
     }
   ],
   "hints": [

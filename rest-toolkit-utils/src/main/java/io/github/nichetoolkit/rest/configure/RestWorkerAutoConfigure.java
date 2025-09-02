@@ -1,5 +1,6 @@
 package io.github.nichetoolkit.rest.configure;
 
+import io.github.nichetoolkit.rest.worker.AesWorker;
 import io.github.nichetoolkit.rest.worker.RadixWorker;
 import io.github.nichetoolkit.rest.worker.jwt.JwtWorker;
 import io.github.nichetoolkit.rest.worker.rsa.RsaWorker;
@@ -16,19 +17,21 @@ import org.springframework.context.annotation.Primary;
 @Slf4j
 @AutoConfiguration
 @AutoConfigureAfter(RestCoreAutoConfigure.class)
-@EnableConfigurationProperties({RestJwtProperties.class,RestRadixProperties.class,RestRsaProperties.class,RestShaProperties.class})
+@EnableConfigurationProperties({RestJwtProperties.class,RestRadixProperties.class,RestRsaProperties.class,RestShaProperties.class,RestAesProperties.class})
 public class RestWorkerAutoConfigure {
 
     private final RestJwtProperties jwtProperties;
     private final RestRadixProperties radixProperties;
     private final RestShaProperties shaProperties;
     private final RestRsaProperties rsaProperties;
+    private final RestAesProperties aesProperties;
 
-    public RestWorkerAutoConfigure(RestJwtProperties jwtProperties, RestRadixProperties radixProperties, RestShaProperties shaProperties, RestRsaProperties rsaProperties) {
+    public RestWorkerAutoConfigure(RestJwtProperties jwtProperties, RestRadixProperties radixProperties, RestShaProperties shaProperties, RestRsaProperties rsaProperties, RestAesProperties aesProperties) {
         this.jwtProperties = jwtProperties;
         this.radixProperties = radixProperties;
         this.shaProperties = shaProperties;
         this.rsaProperties = rsaProperties;
+        this.aesProperties = aesProperties;
         log.debug("The auto configuration for [rest-worker] initiated");
     }
 
@@ -63,5 +66,14 @@ public class RestWorkerAutoConfigure {
     public RsaWorker rsaWorker() {
         return new RsaWorker(this.rsaProperties);
     }
+
+    @Bean
+    @Primary
+    @ConditionalOnMissingBean(AesWorker.class)
+    @ConditionalOnProperty(value = "nichetoolkit.rest.aes.enabled", havingValue = "true")
+    public AesWorker aesWorker() {
+        return new AesWorker(this.aesProperties);
+    }
+
 
 }
