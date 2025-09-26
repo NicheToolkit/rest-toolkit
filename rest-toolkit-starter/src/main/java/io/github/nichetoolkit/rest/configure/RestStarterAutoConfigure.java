@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * <code>RestStarterAutoConfigure</code>
@@ -19,6 +20,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 @AutoConfiguration
 @SuppressWarnings("SameNameButDifferent")
 @AutoConfigureAfter(RestUtilsAutoConfigure.class)
+@ComponentScan(basePackages = "io.github.nichetoolkit.rest.handler")
 @EnableConfigurationProperties(RestExceptionProperties.class)
 public class RestStarterAutoConfigure {
     /**

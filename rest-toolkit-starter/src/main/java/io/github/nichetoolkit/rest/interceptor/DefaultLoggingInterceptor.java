@@ -3,7 +3,7 @@ package io.github.nichetoolkit.rest.interceptor;
 import io.github.nichetoolkit.rest.*;
 import io.github.nichetoolkit.rest.configure.RestInterceptProperties;
 import io.github.nichetoolkit.rest.constant.RestConstants;
-import io.github.nichetoolkit.rest.RestControllerHandler;
+import io.github.nichetoolkit.rest.handler.RestControllerHandler;
 import io.github.nichetoolkit.rest.userlog.*;
 import io.github.nichetoolkit.rest.userlog.stereotype.RestLogging;
 import io.github.nichetoolkit.rest.userlog.stereotype.RestNotelog;

@@ -1,5 +1,6 @@
-package io.github.nichetoolkit.rest;
+package io.github.nichetoolkit.rest.handler;
 
+import io.github.nichetoolkit.rest.*;
 import io.github.nichetoolkit.rest.configure.RestExceptionProperties;
 import io.github.nichetoolkit.rest.fitter.RestFulfilledFitter;
 import io.github.nichetoolkit.rest.holder.ApplicationContextHolder;
@@ -42,7 +43,7 @@ import java.util.List;
 @Slf4j
 @CrossOrigin
 @RestControllerAdvice
-public abstract class RestControllerHandler implements ResponseBodyAdvice<Object>, InitializingBean {
+public class RestControllerHandler implements ResponseBodyAdvice<Object>, InitializingBean {
 
     /**
      * <code>IS_HAS_INIT_OF_FULFILLED_FITTER</code>
