@@ -126,11 +126,17 @@
         <dependency>
             <groupId>io.fusionauth</groupId>
             <artifactId>fusionauth-jwt</artifactId>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>net.coobird</groupId>
             <artifactId>thumbnailator</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>de.schlichtherle.truelicense</groupId>
+            <artifactId>truelicense-core</artifactId>
         </dependency>
 
     </dependencies>

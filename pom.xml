@@ -138,6 +138,7 @@
         <guava.version>33.3.1-jre</guava.version>
         <bcprov.version>1.78.1</bcprov.version>
         <fusionauth-jwt.version>5.3.3</fusionauth-jwt.version>
+        <truelicense.version>1.33</truelicense.version>
     </properties>
 
     <dependencyManagement>
@@ -216,6 +217,12 @@
                 <groupId>net.coobird</groupId>
                 <artifactId>thumbnailator</artifactId>
                 <version>${thumbnailator.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>de.schlichtherle.truelicense</groupId>
+                <artifactId>truelicense-core</artifactId>
+                <version>${truelicense.version}</version>
             </dependency>
 
         </dependencies>

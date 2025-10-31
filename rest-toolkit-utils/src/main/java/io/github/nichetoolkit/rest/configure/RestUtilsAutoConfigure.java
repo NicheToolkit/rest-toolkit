@@ -31,7 +31,7 @@ import org.springframework.context.annotation.Primary;
 @Slf4j
 @AutoConfiguration
 @AutoConfigureAfter(RestCoreAutoConfigure.class)
-@ImportAutoConfiguration(RestWorkerAutoConfigure.class)
+@ImportAutoConfiguration({RestWorkerAutoConfigure.class})
 public class RestUtilsAutoConfigure {
 
     /**

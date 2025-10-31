@@ -222,11 +222,6 @@ public class DefaultLoggingInterceptor implements AsyncHandlerInterceptor, RestR
     }
 
     @Override
-    public void afterConcurrentHandlingStarted(@NonNull HttpServletRequest request,@NonNull HttpServletResponse response,@NonNull Object handler) {
-
-    }
-
-    @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         RestHttpRequest httpRequest = null;
         if (servletRequest instanceof HttpServletRequest) {

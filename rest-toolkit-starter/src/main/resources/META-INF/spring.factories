@@ -4,4 +4,5 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
   io.github.nichetoolkit.rest.configure.RestI18nAutoConfigure,\
   io.github.nichetoolkit.rest.configure.RestIdentityAutoConfigure,\
   io.github.nichetoolkit.rest.configure.RestInterceptAutoConfigure,\
-  io.github.nichetoolkit.rest.configure.RestLogbackAutoConfigure
+  io.github.nichetoolkit.rest.configure.RestLogbackAutoConfigure,\
+  io.github.nichetoolkit.rest.configure.RestLicenseAutoConfigure

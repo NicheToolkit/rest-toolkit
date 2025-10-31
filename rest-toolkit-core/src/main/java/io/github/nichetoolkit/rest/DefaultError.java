@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -334,6 +335,19 @@ class DefaultError extends Error implements Serializable {
         public DefaultError.Builder add(RestErrorIssue issue) {
             this.issues = Optional.ofNullable(this.issues).orElseGet(ArrayList::new);
             this.issues.add(issue);
+            return this;
+        }
+
+        /**
+         * <code>addAll</code>
+         * <p>The add all method.</p>
+         * @param issues {@link java.util.Collection} <p>The issues parameter is <code>Collection</code> type.</p>
+         * @return {@link io.github.nichetoolkit.rest.DefaultError.Builder} <p>The add all return object is <code>Builder</code> type.</p>
+         * @see java.util.Collection
+         */
+        public DefaultError.Builder addAll(Collection<RestErrorIssue> issues) {
+            this.issues = Optional.ofNullable(this.issues).orElseGet(ArrayList::new);
+            this.issues.addAll(issues);
             return this;
         }
 

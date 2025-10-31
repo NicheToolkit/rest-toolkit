@@ -1,14 +1,11 @@
 package io.github.nichetoolkit.rest.configure;
 
 
-import io.github.nichetoolkit.rest.RestExceptionAdvice;
-import io.github.nichetoolkit.rest.RestResponseAdvice;
 import io.github.nichetoolkit.rest.interceptor.DefaultLoggingInterceptor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -33,7 +30,6 @@ public class RestInterceptAutoConfigure {
     }
 
     @Bean
-    @ConditionalOnMissingBean({RestResponseAdvice.class, RestExceptionAdvice.class})
     public DefaultLoggingInterceptor loggingInterceptor() {
         return new DefaultLoggingInterceptor(this.interceptProperties);
     }

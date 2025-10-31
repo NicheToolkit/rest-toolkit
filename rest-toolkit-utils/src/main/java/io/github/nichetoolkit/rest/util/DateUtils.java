@@ -7,6 +7,9 @@ import io.github.nichetoolkit.rest.error.supply.ResourceNotFoundException;
 import io.github.nichetoolkit.rest.helper.DateHelper;
 import lombok.extern.slf4j.Slf4j;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -188,6 +191,101 @@ public class DateUtils {
             log.error("date parse has error！date time: {}，format: {}，error: {}", datetime, format, exception.getMessage());
             return null;
         }
+    }
+
+    /**
+     * <code>offsetYears</code>
+     * <p>The offset years method.</p>
+     * @param startDate {@link java.util.Date} <p>The start date parameter is <code>Date</code> type.</p>
+     * @param endDate   {@link java.util.Date} <p>The end date parameter is <code>Date</code> type.</p>
+     * @return {@link java.lang.Long} <p>The offset years return object is <code>Long</code> type.</p>
+     * @see java.util.Date
+     * @see java.lang.Long
+     */
+    public static Long offsetYears(Date startDate, Date endDate) {
+        return offset(startDate,endDate,ChronoUnit.YEARS);
+    }
+
+    /**
+     * <code>offsetMonths</code>
+     * <p>The offset months method.</p>
+     * @param startDate {@link java.util.Date} <p>The start date parameter is <code>Date</code> type.</p>
+     * @param endDate   {@link java.util.Date} <p>The end date parameter is <code>Date</code> type.</p>
+     * @return {@link java.lang.Long} <p>The offset months return object is <code>Long</code> type.</p>
+     * @see java.util.Date
+     * @see java.lang.Long
+     */
+    public static Long offsetMonths(Date startDate, Date endDate) {
+        return offset(startDate,endDate,ChronoUnit.MONTHS);
+    }
+
+    /**
+     * <code>offsetDays</code>
+     * <p>The offset days method.</p>
+     * @param startDate {@link java.util.Date} <p>The start date parameter is <code>Date</code> type.</p>
+     * @param endDate   {@link java.util.Date} <p>The end date parameter is <code>Date</code> type.</p>
+     * @return {@link java.lang.Long} <p>The offset days return object is <code>Long</code> type.</p>
+     * @see java.util.Date
+     * @see java.lang.Long
+     */
+    public static Long offsetDays(Date startDate, Date endDate) {
+        return offset(startDate,endDate,ChronoUnit.DAYS);
+    }
+
+    /**
+     * <code>offsetHours</code>
+     * <p>The offset hours method.</p>
+     * @param startDate {@link java.util.Date} <p>The start date parameter is <code>Date</code> type.</p>
+     * @param endDate   {@link java.util.Date} <p>The end date parameter is <code>Date</code> type.</p>
+     * @return {@link java.lang.Long} <p>The offset hours return object is <code>Long</code> type.</p>
+     * @see java.util.Date
+     * @see java.lang.Long
+     */
+    public static Long offsetHours(Date startDate, Date endDate) {
+        return offset(startDate,endDate,ChronoUnit.HOURS);
+    }
+
+    /**
+     * <code>offsetMinutes</code>
+     * <p>The offset minutes method.</p>
+     * @param startDate {@link java.util.Date} <p>The start date parameter is <code>Date</code> type.</p>
+     * @param endDate   {@link java.util.Date} <p>The end date parameter is <code>Date</code> type.</p>
+     * @return {@link java.lang.Long} <p>The offset minutes return object is <code>Long</code> type.</p>
+     * @see java.util.Date
+     * @see java.lang.Long
+     */
+    public static Long offsetMinutes(Date startDate, Date endDate) {
+        return offset(startDate,endDate,ChronoUnit.MINUTES);
+    }
+
+    /**
+     * <code>offsetSeconds</code>
+     * <p>The offset seconds method.</p>
+     * @param startDate {@link java.util.Date} <p>The start date parameter is <code>Date</code> type.</p>
+     * @param endDate   {@link java.util.Date} <p>The end date parameter is <code>Date</code> type.</p>
+     * @return {@link java.lang.Long} <p>The offset seconds return object is <code>Long</code> type.</p>
+     * @see java.util.Date
+     * @see java.lang.Long
+     */
+    public static Long offsetSeconds(Date startDate, Date endDate) {
+        return offset(startDate,endDate,ChronoUnit.SECONDS);
+    }
+
+    /**
+     * <code>offset</code>
+     * <p>The offset method.</p>
+     * @param startDate  {@link java.util.Date} <p>The start date parameter is <code>Date</code> type.</p>
+     * @param endDate    {@link java.util.Date} <p>The end date parameter is <code>Date</code> type.</p>
+     * @param chronoUnit {@link java.time.temporal.ChronoUnit} <p>The chrono unit parameter is <code>ChronoUnit</code> type.</p>
+     * @return {@link java.lang.Long} <p>The offset return object is <code>Long</code> type.</p>
+     * @see java.util.Date
+     * @see java.time.temporal.ChronoUnit
+     * @see java.lang.Long
+     */
+    public static Long offset(Date startDate, Date endDate, ChronoUnit chronoUnit) {
+        LocalDateTime localStartDate = LocalDateTime.ofInstant(startDate.toInstant(), ZoneId.systemDefault());
+        LocalDateTime localEndDate = LocalDateTime.ofInstant(endDate.toInstant(), ZoneId.systemDefault());
+        return chronoUnit.between(localStartDate, localEndDate);
     }
 
     /**

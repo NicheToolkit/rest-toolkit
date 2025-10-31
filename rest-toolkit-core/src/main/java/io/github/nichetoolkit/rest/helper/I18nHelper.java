@@ -2,6 +2,8 @@ package io.github.nichetoolkit.rest.helper;
 
 import io.github.nichetoolkit.rest.error.supply.ResourceNotFoundException;
 import io.github.nichetoolkit.rest.holder.MessageSourceHolder;
+import io.github.nichetoolkit.rest.util.GeneralUtils;
+import org.springframework.context.MessageSource;
 import org.springframework.context.NoSuchMessageException;
 import org.springframework.context.i18n.LocaleContextHolder;
 
@@ -25,9 +27,13 @@ public class I18nHelper {
      * @see io.github.nichetoolkit.rest.error.supply.ResourceNotFoundException
      */
     public static String message(String source) throws ResourceNotFoundException {
+        MessageSource messageSource = MessageSourceHolder.messageSource();
+        if (GeneralUtils.isEmpty(messageSource)) {
+            return source;
+        }
         try {
             Locale locale = LocaleContextHolder.getLocale();
-            return MessageSourceHolder.messageSource().getMessage(source, null, null, locale);
+            return messageSource.getMessage(source, null, null, locale);
         } catch (NoSuchMessageException exception) {
             throw new ResourceNotFoundException(source, exception.getMessage());
         }
@@ -42,8 +48,12 @@ public class I18nHelper {
      * @see java.lang.String
      */
     public static String message(String source, String message) {
+        MessageSource messageSource = MessageSourceHolder.messageSource();
+        if (GeneralUtils.isEmpty(messageSource)) {
+            return message;
+        }
         Locale locale = LocaleContextHolder.getLocale();
-        return MessageSourceHolder.messageSource().getMessage(source, null, message, locale);
+        return messageSource.getMessage(source, null, message, locale);
 
     }
 
@@ -59,9 +69,13 @@ public class I18nHelper {
      * @see io.github.nichetoolkit.rest.error.supply.ResourceNotFoundException
      */
     public static String message(String source, Object... args) throws ResourceNotFoundException {
+        MessageSource messageSource = MessageSourceHolder.messageSource();
+        if (GeneralUtils.isEmpty(messageSource)) {
+            return source;
+        }
         try {
             Locale locale = LocaleContextHolder.getLocale();
-            return MessageSourceHolder.messageSource().getMessage(source, args,null, locale);
+            return messageSource.getMessage(source, args, null, locale);
         } catch (NoSuchMessageException exception) {
             throw new ResourceNotFoundException(source, exception.getMessage());
         }
@@ -78,8 +92,12 @@ public class I18nHelper {
      * @see java.lang.Object
      */
     public static String message(String source, String message, Object... args) {
+        MessageSource messageSource = MessageSourceHolder.messageSource();
+        if (GeneralUtils.isEmpty(messageSource)) {
+            return message;
+        }
         Locale locale = LocaleContextHolder.getLocale();
-        return MessageSourceHolder.messageSource().getMessage(source, args, message, locale);
+        return messageSource.getMessage(source, args, message, locale);
     }
 
 

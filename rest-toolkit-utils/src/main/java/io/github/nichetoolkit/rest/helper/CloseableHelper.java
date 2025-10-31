@@ -22,9 +22,9 @@ public class CloseableHelper {
      * @param close {@link java.io.Closeable} <p>The close parameter is <code>Closeable</code> type.</p>
      * @see java.io.Closeable
      */
-    public static void close(Closeable... close) {
+    public static void close(AutoCloseable... close) {
         if (GeneralUtils.isNotEmpty(close)) {
-            for (Closeable closeable : close) {
+            for (AutoCloseable closeable : close) {
                 close(closeable);
             }
         }
@@ -36,11 +36,11 @@ public class CloseableHelper {
      * @param closeable {@link java.io.Closeable} <p>The closeable parameter is <code>Closeable</code> type.</p>
      * @see java.io.Closeable
      */
-    public static void close(Closeable closeable) {
+    public static void close(AutoCloseable closeable) {
         if (GeneralUtils.isNotEmpty(closeable)) {
             try {
                 closeable.close();
-            } catch (IOException ignored) {
+            } catch (Exception ignored) {
             }
         }
     }
