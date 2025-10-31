@@ -29,18 +29,13 @@ public class RestLicenseAutoConfigure {
         log.debug("The auto configuration for [rest-license] initiated");
     }
 
-    @Bean
-    public DefaultLicenseInterceptor licenseInterceptor() {
-        return new DefaultLicenseInterceptor(licenseProperties);
-    }
-
     @Configuration
     @ConditionalOnProperty(value = "nichetoolkit.rest.license.listener.enabled", havingValue = "true")
     public class DefaultLicenseAutoConfigure implements WebMvcConfigurer {
 
         @Override
         public void addInterceptors(@NonNull InterceptorRegistry registry) {
-            registry.addInterceptor(licenseInterceptor());
+            registry.addInterceptor(new DefaultLicenseInterceptor(licenseProperties));
         }
     }
 

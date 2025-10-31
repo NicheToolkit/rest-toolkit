@@ -15,12 +15,28 @@ import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
 import java.util.List;
 
+/**
+ * <code>DefaultLicenseInterceptor</code>
+ * <p>The default license interceptor class.</p>
+ * @author Cyan (snow22314@outlook.com)
+ * @see org.springframework.web.servlet.HandlerInterceptor
+ * @since Jdk1.8
+ */
 public class DefaultLicenseInterceptor implements HandlerInterceptor {
-    private final RestLicenseProperties licenseProperties;
+    /**
+     * <code>licenseVerify</code>
+     * {@link io.github.nichetoolkit.rest.license.LicenseVerifyParam} <p>The <code>licenseVerify</code> field.</p>
+     * @see io.github.nichetoolkit.rest.license.LicenseVerifyParam
+     */
     private final LicenseVerifyParam licenseVerify;
 
+    /**
+     * <code>DefaultLicenseInterceptor</code>
+     * <p>Instantiates a new default license interceptor.</p>
+     * @param licenseProperties {@link io.github.nichetoolkit.rest.configure.RestLicenseProperties} <p>The license properties parameter is <code>RestLicenseProperties</code> type.</p>
+     * @see io.github.nichetoolkit.rest.configure.RestLicenseProperties
+     */
     public DefaultLicenseInterceptor(RestLicenseProperties licenseProperties) {
-        this.licenseProperties = licenseProperties;
         this.licenseVerify = licenseProperties.verifyParam();
     }
 
@@ -52,7 +68,6 @@ public class DefaultLicenseInterceptor implements HandlerInterceptor {
             return compare;
         }
         throw new LicenseErrorException(LicenseErrorStatus.LICENSE_EXPIRED_ERROR);
-
     }
 
 }

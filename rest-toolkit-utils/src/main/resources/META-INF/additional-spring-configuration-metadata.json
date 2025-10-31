@@ -24,6 +24,11 @@
       "name": "nichetoolkit.rest.aes",
       "sourceType": "io.github.nichetoolkit.rest.configure.RestAesProperties",
       "type": "io.github.nichetoolkit.rest.configure.RestAesProperties"
+    },
+    {
+      "name": "nichetoolkit.rest.license",
+      "sourceType": "io.github.nichetoolkit.rest.configure.RestLicenseProperties",
+      "type": "io.github.nichetoolkit.rest.configure.RestLicenseProperties"
     }
   ],
   "properties": [
@@ -199,6 +204,197 @@
       "type": "java.lang.String",
       "sourceType": "java.lang.String",
       "description": "the secret iv of aes worker."
+    },
+    {
+      "name": "nichetoolkit.rest.license.enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "java.lang.Boolean",
+      "description": "the switch of license worker.",
+      "defaultValue": false
+    },
+    {
+      "name": "nichetoolkit.rest.license.subject",
+      "type": "java.lang.String",
+      "sourceType": "java.lang.String",
+      "description": "the subject of license worker."
+    },
+    {
+      "name": "nichetoolkit.rest.license.store-pass",
+      "type": "java.lang.String",
+      "sourceType": "java.lang.String",
+      "description": "the store pass of license worker."
+    },
+    {
+      "name": "nichetoolkit.rest.license.license-path",
+      "type": "java.lang.String",
+      "sourceType": "java.lang.String",
+      "description": "the license path of license worker."
+    },
+    {
+      "name": "nichetoolkit.rest.license.creator.enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "java.lang.Boolean",
+      "description": "the switch of license creator worker.",
+      "defaultValue": false
+    },
+    {
+      "name": "nichetoolkit.rest.license.creator.temp-path",
+      "type": "java.lang.String",
+      "sourceType": "java.lang.String",
+      "description": "the temp path of license creator worker."
+    },
+    {
+      "name": "nichetoolkit.rest.license.creator.server-prefix",
+      "type": "java.lang.String",
+      "sourceType": "java.lang.String",
+      "description": "the server prefix of license creator worker."
+    },
+    {
+      "name": "nichetoolkit.rest.license.creator.subject",
+      "type": "java.lang.String",
+      "sourceType": "java.lang.String",
+      "description": "the subject of license creator worker."
+    },
+    {
+      "name": "nichetoolkit.rest.license.creator.store-pass",
+      "type": "java.lang.String",
+      "sourceType": "java.lang.String",
+      "description": "the store pass of license creator worker."
+    },
+    {
+      "name": "nichetoolkit.rest.license.creator.license-path",
+      "type": "java.lang.String",
+      "sourceType": "java.lang.String",
+      "description": "the license path of license creator worker."
+    },
+    {
+      "name": "nichetoolkit.rest.license.creator.private-alias",
+      "type": "java.lang.String",
+      "sourceType": "java.lang.String",
+      "description": "the private alias of license creator worker."
+    },
+    {
+      "name": "nichetoolkit.rest.license.creator.key-pass",
+      "type": "java.lang.String",
+      "sourceType": "java.lang.String",
+      "description": "the key pass of license creator worker."
+    },
+    {
+      "name": "nichetoolkit.rest.license.creator.private-keys-store-path",
+      "type": "java.lang.String",
+      "sourceType": "java.lang.String",
+      "description": "the private keys store path of license creator worker."
+    },
+    {
+      "name": "nichetoolkit.rest.license.creator.issued-time",
+      "type": "java.lang.String",
+      "sourceType": "java.lang.String",
+      "description": "the issued time of license creator worker."
+    },
+    {
+      "name": "nichetoolkit.rest.license.creator.expiry-time",
+      "type": "java.lang.String",
+      "sourceType": "java.lang.String",
+      "description": "the expiry time of license creator worker."
+    },
+    {
+      "name": "nichetoolkit.rest.license.creator.consumer-type",
+      "type": "java.lang.String",
+      "sourceType": "java.lang.String",
+      "description": "the consumer type of license creator worker."
+    },
+    {
+      "name": "nichetoolkit.rest.license.creator.consumer-size",
+      "type": "java.lang.Integer",
+      "sourceType": "java.lang.Integer",
+      "description": "the consumer size of license creator worker.",
+      "defaultValue": 1
+    },
+    {
+      "name": "nichetoolkit.rest.license.verifier.enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "java.lang.Boolean",
+      "description": "the switch of license verifier worker.",
+      "defaultValue": false
+    },
+    {
+      "name": "nichetoolkit.rest.license.verifier.subject",
+      "type": "java.lang.String",
+      "sourceType": "java.lang.String",
+      "description": "the subject of license verifier worker."
+    },
+    {
+      "name": "nichetoolkit.rest.license.verifier.store-pass",
+      "type": "java.lang.String",
+      "sourceType": "java.lang.String",
+      "description": "the store pass of license verifier worker."
+    },
+    {
+      "name": "nichetoolkit.rest.license.verifier.license-path",
+      "type": "java.lang.String",
+      "sourceType": "java.lang.String",
+      "description": "the license path of license verifier worker."
+    },
+    {
+      "name": "nichetoolkit.rest.license.verifier.public-alias",
+      "type": "java.lang.String",
+      "sourceType": "java.lang.String",
+      "description": "the public alias of license verifier worker."
+    },
+    {
+      "name": "nichetoolkit.rest.license.creator.public-keys-store-path",
+      "type": "java.lang.String",
+      "sourceType": "java.lang.String",
+      "description": "the public keys store path of license creator worker."
+    },
+    {
+      "name": "nichetoolkit.rest.license.checker.ip-check",
+      "type": "java.lang.Boolean",
+      "sourceType": "java.lang.Boolean",
+      "description": "the switch of license server ip check.",
+      "defaultValue": false
+    },
+    {
+      "name": "nichetoolkit.rest.license.checker.mac-check",
+      "type": "java.lang.Boolean",
+      "sourceType": "java.lang.Boolean",
+      "description": "the switch of license server mac check.",
+      "defaultValue": false
+    },
+    {
+      "name": "nichetoolkit.rest.license.checker.cpu-check",
+      "type": "java.lang.Boolean",
+      "sourceType": "java.lang.Boolean",
+      "description": "the switch of license server cpu check.",
+      "defaultValue": false
+    },
+    {
+      "name": "nichetoolkit.rest.license.checker.board-check",
+      "type": "java.lang.Boolean",
+      "sourceType": "java.lang.Boolean",
+      "description": "the switch of license server board check.",
+      "defaultValue": false
+    },
+    {
+      "name": "nichetoolkit.rest.license.checker.register-check",
+      "type": "java.lang.Boolean",
+      "sourceType": "java.lang.Boolean",
+      "description": "the switch of license server register check.",
+      "defaultValue": false
+    },
+    {
+      "name": "nichetoolkit.rest.license.listener.enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "java.lang.Boolean",
+      "description": "the switch of license listener.",
+      "defaultValue": false
+    },
+    {
+      "name": "nichetoolkit.rest.license.listener.auto-install",
+      "type": "java.lang.Boolean",
+      "sourceType": "java.lang.Boolean",
+      "description": "the switch of license auto install.",
+      "defaultValue": false
     }
   ],
   "hints": [
