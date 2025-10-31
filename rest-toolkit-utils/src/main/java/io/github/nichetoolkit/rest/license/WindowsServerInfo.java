@@ -9,6 +9,14 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.InputStreamReader;
 
+/**
+ * <code>WindowsServerInfo</code>
+ * <p>The windows server info class.</p>
+ * @author Cyan (snow22314@outlook.com)
+ * @see io.github.nichetoolkit.rest.license.LicenseServerInfo
+ * @see lombok.extern.slf4j.Slf4j
+ * @since Jdk1.8
+ */
 @Slf4j
 public class WindowsServerInfo extends LicenseServerInfo {
 

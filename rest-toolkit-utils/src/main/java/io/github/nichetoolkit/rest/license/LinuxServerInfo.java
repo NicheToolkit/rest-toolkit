@@ -7,6 +7,14 @@ import lombok.extern.slf4j.Slf4j;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+/**
+ * <code>LinuxServerInfo</code>
+ * <p>The linux server info class.</p>
+ * @author Cyan (snow22314@outlook.com)
+ * @see io.github.nichetoolkit.rest.license.LicenseServerInfo
+ * @see lombok.extern.slf4j.Slf4j
+ * @since Jdk1.8
+ */
 @Slf4j
 public class LinuxServerInfo extends LicenseServerInfo {
 

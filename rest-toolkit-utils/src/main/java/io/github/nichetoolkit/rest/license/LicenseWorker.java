@@ -14,12 +14,32 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.util.prefs.Preferences;
 
+/**
+ * <code>LicenseWorker</code>
+ * <p>The license worker class.</p>
+ * @author Cyan (snow22314@outlook.com)
+ * @see lombok.extern.slf4j.Slf4j
+ * @since Jdk1.8
+ */
 @Slf4j
 public class LicenseWorker {
 
+    /**
+     * <code>DEFAULT_HOLDER_AND_ISSUER</code>
+     * {@link javax.security.auth.x500.X500Principal} <p>The constant <code>DEFAULT_HOLDER_AND_ISSUER</code> field.</p>
+     * @see javax.security.auth.x500.X500Principal
+     */
     private final static X500Principal DEFAULT_HOLDER_AND_ISSUER = new X500Principal("CN=a, OU=a, O=a, L=a, ST=a, C=a");
 
 
+    /**
+     * <code>createLicense</code>
+     * <p>The create license method.</p>
+     * @param creatorParam {@link io.github.nichetoolkit.rest.license.LicenseCreateParam} <p>The creator param parameter is <code>LicenseCreateParam</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.license.LicenseResult} <p>The create license return object is <code>LicenseResult</code> type.</p>
+     * @see io.github.nichetoolkit.rest.license.LicenseCreateParam
+     * @see io.github.nichetoolkit.rest.license.LicenseResult
+     */
     public static LicenseResult createLicense(LicenseCreateParam creatorParam) {
         try {
             LicenseParam licenseParam = LicenseWorker.createParam(creatorParam);
@@ -35,6 +55,16 @@ public class LicenseWorker {
         }
     }
 
+    /**
+     * <code>downloadLicense</code>
+     * <p>The download license method.</p>
+     * @param creatorParam {@link io.github.nichetoolkit.rest.license.LicenseCreateParam} <p>The creator param parameter is <code>LicenseCreateParam</code> type.</p>
+     * @return {@link java.io.InputStream} <p>The download license return object is <code>InputStream</code> type.</p>
+     * @throws LicenseErrorException {@link io.github.nichetoolkit.rest.error.license.LicenseErrorException} <p>The license error exception is <code>LicenseErrorException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.license.LicenseCreateParam
+     * @see java.io.InputStream
+     * @see io.github.nichetoolkit.rest.error.license.LicenseErrorException
+     */
     public static InputStream downloadLicense(LicenseCreateParam creatorParam) throws LicenseErrorException {
         try {
             LicenseParam licenseParam = LicenseWorker.createParam(creatorParam);
@@ -50,6 +80,14 @@ public class LicenseWorker {
         }
     }
 
+    /**
+     * <code>createParam</code>
+     * <p>The create param method.</p>
+     * @param createParam {@link io.github.nichetoolkit.rest.license.LicenseCreateParam} <p>The create param parameter is <code>LicenseCreateParam</code> type.</p>
+     * @return {@link de.schlichtherle.license.LicenseParam} <p>The create param return object is <code>LicenseParam</code> type.</p>
+     * @see io.github.nichetoolkit.rest.license.LicenseCreateParam
+     * @see de.schlichtherle.license.LicenseParam
+     */
     public static LicenseParam createParam(LicenseCreateParam createParam) {
         Preferences preferences = Preferences.userNodeForPackage(LicenseCreator.class);
         CipherParam cipherParam = new DefaultCipherParam(createParam.getStorePass());
@@ -61,6 +99,14 @@ public class LicenseWorker {
         return new DefaultLicenseParam(createParam.getSubject(), preferences, privateStoreParam, cipherParam);
     }
 
+    /**
+     * <code>createParam</code>
+     * <p>The create param method.</p>
+     * @param verifyParam {@link io.github.nichetoolkit.rest.license.LicenseVerifyParam} <p>The verify param parameter is <code>LicenseVerifyParam</code> type.</p>
+     * @return {@link de.schlichtherle.license.LicenseParam} <p>The create param return object is <code>LicenseParam</code> type.</p>
+     * @see io.github.nichetoolkit.rest.license.LicenseVerifyParam
+     * @see de.schlichtherle.license.LicenseParam
+     */
     public static LicenseParam createParam(LicenseVerifyParam verifyParam) {
         Preferences preferences = Preferences.userNodeForPackage(LicenseVerifier.class);
         CipherParam cipherParam = new DefaultCipherParam(verifyParam.getStorePass());
@@ -75,6 +121,14 @@ public class LicenseWorker {
         return new DefaultLicenseParam(verifyParam.getSubject(), preferences, publicStoreParam, cipherParam);
     }
 
+    /**
+     * <code>createContent</code>
+     * <p>The create content method.</p>
+     * @param createParam {@link io.github.nichetoolkit.rest.license.LicenseCreateParam} <p>The create param parameter is <code>LicenseCreateParam</code> type.</p>
+     * @return {@link de.schlichtherle.license.LicenseContent} <p>The create content return object is <code>LicenseContent</code> type.</p>
+     * @see io.github.nichetoolkit.rest.license.LicenseCreateParam
+     * @see de.schlichtherle.license.LicenseContent
+     */
     public static LicenseContent createContent(LicenseCreateParam createParam) {
         LicenseContent licenseContent = new LicenseContent();
         licenseContent.setHolder(DEFAULT_HOLDER_AND_ISSUER);
@@ -98,6 +152,14 @@ public class LicenseWorker {
         return licenseContent;
     }
 
+    /**
+     * <code>installLicense</code>
+     * <p>The install license method.</p>
+     * @param verifyParam {@link io.github.nichetoolkit.rest.license.LicenseVerifyParam} <p>The verify param parameter is <code>LicenseVerifyParam</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.license.LicenseResult} <p>The install license return object is <code>LicenseResult</code> type.</p>
+     * @see io.github.nichetoolkit.rest.license.LicenseVerifyParam
+     * @see io.github.nichetoolkit.rest.license.LicenseResult
+     */
     public static synchronized LicenseResult installLicense(LicenseVerifyParam verifyParam) {
         try {
             /* 1、初始化License证书参数 */
@@ -120,6 +182,14 @@ public class LicenseWorker {
         }
     }
 
+    /**
+     * <code>verifyLicense</code>
+     * <p>The verify license method.</p>
+     * @param verifyParam {@link io.github.nichetoolkit.rest.license.LicenseVerifyParam} <p>The verify param parameter is <code>LicenseVerifyParam</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.license.LicenseResult} <p>The verify license return object is <code>LicenseResult</code> type.</p>
+     * @see io.github.nichetoolkit.rest.license.LicenseVerifyParam
+     * @see io.github.nichetoolkit.rest.license.LicenseResult
+     */
     public static synchronized LicenseResult verifyLicense(LicenseVerifyParam verifyParam) {
         /* 1、初始化License证书参数 */
         LicenseParam licenseParam = LicenseWorker.createParam(verifyParam);

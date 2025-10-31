@@ -18,22 +18,61 @@ import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * <code>LicenseWorkerManager</code>
+ * <p>The license worker manager class.</p>
+ * @author Cyan (snow22314@outlook.com)
+ * @see de.schlichtherle.license.LicenseManager
+ * @see lombok.extern.slf4j.Slf4j
+ * @since Jdk1.8
+ */
 @Slf4j
 class LicenseWorkerManager extends LicenseManager {
+    /**
+     * <code>XML_CHARSET</code>
+     * {@link java.lang.String} <p>The constant <code>XML_CHARSET</code> field.</p>
+     * @see java.lang.String
+     */
     private static final String XML_CHARSET = "UTF-8";
+    /**
+     * <code>DEFAULT_BUFF_SIZE</code>
+     * <p>The constant <code>DEFAULT_BUFF_SIZE</code> field.</p>
+     */
     private static final int DEFAULT_BUFF_SIZE = 8 * 1024;
 
+    /**
+     * <code>LicenseWorkerManager</code>
+     * <p>Instantiates a new license worker manager.</p>
+     */
     private LicenseWorkerManager() {
     }
 
+    /**
+     * <code>LicenseWorkerManager</code>
+     * <p>Instantiates a new license worker manager.</p>
+     * @param licenseParam {@link de.schlichtherle.license.LicenseParam} <p>The license param parameter is <code>LicenseParam</code> type.</p>
+     * @see de.schlichtherle.license.LicenseParam
+     */
     private LicenseWorkerManager(LicenseParam licenseParam) {
         super(licenseParam);
     }
 
+    /**
+     * <code>createWorker</code>
+     * <p>The create worker method.</p>
+     * @return {@link io.github.nichetoolkit.rest.license.LicenseWorkerManager} <p>The create worker return object is <code>LicenseWorkerManager</code> type.</p>
+     */
     public static LicenseWorkerManager createWorker() {
         return new LicenseWorkerManager();
     }
 
+    /**
+     * <code>createWorker</code>
+     * <p>The create worker method.</p>
+     * @param licenseParam {@link de.schlichtherle.license.LicenseParam} <p>The license param parameter is <code>LicenseParam</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.license.LicenseWorkerManager} <p>The create worker return object is <code>LicenseWorkerManager</code> type.</p>
+     * @see de.schlichtherle.license.LicenseParam
+     */
     public static LicenseWorkerManager createWorker(LicenseParam licenseParam) {
         return new LicenseWorkerManager(licenseParam);
     }
@@ -75,6 +114,14 @@ class LicenseWorkerManager extends LicenseManager {
         return content;
     }
 
+    /**
+     * <code>validateLicense</code>
+     * <p>The validate license method.</p>
+     * @param content {@link de.schlichtherle.license.LicenseContent} <p>The content parameter is <code>LicenseContent</code> type.</p>
+     * @throws LicenseErrorException {@link io.github.nichetoolkit.rest.error.license.LicenseErrorException} <p>The license error exception is <code>LicenseErrorException</code> type.</p>
+     * @see de.schlichtherle.license.LicenseContent
+     * @see io.github.nichetoolkit.rest.error.license.LicenseErrorException
+     */
     protected synchronized void validateLicense(final LicenseContent content) throws LicenseErrorException {
         // 当前时间
         final Date now = new Date();
@@ -138,6 +185,16 @@ class LicenseWorkerManager extends LicenseManager {
         }
     }
 
+    /**
+     * <code>readLicense</code>
+     * <p>The read license method.</p>
+     * @param encoded {@link java.lang.String} <p>The encoded parameter is <code>String</code> type.</p>
+     * @return {@link de.schlichtherle.license.LicenseContent} <p>The read license return object is <code>LicenseContent</code> type.</p>
+     * @throws LicenseErrorException {@link io.github.nichetoolkit.rest.error.license.LicenseErrorException} <p>The license error exception is <code>LicenseErrorException</code> type.</p>
+     * @see java.lang.String
+     * @see de.schlichtherle.license.LicenseContent
+     * @see io.github.nichetoolkit.rest.error.license.LicenseErrorException
+     */
     private LicenseContent readLicense(String encoded) throws LicenseErrorException {
         BufferedInputStream inputStream = null;
         XMLDecoder decoder = null;
@@ -154,6 +211,14 @@ class LicenseWorkerManager extends LicenseManager {
         }
     }
 
+    /**
+     * <code>ofIpAddress</code>
+     * <p>The of ip address method.</p>
+     * @param expectedList {@link java.util.List} <p>The expected list parameter is <code>List</code> type.</p>
+     * @param serverList   {@link java.util.List} <p>The server list parameter is <code>List</code> type.</p>
+     * @return boolean <p>The of ip address return object is <code>boolean</code> type.</p>
+     * @see java.util.List
+     */
     private boolean ofIpAddress(List<String> expectedList, List<String> serverList) {
         /* 如果期望的IP列表空直接返回false，因为既然验证ip，这一项必须要有元素 */
         if (GeneralUtils.isEmpty(expectedList)) {
@@ -172,6 +237,14 @@ class LicenseWorkerManager extends LicenseManager {
 
     }
 
+    /**
+     * <code>ofSerial</code>
+     * <p>The of serial method.</p>
+     * @param expectedSerial {@link java.lang.String} <p>The expected serial parameter is <code>String</code> type.</p>
+     * @param serverSerial   {@link java.lang.String} <p>The server serial parameter is <code>String</code> type.</p>
+     * @return boolean <p>The of serial return object is <code>boolean</code> type.</p>
+     * @see java.lang.String
+     */
     private boolean ofSerial(String expectedSerial, String serverSerial) {
         if (GeneralUtils.isNotEmpty(expectedSerial)) {
             if (GeneralUtils.isNotEmpty(serverSerial)) {
