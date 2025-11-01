@@ -7,14 +7,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
-import java.io.Serializable;
 import java.util.List;
 
 /**
  * <code>LicenseExtraInfo</code>
  * <p>The license extra info class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @see java.io.Serializable
+ * @see io.github.nichetoolkit.rest.license.RestServerInfo
  * @see lombok.Getter
  * @see lombok.Setter
  * @see lombok.experimental.SuperBuilder
@@ -29,7 +28,7 @@ import java.util.List;
 @NoArgsConstructor
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class LicenseExtraInfo implements Serializable {
+public class LicenseExtraInfo implements RestServerInfo {
     /**
      * <code>ipAddress</code>
      * {@link java.util.List} <p>The <code>ipAddress</code> field.</p>

@@ -156,35 +156,35 @@ class LicenseWorkerManager extends LicenseManager {
         // 首先调用父类的validate方法
         super.validate(content);
         // 然后校验自定义的License参数 License中可被允许的参数信息
-        LicenseExtraParam licenseExtra = (LicenseExtraParam) content.getExtra();
-        // licenseExtra 为空，未开启校验
-        if (GeneralUtils.isEmpty(licenseExtra)) {
+        LicenseExtraParam extraParam = (LicenseExtraParam) content.getExtra();
+        // extraParam 为空，未开启校验
+        if (GeneralUtils.isEmpty(extraParam)) {
             return;
         }
         // 当前服务器真实的参数信息
-        LicenseExtraParam serverInfo = LicenseServerInfo.getServerInfo().getExtraParam();
-        if (GeneralUtils.isEmpty(serverInfo)) {
-            log.error("It is failed to obtain server hardware information, license extra: {}, server info: {}", JsonPurityUtils.parseJson(licenseExtra), JsonPurityUtils.parseJson(serverInfo));
+        RestServerInfo extraInfo = LicenseServerInfo.extraInfo();
+        if (GeneralUtils.isEmpty(extraInfo)) {
+            log.error("It is failed to obtain server hardware information, license extra: {}, server info: {}", JsonPurityUtils.parseJson(extraParam), JsonPurityUtils.parseJson(extraInfo));
             throw new LicenseVerifyException(LicenseErrorStatus.LICENSE_SERVER_INFO_ERROR, "validate license", "serverInfo");
         }
         // 校验IP地址
-        if (licenseExtra.isIpCheck() && ofIpAddress(licenseExtra.getIpAddress(), serverInfo.getIpAddress())) {
-            log.error("The system license is invalid, as the current server's IP is not within the authorized scope, license ip address: {}, server ip address: {}", JsonPurityUtils.parseJson(licenseExtra.getIpAddress()), JsonPurityUtils.parseJson(serverInfo.getIpAddress()));
+        if (extraParam.isIpCheck() && ofIpAddress(extraParam.getIpAddress(), extraInfo.getIpAddress())) {
+            log.error("The system license is invalid, as the current server's IP is not within the authorized scope, license ip address: {}, server ip address: {}", JsonPurityUtils.parseJson(extraParam.getIpAddress()), JsonPurityUtils.parseJson(extraInfo.getIpAddress()));
             throw new LicenseVerifyException(LicenseErrorStatus.LICENSE_IP_OVERSTEP_ERROR, "validate license", "ipAddress");
         }
         // 校验Mac地址
-        if (licenseExtra.isMacCheck() && ofIpAddress(licenseExtra.getMacAddress(), serverInfo.getMacAddress())) {
-            log.error("The system license is invalid, as the Mac address of the current server is not within the authorized scope, license mac address: {}, server mac address: {}", JsonPurityUtils.parseJson(licenseExtra.getMacAddress()), JsonPurityUtils.parseJson(serverInfo.getMacAddress()));
+        if (extraParam.isMacCheck() && ofIpAddress(extraParam.getMacAddress(), extraInfo.getMacAddress())) {
+            log.error("The system license is invalid, as the Mac address of the current server is not within the authorized scope, license mac address: {}, server mac address: {}", JsonPurityUtils.parseJson(extraParam.getMacAddress()), JsonPurityUtils.parseJson(extraInfo.getMacAddress()));
             throw new LicenseVerifyException(LicenseErrorStatus.LICENSE_MAC_OVERSTEP_ERROR, "validate license", "macAddress");
         }
         // 校验主板序列号
-        if (licenseExtra.isBoardCheck() && ofSerial(licenseExtra.getBoardSerial(), serverInfo.getBoardSerial())) {
-            log.error("The system license is invalid, as the current server's motherboard serial number is not within the authorized scope, license board address: {}, server board address: {}", JsonPurityUtils.parseJson(licenseExtra.getBoardSerial()), JsonPurityUtils.parseJson(serverInfo.getBoardSerial()));
+        if (extraParam.isBoardCheck() && ofSerial(extraParam.getBoardSerial(), extraInfo.getBoardSerial())) {
+            log.error("The system license is invalid, as the current server's motherboard serial number is not within the authorized scope, license board address: {}, server board address: {}", JsonPurityUtils.parseJson(extraParam.getBoardSerial()), JsonPurityUtils.parseJson(extraInfo.getBoardSerial()));
             throw new LicenseVerifyException(LicenseErrorStatus.LICENSE_BOARD_SERIAL_OVERSTEP_ERROR, "validate license", "boardSerial");
         }
         // 校验CPU序列号
-        if (licenseExtra.isCpuCheck() && ofSerial(licenseExtra.getCpuSerial(), serverInfo.getCpuSerial())) {
-            log.error("The system license is invalid, as the CPU serial number of the current server is not within the authorized scope, license cpu address: {}, server cpu address: {}", JsonPurityUtils.parseJson(licenseExtra.getCpuSerial()), JsonPurityUtils.parseJson(serverInfo.getCpuSerial()));
+        if (extraParam.isCpuCheck() && ofSerial(extraParam.getCpuSerial(), extraInfo.getCpuSerial())) {
+            log.error("The system license is invalid, as the CPU serial number of the current server is not within the authorized scope, license cpu address: {}, server cpu address: {}", JsonPurityUtils.parseJson(extraParam.getCpuSerial()), JsonPurityUtils.parseJson(extraInfo.getCpuSerial()));
             throw new LicenseVerifyException(LicenseErrorStatus.LICENSE_CPU_SERIAL_OVERSTEP_ERROR, "validate license", "cpuSerial");
         }
     }

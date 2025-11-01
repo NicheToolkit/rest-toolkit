@@ -1,7 +1,7 @@
 package io.github.nichetoolkit.rest.controller;
 
 import io.github.nichetoolkit.rest.RestResult;
-import io.github.nichetoolkit.rest.error.license.LicenseVerifyException;
+import io.github.nichetoolkit.rest.error.license.LicenseErrorException;
 import io.github.nichetoolkit.rest.license.*;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -37,15 +37,15 @@ public class RestLicenseController {
      * <code>serverInfo</code>
      * <p>The server info method.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The server info return object is <code>RestResult</code> type.</p>
-     * @throws LicenseVerifyException {@link io.github.nichetoolkit.rest.error.license.LicenseVerifyException} <p>The license verify exception is <code>LicenseVerifyException</code> type.</p>
+     * @throws LicenseErrorException {@link io.github.nichetoolkit.rest.error.license.LicenseErrorException} <p>The license error exception is <code>LicenseErrorException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestResult
      * @see org.springframework.web.bind.annotation.RequestMapping
-     * @see io.github.nichetoolkit.rest.error.license.LicenseVerifyException
+     * @see io.github.nichetoolkit.rest.error.license.LicenseErrorException
      */
     @RequestMapping(value = "/server", method = RequestMethod.GET)
-    public RestResult<LicenseServerInfo> serverInfo() throws LicenseVerifyException {
-        LicenseServerInfo serverInfo = LicenseServerInfo.getServerInfo();
-        return RestResult.success(serverInfo);
+    public RestResult<RestServerInfo> serverInfo() throws LicenseErrorException {
+        RestServerInfo extraInfo = LicenseServerInfo.serverInfo();
+        return RestResult.success(extraInfo);
     }
 
     /**

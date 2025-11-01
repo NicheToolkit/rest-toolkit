@@ -7,14 +7,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
-import java.io.Serializable;
 import java.util.List;
 
 /**
  * <code>LicenseExtraParam</code>
  * <p>The license extra param class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @see io.github.nichetoolkit.rest.license.LicenseExtraInfo
+ * @see RestServerInfo
  * @see lombok.Getter
  * @see lombok.Setter
  * @see lombok.experimental.SuperBuilder

@@ -1,7 +1,5 @@
 package io.github.nichetoolkit.rest.license;
 
-import io.github.nichetoolkit.rest.RestException;
-import io.github.nichetoolkit.rest.RestOptional;
 import io.github.nichetoolkit.rest.error.license.LicenseErrorException;
 import io.github.nichetoolkit.rest.error.license.LicenseErrorStatus;
 import io.github.nichetoolkit.rest.error.license.LicenseVerifyException;
@@ -21,11 +19,12 @@ import java.util.stream.Collectors;
  * <code>LicenseServerInfo</code>
  * <p>The license server info class.</p>
  * @author Cyan (snow22314@outlook.com)
+ * @see io.github.nichetoolkit.rest.license.RestServerInfo
  * @see lombok.extern.slf4j.Slf4j
  * @since Jdk1.8
  */
 @Slf4j
-public abstract class LicenseServerInfo {
+public abstract class LicenseServerInfo implements RestServerInfo {
 
     /**
      * <code>ServerContainer</code>
@@ -63,148 +62,164 @@ public abstract class LicenseServerInfo {
     /**
      * <code>setupServerContainer</code>
      * <p>The setup server container setter method.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
-     * @see io.github.nichetoolkit.rest.RestException
+     * @throws LicenseErrorException {@link io.github.nichetoolkit.rest.error.license.LicenseErrorException} <p>The license error exception is <code>LicenseErrorException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.error.license.LicenseErrorException
      */
-    private void setupServerContainer() throws RestException {
-        RestOptional.ofEmptyable(ServerContainer.ipAddress).isEmpty(() -> {
+    private void setupServerContainer() throws LicenseErrorException {
+        if (GeneralUtils.isEmpty(ServerContainer.ipAddress)) {
             ServerContainer.ipAddress = this.getIpAddress();
-        });
-        RestOptional.ofEmptyable(ServerContainer.macAddress).isEmpty(() -> {
+        }
+        if (GeneralUtils.isEmpty(ServerContainer.macAddress)) {
             ServerContainer.macAddress = this.getMacAddress();
-        });
-        RestOptional.ofEmptyable(ServerContainer.cpuSerial).isEmpty(() -> {
-            ServerContainer.cpuSerial = this.getCpuSerial();
-        });
-        RestOptional.ofEmptyable(ServerContainer.boardSerial).isEmpty(() -> {
-            ServerContainer.boardSerial = this.getBoardSerial();
-        });
-    }
-
-    /**
-     * <code>getServerInfo</code>
-     * <p>The get server info getter method.</p>
-     * @return {@link io.github.nichetoolkit.rest.license.LicenseServerInfo} <p>The get server info return object is <code>LicenseServerInfo</code> type.</p>
-     * @throws LicenseVerifyException {@link io.github.nichetoolkit.rest.error.license.LicenseVerifyException} <p>The license verify exception is <code>LicenseVerifyException</code> type.</p>
-     * @see io.github.nichetoolkit.rest.error.license.LicenseVerifyException
-     */
-    public static LicenseServerInfo getServerInfo() throws LicenseVerifyException {
-        try {
-            return serverInfo(null);
-        } catch (LicenseErrorException exception) {
-            throw new LicenseVerifyException(exception);
+        }
+        if (GeneralUtils.isEmpty(ServerContainer.cpuSerial)) {
+            ServerContainer.cpuSerial = this.localCpuSerial();
+        }
+        if (GeneralUtils.isEmpty(ServerContainer.boardSerial)) {
+            ServerContainer.boardSerial = this.localBoardSerial();
         }
     }
 
     /**
      * <code>serverInfo</code>
      * <p>The server info method.</p>
-     * @param osName {@link java.lang.String} <p>The os name parameter is <code>String</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.license.LicenseServerInfo} <p>The server info return object is <code>LicenseServerInfo</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.license.RestServerInfo} <p>The server info return object is <code>RestServerInfo</code> type.</p>
      * @throws LicenseErrorException {@link io.github.nichetoolkit.rest.error.license.LicenseErrorException} <p>The license error exception is <code>LicenseErrorException</code> type.</p>
-     * @see java.lang.String
+     * @see io.github.nichetoolkit.rest.license.RestServerInfo
      * @see io.github.nichetoolkit.rest.error.license.LicenseErrorException
      */
-    public static LicenseServerInfo serverInfo(String osName) throws LicenseErrorException {
+    public static RestServerInfo serverInfo() throws LicenseErrorException {
+        return extraInfo(null);
+    }
+
+    /**
+     * <code>extraInfo</code>
+     * <p>The extra info method.</p>
+     * @return {@link io.github.nichetoolkit.rest.license.RestServerInfo} <p>The extra info return object is <code>RestServerInfo</code> type.</p>
+     * @throws LicenseVerifyException {@link io.github.nichetoolkit.rest.error.license.LicenseVerifyException} <p>The license verify exception is <code>LicenseVerifyException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.license.RestServerInfo
+     * @see io.github.nichetoolkit.rest.error.license.LicenseVerifyException
+     */
+    public static RestServerInfo extraInfo() throws LicenseVerifyException {
+        try {
+            return extraInfo(null);
+        } catch (LicenseErrorException exception) {
+            throw new LicenseVerifyException(exception);
+        }
+    }
+
+    /**
+     * <code>extraInfo</code>
+     * <p>The extra info method.</p>
+     * @param osName {@link java.lang.String} <p>The os name parameter is <code>String</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.license.RestServerInfo} <p>The extra info return object is <code>RestServerInfo</code> type.</p>
+     * @throws LicenseErrorException {@link io.github.nichetoolkit.rest.error.license.LicenseErrorException} <p>The license error exception is <code>LicenseErrorException</code> type.</p>
+     * @see java.lang.String
+     * @see io.github.nichetoolkit.rest.license.RestServerInfo
+     * @see io.github.nichetoolkit.rest.error.license.LicenseErrorException
+     */
+    public static RestServerInfo extraInfo(String osName) throws LicenseErrorException {
         if (GeneralUtils.isEmpty(osName)) {
             osName = System.getProperty("os.name").toLowerCase();
         }
-        LicenseServerInfo serverInfo;
+        RestServerInfo serverInfo;
         if (osName.startsWith("windows")) {
-            serverInfo = new WindowsServerInfo();
+            serverInfo = new WindowsServerInfo().localExtraInfo();
         } else if (osName.startsWith("linux")) {
-            serverInfo = new LinuxServerInfo();
+            serverInfo = new LinuxServerInfo().localExtraInfo();
         } else {
-            throw new LicenseErrorException(LicenseErrorStatus.LICENSE_SERVER_UNSUPPORTED,"system","system",osName);
+            throw new LicenseErrorException(LicenseErrorStatus.LICENSE_SERVER_UNSUPPORTED, "system", "system", osName);
         }
         return serverInfo;
     }
 
     /**
-     * <code>getExtraParam</code>
-     * <p>The get extra param getter method.</p>
-     * @return {@link io.github.nichetoolkit.rest.license.LicenseExtraParam} <p>The get extra param return object is <code>LicenseExtraParam</code> type.</p>
-     * @throws LicenseVerifyException {@link io.github.nichetoolkit.rest.error.license.LicenseVerifyException} <p>The license verify exception is <code>LicenseVerifyException</code> type.</p>
-     * @see io.github.nichetoolkit.rest.license.LicenseExtraParam
-     * @see io.github.nichetoolkit.rest.error.license.LicenseVerifyException
+     * <code>localExtraInfo</code>
+     * <p>The local extra info method.</p>
+     * @return {@link io.github.nichetoolkit.rest.license.LicenseExtraInfo} <p>The local extra info return object is <code>LicenseExtraInfo</code> type.</p>
+     * @throws LicenseErrorException {@link io.github.nichetoolkit.rest.error.license.LicenseErrorException} <p>The license error exception is <code>LicenseErrorException</code> type.</p>
+     * @see io.github.nichetoolkit.rest.license.LicenseExtraInfo
+     * @see io.github.nichetoolkit.rest.error.license.LicenseErrorException
      */
-    public LicenseExtraParam getExtraParam() throws LicenseVerifyException {
-        LicenseExtraParam extraParam;
+    public LicenseExtraInfo localExtraInfo() throws LicenseErrorException {
+        LicenseExtraInfo extraInfo;
         try {
             setupServerContainer();
-            extraParam = new LicenseExtraParam();
-            extraParam.setIpAddress(ServerContainer.ipAddress);
-            extraParam.setMacAddress(ServerContainer.macAddress);
-            extraParam.setCpuSerial(ServerContainer.cpuSerial);
-            extraParam.setBoardSerial(ServerContainer.boardSerial);
-        } catch (RestException exception) {
+            extraInfo = new LicenseExtraParam();
+            extraInfo.setIpAddress(ServerContainer.ipAddress);
+            extraInfo.setMacAddress(ServerContainer.macAddress);
+            extraInfo.setCpuSerial(ServerContainer.cpuSerial);
+            extraInfo.setBoardSerial(ServerContainer.boardSerial);
+        } catch (Exception exception) {
             log.error("It is failed to obtain server hardware information, error: {}", exception.getMessage(), exception);
-            throw new LicenseVerifyException(LicenseErrorStatus.LICENSE_SERVER_INFO_ERROR);
+            throw new LicenseErrorException(LicenseErrorStatus.LICENSE_SERVER_INFO_ERROR);
         }
-        return extraParam;
+        return extraInfo;
     }
 
-    /**
-     * <code>getIpAddress</code>
-     * <p>The get ip address getter method.</p>
-     * @return {@link java.util.List} <p>The get ip address return object is <code>List</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
-     * @see java.util.List
-     * @see io.github.nichetoolkit.rest.RestException
-     */
-    public List<String> getIpAddress() throws RestException {
-        List<InetAddress> inetAddresses = getLocalInetAddress();
+    @Override
+    public List<String> getIpAddress() {
+        List<InetAddress> inetAddresses = localInetAddress();
         if (GeneralUtils.isNotEmpty(inetAddresses)) {
             return inetAddresses.stream().map(InetAddress::getHostAddress).distinct().map(String::toLowerCase).collect(Collectors.toList());
         }
         return null;
     }
 
-    /**
-     * <code>getMacAddress</code>
-     * <p>The get mac address getter method.</p>
-     * @return {@link java.util.List} <p>The get mac address return object is <code>List</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
-     * @see java.util.List
-     * @see io.github.nichetoolkit.rest.RestException
-     */
-    public List<String> getMacAddress() throws RestException {
-        List<InetAddress> inetAddresses = getLocalInetAddress();
+    @Override
+    public List<String> getMacAddress() {
+        List<InetAddress> inetAddresses = localInetAddress();
         if (GeneralUtils.isNotEmpty(inetAddresses)) {
-            return inetAddresses.stream().map(this::getMacByInetAddress).distinct().collect(Collectors.toList());
+            return inetAddresses.stream().map(this::localMacAddress).distinct().collect(Collectors.toList());
         }
         return null;
     }
 
+    @Override
+    public String getCpuSerial() throws LicenseVerifyException {
+        try {
+            return localCpuSerial();
+        } catch (LicenseErrorException exception) {
+            throw new LicenseVerifyException(exception);
+        }
+    }
+
+    @Override
+    public String getBoardSerial() throws LicenseVerifyException {
+        try {
+            return localBoardSerial();
+        } catch (LicenseErrorException exception) {
+            throw new LicenseVerifyException(exception);
+        }
+    }
+
     /**
-     * <code>getCpuSerial</code>
-     * <p>The get cpu serial getter method.</p>
-     * @return {@link java.lang.String} <p>The get cpu serial return object is <code>String</code> type.</p>
+     * <code>localCpuSerial</code>
+     * <p>The local cpu serial method.</p>
+     * @return {@link java.lang.String} <p>The local cpu serial return object is <code>String</code> type.</p>
      * @throws LicenseErrorException {@link io.github.nichetoolkit.rest.error.license.LicenseErrorException} <p>The license error exception is <code>LicenseErrorException</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.error.license.LicenseErrorException
      */
-    protected abstract String getCpuSerial() throws LicenseErrorException;
+    public abstract String localCpuSerial() throws LicenseErrorException;
 
     /**
-     * <code>getBoardSerial</code>
-     * <p>The get board serial getter method.</p>
-     * @return {@link java.lang.String} <p>The get board serial return object is <code>String</code> type.</p>
+     * <code>localBoardSerial</code>
+     * <p>The local board serial method.</p>
+     * @return {@link java.lang.String} <p>The local board serial return object is <code>String</code> type.</p>
      * @throws LicenseErrorException {@link io.github.nichetoolkit.rest.error.license.LicenseErrorException} <p>The license error exception is <code>LicenseErrorException</code> type.</p>
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.error.license.LicenseErrorException
      */
-    protected abstract String getBoardSerial() throws LicenseErrorException;
+    public abstract String localBoardSerial() throws LicenseErrorException;
 
     /**
-     * <code>getLocalInetAddress</code>
-     * <p>The get local inet address getter method.</p>
-     * @return {@link java.util.List} <p>The get local inet address return object is <code>List</code> type.</p>
-     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     * <code>localInetAddress</code>
+     * <p>The local inet address method.</p>
+     * @return {@link java.util.List} <p>The local inet address return object is <code>List</code> type.</p>
      * @see java.util.List
-     * @see io.github.nichetoolkit.rest.RestException
      */
-    private List<InetAddress> getLocalInetAddress() throws RestException {
+    private List<InetAddress> localInetAddress() {
         List<InetAddress> inetAddresses = new ArrayList<>(4);
         Enumeration<NetworkInterface> networkInterfaces;
         try {
@@ -229,14 +244,14 @@ public abstract class LicenseServerInfo {
     }
 
     /**
-     * <code>getMacByInetAddress</code>
-     * <p>The get mac by inet address getter method.</p>
+     * <code>localMacAddress</code>
+     * <p>The local mac address method.</p>
      * @param inetAddress {@link java.net.InetAddress} <p>The inet address parameter is <code>InetAddress</code> type.</p>
-     * @return {@link java.lang.String} <p>The get mac by inet address return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The local mac address return object is <code>String</code> type.</p>
      * @see java.net.InetAddress
      * @see java.lang.String
      */
-    private String getMacByInetAddress(InetAddress inetAddress) {
+    private String localMacAddress(InetAddress inetAddress) {
         byte[] hardwareAddress;
         try {
             hardwareAddress = NetworkInterface.getByInetAddress(inetAddress).getHardwareAddress();

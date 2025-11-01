@@ -21,7 +21,7 @@ import java.io.InputStreamReader;
 public class WindowsServerInfo extends LicenseServerInfo {
 
     @Override
-    protected String getCpuSerial() throws LicenseErrorException {
+    public String localCpuSerial() throws LicenseErrorException {
         StringBuilder serial = new StringBuilder();
         try {
             File file = File.createTempFile("tmp", ".vbs");
@@ -50,7 +50,7 @@ public class WindowsServerInfo extends LicenseServerInfo {
     }
 
     @Override
-    protected String getBoardSerial() throws LicenseErrorException {
+    public String localBoardSerial() throws LicenseErrorException {
         StringBuilder serial = new StringBuilder();
         try {
             File file = File.createTempFile("realhowto", ".vbs");

@@ -19,7 +19,7 @@ import java.io.InputStreamReader;
 public class LinuxServerInfo extends LicenseServerInfo {
 
     @Override
-    protected String getCpuSerial() throws LicenseErrorException {
+    public String localCpuSerial() throws LicenseErrorException {
         String serial = "";
         String CPU_ID_CMD = "dmidecode";
         BufferedReader bufferedReader;
@@ -44,7 +44,7 @@ public class LinuxServerInfo extends LicenseServerInfo {
     }
 
     @Override
-    protected String getBoardSerial() throws LicenseErrorException {
+    public String localBoardSerial() throws LicenseErrorException {
         StringBuilder serial = new StringBuilder();
         String maniBord_cmd = "dmidecode | grep 'Serial Number' | awk '{print $3}' | tail -1";
         Process process;
