@@ -7,8 +7,8 @@ import java.util.List;
 
 
 /**
- * <code>LicenseExtraInfo</code>
- * <p>The license extra info interface.</p>
+ * <code>RestServerInfo</code>
+ * <p>The rest server info interface.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.io.Serializable
  * @since Jdk1.8
@@ -35,7 +35,9 @@ public interface RestServerInfo extends Serializable {
      * <code>getCpuSerial</code>
      * <p>The get cpu serial getter method.</p>
      * @return {@link java.lang.String} <p>The get cpu serial return object is <code>String</code> type.</p>
+     * @throws LicenseVerifyException {@link io.github.nichetoolkit.rest.error.license.LicenseVerifyException} <p>The license verify exception is <code>LicenseVerifyException</code> type.</p>
      * @see java.lang.String
+     * @see io.github.nichetoolkit.rest.error.license.LicenseVerifyException
      */
     String getCpuSerial() throws LicenseVerifyException;
 
@@ -43,7 +45,9 @@ public interface RestServerInfo extends Serializable {
      * <code>getBoardSerial</code>
      * <p>The get board serial getter method.</p>
      * @return {@link java.lang.String} <p>The get board serial return object is <code>String</code> type.</p>
+     * @throws LicenseVerifyException {@link io.github.nichetoolkit.rest.error.license.LicenseVerifyException} <p>The license verify exception is <code>LicenseVerifyException</code> type.</p>
      * @see java.lang.String
+     * @see io.github.nichetoolkit.rest.error.license.LicenseVerifyException
      */
     String getBoardSerial() throws LicenseVerifyException;
 }
