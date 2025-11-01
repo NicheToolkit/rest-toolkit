@@ -5,6 +5,7 @@ import io.github.nichetoolkit.rest.util.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.util.ResourceUtils;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
@@ -63,7 +64,7 @@ public class LicenseCreatorWorker {
      */
     @PostConstruct
     public void licenseCreatorWorkerInit() {
-        log.debug("The creator      properties: {}", JsonUtils.parseJson(this.licenseCreate));
+        log.debug("The creator    properties: {}", JsonUtils.parseJson(this.licenseCreate));
         INSTANCE = this;
     }
 

@@ -1,9 +1,13 @@
 package io.github.nichetoolkit.rest.license;
 
 import io.github.nichetoolkit.rest.configure.RestLicenseProperties;
+import io.github.nichetoolkit.rest.holder.ApplicationContextHolder;
 import io.github.nichetoolkit.rest.util.FileUtils;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.digest.DigestUtils;
+import org.springframework.boot.ExitCodeGenerator;
+import org.springframework.boot.SpringApplication;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.lang.NonNull;
@@ -14,20 +18,15 @@ import java.io.File;
 import java.io.FileNotFoundException;
 
 /**
- * <code>LicenseAutoInstallListener</code>
- * <p>The license auto install listener class.</p>
+ * <code>LicenseInstallListener</code>
+ * <p>The license install listener class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see org.springframework.context.ApplicationListener
  * @since Jdk1.8
  */
-public class LicenseAutoInstallListener implements ApplicationListener<ContextRefreshedEvent> {
+@Slf4j
+public class LicenseInstallListener implements ApplicationListener<ContextRefreshedEvent> {
 
-    /**
-     * <code>licenseProperties</code>
-     * {@link io.github.nichetoolkit.rest.configure.RestLicenseProperties} <p>The <code>licenseProperties</code> field.</p>
-     * @see io.github.nichetoolkit.rest.configure.RestLicenseProperties
-     */
-    private final RestLicenseProperties licenseProperties;
     /**
      * <code>licenseVerify</code>
      * {@link io.github.nichetoolkit.rest.license.LicenseVerifyParam} <p>The <code>licenseVerify</code> field.</p>
@@ -48,14 +47,13 @@ public class LicenseAutoInstallListener implements ApplicationListener<ContextRe
     private static boolean licenseLoad = false;
 
     /**
-     * <code>LicenseAutoInstallListener</code>
-     * <p>Instantiates a new license auto install listener.</p>
+     * <code>LicenseInstallListener</code>
+     * <p>Instantiates a new license install listener.</p>
      * @param licenseProperties {@link io.github.nichetoolkit.rest.configure.RestLicenseProperties} <p>The license properties parameter is <code>RestLicenseProperties</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestLicenseProperties
      */
-    public LicenseAutoInstallListener(RestLicenseProperties licenseProperties) {
+    public LicenseInstallListener(RestLicenseProperties licenseProperties) {
         super();
-        this.licenseProperties = licenseProperties;
         this.licenseVerify = licenseProperties.verifyParam();
     }
 
@@ -80,13 +78,18 @@ public class LicenseAutoInstallListener implements ApplicationListener<ContextRe
     }
 
     /**
-     * <code>autoInstallLicense</code>
-     * <p>The auto install license method.</p>
+     * <code>installLicense</code>
+     * <p>The install license method.</p>
      */
-    private void autoInstallLicense() {
-        Boolean autoInstall = licenseProperties.getListener().getAutoInstall();
-        if (autoInstall) {
-            LicenseWorker.installLicense(licenseVerify);
+    private void installLicense() {
+        log.info("================= Install License ================= ");
+        LicenseResult licenseResult = LicenseWorker.installLicense(licenseVerify);
+        if (licenseResult.getResult()) {
+            log.info("================= Install Success ================= ");
+        } else {
+            log.info("================= Install Failure ================= ");
+            int exitCode = SpringApplication.exit(ApplicationContextHolder.getApplicationContext(), licenseResult::getError);
+            System.exit(exitCode);
         }
     }
 
@@ -94,12 +97,12 @@ public class LicenseAutoInstallListener implements ApplicationListener<ContextRe
     public void onApplicationEvent(@NonNull ContextRefreshedEvent event) {
         String licensePath = licenseVerify.getLicensePath();
         if (GeneralUtils.isNotEmpty(licensePath)) {
-            autoInstallLicense();
+            installLicense();
             try {
                 String licenseMd5 = licenseMd5(licensePath);
                 licenseLoad = true;
                 if (GeneralUtils.isEmpty(licenseMd5)) {
-                    LicenseAutoInstallListener.licenseMd5 = licenseMd5;
+                    LicenseInstallListener.licenseMd5 = licenseMd5;
                 }
             } catch (Exception ignored) {
             }
@@ -107,19 +110,19 @@ public class LicenseAutoInstallListener implements ApplicationListener<ContextRe
     }
 
     /**
-     * <code>timer</code>
-     * <p>The timer method.</p>
+     * <code>installLicenseSchedule</code>
+     * <p>The install license schedule method.</p>
      * @throws Exception {@link java.lang.Exception} <p>The exception is <code>Exception</code> type.</p>
      * @see org.springframework.scheduling.annotation.Scheduled
      * @see java.lang.Exception
      */
     @Scheduled(cron = "0/10 * * * * ?")
-    protected void timer() throws Exception {
+    protected void installLicenseSchedule() throws Exception {
         if (licenseLoad) {
             String licenseMd5 = licenseMd5(licenseVerify.getLicensePath());
-            if (!licenseMd5.equals(LicenseAutoInstallListener.licenseMd5)) {
-                autoInstallLicense();
-                LicenseAutoInstallListener.licenseMd5 = licenseMd5;
+            if (!licenseMd5.equals(LicenseInstallListener.licenseMd5)) {
+                installLicense();
+                LicenseInstallListener.licenseMd5 = licenseMd5;
             }
         }
     }

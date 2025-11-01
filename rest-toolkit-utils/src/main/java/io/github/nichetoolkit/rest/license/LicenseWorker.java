@@ -47,11 +47,11 @@ public class LicenseWorker {
             LicenseManager licenseManager = LicenseWorkerManager.createWorker(licenseParam);
             File licenseFile = new File(creatorParam.getLicensePath());
             licenseManager.store(licenseContent, licenseFile);
-            return new LicenseResult("The license created successful！", licenseContent);
+            return LicenseResult.success(LicenseErrorStatus.LICENSE_CREATE_SUCCESS, licenseContent);
         } catch (Exception exception) {
             log.error("The license created has error!, error: {}", exception.getMessage(), exception);
             GeneralUtils.printStackTrace(exception);
-            return new LicenseResult("The license created has error!", exception);
+            return LicenseResult.failure(LicenseErrorStatus.LICENSE_CREATE_FAILURE, exception);
         }
     }
 
@@ -89,9 +89,9 @@ public class LicenseWorker {
      * @see de.schlichtherle.license.LicenseParam
      */
     public static LicenseParam createParam(LicenseCreateParam createParam) {
-        Preferences preferences = Preferences.userNodeForPackage(LicenseCreator.class);
+        Preferences preferences = Preferences.userNodeForPackage(LicenseWorker.class);
         CipherParam cipherParam = new DefaultCipherParam(createParam.getStorePass());
-        KeyStoreParam privateStoreParam = new DefaultKeyStoreParam(LicenseCreator.class
+        LicenseKeyStoreParam privateStoreParam = new LicenseKeyStoreParam(LicenseWorker.class
                 , createParam.getPrivateKeysStorePath()
                 , createParam.getPrivateAlias()
                 , createParam.getStorePass()
@@ -108,14 +108,11 @@ public class LicenseWorker {
      * @see de.schlichtherle.license.LicenseParam
      */
     public static LicenseParam createParam(LicenseVerifyParam verifyParam) {
-        Preferences preferences = Preferences.userNodeForPackage(LicenseVerifier.class);
+        Preferences preferences = Preferences.userNodeForPackage(LicenseWorker.class);
         CipherParam cipherParam = new DefaultCipherParam(verifyParam.getStorePass());
-        KeyStoreParam publicStoreParam = new DefaultKeyStoreParam(LicenseVerifier.class
-                /* 公钥库存储路径 */
+        LicenseKeyStoreParam publicStoreParam = new LicenseKeyStoreParam(LicenseWorker.class
                 , verifyParam.getPublicKeysStorePath()
-                /* 公匙别名 */
                 , verifyParam.getPublicAlias()
-                /* 公钥库访问密码 */
                 , verifyParam.getStorePass()
                 , null);
         return new DefaultLicenseParam(verifyParam.getSubject(), preferences, publicStoreParam, cipherParam);
@@ -174,11 +171,11 @@ public class LicenseWorker {
             /* 5、开始安装 */
             LicenseContent licenseContent = licenseManager.install(licenseFile);
             log.info("The license installed has successfully!,  issued time: [{} - {}]", DateUtils.formatTime(licenseContent.getNotBefore()), DateUtils.formatTime(licenseContent.getNotAfter()));
-            return new LicenseResult("The license installed has successfully!", licenseContent);
+            return LicenseResult.success(LicenseErrorStatus.LICENSE_INSTALL_SUCCESS, licenseContent);
         } catch (Exception exception) {
             log.error("The license installed has error, error: {}", exception.getMessage(), exception);
             GeneralUtils.printStackTrace(exception);
-            return new LicenseResult("The license installed has error!", exception);
+            return LicenseResult.failure(LicenseErrorStatus.LICENSE_INSTALL_FAILURE, exception);
         }
     }
 
@@ -198,11 +195,11 @@ public class LicenseWorker {
         try {
             LicenseContent licenseContent = licenseManager.verify();
             log.info("The license verified has successfully!, issued time: [{} - {}]", DateUtils.formatTime(licenseContent.getNotBefore()), DateUtils.formatTime(licenseContent.getNotAfter()));
-            return new LicenseResult("The license verified has successfully!", licenseContent);
+            return LicenseResult.success(LicenseErrorStatus.LICENSE_CREATE_SUCCESS, licenseContent);
         } catch (Exception exception) {
             log.error("The license verified has error, error: {}", exception.getMessage(), exception);
             GeneralUtils.printStackTrace(exception);
-            return new LicenseResult("The license verified has error!", exception);
+            return LicenseResult.failure(LicenseErrorStatus.LICENSE_VERIFY_FAILURE, exception);
         }
     }
 

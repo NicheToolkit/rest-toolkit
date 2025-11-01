@@ -49,7 +49,7 @@ public class LicenseVerifierWorker {
      */
     @PostConstruct
     public void licenseVerifierWorkerInit() {
-        log.debug("The verifier      properties: {}", JsonUtils.parseJson(this.licenseVerify));
+        log.debug("The verifier   properties: {}", JsonUtils.parseJson(this.licenseVerify));
         INSTANCE = this;
     }
 

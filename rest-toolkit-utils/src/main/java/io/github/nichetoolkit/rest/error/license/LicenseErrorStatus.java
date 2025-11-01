@@ -31,6 +31,37 @@ public enum LicenseErrorStatus implements RestStatus {
     LICENSE_CREATE_ERROR(11202, "It has encountered a license create error"),
 
     /**
+     * <code>LICENSE_CREATE_SUCCESS</code>
+     * {@link io.github.nichetoolkit.rest.error.license.LicenseErrorStatus} <p>The <code>LICENSE_CREATE_SUCCESS</code> field.</p>
+     */
+    LICENSE_CREATE_SUCCESS(11203, "The license created is successful"),
+    /**
+     * <code>LICENSE_CREATE_FAILURE</code>
+     * {@link io.github.nichetoolkit.rest.error.license.LicenseErrorStatus} <p>The <code>LICENSE_CREATE_FAILURE</code> field.</p>
+     */
+    LICENSE_CREATE_FAILURE(11204, "The license created is failed"),
+    /**
+     * <code>LICENSE_INSTALL_SUCCESS</code>
+     * {@link io.github.nichetoolkit.rest.error.license.LicenseErrorStatus} <p>The <code>LICENSE_INSTALL_SUCCESS</code> field.</p>
+     */
+    LICENSE_INSTALL_SUCCESS(11205, "The license installed is successful"),
+    /**
+     * <code>LICENSE_INSTALL_FAILURE</code>
+     * {@link io.github.nichetoolkit.rest.error.license.LicenseErrorStatus} <p>The <code>LICENSE_INSTALL_FAILURE</code> field.</p>
+     */
+    LICENSE_INSTALL_FAILURE(11206, "The license installed is failed"),
+    /**
+     * <code>LICENSE_VERIFY_SUCCESS</code>
+     * {@link io.github.nichetoolkit.rest.error.license.LicenseErrorStatus} <p>The <code>LICENSE_VERIFY_SUCCESS</code> field.</p>
+     */
+    LICENSE_VERIFY_SUCCESS(11207, "The license verified is valid"),
+    /**
+     * <code>LICENSE_VERIFY_FAILURE</code>
+     * {@link io.github.nichetoolkit.rest.error.license.LicenseErrorStatus} <p>The <code>LICENSE_VERIFY_FAILURE</code> field.</p>
+     */
+    LICENSE_VERIFY_FAILURE(11208, "The license verified is invalid"),
+
+    /**
      * <code>LICENSE_NOT_INSTALLED_ERROR</code>
      * {@link io.github.nichetoolkit.rest.error.license.LicenseErrorStatus} <p>The <code>LICENSE_NOT_INSTALLED_ERROR</code> field.</p>
      */

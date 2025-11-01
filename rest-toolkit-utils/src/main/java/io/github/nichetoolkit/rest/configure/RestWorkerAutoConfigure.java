@@ -1,6 +1,7 @@
 package io.github.nichetoolkit.rest.configure;
 
 import io.github.nichetoolkit.rest.license.LicenseCreatorWorker;
+import io.github.nichetoolkit.rest.license.LicenseInstallListener;
 import io.github.nichetoolkit.rest.license.LicenseVerifierWorker;
 import io.github.nichetoolkit.rest.worker.AesWorker;
 import io.github.nichetoolkit.rest.worker.RadixWorker;
@@ -16,19 +17,75 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
 
+/**
+ * <code>RestWorkerAutoConfigure</code>
+ * <p>The rest worker auto configure class.</p>
+ * @author Cyan (snow22314@outlook.com)
+ * @see lombok.extern.slf4j.Slf4j
+ * @see org.springframework.boot.autoconfigure.AutoConfiguration
+ * @see org.springframework.boot.autoconfigure.AutoConfigureAfter
+ * @see org.springframework.boot.context.properties.EnableConfigurationProperties
+ * @since Jdk1.8
+ */
 @Slf4j
 @AutoConfiguration
 @AutoConfigureAfter(RestCoreAutoConfigure.class)
 @EnableConfigurationProperties({RestLicenseProperties.class,RestJwtProperties.class,RestRadixProperties.class,RestRsaProperties.class,RestShaProperties.class,RestAesProperties.class})
 public class RestWorkerAutoConfigure {
 
+    /**
+     * <code>licenseProperties</code>
+     * {@link io.github.nichetoolkit.rest.configure.RestLicenseProperties} <p>The <code>licenseProperties</code> field.</p>
+     * @see io.github.nichetoolkit.rest.configure.RestLicenseProperties
+     */
     private final RestLicenseProperties licenseProperties;
+    /**
+     * <code>jwtProperties</code>
+     * {@link io.github.nichetoolkit.rest.configure.RestJwtProperties} <p>The <code>jwtProperties</code> field.</p>
+     * @see io.github.nichetoolkit.rest.configure.RestJwtProperties
+     */
     private final RestJwtProperties jwtProperties;
+    /**
+     * <code>radixProperties</code>
+     * {@link io.github.nichetoolkit.rest.configure.RestRadixProperties} <p>The <code>radixProperties</code> field.</p>
+     * @see io.github.nichetoolkit.rest.configure.RestRadixProperties
+     */
     private final RestRadixProperties radixProperties;
+    /**
+     * <code>shaProperties</code>
+     * {@link io.github.nichetoolkit.rest.configure.RestShaProperties} <p>The <code>shaProperties</code> field.</p>
+     * @see io.github.nichetoolkit.rest.configure.RestShaProperties
+     */
     private final RestShaProperties shaProperties;
+    /**
+     * <code>rsaProperties</code>
+     * {@link io.github.nichetoolkit.rest.configure.RestRsaProperties} <p>The <code>rsaProperties</code> field.</p>
+     * @see io.github.nichetoolkit.rest.configure.RestRsaProperties
+     */
     private final RestRsaProperties rsaProperties;
+    /**
+     * <code>aesProperties</code>
+     * {@link io.github.nichetoolkit.rest.configure.RestAesProperties} <p>The <code>aesProperties</code> field.</p>
+     * @see io.github.nichetoolkit.rest.configure.RestAesProperties
+     */
     private final RestAesProperties aesProperties;
 
+    /**
+     * <code>RestWorkerAutoConfigure</code>
+     * <p>Instantiates a new rest worker auto configure.</p>
+     * @param licenseProperties {@link io.github.nichetoolkit.rest.configure.RestLicenseProperties} <p>The license properties parameter is <code>RestLicenseProperties</code> type.</p>
+     * @param jwtProperties     {@link io.github.nichetoolkit.rest.configure.RestJwtProperties} <p>The jwt properties parameter is <code>RestJwtProperties</code> type.</p>
+     * @param radixProperties   {@link io.github.nichetoolkit.rest.configure.RestRadixProperties} <p>The radix properties parameter is <code>RestRadixProperties</code> type.</p>
+     * @param shaProperties     {@link io.github.nichetoolkit.rest.configure.RestShaProperties} <p>The sha properties parameter is <code>RestShaProperties</code> type.</p>
+     * @param rsaProperties     {@link io.github.nichetoolkit.rest.configure.RestRsaProperties} <p>The rsa properties parameter is <code>RestRsaProperties</code> type.</p>
+     * @param aesProperties     {@link io.github.nichetoolkit.rest.configure.RestAesProperties} <p>The aes properties parameter is <code>RestAesProperties</code> type.</p>
+     * @see io.github.nichetoolkit.rest.configure.RestLicenseProperties
+     * @see io.github.nichetoolkit.rest.configure.RestJwtProperties
+     * @see io.github.nichetoolkit.rest.configure.RestRadixProperties
+     * @see io.github.nichetoolkit.rest.configure.RestShaProperties
+     * @see io.github.nichetoolkit.rest.configure.RestRsaProperties
+     * @see io.github.nichetoolkit.rest.configure.RestAesProperties
+     */
     public RestWorkerAutoConfigure(RestLicenseProperties licenseProperties,RestJwtProperties jwtProperties, RestRadixProperties radixProperties, RestShaProperties shaProperties, RestRsaProperties rsaProperties, RestAesProperties aesProperties) {
         this.licenseProperties = licenseProperties;
         this.jwtProperties = jwtProperties;
@@ -39,6 +96,16 @@ public class RestWorkerAutoConfigure {
         log.debug("The auto configuration for [rest-worker] initiated");
     }
 
+    /**
+     * <code>radixWorker</code>
+     * <p>The radix worker method.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.RadixWorker} <p>The radix worker return object is <code>RadixWorker</code> type.</p>
+     * @see io.github.nichetoolkit.rest.worker.RadixWorker
+     * @see org.springframework.context.annotation.Bean
+     * @see org.springframework.context.annotation.Primary
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
+     */
     @Bean
     @Primary
     @ConditionalOnMissingBean(RadixWorker.class)
@@ -47,6 +114,16 @@ public class RestWorkerAutoConfigure {
         return new RadixWorker(this.radixProperties);
     }
 
+    /**
+     * <code>jwtWorker</code>
+     * <p>The jwt worker method.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtWorker} <p>The jwt worker return object is <code>JwtWorker</code> type.</p>
+     * @see io.github.nichetoolkit.rest.worker.jwt.JwtWorker
+     * @see org.springframework.context.annotation.Bean
+     * @see org.springframework.context.annotation.Primary
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
+     */
     @Bean
     @Primary
     @ConditionalOnMissingBean(JwtWorker.class)
@@ -55,6 +132,16 @@ public class RestWorkerAutoConfigure {
         return new JwtWorker(this.jwtProperties);
     }
 
+    /**
+     * <code>shaWorker</code>
+     * <p>The sha worker method.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.sha.ShaWorker} <p>The sha worker return object is <code>ShaWorker</code> type.</p>
+     * @see io.github.nichetoolkit.rest.worker.sha.ShaWorker
+     * @see org.springframework.context.annotation.Bean
+     * @see org.springframework.context.annotation.Primary
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
+     */
     @Bean
     @Primary
     @ConditionalOnMissingBean(ShaWorker.class)
@@ -63,6 +150,16 @@ public class RestWorkerAutoConfigure {
         return new ShaWorker(this.shaProperties);
     }
 
+    /**
+     * <code>rsaWorker</code>
+     * <p>The rsa worker method.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.rsa.RsaWorker} <p>The rsa worker return object is <code>RsaWorker</code> type.</p>
+     * @see io.github.nichetoolkit.rest.worker.rsa.RsaWorker
+     * @see org.springframework.context.annotation.Bean
+     * @see org.springframework.context.annotation.Primary
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
+     */
     @Bean
     @Primary
     @ConditionalOnMissingBean(RsaWorker.class)
@@ -71,6 +168,16 @@ public class RestWorkerAutoConfigure {
         return new RsaWorker(this.rsaProperties);
     }
 
+    /**
+     * <code>aesWorker</code>
+     * <p>The aes worker method.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.AesWorker} <p>The aes worker return object is <code>AesWorker</code> type.</p>
+     * @see io.github.nichetoolkit.rest.worker.AesWorker
+     * @see org.springframework.context.annotation.Bean
+     * @see org.springframework.context.annotation.Primary
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
+     */
     @Bean
     @Primary
     @ConditionalOnMissingBean(AesWorker.class)
@@ -80,6 +187,16 @@ public class RestWorkerAutoConfigure {
     }
 
 
+    /**
+     * <code>licenseCreatorWorker</code>
+     * <p>The license creator worker method.</p>
+     * @return {@link io.github.nichetoolkit.rest.license.LicenseCreatorWorker} <p>The license creator worker return object is <code>LicenseCreatorWorker</code> type.</p>
+     * @see io.github.nichetoolkit.rest.license.LicenseCreatorWorker
+     * @see org.springframework.context.annotation.Bean
+     * @see org.springframework.context.annotation.Primary
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
+     */
     @Bean
     @Primary
     @ConditionalOnMissingBean(LicenseCreatorWorker.class)
@@ -88,6 +205,16 @@ public class RestWorkerAutoConfigure {
         return new LicenseCreatorWorker(this.licenseProperties);
     }
 
+    /**
+     * <code>licenseVerifierWorker</code>
+     * <p>The license verifier worker method.</p>
+     * @return {@link io.github.nichetoolkit.rest.license.LicenseVerifierWorker} <p>The license verifier worker return object is <code>LicenseVerifierWorker</code> type.</p>
+     * @see io.github.nichetoolkit.rest.license.LicenseVerifierWorker
+     * @see org.springframework.context.annotation.Bean
+     * @see org.springframework.context.annotation.Primary
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
+     */
     @Bean
     @Primary
     @ConditionalOnMissingBean(LicenseVerifierWorker.class)
@@ -96,4 +223,22 @@ public class RestWorkerAutoConfigure {
         return new LicenseVerifierWorker(this.licenseProperties);
     }
 
+
+    /**
+     * <code>licenseInstallListener</code>
+     * <p>The license install listener method.</p>
+     * @return {@link io.github.nichetoolkit.rest.license.LicenseInstallListener} <p>The license install listener return object is <code>LicenseInstallListener</code> type.</p>
+     * @see io.github.nichetoolkit.rest.license.LicenseInstallListener
+     * @see org.springframework.context.annotation.Bean
+     * @see org.springframework.context.annotation.Primary
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
+     */
+    @Bean
+    @Primary
+    @ConditionalOnMissingBean(LicenseInstallListener.class)
+    @ConditionalOnProperty(value = "nichetoolkit.rest.license.listener.install", havingValue = "true")
+    public LicenseInstallListener licenseInstallListener() {
+        return new LicenseInstallListener(licenseProperties);
+    }
 }

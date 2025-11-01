@@ -157,9 +157,13 @@ class LicenseWorkerManager extends LicenseManager {
         super.validate(content);
         // 然后校验自定义的License参数 License中可被允许的参数信息
         LicenseExtraParam licenseExtra = (LicenseExtraParam) content.getExtra();
+        // licenseExtra 为空，未开启校验
+        if (GeneralUtils.isEmpty(licenseExtra)) {
+            return;
+        }
         // 当前服务器真实的参数信息
         LicenseExtraParam serverInfo = LicenseServerInfo.getServerInfo().getExtraParam();
-        if (GeneralUtils.isEmpty(licenseExtra) || GeneralUtils.isEmpty(serverInfo)) {
+        if (GeneralUtils.isEmpty(serverInfo)) {
             log.error("It is failed to obtain server hardware information, license extra: {}, server info: {}", JsonPurityUtils.parseJson(licenseExtra), JsonPurityUtils.parseJson(serverInfo));
             throw new LicenseVerifyException(LicenseErrorStatus.LICENSE_SERVER_INFO_ERROR, "validate license", "serverInfo");
         }

@@ -126,7 +126,6 @@
         <dependency>
             <groupId>io.fusionauth</groupId>
             <artifactId>fusionauth-jwt</artifactId>
-            <scope>provided</scope>
         </dependency>
 
         <dependency>

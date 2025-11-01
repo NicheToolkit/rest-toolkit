@@ -11,10 +11,10 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * <code>LicenseExtraParam</code>
- * <p>The license extra param class.</p>
+ * <code>LicenseExtraInfo</code>
+ * <p>The license extra info class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @see io.github.nichetoolkit.rest.license.LicenseExtraInfo
+ * @see java.io.Serializable
  * @see lombok.Getter
  * @see lombok.Setter
  * @see lombok.experimental.SuperBuilder
@@ -29,25 +29,29 @@ import java.util.List;
 @NoArgsConstructor
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class LicenseExtraParam extends LicenseExtraInfo {
+public class LicenseExtraInfo implements Serializable {
     /**
-     * <code>ipCheck</code>
-     * <p>The <code>ipCheck</code> field.</p>
+     * <code>ipAddress</code>
+     * {@link java.util.List} <p>The <code>ipAddress</code> field.</p>
+     * @see java.util.List
      */
-    private boolean ipCheck;
+    private List<String> ipAddress;
     /**
-     * <code>macCheck</code>
-     * <p>The <code>macCheck</code> field.</p>
+     * <code>macAddress</code>
+     * {@link java.util.List} <p>The <code>macAddress</code> field.</p>
+     * @see java.util.List
      */
-    private boolean macCheck;
+    private List<String> macAddress;
     /**
-     * <code>cpuCheck</code>
-     * <p>The <code>cpuCheck</code> field.</p>
+     * <code>cpuSerial</code>
+     * {@link java.lang.String} <p>The <code>cpuSerial</code> field.</p>
+     * @see java.lang.String
      */
-    private boolean cpuCheck;
+    private String cpuSerial;
     /**
-     * <code>boardCheck</code>
-     * <p>The <code>boardCheck</code> field.</p>
+     * <code>boardSerial</code>
+     * {@link java.lang.String} <p>The <code>boardSerial</code> field.</p>
+     * @see java.lang.String
      */
-    private boolean boardCheck;
+    private String boardSerial;
 }

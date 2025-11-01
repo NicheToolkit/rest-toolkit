@@ -206,13 +206,6 @@
       "description": "the secret iv of aes worker."
     },
     {
-      "name": "nichetoolkit.rest.license.enabled",
-      "type": "java.lang.Boolean",
-      "sourceType": "java.lang.Boolean",
-      "description": "the switch of license worker.",
-      "defaultValue": false
-    },
-    {
       "name": "nichetoolkit.rest.license.subject",
       "type": "java.lang.String",
       "sourceType": "java.lang.String",
@@ -348,11 +341,24 @@
       "description": "the public keys store path of license creator worker."
     },
     {
+      "name": "nichetoolkit.rest.license.checker.enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "java.lang.Boolean",
+      "description": "the switch of license checker worker.",
+      "defaultValue": false
+    },
+    {
       "name": "nichetoolkit.rest.license.checker.ip-check",
       "type": "java.lang.Boolean",
       "sourceType": "java.lang.Boolean",
       "description": "the switch of license server ip check.",
       "defaultValue": false
+    },
+    {
+      "name": "nichetoolkit.rest.license.checker.ip-address",
+      "type": "java.util.List",
+      "sourceType": "java.util.List",
+      "description": "the switch of license checker ip address."
     },
     {
       "name": "nichetoolkit.rest.license.checker.mac-check",
@@ -362,11 +368,23 @@
       "defaultValue": false
     },
     {
+      "name": "nichetoolkit.rest.license.checker.mac-address",
+      "type": "java.util.List",
+      "sourceType": "java.util.List",
+      "description": "the switch of license checker mac address."
+    },
+    {
       "name": "nichetoolkit.rest.license.checker.cpu-check",
       "type": "java.lang.Boolean",
       "sourceType": "java.lang.Boolean",
       "description": "the switch of license server cpu check.",
       "defaultValue": false
+    },
+    {
+      "name": "nichetoolkit.rest.license.checker.cpu-serial",
+      "type": "java.lang.String",
+      "sourceType": "java.lang.String",
+      "description": "the switch of license checker cpu serial."
     },
     {
       "name": "nichetoolkit.rest.license.checker.board-check",
@@ -376,24 +394,23 @@
       "defaultValue": false
     },
     {
-      "name": "nichetoolkit.rest.license.checker.register-check",
+      "name": "nichetoolkit.rest.license.checker.board-serial",
+      "type": "java.lang.String",
+      "sourceType": "java.lang.String",
+      "description": "the switch of license checker board serial."
+    },
+    {
+      "name": "nichetoolkit.rest.license.listener.intercept",
       "type": "java.lang.Boolean",
       "sourceType": "java.lang.Boolean",
-      "description": "the switch of license server register check.",
+      "description": "the switch of license listener intercept.",
       "defaultValue": false
     },
     {
-      "name": "nichetoolkit.rest.license.listener.enabled",
+      "name": "nichetoolkit.rest.license.listener.install",
       "type": "java.lang.Boolean",
       "sourceType": "java.lang.Boolean",
-      "description": "the switch of license listener.",
-      "defaultValue": false
-    },
-    {
-      "name": "nichetoolkit.rest.license.listener.auto-install",
-      "type": "java.lang.Boolean",
-      "sourceType": "java.lang.Boolean",
-      "description": "the switch of license auto install.",
+      "description": "the switch of license listener install.",
       "defaultValue": false
     }
   ],
@@ -460,6 +477,110 @@
         {
           "value": true,
           "description": "the switch of rsa worker opened."
+        }
+      ]
+    },
+    {
+      "name": "nichetoolkit.rest.license.verifier.enabled",
+      "values": [
+        {
+          "value": false,
+          "description": "the switch of license verifier worker closed."
+        },
+        {
+          "value": true,
+          "description": "the switch of license verifier worker opened."
+        }
+      ]
+    },
+    {
+      "name": "nichetoolkit.rest.license.checker.enabled",
+      "values": [
+        {
+          "value": false,
+          "description": "the switch of license checker worker closed."
+        },
+        {
+          "value": true,
+          "description": "the switch of license checker worker opened."
+        }
+      ]
+    },
+    {
+      "name": "nichetoolkit.rest.license.checker.ip-check",
+      "values": [
+        {
+          "value": false,
+          "description": "the switch of license checker ip check closed."
+        },
+        {
+          "value": true,
+          "description": "the switch of license checker ip check opened."
+        }
+      ]
+    },
+    {
+      "name": "nichetoolkit.rest.license.checker.mac-check",
+      "values": [
+        {
+          "value": false,
+          "description": "the switch of license checker mac check closed."
+        },
+        {
+          "value": true,
+          "description": "the switch of license checker mac check opened."
+        }
+      ]
+    },
+    {
+      "name": "nichetoolkit.rest.license.checker.cpu-check",
+      "values": [
+        {
+          "value": false,
+          "description": "the switch of license checker cpu check closed."
+        },
+        {
+          "value": true,
+          "description": "the switch of license checker cpu check opened."
+        }
+      ]
+    },
+    {
+      "name": "nichetoolkit.rest.license.checker.board-check",
+      "values": [
+        {
+          "value": false,
+          "description": "the switch of license checker board check closed."
+        },
+        {
+          "value": true,
+          "description": "the switch of license checker board check opened."
+        }
+      ]
+    },
+    {
+      "name": "nichetoolkit.rest.license.listener.intercept",
+      "values": [
+        {
+          "value": false,
+          "description": "the switch of license listener intercept closed."
+        },
+        {
+          "value": true,
+          "description": "the switch of license checker intercept opened."
+        }
+      ]
+    },
+    {
+      "name": "nichetoolkit.rest.license.listener.install",
+      "values": [
+        {
+          "value": false,
+          "description": "the switch of license listener install closed."
+        },
+        {
+          "value": true,
+          "description": "the switch of license listener install opened."
         }
       ]
     }

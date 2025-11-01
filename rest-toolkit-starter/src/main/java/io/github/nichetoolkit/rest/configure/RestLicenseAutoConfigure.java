@@ -2,10 +2,12 @@ package io.github.nichetoolkit.rest.configure;
 
 
 import io.github.nichetoolkit.rest.interceptor.DefaultLicenseInterceptor;
+import io.github.nichetoolkit.rest.license.LicenseInstallListener;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -62,7 +64,7 @@ public class RestLicenseAutoConfigure {
      * @since Jdk1.8
      */
     @Configuration
-    @ConditionalOnProperty(value = "nichetoolkit.rest.license.listener.enabled", havingValue = "true")
+    @ConditionalOnProperty(value = "nichetoolkit.rest.license.listener.intercept", havingValue = "true")
     public class DefaultLicenseAutoConfigure implements WebMvcConfigurer {
 
         @Override

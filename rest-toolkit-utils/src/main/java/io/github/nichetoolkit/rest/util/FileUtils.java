@@ -7,6 +7,7 @@ import io.github.nichetoolkit.rest.helper.FileHelper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.http.MediaTypeFactory;
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
@@ -29,6 +30,22 @@ import java.util.*;
 @Slf4j
 @SuppressWarnings("SameNameButDifferent")
 public class FileUtils {
+
+    /**
+     * <code>resource</code>
+     * <p>The resource method.</p>
+     * @param resourcePath {@link java.lang.String} <p>The resource path parameter is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The resource return object is <code>String</code> type.</p>
+     * @see java.lang.String
+     */
+    public static String resource(String resourcePath) {
+        try {
+            File resourceFile = ResourceUtils.getFile(resourcePath);
+            return resourceFile.getAbsolutePath();
+        } catch (FileNotFoundException ignored) {
+            return resourcePath;
+        }
+    }
 
     /**
      * <code>createTempFile</code>

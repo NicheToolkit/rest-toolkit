@@ -1,6 +1,5 @@
 package io.github.nichetoolkit.rest.interceptor;
 
-import de.schlichtherle.license.LicenseContent;
 import io.github.nichetoolkit.rest.configure.RestLicenseProperties;
 import io.github.nichetoolkit.rest.error.license.LicenseErrorException;
 import io.github.nichetoolkit.rest.error.license.LicenseErrorStatus;
@@ -55,19 +54,19 @@ public class DefaultLicenseInterceptor implements HandlerInterceptor {
         if (!verifyResult.getResult()) {
             throw new LicenseErrorException(LicenseErrorStatus.LICENSE_EXPIRED_ERROR, verifyResult.getException());
         }
-        LicenseContent licenseContent = verifyResult.getContent();
-        LicenseExtraParam licenseCheck = (LicenseExtraParam) licenseContent.getExtra();
-        if (verifyResult.getResult()) {
-            /* 增加业务系统监听，是否自定义验证 */
-            List<LicenseVerifyListener> licenseVerifyListeners = LicenseVerifyListener.licenseVerifyListeners();
-            boolean compare = true;
-            for (LicenseVerifyListener listener : licenseVerifyListeners) {
-                boolean verify = listener.verify(licenseCheck);
-                compare = compare && verify;
-            }
-            return compare;
+        LicenseContext licenseContext = verifyResult.getContext();
+        LicenseExtraParam licenseCheck = (LicenseExtraParam) licenseContext.getExtra();
+        if (GeneralUtils.isEmpty(licenseCheck)) {
+            return true;
         }
-        throw new LicenseErrorException(LicenseErrorStatus.LICENSE_EXPIRED_ERROR);
+        /* 增加业务系统监听，是否自定义验证 */
+        List<LicenseVerifyListener> licenseVerifyListeners = LicenseVerifyListener.licenseVerifyListeners();
+        boolean compare = true;
+        for (LicenseVerifyListener listener : licenseVerifyListeners) {
+            boolean verify = listener.verify(licenseCheck);
+            compare = compare && verify;
+        }
+        return compare;
     }
 
 }

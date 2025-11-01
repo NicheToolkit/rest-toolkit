@@ -4,6 +4,7 @@ import io.github.nichetoolkit.rest.RestOptional;
 import io.github.nichetoolkit.rest.license.LicenseCreateParam;
 import io.github.nichetoolkit.rest.license.LicenseExtraParam;
 import io.github.nichetoolkit.rest.license.LicenseVerifyParam;
+import io.github.nichetoolkit.rest.util.BeanUtils;
 import io.github.nichetoolkit.rest.util.DateUtils;
 import io.github.nichetoolkit.rest.util.FileUtils;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
@@ -13,6 +14,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * <code>RestLicenseProperties</code>
@@ -27,12 +29,6 @@ import java.util.Date;
 @Setter
 @ConfigurationProperties(prefix = "nichetoolkit.rest.license")
 public class RestLicenseProperties {
-    /**
-     * <code>enabled</code>
-     * {@link java.lang.Boolean} <p>The <code>enabled</code> field.</p>
-     * @see java.lang.Boolean
-     */
-    private Boolean enabled = false;
     /**
      * <code>subject</code>
      * {@link java.lang.String} <p>The <code>subject</code> field.</p>
@@ -98,17 +94,17 @@ public class RestLicenseProperties {
     @Setter
     public static class Listener {
         /**
-         * <code>enabled</code>
-         * {@link java.lang.Boolean} <p>The <code>enabled</code> field.</p>
+         * <code>intercept</code>
+         * {@link java.lang.Boolean} <p>The <code>intercept</code> field.</p>
          * @see java.lang.Boolean
          */
-        private Boolean enabled = false;
+        private Boolean intercept = false;
         /**
-         * <code>autoInstall</code>
-         * {@link java.lang.Boolean} <p>The <code>autoInstall</code> field.</p>
+         * <code>install</code>
+         * {@link java.lang.Boolean} <p>The <code>install</code> field.</p>
          * @see java.lang.Boolean
          */
-        private Boolean autoInstall = true;
+        private Boolean install = false;
     }
 
     /**
@@ -123,30 +119,55 @@ public class RestLicenseProperties {
     @Setter
     public static class Checker {
         /**
+         * <code>enabled</code>
+         * {@link java.lang.Boolean} <p>The <code>enabled</code> field.</p>
+         * @see java.lang.Boolean
+         */
+        private Boolean enabled = false;
+        /**
          * <code>ipCheck</code>
          * <p>The <code>ipCheck</code> field.</p>
          */
         private boolean ipCheck;
+        /**
+         * <code>ipAddress</code>
+         * {@link java.util.List} <p>The <code>ipAddress</code> field.</p>
+         * @see java.util.List
+         */
+        private List<String> ipAddress;
         /**
          * <code>macCheck</code>
          * <p>The <code>macCheck</code> field.</p>
          */
         private boolean macCheck;
         /**
+         * <code>macAddress</code>
+         * {@link java.util.List} <p>The <code>macAddress</code> field.</p>
+         * @see java.util.List
+         */
+        private List<String> macAddress;
+        /**
          * <code>cpuCheck</code>
          * <p>The <code>cpuCheck</code> field.</p>
          */
         private boolean cpuCheck;
+        /**
+         * <code>cpuSerial</code>
+         * {@link java.lang.String} <p>The <code>cpuSerial</code> field.</p>
+         * @see java.lang.String
+         */
+        private String cpuSerial;
         /**
          * <code>boardCheck</code>
          * <p>The <code>boardCheck</code> field.</p>
          */
         private boolean boardCheck;
         /**
-         * <code>registerCheck</code>
-         * <p>The <code>registerCheck</code> field.</p>
+         * <code>boardSerial</code>
+         * {@link java.lang.String} <p>The <code>boardSerial</code> field.</p>
+         * @see java.lang.String
          */
-        private boolean registerCheck;
+        private String boardSerial;
     }
 
     /**
@@ -187,6 +208,13 @@ public class RestLicenseProperties {
          * @see java.lang.String
          */
         private String subject;
+
+        /**
+         * <code>description</code>
+         * {@link java.lang.String} <p>The <code>description</code> field.</p>
+         * @see java.lang.String
+         */
+        private String description;
 
         /**
          * <code>storePass</code>
@@ -258,10 +286,30 @@ public class RestLicenseProperties {
          * @see java.lang.String
          */
         public void setTempPath(String tempPath) {
-            this.tempPath = tempPath;
+            this.tempPath = FileUtils.resource(tempPath);
             if (GeneralUtils.isNotEmpty(tempPath)) {
                 FileUtils.createFile(tempPath);
             }
+        }
+
+        /**
+         * <code>setLicensePath</code>
+         * <p>The set license path setter method.</p>
+         * @param licensePath {@link java.lang.String} <p>The license path parameter is <code>String</code> type.</p>
+         * @see java.lang.String
+         */
+        public void setLicensePath(String licensePath) {
+            this.licensePath = FileUtils.resource(licensePath);
+        }
+
+        /**
+         * <code>setPrivateKeysStorePath</code>
+         * <p>The set private keys store path setter method.</p>
+         * @param privateKeysStorePath {@link java.lang.String} <p>The private keys store path parameter is <code>String</code> type.</p>
+         * @see java.lang.String
+         */
+        public void setPrivateKeysStorePath(String privateKeysStorePath) {
+            this.privateKeysStorePath = FileUtils.resource(privateKeysStorePath);
         }
 
         /**
@@ -338,6 +386,26 @@ public class RestLicenseProperties {
          * @see java.lang.String
          */
         private String publicKeysStorePath;
+
+        /**
+         * <code>setLicensePath</code>
+         * <p>The set license path setter method.</p>
+         * @param licensePath {@link java.lang.String} <p>The license path parameter is <code>String</code> type.</p>
+         * @see java.lang.String
+         */
+        public void setLicensePath(String licensePath) {
+            this.licensePath = FileUtils.resource(licensePath);
+        }
+
+        /**
+         * <code>setPublicKeysStorePath</code>
+         * <p>The set public keys store path setter method.</p>
+         * @param publicKeysStorePath {@link java.lang.String} <p>The public keys store path parameter is <code>String</code> type.</p>
+         * @see java.lang.String
+         */
+        public void setPublicKeysStorePath(String publicKeysStorePath) {
+            this.publicKeysStorePath = FileUtils.resource(publicKeysStorePath);
+        }
     }
 
     /**
@@ -395,32 +463,25 @@ public class RestLicenseProperties {
      * @see io.github.nichetoolkit.rest.license.LicenseCreateParam
      */
     public LicenseCreateParam createParam() {
-        return LicenseCreateParam.builder()
+        LicenseCreateParam.LicenseCreateParamBuilder<?, ?> builder = LicenseCreateParam.builder()
                 .subject(this.creator.getSubject())
+                .description(this.creator.getDescription())
                 .privateAlias(this.creator.getPrivateAlias())
                 .keyPass(this.creator.getKeyPass())
                 .storePass(this.creator.getStorePass())
                 .licensePath(this.creator.getLicensePath())
-                .privateAlias(this.creator.getPrivateKeysStorePath())
+                .privateAlias(this.creator.getPrivateAlias())
+                .privateKeysStorePath(this.creator.getPrivateKeysStorePath())
                 .issuedTime(this.creator.getIssuedTime())
                 .expiryTime(this.creator.getExpiryTime())
                 .consumerType(this.creator.getConsumerType())
-                .consumerSize(this.creator.getConsumerSize())
-                .build();
-    }
-
-    /**
-     * <code>createParam</code>
-     * <p>The create param method.</p>
-     * @param extraParam {@link io.github.nichetoolkit.rest.license.LicenseExtraParam} <p>The extra param parameter is <code>LicenseExtraParam</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.license.LicenseCreateParam} <p>The create param return object is <code>LicenseCreateParam</code> type.</p>
-     * @see io.github.nichetoolkit.rest.license.LicenseExtraParam
-     * @see io.github.nichetoolkit.rest.license.LicenseCreateParam
-     */
-    public LicenseCreateParam createParam(LicenseExtraParam extraParam) {
-        LicenseCreateParam createParam = this.createParam();
-        createParam.setExtraInfo(extraParam);
-        return createParam;
+                .consumerSize(this.creator.getConsumerSize());
+        if (this.checker.enabled) {
+            LicenseExtraParam extraParam = new LicenseExtraParam();
+            BeanUtils.copyNonnullProperties(this.checker, extraParam);
+            builder.extraInfo(extraParam);
+        }
+        return builder.build();
     }
 
     /**
@@ -437,22 +498,6 @@ public class RestLicenseProperties {
                 .licensePath(this.verifier.getLicensePath())
                 .publicKeysStorePath(this.verifier.getPublicKeysStorePath())
                 .build();
-    }
-
-    /**
-     * <code>extraParam</code>
-     * <p>The extra param method.</p>
-     * @param extraParam {@link io.github.nichetoolkit.rest.license.LicenseExtraParam} <p>The extra param parameter is <code>LicenseExtraParam</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.license.LicenseExtraParam} <p>The extra param return object is <code>LicenseExtraParam</code> type.</p>
-     * @see io.github.nichetoolkit.rest.license.LicenseExtraParam
-     */
-    public LicenseExtraParam extraParam(LicenseExtraParam extraParam) {
-        extraParam.setIpCheck(this.checker.isIpCheck());
-        extraParam.setMacCheck(this.checker.isMacCheck());
-        extraParam.setCpuCheck(this.checker.isMacCheck());
-        extraParam.setBoardCheck(this.checker.isBoardCheck());
-        extraParam.setRegisterCheck(this.checker.isRegisterCheck());
-        return extraParam;
     }
 
 }
