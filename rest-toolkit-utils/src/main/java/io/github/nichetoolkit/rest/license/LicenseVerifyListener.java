@@ -1,18 +1,7 @@
 package io.github.nichetoolkit.rest.license;
 
 import io.github.nichetoolkit.rest.RestException;
-import io.github.nichetoolkit.rest.configure.RestLicenseProperties;
-import io.github.nichetoolkit.rest.util.FileUtils;
-import io.github.nichetoolkit.rest.util.GeneralUtils;
-import io.github.nichetoolkit.rest.util.IoStreamUtils;
-import org.apache.commons.codec.digest.DigestUtils;
-import org.springframework.context.event.ContextRefreshedEvent;
-import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.util.ResourceUtils;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 

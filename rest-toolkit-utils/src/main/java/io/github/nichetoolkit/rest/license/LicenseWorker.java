@@ -4,7 +4,6 @@ import de.schlichtherle.license.*;
 import io.github.nichetoolkit.rest.error.license.LicenseErrorException;
 import io.github.nichetoolkit.rest.error.license.LicenseErrorStatus;
 import io.github.nichetoolkit.rest.util.DateUtils;
-import io.github.nichetoolkit.rest.util.GeneralUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.ResourceUtils;
 
