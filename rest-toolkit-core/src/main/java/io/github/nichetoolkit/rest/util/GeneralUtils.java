@@ -398,7 +398,7 @@ public class GeneralUtils {
      * @see java.lang.String
      */
     public static String printStackTrace(Throwable exception, boolean isLogging) {
-        return printStackTrace(log, exception, true);
+        return printStackTrace(log, exception, isLogging);
     }
 
     /**

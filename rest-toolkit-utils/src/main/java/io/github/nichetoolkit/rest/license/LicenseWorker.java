@@ -50,7 +50,6 @@ public class LicenseWorker {
             return LicenseResult.success(LicenseErrorStatus.LICENSE_CREATE_SUCCESS, licenseContent);
         } catch (Exception exception) {
             log.error("The license created has error!, error: {}", exception.getMessage(), exception);
-            GeneralUtils.printStackTrace(exception);
             return LicenseResult.failure(LicenseErrorStatus.LICENSE_CREATE_FAILURE, exception);
         }
     }
@@ -75,7 +74,6 @@ public class LicenseWorker {
             return Files.newInputStream(licenseFile.toPath());
         } catch (Exception exception) {
             log.error("The license created has error!, error: {}", exception.getMessage(), exception);
-            GeneralUtils.printStackTrace(exception);
             throw new LicenseErrorException(LicenseErrorStatus.LICENSE_CREATE_ERROR, exception);
         }
     }
@@ -174,7 +172,6 @@ public class LicenseWorker {
             return LicenseResult.success(LicenseErrorStatus.LICENSE_INSTALL_SUCCESS, licenseContent);
         } catch (Exception exception) {
             log.error("The license installed has error, error: {}", exception.getMessage(), exception);
-            GeneralUtils.printStackTrace(exception);
             return LicenseResult.failure(LicenseErrorStatus.LICENSE_INSTALL_FAILURE, exception);
         }
     }
@@ -198,7 +195,6 @@ public class LicenseWorker {
             return LicenseResult.success(LicenseErrorStatus.LICENSE_CREATE_SUCCESS, licenseContent);
         } catch (Exception exception) {
             log.error("The license verified has error, error: {}", exception.getMessage(), exception);
-            GeneralUtils.printStackTrace(exception);
             return LicenseResult.failure(LicenseErrorStatus.LICENSE_VERIFY_FAILURE, exception);
         }
     }

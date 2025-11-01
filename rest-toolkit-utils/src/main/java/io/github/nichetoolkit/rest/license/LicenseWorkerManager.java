@@ -208,7 +208,6 @@ class LicenseWorkerManager extends LicenseManager {
             return (LicenseContent) decoder.readObject();
         } catch (UnsupportedEncodingException exception) {
             log.error("The encoding of license is unsupported, error: {}", exception.getMessage(), exception);
-            GeneralUtils.printStackTrace(exception);
             throw new LicenseErrorException(LicenseErrorStatus.LICENSE_ENCODING_UNSUPPORTED, "read license", "encoded");
         } finally {
             CloseableHelper.close(decoder, inputStream);
