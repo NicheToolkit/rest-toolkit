@@ -21,6 +21,7 @@ import java.io.FileNotFoundException;
  * <p>The license install listener class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see org.springframework.context.ApplicationListener
+ * @see lombok.extern.slf4j.Slf4j
  * @since Jdk1.8
  */
 @Slf4j
@@ -32,18 +33,22 @@ public class LicenseInstallListener implements ApplicationListener<ContextRefres
      * @see io.github.nichetoolkit.rest.license.LicenseVerifyParam
      */
     private final LicenseVerifyParam licenseVerify;
-
+    /**
+     * <code>serverStop</code>
+     * <p>The <code>serverStop</code> field.</p>
+     */
+    private final boolean serverStop;
     /**
      * <code>licenseMd5</code>
      * {@link java.lang.String} <p>The constant <code>licenseMd5</code> field.</p>
      * @see java.lang.String
      */
-    private static String licenseMd5 = "";
+    private volatile static String licenseMd5 = "";
     /**
-     * <code>licenseLoad</code>
-     * <p>The constant <code>licenseLoad</code> field.</p>
+     * <code>licenseRefresh</code>
+     * <p>The constant <code>licenseRefresh</code> field.</p>
      */
-    private static boolean licenseLoad = false;
+    private static boolean licenseRefresh = false;
 
     /**
      * <code>LicenseInstallListener</code>
@@ -54,6 +59,7 @@ public class LicenseInstallListener implements ApplicationListener<ContextRefres
     public LicenseInstallListener(RestLicenseProperties licenseProperties) {
         super();
         this.licenseVerify = licenseProperties.verifyParam();
+        this.serverStop = licenseProperties.getListener().getStop();
     }
 
     /**
@@ -87,8 +93,10 @@ public class LicenseInstallListener implements ApplicationListener<ContextRefres
             log.info("================= Install Success ================= ");
         } else {
             log.info("================= Install Failure ================= ");
-            int exitCode = SpringApplication.exit(ApplicationContextHolder.getApplicationContext(), licenseResult::getError);
-            System.exit(exitCode);
+            if (serverStop || licenseResult.getStopServer()) {
+                int exitCode = SpringApplication.exit(ApplicationContextHolder.getApplicationContext(), licenseResult::getErrorCode);
+                System.exit(exitCode);
+            }
         }
     }
 
@@ -99,10 +107,10 @@ public class LicenseInstallListener implements ApplicationListener<ContextRefres
             installLicense();
             try {
                 String licenseMd5 = licenseMd5(licensePath);
-                licenseLoad = true;
-                if (GeneralUtils.isEmpty(licenseMd5)) {
+                if (GeneralUtils.isEmpty(LicenseInstallListener.licenseMd5)) {
                     LicenseInstallListener.licenseMd5 = licenseMd5;
                 }
+                licenseRefresh = true;
             } catch (Exception ignored) {
             }
         }
@@ -117,9 +125,10 @@ public class LicenseInstallListener implements ApplicationListener<ContextRefres
      */
     @Scheduled(cron = "0/10 * * * * ?")
     protected void installLicenseSchedule() throws Exception {
-        if (licenseLoad) {
+        if (licenseRefresh) {
             String licenseMd5 = licenseMd5(licenseVerify.getLicensePath());
-            if (!licenseMd5.equals(LicenseInstallListener.licenseMd5)) {
+            if (GeneralUtils.isNotEmpty(licenseMd5) && !licenseMd5.equals(LicenseInstallListener.licenseMd5)) {
+                log.info("The license file has refreshed, it will be reinstall!");
                 installLicense();
                 LicenseInstallListener.licenseMd5 = licenseMd5;
             }

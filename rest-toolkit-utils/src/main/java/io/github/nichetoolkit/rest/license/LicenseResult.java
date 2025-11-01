@@ -43,12 +43,12 @@ public class LicenseResult implements Serializable {
     /* 检验结果 */
     private Boolean result;
     /**
-     * <code>error</code>
-     * {@link java.lang.Integer} <p>The <code>error</code> field.</p>
+     * <code>errorCode</code>
+     * {@link java.lang.Integer} <p>The <code>errorCode</code> field.</p>
      * @see java.lang.Integer
      */
     /* 检验结果 */
-    private Integer error = LicenseErrorStatus.LICENSE_ERROR.getStatus();
+    private Integer errorCode = LicenseErrorStatus.LICENSE_ERROR.getStatus();
     /**
      * <code>message</code>
      * {@link java.lang.String} <p>The <code>message</code> field.</p>
@@ -72,6 +72,14 @@ public class LicenseResult implements Serializable {
     /* 检验失败错误 */
     @JsonIgnore
     private Exception exception;
+    /**
+     * <code>stopServer</code>
+     * {@link java.lang.Boolean} <p>The <code>stopServer</code> field.</p>
+     * @see java.lang.Boolean
+     * @see com.fasterxml.jackson.annotation.JsonIgnore
+     */
+    @JsonIgnore
+    private Boolean stopServer= false;
 
     /**
      * <code>LicenseResult</code>
@@ -111,7 +119,24 @@ public class LicenseResult implements Serializable {
      */
     public LicenseResult(RestStatus restStatus, Exception exception) {
         this.result = false;
-        this.error = restStatus.getStatus();
+        this.errorCode = restStatus.getStatus();
+        this.message = restStatus.getMessage();
+        this.exception = exception;
+    }
+
+    /**
+     * <code>LicenseResult</code>
+     * <p>Instantiates a new license result.</p>
+     * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>The rest status parameter is <code>RestStatus</code> type.</p>
+     * @param exception  {@link java.lang.Exception} <p>The exception parameter is <code>Exception</code> type.</p>
+     * @param stopServer boolean <p>The stop server parameter is <code>boolean</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestStatus
+     * @see java.lang.Exception
+     */
+    public LicenseResult(RestStatus restStatus, Exception exception, boolean stopServer) {
+        this.result = false;
+        this.stopServer = stopServer;
+        this.errorCode = restStatus.getStatus();
         this.message = restStatus.getMessage();
         this.exception = exception;
     }
@@ -166,6 +191,20 @@ public class LicenseResult implements Serializable {
      */
     public static LicenseResult failure(RestStatus restStatus, Exception exception) {
         return new LicenseResult(restStatus, exception);
+    }
+
+    /**
+     * <code>failure</code>
+     * <p>The failure method.</p>
+     * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>The rest status parameter is <code>RestStatus</code> type.</p>
+     * @param exception  {@link java.lang.Exception} <p>The exception parameter is <code>Exception</code> type.</p>
+     * @param stopServer boolean <p>The stop server parameter is <code>boolean</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.license.LicenseResult} <p>The failure return object is <code>LicenseResult</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestStatus
+     * @see java.lang.Exception
+     */
+    public static LicenseResult failure(RestStatus restStatus, Exception exception, boolean stopServer) {
+        return new LicenseResult(restStatus, exception, stopServer);
     }
 
     /**

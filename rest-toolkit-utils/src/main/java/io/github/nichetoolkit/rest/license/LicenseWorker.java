@@ -1,6 +1,7 @@
 package io.github.nichetoolkit.rest.license;
 
 import de.schlichtherle.license.*;
+import io.github.nichetoolkit.rest.RestStatus;
 import io.github.nichetoolkit.rest.error.license.LicenseErrorException;
 import io.github.nichetoolkit.rest.error.license.LicenseErrorStatus;
 import io.github.nichetoolkit.rest.util.DateUtils;
@@ -171,7 +172,7 @@ public class LicenseWorker {
             return LicenseResult.success(LicenseErrorStatus.LICENSE_INSTALL_SUCCESS, licenseContent);
         } catch (Exception exception) {
             log.error("The license installed has error, error: {}", exception.getMessage(), exception);
-            return LicenseResult.failure(LicenseErrorStatus.LICENSE_INSTALL_FAILURE, exception);
+            return LicenseResult.failure(LicenseErrorStatus.LICENSE_INSTALL_FAILURE, exception, !(exception instanceof RestStatus));
         }
     }
 

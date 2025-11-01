@@ -72,7 +72,7 @@ public class LicenseContext implements Serializable {
      * {@link java.lang.String} <p>The <code>info</code> field.</p>
      * @see java.lang.String
      */
-    private String info;
+    private String description;
     /**
      * <code>extra</code>
      * {@link java.lang.Object} <p>The <code>extra</code> field.</p>
@@ -93,7 +93,7 @@ public class LicenseContext implements Serializable {
         this.expiryTime = content.getNotAfter();
         this.consumerType = content.getConsumerType();
         this.consumerSize = content.getConsumerAmount();
-        this.info = content.getInfo();
+        this.description = content.getInfo();
         this.extra = content.getExtra();
     }
 

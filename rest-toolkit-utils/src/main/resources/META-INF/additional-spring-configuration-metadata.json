@@ -351,7 +351,7 @@
       "name": "nichetoolkit.rest.license.checker.ip-check",
       "type": "java.lang.Boolean",
       "sourceType": "java.lang.Boolean",
-      "description": "the switch of license server ip check.",
+      "description": "the switch of license checker ip check.",
       "defaultValue": false
     },
     {
@@ -411,6 +411,13 @@
       "type": "java.lang.Boolean",
       "sourceType": "java.lang.Boolean",
       "description": "the switch of license listener install.",
+      "defaultValue": false
+    },
+    {
+      "name": "nichetoolkit.rest.license.listener.stop",
+      "type": "java.lang.Boolean",
+      "sourceType": "java.lang.Boolean",
+      "description": "the switch of license listener server stop.",
       "defaultValue": false
     }
   ],
@@ -477,6 +484,19 @@
         {
           "value": true,
           "description": "the switch of rsa worker opened."
+        }
+      ]
+    },
+    {
+      "name": "nichetoolkit.rest.license.creator.enabled",
+      "values": [
+        {
+          "value": false,
+          "description": "the switch of license creator worker closed."
+        },
+        {
+          "value": true,
+          "description": "the switch of license creator worker opened."
         }
       ]
     },
@@ -581,6 +601,19 @@
         {
           "value": true,
           "description": "the switch of license listener install opened."
+        }
+      ]
+    },
+    {
+      "name": "nichetoolkit.rest.license.listener.stop",
+      "values": [
+        {
+          "value": false,
+          "description": "the switch of license listener server stop closed."
+        },
+        {
+          "value": true,
+          "description": "the switch of license listener server stop opened."
         }
       ]
     }

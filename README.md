@@ -383,7 +383,7 @@ nichetoolkit.rest.identity.server.api=
 |:-----------------:|:---------:|:------------:|:----------------------------------------------------:|
 |     `enabled`     | `Boolean` |   `false`    |        the switch of intercept configuration.        |
 | `logging-enabled` | `Boolean` |   `false`    |    the logging switch of intercept configuration.    |
-| `userlog-enabled` | `Boolean` |  ``false``   |    the userlog switch of intercept configuration.    |
+| `userlog-enabled` | `Boolean` |   `false`    |    the userlog switch of intercept configuration.    |
 |  `bean-enabled`   | `Boolean` |   `false`    |     the bean switch of intercept configuration.      |
 |   `body-length`   | `Integer` |    `1024`    | the response body length of intercept configuration. |
 |  `error-length`   | `Integer` |    `1024`    |     the error length of intercept configuration.     |
@@ -401,6 +401,96 @@ nichetoolkit.rest.intercept.body-length=1024
 nichetoolkit.rest.intercept.error-length=1024
 nichetoolkit.rest.intercept.message-length=1024
 nichetoolkit.rest.intercept.result-length=1024
+```
+
+#### license worker configuration
+
+* prefix
+
+>
+> nichetoolkit.rest.license
+>
+
+* values
+
+|               value               |   type    |   defaultValue    |                      description                       |
+|:---------------------------------:|:---------:|:-----------------:|:------------------------------------------------------:|
+|             `subject`             | `String`  |                   |             the subject of license worker.             |
+|           `store-pass`            | `String`  |                   |           the store pass of license worker.            |
+|          `license-path`           | `String`  |                   |          the license path of license worker.           |
+|         `creator.enabled`         | `Boolean` |      `false`      |         the switch of license creator worker.          |
+|        `creator.temp-path`        | `String`  |                   |        the temp path of license creator worker.        |
+|      `creator.server-prefix`      | `String`  |                   |      the server prefix of license creator worker.      |
+|         `creator.subject`         | `String`  |                   |         the subject of license creator worker.         |
+|       `creator.store-pass`        | `String`  |                   |       the store pass of license creator worker.        |
+|      `creator.license-path`       | `String`  |                   |      the license path of license creator worker.       |
+|      `creator.private-alias`      | `String`  |                   |      the private alias of license creator worker.      |
+|        `creator.key-pass`         | `String`  |                   |        the key pass of license creator worker.         |
+| `creator.private-keys-store-path` | `String`  |                   | the private keys store path of license creator worker. |
+|       `creator.issued-time`       | `String`  |      `now()`      |       the issued time of license creator worker.       |
+|       `creator.expiry-time`       | `String`  | `now()` + 90 days |       the expiry time of license creator worker.       |
+|      `creator.consumer-type`      | `String`  |                   |      the consumer type of license creator worker.      |
+|      `creator.consumer-size`      | `String`  |                   |      the consumer size of license creator worker.      |
+|        `verifier.enabled`         | `Boolean` |      `false`      |         the switch of license verifier worker.         |
+|        `verifier.subject`         | `String`  |                   |        the subject of license verifier worker.         |
+|       `verifier.store-pass`       | `String`  |                   |       the store pass of license verifier worker.       |
+|      `verifier.license-path`      | `String`  |                   |      the license path of license verifier worker.      |
+|      `verifier.public-alias`      | `String`  |                   |      the public alias of license verifier worker.      |
+|        `verifier.key-pass`        | `String`  |                   |        the key pass of license verifier worker.        |
+| `verifier.public-keys-store-path` | `String`  |                   | the public keys store path of license verifier worker. |
+|         `checker.enabled`         | `Boolean` |      `false`      |         the switch of license checker worker.          |
+|        `checker.ip-check`         | `Boolean` |      `false`      |        the switch of license checker ip check.         |
+|       `checker.ip-address`        |  `List`   |                   |       the switch of license checker ip address.        |
+|        `checker.mac-check`        | `Boolean` |      `false`      |        the switch of license checker mac check.        |
+|       `checker.mac-address`       |  `List`   |                   |       the switch of license checker mac address.       |
+|        `checker.cpu-check`        | `Boolean` |      `false`      |        the switch of license checker cpu check.        |
+|       `checker.cpu-serial`        | `String`  |                   |       the switch of license checker cpu serial.        |
+|       `checker.board-check`       | `Boolean` |      `false`      |       the switch of license checker board check.       |
+|      `checker.board-address`      | `String`  |                   |      the switch of license checker board address.      |
+|       `listener.intercept`        | `Boolean` |      `false`      |       the switch of license listener intercept.        |
+|        `listener.install`         | `Boolean` |      `false`      |        the switch of license listener install.         |
+|          `listener.stop`          | `Boolean` |      `false`      |      the switch of license listener server stop.       |
+
+* properties
+
+```properties
+
+#
+#nichetoolkit.rest.license.subject=rest-server
+#nichetoolkit.rest.license.store-pass=5rjbahNkhcCKpGtpT2Xs
+#nichetoolkit.rest.license.license-path=license/license.lic
+# server
+nichetoolkit.rest.license.creator.enabled=true
+nichetoolkit.rest.license.creator.subject=rest-server
+nichetoolkit.rest.license.creator.description=rest server info license
+nichetoolkit.rest.license.creator.store-pass=5rjbahNkhcCKpGtpT2Xs
+nichetoolkit.rest.license.creator.license-path=licenses/license.lic
+nichetoolkit.rest.license.creator.private-alias=privateKey
+nichetoolkit.rest.license.creator.key-pass=sCEuUecTNet3ZnUJaTxu
+nichetoolkit.rest.license.creator.private-keys-store-path=licenses/privateKeys.keystore
+nichetoolkit.rest.license.creator.issued-time=2025-11-01 00:00:00
+nichetoolkit.rest.license.creator.expiry-time=2025-11-02 00:00:00
+nichetoolkit.rest.license.creator.consumer-type=user
+nichetoolkit.rest.license.creator.consumer-size=1
+nichetoolkit.rest.license.checker.enabled=true
+nichetoolkit.rest.license.checker.ip-address=192.168.5.50
+nichetoolkit.rest.license.checker.ip-check=true
+nichetoolkit.rest.license.checker.mac-address=C0-BF-BE-EA-C5-24
+nichetoolkit.rest.license.checker.mac-check=true
+nichetoolkit.rest.license.checker.board-serial=Default string be filled by O.E.M
+nichetoolkit.rest.license.checker.board-check=true
+nichetoolkit.rest.license.checker.cpu-serial=BFEBFBFF000906A3
+nichetoolkit.rest.license.checker.cpu-check=true
+nichetoolkit.rest.license.verifier.enabled=true
+nichetoolkit.rest.license.verifier.subject=rest-server
+nichetoolkit.rest.license.verifier.store-pass=5rjbahNkhcCKpGtpT2Xs
+nichetoolkit.rest.license.verifier.license-path=licenses/license.lic
+nichetoolkit.rest.license.verifier.public-alias=publicCert
+nichetoolkit.rest.license.verifier.public-keys-store-path=licenses/publicCerts.keystore
+# after license create enable true
+nichetoolkit.rest.license.listener.intercept=true
+nichetoolkit.rest.license.listener.install=true
+nichetoolkit.rest.license.listener.stop=false
 ```
 
 #### http client configuration

@@ -105,6 +105,13 @@ public class RestLicenseProperties {
          * @see java.lang.Boolean
          */
         private Boolean install = false;
+
+        /**
+         * <code>stop</code>
+         * {@link java.lang.Boolean} <p>The <code>stop</code> field.</p>
+         * @see java.lang.Boolean
+         */
+        private Boolean stop = false;
     }
 
     /**
