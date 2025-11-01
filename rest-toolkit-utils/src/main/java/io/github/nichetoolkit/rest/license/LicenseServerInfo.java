@@ -145,7 +145,7 @@ public abstract class LicenseServerInfo implements RestServerInfo {
         LicenseExtraInfo extraInfo;
         try {
             setupServerContainer();
-            extraInfo = new LicenseExtraParam();
+            extraInfo = new LicenseExtraInfo();
             extraInfo.setIpAddress(ServerContainer.ipAddress);
             extraInfo.setMacAddress(ServerContainer.macAddress);
             extraInfo.setCpuSerial(ServerContainer.cpuSerial);
