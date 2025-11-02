@@ -1,7 +1,10 @@
 package io.github.nichetoolkit.rest.identity;
 
 import io.github.nichetoolkit.rest.RestError;
+import io.github.nichetoolkit.rest.RestOptional;
 import io.github.nichetoolkit.rest.configure.RestIdentityProperties;
+import io.github.nichetoolkit.rest.error.lack.ConfigureLackError;
+import io.github.nichetoolkit.rest.http.RestTemplates;
 import io.github.nichetoolkit.rest.identity.worker.IdentityWorker;
 import io.github.nichetoolkit.rest.identity.worker.WorkerType;
 import io.github.nichetoolkit.rest.util.JsonUtils;
@@ -49,12 +52,12 @@ public class IdentityFactory {
     }
 
     /**
-     * <code>getInstance</code>
-     * <p>The get instance getter method.</p>
-     * @return {@link io.github.nichetoolkit.rest.identity.IdentityFactory} <p>The get instance return object is <code>IdentityFactory</code> type.</p>
+     * <code>instance</code>
+     * <p>The instance method.</p>
+     * @return {@link io.github.nichetoolkit.rest.identity.IdentityFactory} <p>The instance return object is <code>IdentityFactory</code> type.</p>
      */
-    public static IdentityFactory getInstance() {
-        return INSTANCE;
+    public static IdentityFactory instance() {
+        return RestOptional.ofNullable(INSTANCE).orNullThrow(ConfigureLackError::new);
     }
 
     /**

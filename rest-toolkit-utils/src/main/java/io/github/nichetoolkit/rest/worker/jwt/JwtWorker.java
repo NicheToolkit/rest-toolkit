@@ -4,9 +4,12 @@ import io.fusionauth.jwt.Signer;
 import io.fusionauth.jwt.Verifier;
 import io.fusionauth.jwt.domain.JWT;
 import io.fusionauth.security.CryptoProvider;
+import io.github.nichetoolkit.rest.RestOptional;
 import io.github.nichetoolkit.rest.configure.RestJwtProperties;
+import io.github.nichetoolkit.rest.error.lack.ConfigureLackError;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import io.github.nichetoolkit.rest.util.JsonUtils;
+import io.github.nichetoolkit.rest.worker.RadixWorker;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -66,12 +69,12 @@ public class JwtWorker {
     private static JwtWorker INSTANCE = null;
 
     /**
-     * <code>getInstance</code>
-     * <p>The get instance getter method.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtWorker} <p>The get instance return object is <code>JwtWorker</code> type.</p>
+     * <code>instance</code>
+     * <p>The instance method.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtWorker} <p>The instance return object is <code>JwtWorker</code> type.</p>
      */
-    public static JwtWorker getInstance() {
-        return INSTANCE;
+    public static JwtWorker instance() {
+        return RestOptional.ofNullable(INSTANCE).orNullThrow(ConfigureLackError::new);
     }
 
     /**
@@ -107,7 +110,6 @@ public class JwtWorker {
         log.debug("The jwt        properties: {}", JsonUtils.parseJson(this.jwtProperties));
         INSTANCE = this;
     }
-
 
     /**
      * <code>generate</code>
@@ -242,7 +244,7 @@ public class JwtWorker {
      */
     public static String token(String subject)  {
         JwtBuilder jwtBuilder = builder(subject);
-        return token(jwtBuilder,INSTANCE.signer);
+        return token(jwtBuilder,instance().signer);
     }
 
     /**
@@ -255,7 +257,7 @@ public class JwtWorker {
      */
     public static String token(String uniqueId,String subject)  {
         JwtBuilder jwtBuilder = builder(uniqueId,subject);
-        return token(jwtBuilder,INSTANCE.signer);
+        return token(jwtBuilder,instance().signer);
     }
 
     /**
@@ -269,7 +271,7 @@ public class JwtWorker {
      */
     public static String token(String subject, Map<String, Object> claimsMap)  {
         JwtBuilder jwtBuilder = builder(subject, claimsMap);
-        return token(jwtBuilder,INSTANCE.signer);
+        return token(jwtBuilder,instance().signer);
     }
 
     /**
@@ -558,7 +560,7 @@ public class JwtWorker {
      * @see io.fusionauth.jwt.domain.JWT
      */
     public static JWT parse(String token) {
-        return parse(token,INSTANCE.verifier);
+        return parse(token,instance().verifier);
     }
 
     /**

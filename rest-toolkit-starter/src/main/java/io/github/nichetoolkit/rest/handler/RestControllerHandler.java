@@ -228,7 +228,16 @@ public class RestControllerHandler implements ResponseBodyAdvice<Object>, Initia
             if (commonExceptionEnabled) {
                 GeneralUtils.printStackTrace(log,exception,true);
             }
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(RestResult.mistake(RestErrorStatus.UNKNOWN_ERROR, exception));
+            Throwable cause = exception.getCause();
+            if (cause instanceof RestStatus) {
+                RestStatus restStatus = (RestStatus) cause;
+                return ResponseEntity.ok(restStatus.buildResult());
+            }  else if (exception instanceof RestStatus) {
+                RestStatus restStatus = (RestStatus) exception;
+                return ResponseEntity.ok(restStatus.buildResult());
+            } else {
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(RestResult.mistake(RestErrorStatus.UNKNOWN_ERROR, exception));
+            }
         }
     }
 

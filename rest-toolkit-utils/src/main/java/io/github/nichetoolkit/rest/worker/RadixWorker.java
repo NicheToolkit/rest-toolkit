@@ -1,6 +1,8 @@
 package io.github.nichetoolkit.rest.worker;
 
+import io.github.nichetoolkit.rest.RestOptional;
 import io.github.nichetoolkit.rest.configure.RestRadixProperties;
+import io.github.nichetoolkit.rest.error.lack.ConfigureLackError;
 import io.github.nichetoolkit.rest.util.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,12 +34,12 @@ public class RadixWorker {
     private static RadixWorker INSTANCE = null;
 
     /**
-     * <code>getInstance</code>
-     * <p>The get instance getter method.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.RadixWorker} <p>The get instance return object is <code>RadixWorker</code> type.</p>
+     * <code>instance</code>
+     * <p>The instance method.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.RadixWorker} <p>The instance return object is <code>RadixWorker</code> type.</p>
      */
-    public static RadixWorker getInstance() {
-        return INSTANCE;
+    public static RadixWorker instance() {
+        return RestOptional.ofNullable(INSTANCE).orNullThrow(ConfigureLackError::new);
     }
 
     /**
@@ -110,7 +112,7 @@ public class RadixWorker {
      * @see java.lang.String
      */
     public static synchronized String encrypts(Long source) {
-        return encrypts(source,INSTANCE.radixProperties);
+        return encrypts(source,instance().radixProperties);
     }
 
     /**
@@ -124,7 +126,7 @@ public class RadixWorker {
      * @see java.lang.String
      */
     public static synchronized String encrypts(Long source, char[] digits, char supply) {
-        return encrypts(source,digits,supply,INSTANCE.radixProperties.getMinLength());
+        return encrypts(source,digits,supply,instance().radixProperties.getMinLength());
     }
 
     /**
@@ -185,7 +187,7 @@ public class RadixWorker {
      * @see java.lang.Long
      */
     public static synchronized Long decrypts(String target) {
-        return decrypts(target,INSTANCE.radixProperties);
+        return decrypts(target,instance().radixProperties);
     }
 
     /**

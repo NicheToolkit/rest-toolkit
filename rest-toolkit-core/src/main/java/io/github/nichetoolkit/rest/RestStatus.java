@@ -35,5 +35,25 @@ public interface RestStatus extends RestValue<Integer,String> {
      */
     String getMessage();
 
+    /**
+     * <code>buildResult</code>
+     * <p>The build result method.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The build result return object is <code>RestResult</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestResult
+     */
+    default RestResult<?> buildResult() {
+        return RestResult.defaultBuilder().status(this.getStatus()).message(getMessage()).build();
+    }
 
+    /**
+     * <code>buildResult</code>
+     * <p>The build result method.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The build result return object is <code>RestResult</code> type.</p>
+     * @see java.lang.String
+     * @see io.github.nichetoolkit.rest.RestResult
+     */
+    default RestResult<?> buildResult(String message) {
+        return RestResult.defaultBuilder().status(this.getStatus()).message(message).build();
+    }
 }

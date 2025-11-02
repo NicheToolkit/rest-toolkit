@@ -1,12 +1,14 @@
 package io.github.nichetoolkit.rest.license;
 
+import io.github.nichetoolkit.rest.RestOptional;
 import io.github.nichetoolkit.rest.configure.RestLicenseProperties;
-import io.github.nichetoolkit.rest.util.BeanUtils;
+import io.github.nichetoolkit.rest.error.license.LicenseLackError;
 import io.github.nichetoolkit.rest.util.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
+import java.util.Optional;
 
 /**
  * <code>LicenseVerifierWorker</code>
@@ -58,10 +60,9 @@ public class LicenseVerifierWorker {
      * <p>The get instance getter method.</p>
      * @return {@link io.github.nichetoolkit.rest.license.LicenseVerifierWorker} <p>The get instance return object is <code>LicenseVerifierWorker</code> type.</p>
      */
-    public static LicenseVerifierWorker getInstance() {
-        return INSTANCE;
+    public static LicenseVerifierWorker instance() {
+        return RestOptional.ofNullable(INSTANCE).orNullThrow(LicenseLackError::new);
     }
-
 
     /**
      * <code>licenseVerify</code>
@@ -70,9 +71,8 @@ public class LicenseVerifierWorker {
      * @see io.github.nichetoolkit.rest.license.LicenseVerifyParam
      */
     public static LicenseVerifyParam licenseVerify() {
-        return INSTANCE.licenseVerify;
+        return instance().licenseVerify;
     }
-
 
     /**
      * <code>verifyLicense</code>

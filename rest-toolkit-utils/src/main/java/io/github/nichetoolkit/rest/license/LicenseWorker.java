@@ -31,7 +31,6 @@ public class LicenseWorker {
      */
     private final static X500Principal DEFAULT_HOLDER_AND_ISSUER = new X500Principal("CN=a, OU=a, O=a, L=a, ST=a, C=a");
 
-
     /**
      * <code>createLicense</code>
      * <p>The create license method.</p>

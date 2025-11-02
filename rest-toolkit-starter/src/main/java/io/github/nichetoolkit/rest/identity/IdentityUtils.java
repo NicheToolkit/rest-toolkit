@@ -19,7 +19,7 @@ public class IdentityUtils {
      * @see java.lang.Long
      */
     public static Long valueOfLong(WorkerType workerType) {
-        return IdentityFactory.getInstance().get(workerType).generate();
+        return IdentityFactory.instance().get(workerType).generate();
     }
 
     /**
@@ -31,7 +31,7 @@ public class IdentityUtils {
      * @see java.lang.String
      */
     public static String valueOfString(WorkerType workerType) {
-        return String.valueOf(IdentityFactory.getInstance().get(workerType).generate());
+        return String.valueOf(IdentityFactory.instance().get(workerType).generate());
     }
 
     /**

@@ -15,51 +15,57 @@ import lombok.Getter;
 @Getter
 public enum LicenseErrorStatus implements RestStatus {
     /**
+     * <code>LICENSE_LACK</code>
+     * {@link io.github.nichetoolkit.rest.error.license.LicenseErrorStatus} <p>The <code>LICENSE_LACK</code> field.</p>
+     */
+    LICENSE_LACK(11200, "The license service is unavailable. Please check the service configuration"),
+    /**
      * <code>LICENSE_ERROR</code>
      * {@link io.github.nichetoolkit.rest.error.license.LicenseErrorStatus} <p>The <code>LICENSE_ERROR</code> field.</p>
      */
-    LICENSE_ERROR(11200, "It has encountered a license related error"),
+    LICENSE_ERROR(11201, "It has encountered a license related error"),
+
     /**
      * <code>LICENSE_VERIFY_ERROR</code>
      * {@link io.github.nichetoolkit.rest.error.license.LicenseErrorStatus} <p>The <code>LICENSE_VERIFY_ERROR</code> field.</p>
      */
-    LICENSE_VERIFY_ERROR(11201, "It has encountered a license verify error"),
+    LICENSE_VERIFY_ERROR(11202, "It has encountered a license verify error"),
     /**
      * <code>LICENSE_CREATE_ERROR</code>
      * {@link io.github.nichetoolkit.rest.error.license.LicenseErrorStatus} <p>The <code>LICENSE_CREATE_ERROR</code> field.</p>
      */
-    LICENSE_CREATE_ERROR(11202, "It has encountered a license create error"),
+    LICENSE_CREATE_ERROR(11203, "It has encountered a license create error"),
 
     /**
      * <code>LICENSE_CREATE_SUCCESS</code>
      * {@link io.github.nichetoolkit.rest.error.license.LicenseErrorStatus} <p>The <code>LICENSE_CREATE_SUCCESS</code> field.</p>
      */
-    LICENSE_CREATE_SUCCESS(11203, "The license created is successful"),
+    LICENSE_CREATE_SUCCESS(11204, "The license created is successful"),
     /**
      * <code>LICENSE_CREATE_FAILURE</code>
      * {@link io.github.nichetoolkit.rest.error.license.LicenseErrorStatus} <p>The <code>LICENSE_CREATE_FAILURE</code> field.</p>
      */
-    LICENSE_CREATE_FAILURE(11204, "The license created is failed"),
+    LICENSE_CREATE_FAILURE(11205, "The license created is failed"),
     /**
      * <code>LICENSE_INSTALL_SUCCESS</code>
      * {@link io.github.nichetoolkit.rest.error.license.LicenseErrorStatus} <p>The <code>LICENSE_INSTALL_SUCCESS</code> field.</p>
      */
-    LICENSE_INSTALL_SUCCESS(11205, "The license installed is successful"),
+    LICENSE_INSTALL_SUCCESS(11206, "The license installed is successful"),
     /**
      * <code>LICENSE_INSTALL_FAILURE</code>
      * {@link io.github.nichetoolkit.rest.error.license.LicenseErrorStatus} <p>The <code>LICENSE_INSTALL_FAILURE</code> field.</p>
      */
-    LICENSE_INSTALL_FAILURE(11206, "The license installed is failed"),
+    LICENSE_INSTALL_FAILURE(11207, "The license installed is failed"),
     /**
      * <code>LICENSE_VERIFY_SUCCESS</code>
      * {@link io.github.nichetoolkit.rest.error.license.LicenseErrorStatus} <p>The <code>LICENSE_VERIFY_SUCCESS</code> field.</p>
      */
-    LICENSE_VERIFY_SUCCESS(11207, "The license verified is valid"),
+    LICENSE_VERIFY_SUCCESS(11208, "The license verified is valid"),
     /**
      * <code>LICENSE_VERIFY_FAILURE</code>
      * {@link io.github.nichetoolkit.rest.error.license.LicenseErrorStatus} <p>The <code>LICENSE_VERIFY_FAILURE</code> field.</p>
      */
-    LICENSE_VERIFY_FAILURE(11208, "The license verified is invalid"),
+    LICENSE_VERIFY_FAILURE(11209, "The license verified is invalid"),
 
     /**
      * <code>LICENSE_NOT_INSTALLED_ERROR</code>

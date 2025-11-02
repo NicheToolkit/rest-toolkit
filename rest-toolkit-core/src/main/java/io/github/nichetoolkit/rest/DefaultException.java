@@ -544,6 +544,7 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The build result return object is <code>RestResult</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestResult
      */
+    @Override
     public final RestResult<?> buildResult() {
         return RestResult.defaultBuilder().status(this.status).message(getMessage()).data(this.error).build();
     }
@@ -556,6 +557,7 @@ public class DefaultException extends Exception implements RestStatus, Supplier<
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestResult
      */
+    @Override
     public final RestResult<?> buildResult(String message) {
         return RestResult.defaultBuilder().status(this.status).message(message).data(this.error).build();
     }

@@ -1,6 +1,8 @@
 package io.github.nichetoolkit.rest.identity;
 
 import io.github.nichetoolkit.rest.RestException;
+import io.github.nichetoolkit.rest.RestOptional;
+import io.github.nichetoolkit.rest.error.lack.ConfigureLackError;
 import io.github.nichetoolkit.rest.http.RestTemplates;
 import io.github.nichetoolkit.rest.configure.RestIdentityProperties;
 import io.github.nichetoolkit.rest.identity.error.IdentityWorkerException;
@@ -67,12 +69,12 @@ public class IdentityManager implements ApplicationRunner {
     }
 
     /**
-     * <code>getInstance</code>
-     * <p>The get instance getter method.</p>
-     * @return {@link io.github.nichetoolkit.rest.identity.IdentityManager} <p>The get instance return object is <code>IdentityManager</code> type.</p>
+     * <code>instance</code>
+     * <p>The instance method.</p>
+     * @return {@link io.github.nichetoolkit.rest.identity.IdentityManager} <p>The instance return object is <code>IdentityManager</code> type.</p>
      */
-    public static IdentityManager getInstance() {
-        return INSTANCE;
+    public static IdentityManager instance() {
+        return RestOptional.ofNullable(INSTANCE).orNullThrow(ConfigureLackError::new);
     }
 
     /**
@@ -82,7 +84,7 @@ public class IdentityManager implements ApplicationRunner {
      * @see org.springframework.core.env.Environment
      */
     public static Environment getEnvironment() {
-        return IdentityManager.getInstance().environment;
+        return IdentityManager.instance().environment;
     }
 
     /**
@@ -151,7 +153,7 @@ public class IdentityManager implements ApplicationRunner {
     public static WorkerConfig workerConfig() throws RestException {
         String server = IdentityManager.serverConfig().toServer();
         MultiValueMap<String, String> serverId = RestTemplates.singletonMap("serverId", server);
-        return RestTemplates.getObject(IdentityManager.getInstance().identityProperties.getServer().uri(), serverId, WorkerConfig.class);
+        return RestTemplates.getObject(IdentityManager.instance().identityProperties.getServer().uri(), serverId, WorkerConfig.class);
     }
 
 

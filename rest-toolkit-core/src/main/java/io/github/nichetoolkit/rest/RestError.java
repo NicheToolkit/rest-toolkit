@@ -1211,6 +1211,31 @@ public class RestError extends DefaultError implements RestStatus, Supplier<Rest
         return (new RestError.Builder()).status(restError).status(status).resource(restError.getResource()).message(message).addAll(restError.getIssues()).cause(restError.getCause()).build();
     }
 
+
+    /**
+     * <code>buildResult</code>
+     * <p>The build result method.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The build result return object is <code>RestResult</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestResult
+     */
+    @Override
+    public final RestResult<?> buildResult() {
+        return RestResult.defaultBuilder().status(this.status).message(getMessage()).data(this).build();
+    }
+
+    /**
+     * <code>buildResult</code>
+     * <p>The build result method.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The build result return object is <code>RestResult</code> type.</p>
+     * @see java.lang.String
+     * @see io.github.nichetoolkit.rest.RestResult
+     */
+    @Override
+    public final RestResult<?> buildResult(String message) {
+        return RestResult.defaultBuilder().status(this.status).message(message).data(this).build();
+    }
+
     @Override
     public String toString() {
         String errorType = getClass().getSimpleName();

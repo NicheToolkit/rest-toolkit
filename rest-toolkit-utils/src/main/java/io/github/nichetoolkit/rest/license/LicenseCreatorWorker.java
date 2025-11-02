@@ -1,11 +1,12 @@
 package io.github.nichetoolkit.rest.license;
 
+import io.github.nichetoolkit.rest.RestOptional;
 import io.github.nichetoolkit.rest.configure.RestLicenseProperties;
+import io.github.nichetoolkit.rest.error.license.LicenseLackError;
+import io.github.nichetoolkit.rest.error.supply.ResourceNotFoundException;
 import io.github.nichetoolkit.rest.util.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.util.ResourceUtils;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
@@ -69,13 +70,22 @@ public class LicenseCreatorWorker {
     }
 
     /**
+     * <code>instance</code>
+     * <p>The instance method.</p>
+     * @return {@link io.github.nichetoolkit.rest.license.LicenseCreatorWorker} <p>The instance return object is <code>LicenseCreatorWorker</code> type.</p>
+     */
+    public static LicenseCreatorWorker instance() {
+        return RestOptional.ofNullable(INSTANCE).orNullThrow(LicenseLackError::new);
+    }
+
+    /**
      * <code>refreshLicense</code>
      * <p>The refresh license method.</p>
      * @param licensePath {@link java.lang.String} <p>The license path parameter is <code>String</code> type.</p>
      * @see java.lang.String
      */
     private static void refreshLicense(String licensePath) {
-        INSTANCE.licenseCreate.setLicensePath(licensePath);
+        instance().licenseCreate.setLicensePath(licensePath);
     }
 
     /**
@@ -85,7 +95,7 @@ public class LicenseCreatorWorker {
      * @see io.github.nichetoolkit.rest.configure.RestLicenseProperties
      */
     public static RestLicenseProperties licenseProperties() {
-        return INSTANCE.licenseProperties;
+        return instance().licenseProperties;
     }
 
     /**
@@ -95,16 +105,7 @@ public class LicenseCreatorWorker {
      * @see io.github.nichetoolkit.rest.license.LicenseCreateParam
      */
     public static LicenseCreateParam licenseCreate() {
-        return INSTANCE.licenseCreate;
-    }
-
-    /**
-     * <code>getInstance</code>
-     * <p>The get instance getter method.</p>
-     * @return {@link io.github.nichetoolkit.rest.license.LicenseCreatorWorker} <p>The get instance return object is <code>LicenseCreatorWorker</code> type.</p>
-     */
-    public static LicenseCreatorWorker getInstance() {
-        return INSTANCE;
+        return instance().licenseCreate;
     }
 
     /**
@@ -126,10 +127,21 @@ public class LicenseCreatorWorker {
      * @see io.github.nichetoolkit.rest.license.LicenseResult
      */
     public static synchronized LicenseResult createLicense(LicenseCreateParam createParam) {
-        LicenseCreateParam generateParam = LicenseCreateParam.builder().build();
-        BeanUtils.copyNonnullProperties(licenseCreate(), generateParam);
+        LicenseCreateParam generateParam = null;
+        LicenseCreateParam licenseCreate = licenseCreate();
+        if (GeneralUtils.isNotEmpty(licenseCreate)) {
+            generateParam = LicenseCreateParam.builder().build();
+            BeanUtils.copyNonnullProperties(licenseCreate, generateParam);
+        }
         if (GeneralUtils.isNotEmpty(createParam)) {
-            BeanUtils.copyNonnullProperties(createParam, generateParam);
+            if (GeneralUtils.isEmpty(generateParam)) {
+                generateParam = createParam;
+            } else {
+                BeanUtils.copyNonnullProperties(createParam, generateParam);
+            }
+        }
+        if (GeneralUtils.isEmpty(generateParam)) {
+            throw new LicenseLackError();
         }
         String licensePath = generateParam.getLicensePath();
         String parentPath;
@@ -172,15 +184,16 @@ public class LicenseCreatorWorker {
      * @param licensePath {@link java.lang.String} <p>The license path parameter is <code>String</code> type.</p>
      * @param request     {@link javax.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
      * @param response    {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @throws ResourceNotFoundException {@link io.github.nichetoolkit.rest.error.supply.ResourceNotFoundException} <p>The resource not found exception is <code>ResourceNotFoundException</code> type.</p>
      * @see java.lang.String
      * @see javax.servlet.http.HttpServletRequest
      * @see javax.servlet.http.HttpServletResponse
+     * @see io.github.nichetoolkit.rest.error.supply.ResourceNotFoundException
      */
-    public static void downloadLicense(String licensePath, HttpServletRequest request, HttpServletResponse response) {
+    public static void downloadLicense(String licensePath, HttpServletRequest request, HttpServletResponse response) throws ResourceNotFoundException {
         File file = new File(licensePath);
         if(!file.exists()){
-            response.setStatus(HttpStatus.NOT_FOUND.value());
-            return;
+            throw new ResourceNotFoundException();
         }
         String fileName = file.getName();
         response.setContentType("multipart/form-data");

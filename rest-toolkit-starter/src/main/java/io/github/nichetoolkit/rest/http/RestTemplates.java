@@ -4,13 +4,16 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.type.TypeFactory;
 import io.github.nichetoolkit.rest.RestException;
+import io.github.nichetoolkit.rest.RestOptional;
 import io.github.nichetoolkit.rest.RestResult;
 import io.github.nichetoolkit.rest.constant.RestConstants;
+import io.github.nichetoolkit.rest.error.lack.ConfigureLackError;
 import io.github.nichetoolkit.rest.error.network.HttpErrorException;
 import io.github.nichetoolkit.rest.error.network.HttpResultDataNullException;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import io.github.nichetoolkit.rest.util.JsonUtils;
 import io.github.nichetoolkit.rest.util.OptionalUtils;
+import io.github.nichetoolkit.rest.worker.sha.ShaWorker;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
@@ -49,6 +52,15 @@ public class RestTemplates {
      * {@link io.github.nichetoolkit.rest.http.RestTemplates} <p>The constant <code>INSTANCE</code> field.</p>
      */
     private static RestTemplates INSTANCE;
+
+    /**
+     * <code>instance</code>
+     * <p>The instance method.</p>
+     * @return {@link io.github.nichetoolkit.rest.http.RestTemplates} <p>The instance return object is <code>RestTemplates</code> type.</p>
+     */
+    public static RestTemplates instance() {
+        return RestOptional.ofNullable(INSTANCE).orNullThrow(ConfigureLackError::new);
+    }
 
     /**
      * <code>RestTemplates</code>
@@ -4818,7 +4830,7 @@ public class RestTemplates {
      */
     private static String postString(String url, HttpEntity httpEntity) throws HttpErrorException {
         try {
-            return INSTANCE.restTemplate.postForObject(url, httpEntity, String.class);
+            return instance().restTemplate.postForObject(url, httpEntity, String.class);
         } catch (RestClientException exception) {
             log.error("the request of restTemplate 'postForObject' for 'postString' method with url has error: {}", exception.getMessage());
             throw new HttpErrorException("postForObject", exception.getMessage(), exception);
@@ -4841,7 +4853,7 @@ public class RestTemplates {
     private static String postString(String url, HttpEntity httpEntity, MultiValueMap<String, String> params) throws HttpErrorException {
         try {
             UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url).queryParams(params);
-            return INSTANCE.restTemplate.postForObject(builder.toUriString(), httpEntity, String.class);
+            return instance().restTemplate.postForObject(builder.toUriString(), httpEntity, String.class);
         } catch (RestClientException exception) {
             log.error("the request with restTemplate 'postForObject' for 'postString' method with params has error: {}", exception.getMessage());
             throw new HttpErrorException("postForObject", exception.getMessage(), exception);
@@ -4862,7 +4874,7 @@ public class RestTemplates {
      */
     private static ResponseEntity<RestResult> postEntityResult(String url, HttpEntity httpEntity) throws HttpErrorException {
         try {
-            return INSTANCE.restTemplate.postForEntity(url, httpEntity, RestResult.class);
+            return instance().restTemplate.postForEntity(url, httpEntity, RestResult.class);
         } catch (RestClientException exception) {
             log.error("the post entity result request with restTemplate 'postForEntity' for 'postEntityResult' method with url has error: {}", exception.getMessage());
             throw new HttpErrorException("postForEntity", exception.getMessage(), exception);
@@ -4886,7 +4898,7 @@ public class RestTemplates {
     private static ResponseEntity<RestResult> postEntityResult(String url, HttpEntity httpEntity, MultiValueMap<String, String> params) throws HttpErrorException {
         try {
             UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url).queryParams(params);
-            return INSTANCE.restTemplate.postForEntity(builder.toUriString(), httpEntity, RestResult.class);
+            return instance().restTemplate.postForEntity(builder.toUriString(), httpEntity, RestResult.class);
         } catch (RestClientException exception) {
             log.error("the request of restTemplate 'postForEntity' for 'postEntityResult' method with params has error: {}", exception.getMessage());
             throw new HttpErrorException("postForEntity", exception.getMessage(), exception);
@@ -4910,7 +4922,7 @@ public class RestTemplates {
      */
     private static <T> ResponseEntity<T> postEntityObject(String url, HttpEntity httpEntity, Class<T> clazz) throws HttpErrorException {
         try {
-            return INSTANCE.restTemplate.postForEntity(url, httpEntity, clazz);
+            return instance().restTemplate.postForEntity(url, httpEntity, clazz);
         } catch (RestClientException exception) {
             log.error("the request with restTemplate 'postForEntity' for 'postEntityObject' method with class type has error: {}", exception.getMessage());
             throw new HttpErrorException("postForEntity", exception.getMessage(), exception);
@@ -4937,7 +4949,7 @@ public class RestTemplates {
     private static <T> ResponseEntity<T> postEntityObject(String url, HttpEntity httpEntity, MultiValueMap<String, String> params, Class<T> clazz) throws HttpErrorException {
         try {
             UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url).queryParams(params);
-            return INSTANCE.restTemplate.postForEntity(builder.toUriString(), httpEntity, clazz);
+            return instance().restTemplate.postForEntity(builder.toUriString(), httpEntity, clazz);
         } catch (RestClientException exception) {
             log.error("the request with restTemplate 'postForEntity' for 'postEntityObject' method has error: {}", exception.getMessage());
             throw new HttpErrorException("postForEntity", exception.getMessage(), exception);
@@ -5516,7 +5528,7 @@ public class RestTemplates {
      */
     private static String getString(String url) throws HttpErrorException {
         try {
-            return INSTANCE.restTemplate.getForObject(url, String.class);
+            return instance().restTemplate.getForObject(url, String.class);
         } catch (RestClientException exception) {
             log.error("the request with restTemplate 'getForObject' for 'getString' method with url has error: {}", exception.getMessage());
             throw new HttpErrorException("getForObject", exception.getMessage(), exception);
@@ -5537,7 +5549,7 @@ public class RestTemplates {
     private static String getString(String url, MultiValueMap<String, String> params) throws HttpErrorException {
         try {
             UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url).queryParams(params);
-            return INSTANCE.restTemplate.getForObject(builder.toUriString(), String.class);
+            return instance().restTemplate.getForObject(builder.toUriString(), String.class);
         } catch (RestClientException exception) {
             log.error("the request with restTemplate 'getForObject' for 'getString' method has error: {}", exception.getMessage());
             throw new HttpErrorException("getForObject", exception.getMessage(), exception);
@@ -5560,7 +5572,7 @@ public class RestTemplates {
      */
     private static <T> ResponseEntity<T> getEntityObject(String url, Class<T> clazz) throws HttpErrorException {
         try {
-            return INSTANCE.restTemplate.getForEntity(url, clazz);
+            return instance().restTemplate.getForEntity(url, clazz);
         } catch (RestClientException exception) {
             log.error("the request with restTemplate 'getForEntity' for 'getEntityObject' method has error: {}", exception.getMessage());
             throw new HttpErrorException("getForEntity", exception.getMessage(), exception);
@@ -5585,7 +5597,7 @@ public class RestTemplates {
     private static <T> ResponseEntity<T> getEntityObject(String url, MultiValueMap<String, String> params, Class<T> clazz) throws HttpErrorException {
         try {
             UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url).queryParams(params);
-            return INSTANCE.restTemplate.getForEntity(builder.toUriString(), clazz);
+            return instance().restTemplate.getForEntity(builder.toUriString(), clazz);
         } catch (RestClientException exception) {
             log.error("the request with restTemplate 'getForEntity' method has error: {}", exception.getMessage());
             throw new HttpErrorException("getForEntity", exception.getMessage(), exception);
@@ -5604,7 +5616,7 @@ public class RestTemplates {
      */
     private static ResponseEntity<RestResult> getEntityResult(String url) throws HttpErrorException {
         try {
-            return INSTANCE.restTemplate.getForEntity(url, RestResult.class);
+            return instance().restTemplate.getForEntity(url, RestResult.class);
         } catch (RestClientException exception) {
             log.error("the request with restTemplate 'getForEntity' for 'getEntityResult' method with params has error: {}", exception.getMessage());
             throw new HttpErrorException("getEntityResult", exception.getMessage(), exception);
@@ -5626,7 +5638,7 @@ public class RestTemplates {
     private static ResponseEntity<RestResult> getEntityResult(String url, MultiValueMap<String, String> params) throws HttpErrorException {
         try {
             UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url).queryParams(params);
-            return INSTANCE.restTemplate.getForEntity(builder.toUriString(), RestResult.class);
+            return instance().restTemplate.getForEntity(builder.toUriString(), RestResult.class);
         } catch (RestClientException exception) {
             log.error("the request with restTemplate 'getForEntity' for 'getEntityResult' method with url and params has error: {}", exception.getMessage());
             throw new HttpErrorException("getEntityResult", exception.getMessage(), exception);
@@ -5894,7 +5906,7 @@ public class RestTemplates {
     private static ResponseEntity<String> exchangeEntityString(String url, HttpMethod httpMethod, HttpEntity httpEntity, MultiValueMap<String, String> params) throws HttpErrorException {
         try {
             UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url).queryParams(params);
-            return INSTANCE.restTemplate.exchange(builder.toUriString(), httpMethod, httpEntity, String.class);
+            return instance().restTemplate.exchange(builder.toUriString(), httpMethod, httpEntity, String.class);
         } catch (RestClientException exception) {
             log.error("the request with restTemplate 'exchange' for 'exchangeEntityString' method with params has error: {}", exception.getMessage());
             throw new HttpErrorException("exchangeEntityString", exception.getMessage(), exception);
@@ -5920,7 +5932,7 @@ public class RestTemplates {
     private static ResponseEntity<RestResult> exchangeEntityResult(String url, HttpMethod httpMethod, HttpEntity httpEntity, MultiValueMap<String, String> params) throws HttpErrorException {
         try {
             UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url).queryParams(params);
-            return INSTANCE.restTemplate.exchange(builder.toUriString(), httpMethod, httpEntity, RestResult.class);
+            return instance().restTemplate.exchange(builder.toUriString(), httpMethod, httpEntity, RestResult.class);
         } catch (RestClientException exception) {
             log.error("the request with restTemplate 'exchange' for 'exchangeEntityObject' method with params has error: {}", exception.getMessage());
             throw new HttpErrorException("exchangeEntityResult", exception.getMessage(), exception);
@@ -5949,7 +5961,7 @@ public class RestTemplates {
     private static <T> ResponseEntity<T> exchangeEntityObject(String url, HttpMethod httpMethod, HttpEntity httpEntity, MultiValueMap<String, String> params, Class<T> clazz) throws HttpErrorException {
         try {
             UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url).queryParams(params);
-            return INSTANCE.restTemplate.exchange(builder.toUriString(), httpMethod, httpEntity, clazz);
+            return instance().restTemplate.exchange(builder.toUriString(), httpMethod, httpEntity, clazz);
         } catch (RestClientException exception) {
             log.error("the request with restTemplate 'exchange' for 'exchangeEntityObject' method with class type has error: {}", exception.getMessage());
             throw new HttpErrorException("exchangeEntityObject", exception.getMessage(), exception);

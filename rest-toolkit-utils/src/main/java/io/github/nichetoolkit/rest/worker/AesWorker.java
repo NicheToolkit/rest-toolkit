@@ -1,6 +1,8 @@
 package io.github.nichetoolkit.rest.worker;
 
+import io.github.nichetoolkit.rest.RestOptional;
 import io.github.nichetoolkit.rest.configure.RestAesProperties;
+import io.github.nichetoolkit.rest.error.lack.ConfigureLackError;
 import io.github.nichetoolkit.rest.util.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,15 +57,6 @@ public class AesWorker {
     private static AesWorker INSTANCE = null;
 
     /**
-     * <code>getInstance</code>
-     * <p>The get instance getter method.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.AesWorker} <p>The get instance return object is <code>AesWorker</code> type.</p>
-     */
-    public static AesWorker getInstance() {
-        return INSTANCE;
-    }
-
-    /**
      * <code>AesWorker</code>
      * <p>Instantiates a new aes worker.</p>
      * @param aesProperties {@link io.github.nichetoolkit.rest.configure.RestAesProperties} <p>The aes properties parameter is <code>RestAesProperties</code> type.</p>
@@ -84,6 +77,15 @@ public class AesWorker {
     public void radixWorkerInit() {
         log.debug("The aes      properties: {}", JsonUtils.parseJson(aesProperties));
         INSTANCE = this;
+    }
+
+    /**
+     * <code>instance</code>
+     * <p>The instance method.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.AesWorker} <p>The instance return object is <code>AesWorker</code> type.</p>
+     */
+    public static AesWorker instance() {
+        return RestOptional.ofNullable(INSTANCE).orNullThrow(ConfigureLackError::new);
     }
 
     /**
@@ -129,7 +131,7 @@ public class AesWorker {
      * @see java.lang.String
      */
     public static synchronized String encrypts(String source) {
-        return encrypts(source, INSTANCE.aesProperties.getSecretKey(), INSTANCE.aesProperties.getSecretIv());
+        return encrypts(source, instance().aesProperties.getSecretKey(), instance().aesProperties.getSecretIv());
     }
 
     /**
@@ -141,7 +143,7 @@ public class AesWorker {
      * @see java.lang.String
      */
     public static synchronized String encrypts(String source, String secretIv) {
-        return encrypts(source, INSTANCE.aesProperties.getSecretKey(), secretIv);
+        return encrypts(source, instance().aesProperties.getSecretKey(), secretIv);
     }
 
     /**
@@ -189,7 +191,7 @@ public class AesWorker {
      * @see java.lang.String
      */
     public static synchronized String decrypts(String target) {
-        return decrypts(target, INSTANCE.aesProperties.getSecretKey(), INSTANCE.aesProperties.getSecretIv());
+        return decrypts(target, instance().aesProperties.getSecretKey(), instance().aesProperties.getSecretIv());
     }
 
     /**
@@ -201,7 +203,7 @@ public class AesWorker {
      * @see java.lang.String
      */
     public static synchronized String decrypts(String target, String secretIv) {
-        return decrypts(target, INSTANCE.aesProperties.getSecretKey(), secretIv);
+        return decrypts(target, instance().aesProperties.getSecretKey(), secretIv);
     }
 
     /**

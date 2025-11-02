@@ -1,7 +1,10 @@
 package io.github.nichetoolkit.rest.worker.sha;
 
+import io.github.nichetoolkit.rest.RestOptional;
 import io.github.nichetoolkit.rest.configure.RestShaProperties;
+import io.github.nichetoolkit.rest.error.lack.ConfigureLackError;
 import io.github.nichetoolkit.rest.util.JsonUtils;
+import io.github.nichetoolkit.rest.worker.rsa.RsaWorker;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -52,12 +55,12 @@ public class ShaWorker {
     private static ShaWorker INSTANCE = null;
 
     /**
-     * <code>getInstance</code>
-     * <p>The get instance getter method.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.sha.ShaWorker} <p>The get instance return object is <code>ShaWorker</code> type.</p>
+     * <code>instance</code>
+     * <p>The instance method.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.sha.ShaWorker} <p>The instance return object is <code>ShaWorker</code> type.</p>
      */
-    public static ShaWorker getInstance() {
-        return INSTANCE;
+    public static ShaWorker instance() {
+        return RestOptional.ofNullable(INSTANCE).orNullThrow(ConfigureLackError::new);
     }
 
     /**
@@ -91,7 +94,7 @@ public class ShaWorker {
      * @see java.lang.String
      */
     private static String shaEncrypt(String source) {
-        return encrypt(source,INSTANCE.shaProperties.getAlgorithm());
+        return encrypt(source,instance().shaProperties.getAlgorithm());
     }
 
     /**
@@ -136,7 +139,7 @@ public class ShaWorker {
      * @see java.lang.String
      */
     public static String encrypts(String source) {
-        return encrypts(source,INSTANCE.shaProperties.getSecret());
+        return encrypts(source,instance().shaProperties.getSecret());
     }
 
     /**

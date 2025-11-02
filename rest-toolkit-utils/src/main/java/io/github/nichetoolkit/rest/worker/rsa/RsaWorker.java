@@ -1,8 +1,11 @@
 package io.github.nichetoolkit.rest.worker.rsa;
 
+import io.github.nichetoolkit.rest.RestOptional;
 import io.github.nichetoolkit.rest.configure.RestRsaProperties;
+import io.github.nichetoolkit.rest.error.lack.ConfigureLackError;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import io.github.nichetoolkit.rest.util.JsonUtils;
+import io.github.nichetoolkit.rest.worker.jwt.JwtWorker;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.binary.Base64;
 import org.bouncycastle.asn1.ASN1Encodable;
@@ -49,12 +52,12 @@ public class RsaWorker {
     private static RsaWorker INSTANCE = null;
 
     /**
-     * <code>getInstance</code>
-     * <p>The get instance getter method.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.rsa.RsaWorker} <p>The get instance return object is <code>RsaWorker</code> type.</p>
+     * <code>instance</code>
+     * <p>The instance method.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.rsa.RsaWorker} <p>The instance return object is <code>RsaWorker</code> type.</p>
      */
-    public static RsaWorker getInstance() {
-        return INSTANCE;
+    public static RsaWorker instance() {
+        return RestOptional.ofNullable(INSTANCE).orNullThrow(ConfigureLackError::new);
     }
 
     /**
@@ -101,7 +104,7 @@ public class RsaWorker {
      * @see io.github.nichetoolkit.rest.worker.rsa.RsaKey
      */
     public RsaKey generate() {
-        return generates(INSTANCE.rsaProperties.getKeySize());
+        return generates(instance().rsaProperties.getKeySize());
     }
 
     /**
@@ -206,7 +209,7 @@ public class RsaWorker {
      * @see java.lang.String
      */
     public String decrypt(String source) {
-        return decrypts(source, INSTANCE.rsaProperties.getPrivateKey());
+        return decrypts(source, instance().rsaProperties.getPrivateKey());
     }
 
     /**
@@ -217,7 +220,7 @@ public class RsaWorker {
      * @see java.lang.String
      */
     public String decrypt(byte[] sourceBytes) {
-        return decrypts(sourceBytes, INSTANCE.rsaProperties.getPrivateKey());
+        return decrypts(sourceBytes, instance().rsaProperties.getPrivateKey());
     }
 
     /**
@@ -345,7 +348,7 @@ public class RsaWorker {
      * @see io.github.nichetoolkit.rest.worker.rsa.RsaKey
      */
     public static RsaKey generates() {
-        return generates(INSTANCE.rsaProperties.getKeySize());
+        return generates(instance().rsaProperties.getKeySize());
     }
 
     /**
@@ -389,7 +392,7 @@ public class RsaWorker {
      * @see java.lang.String
      */
     public static String encrypts(String source) {
-        String publicKey = INSTANCE.rsaProperties.getPublicKey();
+        String publicKey = instance().rsaProperties.getPublicKey();
         return encrypts(source, publicKey);
     }
 
@@ -401,7 +404,7 @@ public class RsaWorker {
      * @see java.lang.String
      */
     public static String encrypts(byte[] sourceBytes) {
-        String publicKey = INSTANCE.rsaProperties.getPublicKey();
+        String publicKey = instance().rsaProperties.getPublicKey();
         return encrypts(sourceBytes, publicKey);
     }
 
@@ -413,7 +416,7 @@ public class RsaWorker {
      * @see java.lang.String
      */
     public static String decrypts(String source) {
-        String privateKey = INSTANCE.rsaProperties.getPrivateKey();
+        String privateKey = instance().rsaProperties.getPrivateKey();
         return decrypts(source, privateKey);
     }
 
@@ -425,7 +428,7 @@ public class RsaWorker {
      * @see java.lang.String
      */
     public static String decrypts(byte[] sourceBytes) {
-        String privateKey = INSTANCE.rsaProperties.getPrivateKey();
+        String privateKey = instance().rsaProperties.getPrivateKey();
         return decrypts(sourceBytes, privateKey);
     }
 
@@ -439,7 +442,7 @@ public class RsaWorker {
      */
     public static String decrypts(String source, String privateKeySecret) {
         PrivateKey privateKey = privateKey(privateKeySecret);
-        return decrypts(source, privateKey, INSTANCE.rsaProperties.getKeySize() / 8);
+        return decrypts(source, privateKey, instance().rsaProperties.getKeySize() / 8);
     }
 
     /**
@@ -452,7 +455,7 @@ public class RsaWorker {
      */
     public static String decrypts(byte[] sourceBytes, String privateKeySecret) {
         PrivateKey privateKey = privateKey(privateKeySecret);
-        return decrypts(sourceBytes, privateKey, INSTANCE.rsaProperties.getKeySize() / 8);
+        return decrypts(sourceBytes, privateKey, instance().rsaProperties.getKeySize() / 8);
     }
 
     /**
@@ -572,7 +575,7 @@ public class RsaWorker {
      */
     public static String encrypts(String source, String publicKeySecret) {
         PublicKey publicKey = publicKey(publicKeySecret);
-        return encrypts(source, publicKey, INSTANCE.rsaProperties.getKeySize() / 8 - 11);
+        return encrypts(source, publicKey, instance().rsaProperties.getKeySize() / 8 - 11);
     }
 
     /**
@@ -585,7 +588,7 @@ public class RsaWorker {
      */
     public static String encrypts(byte[] sourceBytes,  String publicKeySecret) {
         PublicKey publicKey = publicKey(publicKeySecret);
-        return encrypts(sourceBytes, publicKey, INSTANCE.rsaProperties.getKeySize() / 8 - 11);
+        return encrypts(sourceBytes, publicKey, instance().rsaProperties.getKeySize() / 8 - 11);
     }
 
     /**
