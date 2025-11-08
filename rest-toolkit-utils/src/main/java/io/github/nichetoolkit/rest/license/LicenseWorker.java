@@ -191,7 +191,7 @@ public class LicenseWorker {
         try {
             LicenseContent licenseContent = licenseManager.verify();
             log.info("The license verified has successfully!, issued time: [{} - {}]", DateUtils.formatTime(licenseContent.getNotBefore()), DateUtils.formatTime(licenseContent.getNotAfter()));
-            return LicenseResult.success(LicenseErrorStatus.LICENSE_CREATE_SUCCESS, licenseContent);
+            return LicenseResult.success(LicenseErrorStatus.LICENSE_VERIFY_SUCCESS, licenseContent);
         } catch (Exception exception) {
             log.error("The license verified has error, error: {}", exception.getMessage(), exception);
             return LicenseResult.failure(LicenseErrorStatus.LICENSE_VERIFY_FAILURE, exception);
