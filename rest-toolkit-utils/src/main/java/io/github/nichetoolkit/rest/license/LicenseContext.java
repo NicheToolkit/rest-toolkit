@@ -1,6 +1,7 @@
 package io.github.nichetoolkit.rest.license;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import de.schlichtherle.license.LicenseContent;
@@ -68,8 +69,8 @@ public class LicenseContext implements Serializable {
      */
     private Integer consumerSize;
     /**
-     * <code>info</code>
-     * {@link java.lang.String} <p>The <code>info</code> field.</p>
+     * <code>description</code>
+     * {@link java.lang.String} <p>The <code>description</code> field.</p>
      * @see java.lang.String
      */
     private String description;
@@ -77,7 +78,9 @@ public class LicenseContext implements Serializable {
      * <code>extra</code>
      * {@link java.lang.Object} <p>The <code>extra</code> field.</p>
      * @see java.lang.Object
+     * @see com.fasterxml.jackson.annotation.JsonIgnore
      */
+    @JsonIgnore
     private Object extra;
 
     /**
