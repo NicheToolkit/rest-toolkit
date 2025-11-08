@@ -14,6 +14,7 @@ import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <code>LicenseResult</code>
@@ -235,6 +236,20 @@ public class LicenseResult implements Serializable {
     }
 
     /**
+     * <code>getAvailableDays</code>
+     * <p>The get available days getter method.</p>
+     * @return {@link java.lang.Long} <p>The get available days return object is <code>Long</code> type.</p>
+     * @see java.lang.Long
+     */
+    public Long getAvailableDays() {
+        if (GeneralUtils.isNotEmpty(this.context) && GeneralUtils.isNotEmpty(this.context.getIssuedTime()) && GeneralUtils.isNotEmpty(this.context.getExpiryTime())) {
+            return DateUtils.offsetDays(this.context.getIssuedTime(), this.context.getExpiryTime());
+        }
+        return null;
+    }
+
+
+    /**
      * <code>getSurplusDays</code>
      * <p>The get surplus days getter method.</p>
      * @return {@link java.lang.Long} <p>The get surplus days return object is <code>Long</code> type.</p>
@@ -242,7 +257,7 @@ public class LicenseResult implements Serializable {
      */
     public Long getSurplusDays() {
         if (GeneralUtils.isNotEmpty(this.context) && GeneralUtils.isNotEmpty(this.context.getIssuedTime()) && GeneralUtils.isNotEmpty(this.context.getExpiryTime())) {
-            return DateUtils.offsetDays(this.context.getIssuedTime(), this.context.getExpiryTime());
+            return DateUtils.offsetDays(new Date(), this.context.getExpiryTime());
         }
         return null;
     }
