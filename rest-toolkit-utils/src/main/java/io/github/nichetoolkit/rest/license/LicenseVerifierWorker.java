@@ -56,9 +56,9 @@ public class LicenseVerifierWorker {
     }
 
     /**
-     * <code>getInstance</code>
-     * <p>The get instance getter method.</p>
-     * @return {@link io.github.nichetoolkit.rest.license.LicenseVerifierWorker} <p>The get instance return object is <code>LicenseVerifierWorker</code> type.</p>
+     * <code>instance</code>
+     * <p>The instance method.</p>
+     * @return {@link io.github.nichetoolkit.rest.license.LicenseVerifierWorker} <p>The instance return object is <code>LicenseVerifierWorker</code> type.</p>
      */
     public static LicenseVerifierWorker instance() {
         return RestOptional.ofNullable(INSTANCE).orNullThrow(LicenseLackError::new);
@@ -85,6 +85,16 @@ public class LicenseVerifierWorker {
     }
 
     /**
+     * <code>installLicense</code>
+     * <p>The install license method.</p>
+     * @return {@link io.github.nichetoolkit.rest.license.LicenseResult} <p>The install license return object is <code>LicenseResult</code> type.</p>
+     * @see io.github.nichetoolkit.rest.license.LicenseResult
+     */
+    public static LicenseResult installLicense() {
+        return installLicense(licenseVerify());
+    }
+
+    /**
      * <code>verifyLicense</code>
      * <p>The verify license method.</p>
      * @param licenseVerify {@link io.github.nichetoolkit.rest.license.LicenseVerifyParam} <p>The license verify parameter is <code>LicenseVerifyParam</code> type.</p>
@@ -94,6 +104,18 @@ public class LicenseVerifierWorker {
      */
     public static synchronized LicenseResult verifyLicense(LicenseVerifyParam licenseVerify) {
         return LicenseWorker.verifyLicense(licenseVerify);
+    }
+
+    /**
+     * <code>installLicense</code>
+     * <p>The install license method.</p>
+     * @param licenseVerify {@link io.github.nichetoolkit.rest.license.LicenseVerifyParam} <p>The license verify parameter is <code>LicenseVerifyParam</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.license.LicenseResult} <p>The install license return object is <code>LicenseResult</code> type.</p>
+     * @see io.github.nichetoolkit.rest.license.LicenseVerifyParam
+     * @see io.github.nichetoolkit.rest.license.LicenseResult
+     */
+    public static synchronized LicenseResult installLicense(LicenseVerifyParam licenseVerify) {
+        return LicenseWorker.installLicense(licenseVerify);
     }
 
 
