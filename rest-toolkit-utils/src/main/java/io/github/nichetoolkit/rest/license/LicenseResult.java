@@ -48,7 +48,7 @@ public class LicenseResult implements Serializable {
      * @see java.lang.Integer
      */
     /* 检验结果 */
-    private Integer errorCode = LicenseErrorStatus.LICENSE_ERROR.getStatus();
+    private Integer errorCode;
     /**
      * <code>message</code>
      * {@link java.lang.String} <p>The <code>message</code> field.</p>
@@ -106,6 +106,7 @@ public class LicenseResult implements Serializable {
     public LicenseResult(String message, Exception exception) {
         this.result = false;
         this.message = message;
+        this.errorCode = LicenseErrorStatus.LICENSE_ERROR.getStatus();
         this.exception = exception;
     }
 
