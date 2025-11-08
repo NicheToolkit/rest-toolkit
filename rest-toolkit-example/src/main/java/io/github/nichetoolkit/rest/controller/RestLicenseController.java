@@ -62,6 +62,19 @@ public class RestLicenseController {
     }
 
     /**
+     * <code>installLicense</code>
+     * <p>The install license method.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The install license return object is <code>RestResult</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestResult
+     * @see org.springframework.web.bind.annotation.RequestMapping
+     */
+    @RequestMapping(value = "/install", method = RequestMethod.GET)
+    public RestResult<LicenseResult> installLicense() {
+        LicenseResult licenseResult = LicenseVerifierWorker.installLicense();
+        return RestResult.success(licenseResult);
+    }
+
+    /**
      * <code>verifyLicense</code>
      * <p>The verify license method.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The verify license return object is <code>RestResult</code> type.</p>
