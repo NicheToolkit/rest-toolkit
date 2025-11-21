@@ -14,6 +14,7 @@ import java.util.Set;
  * <code>RestI18nResources</code>
  * <p>The rest i 18 n resources class.</p>
  * @author Cyan (snow22314@outlook.com)
+ * @see io.github.nichetoolkit.rest.RestI18n
  * @see lombok.Getter
  * @see lombok.Setter
  * @see lombok.experimental.SuperBuilder
@@ -94,7 +95,7 @@ public class RestI18nResources implements RestI18n {
      * <code>of</code>
      * <p>The of method.</p>
      * @param baseNames {@link java.lang.String} <p>The base names parameter is <code>String</code> type.</p>
-     * @return {@link RestI18nResources} <p>The of return object is <code>RestI18nResources</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.resource.RestI18nResources} <p>The of return object is <code>RestI18nResources</code> type.</p>
      * @see java.lang.String
      */
     public static RestI18nResources of(String... baseNames) {
@@ -105,7 +106,7 @@ public class RestI18nResources implements RestI18n {
      * <code>of</code>
      * <p>The of method.</p>
      * @param baseNames {@link java.util.Collection} <p>The base names parameter is <code>Collection</code> type.</p>
-     * @return {@link RestI18nResources} <p>The of return object is <code>RestI18nResources</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.resource.RestI18nResources} <p>The of return object is <code>RestI18nResources</code> type.</p>
      * @see java.util.Collection
      */
     public static RestI18nResources of(Collection<String> baseNames) {

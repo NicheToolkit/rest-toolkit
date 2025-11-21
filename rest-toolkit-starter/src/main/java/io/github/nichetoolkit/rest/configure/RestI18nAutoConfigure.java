@@ -121,7 +121,7 @@ public class RestI18nAutoConfigure {
          * {@link java.util.List} <p>The <code>i18nResources</code> field.</p>
          * @see java.util.List
          */
-        private final List<? extends RestI18n> i18nResources;
+        private final List<RestI18n> i18nResources;
 
         /**
          * <code>I18nMessageSourceAutoConfigure</code>
@@ -129,7 +129,7 @@ public class RestI18nAutoConfigure {
          * @param i18nResources {@link java.util.List} <p>The 18 n resources parameter is <code>List</code> type.</p>
          * @see java.util.List
          */
-        public I18nMessageSourceAutoConfigure(List<? extends RestI18n> i18nResources) {
+        public I18nMessageSourceAutoConfigure(List<RestI18n> i18nResources) {
             this.i18nResources = i18nResources;
             log.debug("The auto configuration for [i18n-message] initiated");
         }
