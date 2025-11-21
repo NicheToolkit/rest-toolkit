@@ -1,6 +1,6 @@
 package io.github.nichetoolkit.rest.configure;
 
-import io.github.nichetoolkit.rest.RestI18n;
+import io.github.nichetoolkit.rest.RestI18nResources;
 import io.github.nichetoolkit.rest.constant.RestConstants;
 import io.github.nichetoolkit.rest.holder.MessageSourceHolder;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
@@ -31,6 +31,7 @@ import java.util.*;
  * @see java.lang.SuppressWarnings
  * @see org.springframework.boot.context.properties.EnableConfigurationProperties
  * @see org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
+ * @see org.springframework.boot.autoconfigure.ImportAutoConfiguration
  * @since Jdk1.8
  */
 @Slf4j
@@ -61,15 +62,15 @@ public class RestI18nAutoConfigure {
     }
 
     /**
-     * <code>restI18nBasename</code>
-     * <p>The rest i 18 n basename method.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestI18n} <p>The rest i 18 n basename return object is <code>RestI18n</code> type.</p>
-     * @see io.github.nichetoolkit.rest.RestI18n
+     * <code>restI18nResource</code>
+     * <p>The rest i 18 n resource method.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestI18nResources} <p>The rest i 18 n resource return object is <code>RestI18nResources</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestI18nResources
      * @see org.springframework.context.annotation.Bean
      */
     @Bean
-    public RestI18n restI18nBasename() {
-        return () -> Collections.singleton(RestConstants.REST_I18N);
+    public RestI18nResources restI18nResource() {
+        return RestI18nResources.of(RestConstants.REST_I18N);
     }
 
     /**
@@ -115,20 +116,20 @@ public class RestI18nAutoConfigure {
     public class I18nMessageSourceAutoConfigure {
 
         /**
-         * <code>i18nBasename</code>
-         * {@link java.util.List} <p>The <code>i18nBasename</code> field.</p>
+         * <code>i18nResources</code>
+         * {@link java.util.List} <p>The <code>i18nResources</code> field.</p>
          * @see java.util.List
          */
-        private final List<RestI18n> i18nBasename;
+        private final List<RestI18nResources> i18nResources;
 
         /**
          * <code>I18nMessageSourceAutoConfigure</code>
          * <p>Instantiates a new 18 n message source auto configure.</p>
-         * @param i18nBasename {@link java.util.List} <p>The 18 n basename parameter is <code>List</code> type.</p>
+         * @param i18nResources {@link java.util.List} <p>The 18 n resources parameter is <code>List</code> type.</p>
          * @see java.util.List
          */
-        public I18nMessageSourceAutoConfigure(List<RestI18n> i18nBasename) {
-            this.i18nBasename = i18nBasename;
+        public I18nMessageSourceAutoConfigure(List<RestI18nResources> i18nResources) {
+            this.i18nResources = i18nResources;
             log.debug("The auto configuration for [i18n-message] initiated");
         }
 
@@ -149,7 +150,7 @@ public class RestI18nAutoConfigure {
             if (GeneralUtils.isNotEmpty(basenameArray)) {
                 basenameSet.addAll(Arrays.asList(basenameArray));
             }
-            i18nBasename.forEach(basename -> basenameSet.addAll(basename.getBaseNames()));
+            i18nResources.forEach(resources -> basenameSet.addAll(resources.getBaseNames()));
             source.setBasenames(basenameSet.toArray(new String[0]));
             source.setUseCodeAsDefaultMessage(false);
             source.setDefaultEncoding(i18nProperties.getCharset().getKey());
