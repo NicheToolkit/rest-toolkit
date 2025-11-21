@@ -1,6 +1,7 @@
 package io.github.nichetoolkit.rest.configure;
 
-import io.github.nichetoolkit.rest.RestI18nResources;
+import io.github.nichetoolkit.rest.RestI18n;
+import io.github.nichetoolkit.rest.resource.RestI18nResources;
 import io.github.nichetoolkit.rest.constant.RestConstants;
 import io.github.nichetoolkit.rest.holder.MessageSourceHolder;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
@@ -64,8 +65,8 @@ public class RestI18nAutoConfigure {
     /**
      * <code>restI18nResource</code>
      * <p>The rest i 18 n resource method.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestI18nResources} <p>The rest i 18 n resource return object is <code>RestI18nResources</code> type.</p>
-     * @see io.github.nichetoolkit.rest.RestI18nResources
+     * @return {@link io.github.nichetoolkit.rest.resource.RestI18nResources} <p>The rest i 18 n resource return object is <code>RestI18nResources</code> type.</p>
+     * @see io.github.nichetoolkit.rest.resource.RestI18nResources
      * @see org.springframework.context.annotation.Bean
      */
     @Bean
@@ -120,7 +121,7 @@ public class RestI18nAutoConfigure {
          * {@link java.util.List} <p>The <code>i18nResources</code> field.</p>
          * @see java.util.List
          */
-        private final List<RestI18nResources> i18nResources;
+        private final List<? extends RestI18n> i18nResources;
 
         /**
          * <code>I18nMessageSourceAutoConfigure</code>
@@ -128,7 +129,7 @@ public class RestI18nAutoConfigure {
          * @param i18nResources {@link java.util.List} <p>The 18 n resources parameter is <code>List</code> type.</p>
          * @see java.util.List
          */
-        public I18nMessageSourceAutoConfigure(List<RestI18nResources> i18nResources) {
+        public I18nMessageSourceAutoConfigure(List<? extends RestI18n> i18nResources) {
             this.i18nResources = i18nResources;
             log.debug("The auto configuration for [i18n-message] initiated");
         }

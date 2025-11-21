@@ -1,5 +1,6 @@
-package io.github.nichetoolkit.rest;
+package io.github.nichetoolkit.rest.resource;
 
+import io.github.nichetoolkit.rest.RestI18n;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
@@ -93,7 +94,7 @@ public class RestI18nResources implements RestI18n {
      * <code>of</code>
      * <p>The of method.</p>
      * @param baseNames {@link java.lang.String} <p>The base names parameter is <code>String</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestI18nResources} <p>The of return object is <code>RestI18nResources</code> type.</p>
+     * @return {@link RestI18nResources} <p>The of return object is <code>RestI18nResources</code> type.</p>
      * @see java.lang.String
      */
     public static RestI18nResources of(String... baseNames) {
@@ -104,7 +105,7 @@ public class RestI18nResources implements RestI18n {
      * <code>of</code>
      * <p>The of method.</p>
      * @param baseNames {@link java.util.Collection} <p>The base names parameter is <code>Collection</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.RestI18nResources} <p>The of return object is <code>RestI18nResources</code> type.</p>
+     * @return {@link RestI18nResources} <p>The of return object is <code>RestI18nResources</code> type.</p>
      * @see java.util.Collection
      */
     public static RestI18nResources of(Collection<String> baseNames) {
