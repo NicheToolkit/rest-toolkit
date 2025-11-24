@@ -89,11 +89,6 @@ public interface RestState<S> extends RestKey<S> {
          * @see java.lang.String
          */
         private String name;
-        /**
-         * <code>state</code>
-         * <p>The <code>state</code> field.</p>
-         */
-        private S state;
 
         /**
          * <code>OfRestState</code>
@@ -110,8 +105,8 @@ public interface RestState<S> extends RestKey<S> {
          * @see java.lang.String
          */
         public OfRestState(String name, S state) {
+            super(state);
             this.name = name;
-            this.state = state;
         }
 
         /**
@@ -123,8 +118,8 @@ public interface RestState<S> extends RestKey<S> {
          * @see io.github.nichetoolkit.rest.RestKey
          */
         public OfRestState(String name, RestKey<S> state) {
+            super(state.getKey());
             this.name = name;
-            this.state = state.getKey();
         }
 
         @Override
@@ -136,13 +131,13 @@ public interface RestState<S> extends RestKey<S> {
         public boolean equals(Object o) {
             if (o == null || getClass() != o.getClass()) return false;
             if (!super.equals(o)) return false;
-            OfRestState that = (OfRestState) o;
-            return Objects.equals(name, that.name) && Objects.equals(state, that.state);
+            OfRestState<?> that = (OfRestState<?>) o;
+            return Objects.equals(getName(), that.getName());
         }
 
         @Override
         public int hashCode() {
-            return Objects.hash(super.hashCode(), name, state);
+            return Objects.hash(super.hashCode(), getName());
         }
     }
 
