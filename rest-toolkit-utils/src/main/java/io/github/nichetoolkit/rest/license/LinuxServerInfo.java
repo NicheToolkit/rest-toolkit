@@ -30,9 +30,9 @@ public class LinuxServerInfo extends LicenseServerInfo {
             String line;
             int index;
             while ((line = bufferedReader.readLine()) != null) {
-                index = line.toLowerCase().indexOf("id");
+                index = line.toLowerCase().indexOf("id:");
                 if (index >= 0) {
-                    serial = line.substring(index + "id".length() + 1).trim();
+                    serial = line.substring(index + "id:".length() + 1).trim();
                     break;
                 }
             }
