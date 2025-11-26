@@ -21,7 +21,7 @@ public class LinuxServerInfo extends LicenseServerInfo {
     @Override
     public String localCpuSerial() throws LicenseErrorException {
         String serial = "";
-        String CPU_ID_CMD = "dmidecode -t 4 | grep ID -m 1";
+        String CPU_ID_CMD = "dmidecode -t processor | grep 'ID' -m 1";
         BufferedReader bufferedReader;
         Process process;
         try {
@@ -30,9 +30,10 @@ public class LinuxServerInfo extends LicenseServerInfo {
             String line;
             int index;
             while ((line = bufferedReader.readLine()) != null) {
-                index = line.toLowerCase().indexOf("id:");
+                log.debug("cpu serial: {}", line);
+                index = line.toLowerCase().indexOf("id");
                 if (index >= 0) {
-                    serial = line.substring(index + "id:".length() + 1).trim();
+                    serial = line.split(":")[1].trim();
                     break;
                 }
             }
@@ -53,6 +54,7 @@ public class LinuxServerInfo extends LicenseServerInfo {
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
             String line;
             while ((line = bufferedReader.readLine()) != null) {
+                log.debug("board serial: {}", line);
                 serial.append(line);
             }
             bufferedReader.close();
