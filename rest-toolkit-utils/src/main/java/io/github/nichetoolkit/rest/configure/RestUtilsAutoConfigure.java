@@ -36,10 +36,10 @@ public class RestUtilsAutoConfigure {
     }
 
     /**
-     * <code>xmlMapperHolder</code>
-     * <p>The xml mapper holder method.</p>
+     * <code>defaultXmlMapperHolder</code>
+     * <p>The default xml mapper holder method.</p>
      * @param xmlMapper {@link com.fasterxml.jackson.dataformat.xml.XmlMapper} <p>The xml mapper parameter is <code>XmlMapper</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.holder.XmlMapperHolder} <p>The xml mapper holder return object is <code>XmlMapperHolder</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.holder.XmlMapperHolder} <p>The default xml mapper holder return object is <code>XmlMapperHolder</code> type.</p>
      * @see com.fasterxml.jackson.dataformat.xml.XmlMapper
      * @see io.github.nichetoolkit.rest.holder.XmlMapperHolder
      * @see org.springframework.context.annotation.Bean
@@ -53,15 +53,15 @@ public class RestUtilsAutoConfigure {
     @ConditionalOnClass(XmlMapper.class)
     @ConditionalOnMissingBean(XmlMapperHolder.class)
     @SuppressWarnings("InstantiationOfUtilityClass")
-    public XmlMapperHolder xmlMapperHolder(XmlMapper xmlMapper) {
+    public XmlMapperHolder defaultXmlMapperHolder(XmlMapper xmlMapper) {
         return new XmlMapperHolder(xmlMapper);
     }
 
 
     /**
-     * <code>xmlMapperHolder</code>
-     * <p>The xml mapper holder method.</p>
-     * @return {@link io.github.nichetoolkit.rest.holder.XmlMapperHolder} <p>The xml mapper holder return object is <code>XmlMapperHolder</code> type.</p>
+     * <code>autoXmlMapperHolder</code>
+     * <p>The auto xml mapper holder method.</p>
+     * @return {@link io.github.nichetoolkit.rest.holder.XmlMapperHolder} <p>The auto xml mapper holder return object is <code>XmlMapperHolder</code> type.</p>
      * @see io.github.nichetoolkit.rest.holder.XmlMapperHolder
      * @see org.springframework.context.annotation.Bean
      * @see org.springframework.context.annotation.Primary
@@ -72,7 +72,7 @@ public class RestUtilsAutoConfigure {
     @Primary
     @ConditionalOnMissingBean({XmlMapperHolder.class, XmlMapper.class})
     @SuppressWarnings("InstantiationOfUtilityClass")
-    public XmlMapperHolder xmlMapperHolder() {
+    public XmlMapperHolder autoXmlMapperHolder() {
         return new XmlMapperHolder();
     }
 }

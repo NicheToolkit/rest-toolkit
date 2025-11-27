@@ -32,10 +32,10 @@ public class RestCoreAutoConfigure {
     }
 
     /**
-     * <code>objectMapperHolder</code>
-     * <p>The object mapper holder method.</p>
+     * <code>defaultObjectMapperHolder</code>
+     * <p>The default object mapper holder method.</p>
      * @param objectMapper {@link com.fasterxml.jackson.databind.ObjectMapper} <p>The object mapper parameter is <code>ObjectMapper</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.holder.ObjectMapperHolder} <p>The object mapper holder return object is <code>ObjectMapperHolder</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.holder.ObjectMapperHolder} <p>The default object mapper holder return object is <code>ObjectMapperHolder</code> type.</p>
      * @see com.fasterxml.jackson.databind.ObjectMapper
      * @see io.github.nichetoolkit.rest.holder.ObjectMapperHolder
      * @see org.springframework.context.annotation.Bean
@@ -49,14 +49,14 @@ public class RestCoreAutoConfigure {
     @ConditionalOnBean(ObjectMapper.class)
     @ConditionalOnMissingBean(ObjectMapperHolder.class)
     @SuppressWarnings("InstantiationOfUtilityClass")
-    public ObjectMapperHolder objectMapperHolder(ObjectMapper objectMapper) {
+    public ObjectMapperHolder defaultObjectMapperHolder(ObjectMapper objectMapper) {
         return new ObjectMapperHolder(objectMapper);
     }
 
     /**
-     * <code>objectMapperHolder</code>
-     * <p>The object mapper holder method.</p>
-     * @return {@link io.github.nichetoolkit.rest.holder.ObjectMapperHolder} <p>The object mapper holder return object is <code>ObjectMapperHolder</code> type.</p>
+     * <code>autoObjectMapperHolder</code>
+     * <p>The auto object mapper holder method.</p>
+     * @return {@link io.github.nichetoolkit.rest.holder.ObjectMapperHolder} <p>The auto object mapper holder return object is <code>ObjectMapperHolder</code> type.</p>
      * @see io.github.nichetoolkit.rest.holder.ObjectMapperHolder
      * @see org.springframework.context.annotation.Bean
      * @see org.springframework.context.annotation.Primary
@@ -67,7 +67,7 @@ public class RestCoreAutoConfigure {
     @Primary
     @ConditionalOnMissingBean({ObjectMapperHolder.class, ObjectMapper.class})
     @SuppressWarnings("InstantiationOfUtilityClass")
-    public ObjectMapperHolder objectMapperHolder() {
+    public ObjectMapperHolder autoObjectMapperHolder() {
         return new ObjectMapperHolder();
     }
 }
