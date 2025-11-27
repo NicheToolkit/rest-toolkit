@@ -30,7 +30,6 @@ public class LinuxServerInfo extends LicenseServerInfo {
             String line;
             int index;
             while ((line = bufferedReader.readLine()) != null) {
-                log.debug("cpu serial: {}", line);
                 index = line.toLowerCase().indexOf("id");
                 if (index >= 0) {
                     serial = line.split(":")[1].trim();
@@ -54,7 +53,6 @@ public class LinuxServerInfo extends LicenseServerInfo {
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
             String line;
             while ((line = bufferedReader.readLine()) != null) {
-                log.debug("board serial: {}", line);
                 serial.append(line);
             }
             bufferedReader.close();
