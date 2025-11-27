@@ -93,10 +93,10 @@ public class RestLogbackAutoConfigure {
 
 
     /**
-     * <code>logbackFilter</code>
-     * <p>The logback filter method.</p>
+     * <code>defaultLogbackFilter</code>
+     * <p>The default logback filter method.</p>
      * @param loggingKey {@link io.github.nichetoolkit.rest.RestLoggingKey} <p>The logging key parameter is <code>RestLoggingKey</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.logback.DefaultLogbackFilter} <p>The logback filter return object is <code>DefaultLogbackFilter</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.logback.DefaultLogbackFilter} <p>The default logback filter return object is <code>DefaultLogbackFilter</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestLoggingKey
      * @see io.github.nichetoolkit.rest.logback.DefaultLogbackFilter
      * @see org.springframework.context.annotation.Bean
@@ -108,14 +108,14 @@ public class RestLogbackAutoConfigure {
     @Order(value = Ordered.HIGHEST_PRECEDENCE + 100)
     @ConditionalOnBean(RestLoggingKey.class)
     @ConditionalOnMissingBean(DefaultLogbackFilter.class)
-    public DefaultLogbackFilter logbackFilter(RestLoggingKey loggingKey) {
+    public DefaultLogbackFilter defaultLogbackFilter(RestLoggingKey loggingKey) {
         return new DefaultLogbackFilter(this.logbackProperties, loggingKey);
     }
 
     /**
-     * <code>logbackFilter</code>
-     * <p>The logback filter method.</p>
-     * @return {@link io.github.nichetoolkit.rest.logback.DefaultLogbackFilter} <p>The logback filter return object is <code>DefaultLogbackFilter</code> type.</p>
+     * <code>autoLogbackFilter</code>
+     * <p>The auto logback filter method.</p>
+     * @return {@link io.github.nichetoolkit.rest.logback.DefaultLogbackFilter} <p>The auto logback filter return object is <code>DefaultLogbackFilter</code> type.</p>
      * @see io.github.nichetoolkit.rest.logback.DefaultLogbackFilter
      * @see org.springframework.context.annotation.Bean
      * @see org.springframework.core.annotation.Order
@@ -124,7 +124,7 @@ public class RestLogbackAutoConfigure {
     @Bean
     @Order(value = Ordered.HIGHEST_PRECEDENCE + 100)
     @ConditionalOnMissingBean({DefaultLogbackFilter.class, RestLoggingKey.class})
-    public DefaultLogbackFilter logbackFilter() {
+    public DefaultLogbackFilter autoLogbackFilter() {
         return new DefaultLogbackFilter(this.logbackProperties);
     }
 
