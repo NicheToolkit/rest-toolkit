@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
@@ -44,13 +45,13 @@ public class RestUtilsAutoConfigure {
      * @see io.github.nichetoolkit.rest.holder.XmlMapperHolder
      * @see org.springframework.context.annotation.Bean
      * @see org.springframework.context.annotation.Primary
-     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnClass
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnBean
      * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
      * @see java.lang.SuppressWarnings
      */
     @Bean
     @Primary
-    @ConditionalOnClass(XmlMapper.class)
+    @ConditionalOnBean(XmlMapper.class)
     @ConditionalOnMissingBean(XmlMapperHolder.class)
     @SuppressWarnings("InstantiationOfUtilityClass")
     public XmlMapperHolder defaultXmlMapperHolder(XmlMapper xmlMapper) {
