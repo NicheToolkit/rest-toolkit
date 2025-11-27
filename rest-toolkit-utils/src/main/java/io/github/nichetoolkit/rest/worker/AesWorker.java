@@ -5,7 +5,6 @@ import io.github.nichetoolkit.rest.configure.RestAesProperties;
 import io.github.nichetoolkit.rest.error.lack.ConfigureLackError;
 import io.github.nichetoolkit.rest.util.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
 import javax.crypto.BadPaddingException;
@@ -61,9 +60,7 @@ public class AesWorker {
      * <p>Instantiates a new aes worker.</p>
      * @param aesProperties {@link io.github.nichetoolkit.rest.configure.RestAesProperties} <p>The aes properties parameter is <code>RestAesProperties</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestAesProperties
-     * @see org.springframework.beans.factory.annotation.Autowired
      */
-    @Autowired
     public AesWorker(RestAesProperties aesProperties) {
         this.aesProperties = aesProperties;
     }

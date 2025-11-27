@@ -15,7 +15,6 @@ import io.github.nichetoolkit.rest.util.JsonUtils;
 import io.github.nichetoolkit.rest.util.OptionalUtils;
 import io.github.nichetoolkit.rest.worker.sha.ShaWorker;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -67,9 +66,7 @@ public class RestTemplates {
      * <p>Instantiates a new rest templates.</p>
      * @param restTemplate {@link org.springframework.web.client.RestTemplate} <p>The rest template parameter is <code>RestTemplate</code> type.</p>
      * @see org.springframework.web.client.RestTemplate
-     * @see org.springframework.beans.factory.annotation.Autowired
      */
-    @Autowired
     public RestTemplates(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }

@@ -11,7 +11,6 @@ import io.github.nichetoolkit.rest.identity.worker.WorkerConfig;
 import io.github.nichetoolkit.rest.util.JsonUtils;
 import io.github.nichetoolkit.rest.util.OptionalUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.env.Environment;
@@ -60,9 +59,7 @@ public class IdentityManager implements ApplicationRunner {
      * @param environment        {@link org.springframework.core.env.Environment} <p>The environment parameter is <code>Environment</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestIdentityProperties
      * @see org.springframework.core.env.Environment
-     * @see org.springframework.beans.factory.annotation.Autowired
      */
-    @Autowired
     public IdentityManager(RestIdentityProperties identityProperties, Environment environment) {
         this.identityProperties = identityProperties;
         this.environment = environment;

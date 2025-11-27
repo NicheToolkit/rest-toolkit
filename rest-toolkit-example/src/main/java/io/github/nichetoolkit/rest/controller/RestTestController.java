@@ -13,7 +13,6 @@ import io.github.nichetoolkit.rest.worker.img.ImageWorker;
 import io.github.nichetoolkit.rest.worker.jwt.JwtWorker;
 import io.github.nichetoolkit.rest.worker.sha.ShaWorker;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -73,9 +72,7 @@ public class RestTestController {
      * @see io.github.nichetoolkit.rest.worker.RadixWorker
      * @see io.github.nichetoolkit.rest.worker.sha.ShaWorker
      * @see io.github.nichetoolkit.rest.worker.jwt.JwtWorker
-     * @see org.springframework.beans.factory.annotation.Autowired
      */
-    @Autowired
     public RestTestController(RadixWorker radixWorker, ShaWorker shaWorker, JwtWorker jwtWorker) {
         this.radixWorker = radixWorker;
         this.shaWorker = shaWorker;

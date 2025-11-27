@@ -2,19 +2,12 @@ package io.github.nichetoolkit.rest.configure;
 
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import io.github.nichetoolkit.rest.holder.XmlMapperHolder;
-import io.github.nichetoolkit.rest.worker.RadixWorker;
-import io.github.nichetoolkit.rest.worker.jwt.JwtWorker;
-import io.github.nichetoolkit.rest.worker.rsa.RsaWorker;
-import io.github.nichetoolkit.rest.worker.sha.ShaWorker;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
 
@@ -51,14 +44,12 @@ public class RestUtilsAutoConfigure {
      * @see io.github.nichetoolkit.rest.holder.XmlMapperHolder
      * @see org.springframework.context.annotation.Bean
      * @see org.springframework.context.annotation.Primary
-     * @see org.springframework.beans.factory.annotation.Autowired
      * @see org.springframework.boot.autoconfigure.condition.ConditionalOnClass
      * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
      * @see java.lang.SuppressWarnings
      */
     @Bean
     @Primary
-    @Autowired(required = false)
     @ConditionalOnClass(XmlMapper.class)
     @ConditionalOnMissingBean(XmlMapperHolder.class)
     @SuppressWarnings("InstantiationOfUtilityClass")

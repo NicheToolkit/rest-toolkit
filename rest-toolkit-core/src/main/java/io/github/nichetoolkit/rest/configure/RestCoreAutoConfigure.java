@@ -3,7 +3,6 @@ package io.github.nichetoolkit.rest.configure;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.nichetoolkit.rest.holder.ObjectMapperHolder;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -41,14 +40,12 @@ public class RestCoreAutoConfigure {
      * @see io.github.nichetoolkit.rest.holder.ObjectMapperHolder
      * @see org.springframework.context.annotation.Bean
      * @see org.springframework.context.annotation.Primary
-     * @see org.springframework.beans.factory.annotation.Autowired
      * @see org.springframework.boot.autoconfigure.condition.ConditionalOnBean
      * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
      * @see java.lang.SuppressWarnings
      */
     @Bean
     @Primary
-    @Autowired(required = false)
     @ConditionalOnBean(ObjectMapper.class)
     @ConditionalOnMissingBean(ObjectMapperHolder.class)
     @SuppressWarnings("InstantiationOfUtilityClass")

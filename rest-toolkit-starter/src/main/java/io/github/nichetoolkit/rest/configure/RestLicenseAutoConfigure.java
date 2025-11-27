@@ -2,15 +2,11 @@ package io.github.nichetoolkit.rest.configure;
 
 
 import io.github.nichetoolkit.rest.interceptor.DefaultLicenseInterceptor;
-import io.github.nichetoolkit.rest.license.LicenseInstallListener;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.lang.NonNull;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -46,9 +42,7 @@ public class RestLicenseAutoConfigure {
      * <p>Instantiates a new rest license auto configure.</p>
      * @param licenseProperties {@link io.github.nichetoolkit.rest.configure.RestLicenseProperties} <p>The license properties parameter is <code>RestLicenseProperties</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestLicenseProperties
-     * @see org.springframework.beans.factory.annotation.Autowired
      */
-    @Autowired
     public RestLicenseAutoConfigure(RestLicenseProperties licenseProperties) {
         this.licenseProperties = licenseProperties;
         log.debug("The auto configuration for [rest-license] initiated");

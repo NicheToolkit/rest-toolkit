@@ -5,10 +5,8 @@ import io.github.nichetoolkit.rest.configure.RestLicenseProperties;
 import io.github.nichetoolkit.rest.error.license.LicenseLackError;
 import io.github.nichetoolkit.rest.util.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
-import java.util.Optional;
 
 /**
  * <code>LicenseVerifierWorker</code>
@@ -37,9 +35,7 @@ public class LicenseVerifierWorker {
      * <p>Instantiates a new license verifier worker.</p>
      * @param licenseProperties {@link io.github.nichetoolkit.rest.configure.RestLicenseProperties} <p>The license properties parameter is <code>RestLicenseProperties</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestLicenseProperties
-     * @see org.springframework.beans.factory.annotation.Autowired
      */
-    @Autowired
     public LicenseVerifierWorker(RestLicenseProperties licenseProperties) {
         this.licenseVerify = licenseProperties.verifyParam();
     }

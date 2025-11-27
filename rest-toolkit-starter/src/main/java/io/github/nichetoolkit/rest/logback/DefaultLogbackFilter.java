@@ -6,11 +6,7 @@ import io.github.nichetoolkit.rest.RestHttpRequest;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.Ordered;
-import org.springframework.core.annotation.Order;
 import org.springframework.lang.NonNull;
-import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.FilterChain;
@@ -24,12 +20,10 @@ public class DefaultLogbackFilter extends OncePerRequestFilter {
     private final RestLogbackProperties logbackProperties;
     private RestLoggingKey loggingKey;
 
-    @Autowired(required = false)
     public DefaultLogbackFilter(RestLogbackProperties logbackProperties) {
         this.logbackProperties = logbackProperties;
     }
 
-    @Autowired(required = false)
     public DefaultLogbackFilter(RestLogbackProperties logbackProperties, RestLoggingKey loggingKey) {
         this.logbackProperties = logbackProperties;
         this.loggingKey = loggingKey;

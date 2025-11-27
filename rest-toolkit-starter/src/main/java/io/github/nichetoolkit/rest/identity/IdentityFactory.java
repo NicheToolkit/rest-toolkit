@@ -4,12 +4,10 @@ import io.github.nichetoolkit.rest.RestError;
 import io.github.nichetoolkit.rest.RestOptional;
 import io.github.nichetoolkit.rest.configure.RestIdentityProperties;
 import io.github.nichetoolkit.rest.error.lack.ConfigureLackError;
-import io.github.nichetoolkit.rest.http.RestTemplates;
 import io.github.nichetoolkit.rest.identity.worker.IdentityWorker;
 import io.github.nichetoolkit.rest.identity.worker.WorkerType;
 import io.github.nichetoolkit.rest.util.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
 import java.security.SecureRandom;
@@ -44,9 +42,7 @@ public class IdentityFactory {
      * <p>Instantiates a new identity factory.</p>
      * @param properties {@link io.github.nichetoolkit.rest.configure.RestIdentityProperties} <p>The properties parameter is <code>RestIdentityProperties</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestIdentityProperties
-     * @see org.springframework.beans.factory.annotation.Autowired
      */
-    @Autowired
     public IdentityFactory(RestIdentityProperties properties) {
         this.properties = properties;
     }

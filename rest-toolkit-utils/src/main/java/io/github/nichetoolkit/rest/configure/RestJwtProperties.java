@@ -7,7 +7,6 @@ import io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm;
 import io.github.nichetoolkit.rest.worker.jwt.JwtBuilder;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import javax.annotation.PostConstruct;
@@ -119,9 +118,7 @@ public class RestJwtProperties {
      * <p>Instantiates a new rest jwt properties.</p>
      * @param radixWorker {@link io.github.nichetoolkit.rest.worker.RadixWorker} <p>The radix worker parameter is <code>RadixWorker</code> type.</p>
      * @see io.github.nichetoolkit.rest.worker.RadixWorker
-     * @see org.springframework.beans.factory.annotation.Autowired
      */
-    @Autowired(required = false)
     public RestJwtProperties(RadixWorker radixWorker) {
         this.radixWorker = radixWorker;
     }

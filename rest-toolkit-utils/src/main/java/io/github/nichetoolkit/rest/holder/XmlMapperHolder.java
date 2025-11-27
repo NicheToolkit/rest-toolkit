@@ -3,7 +3,6 @@ package io.github.nichetoolkit.rest.holder;
 import com.fasterxml.jackson.dataformat.xml.XmlFactory;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLOutputFactory;
@@ -49,9 +48,7 @@ public class XmlMapperHolder {
      * <p>Instantiates a new xml mapper holder.</p>
      * @param xmlMapper {@link com.fasterxml.jackson.dataformat.xml.XmlMapper} <p>The xml mapper parameter is <code>XmlMapper</code> type.</p>
      * @see  com.fasterxml.jackson.dataformat.xml.XmlMapper
-     * @see  org.springframework.beans.factory.annotation.Autowired
      */
-    @Autowired(required = false)
     public XmlMapperHolder(XmlMapper xmlMapper) {
         XML_MAPPER = xmlMapper;
         log.debug("The xml mapper holder has be initiated");

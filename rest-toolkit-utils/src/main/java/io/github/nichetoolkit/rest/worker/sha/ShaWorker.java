@@ -4,9 +4,7 @@ import io.github.nichetoolkit.rest.RestOptional;
 import io.github.nichetoolkit.rest.configure.RestShaProperties;
 import io.github.nichetoolkit.rest.error.lack.ConfigureLackError;
 import io.github.nichetoolkit.rest.util.JsonUtils;
-import io.github.nichetoolkit.rest.worker.rsa.RsaWorker;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
 import java.nio.charset.StandardCharsets;
@@ -68,9 +66,7 @@ public class ShaWorker {
      * <p>Instantiates a new sha worker.</p>
      * @param shaProperties {@link io.github.nichetoolkit.rest.configure.RestShaProperties} <p>The sha properties parameter is <code>RestShaProperties</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestShaProperties
-     * @see org.springframework.beans.factory.annotation.Autowired
      */
-    @Autowired
     public ShaWorker(RestShaProperties shaProperties) {
         this.shaProperties = shaProperties;
     }

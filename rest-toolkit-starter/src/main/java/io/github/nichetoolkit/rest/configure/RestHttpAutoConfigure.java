@@ -32,7 +32,6 @@ import org.apache.http.message.BasicHeader;
 import org.apache.http.message.BasicHeaderElementIterator;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.ssl.SSLContextBuilder;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -99,9 +98,7 @@ public class RestHttpAutoConfigure {
      * @param interceptProperties {@link io.github.nichetoolkit.rest.configure.RestInterceptProperties} <p>The intercept properties parameter is <code>RestInterceptProperties</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestHttpProperties
      * @see io.github.nichetoolkit.rest.configure.RestInterceptProperties
-     * @see org.springframework.beans.factory.annotation.Autowired
      */
-    @Autowired
     public RestHttpAutoConfigure(RestHttpProperties httpProperties, RestInterceptProperties interceptProperties) {
         log.debug("The auto configuration for [rest-http] initiated");
         this.httpProperties = httpProperties;

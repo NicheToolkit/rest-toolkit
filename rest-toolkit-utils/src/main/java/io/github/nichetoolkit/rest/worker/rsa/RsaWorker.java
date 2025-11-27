@@ -12,7 +12,6 @@ import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1Primitive;
 import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
 import org.bouncycastle.asn1.pkcs.RSAPrivateKey;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
 import javax.crypto.BadPaddingException;
@@ -72,9 +71,7 @@ public class RsaWorker {
      * <p>Instantiates a new rsa worker.</p>
      * @param rsaProperties {@link io.github.nichetoolkit.rest.configure.RestRsaProperties} <p>The rsa properties parameter is <code>RestRsaProperties</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestRsaProperties
-     * @see org.springframework.beans.factory.annotation.Autowired
      */
-    @Autowired
     public RsaWorker(RestRsaProperties rsaProperties) {
         this.rsaProperties = rsaProperties;
         RsaKey rsaKey = this.rsaProperties.toRsaKey();

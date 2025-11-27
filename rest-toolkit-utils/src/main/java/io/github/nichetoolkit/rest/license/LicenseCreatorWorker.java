@@ -6,7 +6,6 @@ import io.github.nichetoolkit.rest.error.license.LicenseLackError;
 import io.github.nichetoolkit.rest.error.supply.ResourceNotFoundException;
 import io.github.nichetoolkit.rest.util.*;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
@@ -50,9 +49,7 @@ public class LicenseCreatorWorker {
      * <p>Instantiates a new license creator worker.</p>
      * @param licenseProperties {@link io.github.nichetoolkit.rest.configure.RestLicenseProperties} <p>The license properties parameter is <code>RestLicenseProperties</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestLicenseProperties
-     * @see org.springframework.beans.factory.annotation.Autowired
      */
-    @Autowired
     public LicenseCreatorWorker(RestLicenseProperties licenseProperties) {
         this.licenseProperties = licenseProperties;
         this.licenseCreate = licenseProperties.createParam();

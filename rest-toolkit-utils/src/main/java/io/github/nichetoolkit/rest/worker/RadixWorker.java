@@ -5,7 +5,6 @@ import io.github.nichetoolkit.rest.configure.RestRadixProperties;
 import io.github.nichetoolkit.rest.error.lack.ConfigureLackError;
 import io.github.nichetoolkit.rest.util.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
 import java.security.SecureRandom;
@@ -47,9 +46,7 @@ public class RadixWorker {
      * <p>Instantiates a new radix worker.</p>
      * @param radixProperties {@link io.github.nichetoolkit.rest.configure.RestRadixProperties} <p>The radix properties parameter is <code>RestRadixProperties</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestRadixProperties
-     * @see org.springframework.beans.factory.annotation.Autowired
      */
-    @Autowired
     public RadixWorker(RestRadixProperties radixProperties) {
         this.radixProperties = radixProperties;
     }

@@ -9,11 +9,9 @@ import io.github.nichetoolkit.rest.configure.RestJwtProperties;
 import io.github.nichetoolkit.rest.error.lack.ConfigureLackError;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import io.github.nichetoolkit.rest.util.JsonUtils;
-import io.github.nichetoolkit.rest.worker.RadixWorker;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
 import java.nio.file.Path;
@@ -89,9 +87,7 @@ public class JwtWorker {
      * <p>Instantiates a new jwt worker.</p>
      * @param jwtProperties {@link io.github.nichetoolkit.rest.configure.RestJwtProperties} <p>The jwt properties parameter is <code>RestJwtProperties</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestJwtProperties
-     * @see org.springframework.beans.factory.annotation.Autowired
      */
-    @Autowired
     public JwtWorker(RestJwtProperties jwtProperties) {
         this.jwtProperties = jwtProperties;
         this.jwtBuilder = jwtProperties.toBuilder();

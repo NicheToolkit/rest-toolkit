@@ -7,7 +7,6 @@ import io.github.nichetoolkit.rest.logback.DefaultLogbackFilter;
 import io.github.nichetoolkit.rest.logback.DefaultMessageConverter;
 import io.github.nichetoolkit.rest.logback.DefaultThreadPoolTaskExecutor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -46,9 +45,7 @@ public class RestLogbackAutoConfigure {
      * <p>Instantiates a new rest logback auto configure.</p>
      * @param logbackProperties {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>The logback properties parameter is <code>RestLogbackProperties</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestLogbackProperties
-     * @see org.springframework.beans.factory.annotation.Autowired
      */
-    @Autowired
     public RestLogbackAutoConfigure(RestLogbackProperties logbackProperties) {
         this.logbackProperties = logbackProperties;
         log.debug("The auto configuration for [rest-logback] initiated");

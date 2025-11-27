@@ -6,7 +6,6 @@ import io.github.nichetoolkit.rest.constant.RestConstants;
 import io.github.nichetoolkit.rest.holder.MessageSourceHolder;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -54,9 +53,7 @@ public class RestI18nAutoConfigure {
      * <p>Instantiates a new rest i 18 n auto configure.</p>
      * @param i18nProperties {@link io.github.nichetoolkit.rest.configure.RestI18nProperties} <p>The 18 n properties parameter is <code>RestI18nProperties</code> type.</p>
      * @see io.github.nichetoolkit.rest.configure.RestI18nProperties
-     * @see org.springframework.beans.factory.annotation.Autowired
      */
-    @Autowired
     public RestI18nAutoConfigure(RestI18nProperties i18nProperties) {
         this.i18nProperties = i18nProperties;
         log.debug("The auto configuration for [rest-i18n] initiated");
