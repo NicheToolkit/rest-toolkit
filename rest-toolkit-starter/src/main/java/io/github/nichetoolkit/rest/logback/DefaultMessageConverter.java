@@ -21,7 +21,7 @@ import org.jspecify.annotations.NonNull;
  * @see ch.qos.logback.classic.pattern.MessageConverter
  * @see lombok.extern.slf4j.Slf4j
  * @see lombok.NoArgsConstructor
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Slf4j
 @NoArgsConstructor

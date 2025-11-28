@@ -4,7 +4,7 @@ package io.github.nichetoolkit.rest;
  * <code>ReckonWorkerTest</code>
  * <p>The reckon worker test class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @since Jdk1.8
+ * @since Jdk17
  */
 public class ReckonWorkerTest {
     /**

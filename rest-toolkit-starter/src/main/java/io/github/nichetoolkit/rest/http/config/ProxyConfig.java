@@ -1,6 +1,7 @@
 package io.github.nichetoolkit.rest.http.config;
 
 import io.github.nichetoolkit.rest.util.GeneralUtils;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
@@ -17,7 +18,7 @@ import java.net.Proxy;
  * @see lombok.Getter
  * @see lombok.Setter
  * @see lombok.experimental.SuperBuilder
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Getter
 @Setter
@@ -28,6 +29,7 @@ public class ProxyConfig implements Serializable {
      * {@link io.github.nichetoolkit.rest.http.config.ProxyType} <p>The <code>type</code> field.</p>
      * @see io.github.nichetoolkit.rest.http.config.ProxyType
      */
+    @Builder.Default
     private ProxyType type = ProxyType.SOCKS;
     /**
      * <code>hostname</code>

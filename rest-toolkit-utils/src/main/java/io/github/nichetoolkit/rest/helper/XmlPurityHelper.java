@@ -175,7 +175,7 @@ public class XmlPurityHelper {
         }
         try {
             XmlMapper mapper = XmlMapperHolder.ofPurityMapper();
-            mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+            mapper.setDefaultPropertyInclusion(JsonInclude.Include.NON_NULL);
             return mapper.writeValueAsString(target);
         } catch (JsonProcessingException exception) {
             throw new XmlParseException("parseXmlIgnoreNull", target.getClass().getName(), exception.getMessage());

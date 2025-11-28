@@ -13,7 +13,7 @@ import org.jspecify.annotations.NonNull;
  * @see lombok.Getter
  * @see lombok.Setter
  * @see java.lang.SuppressWarnings
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Getter
 @Setter

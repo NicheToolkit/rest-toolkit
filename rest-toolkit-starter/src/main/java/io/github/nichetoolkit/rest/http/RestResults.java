@@ -25,10 +25,10 @@ import java.util.Optional;
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
  * @see java.lang.SuppressWarnings
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Slf4j
-@SuppressWarnings({"TypeParameterUnusedInFormals","SameNameButDifferent","rawtypes"})
+@SuppressWarnings({"TypeParameterUnusedInFormals", "SameNameButDifferent", "rawtypes"})
 public class RestResults {
 
     /**
@@ -2549,7 +2549,7 @@ public class RestResults {
      */
     public static <T> RestResult<T> result(RestResult response, String resource, TypeReference<T> typeReference, boolean isCheckData) throws RestException {
         JavaType javaType = TypeFactory.defaultInstance().constructType(typeReference);
-        return result(response,resource,javaType,isCheckData);
+        return result(response, resource, javaType, isCheckData);
     }
 
 
@@ -3015,7 +3015,7 @@ public class RestResults {
      */
     public static <T> RestResult<T> result(RestResult response, String resource, Class<T> clazz, boolean isCheckData) throws RestException {
         JavaType javaType = TypeFactory.defaultInstance().constructType(clazz);
-        return result(response,resource,javaType,isCheckData);
+        return result(response, resource, javaType, isCheckData);
     }
 
     /**
@@ -4469,7 +4469,7 @@ public class RestResults {
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
-    public static <T> RestResult<T> result(ResponseEntity<RestResult> response,JavaType javaType) throws RestException {
+    public static <T> RestResult<T> result(ResponseEntity<RestResult> response, JavaType javaType) throws RestException {
         return result(response, null, javaType, true, false);
     }
 
@@ -4487,7 +4487,7 @@ public class RestResults {
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
-    public static <T> RestResult<T> result(ResponseEntity<RestResult> response,JavaType javaType, boolean isCheckData) throws RestException {
+    public static <T> RestResult<T> result(ResponseEntity<RestResult> response, JavaType javaType, boolean isCheckData) throws RestException {
         return result(response, null, javaType, true, isCheckData);
     }
 
@@ -4508,7 +4508,7 @@ public class RestResults {
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
-    public static <T> RestResult<T> result(ResponseEntity<RestResult> response, HttpMethod method, String url,JavaType javaType) throws RestException {
+    public static <T> RestResult<T> result(ResponseEntity<RestResult> response, HttpMethod method, String url, JavaType javaType) throws RestException {
         String resource = resource(method, url);
         return result(response, resource, javaType, method);
     }
@@ -4531,7 +4531,7 @@ public class RestResults {
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
-    public static <T> RestResult<T> result(ResponseEntity<RestResult> response, HttpMethod method, String url,JavaType javaType, boolean isCheckData) throws RestException {
+    public static <T> RestResult<T> result(ResponseEntity<RestResult> response, HttpMethod method, String url, JavaType javaType, boolean isCheckData) throws RestException {
         String resource = resource(method, url);
         return result(response, resource, javaType, isCheckBody(method), isCheckData);
     }
@@ -4555,7 +4555,7 @@ public class RestResults {
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
-    public static <T> RestResult<T> result(ResponseEntity<RestResult> response, HttpMethod method, String url, HttpHeaders headers,JavaType javaType) throws RestException {
+    public static <T> RestResult<T> result(ResponseEntity<RestResult> response, HttpMethod method, String url, HttpHeaders headers, JavaType javaType) throws RestException {
         String resource = resource(method, url, headers);
         return result(response, resource, javaType, method);
     }
@@ -4580,7 +4580,7 @@ public class RestResults {
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
-    public static <T> RestResult<T> result(ResponseEntity<RestResult> response, HttpMethod method, String url, HttpHeaders headers,JavaType javaType, boolean isCheckData) throws RestException {
+    public static <T> RestResult<T> result(ResponseEntity<RestResult> response, HttpMethod method, String url, HttpHeaders headers, JavaType javaType, boolean isCheckData) throws RestException {
         String resource = resource(method, url, headers);
         return result(response, resource, javaType, isCheckBody(method), isCheckData);
     }
@@ -4604,7 +4604,7 @@ public class RestResults {
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
-    public static <T> RestResult<T> result(ResponseEntity<RestResult> response, HttpMethod method, String url, MultiValueMap<String, String> params,JavaType javaType) throws RestException {
+    public static <T> RestResult<T> result(ResponseEntity<RestResult> response, HttpMethod method, String url, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
         String resource = resource(method, url, params);
         return result(response, resource, javaType, method);
     }
@@ -4629,7 +4629,7 @@ public class RestResults {
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
-    public static <T> RestResult<T> result(ResponseEntity<RestResult> response, HttpMethod method, String url, MultiValueMap<String, String> params,JavaType javaType, boolean isCheckData) throws RestException {
+    public static <T> RestResult<T> result(ResponseEntity<RestResult> response, HttpMethod method, String url, MultiValueMap<String, String> params, JavaType javaType, boolean isCheckData) throws RestException {
         String resource = resource(method, url, params);
         return result(response, resource, javaType, isCheckBody(method), isCheckData);
     }
@@ -4653,7 +4653,7 @@ public class RestResults {
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
-    public static <T> RestResult<T> result(ResponseEntity<RestResult> response, HttpMethod method, String url, Object body,JavaType javaType) throws RestException {
+    public static <T> RestResult<T> result(ResponseEntity<RestResult> response, HttpMethod method, String url, Object body, JavaType javaType) throws RestException {
         String resource = resource(method, url, body);
         return result(response, resource, javaType, method);
     }
@@ -4678,7 +4678,7 @@ public class RestResults {
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
-    public static <T> RestResult<T> result(ResponseEntity<RestResult> response, HttpMethod method, String url, Object body,JavaType javaType, boolean isCheckData) throws RestException {
+    public static <T> RestResult<T> result(ResponseEntity<RestResult> response, HttpMethod method, String url, Object body, JavaType javaType, boolean isCheckData) throws RestException {
         String resource = resource(method, url, body);
         return result(response, resource, javaType, isCheckBody(method), isCheckData);
     }
@@ -4704,7 +4704,7 @@ public class RestResults {
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
-    public static <T> RestResult<T> result(ResponseEntity<RestResult> response, HttpMethod method, String url, HttpHeaders headers, Object body,JavaType javaType) throws RestException {
+    public static <T> RestResult<T> result(ResponseEntity<RestResult> response, HttpMethod method, String url, HttpHeaders headers, Object body, JavaType javaType) throws RestException {
         String resource = resource(method, url, headers, body);
         return result(response, resource, javaType, method);
     }
@@ -4731,7 +4731,7 @@ public class RestResults {
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
-    public static <T> RestResult<T> result(ResponseEntity<RestResult> response, HttpMethod method, String url, HttpHeaders headers, Object body,JavaType javaType, boolean isCheckData) throws RestException {
+    public static <T> RestResult<T> result(ResponseEntity<RestResult> response, HttpMethod method, String url, HttpHeaders headers, Object body, JavaType javaType, boolean isCheckData) throws RestException {
         String resource = resource(method, url, headers, body);
         return result(response, resource, javaType, isCheckBody(method), isCheckData);
     }
@@ -4757,7 +4757,7 @@ public class RestResults {
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
-    public static <T> RestResult<T> result(ResponseEntity<RestResult> response, HttpMethod method, String url, HttpHeaders headers, MultiValueMap<String, String> params,JavaType javaType) throws RestException {
+    public static <T> RestResult<T> result(ResponseEntity<RestResult> response, HttpMethod method, String url, HttpHeaders headers, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
         String resource = resource(method, url, headers, params);
         return result(response, resource, javaType, method);
     }
@@ -4784,7 +4784,7 @@ public class RestResults {
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
-    public static <T> RestResult<T> result(ResponseEntity<RestResult> response, HttpMethod method, String url, HttpHeaders headers, MultiValueMap<String, String> params,JavaType javaType, boolean isCheckData) throws RestException {
+    public static <T> RestResult<T> result(ResponseEntity<RestResult> response, HttpMethod method, String url, HttpHeaders headers, MultiValueMap<String, String> params, JavaType javaType, boolean isCheckData) throws RestException {
         String resource = resource(method, url, headers, params);
         return result(response, resource, javaType, isCheckBody(method), isCheckData);
     }
@@ -4810,7 +4810,7 @@ public class RestResults {
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
-    public static <T> RestResult<T> result(ResponseEntity<RestResult> response, HttpMethod method, String url, Object body, MultiValueMap<String, String> params,JavaType javaType) throws RestException {
+    public static <T> RestResult<T> result(ResponseEntity<RestResult> response, HttpMethod method, String url, Object body, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
         String resource = resource(method, url, body, params);
         return result(response, resource, javaType, method);
     }
@@ -4837,7 +4837,7 @@ public class RestResults {
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
-    public static <T> RestResult<T> result(ResponseEntity<RestResult> response, HttpMethod method, String url, Object body, MultiValueMap<String, String> params,JavaType javaType, boolean isCheckData) throws RestException {
+    public static <T> RestResult<T> result(ResponseEntity<RestResult> response, HttpMethod method, String url, Object body, MultiValueMap<String, String> params, JavaType javaType, boolean isCheckData) throws RestException {
         String resource = resource(method, url, body, params);
         return result(response, resource, javaType, isCheckBody(method), isCheckData);
     }
@@ -4865,7 +4865,7 @@ public class RestResults {
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
-    public static <T> RestResult<T> result(ResponseEntity<RestResult> response, HttpMethod method, String url, HttpHeaders headers, Object body, MultiValueMap<String, String> params,JavaType javaType) throws RestException {
+    public static <T> RestResult<T> result(ResponseEntity<RestResult> response, HttpMethod method, String url, HttpHeaders headers, Object body, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
         String resource = resource(method, url, headers, body, params);
         return result(response, resource, javaType, method);
     }
@@ -4894,7 +4894,7 @@ public class RestResults {
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
-    public static <T> RestResult<T> result(ResponseEntity<RestResult> response, HttpMethod method, String url, HttpHeaders headers, Object body, MultiValueMap<String, String> params,JavaType javaType, boolean isCheckData) throws RestException {
+    public static <T> RestResult<T> result(ResponseEntity<RestResult> response, HttpMethod method, String url, HttpHeaders headers, Object body, MultiValueMap<String, String> params, JavaType javaType, boolean isCheckData) throws RestException {
         String resource = resource(method, url, headers, body, params);
         return result(response, resource, javaType, isCheckBody(method), isCheckData);
     }
@@ -4916,7 +4916,7 @@ public class RestResults {
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
-    public static <T> RestResult<T> result(ResponseEntity<RestResult> response, String resource,JavaType javaType, HttpMethod method) throws RestException {
+    public static <T> RestResult<T> result(ResponseEntity<RestResult> response, String resource, JavaType javaType, HttpMethod method) throws RestException {
         return result(response, resource, javaType, isCheckBody(method), isCheckData(method));
     }
 
@@ -5396,19 +5396,11 @@ public class RestResults {
      * @see org.springframework.http.HttpMethod
      */
     public static boolean isCheckBody(HttpMethod method) {
-        switch (method) {
-            case OPTIONS:
-            case HEAD:
-            case TRACE:
-                return false;
-            case GET:
-            case PUT:
-            case POST:
-            case PATCH:
-            case DELETE:
-            default:
-                return true;
-        }
+        String methodName = method.name();
+        return switch (methodName) {
+            case "OPTIONS", "HEAD", "TRACE" -> false;
+            default -> true;
+        };
     }
 
     /**
@@ -5419,19 +5411,7 @@ public class RestResults {
      * @see org.springframework.http.HttpMethod
      */
     public static boolean isCheckData(HttpMethod method) {
-        switch (method) {
-            case GET:
-                return true;
-            case OPTIONS:
-            case HEAD:
-            case TRACE:
-            case PUT:
-            case POST:
-            case PATCH:
-            case DELETE:
-            default:
-                return false;
-        }
+        return method.matches("GET");
     }
 
     /**
@@ -5448,13 +5428,11 @@ public class RestResults {
      */
     public static void checkRestResponse(Object response, String resource, boolean isCheckBody, boolean isCheckData) throws RestException {
         if (GeneralUtils.isNotEmpty(response)) {
-            if (response instanceof ResponseEntity) {
-                ResponseEntity responseEntity = (ResponseEntity) response;
+            if (response instanceof ResponseEntity responseEntity) {
                 checkEntity(responseEntity, resource);
                 checkEntitySuccess(responseEntity, resource);
                 checkBody(responseEntity, resource, isCheckBody, isCheckData);
-            } else if (response instanceof RestResult) {
-                RestResult restResult = (RestResult) response;
+            } else if (response instanceof RestResult restResult) {
                 checkResult(restResult, resource);
                 checkResultSuccess(restResult, resource);
                 checkData(restResult, resource, isCheckData);
@@ -5569,10 +5547,10 @@ public class RestResults {
     public static void checkEntitySuccess(ResponseEntity responseEntity, String resource) throws RestException {
         if (responseEntity.getStatusCode() != HttpStatus.OK) {
             if (GeneralUtils.isNotEmpty(resource)) {
-                log.error("the response entity is failed! resource: {}, status: {}, message: {}, ", resource, responseEntity.getStatusCodeValue(), responseEntity);
+                log.error("the response entity is failed! resource: {}, status: {}, message: {}, ", resource, responseEntity.getStatusCode().value(), responseEntity);
                 throw new HttpResultFailException(resource, responseEntity);
             } else {
-                log.error("the response entity is failed! status: {}, message: {}, ", responseEntity.getStatusCodeValue(), responseEntity);
+                log.error("the response entity is failed! status: {}, message: {}, ", responseEntity.getStatusCode().value(), responseEntity);
                 throw new HttpResultFailException(responseEntity);
             }
         }

@@ -13,10 +13,10 @@ import jakarta.annotation.Resource;
  * <code>TestFitter</code>
  * <p>The test fitter class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @see RestFulfilledFitter
+ * @see io.github.nichetoolkit.rest.fitter.RestFulfilledFitter
  * @see lombok.extern.slf4j.Slf4j
  * @see lombok.Setter
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Slf4j
 @Setter

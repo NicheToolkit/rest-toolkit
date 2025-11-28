@@ -10,28 +10,21 @@ import io.github.nichetoolkit.rest.util.BeanUtils;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import io.github.nichetoolkit.rest.util.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
-import okhttp3.ConnectionPool;
-import okhttp3.OkHttpClient;
-import org.apache.http.Header;
-import org.apache.http.HeaderElement;
-import org.apache.http.HeaderElementIterator;
-import org.apache.http.HttpHost;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.protocol.HttpClientContext;
-import org.apache.http.config.Registry;
-import org.apache.http.config.RegistryBuilder;
-import org.apache.http.conn.ConnectionKeepAliveStrategy;
-import org.apache.http.conn.socket.ConnectionSocketFactory;
-import org.apache.http.conn.socket.PlainConnectionSocketFactory;
-import org.apache.http.conn.ssl.NoopHostnameVerifier;
-import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
-import org.apache.http.impl.client.DefaultHttpRequestRetryHandler;
-import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
-import org.apache.http.message.BasicHeader;
-import org.apache.http.message.BasicHeaderElementIterator;
-import org.apache.http.protocol.HTTP;
-import org.apache.http.ssl.SSLContextBuilder;
+import org.apache.hc.client5.http.ConnectionKeepAliveStrategy;
+import org.apache.hc.client5.http.RouteInfo;
+import org.apache.hc.client5.http.classic.HttpClient;
+import org.apache.hc.client5.http.impl.DefaultHttpRequestRetryStrategy;
+import org.apache.hc.client5.http.impl.classic.HttpClientBuilder;
+import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager;
+import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManagerBuilder;
+import org.apache.hc.client5.http.ssl.DefaultClientTlsStrategy;
+import org.apache.hc.client5.http.ssl.NoopHostnameVerifier;
+import org.apache.hc.client5.http.protocol.HttpClientContext;
+import org.apache.hc.core5.http.*;
+import org.apache.hc.core5.http.message.BasicHeader;
+import org.apache.hc.core5.http.message.BasicHeaderElementIterator;
+import org.apache.hc.core5.ssl.SSLContextBuilder;
+import org.apache.hc.core5.util.TimeValue;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -47,17 +40,15 @@ import org.springframework.web.client.DefaultResponseErrorHandler;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.DefaultUriBuilderFactory;
 
-import jakarta.net.ssl.*;
+import javax.net.ssl.*;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
-import java.net.ProxySelector;
 import java.security.KeyManagementException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
 import java.util.*;
-import java.util.concurrent.TimeUnit;
 
 /**
  * <code>RestHttpAutoConfigure</code>
@@ -68,12 +59,12 @@ import java.util.concurrent.TimeUnit;
  * @see java.lang.SuppressWarnings
  * @see org.springframework.boot.context.properties.EnableConfigurationProperties
  * @see org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Slf4j
 @AutoConfiguration
 @SuppressWarnings("SameNameButDifferent")
-@EnableConfigurationProperties({RestInterceptProperties.class,RestHttpProperties.class})
+@EnableConfigurationProperties({RestInterceptProperties.class, RestHttpProperties.class})
 @ConditionalOnProperty(value = "nichetoolkit.rest.http.enabled", havingValue = "true")
 public class RestHttpAutoConfigure {
 
@@ -116,7 +107,7 @@ public class RestHttpAutoConfigure {
     @Bean
     @ConditionalOnMissingBean(DefaultClientHttpInterceptor.class)
     public DefaultClientHttpInterceptor defaultClientHttpInterceptor() {
-        return new DefaultClientHttpInterceptor( this.interceptProperties);
+        return new DefaultClientHttpInterceptor(this.interceptProperties);
     }
 
 
@@ -142,49 +133,244 @@ public class RestHttpAutoConfigure {
     }
 
     /**
-     * <code>DefaultRestTemplateAutoConfigure</code>
-     * <p>The default rest template auto configure class.</p>
+     * <code>DefaultClientTemplateAutoConfigure</code>
+     * <p>The default client template auto configure class.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see org.springframework.context.annotation.Configuration
      * @see org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
-     * @since Jdk1.8
+     * @since Jdk17
      */
     @Configuration
-    @ConditionalOnProperty(value = "nichetoolkit.rest.http.http-type", havingValue = "default")
-    public class DefaultRestTemplateAutoConfigure {
+    @ConditionalOnProperty(value = "nichetoolkit.rest.http.http-type", havingValue = "default_client")
+    public class DefaultClientTemplateAutoConfigure {
         /**
-         * <code>DefaultRestTemplateAutoConfigure</code>
-         * <p>Instantiates a new default rest template auto configure.</p>
+         * <code>DefaultClientTemplateAutoConfigure</code>
+         * <p>Instantiates a new default client template auto configure.</p>
          */
-        public DefaultRestTemplateAutoConfigure() {
-            log.debug("The auto configuration for [default-httpClient] rest template initiated");
+        public DefaultClientTemplateAutoConfigure() {
+            log.debug("The auto configuration for [defaultClient] rest template initiated");
         }
 
         /**
          * <code>restTemplate</code>
          * <p>The rest template method.</p>
-         * @param simpleClientHttpRequestFactory {@link org.springframework.http.client.SimpleClientHttpRequestFactory} <p>The simple client http request factory parameter is <code>SimpleClientHttpRequestFactory</code> type.</p>
-         * @param clientHttpInterceptor          {@link io.github.nichetoolkit.rest.interceptor.DefaultClientHttpInterceptor} <p>The client http interceptor parameter is <code>DefaultClientHttpInterceptor</code> type.</p>
+         * @param clientHttpInterceptor {@link io.github.nichetoolkit.rest.interceptor.DefaultClientHttpInterceptor} <p>The client http interceptor parameter is <code>DefaultClientHttpInterceptor</code> type.</p>
+         * @return {@link org.springframework.web.client.RestTemplate} <p>The rest template return object is <code>RestTemplate</code> type.</p>
+         * @see io.github.nichetoolkit.rest.interceptor.DefaultClientHttpInterceptor
+         * @see org.springframework.web.client.RestTemplate
+         * @see org.springframework.context.annotation.Bean
+         */
+        @Bean(name = HttpClientType.DEFAULT_TEMPLATE)
+        public RestTemplate restTemplate(DefaultClientHttpInterceptor clientHttpInterceptor) {
+            return createRestTemplate(null,clientHttpInterceptor);
+        }
+    }
+
+    /**
+     * <code>ReactorClientTemplateAutoConfigure</code>
+     * <p>The reactor client template auto configure class.</p>
+     * @author Cyan (snow22314@outlook.com)
+     * @see org.springframework.context.annotation.Configuration
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
+     * @since Jdk17
+     */
+    @Configuration
+    @ConditionalOnProperty(value = "nichetoolkit.rest.http.http-type", havingValue = "reactor_client")
+    public class ReactorClientTemplateAutoConfigure {
+        /**
+         * <code>ReactorClientTemplateAutoConfigure</code>
+         * <p>Instantiates a new reactor client template auto configure.</p>
+         */
+        public ReactorClientTemplateAutoConfigure() {
+            log.debug("The auto configuration for [reactorClient] rest template initiated");
+        }
+
+        /**
+         * <code>restTemplate</code>
+         * <p>The rest template method.</p>
+         * @param reactorClientRequestFactory {@link org.springframework.http.client.ReactorClientHttpRequestFactory} <p>The reactor client request factory parameter is <code>ReactorClientHttpRequestFactory</code> type.</p>
+         * @param clientHttpInterceptor       {@link io.github.nichetoolkit.rest.interceptor.DefaultClientHttpInterceptor} <p>The client http interceptor parameter is <code>DefaultClientHttpInterceptor</code> type.</p>
+         * @return {@link org.springframework.web.client.RestTemplate} <p>The rest template return object is <code>RestTemplate</code> type.</p>
+         * @see org.springframework.http.client.ReactorClientHttpRequestFactory
+         * @see io.github.nichetoolkit.rest.interceptor.DefaultClientHttpInterceptor
+         * @see org.springframework.web.client.RestTemplate
+         * @see org.springframework.context.annotation.Bean
+         */
+        @Bean(name = HttpClientType.REACTOR_TEMPLATE)
+        public RestTemplate restTemplate(ReactorClientHttpRequestFactory reactorClientRequestFactory, DefaultClientHttpInterceptor clientHttpInterceptor) {
+            return createRestTemplate(reactorClientRequestFactory, clientHttpInterceptor);
+        }
+
+        /**
+         * <code>reactorClientRequestFactory</code>
+         * <p>The reactor client request factory method.</p>
+         * @return {@link org.springframework.http.client.ReactorClientHttpRequestFactory} <p>The reactor client request factory return object is <code>ReactorClientHttpRequestFactory</code> type.</p>
+         * @see org.springframework.http.client.ReactorClientHttpRequestFactory
+         * @see org.springframework.context.annotation.Bean
+         */
+        @Bean(name = "reactorClientRequestFactory")
+        public ReactorClientHttpRequestFactory reactorClientRequestFactory() {
+            ReactorClientHttpRequestFactory reactorClientHttpRequestFactory = new ReactorClientHttpRequestFactory();
+            reactorClientHttpRequestFactory.setConnectTimeout(httpProperties.getConnectTimeout());
+            /* 数据读取超时时间，即SocketTimeout */
+            reactorClientHttpRequestFactory.setReadTimeout(httpProperties.getReadTimeout());
+            ThreadPoolTaskScheduler taskExecutor = new ThreadPoolTaskScheduler();
+            taskExecutor.setPoolSize(httpProperties.getMaxCoreSize());
+            taskExecutor.setThreadFactory(new HttpThreadFactory("http-thread-pool"));
+            reactorClientHttpRequestFactory.setExecutor(taskExecutor);
+            return reactorClientHttpRequestFactory;
+        }
+    }
+
+
+    /**
+     * <code>JdkClientTemplateAutoConfigure</code>
+     * <p>The jdk client template auto configure class.</p>
+     * @author Cyan (snow22314@outlook.com)
+     * @see org.springframework.context.annotation.Configuration
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
+     * @since Jdk17
+     */
+    @Configuration
+    @ConditionalOnProperty(value = "nichetoolkit.rest.http.http-type", havingValue = "jdk_client")
+    public class JdkClientTemplateAutoConfigure {
+        /**
+         * <code>JdkClientTemplateAutoConfigure</code>
+         * <p>Instantiates a new jdk client template auto configure.</p>
+         */
+        public JdkClientTemplateAutoConfigure() {
+            log.debug("The auto configuration for [jdkClient] rest template initiated");
+        }
+
+        /**
+         * <code>restTemplate</code>
+         * <p>The rest template method.</p>
+         * @param jdkClientRequestFactory {@link org.springframework.http.client.JdkClientHttpRequestFactory} <p>The jdk client request factory parameter is <code>JdkClientHttpRequestFactory</code> type.</p>
+         * @param clientHttpInterceptor   {@link io.github.nichetoolkit.rest.interceptor.DefaultClientHttpInterceptor} <p>The client http interceptor parameter is <code>DefaultClientHttpInterceptor</code> type.</p>
+         * @return {@link org.springframework.web.client.RestTemplate} <p>The rest template return object is <code>RestTemplate</code> type.</p>
+         * @see org.springframework.http.client.JdkClientHttpRequestFactory
+         * @see io.github.nichetoolkit.rest.interceptor.DefaultClientHttpInterceptor
+         * @see org.springframework.web.client.RestTemplate
+         * @see org.springframework.context.annotation.Bean
+         */
+        @Bean(name = HttpClientType.JDK_TEMPLATE)
+        public RestTemplate restTemplate(JdkClientHttpRequestFactory jdkClientRequestFactory, DefaultClientHttpInterceptor clientHttpInterceptor) {
+            return createRestTemplate(jdkClientRequestFactory, clientHttpInterceptor);
+        }
+
+        /**
+         * <code>jdkClientRequestFactory</code>
+         * <p>The jdk client request factory method.</p>
+         * @return {@link org.springframework.http.client.JdkClientHttpRequestFactory} <p>The jdk client request factory return object is <code>JdkClientHttpRequestFactory</code> type.</p>
+         * @see org.springframework.http.client.JdkClientHttpRequestFactory
+         * @see org.springframework.context.annotation.Bean
+         */
+        @Bean(name = "jdkClientRequestFactory")
+        public JdkClientHttpRequestFactory jdkClientRequestFactory() {
+            JdkClientHttpRequestFactory jdkClientHttpRequestFactory = new JdkClientHttpRequestFactory();
+            jdkClientHttpRequestFactory.enableCompression(true);
+            /* 数据读取超时时间，即SocketTimeout */
+            jdkClientHttpRequestFactory.setReadTimeout(httpProperties.getReadTimeout());
+            return jdkClientHttpRequestFactory;
+        }
+    }
+
+    /**
+     * <code>JettyClientTemplateAutoConfigure</code>
+     * <p>The jetty client template auto configure class.</p>
+     * @author Cyan (snow22314@outlook.com)
+     * @see org.springframework.context.annotation.Configuration
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
+     * @since Jdk17
+     */
+    @Configuration
+    @ConditionalOnProperty(value = "nichetoolkit.rest.http.http-type", havingValue = "jetty_client")
+    public class JettyClientTemplateAutoConfigure {
+        /**
+         * <code>JettyClientTemplateAutoConfigure</code>
+         * <p>Instantiates a new jetty client template auto configure.</p>
+         */
+        public JettyClientTemplateAutoConfigure() {
+            log.debug("The auto configuration for [jettyClient] rest template initiated");
+        }
+
+        /**
+         * <code>restTemplate</code>
+         * <p>The rest template method.</p>
+         * @param jettyClientRequestFactory {@link org.springframework.http.client.JettyClientHttpRequestFactory} <p>The jetty client request factory parameter is <code>JettyClientHttpRequestFactory</code> type.</p>
+         * @param clientHttpInterceptor     {@link io.github.nichetoolkit.rest.interceptor.DefaultClientHttpInterceptor} <p>The client http interceptor parameter is <code>DefaultClientHttpInterceptor</code> type.</p>
+         * @return {@link org.springframework.web.client.RestTemplate} <p>The rest template return object is <code>RestTemplate</code> type.</p>
+         * @see org.springframework.http.client.JettyClientHttpRequestFactory
+         * @see io.github.nichetoolkit.rest.interceptor.DefaultClientHttpInterceptor
+         * @see org.springframework.web.client.RestTemplate
+         * @see org.springframework.context.annotation.Bean
+         */
+        @Bean(name = HttpClientType.JETTY_TEMPLATE)
+        public RestTemplate restTemplate(JettyClientHttpRequestFactory jettyClientRequestFactory, DefaultClientHttpInterceptor clientHttpInterceptor) {
+            return createRestTemplate(jettyClientRequestFactory, clientHttpInterceptor);
+        }
+
+        /**
+         * <code>jettyClientRequestFactory</code>
+         * <p>The jetty client request factory method.</p>
+         * @return {@link org.springframework.http.client.JettyClientHttpRequestFactory} <p>The jetty client request factory return object is <code>JettyClientHttpRequestFactory</code> type.</p>
+         * @see org.springframework.http.client.JettyClientHttpRequestFactory
+         * @see org.springframework.context.annotation.Bean
+         */
+        @Bean(name = "jettyClientRequestFactory")
+        public JettyClientHttpRequestFactory jettyClientRequestFactory() {
+            JettyClientHttpRequestFactory jettyClientHttpRequestFactory = new JettyClientHttpRequestFactory();
+            jettyClientHttpRequestFactory.setConnectTimeout(httpProperties.getConnectTimeout());
+            /* 数据读取超时时间，即SocketTimeout */
+            jettyClientHttpRequestFactory.setReadTimeout(httpProperties.getReadTimeout());
+            return jettyClientHttpRequestFactory;
+        }
+    }
+
+    /**
+     * <code>SimpleClientTemplateAutoConfigure</code>
+     * <p>The simple client template auto configure class.</p>
+     * @author Cyan (snow22314@outlook.com)
+     * @see org.springframework.context.annotation.Configuration
+     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
+     * @since Jdk17
+     */
+    @Configuration
+    @ConditionalOnProperty(value = "nichetoolkit.rest.http.http-type", havingValue = "simple_client")
+    public class SimpleClientTemplateAutoConfigure {
+        /**
+         * <code>SimpleClientTemplateAutoConfigure</code>
+         * <p>Instantiates a new simple client template auto configure.</p>
+         */
+        public SimpleClientTemplateAutoConfigure() {
+            log.debug("The auto configuration for [simpleClient] rest template initiated");
+        }
+
+        /**
+         * <code>restTemplate</code>
+         * <p>The rest template method.</p>
+         * @param simpleClientRequestFactory {@link org.springframework.http.client.SimpleClientHttpRequestFactory} <p>The simple client request factory parameter is <code>SimpleClientHttpRequestFactory</code> type.</p>
+         * @param clientHttpInterceptor      {@link io.github.nichetoolkit.rest.interceptor.DefaultClientHttpInterceptor} <p>The client http interceptor parameter is <code>DefaultClientHttpInterceptor</code> type.</p>
          * @return {@link org.springframework.web.client.RestTemplate} <p>The rest template return object is <code>RestTemplate</code> type.</p>
          * @see org.springframework.http.client.SimpleClientHttpRequestFactory
          * @see io.github.nichetoolkit.rest.interceptor.DefaultClientHttpInterceptor
          * @see org.springframework.web.client.RestTemplate
          * @see org.springframework.context.annotation.Bean
          */
-        @Bean(name = HttpClientType.DEFAULT_BEAN)
-        public RestTemplate restTemplate(SimpleClientHttpRequestFactory simpleClientHttpRequestFactory,DefaultClientHttpInterceptor clientHttpInterceptor) {
-            return createRestTemplate(simpleClientHttpRequestFactory,clientHttpInterceptor);
+        @Bean(name = HttpClientType.SIMPLE_TEMPLATE)
+        public RestTemplate restTemplate(SimpleClientHttpRequestFactory simpleClientRequestFactory, DefaultClientHttpInterceptor clientHttpInterceptor) {
+            return createRestTemplate(simpleClientRequestFactory, clientHttpInterceptor);
         }
 
         /**
-         * <code>simpleClientHttpRequestFactory</code>
-         * <p>The simple client http request factory method.</p>
-         * @return {@link org.springframework.http.client.SimpleClientHttpRequestFactory} <p>The simple client http request factory return object is <code>SimpleClientHttpRequestFactory</code> type.</p>
+         * <code>simpleClientRequestFactory</code>
+         * <p>The simple client request factory method.</p>
+         * @return {@link org.springframework.http.client.SimpleClientHttpRequestFactory} <p>The simple client request factory return object is <code>SimpleClientHttpRequestFactory</code> type.</p>
          * @see org.springframework.http.client.SimpleClientHttpRequestFactory
          * @see org.springframework.context.annotation.Bean
          */
-        @Bean(name = "simpleClientHttpRequestFactory")
-        public SimpleClientHttpRequestFactory simpleClientHttpRequestFactory() {
+        @Bean(name = "simpleClientRequestFactory")
+        public SimpleClientHttpRequestFactory simpleClientRequestFactory() {
             SimpleClientHttpRequestFactory simpleClientHttpRequestFactory = new SimpleClientHttpRequestFactory();
             simpleClientHttpRequestFactory.setConnectTimeout(httpProperties.getConnectTimeout());
             /* 数据读取超时时间，即SocketTimeout */
@@ -194,183 +380,60 @@ public class RestHttpAutoConfigure {
             if (GeneralUtils.isNotEmpty(proxy)) {
                 simpleClientHttpRequestFactory.setProxy(proxy);
             }
-            ThreadPoolTaskScheduler taskExecutor = new ThreadPoolTaskScheduler();
-            taskExecutor.setPoolSize(httpProperties.getMaxCoreSize());
-            taskExecutor.setThreadFactory(new HttpThreadFactory("http-thread-pool"));
-            simpleClientHttpRequestFactory.setTaskExecutor(taskExecutor);
             return simpleClientHttpRequestFactory;
         }
     }
 
-
     /**
-     * <code>OkHttpRestTemplateAutoConfigure</code>
-     * <p>The ok http rest template auto configure class.</p>
+     * <code>Http5ClientTemplateAutoConfigure</code>
+     * <p>The http 5 client template auto configure class.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see org.springframework.context.annotation.Configuration
      * @see org.springframework.boot.autoconfigure.condition.ConditionalOnClass
      * @see org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
-     * @since Jdk1.8
+     * @since Jdk17
      */
     @Configuration
-    @ConditionalOnClass({RestTemplate.class,OkHttpClient.class})
-    @ConditionalOnProperty(value = "nichetoolkit.rest.http.http-type", havingValue = "ok_http_client")
-    public class OkHttpRestTemplateAutoConfigure {
-        /**
-         * <code>OkHttpRestTemplateAutoConfigure</code>
-         * <p>Instantiates a new ok http rest template auto configure.</p>
-         */
-        public OkHttpRestTemplateAutoConfigure() {
-            log.debug("the auto configuration for [okHttp3] rest template initiated!");
-        }
-
-        /**
-         * <code>okHttpTemplate</code>
-         * <p>The ok http template method.</p>
-         * @param okHttp3ClientHttpRequestFactory {@link org.springframework.http.client.OkHttp3ClientHttpRequestFactory} <p>The ok http 3 client http request factory parameter is <code>OkHttp3ClientHttpRequestFactory</code> type.</p>
-         * @param clientHttpInterceptor           {@link io.github.nichetoolkit.rest.interceptor.DefaultClientHttpInterceptor} <p>The client http interceptor parameter is <code>DefaultClientHttpInterceptor</code> type.</p>
-         * @return {@link org.springframework.web.client.RestTemplate} <p>The ok http template return object is <code>RestTemplate</code> type.</p>
-         * @see org.springframework.http.client.OkHttp3ClientHttpRequestFactory
-         * @see io.github.nichetoolkit.rest.interceptor.DefaultClientHttpInterceptor
-         * @see org.springframework.web.client.RestTemplate
-         * @see org.springframework.context.annotation.Bean
-         */
-        @Bean(name = HttpClientType.OKHTTP3_BEAN)
-        public RestTemplate okHttpTemplate(OkHttp3ClientHttpRequestFactory okHttp3ClientHttpRequestFactory,DefaultClientHttpInterceptor clientHttpInterceptor) {
-            return createRestTemplate(okHttp3ClientHttpRequestFactory,clientHttpInterceptor);
-        }
-
-        /**
-         * <code>okHttp3ClientHttpRequestFactory</code>
-         * <p>The ok http 3 client http request factory method.</p>
-         * @param okHttpClient {@link okhttp3.OkHttpClient} <p>The ok http client parameter is <code>OkHttpClient</code> type.</p>
-         * @return {@link org.springframework.http.client.OkHttp3ClientHttpRequestFactory} <p>The ok http 3 client http request factory return object is <code>OkHttp3ClientHttpRequestFactory</code> type.</p>
-         * @see okhttp3.OkHttpClient
-         * @see org.springframework.http.client.OkHttp3ClientHttpRequestFactory
-         * @see org.springframework.context.annotation.Bean
-         */
-        @Bean(name = "okHttp3ClientHttpRequestFactory")
-        public OkHttp3ClientHttpRequestFactory okHttp3ClientHttpRequestFactory(OkHttpClient okHttpClient) {
-            OkHttp3ClientHttpRequestFactory okHttp3ClientHttpRequestFactory = new OkHttp3ClientHttpRequestFactory(okHttpClient);
-            okHttp3ClientHttpRequestFactory.setConnectTimeout(httpProperties.getConnectTimeout());
-            /* 数据读取超时时间，即SocketTimeout */
-            okHttp3ClientHttpRequestFactory.setReadTimeout(httpProperties.getReadTimeout());
-            /* 从连接池获取请求连接的超时时间，不宜过长，必须设置，比如连接不够用时，时间过长将是灾难性的 */
-            okHttp3ClientHttpRequestFactory.setWriteTimeout(httpProperties.getRequestTimeout());
-            return okHttp3ClientHttpRequestFactory;
-        }
-
-        /**
-         * <code>okHttpClient</code>
-         * <p>The ok http client method.</p>
-         * @param x509TrustManager {@link jakarta.net.ssl.X509TrustManager} <p>The x 509 trust manager parameter is <code>X509TrustManager</code> type.</p>
-         * @return {@link okhttp3.OkHttpClient} <p>The ok http client return object is <code>OkHttpClient</code> type.</p>
-         * @throws HttpConfigError {@link io.github.nichetoolkit.rest.error.network.HttpConfigError} <p>The http config error is <code>HttpConfigError</code> type.</p>
-         * @see jakarta.net.ssl.X509TrustManager
-         * @see okhttp3.OkHttpClient
-         * @see org.springframework.context.annotation.Bean
-         * @see io.github.nichetoolkit.rest.error.network.HttpConfigError
-         */
-        @Bean(name = "okHttpClient")
-        public OkHttpClient okHttpClient(X509TrustManager x509TrustManager) throws HttpConfigError {
-            OkHttpClient.Builder okHttpClientBuilder = new OkHttpClient().newBuilder();
-            ConnectionPool connectionPool = new ConnectionPool(httpProperties.getMaxIdleSize(), httpProperties.getKeepAliveTime(), TimeUnit.MILLISECONDS);
-            okHttpClientBuilder.connectionPool(connectionPool);
-            try {
-                SSLContext sslContext = SSLContext.getInstance("TLS");
-                sslContext.init(null, new TrustManager[]{x509TrustManager}, new SecureRandom());
-                okHttpClientBuilder.sslSocketFactory(sslContext.getSocketFactory(),x509TrustManager);
-                okHttpClientBuilder.hostnameVerifier((hostname, session) -> true);
-                okHttpClientBuilder.retryOnConnectionFailure(true);
-                okHttpClientBuilder.connectTimeout(httpProperties.getConnectTimeout(),TimeUnit.MILLISECONDS);
-                okHttpClientBuilder.readTimeout(httpProperties.getReadTimeout(),TimeUnit.MILLISECONDS);
-                okHttpClientBuilder.writeTimeout(httpProperties.getRequestTimeout(),TimeUnit.MILLISECONDS);
-                ProxySelector proxySelector = ProxySelector.getDefault();
-                okHttpClientBuilder.proxySelector(proxySelector);
-                return okHttpClientBuilder.build();
-            } catch (KeyManagementException | NoSuchAlgorithmException exception) {
-                log.error("the http connection pool initiated with error: {}", exception.getMessage());
-                throw new HttpConfigError("the http connection pool initiated with error, error: " + exception.getMessage(), exception);
-            }
-        }
-
-        /**
-         * <code>x509TrustManager</code>
-         * <p>The x 509 trust manager method.</p>
-         * @return {@link jakarta.net.ssl.X509TrustManager} <p>The x 509 trust manager return object is <code>X509TrustManager</code> type.</p>
-         * @see jakarta.net.ssl.X509TrustManager
-         * @see org.springframework.context.annotation.Bean
-         * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
-         */
-        @Bean
-        @ConditionalOnMissingBean(X509TrustManager.class)
-        public X509TrustManager x509TrustManager() {
-            return new X509TrustManager() {
-                @Override
-                public void checkClientTrusted(X509Certificate[] x509Certificates, String s) {
-                }
-                @Override
-                public void checkServerTrusted(X509Certificate[] x509Certificates, String s) {
-                }
-                @Override
-                public X509Certificate[] getAcceptedIssuers() {
-                    return new X509Certificate[0];
-                }
-            };
-        }
-    }
-
-
-    /**
-     * <code>HttpClientRestTemplateAutoConfigure</code>
-     * <p>The http client rest template auto configure class.</p>
-     * @author Cyan (snow22314@outlook.com)
-     * @see org.springframework.context.annotation.Configuration
-     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnClass
-     * @see org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
-     * @since Jdk1.8
-     */
-    @Configuration
-    @ConditionalOnClass({RestTemplate.class,HttpClient.class})
+    @ConditionalOnClass({RestTemplate.class, HttpClient.class})
     @ConditionalOnProperty(value = "nichetoolkit.rest.http.http-type", havingValue = "http_client")
-    public class HttpClientRestTemplateAutoConfigure {
+    public class Http5ClientTemplateAutoConfigure {
         /**
-         * <code>HttpClientRestTemplateAutoConfigure</code>
-         * <p>Instantiates a new http client rest template auto configure.</p>
+         * <code>Http5ClientTemplateAutoConfigure</code>
+         * <p>Instantiates a new http 5 client template auto configure.</p>
          */
-        public HttpClientRestTemplateAutoConfigure() {
-            log.debug("the auto configuration for [httpClient] rest template initiated!");
+        public Http5ClientTemplateAutoConfigure() {
+            log.debug("the auto configuration for [http5Client] rest template initiated!");
         }
 
         /**
          * <code>httpTemplate</code>
          * <p>The http template method.</p>
-         * @param httpComponentsClientHttpRequestFactory {@link org.springframework.http.client.HttpComponentsClientHttpRequestFactory} <p>The http components client http request factory parameter is <code>HttpComponentsClientHttpRequestFactory</code> type.</p>
-         * @param clientHttpInterceptor                  {@link io.github.nichetoolkit.rest.interceptor.DefaultClientHttpInterceptor} <p>The client http interceptor parameter is <code>DefaultClientHttpInterceptor</code> type.</p>
+         * @param httpClientRequestFactory {@link org.springframework.http.client.HttpComponentsClientHttpRequestFactory} <p>The http client request factory parameter is <code>HttpComponentsClientHttpRequestFactory</code> type.</p>
+         * @param clientHttpInterceptor    {@link io.github.nichetoolkit.rest.interceptor.DefaultClientHttpInterceptor} <p>The client http interceptor parameter is <code>DefaultClientHttpInterceptor</code> type.</p>
          * @return {@link org.springframework.web.client.RestTemplate} <p>The http template return object is <code>RestTemplate</code> type.</p>
          * @see org.springframework.http.client.HttpComponentsClientHttpRequestFactory
          * @see io.github.nichetoolkit.rest.interceptor.DefaultClientHttpInterceptor
          * @see org.springframework.web.client.RestTemplate
          * @see org.springframework.context.annotation.Bean
          */
-        @Bean(name = HttpClientType.HTTPCLIENT_BEAN)
-        public RestTemplate httpTemplate(HttpComponentsClientHttpRequestFactory httpComponentsClientHttpRequestFactory,DefaultClientHttpInterceptor clientHttpInterceptor) {
-            return createRestTemplate(httpComponentsClientHttpRequestFactory,clientHttpInterceptor);
+        @Bean(name = HttpClientType.HTTP_TEMPLATE)
+        public RestTemplate httpTemplate(HttpComponentsClientHttpRequestFactory httpClientRequestFactory, DefaultClientHttpInterceptor clientHttpInterceptor) {
+            return createRestTemplate(httpClientRequestFactory, clientHttpInterceptor);
         }
 
         /**
-         * <code>httpComponentsClientHttpRequestFactory</code>
-         * <p>The http components client http request factory method.</p>
-         * @param httpClient {@link org.apache.http.client.HttpClient} <p>The http client parameter is <code>HttpClient</code> type.</p>
-         * @return {@link org.springframework.http.client.HttpComponentsClientHttpRequestFactory} <p>The http components client http request factory return object is <code>HttpComponentsClientHttpRequestFactory</code> type.</p>
-         * @see org.apache.http.client.HttpClient
+         * <code>httpClientRequestFactory</code>
+         * <p>The http client request factory method.</p>
+         * @param httpClient {@link org.apache.hc.client5.http.classic.HttpClient} <p>The http client parameter is <code>HttpClient</code> type.</p>
+         * @return {@link org.springframework.http.client.HttpComponentsClientHttpRequestFactory} <p>The http client request factory return object is <code>HttpComponentsClientHttpRequestFactory</code> type.</p>
+         * @see org.apache.hc.client5.http.classic.HttpClient
          * @see org.springframework.http.client.HttpComponentsClientHttpRequestFactory
          * @see org.springframework.context.annotation.Bean
          */
-        @Bean(name = "httpComponentsClientHttpRequestFactory")
-        public HttpComponentsClientHttpRequestFactory httpComponentsClientHttpRequestFactory(HttpClient httpClient) {
+        @Bean(name = "httpClientRequestFactory")
+        public HttpComponentsClientHttpRequestFactory httpClientRequestFactory(HttpClient httpClient) {
             HttpComponentsClientHttpRequestFactory httpComponentsClientHttpRequestFactory = new HttpComponentsClientHttpRequestFactory(httpClient);
-            httpComponentsClientHttpRequestFactory.setConnectTimeout(httpProperties.getConnectTimeout());
+            httpComponentsClientHttpRequestFactory.setConnectionRequestTimeout(httpProperties.getConnectTimeout());
             /* 数据读取超时时间，即SocketTimeout */
             httpComponentsClientHttpRequestFactory.setReadTimeout(httpProperties.getReadTimeout());
             /* 从连接池获取请求连接的超时时间，不宜过长，必须设置，比如连接不够用时，时间过长将是灾难性的 */
@@ -381,11 +444,11 @@ public class RestHttpAutoConfigure {
         /**
          * <code>httpClient</code>
          * <p>The http client method.</p>
-         * @param x509TrustManager {@link jakarta.net.ssl.X509TrustManager} <p>The x 509 trust manager parameter is <code>X509TrustManager</code> type.</p>
-         * @return {@link org.apache.http.client.HttpClient} <p>The http client return object is <code>HttpClient</code> type.</p>
+         * @param x509TrustManager {@link javax.net.ssl.X509TrustManager} <p>The x 509 trust manager parameter is <code>X509TrustManager</code> type.</p>
+         * @return {@link org.apache.hc.client5.http.classic.HttpClient} <p>The http client return object is <code>HttpClient</code> type.</p>
          * @throws HttpConfigError {@link io.github.nichetoolkit.rest.error.network.HttpConfigError} <p>The http config error is <code>HttpConfigError</code> type.</p>
-         * @see jakarta.net.ssl.X509TrustManager
-         * @see org.apache.http.client.HttpClient
+         * @see javax.net.ssl.X509TrustManager
+         * @see org.apache.hc.client5.http.classic.HttpClient
          * @see org.springframework.context.annotation.Bean
          * @see io.github.nichetoolkit.rest.error.network.HttpConfigError
          */
@@ -395,32 +458,27 @@ public class RestHttpAutoConfigure {
             Proxy proxy = httpProperties.getProxy().toProxy();
             if (GeneralUtils.isNotEmpty(proxy)) {
                 InetSocketAddress address = (InetSocketAddress) proxy.address();
-                HttpHost host = new HttpHost(address.getHostName(), address.getPort(), proxy.type().name().toLowerCase());
+                HttpHost host = new HttpHost(address.getHostName(), proxy.type().name().toLowerCase(), address.getPort());
                 httpClientBuilder.setProxy(host);
             }
             try {
                 /* 设置信任ssl访问 */
                 SSLContext sslContext = new SSLContextBuilder().loadTrustMaterial(null, (arg0, arg1) -> true).build();
                 sslContext.init(null, new TrustManager[]{x509TrustManager}, new SecureRandom());
-                httpClientBuilder.setSSLContext(sslContext);
-
                 HostnameVerifier hostnameVerifier = NoopHostnameVerifier.INSTANCE;
-                SSLConnectionSocketFactory sslConnectionSocketFactory = new SSLConnectionSocketFactory(sslContext, hostnameVerifier);
-                Registry<ConnectionSocketFactory> socketFactoryRegistry = RegistryBuilder.<ConnectionSocketFactory>create()
-                        /*  注册http和https请求 */
-                        .register("http", PlainConnectionSocketFactory.getSocketFactory())
-                        .register("https", sslConnectionSocketFactory).build();
-
+                DefaultClientTlsStrategy clientTlsStrategy = new DefaultClientTlsStrategy(sslContext, hostnameVerifier);
                 /* 使用Httpclient连接池的方式配置(推荐)，同时支持netty，okHttp以及其他http框架 */
-                PoolingHttpClientConnectionManager poolingHttpClientConnectionManager = new PoolingHttpClientConnectionManager(socketFactoryRegistry);
-                /* 最大连接数 */
-                poolingHttpClientConnectionManager.setMaxTotal(httpProperties.getMaxCoreSize());
-                /* 同路由并发数 */
-                poolingHttpClientConnectionManager.setDefaultMaxPerRoute(httpProperties.getMaxIdleSize());
+                PoolingHttpClientConnectionManager poolingHttpClientConnectionManager = PoolingHttpClientConnectionManagerBuilder.create()
+                        /* 最大连接数 */
+                        .setMaxConnTotal(httpProperties.getMaxCoreSize())
+                        /* 同路由并发数 */
+                        .setMaxConnPerRoute(httpProperties.getMaxIdleSize())
+                        .setTlsSocketStrategy(clientTlsStrategy)
+                        .build();
                 /* 配置连接池 */
                 httpClientBuilder.setConnectionManager(poolingHttpClientConnectionManager);
                 /* 重试次数 */
-                httpClientBuilder.setRetryHandler(new DefaultHttpRequestRetryHandler(httpProperties.getRetryTimes(), true));
+                httpClientBuilder.setRetryStrategy(new DefaultHttpRequestRetryStrategy(httpProperties.getRetryTimes(), TimeValue.ofSeconds(1L)));
                 /* 设置默认请求头 */
                 httpClientBuilder.setDefaultHeaders(getDefaultHeaders());
                 /* 设置长连接保持策略 */
@@ -435,8 +493,8 @@ public class RestHttpAutoConfigure {
         /**
          * <code>x509TrustManager</code>
          * <p>The x 509 trust manager method.</p>
-         * @return {@link jakarta.net.ssl.X509TrustManager} <p>The x 509 trust manager return object is <code>X509TrustManager</code> type.</p>
-         * @see jakarta.net.ssl.X509TrustManager
+         * @return {@link javax.net.ssl.X509TrustManager} <p>The x 509 trust manager return object is <code>X509TrustManager</code> type.</p>
+         * @see javax.net.ssl.X509TrustManager
          * @see org.springframework.context.annotation.Bean
          * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
          */
@@ -447,9 +505,11 @@ public class RestHttpAutoConfigure {
                 @Override
                 public void checkClientTrusted(X509Certificate[] x509Certificates, String s) {
                 }
+
                 @Override
                 public void checkServerTrusted(X509Certificate[] x509Certificates, String s) {
                 }
+
                 @Override
                 public X509Certificate[] getAcceptedIssuers() {
                     return new X509Certificate[0];
@@ -460,31 +520,33 @@ public class RestHttpAutoConfigure {
         /**
          * <code>connectionKeepAliveStrategy</code>
          * <p>The connection keep alive strategy method.</p>
-         * @return {@link org.apache.http.conn.ConnectionKeepAliveStrategy} <p>The connection keep alive strategy return object is <code>ConnectionKeepAliveStrategy</code> type.</p>
-         * @see org.apache.http.conn.ConnectionKeepAliveStrategy
+         * @return {@link org.apache.hc.client5.http.ConnectionKeepAliveStrategy} <p>The connection keep alive strategy return object is <code>ConnectionKeepAliveStrategy</code> type.</p>
+         * @see org.apache.hc.client5.http.ConnectionKeepAliveStrategy
          */
-        public ConnectionKeepAliveStrategy connectionKeepAliveStrategy(){
+        public ConnectionKeepAliveStrategy connectionKeepAliveStrategy() {
             return (response, context) -> {
-                HeaderElementIterator iterator = new BasicHeaderElementIterator(response.headerIterator(HTTP.CONN_KEEP_ALIVE));
+                BasicHeaderElementIterator iterator = new BasicHeaderElementIterator(response.headerIterator(HeaderElements.KEEP_ALIVE));
                 while (iterator.hasNext()) {
-                    HeaderElement headerElement = iterator.nextElement();
+                    HeaderElement headerElement = iterator.next();
                     log.debug("header         element: {}", JsonUtils.parseJson(headerElement));
                     String param = headerElement.getName();
                     String value = headerElement.getValue();
                     if (value != null && "timeout".equalsIgnoreCase(param)) {
                         try {
-                            return Long.parseLong(value) * 1000;
-                        } catch(NumberFormatException exception) {
+                            return TimeValue.ofSeconds(Long.parseLong(value));
+                        } catch (NumberFormatException exception) {
                             log.error("parsing long connection expiration time exception!", exception);
                         }
                     }
                 }
-                HttpHost target = (HttpHost) context.getAttribute(HttpClientContext.HTTP_TARGET_HOST);
+                HttpClientContext clientContext = HttpClientContext.cast(context);
+                RouteInfo httpRoute = clientContext.getHttpRoute();
+                HttpHost target = httpRoute.getTargetHost();
                 /* 如果请求目标地址,单独配置了长连接保持时间,使用该配置 */
-                Optional<Map.Entry<String, Integer>> any = Optional.ofNullable(httpProperties.getKeepAliveHosts()).orElseGet(HashMap::new)
+                Optional<Map.Entry<String, Integer>> targetAny = Optional.ofNullable(httpProperties.getKeepAliveHosts()).orElseGet(HashMap::new)
                         .entrySet().stream().filter(entry -> entry.getKey().equalsIgnoreCase(target.getHostName())).findAny();
                 /* 否则使用默认长连接保持时间 */
-                return any.map(en -> en.getValue() * 1000L).orElse(httpProperties.getKeepAliveTime());
+                return targetAny.map(entry -> TimeValue.ofSeconds(entry.getValue())).orElse(TimeValue.ofMilliseconds(httpProperties.getKeepAliveTime()));
             };
         }
     }
@@ -514,8 +576,13 @@ public class RestHttpAutoConfigure {
      * @see io.github.nichetoolkit.rest.interceptor.DefaultClientHttpInterceptor
      * @see org.springframework.web.client.RestTemplate
      */
-    private RestTemplate createRestTemplate(ClientHttpRequestFactory factory,DefaultClientHttpInterceptor clientHttpInterceptor) {
-        RestTemplate restTemplate = new RestTemplate(new BufferingClientHttpRequestFactory(factory));
+    private RestTemplate createRestTemplate(ClientHttpRequestFactory factory, DefaultClientHttpInterceptor clientHttpInterceptor) {
+        RestTemplate restTemplate;
+        if (GeneralUtils.isNotNull(factory)) {
+            restTemplate = new RestTemplate(new BufferingClientHttpRequestFactory(factory));
+        } else {
+            restTemplate = new RestTemplate();
+        }
         if (interceptProperties.getEnabled()) {
             restTemplate.getInterceptors().add(clientHttpInterceptor);
         }

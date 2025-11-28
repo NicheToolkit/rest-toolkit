@@ -9,7 +9,7 @@ import org.jspecify.annotations.NonNull;
  * <code>RestUsernoteAdvice</code>
  * <p>The rest usernote advice interface.</p>
  * @author Cyan (snow22314@outlook.com)
- * @since Jdk1.8
+ * @since Jdk17
  */
 public interface RestUsernoteAdvice {
 

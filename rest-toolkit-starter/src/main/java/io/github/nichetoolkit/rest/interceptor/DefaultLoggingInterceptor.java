@@ -17,7 +17,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
 import org.jspecify.annotations.NonNull;
-import org.springframework.lang.Nullable;
+import org.jspecify.annotations.Nullable;
 import org.springframework.util.StringUtils;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.AsyncHandlerInterceptor;
@@ -42,7 +42,7 @@ import java.util.Optional;
  * @see io.github.nichetoolkit.rest.RestExceptionAdvice
  * @see jakarta.servlet.Filter
  * @see lombok.extern.slf4j.Slf4j
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Slf4j
 public class DefaultLoggingInterceptor implements AsyncHandlerInterceptor, RestResponseAdvice, RestExceptionAdvice, Filter {
@@ -159,10 +159,9 @@ public class DefaultLoggingInterceptor implements AsyncHandlerInterceptor, RestR
 
     @Override
     public void afterCompletion(@NonNull HttpServletRequest request,@NonNull HttpServletResponse response,@NonNull Object handler, Exception exception) {
-        if ((!interceptProperties.getUserlogEnabled() && !interceptProperties.getLoggingEnabled()) || !(handler instanceof HandlerMethod)) {
+        if ((!interceptProperties.getUserlogEnabled() && !interceptProperties.getLoggingEnabled()) || !(handler instanceof HandlerMethod handlerMethod)) {
             return;
         }
-        HandlerMethod handlerMethod = (HandlerMethod) handler;
         RestLogging beanRestLogAnnotation = handlerMethod.getBeanType().getAnnotation(RestLogging.class);
         RestNotelog notelogAnnotation = handlerMethod.getBeanType().getAnnotation(RestNotelog.class);
         RestLogging methodRestLog = handlerMethod.getMethodAnnotation(RestLogging.class);
@@ -249,7 +248,7 @@ public class DefaultLoggingInterceptor implements AsyncHandlerInterceptor, RestR
      * @see jakarta.servlet.http.HttpServletRequest
      * @see jakarta.servlet.http.HttpServletResponse
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.userlog.RestResponsePack
      * @see io.github.nichetoolkit.rest.userlog.RestRequestPack
      */
@@ -368,8 +367,7 @@ public class DefaultLoggingInterceptor implements AsyncHandlerInterceptor, RestR
     public void applyRequestBody(HttpServletRequest request, RestRequestPack restRequest) {
         String contentType = request.getContentType();
         if (StringUtils.hasText(contentType) && contentType.contains(MediaType.APPLICATION_JSON_VALUE)) {
-            if (request instanceof RestHttpRequest) {
-                RestHttpRequest httpRequest = (RestHttpRequest) request;
+            if (request instanceof RestHttpRequest httpRequest) {
                 String body = new String(httpRequest.getCacheBody(), StandardCharsets.UTF_8);
                 restRequest.setBody(body);
                 Integer bodyLength = interceptProperties.getBodyLength();

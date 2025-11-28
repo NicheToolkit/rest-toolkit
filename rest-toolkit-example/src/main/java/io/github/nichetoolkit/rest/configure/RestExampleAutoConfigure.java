@@ -12,8 +12,8 @@ import org.springframework.boot.autoconfigure.AutoConfigureBefore;
  * @see lombok.extern.slf4j.Slf4j
  * @see org.springframework.boot.autoconfigure.AutoConfiguration
  * @see java.lang.SuppressWarnings
- * @see org.springframework.boot.autoconfigure.AutoConfigureBefore
- * @since Jdk1.8
+ * @see org.springframework.boot.autoconfigure.AutoConfigureAfter
+ * @since Jdk17
  */
 @Slf4j
 @AutoConfiguration

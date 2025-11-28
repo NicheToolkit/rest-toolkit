@@ -27,7 +27,7 @@ import java.util.*;
  * @see jakarta.servlet.http.HttpServletRequestWrapper
  * @see java.io.Closeable
  * @see lombok.extern.slf4j.Slf4j
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Slf4j
 public class RestHttpRequest extends HttpServletRequestWrapper implements Closeable {
@@ -199,12 +199,6 @@ public class RestHttpRequest extends HttpServletRequestWrapper implements Closea
         return Collections.unmodifiableMap(this.paramsMap);
     }
 
-    /**
-     * <code>getRequestId</code>
-     * <p>The get request id getter method.</p>
-     * @return {@link java.lang.String} <p>The get request id return object is <code>String</code> type.</p>
-     * @see java.lang.String
-     */
     public String getRequestId() {
         Object requestId = getAttribute(REQUEST_ID_KEY);
         if (requestId == null) {
@@ -347,7 +341,7 @@ public class RestHttpRequest extends HttpServletRequestWrapper implements Closea
      * <p>The request caching input stream class.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see jakarta.servlet.ServletInputStream
-     * @since Jdk1.8
+     * @since Jdk17
      */
     private static class RequestCachingInputStream extends ServletInputStream {
 

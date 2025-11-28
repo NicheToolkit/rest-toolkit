@@ -15,7 +15,7 @@ import java.lang.annotation.*;
  * @see java.lang.annotation.Documented
  * @see org.springframework.stereotype.Indexed
  * @see io.github.nichetoolkit.rest.userlog.stereotype.RestLogging
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)

@@ -4,7 +4,7 @@ package io.github.nichetoolkit.rest.identity.worker;
  * <code>WorkerType</code>
  * <p>The worker type enumeration.</p>
  * @author Cyan (snow22314@outlook.com)
- * @since Jdk1.8
+ * @since Jdk17
  */
 public enum WorkerType {
     /**

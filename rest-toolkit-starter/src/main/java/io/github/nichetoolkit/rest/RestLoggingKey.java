@@ -4,7 +4,7 @@ package io.github.nichetoolkit.rest;
  * <code>RestLoggingKey</code>
  * <p>The rest logging key interface.</p>
  * @author Cyan (snow22314@outlook.com)
- * @since Jdk1.8
+ * @since Jdk17
  */
 public interface RestLoggingKey {
     /**

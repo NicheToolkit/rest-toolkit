@@ -109,11 +109,10 @@
         <maven-release-plugin.version>3.2.0</maven-release-plugin.version>
 
         <rest-toolkit.version>4.1.2-SNAPSHOT</rest-toolkit.version>
-
         <springframework.version>7.0.1</springframework.version>
 
+        <okhttp.version>4.9.3</okhttp.version>
         <thumbnailator.version>0.4.20</thumbnailator.version>
-
         <guava.version>33.5.0-jre</guava.version>
         <bcprov.version>1.83</bcprov.version>
         <fusionauth-jwt.version>5.3.3</fusionauth-jwt.version>
@@ -148,6 +147,12 @@
                 <groupId>io.github.nichetoolkit</groupId>
                 <artifactId>rest-toolkit-starter</artifactId>
                 <version>${rest-toolkit.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>okhttp</artifactId>
+                <version>${okhttp.version}</version>
             </dependency>
 
             <dependency>

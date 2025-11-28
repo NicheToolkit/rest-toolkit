@@ -14,7 +14,9 @@ import org.springframework.context.annotation.ComponentScan;
  * @see org.springframework.boot.autoconfigure.AutoConfiguration
  * @see java.lang.SuppressWarnings
  * @see org.springframework.boot.autoconfigure.AutoConfigureAfter
- * @since Jdk1.8
+ * @see org.springframework.context.annotation.ComponentScan
+ * @see org.springframework.boot.context.properties.EnableConfigurationProperties
+ * @since Jdk17
  */
 @Slf4j
 @AutoConfiguration

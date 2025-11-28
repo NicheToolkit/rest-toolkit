@@ -26,7 +26,7 @@ import jakarta.annotation.PostConstruct;
  * @see org.springframework.boot.ApplicationRunner
  * @see lombok.extern.slf4j.Slf4j
  * @see java.lang.SuppressWarnings
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Slf4j
 @SuppressWarnings("SameNameButDifferent")

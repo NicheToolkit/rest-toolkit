@@ -19,7 +19,7 @@ import java.util.List;
  * <p>The default license interceptor class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see org.springframework.web.servlet.HandlerInterceptor
- * @since Jdk1.8
+ * @since Jdk17
  */
 public class DefaultLicenseInterceptor implements HandlerInterceptor {
     /**

@@ -15,15 +15,47 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * <code>DefaultLogbackFilter</code>
+ * <p>The default logback filter class.</p>
+ * @author Cyan (snow22314@outlook.com)
+ * @see org.springframework.web.filter.OncePerRequestFilter
+ * @see lombok.extern.slf4j.Slf4j
+ * @since Jdk17
+ */
 @Slf4j
 public class DefaultLogbackFilter extends OncePerRequestFilter {
+    /**
+     * <code>logbackProperties</code>
+     * {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>The <code>logbackProperties</code> field.</p>
+     * @see io.github.nichetoolkit.rest.configure.RestLogbackProperties
+     */
     private final RestLogbackProperties logbackProperties;
+    /**
+     * <code>loggingKey</code>
+     * {@link io.github.nichetoolkit.rest.RestLoggingKey} <p>The <code>loggingKey</code> field.</p>
+     * @see io.github.nichetoolkit.rest.RestLoggingKey
+     */
     private RestLoggingKey loggingKey;
 
+    /**
+     * <code>DefaultLogbackFilter</code>
+     * <p>Instantiates a new default logback filter.</p>
+     * @param logbackProperties {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>The logback properties parameter is <code>RestLogbackProperties</code> type.</p>
+     * @see io.github.nichetoolkit.rest.configure.RestLogbackProperties
+     */
     public DefaultLogbackFilter(RestLogbackProperties logbackProperties) {
         this.logbackProperties = logbackProperties;
     }
 
+    /**
+     * <code>DefaultLogbackFilter</code>
+     * <p>Instantiates a new default logback filter.</p>
+     * @param logbackProperties {@link io.github.nichetoolkit.rest.configure.RestLogbackProperties} <p>The logback properties parameter is <code>RestLogbackProperties</code> type.</p>
+     * @param loggingKey        {@link io.github.nichetoolkit.rest.RestLoggingKey} <p>The logging key parameter is <code>RestLoggingKey</code> type.</p>
+     * @see io.github.nichetoolkit.rest.configure.RestLogbackProperties
+     * @see io.github.nichetoolkit.rest.RestLoggingKey
+     */
     public DefaultLogbackFilter(RestLogbackProperties logbackProperties, RestLoggingKey loggingKey) {
         this.logbackProperties = logbackProperties;
         this.loggingKey = loggingKey;
@@ -61,6 +93,14 @@ public class DefaultLogbackFilter extends OncePerRequestFilter {
         }
     }
 
+    /**
+     * <code>getRequestId</code>
+     * <p>The get request id getter method.</p>
+     * @param httpRequest {@link io.github.nichetoolkit.rest.RestHttpRequest} <p>The http request parameter is <code>RestHttpRequest</code> type.</p>
+     * @return {@link java.lang.String} <p>The get request id return object is <code>String</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestHttpRequest
+     * @see java.lang.String
+     */
     private String getRequestId(RestHttpRequest httpRequest) {
         String requestHeader = logbackProperties.getRequestHeader();
         String requestId = httpRequest.getHeader(requestHeader);

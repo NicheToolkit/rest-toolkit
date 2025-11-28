@@ -13,7 +13,7 @@ import io.github.nichetoolkit.rest.error.often.NameRepeatException;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.jspecify.annotations.NonNull;
-import org.springframework.lang.Nullable;
+import org.jspecify.annotations.Nullable;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -40,7 +40,7 @@ public final class OptionalUtils {
      * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
      * @return X <p>The x of null return object is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.util.function.Supplier
      * @see org.jspecify.annotations.NonNull
      */
@@ -49,13 +49,11 @@ public final class OptionalUtils {
         X cause = null;
         if (GeneralUtils.isNull(object)) {
             cause = supplier.get();
-        } else if (object instanceof Optional) {
-            Optional<?> optional = (Optional<?>) object;
+        } else if (object instanceof Optional<?> optional) {
             if (optional.isPresent()) {
                 cause = supplier.get();
             }
-        } else if (object instanceof RestOptional) {
-            RestOptional<?> optional = (RestOptional<?>) object;
+        } else if (object instanceof RestOptional<?> optional) {
             if (optional.isNull()) {
                 cause = supplier.get();
             }
@@ -73,7 +71,7 @@ public final class OptionalUtils {
      * @return X <p>The x of null actuator return object is <code>X</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
      * @see org.jspecify.annotations.NonNull
      * @see io.github.nichetoolkit.rest.RestException
@@ -83,13 +81,11 @@ public final class OptionalUtils {
         X cause = null;
         if (GeneralUtils.isNull(object)) {
             cause = actuator.actuate();
-        } else if (object instanceof Optional) {
-            Optional<?> optional = (Optional<?>) object;
-            if (!optional.isPresent()) {
+        } else if (object instanceof Optional<?> optional) {
+            if (optional.isEmpty()) {
                 cause = actuator.actuate();
             }
-        } else if (object instanceof RestOptional) {
-            RestOptional<?> optional = (RestOptional<?>) object;
+        } else if (object instanceof RestOptional<?> optional) {
             if (optional.isNull()) {
                 cause = actuator.actuate();
             }
@@ -108,7 +104,7 @@ public final class OptionalUtils {
      * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
      * @return X <p>The x of null return object is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see java.util.function.Function
      * @see org.jspecify.annotations.NonNull
@@ -118,13 +114,11 @@ public final class OptionalUtils {
         X cause = null;
         if (GeneralUtils.isNull(object)) {
             cause = function.apply(message);
-        } else if (object instanceof Optional) {
-            Optional<?> optional = (Optional<?>) object;
-            if (!optional.isPresent()) {
+        } else if (object instanceof Optional<?> optional) {
+            if (optional.isEmpty()) {
                 cause = function.apply(message);
             }
-        } else if (object instanceof RestOptional) {
-            RestOptional<?> optional = (RestOptional<?>) object;
+        } else if (object instanceof RestOptional<?> optional) {
             if (optional.isNull()) {
                 cause = function.apply(message);
             }
@@ -142,7 +136,7 @@ public final class OptionalUtils {
      * @param function   {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
      * @return X <p>The x of null return object is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.util.function.Function
      * @see org.jspecify.annotations.NonNull
@@ -152,13 +146,11 @@ public final class OptionalUtils {
         X cause = null;
         if (GeneralUtils.isNull(object)) {
             cause = function.apply(restStatus);
-        } else if (object instanceof Optional) {
-            Optional<?> optional = (Optional<?>) object;
-            if (!optional.isPresent()) {
+        } else if (object instanceof Optional<?> optional) {
+            if (optional.isEmpty()) {
                 cause = function.apply(restStatus);
             }
-        } else if (object instanceof RestOptional) {
-            RestOptional<?> optional = (RestOptional<?>) object;
+        } else if (object instanceof RestOptional<?> optional) {
             if (optional.isNull()) {
                 cause = function.apply(restStatus);
             }
@@ -178,7 +170,7 @@ public final class OptionalUtils {
      * @return X <p>The x of null actuator return object is <code>X</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      * @see org.jspecify.annotations.NonNull
@@ -189,13 +181,11 @@ public final class OptionalUtils {
         X cause = null;
         if (GeneralUtils.isNull(object)) {
             cause = actuator.actuate(message);
-        } else if (object instanceof Optional) {
-            Optional<?> optional = (Optional<?>) object;
-            if (!optional.isPresent()) {
+        } else if (object instanceof Optional<?> optional) {
+            if (optional.isEmpty()) {
                 cause = actuator.actuate(message);
             }
-        } else if (object instanceof RestOptional) {
-            RestOptional<?> optional = (RestOptional<?>) object;
+        } else if (object instanceof RestOptional<?> optional) {
             if (optional.isNull()) {
                 cause = actuator.actuate(message);
             }
@@ -214,7 +204,7 @@ public final class OptionalUtils {
      * @return X <p>The x of null actuator return object is <code>X</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      * @see org.jspecify.annotations.NonNull
@@ -225,13 +215,11 @@ public final class OptionalUtils {
         X cause = null;
         if (GeneralUtils.isNull(object)) {
             cause = actuator.actuate(restStatus);
-        } else if (object instanceof Optional) {
-            Optional<?> optional = (Optional<?>) object;
-            if (!optional.isPresent()) {
+        } else if (object instanceof Optional<?> optional) {
+            if (optional.isEmpty()) {
                 cause = actuator.actuate(restStatus);
             }
-        } else if (object instanceof RestOptional) {
-            RestOptional<?> optional = (RestOptional<?>) object;
+        } else if (object instanceof RestOptional<?> optional) {
             if (optional.isNull()) {
                 cause = actuator.actuate(restStatus);
             }
@@ -250,7 +238,7 @@ public final class OptionalUtils {
      * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
      * @return X <p>The x of null return object is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see java.util.function.BiFunction
      * @see org.jspecify.annotations.NonNull
@@ -260,13 +248,11 @@ public final class OptionalUtils {
         X cause = null;
         if (GeneralUtils.isNull(object)) {
             cause = function.apply(resource, message);
-        } else if (object instanceof Optional) {
-            Optional<?> optional = (Optional<?>) object;
-            if (!optional.isPresent()) {
+        } else if (object instanceof Optional<?> optional) {
+            if (optional.isEmpty()) {
                 cause = function.apply(resource, message);
             }
-        } else if (object instanceof RestOptional) {
-            RestOptional<?> optional = (RestOptional<?>) object;
+        } else if (object instanceof RestOptional<?> optional) {
             if (optional.isNull()) {
                 cause = function.apply(resource, message);
             }
@@ -285,7 +271,7 @@ public final class OptionalUtils {
      * @param function   {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
      * @return X <p>The x of null return object is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see java.util.function.BiFunction
@@ -307,7 +293,7 @@ public final class OptionalUtils {
      * @return X <p>The x of null actuator return object is <code>X</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
      * @see org.jspecify.annotations.NonNull
@@ -318,13 +304,11 @@ public final class OptionalUtils {
         X cause = null;
         if (GeneralUtils.isNull(object)) {
             cause = actuator.actuate(resource, message);
-        } else if (object instanceof Optional) {
-            Optional<?> optional = (Optional<?>) object;
-            if (!optional.isPresent()) {
+        } else if (object instanceof Optional<?> optional) {
+            if (optional.isEmpty()) {
                 cause = actuator.actuate(resource, message);
             }
-        } else if (object instanceof RestOptional) {
-            RestOptional<?> optional = (RestOptional<?>) object;
+        } else if (object instanceof RestOptional<?> optional) {
             if (optional.isNull()) {
                 cause = actuator.actuate(resource, message);
             }
@@ -344,7 +328,7 @@ public final class OptionalUtils {
      * @return X <p>The x of null actuator return object is <code>X</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
@@ -364,7 +348,7 @@ public final class OptionalUtils {
      * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
      * @return X <p>The x of empty return object is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.util.function.Supplier
      * @see org.jspecify.annotations.NonNull
      */
@@ -373,8 +357,7 @@ public final class OptionalUtils {
         X cause = null;
         if (GeneralUtils.isEmpty(object)) {
             cause = supplier.get();
-        } else if (object instanceof RestOptional) {
-            RestOptional<?> optional = (RestOptional<?>) object;
+        } else if (object instanceof RestOptional<?> optional) {
             if (optional.isEmpty()) {
                 cause = supplier.get();
             }
@@ -392,7 +375,7 @@ public final class OptionalUtils {
      * @return X <p>The x of empty actuator return object is <code>X</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
      * @see org.jspecify.annotations.NonNull
      * @see io.github.nichetoolkit.rest.RestException
@@ -402,8 +385,7 @@ public final class OptionalUtils {
         X cause = null;
         if (GeneralUtils.isEmpty(object)) {
             cause = actuator.actuate();
-        } else if (object instanceof RestOptional) {
-            RestOptional<?> optional = (RestOptional<?>) object;
+        } else if (object instanceof RestOptional<?> optional) {
             if (optional.isEmpty()) {
                 cause = actuator.actuate();
             }
@@ -421,7 +403,7 @@ public final class OptionalUtils {
      * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
      * @return X <p>The x of empty return object is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see java.util.function.Function
      * @see org.jspecify.annotations.NonNull
@@ -431,8 +413,7 @@ public final class OptionalUtils {
         X cause = null;
         if (GeneralUtils.isEmpty(object)) {
             cause = function.apply(message);
-        } else if (object instanceof RestOptional) {
-            RestOptional<?> optional = (RestOptional<?>) object;
+        } else if (object instanceof RestOptional<?> optional) {
             if (optional.isEmpty()) {
                 cause = function.apply(message);
             }
@@ -450,7 +431,7 @@ public final class OptionalUtils {
      * @param function   {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
      * @return X <p>The x of empty return object is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.util.function.Function
      * @see org.jspecify.annotations.NonNull
@@ -460,8 +441,7 @@ public final class OptionalUtils {
         X cause = null;
         if (GeneralUtils.isEmpty(object)) {
             cause = function.apply(restStatus);
-        } else if (object instanceof RestOptional) {
-            RestOptional<?> optional = (RestOptional<?>) object;
+        } else if (object instanceof RestOptional<?> optional) {
             if (optional.isEmpty()) {
                 cause = function.apply(restStatus);
             }
@@ -480,7 +460,7 @@ public final class OptionalUtils {
      * @return X <p>The x of empty actuator return object is <code>X</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      * @see org.jspecify.annotations.NonNull
@@ -491,8 +471,7 @@ public final class OptionalUtils {
         X cause = null;
         if (GeneralUtils.isEmpty(object)) {
             cause = actuator.actuate(message);
-        } else if (object instanceof RestOptional) {
-            RestOptional<?> optional = (RestOptional<?>) object;
+        } else if (object instanceof RestOptional<?> optional) {
             if (optional.isEmpty()) {
                 cause = actuator.actuate(message);
             }
@@ -511,7 +490,7 @@ public final class OptionalUtils {
      * @return X <p>The x of empty actuator return object is <code>X</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      * @see org.jspecify.annotations.NonNull
@@ -522,8 +501,7 @@ public final class OptionalUtils {
         X cause = null;
         if (GeneralUtils.isEmpty(object)) {
             cause = actuator.actuate(restStatus);
-        } else if (object instanceof RestOptional) {
-            RestOptional<?> optional = (RestOptional<?>) object;
+        } else if (object instanceof RestOptional<?> optional) {
             if (optional.isEmpty()) {
                 cause = actuator.actuate(restStatus);
             }
@@ -542,7 +520,7 @@ public final class OptionalUtils {
      * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
      * @return X <p>The x of empty return object is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see java.util.function.BiFunction
      * @see org.jspecify.annotations.NonNull
@@ -552,8 +530,7 @@ public final class OptionalUtils {
         X cause = null;
         if (GeneralUtils.isEmpty(object)) {
             cause = function.apply(resource, message);
-        } else if (object instanceof RestOptional) {
-            RestOptional<?> optional = (RestOptional<?>) object;
+        } else if (object instanceof RestOptional<?> optional) {
             if (optional.isEmpty()) {
                 cause = function.apply(resource, message);
             }
@@ -572,7 +549,7 @@ public final class OptionalUtils {
      * @param function   {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
      * @return X <p>The x of empty return object is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see java.util.function.BiFunction
@@ -594,7 +571,7 @@ public final class OptionalUtils {
      * @return X <p>The x of empty actuator return object is <code>X</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
      * @see org.jspecify.annotations.NonNull
@@ -605,8 +582,7 @@ public final class OptionalUtils {
         X cause = null;
         if (GeneralUtils.isEmpty(object)) {
             cause = actuator.actuate(resource, message);
-        } else if (object instanceof RestOptional) {
-            RestOptional<?> optional = (RestOptional<?>) object;
+        } else if (object instanceof RestOptional<?> optional) {
             if (optional.isEmpty()) {
                 cause = actuator.actuate(resource, message);
             }
@@ -626,7 +602,7 @@ public final class OptionalUtils {
      * @return X <p>The x of empty actuator return object is <code>X</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
@@ -646,7 +622,7 @@ public final class OptionalUtils {
      * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
      * @return X <p>The x of invalid return object is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.util.function.Supplier
      * @see org.jspecify.annotations.NonNull
      */
@@ -655,8 +631,7 @@ public final class OptionalUtils {
         X cause = null;
         if (GeneralUtils.isInvalid(object)) {
             cause = supplier.get();
-        } else if (object instanceof RestOptional) {
-            RestOptional<?> optional = (RestOptional<?>) object;
+        } else if (object instanceof RestOptional<?> optional) {
             if (optional.isInvalid()) {
                 cause = supplier.get();
             }
@@ -674,7 +649,7 @@ public final class OptionalUtils {
      * @return X <p>The x of invalid actuator return object is <code>X</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
      * @see org.jspecify.annotations.NonNull
      * @see io.github.nichetoolkit.rest.RestException
@@ -684,8 +659,7 @@ public final class OptionalUtils {
         X cause = null;
         if (GeneralUtils.isInvalid(object)) {
             cause = actuator.actuate();
-        } else if (object instanceof RestOptional) {
-            RestOptional<?> optional = (RestOptional<?>) object;
+        } else if (object instanceof RestOptional<?> optional) {
             if (optional.isInvalid()) {
                 cause = actuator.actuate();
             }
@@ -703,7 +677,7 @@ public final class OptionalUtils {
      * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
      * @return X <p>The x of invalid return object is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see java.util.function.Function
      * @see org.jspecify.annotations.NonNull
@@ -713,8 +687,7 @@ public final class OptionalUtils {
         X cause = null;
         if (GeneralUtils.isInvalid(object)) {
             cause = function.apply(message);
-        } else if (object instanceof RestOptional) {
-            RestOptional<?> optional = (RestOptional<?>) object;
+        } else if (object instanceof RestOptional<?> optional) {
             if (optional.isInvalid()) {
                 cause = function.apply(message);
             }
@@ -732,7 +705,7 @@ public final class OptionalUtils {
      * @param function   {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
      * @return X <p>The x of invalid return object is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.util.function.Function
      * @see org.jspecify.annotations.NonNull
@@ -742,8 +715,7 @@ public final class OptionalUtils {
         X cause = null;
         if (GeneralUtils.isInvalid(object)) {
             cause = function.apply(restStatus);
-        } else if (object instanceof RestOptional) {
-            RestOptional<?> optional = (RestOptional<?>) object;
+        } else if (object instanceof RestOptional<?> optional) {
             if (optional.isInvalid()) {
                 cause = function.apply(restStatus);
             }
@@ -762,7 +734,7 @@ public final class OptionalUtils {
      * @return X <p>The x of invalid actuator return object is <code>X</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      * @see org.jspecify.annotations.NonNull
@@ -773,8 +745,7 @@ public final class OptionalUtils {
         X cause = null;
         if (GeneralUtils.isInvalid(object)) {
             cause = actuator.actuate(message);
-        } else if (object instanceof RestOptional) {
-            RestOptional<?> optional = (RestOptional<?>) object;
+        } else if (object instanceof RestOptional<?> optional) {
             if (optional.isInvalid()) {
                 cause = actuator.actuate(message);
             }
@@ -793,7 +764,7 @@ public final class OptionalUtils {
      * @return X <p>The x of invalid actuator return object is <code>X</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      * @see org.jspecify.annotations.NonNull
@@ -804,8 +775,7 @@ public final class OptionalUtils {
         X cause = null;
         if (GeneralUtils.isInvalid(object)) {
             cause = actuator.actuate(restStatus);
-        } else if (object instanceof RestOptional) {
-            RestOptional<?> optional = (RestOptional<?>) object;
+        } else if (object instanceof RestOptional<?> optional) {
             if (optional.isInvalid()) {
                 cause = actuator.actuate(restStatus);
             }
@@ -824,7 +794,7 @@ public final class OptionalUtils {
      * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
      * @return X <p>The x of invalid return object is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see java.util.function.BiFunction
      * @see org.jspecify.annotations.NonNull
@@ -834,8 +804,7 @@ public final class OptionalUtils {
         X cause = null;
         if (GeneralUtils.isInvalid(object)) {
             cause = function.apply(resource, message);
-        } else if (object instanceof RestOptional) {
-            RestOptional<?> optional = (RestOptional<?>) object;
+        } else if (object instanceof RestOptional<?> optional) {
             if (optional.isInvalid()) {
                 cause = function.apply(resource, message);
             }
@@ -854,7 +823,7 @@ public final class OptionalUtils {
      * @param function   {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
      * @return X <p>The x of invalid return object is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see java.util.function.BiFunction
@@ -876,7 +845,7 @@ public final class OptionalUtils {
      * @return X <p>The x of invalid actuator return object is <code>X</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
      * @see org.jspecify.annotations.NonNull
@@ -886,8 +855,7 @@ public final class OptionalUtils {
         X cause = null;
         if (GeneralUtils.isInvalid(object)) {
             cause = actuator.actuate(resource, message);
-        } else if (object instanceof RestOptional) {
-            RestOptional<?> optional = (RestOptional<?>) object;
+        } else if (object instanceof RestOptional<?> optional) {
             if (optional.isInvalid()) {
                 cause = actuator.actuate(resource, message);
             }
@@ -907,7 +875,7 @@ public final class OptionalUtils {
      * @return X <p>The x of invalid actuator return object is <code>X</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
@@ -2307,7 +2275,7 @@ public final class OptionalUtils {
      * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
      * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.util.function.Supplier
      * @see org.jspecify.annotations.NonNull
      * @see X
@@ -2326,7 +2294,7 @@ public final class OptionalUtils {
      * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
      * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see org.slf4j.Logger
      * @see java.util.function.Supplier
      * @see org.jspecify.annotations.NonNull
@@ -2344,7 +2312,7 @@ public final class OptionalUtils {
      * @param object   T <p>The object parameter is <code>T</code> type.</p>
      * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.util.function.Supplier
      * @see org.jspecify.annotations.NonNull
      */
@@ -2361,7 +2329,7 @@ public final class OptionalUtils {
      * @param logger   {@link org.slf4j.Logger} <p>The logger parameter is <code>Logger</code> type.</p>
      * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see org.slf4j.Logger
      * @see java.util.function.Supplier
      * @see org.jspecify.annotations.NonNull
@@ -2379,7 +2347,7 @@ public final class OptionalUtils {
      * @param actuator {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The actuator parameter is <code>SupplierActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
      * @see org.jspecify.annotations.NonNull
      */
@@ -2397,7 +2365,7 @@ public final class OptionalUtils {
      * @param actuator {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The actuator parameter is <code>SupplierActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see org.slf4j.Logger
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
      * @see org.jspecify.annotations.NonNull
@@ -2415,7 +2383,7 @@ public final class OptionalUtils {
      * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
      * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.util.function.Supplier
      * @see org.jspecify.annotations.NonNull
      * @see X
@@ -2434,7 +2402,7 @@ public final class OptionalUtils {
      * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
      * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see org.slf4j.Logger
      * @see java.util.function.Supplier
      * @see org.jspecify.annotations.NonNull
@@ -2452,7 +2420,7 @@ public final class OptionalUtils {
      * @param object   T <p>The object parameter is <code>T</code> type.</p>
      * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.util.function.Supplier
      * @see org.jspecify.annotations.NonNull
      */
@@ -2469,7 +2437,7 @@ public final class OptionalUtils {
      * @param logger   {@link org.slf4j.Logger} <p>The logger parameter is <code>Logger</code> type.</p>
      * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see org.slf4j.Logger
      * @see java.util.function.Supplier
      * @see org.jspecify.annotations.NonNull
@@ -2487,7 +2455,7 @@ public final class OptionalUtils {
      * @param actuator {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The actuator parameter is <code>SupplierActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
      * @see org.jspecify.annotations.NonNull
      */
@@ -2505,7 +2473,7 @@ public final class OptionalUtils {
      * @param actuator {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The actuator parameter is <code>SupplierActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see org.slf4j.Logger
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
      * @see org.jspecify.annotations.NonNull
@@ -2523,7 +2491,7 @@ public final class OptionalUtils {
      * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
      * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.util.function.Supplier
      * @see org.jspecify.annotations.NonNull
      * @see X
@@ -2542,7 +2510,7 @@ public final class OptionalUtils {
      * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
      * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see org.slf4j.Logger
      * @see java.util.function.Supplier
      * @see org.jspecify.annotations.NonNull
@@ -2560,7 +2528,7 @@ public final class OptionalUtils {
      * @param object   T <p>The object parameter is <code>T</code> type.</p>
      * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.util.function.Supplier
      * @see org.jspecify.annotations.NonNull
      */
@@ -2577,7 +2545,7 @@ public final class OptionalUtils {
      * @param logger   {@link org.slf4j.Logger} <p>The logger parameter is <code>Logger</code> type.</p>
      * @param supplier {@link java.util.function.Supplier} <p>The supplier parameter is <code>Supplier</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see org.slf4j.Logger
      * @see java.util.function.Supplier
      * @see org.jspecify.annotations.NonNull
@@ -2595,7 +2563,7 @@ public final class OptionalUtils {
      * @param actuator {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The actuator parameter is <code>SupplierActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
      * @see org.jspecify.annotations.NonNull
      */
@@ -2613,7 +2581,7 @@ public final class OptionalUtils {
      * @param actuator {@link io.github.nichetoolkit.rest.actuator.SupplierActuator} <p>The actuator parameter is <code>SupplierActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see org.slf4j.Logger
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
      * @see org.jspecify.annotations.NonNull
@@ -2632,7 +2600,7 @@ public final class OptionalUtils {
      * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
      * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see java.util.function.Function
      * @see X
@@ -2651,7 +2619,7 @@ public final class OptionalUtils {
      * @param function   {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
      * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.util.function.Function
      * @see X
@@ -2671,7 +2639,7 @@ public final class OptionalUtils {
      * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
      * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see org.slf4j.Logger
      * @see java.util.function.Function
@@ -2692,7 +2660,7 @@ public final class OptionalUtils {
      * @param function   {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
      * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see org.slf4j.Logger
      * @see java.util.function.Function
@@ -2711,7 +2679,7 @@ public final class OptionalUtils {
      * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see java.util.function.Function
      */
@@ -2728,7 +2696,7 @@ public final class OptionalUtils {
      * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>The rest status parameter is <code>RestStatus</code> type.</p>
      * @param function   {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.util.function.Function
      */
@@ -2746,7 +2714,7 @@ public final class OptionalUtils {
      * @param logger   {@link org.slf4j.Logger} <p>The logger parameter is <code>Logger</code> type.</p>
      * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see org.slf4j.Logger
      * @see java.util.function.Function
@@ -2765,7 +2733,7 @@ public final class OptionalUtils {
      * @param logger     {@link org.slf4j.Logger} <p>The logger parameter is <code>Logger</code> type.</p>
      * @param function   {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see org.slf4j.Logger
      * @see java.util.function.Function
@@ -2784,7 +2752,7 @@ public final class OptionalUtils {
      * @param actuator {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The actuator parameter is <code>FunctionActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      */
@@ -2802,7 +2770,7 @@ public final class OptionalUtils {
      * @param actuator   {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The actuator parameter is <code>FunctionActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      */
@@ -2821,7 +2789,7 @@ public final class OptionalUtils {
      * @param actuator {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The actuator parameter is <code>FunctionActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see org.slf4j.Logger
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
@@ -2841,7 +2809,7 @@ public final class OptionalUtils {
      * @param actuator   {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The actuator parameter is <code>FunctionActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see org.slf4j.Logger
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
@@ -2860,7 +2828,7 @@ public final class OptionalUtils {
      * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
      * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see java.util.function.Function
      * @see X
@@ -2879,7 +2847,7 @@ public final class OptionalUtils {
      * @param function   {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
      * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.util.function.Function
      * @see X
@@ -2899,7 +2867,7 @@ public final class OptionalUtils {
      * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
      * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see org.slf4j.Logger
      * @see java.util.function.Function
@@ -2920,7 +2888,7 @@ public final class OptionalUtils {
      * @param function   {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
      * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see org.slf4j.Logger
      * @see java.util.function.Function
@@ -2939,7 +2907,7 @@ public final class OptionalUtils {
      * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see java.util.function.Function
      */
@@ -2956,7 +2924,7 @@ public final class OptionalUtils {
      * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>The rest status parameter is <code>RestStatus</code> type.</p>
      * @param function   {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.util.function.Function
      */
@@ -2974,7 +2942,7 @@ public final class OptionalUtils {
      * @param logger   {@link org.slf4j.Logger} <p>The logger parameter is <code>Logger</code> type.</p>
      * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see org.slf4j.Logger
      * @see java.util.function.Function
@@ -2993,7 +2961,7 @@ public final class OptionalUtils {
      * @param logger     {@link org.slf4j.Logger} <p>The logger parameter is <code>Logger</code> type.</p>
      * @param function   {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see org.slf4j.Logger
      * @see java.util.function.Function
@@ -3012,7 +2980,7 @@ public final class OptionalUtils {
      * @param actuator {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The actuator parameter is <code>FunctionActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      */
@@ -3030,7 +2998,7 @@ public final class OptionalUtils {
      * @param actuator   {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The actuator parameter is <code>FunctionActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      */
@@ -3049,7 +3017,7 @@ public final class OptionalUtils {
      * @param actuator {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The actuator parameter is <code>FunctionActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see org.slf4j.Logger
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
@@ -3069,7 +3037,7 @@ public final class OptionalUtils {
      * @param actuator   {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The actuator parameter is <code>FunctionActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see org.slf4j.Logger
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
@@ -3088,7 +3056,7 @@ public final class OptionalUtils {
      * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
      * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see java.util.function.Function
      * @see X
@@ -3107,7 +3075,7 @@ public final class OptionalUtils {
      * @param function   {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
      * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.util.function.Function
      * @see X
@@ -3127,7 +3095,7 @@ public final class OptionalUtils {
      * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
      * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see org.slf4j.Logger
      * @see java.util.function.Function
@@ -3148,7 +3116,7 @@ public final class OptionalUtils {
      * @param function   {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
      * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see org.slf4j.Logger
      * @see java.util.function.Function
@@ -3167,7 +3135,7 @@ public final class OptionalUtils {
      * @param message  {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
      * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see java.util.function.Function
      */
@@ -3184,7 +3152,7 @@ public final class OptionalUtils {
      * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>The rest status parameter is <code>RestStatus</code> type.</p>
      * @param function   {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.util.function.Function
      */
@@ -3202,7 +3170,7 @@ public final class OptionalUtils {
      * @param logger   {@link org.slf4j.Logger} <p>The logger parameter is <code>Logger</code> type.</p>
      * @param function {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see org.slf4j.Logger
      * @see java.util.function.Function
@@ -3221,7 +3189,7 @@ public final class OptionalUtils {
      * @param logger     {@link org.slf4j.Logger} <p>The logger parameter is <code>Logger</code> type.</p>
      * @param function   {@link java.util.function.Function} <p>The function parameter is <code>Function</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see org.slf4j.Logger
      * @see java.util.function.Function
@@ -3240,7 +3208,7 @@ public final class OptionalUtils {
      * @param actuator {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The actuator parameter is <code>FunctionActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      */
@@ -3258,7 +3226,7 @@ public final class OptionalUtils {
      * @param actuator   {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The actuator parameter is <code>FunctionActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
      */
@@ -3277,7 +3245,7 @@ public final class OptionalUtils {
      * @param actuator {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The actuator parameter is <code>FunctionActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see org.slf4j.Logger
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
@@ -3297,7 +3265,7 @@ public final class OptionalUtils {
      * @param actuator   {@link io.github.nichetoolkit.rest.actuator.FunctionActuator} <p>The actuator parameter is <code>FunctionActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see org.slf4j.Logger
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
@@ -3317,7 +3285,7 @@ public final class OptionalUtils {
      * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
      * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see java.util.function.BiFunction
      * @see X
@@ -3337,7 +3305,7 @@ public final class OptionalUtils {
      * @param function   {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
      * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see java.util.function.BiFunction
@@ -3359,7 +3327,7 @@ public final class OptionalUtils {
      * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
      * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see org.slf4j.Logger
      * @see java.util.function.BiFunction
@@ -3381,7 +3349,7 @@ public final class OptionalUtils {
      * @param function   {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
      * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see org.slf4j.Logger
@@ -3402,7 +3370,7 @@ public final class OptionalUtils {
      * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
      * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see java.util.function.BiFunction
      */
@@ -3420,7 +3388,7 @@ public final class OptionalUtils {
      * @param resource   {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
      * @param function   {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see java.util.function.BiFunction
@@ -3440,7 +3408,7 @@ public final class OptionalUtils {
      * @param logger   {@link org.slf4j.Logger} <p>The logger parameter is <code>Logger</code> type.</p>
      * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see org.slf4j.Logger
      * @see java.util.function.BiFunction
@@ -3460,7 +3428,7 @@ public final class OptionalUtils {
      * @param logger     {@link org.slf4j.Logger} <p>The logger parameter is <code>Logger</code> type.</p>
      * @param function   {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see org.slf4j.Logger
@@ -3481,7 +3449,7 @@ public final class OptionalUtils {
      * @param actuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The actuator parameter is <code>BiFunctionActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
      */
@@ -3500,7 +3468,7 @@ public final class OptionalUtils {
      * @param actuator   {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The actuator parameter is <code>BiFunctionActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
@@ -3521,7 +3489,7 @@ public final class OptionalUtils {
      * @param actuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The actuator parameter is <code>BiFunctionActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see org.slf4j.Logger
      * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
@@ -3542,7 +3510,7 @@ public final class OptionalUtils {
      * @param actuator   {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The actuator parameter is <code>BiFunctionActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see org.slf4j.Logger
@@ -3563,7 +3531,7 @@ public final class OptionalUtils {
      * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
      * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see java.util.function.BiFunction
      * @see X
@@ -3583,7 +3551,7 @@ public final class OptionalUtils {
      * @param function   {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
      * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see java.util.function.BiFunction
@@ -3605,7 +3573,7 @@ public final class OptionalUtils {
      * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
      * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see org.slf4j.Logger
      * @see java.util.function.BiFunction
@@ -3627,7 +3595,7 @@ public final class OptionalUtils {
      * @param function   {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
      * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see org.slf4j.Logger
@@ -3648,7 +3616,7 @@ public final class OptionalUtils {
      * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
      * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see java.util.function.BiFunction
      */
@@ -3666,7 +3634,7 @@ public final class OptionalUtils {
      * @param resource   {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
      * @param function   {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see java.util.function.BiFunction
@@ -3686,7 +3654,7 @@ public final class OptionalUtils {
      * @param logger   {@link org.slf4j.Logger} <p>The logger parameter is <code>Logger</code> type.</p>
      * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see org.slf4j.Logger
      * @see java.util.function.BiFunction
@@ -3706,7 +3674,7 @@ public final class OptionalUtils {
      * @param logger     {@link org.slf4j.Logger} <p>The logger parameter is <code>Logger</code> type.</p>
      * @param function   {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see org.slf4j.Logger
@@ -3727,7 +3695,7 @@ public final class OptionalUtils {
      * @param actuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The actuator parameter is <code>BiFunctionActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
      */
@@ -3746,7 +3714,7 @@ public final class OptionalUtils {
      * @param actuator   {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The actuator parameter is <code>BiFunctionActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
@@ -3767,7 +3735,7 @@ public final class OptionalUtils {
      * @param actuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The actuator parameter is <code>BiFunctionActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see org.slf4j.Logger
      * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
@@ -3788,7 +3756,7 @@ public final class OptionalUtils {
      * @param actuator   {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The actuator parameter is <code>BiFunctionActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see org.slf4j.Logger
@@ -3809,7 +3777,7 @@ public final class OptionalUtils {
      * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
      * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see java.util.function.BiFunction
      * @see X
@@ -3829,7 +3797,7 @@ public final class OptionalUtils {
      * @param function   {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
      * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see java.util.function.BiFunction
@@ -3851,7 +3819,7 @@ public final class OptionalUtils {
      * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
      * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see org.slf4j.Logger
      * @see java.util.function.BiFunction
@@ -3873,7 +3841,7 @@ public final class OptionalUtils {
      * @param function   {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
      * @throws X X <p>The x is <code>X</code> type.</p>
      * @see java.lang.Throwable
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see org.slf4j.Logger
@@ -3894,7 +3862,7 @@ public final class OptionalUtils {
      * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
      * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see java.util.function.BiFunction
      */
@@ -3912,7 +3880,7 @@ public final class OptionalUtils {
      * @param resource   {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
      * @param function   {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see java.util.function.BiFunction
@@ -3932,7 +3900,7 @@ public final class OptionalUtils {
      * @param logger   {@link org.slf4j.Logger} <p>The logger parameter is <code>Logger</code> type.</p>
      * @param function {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see org.slf4j.Logger
      * @see java.util.function.BiFunction
@@ -3952,7 +3920,7 @@ public final class OptionalUtils {
      * @param logger     {@link org.slf4j.Logger} <p>The logger parameter is <code>Logger</code> type.</p>
      * @param function   {@link java.util.function.BiFunction} <p>The function parameter is <code>BiFunction</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestError
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see org.slf4j.Logger
@@ -3973,7 +3941,7 @@ public final class OptionalUtils {
      * @param actuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The actuator parameter is <code>BiFunctionActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
      */
@@ -3992,7 +3960,7 @@ public final class OptionalUtils {
      * @param actuator   {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The actuator parameter is <code>BiFunctionActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
@@ -4013,7 +3981,7 @@ public final class OptionalUtils {
      * @param actuator {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The actuator parameter is <code>BiFunctionActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.String
      * @see org.slf4j.Logger
      * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
@@ -4034,7 +4002,7 @@ public final class OptionalUtils {
      * @param actuator   {@link io.github.nichetoolkit.rest.actuator.BiFunctionActuator} <p>The actuator parameter is <code>BiFunctionActuator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestException
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see org.slf4j.Logger

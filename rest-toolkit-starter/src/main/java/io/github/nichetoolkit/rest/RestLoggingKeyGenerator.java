@@ -14,7 +14,7 @@ import java.util.List;
  * @see io.github.nichetoolkit.rest.RestLoggingKeyAdvice
  * @see io.github.nichetoolkit.rest.RestAccessValueAdvice
  * @see lombok.extern.slf4j.Slf4j
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Slf4j
 public abstract class RestLoggingKeyGenerator implements RestLoggingKeyAdvice, RestAccessValueAdvice {

@@ -8,7 +8,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * <code>IdentityWorker</code>
  * <p>The identity worker interface.</p>
  * @author Cyan (snow22314@outlook.com)
- * @since Jdk1.8
+ * @since Jdk17
  */
 public interface IdentityWorker {
     /**

@@ -4,10 +4,15 @@ package io.github.nichetoolkit.rest.constant;
  * <code>RestConstants</code>
  * <p>The rest constants interface.</p>
  * @author Cyan (snow22314@outlook.com)
- * @since Jdk1.8
+ * @since Jdk17
  */
 public interface RestConstants {
 
+     /**
+      * <code>CLASS_PATH</code>
+      * {@link java.lang.String} <p>The constant <code>CLASS_PATH</code> field.</p>
+      * @see java.lang.String
+      */
      String CLASS_PATH = "classpath:";
      /**
       * <code>REST_I18N</code>

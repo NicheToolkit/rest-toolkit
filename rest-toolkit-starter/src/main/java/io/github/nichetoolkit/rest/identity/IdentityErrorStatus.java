@@ -10,38 +10,38 @@ import lombok.Getter;
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestStatus
  * @see lombok.Getter
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Getter
 public enum IdentityErrorStatus implements RestStatus {
     /**
      * <code>WORKER_ID_INVALID</code>
-     * <p>The worker id invalid identity error status field.</p>
+     * {@link io.github.nichetoolkit.rest.identity.IdentityErrorStatus} <p>The <code>WORKER_ID_INVALID</code> field.</p>
      */
     WORKER_ID_INVALID(10530,"The worker id is invalid"),
     /**
      * <code>CENTER_ID_INVALID</code>
-     * <p>The center id invalid identity error status field.</p>
+     * {@link io.github.nichetoolkit.rest.identity.IdentityErrorStatus} <p>The <code>CENTER_ID_INVALID</code> field.</p>
      */
     CENTER_ID_INVALID(10531,"The center id is invalid"),
     /**
      * <code>IDENTITY_WORKER_ERROR</code>
-     * <p>The identity worker error identity error status field.</p>
+     * {@link io.github.nichetoolkit.rest.identity.IdentityErrorStatus} <p>The <code>IDENTITY_WORKER_ERROR</code> field.</p>
      */
     IDENTITY_WORKER_ERROR(10532,"It has encountered a identity worker related error"),
     /**
      * <code>IDENTITY_WORKER_TIME_ERROR</code>
-     * <p>The identity worker time error identity error status field.</p>
+     * {@link io.github.nichetoolkit.rest.identity.IdentityErrorStatus} <p>The <code>IDENTITY_WORKER_TIME_ERROR</code> field.</p>
      */
     IDENTITY_WORKER_TIME_ERROR(10533,"The time of identity worker is invalid"),
     /**
      * <code>WORKER_TYPE_IS_NULL</code>
-     * <p>The worker type is null identity error status field.</p>
+     * {@link io.github.nichetoolkit.rest.identity.IdentityErrorStatus} <p>The <code>WORKER_TYPE_IS_NULL</code> field.</p>
      */
     WORKER_TYPE_IS_NULL(10534,"The worker type is empty"),
     /**
      * <code>IDENTITY_WORKER_UNAVAILABLE</code>
-     * <p>The identity worker unavailable identity error status field.</p>
+     * {@link io.github.nichetoolkit.rest.identity.IdentityErrorStatus} <p>The <code>IDENTITY_WORKER_UNAVAILABLE</code> field.</p>
      */
     IDENTITY_WORKER_UNAVAILABLE(10535,"The identity worker is unavailable"),
     ;

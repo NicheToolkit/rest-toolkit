@@ -15,7 +15,7 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
  * @see lombok.Getter
  * @see lombok.Setter
  * @see org.springframework.boot.context.properties.ConfigurationProperties
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Getter
 @Setter
@@ -57,7 +57,7 @@ public class RestIdentityProperties {
      * @author Cyan (snow22314@outlook.com)
      * @see lombok.Getter
      * @see lombok.Setter
-     * @since Jdk1.8
+     * @since Jdk17
      */
     @Getter
     @Setter
@@ -105,7 +105,7 @@ public class RestIdentityProperties {
      * @author Cyan (snow22314@outlook.com)
      * @see lombok.Getter
      * @see lombok.Setter
-     * @since Jdk1.8
+     * @since Jdk17
      */
     @Getter
     @Setter

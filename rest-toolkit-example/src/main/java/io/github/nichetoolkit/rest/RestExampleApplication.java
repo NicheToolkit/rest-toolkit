@@ -11,8 +11,9 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  * <p>The rest example application class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see org.springframework.boot.web.servlet.support.SpringBootServletInitializer
+ * @see org.springframework.scheduling.annotation.EnableScheduling
  * @see org.springframework.boot.autoconfigure.SpringBootApplication
- * @since Jdk1.8
+ * @since Jdk17
  */
 @EnableScheduling
 @SpringBootApplication

@@ -12,24 +12,45 @@ import java.util.Optional;
  * <p>The http client type enumeration.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestValue
- * @since Jdk1.8
+ * @since Jdk17
  */
 public enum HttpClientType implements RestValue<String,String> {
     /**
-     * <code>DEFAULT</code>
-     * <p>The default http client type field.</p>
+     * <code>DEFAULT_CLIENT</code>
+     * <p>The default client http client type field.</p>
      */
-    DEFAULT("default",HttpClientType.DEFAULT_BEAN),
+    DEFAULT_CLIENT("default_client",HttpClientType.DEFAULT_TEMPLATE),
+
     /**
      * <code>HTTP_CLIENT</code>
      * <p>The http client http client type field.</p>
      */
-    HTTP_CLIENT("httpClient",HttpClientType.HTTPCLIENT_BEAN),
+    HTTP_CLIENT("http_client",HttpClientType.HTTP_TEMPLATE),
+
     /**
-     * <code>OK_HTTP_CLIENT</code>
-     * <p>The ok http client http client type field.</p>
+     * <code>REACTOR_CLIENT</code>
+     * <p>The reactor client http client type field.</p>
      */
-    OK_HTTP_CLIENT("okHttp3",HttpClientType.OKHTTP3_BEAN),
+    REACTOR_CLIENT("reactor_client",HttpClientType.REACTOR_TEMPLATE),
+
+    /**
+     * <code>JDK_CLIENT</code>
+     * <p>The jdk client http client type field.</p>
+     */
+    JDK_CLIENT("jdk_client",HttpClientType.JDK_TEMPLATE),
+
+    /**
+     * <code>JETTY_CLIENT</code>
+     * <p>The jetty client http client type field.</p>
+     */
+    JETTY_CLIENT("jetty_client",HttpClientType.JETTY_TEMPLATE),
+
+    /**
+     * <code>SIMPLE_CLIENT</code>
+     * <p>The simple client http client type field.</p>
+     */
+    SIMPLE_CLIENT("simple_client",HttpClientType.SIMPLE_TEMPLATE),
+
     ;
     /**
      * <code>key</code>
@@ -45,23 +66,44 @@ public enum HttpClientType implements RestValue<String,String> {
     private final String value;
 
     /**
-     * <code>DEFAULT_BEAN</code>
-     * {@link java.lang.String} <p>The constant <code>DEFAULT_BEAN</code> field.</p>
+     * <code>DEFAULT_TEMPLATE</code>
+     * {@link java.lang.String} <p>The constant <code>DEFAULT_TEMPLATE</code> field.</p>
      * @see java.lang.String
      */
-    public static final String DEFAULT_BEAN = "restTemplate";
+    public static final String DEFAULT_TEMPLATE = "restTemplate";
+
     /**
-     * <code>HTTPCLIENT_BEAN</code>
-     * {@link java.lang.String} <p>The constant <code>HTTPCLIENT_BEAN</code> field.</p>
+     * <code>HTTP_TEMPLATE</code>
+     * {@link java.lang.String} <p>The constant <code>HTTP_TEMPLATE</code> field.</p>
      * @see java.lang.String
      */
-    public static final String HTTPCLIENT_BEAN = "httpTemplate";
+    public static final String HTTP_TEMPLATE = "httpTemplate";
+
     /**
-     * <code>OKHTTP3_BEAN</code>
-     * {@link java.lang.String} <p>The constant <code>OKHTTP3_BEAN</code> field.</p>
+     * <code>REACTOR_TEMPLATE</code>
+     * {@link java.lang.String} <p>The constant <code>REACTOR_TEMPLATE</code> field.</p>
      * @see java.lang.String
      */
-    public static final String OKHTTP3_BEAN = "okHttpTemplate";
+    public static final String REACTOR_TEMPLATE = "reactorTemplate";
+    /**
+     * <code>JDK_TEMPLATE</code>
+     * {@link java.lang.String} <p>The constant <code>JDK_TEMPLATE</code> field.</p>
+     * @see java.lang.String
+     */
+    public static final String JDK_TEMPLATE = "jdkTemplate";
+
+    /**
+     * <code>JETTY_TEMPLATE</code>
+     * {@link java.lang.String} <p>The constant <code>JETTY_TEMPLATE</code> field.</p>
+     * @see java.lang.String
+     */
+    public static final String JETTY_TEMPLATE = "jettyTemplate";
+    /**
+     * <code>SIMPLE_TEMPLATE</code>
+     * {@link java.lang.String} <p>The constant <code>SIMPLE_TEMPLATE</code> field.</p>
+     * @see java.lang.String
+     */
+    public static final String SIMPLE_TEMPLATE = "simpleTemplate";
 
     /**
      * <code>HttpClientType</code>
@@ -99,7 +141,7 @@ public enum HttpClientType implements RestValue<String,String> {
     @JsonCreator
     public static HttpClientType parseKey(String key) {
         HttpClientType sortTypeEnum = RestKey.parseKey(HttpClientType.class, key);
-        return Optional.ofNullable(sortTypeEnum).orElse(HttpClientType.DEFAULT);
+        return Optional.ofNullable(sortTypeEnum).orElse(HttpClientType.DEFAULT_CLIENT);
     }
 
     /**
@@ -111,7 +153,7 @@ public enum HttpClientType implements RestValue<String,String> {
      */
     public static HttpClientType parseValue(String value) {
         HttpClientType sortTypeEnum = RestValue.parseValue(HttpClientType.class, value);
-        return Optional.ofNullable(sortTypeEnum).orElse(HttpClientType.DEFAULT);
+        return Optional.ofNullable(sortTypeEnum).orElse(HttpClientType.DEFAULT_CLIENT);
     }
 
 }

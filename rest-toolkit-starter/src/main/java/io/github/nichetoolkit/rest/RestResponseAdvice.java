@@ -9,7 +9,7 @@ import org.springframework.http.server.ServerHttpResponse;
  * <code>RestResponseAdvice</code>
  * <p>The rest response advice interface.</p>
  * @author Cyan (snow22314@outlook.com)
- * @since Jdk1.8
+ * @since Jdk17
  */
 public interface RestResponseAdvice {
 

@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
  * @see io.github.nichetoolkit.rest.RestUsernoteAdvice
  * @see lombok.extern.slf4j.Slf4j
  * @see org.springframework.stereotype.Service
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Slf4j
 @Service

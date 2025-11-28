@@ -6,10 +6,7 @@ import io.github.nichetoolkit.rest.util.CommonUtils;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import io.github.nichetoolkit.rest.util.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpRequest;
-import org.springframework.http.HttpStatus;
+import org.springframework.http.*;
 import org.springframework.http.client.ClientHttpRequestExecution;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.http.client.ClientHttpResponse;
@@ -29,7 +26,7 @@ import java.util.Map;
  * @see org.springframework.http.client.ClientHttpRequestInterceptor
  * @see lombok.extern.slf4j.Slf4j
  * @see java.lang.SuppressWarnings
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Slf4j
 @SuppressWarnings("SameNameButDifferent")
@@ -53,7 +50,7 @@ public class DefaultClientHttpInterceptor implements ClientHttpRequestIntercepto
 
     @Override
     @NonNull
-    public ClientHttpResponse intercept(@NonNull HttpRequest httpRequest, @NonNull byte[] bytes, @NonNull ClientHttpRequestExecution execution) throws IOException {
+    public ClientHttpResponse intercept(@NonNull HttpRequest httpRequest, byte @NonNull [] bytes, @NonNull ClientHttpRequestExecution execution) throws IOException {
         ClientHttpResponse response = execution.execute(httpRequest, bytes);
         String url = httpRequest.getURI().getPath();
         log.info(" HttpRequest -Url:     {}",url);
@@ -66,7 +63,7 @@ public class DefaultClientHttpInterceptor implements ClientHttpRequestIntercepto
         log.info(" HttpRequest -Params:  {}", JsonUtils.parseJson(params));
         HttpHeaders requestHeaders = httpRequest.getHeaders();
         log.info(" HttpRequest -Headers: {}",JsonUtils.parseJson(requestHeaders));
-        HttpStatus statusCode = response.getStatusCode();
+        HttpStatusCode statusCode = response.getStatusCode();
         log.info(" HttpResponse -HttpStatus: {}",JsonUtils.parseJson(statusCode));
         HttpHeaders responseHeaders = response.getHeaders();
         log.info(" HttpResponse -Headers: {}",JsonUtils.parseJson(responseHeaders));

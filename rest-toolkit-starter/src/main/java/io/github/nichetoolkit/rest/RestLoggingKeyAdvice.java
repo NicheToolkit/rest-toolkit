@@ -4,7 +4,7 @@ package io.github.nichetoolkit.rest;
  * <code>RestLoggingKeyAdvice</code>
  * <p>The rest logging key advice interface.</p>
  * @author Cyan (snow22314@outlook.com)
- * @since Jdk1.8
+ * @since Jdk17
  */
 public interface RestLoggingKeyAdvice extends RestLoggingKey {
 

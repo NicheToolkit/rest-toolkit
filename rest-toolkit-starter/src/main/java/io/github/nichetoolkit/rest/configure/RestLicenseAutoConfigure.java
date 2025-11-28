@@ -21,7 +21,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @see java.lang.SuppressWarnings
  * @see org.springframework.boot.context.properties.EnableConfigurationProperties
  * @see org.springframework.boot.autoconfigure.ImportAutoConfiguration
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Slf4j
 @AutoConfiguration
@@ -55,7 +55,7 @@ public class RestLicenseAutoConfigure {
      * @see org.springframework.web.servlet.config.annotation.WebMvcConfigurer
      * @see org.springframework.context.annotation.Configuration
      * @see org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
-     * @since Jdk1.8
+     * @since Jdk17
      */
     @Configuration
     @ConditionalOnProperty(value = "nichetoolkit.rest.license.listener.intercept", havingValue = "true")

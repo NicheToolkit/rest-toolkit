@@ -32,7 +32,7 @@ import java.util.*;
  * @see org.springframework.boot.context.properties.EnableConfigurationProperties
  * @see org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
  * @see org.springframework.boot.autoconfigure.ImportAutoConfiguration
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Slf4j
 @SuppressWarnings("SameNameButDifferent")
@@ -108,7 +108,7 @@ public class RestI18nAutoConfigure {
      * <p>The 18 n message source auto configure class.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see org.springframework.context.annotation.Configuration
-     * @since Jdk1.8
+     * @since Jdk17
      */
     @Configuration
     public class I18nMessageSourceAutoConfigure {
@@ -164,7 +164,7 @@ public class RestI18nAutoConfigure {
      * @see org.springframework.web.servlet.config.annotation.WebMvcConfigurer
      * @see org.springframework.context.annotation.Configuration
      * @see org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
-     * @since Jdk1.8
+     * @since Jdk17
      */
     @Configuration
     @ConditionalOnProperty(value = "nichetoolkit.rest.i18n.interceptor-enabled", havingValue = "true")

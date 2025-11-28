@@ -168,7 +168,7 @@
       "type": "io.github.nichetoolkit.rest.http.config.HttpClientType",
       "sourceType": "io.github.nichetoolkit.rest.http.config.HttpClientType",
       "description": "the http type of http client configuration.",
-      "defaultValue": "default"
+      "defaultValue": "default_client"
     },
     {
       "name": "nichetoolkit.rest.http.charset",

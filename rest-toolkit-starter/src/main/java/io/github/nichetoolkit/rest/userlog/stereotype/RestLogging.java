@@ -14,7 +14,7 @@ import java.lang.annotation.*;
  * @see java.lang.annotation.Retention
  * @see java.lang.annotation.Documented
  * @see org.springframework.stereotype.Indexed
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Target({ElementType.METHOD,ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)

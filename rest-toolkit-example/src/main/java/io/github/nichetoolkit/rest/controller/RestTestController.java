@@ -33,7 +33,7 @@ import java.util.Map;
  * @see org.springframework.web.bind.annotation.RestController
  * @see java.lang.SuppressWarnings
  * @see org.springframework.web.bind.annotation.RequestMapping
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Slf4j
 @RestNotelog

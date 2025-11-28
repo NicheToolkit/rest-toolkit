@@ -18,7 +18,7 @@ import java.util.Map;
  * @see lombok.Getter
  * @see lombok.Setter
  * @see org.springframework.boot.context.properties.ConfigurationProperties
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Getter
 @Setter
@@ -68,7 +68,7 @@ public class RestHttpProperties {
      * {@link io.github.nichetoolkit.rest.http.config.HttpClientType} <p>The <code>httpType</code> field.</p>
      * @see io.github.nichetoolkit.rest.http.config.HttpClientType
      */
-    private HttpClientType httpType = HttpClientType.DEFAULT;
+    private HttpClientType httpType = HttpClientType.DEFAULT_CLIENT;
 
     /**
      * <code>charset</code>

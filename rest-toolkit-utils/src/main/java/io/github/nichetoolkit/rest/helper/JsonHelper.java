@@ -177,7 +177,7 @@ public class JsonHelper {
         }
         try {
             ObjectMapper mapper = ObjectMapperHolder.ofPurityMapper();
-            mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+            mapper.setDefaultPropertyInclusion(JsonInclude.Include.NON_NULL);
             return mapper.writeValueAsString(target);
         } catch (JsonProcessingException exception) {
             throw new JsonParseException("parseJsonIgnoreNull", target.getClass().getName(), exception.getMessage());

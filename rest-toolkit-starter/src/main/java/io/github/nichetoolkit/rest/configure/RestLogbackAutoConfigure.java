@@ -25,7 +25,7 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
  * @see org.springframework.boot.autoconfigure.AutoConfiguration
  * @see java.lang.SuppressWarnings
  * @see org.springframework.boot.context.properties.EnableConfigurationProperties
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Slf4j
 @AutoConfiguration
