@@ -3,7 +3,7 @@ package io.github.nichetoolkit.rest.util;
 import io.github.nichetoolkit.rest.constant.SystemConstants;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
-import org.springframework.lang.Nullable;
+import org.jspecify.annotations.Nullable;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -54,7 +54,7 @@ public class GeneralUtils {
      * @param object {@link java.lang.Object} <p>The object parameter is <code>Object</code> type.</p>
      * @return boolean <p>The is not empty return object is <code>boolean</code> type.</p>
      * @see java.lang.Object
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("Duplicates")
@@ -112,7 +112,7 @@ public class GeneralUtils {
      * @param object {@link java.lang.Object} <p>The object parameter is <code>Object</code> type.</p>
      * @return boolean <p>The is valid return object is <code>boolean</code> type.</p>
      * @see java.lang.Object
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("Duplicates")
@@ -170,7 +170,7 @@ public class GeneralUtils {
      * @param object {@link java.lang.Object} <p>The object parameter is <code>Object</code> type.</p>
      * @return boolean <p>The is usable return object is <code>boolean</code> type.</p>
      * @see java.lang.Object
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("Duplicates")
@@ -206,7 +206,7 @@ public class GeneralUtils {
      * @param object {@link java.lang.Object} <p>The object parameter is <code>Object</code> type.</p>
      * @return boolean <p>The is not null return object is <code>boolean</code> type.</p>
      * @see java.lang.Object
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      */
     public static boolean isNotNull(@Nullable Object object) {
         return !Objects.isNull(object);
@@ -218,7 +218,7 @@ public class GeneralUtils {
      * @param object {@link java.lang.Object} <p>The object parameter is <code>Object</code> type.</p>
      * @return boolean <p>The is empty return object is <code>boolean</code> type.</p>
      * @see java.lang.Object
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("Duplicates")
@@ -276,7 +276,7 @@ public class GeneralUtils {
      * @param object {@link java.lang.Object} <p>The object parameter is <code>Object</code> type.</p>
      * @return boolean <p>The is invalid return object is <code>boolean</code> type.</p>
      * @see java.lang.Object
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("Duplicates")
@@ -334,7 +334,7 @@ public class GeneralUtils {
      * @param object {@link java.lang.Object} <p>The object parameter is <code>Object</code> type.</p>
      * @return boolean <p>The is unusable return object is <code>boolean</code> type.</p>
      * @see java.lang.Object
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("Duplicates")
@@ -370,7 +370,7 @@ public class GeneralUtils {
      * @param object {@link java.lang.Object} <p>The object parameter is <code>Object</code> type.</p>
      * @return boolean <p>The is null return object is <code>boolean</code> type.</p>
      * @see java.lang.Object
-     * @see org.springframework.lang.Nullable
+     * @see org.jspecify.annotations.Nullable
      */
     public static boolean isNull(@Nullable Object object) {
         return Objects.isNull(object);
@@ -458,7 +458,7 @@ public class GeneralUtils {
     public static String lineToCamel(String line) {
         line = line.toLowerCase();
         Matcher matcher = LINE_PATTERN.matcher(line);
-        StringBuffer stringBuffer = new StringBuffer();
+        StringBuilder stringBuffer = new StringBuilder();
         while (matcher.find()) {
             matcher.appendReplacement(stringBuffer, matcher.group(1).toUpperCase());
         }
@@ -476,7 +476,7 @@ public class GeneralUtils {
      */
     public static String camelToLine(String camel) {
         Matcher matcher = PASCAL_PATTERN.matcher(camel);
-        StringBuffer stringBuffer = new StringBuffer();
+        StringBuilder stringBuffer = new StringBuilder();
         while (matcher.find()) {
             matcher.appendReplacement(stringBuffer, "_" + matcher.group(0).toLowerCase());
         }
