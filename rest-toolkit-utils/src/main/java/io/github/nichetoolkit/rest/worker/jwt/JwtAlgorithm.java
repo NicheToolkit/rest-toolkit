@@ -28,7 +28,7 @@ import java.util.Optional;
  * <p>The jwt algorithm enumeration.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.worker.jwt.JwtSigner
- * @since Jdk1.8
+ * @since Jdk17
  */
 public enum JwtAlgorithm implements JwtSigner {
 

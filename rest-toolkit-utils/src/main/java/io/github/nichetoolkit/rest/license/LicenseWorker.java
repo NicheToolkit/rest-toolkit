@@ -8,7 +8,7 @@ import io.github.nichetoolkit.rest.util.DateUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.ResourceUtils;
 
-import jakarta.security.auth.x500.X500Principal;
+import javax.security.auth.x500.X500Principal;
 import java.io.File;
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -19,15 +19,15 @@ import java.util.prefs.Preferences;
  * <p>The license worker class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Slf4j
 public class LicenseWorker {
 
     /**
      * <code>DEFAULT_HOLDER_AND_ISSUER</code>
-     * {@link jakarta.security.auth.x500.X500Principal} <p>The constant <code>DEFAULT_HOLDER_AND_ISSUER</code> field.</p>
-     * @see jakarta.security.auth.x500.X500Principal
+     * {@link javax.security.auth.x500.X500Principal} <p>The constant <code>DEFAULT_HOLDER_AND_ISSUER</code> field.</p>
+     * @see javax.security.auth.x500.X500Principal
      */
     private final static X500Principal DEFAULT_HOLDER_AND_ISSUER = new X500Principal("CN=a, OU=a, O=a, L=a, ST=a, C=a");
 

@@ -28,7 +28,7 @@ import java.util.UUID;
  * @see lombok.Getter
  * @see lombok.Setter
  * @see lombok.extern.slf4j.Slf4j
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Getter
 @Setter

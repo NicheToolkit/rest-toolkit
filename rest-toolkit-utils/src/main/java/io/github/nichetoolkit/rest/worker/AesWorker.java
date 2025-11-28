@@ -7,12 +7,12 @@ import io.github.nichetoolkit.rest.util.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
 
 import jakarta.annotation.PostConstruct;
-import jakarta.crypto.BadPaddingException;
-import jakarta.crypto.Cipher;
-import jakarta.crypto.IllegalBlockSizeException;
-import jakarta.crypto.NoSuchPaddingException;
-import jakarta.crypto.spec.IvParameterSpec;
-import jakarta.crypto.spec.SecretKeySpec;
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -23,7 +23,7 @@ import java.util.Base64;
  * <p>The aes worker class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Slf4j
 public class AesWorker {

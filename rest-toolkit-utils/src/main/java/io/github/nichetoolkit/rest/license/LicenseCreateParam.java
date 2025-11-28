@@ -3,6 +3,7 @@ package io.github.nichetoolkit.rest.license;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,7 +23,7 @@ import java.util.Date;
  * @see lombok.NoArgsConstructor
  * @see com.fasterxml.jackson.annotation.JsonInclude
  * @see com.fasterxml.jackson.annotation.JsonIgnoreProperties
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Getter
 @Setter
@@ -78,9 +79,11 @@ public class LicenseCreateParam implements Serializable {
      * {@link java.util.Date} <p>The <code>issuedTime</code> field.</p>
      * @see java.util.Date
      * @see com.fasterxml.jackson.annotation.JsonFormat
+     * @see lombok.Builder.Default
      */
     /* 证书生效时间 */
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @Builder.Default
     private Date issuedTime = new Date();
     /**
      * <code>expiryTime</code>
@@ -95,22 +98,28 @@ public class LicenseCreateParam implements Serializable {
      * <code>consumerType</code>
      * {@link java.lang.String} <p>The <code>consumerType</code> field.</p>
      * @see java.lang.String
+     * @see lombok.Builder.Default
      */
     /* 用户类型 */
+    @Builder.Default
     private String consumerType = "user";
     /**
      * <code>consumerSize</code>
      * {@link java.lang.Integer} <p>The <code>consumerSize</code> field.</p>
      * @see java.lang.Integer
+     * @see lombok.Builder.Default
      */
     /* 用户数量 */
+    @Builder.Default
     private Integer consumerSize = 1;
     /**
      * <code>description</code>
      * {@link java.lang.String} <p>The <code>description</code> field.</p>
      * @see java.lang.String
+     * @see lombok.Builder.Default
      */
     /* 描述信息 */
+    @Builder.Default
     private String description = "";
     /**
      * <code>extraInfo</code>

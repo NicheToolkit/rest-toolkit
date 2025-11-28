@@ -6,8 +6,8 @@ import io.github.nichetoolkit.rest.error.image.ImageReadException;
 import io.github.nichetoolkit.rest.error.image.ImageTransferException;
 import io.github.nichetoolkit.rest.error.image.ImageWriteException;
 
-import jakarta.imageio.ImageIO;
-import jakarta.imageio.stream.ImageOutputStream;
+import javax.imageio.ImageIO;
+import javax.imageio.stream.ImageOutputStream;
 import jakarta.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
 import java.io.*;
@@ -17,7 +17,7 @@ import java.nio.file.Path;
  * <code>ImageHelper</code>
  * <p>The image helper class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @since Jdk1.8
+ * @since Jdk17
  */
 public class ImageHelper {
 

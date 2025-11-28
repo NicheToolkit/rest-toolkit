@@ -2,7 +2,6 @@ package io.github.nichetoolkit.rest.logback;
 
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.jetbrains.annotations.NotNull;
 import org.slf4j.MDC;
 import org.jspecify.annotations.NonNull;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
@@ -38,7 +37,7 @@ public class DefaultThreadPoolTaskExecutor extends ThreadPoolTaskExecutor {
         });
     }
 
-    @NotNull
+    @NonNull
     @Override
     public <T> Future<T> submit(@NonNull Callable<T> callable) {
         Map<String, String> context = MDC.getCopyOfContextMap();

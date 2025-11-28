@@ -16,7 +16,7 @@ import java.security.PublicKey;
  * <p>The jwt signer interface.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestAlgorithm
- * @since Jdk1.8
+ * @since Jdk17
  */
 public interface JwtSigner extends RestAlgorithm<Algorithm> {
 

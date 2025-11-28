@@ -23,7 +23,7 @@ import java.util.function.Supplier;
  * @see lombok.Setter
  * @see lombok.EqualsAndHashCode
  * @see com.fasterxml.jackson.annotation.JsonIgnoreProperties
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Getter
 @Setter

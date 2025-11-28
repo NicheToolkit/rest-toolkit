@@ -19,7 +19,7 @@ import java.util.Map;
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
  * @see java.lang.SuppressWarnings
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Slf4j
 @SuppressWarnings("unused")

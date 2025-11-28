@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
  * <code>DateConstants</code>
  * <p>The date constants interface.</p>
  * @author Cyan (snow22314@outlook.com)
- * @since Jdk1.8
+ * @since Jdk17
  */
 public interface DateConstants {
     /**

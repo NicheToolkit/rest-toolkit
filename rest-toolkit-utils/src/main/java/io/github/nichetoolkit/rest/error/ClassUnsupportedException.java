@@ -8,7 +8,7 @@ import io.github.nichetoolkit.rest.error.natives.ClassErrorException;
  * <p>The class unsupported exception class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.error.natives.ClassErrorException
- * @since Jdk1.8
+ * @since Jdk17
  */
 public class ClassUnsupportedException extends ClassErrorException {
     /**

@@ -10,7 +10,7 @@ import java.util.function.Function;
  * <code>CollectUtils</code>
  * <p>The collect utils class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @since Jdk1.8
+ * @since Jdk17
  */
 public class CollectUtils {
 

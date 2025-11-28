@@ -12,7 +12,7 @@ import java.io.Serializable;
  * @see java.io.Serializable
  * @see lombok.Getter
  * @see lombok.Setter
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Getter
 @Setter

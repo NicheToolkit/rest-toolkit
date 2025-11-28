@@ -24,7 +24,7 @@ import java.util.List;
  * @author Cyan (snow22314@outlook.com)
  * @see de.schlichtherle.license.LicenseManager
  * @see lombok.extern.slf4j.Slf4j
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Slf4j
 class LicenseWorkerManager extends LicenseManager {

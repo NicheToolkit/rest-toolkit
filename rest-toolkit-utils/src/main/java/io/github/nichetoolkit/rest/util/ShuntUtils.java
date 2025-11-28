@@ -6,7 +6,7 @@ import java.util.*;
  * <code>ShuntUtils</code>
  * <p>The shunt utils class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @since Jdk1.8
+ * @since Jdk17
  */
 public class ShuntUtils {
 

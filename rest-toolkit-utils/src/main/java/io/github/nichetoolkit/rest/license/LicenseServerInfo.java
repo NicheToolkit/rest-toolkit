@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.license.RestServerInfo
  * @see lombok.extern.slf4j.Slf4j
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Slf4j
 public abstract class LicenseServerInfo implements RestServerInfo {
@@ -30,7 +30,7 @@ public abstract class LicenseServerInfo implements RestServerInfo {
      * <code>ServerContainer</code>
      * <p>The server container class.</p>
      * @author Cyan (snow22314@outlook.com)
-     * @since Jdk1.8
+     * @since Jdk17
      */
     private static class ServerContainer {
         /**

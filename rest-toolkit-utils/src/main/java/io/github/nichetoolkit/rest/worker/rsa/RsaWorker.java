@@ -14,10 +14,10 @@ import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
 import org.bouncycastle.asn1.pkcs.RSAPrivateKey;
 
 import jakarta.annotation.PostConstruct;
-import jakarta.crypto.BadPaddingException;
-import jakarta.crypto.Cipher;
-import jakarta.crypto.IllegalBlockSizeException;
-import jakarta.crypto.NoSuchPaddingException;
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.math.BigInteger;
@@ -33,7 +33,7 @@ import java.security.spec.X509EncodedKeySpec;
  * <p>The rsa worker class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Slf4j
 public class RsaWorker {
@@ -681,11 +681,11 @@ public class RsaWorker {
     /**
      * <code>dofinal</code>
      * <p>The dofinal method.</p>
-     * @param cipher      {@link jakarta.crypto.Cipher} <p>The cipher parameter is <code>Cipher</code> type.</p>
+     * @param cipher      {@link javax.crypto.Cipher} <p>The cipher parameter is <code>Cipher</code> type.</p>
      * @param source      {@link java.lang.String} <p>The source parameter is <code>String</code> type.</p>
      * @param segmentSize int <p>The segment size parameter is <code>int</code> type.</p>
      * @return byte <p>The dofinal return object is <code>byte</code> type.</p>
-     * @see jakarta.crypto.Cipher
+     * @see javax.crypto.Cipher
      * @see java.lang.String
      */
     private static byte[] dofinal(Cipher cipher, String source, int segmentSize) {
@@ -696,11 +696,11 @@ public class RsaWorker {
     /**
      * <code>dofinal</code>
      * <p>The dofinal method.</p>
-     * @param cipher      {@link jakarta.crypto.Cipher} <p>The cipher parameter is <code>Cipher</code> type.</p>
+     * @param cipher      {@link javax.crypto.Cipher} <p>The cipher parameter is <code>Cipher</code> type.</p>
      * @param sourceBytes byte <p>The source bytes parameter is <code>byte</code> type.</p>
      * @param segmentSize int <p>The segment size parameter is <code>int</code> type.</p>
      * @return byte <p>The dofinal return object is <code>byte</code> type.</p>
-     * @see jakarta.crypto.Cipher
+     * @see javax.crypto.Cipher
      */
     private static byte[] dofinal(Cipher cipher, byte[] sourceBytes, int segmentSize) {
         byte[] targetBytes = null;
@@ -719,11 +719,11 @@ public class RsaWorker {
     /**
      * <code>segmentDofinal</code>
      * <p>The segment dofinal method.</p>
-     * @param cipher      {@link jakarta.crypto.Cipher} <p>The cipher parameter is <code>Cipher</code> type.</p>
+     * @param cipher      {@link javax.crypto.Cipher} <p>The cipher parameter is <code>Cipher</code> type.</p>
      * @param sourceBytes byte <p>The source bytes parameter is <code>byte</code> type.</p>
      * @param segmentSize int <p>The segment size parameter is <code>int</code> type.</p>
      * @return byte <p>The segment dofinal return object is <code>byte</code> type.</p>
-     * @see jakarta.crypto.Cipher
+     * @see javax.crypto.Cipher
      */
     private static byte[] segmentDofinal(Cipher cipher, byte[] sourceBytes, int segmentSize) {
         int length = sourceBytes.length;

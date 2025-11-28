@@ -4,7 +4,7 @@ package io.github.nichetoolkit.rest.util;
  * <code>CommonUtils</code>
  * <p>The common utils class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @since Jdk1.8
+ * @since Jdk17
  */
 public class CommonUtils {
 

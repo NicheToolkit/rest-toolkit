@@ -8,6 +8,7 @@ import io.github.nichetoolkit.rest.RestStatus;
 import io.github.nichetoolkit.rest.error.license.LicenseErrorStatus;
 import io.github.nichetoolkit.rest.util.DateUtils;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -27,7 +28,7 @@ import java.util.Date;
  * @see lombok.NoArgsConstructor
  * @see com.fasterxml.jackson.annotation.JsonInclude
  * @see com.fasterxml.jackson.annotation.JsonIgnoreProperties
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Getter
 @Setter
@@ -78,8 +79,10 @@ public class LicenseResult implements Serializable {
      * {@link java.lang.Boolean} <p>The <code>stopServer</code> field.</p>
      * @see java.lang.Boolean
      * @see com.fasterxml.jackson.annotation.JsonIgnore
+     * @see lombok.Builder.Default
      */
     @JsonIgnore
+    @Builder.Default
     private Boolean stopServer= false;
 
     /**

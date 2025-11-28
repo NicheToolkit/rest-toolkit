@@ -10,7 +10,7 @@ import java.io.FileNotFoundException;
  * <code>PathUtils</code>
  * <p>The path utils class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @since Jdk1.8
+ * @since Jdk17
  */
 public class PathUtils {
 

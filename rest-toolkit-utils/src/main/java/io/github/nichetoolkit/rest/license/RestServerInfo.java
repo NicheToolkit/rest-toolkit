@@ -11,7 +11,7 @@ import java.util.List;
  * <p>The rest server info interface.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.io.Serializable
- * @since Jdk1.8
+ * @since Jdk17
  */
 public interface RestServerInfo extends Serializable {
 

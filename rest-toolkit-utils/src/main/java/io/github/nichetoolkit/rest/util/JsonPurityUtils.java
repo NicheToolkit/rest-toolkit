@@ -23,10 +23,10 @@ import java.util.Set;
 /**
  * <code>JsonPurityUtils</code>
  * <p>The json purity utils class.</p>
- * @see  lombok.extern.slf4j.Slf4j
- * @see  java.lang.SuppressWarnings
  * @author Cyan (snow22314@outlook.com)
- * @since Jdk1.8
+ * @see lombok.extern.slf4j.Slf4j
+ * @see java.lang.SuppressWarnings
+ * @since Jdk17
  */
 @Slf4j
 @SuppressWarnings({"TypeParameterUnusedInFormals", "SameNameButDifferent"})
@@ -35,10 +35,10 @@ public class JsonPurityUtils {
     /**
      * <code>parseJson</code>
      * <p>The parse json method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param target T <p>The target parameter is <code>T</code> type.</p>
-     * @param file {@link java.io.File} <p>The file parameter is <code>File</code> type.</p>
-     * @see  java.io.File
+     * @param file   {@link java.io.File} <p>The file parameter is <code>File</code> type.</p>
+     * @see java.io.File
      */
     public static <T> void parseJson(T target, File file) {
         try {
@@ -52,10 +52,10 @@ public class JsonPurityUtils {
     /**
      * <code>parseJson</code>
      * <p>The parse json method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param target T <p>The target parameter is <code>T</code> type.</p>
+     * @param <T>          {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param target       T <p>The target parameter is <code>T</code> type.</p>
      * @param outputStream {@link java.io.OutputStream} <p>The output stream parameter is <code>OutputStream</code> type.</p>
-     * @see  java.io.OutputStream
+     * @see java.io.OutputStream
      */
     public static <T> void parseJson(T target, OutputStream outputStream) {
         try {
@@ -69,10 +69,10 @@ public class JsonPurityUtils {
     /**
      * <code>parseJson</code>
      * <p>The parse json method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param target T <p>The target parameter is <code>T</code> type.</p>
      * @param writer {@link java.io.Writer} <p>The writer parameter is <code>Writer</code> type.</p>
-     * @see  java.io.Writer
+     * @see java.io.Writer
      */
     public static <T> void parseJson(T target, Writer writer) {
         try {
@@ -86,10 +86,10 @@ public class JsonPurityUtils {
     /**
      * <code>parseJson</code>
      * <p>The parse json method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param target T <p>The target parameter is <code>T</code> type.</p>
-     * @return  {@link java.lang.String} <p>The parse json return object is <code>String</code> type.</p>
-     * @see  java.lang.String
+     * @return {@link java.lang.String} <p>The parse json return object is <code>String</code> type.</p>
+     * @see java.lang.String
      */
     public static <T> String parseJson(T target) {
         try {
@@ -104,7 +104,7 @@ public class JsonPurityUtils {
     /**
      * <code>parseJsonAsBytes</code>
      * <p>The parse json as bytes method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param target T <p>The target parameter is <code>T</code> type.</p>
      * @return byte <p>The parse json as bytes return object is <code>byte</code> type.</p>
      */
@@ -121,12 +121,12 @@ public class JsonPurityUtils {
     /**
      * <code>parseJson</code>
      * <p>The parse json method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param target T <p>The target parameter is <code>T</code> type.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param target        T <p>The target parameter is <code>T</code> type.</p>
      * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
-     * @see  com.fasterxml.jackson.core.type.TypeReference
-     * @see  java.lang.String
-     * @return  {@link java.lang.String} <p>The parse json return object is <code>String</code> type.</p>
+     * @return {@link java.lang.String} <p>The parse json return object is <code>String</code> type.</p>
+     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see java.lang.String
      */
     public static <T> String parseJson(T target, TypeReference<?> typeReference) {
         try {
@@ -141,10 +141,10 @@ public class JsonPurityUtils {
     /**
      * <code>parseJsonIgnoreNull</code>
      * <p>The parse json ignore null method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param target T <p>The target parameter is <code>T</code> type.</p>
-     * @return  {@link java.lang.String} <p>The parse json ignore null return object is <code>String</code> type.</p>
-     * @see  java.lang.String
+     * @return {@link java.lang.String} <p>The parse json ignore null return object is <code>String</code> type.</p>
+     * @see java.lang.String
      */
     public static <T> String parseJsonIgnoreNull(T target) {
         try {
@@ -159,12 +159,12 @@ public class JsonPurityUtils {
     /**
      * <code>parseBean</code>
      * <p>The parse bean method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json  {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.io.File
-     * @see  java.lang.Class
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
+     * @see java.io.File
+     * @see java.lang.Class
      */
     public static <T> T parseBean(File json, Class<T> clazz) {
         try {
@@ -179,12 +179,12 @@ public class JsonPurityUtils {
     /**
      * <code>parseBean</code>
      * <p>The parse bean method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json  {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.io.Reader
-     * @see  java.lang.Class
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
+     * @see java.io.Reader
+     * @see java.lang.Class
      */
     public static <T> T parseBean(Reader json, Class<T> clazz) {
         try {
@@ -199,11 +199,11 @@ public class JsonPurityUtils {
     /**
      * <code>parseBean</code>
      * <p>The parse bean method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json byte <p>The json parameter is <code>byte</code> type.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json  byte <p>The json parameter is <code>byte</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.lang.Class
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
+     * @see java.lang.Class
      */
     public static <T> T parseBean(byte[] json, Class<T> clazz) {
         try {
@@ -218,12 +218,12 @@ public class JsonPurityUtils {
     /**
      * <code>parseBean</code>
      * <p>The parse bean method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json  {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.io.InputStream
-     * @see  java.lang.Class
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
+     * @see java.io.InputStream
+     * @see java.lang.Class
      */
     public static <T> T parseBean(InputStream json, Class<T> clazz) {
         try {
@@ -238,12 +238,12 @@ public class JsonPurityUtils {
     /**
      * <code>parseBean</code>
      * <p>The parse bean method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json  {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.lang.String
-     * @see  java.lang.Class
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
+     * @see java.lang.String
+     * @see java.lang.Class
      */
     public static <T> T parseBean(String json, Class<T> clazz) {
         try {
@@ -258,12 +258,12 @@ public class JsonPurityUtils {
     /**
      * <code>parseBean</code>
      * <p>The parse bean method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json          {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
      * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
-     * @see  java.io.File
-     * @see  com.fasterxml.jackson.core.type.TypeReference
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
+     * @see java.io.File
+     * @see com.fasterxml.jackson.core.type.TypeReference
      */
     public static <T> T parseBean(File json, TypeReference<T> typeReference) {
         try {
@@ -278,12 +278,12 @@ public class JsonPurityUtils {
     /**
      * <code>parseBean</code>
      * <p>The parse bean method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json          {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
      * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
-     * @see  java.io.Reader
-     * @see  com.fasterxml.jackson.core.type.TypeReference
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
+     * @see java.io.Reader
+     * @see com.fasterxml.jackson.core.type.TypeReference
      */
     public static <T> T parseBean(Reader json, TypeReference<T> typeReference) {
         try {
@@ -298,11 +298,11 @@ public class JsonPurityUtils {
     /**
      * <code>parseBean</code>
      * <p>The parse bean method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json byte <p>The json parameter is <code>byte</code> type.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json          byte <p>The json parameter is <code>byte</code> type.</p>
      * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
-     * @see  com.fasterxml.jackson.core.type.TypeReference
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
+     * @see com.fasterxml.jackson.core.type.TypeReference
      */
     public static <T> T parseBean(byte[] json, TypeReference<T> typeReference) {
         try {
@@ -317,12 +317,12 @@ public class JsonPurityUtils {
     /**
      * <code>parseBean</code>
      * <p>The parse bean method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json          {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
      * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
-     * @see  java.io.InputStream
-     * @see  com.fasterxml.jackson.core.type.TypeReference
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
+     * @see java.io.InputStream
+     * @see com.fasterxml.jackson.core.type.TypeReference
      */
     public static <T> T parseBean(InputStream json, TypeReference<T> typeReference) {
         try {
@@ -337,12 +337,12 @@ public class JsonPurityUtils {
     /**
      * <code>parseBean</code>
      * <p>The parse bean method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json          {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
      * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
-     * @see  java.lang.String
-     * @see  com.fasterxml.jackson.core.type.TypeReference
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
+     * @see java.lang.String
+     * @see com.fasterxml.jackson.core.type.TypeReference
      */
     public static <T> T parseBean(String json, TypeReference<T> typeReference) {
         try {
@@ -357,12 +357,12 @@ public class JsonPurityUtils {
     /**
      * <code>parseBean</code>
      * <p>The parse bean method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json     {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
      * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
-     * @see  java.io.File
-     * @see  com.fasterxml.jackson.databind.JavaType
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
+     * @see java.io.File
+     * @see com.fasterxml.jackson.databind.JavaType
      */
     public static <T> T parseBean(File json, JavaType javaType) {
         try {
@@ -377,12 +377,12 @@ public class JsonPurityUtils {
     /**
      * <code>parseBean</code>
      * <p>The parse bean method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json     {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
      * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
-     * @see  java.io.Reader
-     * @see  com.fasterxml.jackson.databind.JavaType
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
+     * @see java.io.Reader
+     * @see com.fasterxml.jackson.databind.JavaType
      */
     public static <T> T parseBean(Reader json, JavaType javaType) {
         try {
@@ -397,11 +397,11 @@ public class JsonPurityUtils {
     /**
      * <code>parseBean</code>
      * <p>The parse bean method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json byte <p>The json parameter is <code>byte</code> type.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json     byte <p>The json parameter is <code>byte</code> type.</p>
      * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
-     * @see  com.fasterxml.jackson.databind.JavaType
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
+     * @see com.fasterxml.jackson.databind.JavaType
      */
     public static <T> T parseBean(byte[] json, JavaType javaType) {
         try {
@@ -416,12 +416,12 @@ public class JsonPurityUtils {
     /**
      * <code>parseBean</code>
      * <p>The parse bean method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json     {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
      * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
-     * @see  java.io.InputStream
-     * @see  com.fasterxml.jackson.databind.JavaType
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
+     * @see java.io.InputStream
+     * @see com.fasterxml.jackson.databind.JavaType
      */
     public static <T> T parseBean(InputStream json, JavaType javaType) {
         try {
@@ -436,12 +436,12 @@ public class JsonPurityUtils {
     /**
      * <code>parseBean</code>
      * <p>The parse bean method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json     {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
      * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
-     * @see  java.lang.String
-     * @see  com.fasterxml.jackson.databind.JavaType
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
+     * @see java.lang.String
+     * @see com.fasterxml.jackson.databind.JavaType
      */
     public static <T> T parseBean(String json, JavaType javaType) {
         try {
@@ -456,14 +456,14 @@ public class JsonPurityUtils {
     /**
      * <code>parseBean</code>
      * <p>The parse bean method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <U>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
-     * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <U>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json       {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
+     * @param clazz      {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
      * @param innerClazz {@link java.lang.Class} <p>The inner clazz parameter is <code>Class</code> type.</p>
-     * @see  java.io.File
-     * @see  java.lang.Class
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
+     * @see java.io.File
+     * @see java.lang.Class
      */
     public static <T, U> T parseBean(File json, Class<T> clazz, Class<U> innerClazz) {
         try {
@@ -478,14 +478,14 @@ public class JsonPurityUtils {
     /**
      * <code>parseBean</code>
      * <p>The parse bean method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <U>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
-     * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <U>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json       {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
+     * @param clazz      {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
      * @param innerClazz {@link java.lang.Class} <p>The inner clazz parameter is <code>Class</code> type.</p>
-     * @see  java.io.Reader
-     * @see  java.lang.Class
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
+     * @see java.io.Reader
+     * @see java.lang.Class
      */
     public static <T, U> T parseBean(Reader json, Class<T> clazz, Class<U> innerClazz) {
         try {
@@ -500,13 +500,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseBean</code>
      * <p>The parse bean method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <U>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json byte <p>The json parameter is <code>byte</code> type.</p>
-     * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <U>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json       byte <p>The json parameter is <code>byte</code> type.</p>
+     * @param clazz      {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
      * @param innerClazz {@link java.lang.Class} <p>The inner clazz parameter is <code>Class</code> type.</p>
-     * @see  java.lang.Class
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
+     * @see java.lang.Class
      */
     public static <T, U> T parseBean(byte[] json, Class<T> clazz, Class<U> innerClazz) {
         try {
@@ -521,14 +521,14 @@ public class JsonPurityUtils {
     /**
      * <code>parseBean</code>
      * <p>The parse bean method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <U>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
-     * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <U>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json       {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
+     * @param clazz      {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
      * @param innerClazz {@link java.lang.Class} <p>The inner clazz parameter is <code>Class</code> type.</p>
-     * @see  java.io.InputStream
-     * @see  java.lang.Class
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
+     * @see java.io.InputStream
+     * @see java.lang.Class
      */
     public static <T, U> T parseBean(InputStream json, Class<T> clazz, Class<U> innerClazz) {
         try {
@@ -543,14 +543,14 @@ public class JsonPurityUtils {
     /**
      * <code>parseBean</code>
      * <p>The parse bean method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <U>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
-     * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <U>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json       {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param clazz      {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
      * @param innerClazz {@link java.lang.Class} <p>The inner clazz parameter is <code>Class</code> type.</p>
-     * @see  java.lang.String
-     * @see  java.lang.Class
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
+     * @see java.lang.String
+     * @see java.lang.Class
      */
     public static <T, U> T parseBean(String json, Class<T> clazz, Class<U> innerClazz) {
         try {
@@ -565,13 +565,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseList</code>
      * <p>The parse list method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json     {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
      * @param listType {@link com.fasterxml.jackson.databind.type.CollectionType} <p>The list type parameter is <code>CollectionType</code> type.</p>
-     * @see  java.io.File
-     * @see  com.fasterxml.jackson.databind.type.CollectionType
-     * @see  java.util.List
-     * @return  {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @see java.io.File
+     * @see com.fasterxml.jackson.databind.type.CollectionType
+     * @see java.util.List
      */
     public static <T> List<T> parseList(File json, CollectionType listType) {
         try {
@@ -586,13 +586,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseList</code>
      * <p>The parse list method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json     {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
      * @param listType {@link com.fasterxml.jackson.databind.type.CollectionType} <p>The list type parameter is <code>CollectionType</code> type.</p>
-     * @see  java.io.Reader
-     * @see  com.fasterxml.jackson.databind.type.CollectionType
-     * @see  java.util.List
-     * @return  {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @see java.io.Reader
+     * @see com.fasterxml.jackson.databind.type.CollectionType
+     * @see java.util.List
      */
     public static <T> List<T> parseList(Reader json, CollectionType listType) {
         try {
@@ -607,12 +607,12 @@ public class JsonPurityUtils {
     /**
      * <code>parseList</code>
      * <p>The parse list method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json byte <p>The json parameter is <code>byte</code> type.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json     byte <p>The json parameter is <code>byte</code> type.</p>
      * @param listType {@link com.fasterxml.jackson.databind.type.CollectionType} <p>The list type parameter is <code>CollectionType</code> type.</p>
-     * @see  com.fasterxml.jackson.databind.type.CollectionType
-     * @see  java.util.List
-     * @return  {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @see com.fasterxml.jackson.databind.type.CollectionType
+     * @see java.util.List
      */
     public static <T> List<T> parseList(byte[] json, CollectionType listType) {
         try {
@@ -627,13 +627,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseList</code>
      * <p>The parse list method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json     {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
      * @param listType {@link com.fasterxml.jackson.databind.type.CollectionType} <p>The list type parameter is <code>CollectionType</code> type.</p>
-     * @see  java.io.InputStream
-     * @see  com.fasterxml.jackson.databind.type.CollectionType
-     * @see  java.util.List
-     * @return  {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @see java.io.InputStream
+     * @see com.fasterxml.jackson.databind.type.CollectionType
+     * @see java.util.List
      */
     public static <T> List<T> parseList(InputStream json, CollectionType listType) {
         try {
@@ -648,13 +648,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseList</code>
      * <p>The parse list method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json     {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
      * @param listType {@link com.fasterxml.jackson.databind.type.CollectionType} <p>The list type parameter is <code>CollectionType</code> type.</p>
-     * @see  java.lang.String
-     * @see  com.fasterxml.jackson.databind.type.CollectionType
-     * @see  java.util.List
-     * @return  {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @see java.lang.String
+     * @see com.fasterxml.jackson.databind.type.CollectionType
+     * @see java.util.List
      */
     public static <T> List<T> parseList(String json, CollectionType listType) {
         try {
@@ -669,13 +669,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseList</code>
      * <p>The parse list method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json          {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
      * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
-     * @see  java.io.File
-     * @see  com.fasterxml.jackson.core.type.TypeReference
-     * @see  java.util.List
-     * @return  {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @see java.io.File
+     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see java.util.List
      */
     public static <T> List<T> parseList(File json, TypeReference<List<T>> typeReference) {
         try {
@@ -690,13 +690,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseList</code>
      * <p>The parse list method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json          {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
      * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
-     * @see  java.io.Reader
-     * @see  com.fasterxml.jackson.core.type.TypeReference
-     * @see  java.util.List
-     * @return  {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @see java.io.Reader
+     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see java.util.List
      */
     public static <T> List<T> parseList(Reader json, TypeReference<List<T>> typeReference) {
         try {
@@ -711,12 +711,12 @@ public class JsonPurityUtils {
     /**
      * <code>parseList</code>
      * <p>The parse list method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json byte <p>The json parameter is <code>byte</code> type.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json          byte <p>The json parameter is <code>byte</code> type.</p>
      * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
-     * @see  com.fasterxml.jackson.core.type.TypeReference
-     * @see  java.util.List
-     * @return  {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see java.util.List
      */
     public static <T> List<T> parseList(byte[] json, TypeReference<List<T>> typeReference) {
         try {
@@ -731,13 +731,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseList</code>
      * <p>The parse list method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json          {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
      * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
-     * @see  java.io.InputStream
-     * @see  com.fasterxml.jackson.core.type.TypeReference
-     * @see  java.util.List
-     * @return  {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @see java.io.InputStream
+     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see java.util.List
      */
     public static <T> List<T> parseList(InputStream json, TypeReference<List<T>> typeReference) {
         try {
@@ -752,13 +752,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseList</code>
      * <p>The parse list method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json          {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
      * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
-     * @see  java.lang.String
-     * @see  com.fasterxml.jackson.core.type.TypeReference
-     * @see  java.util.List
-     * @return  {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @see java.lang.String
+     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see java.util.List
      */
     public static <T> List<T> parseList(String json, TypeReference<List<T>> typeReference) {
         try {
@@ -773,15 +773,15 @@ public class JsonPurityUtils {
     /**
      * <code>parseList</code>
      * <p>The parse list method.</p>
-     * @param <Z>  {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
+     * @param <Z>        {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json       {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
      * @param parseClazz {@link java.lang.Class} <p>The parse clazz parameter is <code>Class</code> type.</p>
-     * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.util.List
-     * @see  java.io.File
-     * @see  java.lang.Class
-     * @return  {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @param clazz      {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @see java.util.List
+     * @see java.io.File
+     * @see java.lang.Class
      */
     public static <Z extends List<?>, T> List<T> parseList(File json, Class<Z> parseClazz, Class<T> clazz) {
         CollectionType listType = TypeFactory.defaultInstance().constructCollectionType(parseClazz, clazz);
@@ -791,15 +791,15 @@ public class JsonPurityUtils {
     /**
      * <code>parseList</code>
      * <p>The parse list method.</p>
-     * @param <Z>  {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
+     * @param <Z>        {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json       {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
      * @param parseClazz {@link java.lang.Class} <p>The parse clazz parameter is <code>Class</code> type.</p>
-     * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.util.List
-     * @see  java.io.Reader
-     * @see  java.lang.Class
-     * @return  {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @param clazz      {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @see java.util.List
+     * @see java.io.Reader
+     * @see java.lang.Class
      */
     public static <Z extends List<?>, T> List<T> parseList(Reader json, Class<Z> parseClazz, Class<T> clazz) {
         CollectionType listType = TypeFactory.defaultInstance().constructCollectionType(parseClazz, clazz);
@@ -809,14 +809,14 @@ public class JsonPurityUtils {
     /**
      * <code>parseList</code>
      * <p>The parse list method.</p>
-     * @param <Z>  {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json byte <p>The json parameter is <code>byte</code> type.</p>
+     * @param <Z>        {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json       byte <p>The json parameter is <code>byte</code> type.</p>
      * @param parseClazz {@link java.lang.Class} <p>The parse clazz parameter is <code>Class</code> type.</p>
-     * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.util.List
-     * @see  java.lang.Class
-     * @return  {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @param clazz      {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @see java.util.List
+     * @see java.lang.Class
      */
     public static <Z extends List<?>, T> List<T> parseList(byte[] json, Class<Z> parseClazz, Class<T> clazz) {
         CollectionType listType = TypeFactory.defaultInstance().constructCollectionType(parseClazz, clazz);
@@ -826,15 +826,15 @@ public class JsonPurityUtils {
     /**
      * <code>parseList</code>
      * <p>The parse list method.</p>
-     * @param <Z>  {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
+     * @param <Z>        {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json       {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
      * @param parseClazz {@link java.lang.Class} <p>The parse clazz parameter is <code>Class</code> type.</p>
-     * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.util.List
-     * @see  java.io.InputStream
-     * @see  java.lang.Class
-     * @return  {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @param clazz      {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @see java.util.List
+     * @see java.io.InputStream
+     * @see java.lang.Class
      */
     public static <Z extends List<?>, T> List<T> parseList(InputStream json, Class<Z> parseClazz, Class<T> clazz) {
         CollectionType listType = TypeFactory.defaultInstance().constructCollectionType(parseClazz, clazz);
@@ -844,15 +844,15 @@ public class JsonPurityUtils {
     /**
      * <code>parseList</code>
      * <p>The parse list method.</p>
-     * @param <Z>  {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param <Z>        {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json       {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
      * @param parseClazz {@link java.lang.Class} <p>The parse clazz parameter is <code>Class</code> type.</p>
-     * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.util.List
-     * @see  java.lang.String
-     * @see  java.lang.Class
-     * @return  {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @param clazz      {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @see java.util.List
+     * @see java.lang.String
+     * @see java.lang.Class
      */
     public static <Z extends List<?>, T> List<T> parseList(String json, Class<Z> parseClazz, Class<T> clazz) {
         CollectionType listType = TypeFactory.defaultInstance().constructCollectionType(parseClazz, clazz);
@@ -862,13 +862,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseList</code>
      * <p>The parse list method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json  {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.io.File
-     * @see  java.lang.Class
-     * @see  java.util.List
-     * @return  {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @see java.io.File
+     * @see java.lang.Class
+     * @see java.util.List
      */
     public static <T> List<T> parseList(File json, Class<T> clazz) {
         return parseList(json, List.class, clazz);
@@ -877,13 +877,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseList</code>
      * <p>The parse list method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json  {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.io.Reader
-     * @see  java.lang.Class
-     * @see  java.util.List
-     * @return  {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @see java.io.Reader
+     * @see java.lang.Class
+     * @see java.util.List
      */
     public static <T> List<T> parseList(Reader json, Class<T> clazz) {
         return parseList(json, List.class, clazz);
@@ -892,12 +892,12 @@ public class JsonPurityUtils {
     /**
      * <code>parseList</code>
      * <p>The parse list method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json byte <p>The json parameter is <code>byte</code> type.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json  byte <p>The json parameter is <code>byte</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.lang.Class
-     * @see  java.util.List
-     * @return  {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @see java.lang.Class
+     * @see java.util.List
      */
     public static <T> List<T> parseList(byte[] json, Class<T> clazz) {
         return parseList(json, List.class, clazz);
@@ -906,13 +906,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseList</code>
      * <p>The parse list method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json  {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.io.InputStream
-     * @see  java.lang.Class
-     * @see  java.util.List
-     * @return  {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @see java.io.InputStream
+     * @see java.lang.Class
+     * @see java.util.List
      */
     public static <T> List<T> parseList(InputStream json, Class<T> clazz) {
         return parseList(json, List.class, clazz);
@@ -921,13 +921,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseList</code>
      * <p>The parse list method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json  {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.lang.String
-     * @see  java.lang.Class
-     * @see  java.util.List
-     * @return  {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
+     * @see java.lang.String
+     * @see java.lang.Class
+     * @see java.util.List
      */
     public static <T> List<T> parseList(String json, Class<T> clazz) {
         return parseList(json, List.class, clazz);
@@ -936,13 +936,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseSet</code>
      * <p>The parse set method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json    {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
      * @param setType {@link com.fasterxml.jackson.databind.type.CollectionType} <p>The set type parameter is <code>CollectionType</code> type.</p>
-     * @see  java.lang.String
-     * @see  com.fasterxml.jackson.databind.type.CollectionType
-     * @see  java.util.Set
-     * @return  {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @see java.lang.String
+     * @see com.fasterxml.jackson.databind.type.CollectionType
+     * @see java.util.Set
      */
     public static <T> Set<T> parseSet(String json, CollectionType setType) {
         try {
@@ -957,13 +957,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseSet</code>
      * <p>The parse set method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
+     * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json    {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
      * @param setType {@link com.fasterxml.jackson.databind.type.CollectionType} <p>The set type parameter is <code>CollectionType</code> type.</p>
-     * @see  java.io.File
-     * @see  com.fasterxml.jackson.databind.type.CollectionType
-     * @see  java.util.Set
-     * @return  {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @see java.io.File
+     * @see com.fasterxml.jackson.databind.type.CollectionType
+     * @see java.util.Set
      */
     public static <T> Set<T> parseSet(File json, CollectionType setType) {
         try {
@@ -978,13 +978,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseSet</code>
      * <p>The parse set method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
+     * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json    {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
      * @param setType {@link com.fasterxml.jackson.databind.type.CollectionType} <p>The set type parameter is <code>CollectionType</code> type.</p>
-     * @see  java.io.Reader
-     * @see  com.fasterxml.jackson.databind.type.CollectionType
-     * @see  java.util.Set
-     * @return  {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @see java.io.Reader
+     * @see com.fasterxml.jackson.databind.type.CollectionType
+     * @see java.util.Set
      */
     public static <T> Set<T> parseSet(Reader json, CollectionType setType) {
         try {
@@ -999,12 +999,12 @@ public class JsonPurityUtils {
     /**
      * <code>parseSet</code>
      * <p>The parse set method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json byte <p>The json parameter is <code>byte</code> type.</p>
+     * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json    byte <p>The json parameter is <code>byte</code> type.</p>
      * @param setType {@link com.fasterxml.jackson.databind.type.CollectionType} <p>The set type parameter is <code>CollectionType</code> type.</p>
-     * @see  com.fasterxml.jackson.databind.type.CollectionType
-     * @see  java.util.Set
-     * @return  {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @see com.fasterxml.jackson.databind.type.CollectionType
+     * @see java.util.Set
      */
     public static <T> Set<T> parseSet(byte[] json, CollectionType setType) {
         try {
@@ -1019,13 +1019,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseSet</code>
      * <p>The parse set method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
+     * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json    {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
      * @param setType {@link com.fasterxml.jackson.databind.type.CollectionType} <p>The set type parameter is <code>CollectionType</code> type.</p>
-     * @see  java.io.InputStream
-     * @see  com.fasterxml.jackson.databind.type.CollectionType
-     * @see  java.util.Set
-     * @return  {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @see java.io.InputStream
+     * @see com.fasterxml.jackson.databind.type.CollectionType
+     * @see java.util.Set
      */
     public static <T> Set<T> parseSet(InputStream json, CollectionType setType) {
         try {
@@ -1040,13 +1040,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseSet</code>
      * <p>The parse set method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json          {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
      * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
-     * @see  java.io.File
-     * @see  com.fasterxml.jackson.core.type.TypeReference
-     * @see  java.util.Set
-     * @return  {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @see java.io.File
+     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see java.util.Set
      */
     public static <T> Set<T> parseSet(File json, TypeReference<Set<T>> typeReference) {
         try {
@@ -1061,13 +1061,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseSet</code>
      * <p>The parse set method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json          {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
      * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
-     * @see  java.io.Reader
-     * @see  com.fasterxml.jackson.core.type.TypeReference
-     * @see  java.util.Set
-     * @return  {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @see java.io.Reader
+     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see java.util.Set
      */
     public static <T> Set<T> parseSet(Reader json, TypeReference<Set<T>> typeReference) {
         try {
@@ -1082,12 +1082,12 @@ public class JsonPurityUtils {
     /**
      * <code>parseSet</code>
      * <p>The parse set method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json byte <p>The json parameter is <code>byte</code> type.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json          byte <p>The json parameter is <code>byte</code> type.</p>
      * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
-     * @see  com.fasterxml.jackson.core.type.TypeReference
-     * @see  java.util.Set
-     * @return  {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see java.util.Set
      */
     public static <T> Set<T> parseSet(byte[] json, TypeReference<Set<T>> typeReference) {
         try {
@@ -1102,13 +1102,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseSet</code>
      * <p>The parse set method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json          {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
      * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
-     * @see  java.io.InputStream
-     * @see  com.fasterxml.jackson.core.type.TypeReference
-     * @see  java.util.Set
-     * @return  {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @see java.io.InputStream
+     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see java.util.Set
      */
     public static <T> Set<T> parseSet(InputStream json, TypeReference<Set<T>> typeReference) {
         try {
@@ -1123,13 +1123,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseSet</code>
      * <p>The parse set method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json          {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
      * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
-     * @see  java.lang.String
-     * @see  com.fasterxml.jackson.core.type.TypeReference
-     * @see  java.util.Set
-     * @return  {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @see java.lang.String
+     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see java.util.Set
      */
     public static <T> Set<T> parseSet(String json, TypeReference<Set<T>> typeReference) {
         try {
@@ -1144,15 +1144,15 @@ public class JsonPurityUtils {
     /**
      * <code>parseSet</code>
      * <p>The parse set method.</p>
-     * @param <Z>  {@link java.util.Set} <p>The generic parameter is <code>Set</code> type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
+     * @param <Z>        {@link java.util.Set} <p>The generic parameter is <code>Set</code> type.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json       {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
      * @param parseClazz {@link java.lang.Class} <p>The parse clazz parameter is <code>Class</code> type.</p>
-     * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.util.Set
-     * @see  java.io.File
-     * @see  java.lang.Class
-     * @return  {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @param clazz      {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @see java.util.Set
+     * @see java.io.File
+     * @see java.lang.Class
      */
     public static <Z extends Set<?>, T> Set<T> parseSet(File json, Class<Z> parseClazz, Class<T> clazz) {
         CollectionType setType = TypeFactory.defaultInstance().constructCollectionType(parseClazz, clazz);
@@ -1162,15 +1162,15 @@ public class JsonPurityUtils {
     /**
      * <code>parseSet</code>
      * <p>The parse set method.</p>
-     * @param <Z>  {@link java.util.Set} <p>The generic parameter is <code>Set</code> type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
+     * @param <Z>        {@link java.util.Set} <p>The generic parameter is <code>Set</code> type.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json       {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
      * @param parseClazz {@link java.lang.Class} <p>The parse clazz parameter is <code>Class</code> type.</p>
-     * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.util.Set
-     * @see  java.io.Reader
-     * @see  java.lang.Class
-     * @return  {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @param clazz      {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @see java.util.Set
+     * @see java.io.Reader
+     * @see java.lang.Class
      */
     public static <Z extends Set<?>, T> Set<T> parseSet(Reader json, Class<Z> parseClazz, Class<T> clazz) {
         CollectionType setType = TypeFactory.defaultInstance().constructCollectionType(parseClazz, clazz);
@@ -1180,14 +1180,14 @@ public class JsonPurityUtils {
     /**
      * <code>parseSet</code>
      * <p>The parse set method.</p>
-     * @param <Z>  {@link java.util.Set} <p>The generic parameter is <code>Set</code> type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json byte <p>The json parameter is <code>byte</code> type.</p>
+     * @param <Z>        {@link java.util.Set} <p>The generic parameter is <code>Set</code> type.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json       byte <p>The json parameter is <code>byte</code> type.</p>
      * @param parseClazz {@link java.lang.Class} <p>The parse clazz parameter is <code>Class</code> type.</p>
-     * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.util.Set
-     * @see  java.lang.Class
-     * @return  {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @param clazz      {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @see java.util.Set
+     * @see java.lang.Class
      */
     public static <Z extends Set<?>, T> Set<T> parseSet(byte[] json, Class<Z> parseClazz, Class<T> clazz) {
         CollectionType setType = TypeFactory.defaultInstance().constructCollectionType(parseClazz, clazz);
@@ -1197,15 +1197,15 @@ public class JsonPurityUtils {
     /**
      * <code>parseSet</code>
      * <p>The parse set method.</p>
-     * @param <Z>  {@link java.util.Set} <p>The generic parameter is <code>Set</code> type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
+     * @param <Z>        {@link java.util.Set} <p>The generic parameter is <code>Set</code> type.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json       {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
      * @param parseClazz {@link java.lang.Class} <p>The parse clazz parameter is <code>Class</code> type.</p>
-     * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.util.Set
-     * @see  java.io.InputStream
-     * @see  java.lang.Class
-     * @return  {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @param clazz      {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @see java.util.Set
+     * @see java.io.InputStream
+     * @see java.lang.Class
      */
     public static <Z extends Set<?>, T> Set<T> parseSet(InputStream json, Class<Z> parseClazz, Class<T> clazz) {
         CollectionType setType = TypeFactory.defaultInstance().constructCollectionType(parseClazz, clazz);
@@ -1215,15 +1215,15 @@ public class JsonPurityUtils {
     /**
      * <code>parseSet</code>
      * <p>The parse set method.</p>
-     * @param <Z>  {@link java.util.Set} <p>The generic parameter is <code>Set</code> type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param <Z>        {@link java.util.Set} <p>The generic parameter is <code>Set</code> type.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json       {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
      * @param parseClazz {@link java.lang.Class} <p>The parse clazz parameter is <code>Class</code> type.</p>
-     * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.util.Set
-     * @see  java.lang.String
-     * @see  java.lang.Class
-     * @return  {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @param clazz      {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
+     * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @see java.util.Set
+     * @see java.lang.String
+     * @see java.lang.Class
      */
     public static <Z extends Set<?>, T> Set<T> parseSet(String json, Class<Z> parseClazz, Class<T> clazz) {
         CollectionType setType = TypeFactory.defaultInstance().constructCollectionType(parseClazz, clazz);
@@ -1233,13 +1233,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseSet</code>
      * <p>The parse set method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json  {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.io.File
-     * @see  java.lang.Class
-     * @see  java.util.Set
-     * @return  {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @see java.io.File
+     * @see java.lang.Class
+     * @see java.util.Set
      */
     public static <T> Set<T> parseSet(File json, Class<T> clazz) {
         return parseSet(json, Set.class, clazz);
@@ -1248,13 +1248,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseSet</code>
      * <p>The parse set method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json  {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.io.Reader
-     * @see  java.lang.Class
-     * @see  java.util.Set
-     * @return  {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @see java.io.Reader
+     * @see java.lang.Class
+     * @see java.util.Set
      */
     public static <T> Set<T> parseSet(Reader json, Class<T> clazz) {
         return parseSet(json, Set.class, clazz);
@@ -1263,12 +1263,12 @@ public class JsonPurityUtils {
     /**
      * <code>parseSet</code>
      * <p>The parse set method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json byte <p>The json parameter is <code>byte</code> type.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json  byte <p>The json parameter is <code>byte</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.lang.Class
-     * @see  java.util.Set
-     * @return  {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @see java.lang.Class
+     * @see java.util.Set
      */
     public static <T> Set<T> parseSet(byte[] json, Class<T> clazz) {
         return parseSet(json, Set.class, clazz);
@@ -1277,13 +1277,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseSet</code>
      * <p>The parse set method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json  {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.io.InputStream
-     * @see  java.lang.Class
-     * @see  java.util.Set
-     * @return  {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @see java.io.InputStream
+     * @see java.lang.Class
+     * @see java.util.Set
      */
     public static <T> Set<T> parseSet(InputStream json, Class<T> clazz) {
         return parseSet(json, Set.class, clazz);
@@ -1292,13 +1292,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseSet</code>
      * <p>The parse set method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json  {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.lang.String
-     * @see  java.lang.Class
-     * @see  java.util.Set
-     * @return  {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
+     * @see java.lang.String
+     * @see java.lang.Class
+     * @see java.util.Set
      */
     public static <T> Set<T> parseSet(String json, Class<T> clazz) {
         return parseSet(json, Set.class, clazz);
@@ -1307,14 +1307,14 @@ public class JsonPurityUtils {
     /**
      * <code>parseMap</code>
      * <p>The parse map method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
+     * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json    {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
      * @param mapType {@link com.fasterxml.jackson.databind.type.MapType} <p>The map type parameter is <code>MapType</code> type.</p>
-     * @see  java.io.File
-     * @see  com.fasterxml.jackson.databind.type.MapType
-     * @see  java.util.Map
-     * @return  {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @see java.io.File
+     * @see com.fasterxml.jackson.databind.type.MapType
+     * @see java.util.Map
      */
     public static <T, K> Map<T, K> parseMap(File json, MapType mapType) {
         try {
@@ -1329,14 +1329,14 @@ public class JsonPurityUtils {
     /**
      * <code>parseMap</code>
      * <p>The parse map method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
+     * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json    {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
      * @param mapType {@link com.fasterxml.jackson.databind.type.MapType} <p>The map type parameter is <code>MapType</code> type.</p>
-     * @see  java.io.Reader
-     * @see  com.fasterxml.jackson.databind.type.MapType
-     * @see  java.util.Map
-     * @return  {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @see java.io.Reader
+     * @see com.fasterxml.jackson.databind.type.MapType
+     * @see java.util.Map
      */
     public static <T, K> Map<T, K> parseMap(Reader json, MapType mapType) {
         try {
@@ -1351,13 +1351,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseMap</code>
      * <p>The parse map method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json byte <p>The json parameter is <code>byte</code> type.</p>
+     * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json    byte <p>The json parameter is <code>byte</code> type.</p>
      * @param mapType {@link com.fasterxml.jackson.databind.type.MapType} <p>The map type parameter is <code>MapType</code> type.</p>
-     * @see  com.fasterxml.jackson.databind.type.MapType
-     * @see  java.util.Map
-     * @return  {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @see com.fasterxml.jackson.databind.type.MapType
+     * @see java.util.Map
      */
     public static <T, K> Map<T, K> parseMap(byte[] json, MapType mapType) {
         try {
@@ -1372,14 +1372,14 @@ public class JsonPurityUtils {
     /**
      * <code>parseMap</code>
      * <p>The parse map method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
+     * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json    {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
      * @param mapType {@link com.fasterxml.jackson.databind.type.MapType} <p>The map type parameter is <code>MapType</code> type.</p>
-     * @see  java.io.InputStream
-     * @see  com.fasterxml.jackson.databind.type.MapType
-     * @see  java.util.Map
-     * @return  {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @see java.io.InputStream
+     * @see com.fasterxml.jackson.databind.type.MapType
+     * @see java.util.Map
      */
     public static <T, K> Map<T, K> parseMap(InputStream json, MapType mapType) {
         try {
@@ -1394,14 +1394,14 @@ public class JsonPurityUtils {
     /**
      * <code>parseMap</code>
      * <p>The parse map method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json    {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
      * @param mapType {@link com.fasterxml.jackson.databind.type.MapType} <p>The map type parameter is <code>MapType</code> type.</p>
-     * @see  java.lang.String
-     * @see  com.fasterxml.jackson.databind.type.MapType
-     * @see  java.util.Map
-     * @return  {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @see java.lang.String
+     * @see com.fasterxml.jackson.databind.type.MapType
+     * @see java.util.Map
      */
     public static <T, K> Map<T, K> parseMap(String json, MapType mapType) {
         try {
@@ -1416,14 +1416,14 @@ public class JsonPurityUtils {
     /**
      * <code>parseMap</code>
      * <p>The parse map method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json          {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
      * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
-     * @see  java.io.File
-     * @see  com.fasterxml.jackson.core.type.TypeReference
-     * @see  java.util.Map
-     * @return  {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @see java.io.File
+     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see java.util.Map
      */
     public static <T, K> Map<T, K> parseMap(File json, TypeReference<Map<T, K>> typeReference) {
         try {
@@ -1438,14 +1438,14 @@ public class JsonPurityUtils {
     /**
      * <code>parseMap</code>
      * <p>The parse map method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json          {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
      * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
-     * @see  java.io.Reader
-     * @see  com.fasterxml.jackson.core.type.TypeReference
-     * @see  java.util.Map
-     * @return  {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @see java.io.Reader
+     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see java.util.Map
      */
     public static <T, K> Map<T, K> parseMap(Reader json, TypeReference<Map<T, K>> typeReference) {
         try {
@@ -1460,13 +1460,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseMap</code>
      * <p>The parse map method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json byte <p>The json parameter is <code>byte</code> type.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json          byte <p>The json parameter is <code>byte</code> type.</p>
      * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
-     * @see  com.fasterxml.jackson.core.type.TypeReference
-     * @see  java.util.Map
-     * @return  {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see java.util.Map
      */
     public static <T, K> Map<T, K> parseMap(byte[] json, TypeReference<Map<T, K>> typeReference) {
         try {
@@ -1481,14 +1481,14 @@ public class JsonPurityUtils {
     /**
      * <code>parseMap</code>
      * <p>The parse map method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json          {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
      * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
-     * @see  java.io.InputStream
-     * @see  com.fasterxml.jackson.core.type.TypeReference
-     * @see  java.util.Map
-     * @return  {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @see java.io.InputStream
+     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see java.util.Map
      */
     public static <T, K> Map<T, K> parseMap(InputStream json, TypeReference<Map<T, K>> typeReference) {
         try {
@@ -1503,14 +1503,14 @@ public class JsonPurityUtils {
     /**
      * <code>parseMap</code>
      * <p>The parse map method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json          {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
      * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
-     * @see  java.lang.String
-     * @see  com.fasterxml.jackson.core.type.TypeReference
-     * @see  java.util.Map
-     * @return  {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @see java.lang.String
+     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see java.util.Map
      */
     public static <T, K> Map<T, K> parseMap(String json, TypeReference<Map<T, K>> typeReference) {
         try {
@@ -1525,12 +1525,12 @@ public class JsonPurityUtils {
     /**
      * <code>parseArray</code>
      * <p>The parse array method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
+     * @param <T>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json      {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
      * @param arrayType {@link com.fasterxml.jackson.databind.type.ArrayType} <p>The array type parameter is <code>ArrayType</code> type.</p>
-     * @see  java.io.File
-     * @see  com.fasterxml.jackson.databind.type.ArrayType
      * @return T <p>The parse array return object is <code>T</code> type.</p>
+     * @see java.io.File
+     * @see com.fasterxml.jackson.databind.type.ArrayType
      */
     public static <T> T[] parseArray(File json, ArrayType arrayType) {
         try {
@@ -1545,12 +1545,12 @@ public class JsonPurityUtils {
     /**
      * <code>parseArray</code>
      * <p>The parse array method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
+     * @param <T>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json      {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
      * @param arrayType {@link com.fasterxml.jackson.databind.type.ArrayType} <p>The array type parameter is <code>ArrayType</code> type.</p>
-     * @see  java.io.Reader
-     * @see  com.fasterxml.jackson.databind.type.ArrayType
      * @return T <p>The parse array return object is <code>T</code> type.</p>
+     * @see java.io.Reader
+     * @see com.fasterxml.jackson.databind.type.ArrayType
      */
     public static <T> T[] parseArray(Reader json, ArrayType arrayType) {
         try {
@@ -1565,11 +1565,11 @@ public class JsonPurityUtils {
     /**
      * <code>parseArray</code>
      * <p>The parse array method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json byte <p>The json parameter is <code>byte</code> type.</p>
+     * @param <T>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json      byte <p>The json parameter is <code>byte</code> type.</p>
      * @param arrayType {@link com.fasterxml.jackson.databind.type.ArrayType} <p>The array type parameter is <code>ArrayType</code> type.</p>
-     * @see  com.fasterxml.jackson.databind.type.ArrayType
      * @return T <p>The parse array return object is <code>T</code> type.</p>
+     * @see com.fasterxml.jackson.databind.type.ArrayType
      */
     public static <T> T[] parseArray(byte[] json, ArrayType arrayType) {
         try {
@@ -1584,12 +1584,12 @@ public class JsonPurityUtils {
     /**
      * <code>parseArray</code>
      * <p>The parse array method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
+     * @param <T>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json      {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
      * @param arrayType {@link com.fasterxml.jackson.databind.type.ArrayType} <p>The array type parameter is <code>ArrayType</code> type.</p>
-     * @see  java.io.InputStream
-     * @see  com.fasterxml.jackson.databind.type.ArrayType
      * @return T <p>The parse array return object is <code>T</code> type.</p>
+     * @see java.io.InputStream
+     * @see com.fasterxml.jackson.databind.type.ArrayType
      */
     public static <T> T[] parseArray(InputStream json, ArrayType arrayType) {
         try {
@@ -1604,12 +1604,12 @@ public class JsonPurityUtils {
     /**
      * <code>parseArray</code>
      * <p>The parse array method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param <T>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json      {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
      * @param arrayType {@link com.fasterxml.jackson.databind.type.ArrayType} <p>The array type parameter is <code>ArrayType</code> type.</p>
-     * @see  java.lang.String
-     * @see  com.fasterxml.jackson.databind.type.ArrayType
      * @return T <p>The parse array return object is <code>T</code> type.</p>
+     * @see java.lang.String
+     * @see com.fasterxml.jackson.databind.type.ArrayType
      */
     public static <T> T[] parseArray(String json, ArrayType arrayType) {
         try {
@@ -1624,12 +1624,12 @@ public class JsonPurityUtils {
     /**
      * <code>parseArray</code>
      * <p>The parse array method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json          {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
      * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
-     * @see  java.io.File
-     * @see  com.fasterxml.jackson.core.type.TypeReference
      * @return T <p>The parse array return object is <code>T</code> type.</p>
+     * @see java.io.File
+     * @see com.fasterxml.jackson.core.type.TypeReference
      */
     public static <T> T[] parseArray(File json, TypeReference<T> typeReference) {
         try {
@@ -1644,12 +1644,12 @@ public class JsonPurityUtils {
     /**
      * <code>parseArray</code>
      * <p>The parse array method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json          {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
      * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
-     * @see  java.io.Reader
-     * @see  com.fasterxml.jackson.core.type.TypeReference
      * @return T <p>The parse array return object is <code>T</code> type.</p>
+     * @see java.io.Reader
+     * @see com.fasterxml.jackson.core.type.TypeReference
      */
     public static <T> T[] parseArray(Reader json, TypeReference<T> typeReference) {
         try {
@@ -1664,11 +1664,11 @@ public class JsonPurityUtils {
     /**
      * <code>parseArray</code>
      * <p>The parse array method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json byte <p>The json parameter is <code>byte</code> type.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json          byte <p>The json parameter is <code>byte</code> type.</p>
      * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
-     * @see  com.fasterxml.jackson.core.type.TypeReference
      * @return T <p>The parse array return object is <code>T</code> type.</p>
+     * @see com.fasterxml.jackson.core.type.TypeReference
      */
     public static <T> T[] parseArray(byte[] json, TypeReference<T> typeReference) {
         try {
@@ -1683,12 +1683,12 @@ public class JsonPurityUtils {
     /**
      * <code>parseArray</code>
      * <p>The parse array method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json          {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
      * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
-     * @see  java.io.InputStream
-     * @see  com.fasterxml.jackson.core.type.TypeReference
      * @return T <p>The parse array return object is <code>T</code> type.</p>
+     * @see java.io.InputStream
+     * @see com.fasterxml.jackson.core.type.TypeReference
      */
     public static <T> T[] parseArray(InputStream json, TypeReference<T> typeReference) {
         try {
@@ -1703,12 +1703,12 @@ public class JsonPurityUtils {
     /**
      * <code>parseArray</code>
      * <p>The parse array method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json          {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
      * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
-     * @see  java.lang.String
-     * @see  com.fasterxml.jackson.core.type.TypeReference
      * @return T <p>The parse array return object is <code>T</code> type.</p>
+     * @see java.lang.String
+     * @see com.fasterxml.jackson.core.type.TypeReference
      */
     public static <T> T[] parseArray(String json, TypeReference<T> typeReference) {
         try {
@@ -1723,14 +1723,14 @@ public class JsonPurityUtils {
     /**
      * <code>parseArray</code>
      * <p>The parse array method.</p>
-     * @param <Z>  {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
+     * @param <Z>   {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json  {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.util.List
-     * @see  java.io.File
-     * @see  java.lang.Class
      * @return T <p>The parse array return object is <code>T</code> type.</p>
+     * @see java.util.List
+     * @see java.io.File
+     * @see java.lang.Class
      */
     public static <Z extends List<?>, T> T[] parseArray(File json, Class<T> clazz) {
         ArrayType arrayType = TypeFactory.defaultInstance().constructArrayType(clazz);
@@ -1740,14 +1740,14 @@ public class JsonPurityUtils {
     /**
      * <code>parseArray</code>
      * <p>The parse array method.</p>
-     * @param <Z>  {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
+     * @param <Z>   {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json  {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.util.List
-     * @see  java.io.Reader
-     * @see  java.lang.Class
      * @return T <p>The parse array return object is <code>T</code> type.</p>
+     * @see java.util.List
+     * @see java.io.Reader
+     * @see java.lang.Class
      */
     public static <Z extends List<?>, T> T[] parseArray(Reader json, Class<T> clazz) {
         ArrayType arrayType = TypeFactory.defaultInstance().constructArrayType(clazz);
@@ -1757,13 +1757,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseArray</code>
      * <p>The parse array method.</p>
-     * @param <Z>  {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json byte <p>The json parameter is <code>byte</code> type.</p>
+     * @param <Z>   {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json  byte <p>The json parameter is <code>byte</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.util.List
-     * @see  java.lang.Class
      * @return T <p>The parse array return object is <code>T</code> type.</p>
+     * @see java.util.List
+     * @see java.lang.Class
      */
     public static <Z extends List<?>, T> T[] parseArray(byte[] json, Class<T> clazz) {
         ArrayType arrayType = TypeFactory.defaultInstance().constructArrayType(clazz);
@@ -1773,14 +1773,14 @@ public class JsonPurityUtils {
     /**
      * <code>parseArray</code>
      * <p>The parse array method.</p>
-     * @param <Z>  {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
+     * @param <Z>   {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json  {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.util.List
-     * @see  java.io.InputStream
-     * @see  java.lang.Class
      * @return T <p>The parse array return object is <code>T</code> type.</p>
+     * @see java.util.List
+     * @see java.io.InputStream
+     * @see java.lang.Class
      */
     public static <Z extends List<?>, T> T[] parseArray(InputStream json, Class<T> clazz) {
         ArrayType arrayType = TypeFactory.defaultInstance().constructArrayType(clazz);
@@ -1790,14 +1790,14 @@ public class JsonPurityUtils {
     /**
      * <code>parseArray</code>
      * <p>The parse array method.</p>
-     * @param <Z>  {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param <Z>   {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json  {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.util.List
-     * @see  java.lang.String
-     * @see  java.lang.Class
      * @return T <p>The parse array return object is <code>T</code> type.</p>
+     * @see java.util.List
+     * @see java.lang.String
+     * @see java.lang.Class
      */
     public static <Z extends List<?>, T> T[] parseArray(String json, Class<T> clazz) {
         ArrayType arrayType = TypeFactory.defaultInstance().constructArrayType(clazz);
@@ -1807,17 +1807,17 @@ public class JsonPurityUtils {
     /**
      * <code>parseMap</code>
      * <p>The parse map method.</p>
-     * @param <Z>  {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
+     * @param <Z>        {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json       {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
      * @param parseClazz {@link java.lang.Class} <p>The parse clazz parameter is <code>Class</code> type.</p>
-     * @param keyClazz {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
+     * @param keyClazz   {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
      * @param valueClazz {@link java.lang.Class} <p>The value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.util.Map
-     * @see  java.io.File
-     * @see  java.lang.Class
-     * @return  {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @see java.util.Map
+     * @see java.io.File
+     * @see java.lang.Class
      */
     public static <Z extends Map<?, ?>, T, K> Map<T, K> parseMap(File json, Class<Z> parseClazz, Class<T> keyClazz, Class<K> valueClazz) {
         MapType mapType = TypeFactory.defaultInstance().constructMapType(parseClazz, keyClazz, valueClazz);
@@ -1827,17 +1827,17 @@ public class JsonPurityUtils {
     /**
      * <code>parseMap</code>
      * <p>The parse map method.</p>
-     * @param <Z>  {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
+     * @param <Z>        {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json       {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
      * @param parseClazz {@link java.lang.Class} <p>The parse clazz parameter is <code>Class</code> type.</p>
-     * @param keyClazz {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
+     * @param keyClazz   {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
      * @param valueClazz {@link java.lang.Class} <p>The value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.util.Map
-     * @see  java.io.Reader
-     * @see  java.lang.Class
-     * @return  {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @see java.util.Map
+     * @see java.io.Reader
+     * @see java.lang.Class
      */
     public static <Z extends Map<?, ?>, T, K> Map<T, K> parseMap(Reader json, Class<Z> parseClazz, Class<T> keyClazz, Class<K> valueClazz) {
         MapType mapType = TypeFactory.defaultInstance().constructMapType(parseClazz, keyClazz, valueClazz);
@@ -1847,16 +1847,16 @@ public class JsonPurityUtils {
     /**
      * <code>parseMap</code>
      * <p>The parse map method.</p>
-     * @param <Z>  {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json byte <p>The json parameter is <code>byte</code> type.</p>
+     * @param <Z>        {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json       byte <p>The json parameter is <code>byte</code> type.</p>
      * @param parseClazz {@link java.lang.Class} <p>The parse clazz parameter is <code>Class</code> type.</p>
-     * @param keyClazz {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
+     * @param keyClazz   {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
      * @param valueClazz {@link java.lang.Class} <p>The value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.util.Map
-     * @see  java.lang.Class
-     * @return  {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @see java.util.Map
+     * @see java.lang.Class
      */
     public static <Z extends Map<?, ?>, T, K> Map<T, K> parseMap(byte[] json, Class<Z> parseClazz, Class<T> keyClazz, Class<K> valueClazz) {
         MapType mapType = TypeFactory.defaultInstance().constructMapType(parseClazz, keyClazz, valueClazz);
@@ -1866,17 +1866,17 @@ public class JsonPurityUtils {
     /**
      * <code>parseMap</code>
      * <p>The parse map method.</p>
-     * @param <Z>  {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
+     * @param <Z>        {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json       {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
      * @param parseClazz {@link java.lang.Class} <p>The parse clazz parameter is <code>Class</code> type.</p>
-     * @param keyClazz {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
+     * @param keyClazz   {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
      * @param valueClazz {@link java.lang.Class} <p>The value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.util.Map
-     * @see  java.io.InputStream
-     * @see  java.lang.Class
-     * @return  {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @see java.util.Map
+     * @see java.io.InputStream
+     * @see java.lang.Class
      */
     public static <Z extends Map<?, ?>, T, K> Map<T, K> parseMap(InputStream json, Class<Z> parseClazz, Class<T> keyClazz, Class<K> valueClazz) {
         MapType mapType = TypeFactory.defaultInstance().constructMapType(parseClazz, keyClazz, valueClazz);
@@ -1886,17 +1886,17 @@ public class JsonPurityUtils {
     /**
      * <code>parseMap</code>
      * <p>The parse map method.</p>
-     * @param <Z>  {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param <Z>        {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json       {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
      * @param parseClazz {@link java.lang.Class} <p>The parse clazz parameter is <code>Class</code> type.</p>
-     * @param keyClazz {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
+     * @param keyClazz   {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
      * @param valueClazz {@link java.lang.Class} <p>The value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.util.Map
-     * @see  java.lang.String
-     * @see  java.lang.Class
-     * @return  {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @see java.util.Map
+     * @see java.lang.String
+     * @see java.lang.Class
      */
     public static <Z extends Map<?, ?>, T, K> Map<T, K> parseMap(String json, Class<Z> parseClazz, Class<T> keyClazz, Class<K> valueClazz) {
         MapType mapType = TypeFactory.defaultInstance().constructMapType(parseClazz, keyClazz, valueClazz);
@@ -1906,15 +1906,15 @@ public class JsonPurityUtils {
     /**
      * <code>parseMap</code>
      * <p>The parse map method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
-     * @param keyClazz {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json       {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
+     * @param keyClazz   {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
      * @param valueClazz {@link java.lang.Class} <p>The value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.io.File
-     * @see  java.lang.Class
-     * @see  java.util.Map
-     * @return  {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @see java.io.File
+     * @see java.lang.Class
+     * @see java.util.Map
      */
     public static <T, K> Map<T, K> parseMap(File json, Class<T> keyClazz, Class<K> valueClazz) {
         return parseMap(json, Map.class, keyClazz, valueClazz);
@@ -1923,15 +1923,15 @@ public class JsonPurityUtils {
     /**
      * <code>parseMap</code>
      * <p>The parse map method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
-     * @param keyClazz {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json       {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
+     * @param keyClazz   {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
      * @param valueClazz {@link java.lang.Class} <p>The value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.io.Reader
-     * @see  java.lang.Class
-     * @see  java.util.Map
-     * @return  {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @see java.io.Reader
+     * @see java.lang.Class
+     * @see java.util.Map
      */
     public static <T, K> Map<T, K> parseMap(Reader json, Class<T> keyClazz, Class<K> valueClazz) {
         return parseMap(json, Map.class, keyClazz, valueClazz);
@@ -1940,14 +1940,14 @@ public class JsonPurityUtils {
     /**
      * <code>parseMap</code>
      * <p>The parse map method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json byte <p>The json parameter is <code>byte</code> type.</p>
-     * @param keyClazz {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json       byte <p>The json parameter is <code>byte</code> type.</p>
+     * @param keyClazz   {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
      * @param valueClazz {@link java.lang.Class} <p>The value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.lang.Class
-     * @see  java.util.Map
-     * @return  {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @see java.lang.Class
+     * @see java.util.Map
      */
     public static <T, K> Map<T, K> parseMap(byte[] json, Class<T> keyClazz, Class<K> valueClazz) {
         return parseMap(json, Map.class, keyClazz, valueClazz);
@@ -1956,15 +1956,15 @@ public class JsonPurityUtils {
     /**
      * <code>parseMap</code>
      * <p>The parse map method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
-     * @param keyClazz {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json       {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
+     * @param keyClazz   {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
      * @param valueClazz {@link java.lang.Class} <p>The value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.io.InputStream
-     * @see  java.lang.Class
-     * @see  java.util.Map
-     * @return  {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @see java.io.InputStream
+     * @see java.lang.Class
+     * @see java.util.Map
      */
     public static <T, K> Map<T, K> parseMap(InputStream json, Class<T> keyClazz, Class<K> valueClazz) {
         return parseMap(json, Map.class, keyClazz, valueClazz);
@@ -1973,15 +1973,15 @@ public class JsonPurityUtils {
     /**
      * <code>parseMap</code>
      * <p>The parse map method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
-     * @param keyClazz {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json       {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param keyClazz   {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
      * @param valueClazz {@link java.lang.Class} <p>The value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.lang.String
-     * @see  java.lang.Class
-     * @see  java.util.Map
-     * @return  {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
+     * @see java.lang.String
+     * @see java.lang.Class
+     * @see java.util.Map
      */
     public static <T, K> Map<T, K> parseMap(String json, Class<T> keyClazz, Class<K> valueClazz) {
         return parseMap(json, Map.class, keyClazz, valueClazz);
@@ -1990,20 +1990,20 @@ public class JsonPurityUtils {
     /**
      * <code>parseMapList</code>
      * <p>The parse map list method.</p>
-     * @param <H>  {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
-     * @param <Y>  {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
+     * @param <H>            {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
+     * @param <Y>            {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
+     * @param <T>            {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>            {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json           {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
      * @param parseListClazz {@link java.lang.Class} <p>The parse list clazz parameter is <code>Class</code> type.</p>
-     * @param parseMapClazz {@link java.lang.Class} <p>The parse map clazz parameter is <code>Class</code> type.</p>
-     * @param keyClazz {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
-     * @param valueClazz {@link java.lang.Class} <p>The value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.util.List
-     * @see  java.util.Map
-     * @see  java.io.File
-     * @see  java.lang.Class
-     * @return  {@link java.util.Map} <p>The parse map list return object is <code>Map</code> type.</p>
+     * @param parseMapClazz  {@link java.lang.Class} <p>The parse map clazz parameter is <code>Class</code> type.</p>
+     * @param keyClazz       {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
+     * @param valueClazz     {@link java.lang.Class} <p>The value clazz parameter is <code>Class</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map list return object is <code>Map</code> type.</p>
+     * @see java.util.List
+     * @see java.util.Map
+     * @see java.io.File
+     * @see java.lang.Class
      */
     public static <H extends List<?>, Y extends Map<?, ?>, T, K> Map<T, List<K>> parseMapList(File json, Class<H> parseListClazz, Class<Y> parseMapClazz, Class<T> keyClazz, Class<K> valueClazz) {
         CollectionType collectionType = TypeFactory.defaultInstance().constructCollectionType(parseListClazz, valueClazz);
@@ -2014,20 +2014,20 @@ public class JsonPurityUtils {
     /**
      * <code>parseMapList</code>
      * <p>The parse map list method.</p>
-     * @param <H>  {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
-     * @param <Y>  {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
+     * @param <H>            {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
+     * @param <Y>            {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
+     * @param <T>            {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>            {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json           {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
      * @param parseListClazz {@link java.lang.Class} <p>The parse list clazz parameter is <code>Class</code> type.</p>
-     * @param parseMapClazz {@link java.lang.Class} <p>The parse map clazz parameter is <code>Class</code> type.</p>
-     * @param keyClazz {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
-     * @param valueClazz {@link java.lang.Class} <p>The value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.util.List
-     * @see  java.util.Map
-     * @see  java.io.Reader
-     * @see  java.lang.Class
-     * @return  {@link java.util.Map} <p>The parse map list return object is <code>Map</code> type.</p>
+     * @param parseMapClazz  {@link java.lang.Class} <p>The parse map clazz parameter is <code>Class</code> type.</p>
+     * @param keyClazz       {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
+     * @param valueClazz     {@link java.lang.Class} <p>The value clazz parameter is <code>Class</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map list return object is <code>Map</code> type.</p>
+     * @see java.util.List
+     * @see java.util.Map
+     * @see java.io.Reader
+     * @see java.lang.Class
      */
     public static <H extends List<?>, Y extends Map<?, ?>, T, K> Map<T, List<K>> parseMapList(Reader json, Class<H> parseListClazz, Class<Y> parseMapClazz, Class<T> keyClazz, Class<K> valueClazz) {
         CollectionType collectionType = TypeFactory.defaultInstance().constructCollectionType(parseListClazz, valueClazz);
@@ -2038,19 +2038,19 @@ public class JsonPurityUtils {
     /**
      * <code>parseMapList</code>
      * <p>The parse map list method.</p>
-     * @param <H>  {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
-     * @param <Y>  {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json byte <p>The json parameter is <code>byte</code> type.</p>
+     * @param <H>            {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
+     * @param <Y>            {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
+     * @param <T>            {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>            {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json           byte <p>The json parameter is <code>byte</code> type.</p>
      * @param parseListClazz {@link java.lang.Class} <p>The parse list clazz parameter is <code>Class</code> type.</p>
-     * @param parseMapClazz {@link java.lang.Class} <p>The parse map clazz parameter is <code>Class</code> type.</p>
-     * @param keyClazz {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
-     * @param valueClazz {@link java.lang.Class} <p>The value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.util.List
-     * @see  java.util.Map
-     * @see  java.lang.Class
-     * @return  {@link java.util.Map} <p>The parse map list return object is <code>Map</code> type.</p>
+     * @param parseMapClazz  {@link java.lang.Class} <p>The parse map clazz parameter is <code>Class</code> type.</p>
+     * @param keyClazz       {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
+     * @param valueClazz     {@link java.lang.Class} <p>The value clazz parameter is <code>Class</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map list return object is <code>Map</code> type.</p>
+     * @see java.util.List
+     * @see java.util.Map
+     * @see java.lang.Class
      */
     public static <H extends List<?>, Y extends Map<?, ?>, T, K> Map<T, List<K>> parseMapList(byte[] json, Class<H> parseListClazz, Class<Y> parseMapClazz, Class<T> keyClazz, Class<K> valueClazz) {
         CollectionType collectionType = TypeFactory.defaultInstance().constructCollectionType(parseListClazz, valueClazz);
@@ -2061,20 +2061,20 @@ public class JsonPurityUtils {
     /**
      * <code>parseMapList</code>
      * <p>The parse map list method.</p>
-     * @param <H>  {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
-     * @param <Y>  {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
+     * @param <H>            {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
+     * @param <Y>            {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
+     * @param <T>            {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>            {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json           {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
      * @param parseListClazz {@link java.lang.Class} <p>The parse list clazz parameter is <code>Class</code> type.</p>
-     * @param parseMapClazz {@link java.lang.Class} <p>The parse map clazz parameter is <code>Class</code> type.</p>
-     * @param keyClazz {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
-     * @param valueClazz {@link java.lang.Class} <p>The value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.util.List
-     * @see  java.util.Map
-     * @see  java.io.InputStream
-     * @see  java.lang.Class
-     * @return  {@link java.util.Map} <p>The parse map list return object is <code>Map</code> type.</p>
+     * @param parseMapClazz  {@link java.lang.Class} <p>The parse map clazz parameter is <code>Class</code> type.</p>
+     * @param keyClazz       {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
+     * @param valueClazz     {@link java.lang.Class} <p>The value clazz parameter is <code>Class</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map list return object is <code>Map</code> type.</p>
+     * @see java.util.List
+     * @see java.util.Map
+     * @see java.io.InputStream
+     * @see java.lang.Class
      */
     public static <H extends List<?>, Y extends Map<?, ?>, T, K> Map<T, List<K>> parseMapList(InputStream json, Class<H> parseListClazz, Class<Y> parseMapClazz, Class<T> keyClazz, Class<K> valueClazz) {
         CollectionType collectionType = TypeFactory.defaultInstance().constructCollectionType(parseListClazz, valueClazz);
@@ -2085,20 +2085,20 @@ public class JsonPurityUtils {
     /**
      * <code>parseMapList</code>
      * <p>The parse map list method.</p>
-     * @param <H>  {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
-     * @param <Y>  {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param <H>            {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
+     * @param <Y>            {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
+     * @param <T>            {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>            {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json           {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
      * @param parseListClazz {@link java.lang.Class} <p>The parse list clazz parameter is <code>Class</code> type.</p>
-     * @param parseMapClazz {@link java.lang.Class} <p>The parse map clazz parameter is <code>Class</code> type.</p>
-     * @param keyClazz {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
-     * @param valueClazz {@link java.lang.Class} <p>The value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.util.List
-     * @see  java.util.Map
-     * @see  java.lang.String
-     * @see  java.lang.Class
-     * @return  {@link java.util.Map} <p>The parse map list return object is <code>Map</code> type.</p>
+     * @param parseMapClazz  {@link java.lang.Class} <p>The parse map clazz parameter is <code>Class</code> type.</p>
+     * @param keyClazz       {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
+     * @param valueClazz     {@link java.lang.Class} <p>The value clazz parameter is <code>Class</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map list return object is <code>Map</code> type.</p>
+     * @see java.util.List
+     * @see java.util.Map
+     * @see java.lang.String
+     * @see java.lang.Class
      */
     public static <H extends List<?>, Y extends Map<?, ?>, T, K> Map<T, List<K>> parseMapList(String json, Class<H> parseListClazz, Class<Y> parseMapClazz, Class<T> keyClazz, Class<K> valueClazz) {
         CollectionType collectionType = TypeFactory.defaultInstance().constructCollectionType(parseListClazz, valueClazz);
@@ -2109,15 +2109,15 @@ public class JsonPurityUtils {
     /**
      * <code>parseMapList</code>
      * <p>The parse map list method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
-     * @param keyClazz {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json       {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
+     * @param keyClazz   {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
      * @param valueClazz {@link java.lang.Class} <p>The value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.io.File
-     * @see  java.lang.Class
-     * @see  java.util.Map
-     * @return  {@link java.util.Map} <p>The parse map list return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map list return object is <code>Map</code> type.</p>
+     * @see java.io.File
+     * @see java.lang.Class
+     * @see java.util.Map
      */
     public static <T, K> Map<T, List<K>> parseMapList(File json, Class<T> keyClazz, Class<K> valueClazz) {
         return parseMapList(json, List.class, Map.class, keyClazz, valueClazz);
@@ -2126,15 +2126,15 @@ public class JsonPurityUtils {
     /**
      * <code>parseMapList</code>
      * <p>The parse map list method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
-     * @param keyClazz {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json       {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
+     * @param keyClazz   {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
      * @param valueClazz {@link java.lang.Class} <p>The value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.io.Reader
-     * @see  java.lang.Class
-     * @see  java.util.Map
-     * @return  {@link java.util.Map} <p>The parse map list return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map list return object is <code>Map</code> type.</p>
+     * @see java.io.Reader
+     * @see java.lang.Class
+     * @see java.util.Map
      */
     public static <T, K> Map<T, List<K>> parseMapList(Reader json, Class<T> keyClazz, Class<K> valueClazz) {
         return parseMapList(json, List.class, Map.class, keyClazz, valueClazz);
@@ -2143,14 +2143,14 @@ public class JsonPurityUtils {
     /**
      * <code>parseMapList</code>
      * <p>The parse map list method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json byte <p>The json parameter is <code>byte</code> type.</p>
-     * @param keyClazz {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json       byte <p>The json parameter is <code>byte</code> type.</p>
+     * @param keyClazz   {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
      * @param valueClazz {@link java.lang.Class} <p>The value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.lang.Class
-     * @see  java.util.Map
-     * @return  {@link java.util.Map} <p>The parse map list return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map list return object is <code>Map</code> type.</p>
+     * @see java.lang.Class
+     * @see java.util.Map
      */
     public static <T, K> Map<T, List<K>> parseMapList(byte[] json, Class<T> keyClazz, Class<K> valueClazz) {
         return parseMapList(json, List.class, Map.class, keyClazz, valueClazz);
@@ -2159,15 +2159,15 @@ public class JsonPurityUtils {
     /**
      * <code>parseMapList</code>
      * <p>The parse map list method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
-     * @param keyClazz {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json       {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
+     * @param keyClazz   {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
      * @param valueClazz {@link java.lang.Class} <p>The value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.io.InputStream
-     * @see  java.lang.Class
-     * @see  java.util.Map
-     * @return  {@link java.util.Map} <p>The parse map list return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map list return object is <code>Map</code> type.</p>
+     * @see java.io.InputStream
+     * @see java.lang.Class
+     * @see java.util.Map
      */
     public static <T, K> Map<T, List<K>> parseMapList(InputStream json, Class<T> keyClazz, Class<K> valueClazz) {
         return parseMapList(json, List.class, Map.class, keyClazz, valueClazz);
@@ -2176,15 +2176,15 @@ public class JsonPurityUtils {
     /**
      * <code>parseMapList</code>
      * <p>The parse map list method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
-     * @param keyClazz {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
+     * @param <T>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>        {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json       {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param keyClazz   {@link java.lang.Class} <p>The key clazz parameter is <code>Class</code> type.</p>
      * @param valueClazz {@link java.lang.Class} <p>The value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.lang.String
-     * @see  java.lang.Class
-     * @see  java.util.Map
-     * @return  {@link java.util.Map} <p>The parse map list return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map list return object is <code>Map</code> type.</p>
+     * @see java.lang.String
+     * @see java.lang.Class
+     * @see java.util.Map
      */
     public static <T, K> Map<T, List<K>> parseMapList(String json, Class<T> keyClazz, Class<K> valueClazz) {
         return parseMapList(json, List.class, Map.class, keyClazz, valueClazz);
@@ -2193,20 +2193,20 @@ public class JsonPurityUtils {
     /**
      * <code>parseListMap</code>
      * <p>The parse list map method.</p>
-     * @param <Z>  {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
-     * @param <Y>  {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
-     * @param wrapKeyClazz {@link java.lang.Class} <p>The wrap key clazz parameter is <code>Class</code> type.</p>
-     * @param contentMapClazz {@link java.lang.Class} <p>The content map clazz parameter is <code>Class</code> type.</p>
-     * @param contentKeyClazz {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
+     * @param <Z>               {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
+     * @param <Y>               {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
+     * @param <T>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json              {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
+     * @param wrapKeyClazz      {@link java.lang.Class} <p>The wrap key clazz parameter is <code>Class</code> type.</p>
+     * @param contentMapClazz   {@link java.lang.Class} <p>The content map clazz parameter is <code>Class</code> type.</p>
+     * @param contentKeyClazz   {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
      * @param contentValueClazz {@link java.lang.Class} <p>The content value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.util.List
-     * @see  java.util.Map
-     * @see  java.io.File
-     * @see  java.lang.Class
-     * @return  {@link java.util.List} <p>The parse list map return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The parse list map return object is <code>List</code> type.</p>
+     * @see java.util.List
+     * @see java.util.Map
+     * @see java.io.File
+     * @see java.lang.Class
      */
     public static <Z extends List<?>, Y extends Map<?, ?>, T, K> List<Map<T, K>> parseListMap(File json, Class<Z> wrapKeyClazz, Class<Y> contentMapClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
         MapType contentType = TypeFactory.defaultInstance().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
@@ -2217,20 +2217,20 @@ public class JsonPurityUtils {
     /**
      * <code>parseListMap</code>
      * <p>The parse list map method.</p>
-     * @param <Z>  {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
-     * @param <Y>  {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
-     * @param wrapKeyClazz {@link java.lang.Class} <p>The wrap key clazz parameter is <code>Class</code> type.</p>
-     * @param contentMapClazz {@link java.lang.Class} <p>The content map clazz parameter is <code>Class</code> type.</p>
-     * @param contentKeyClazz {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
+     * @param <Z>               {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
+     * @param <Y>               {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
+     * @param <T>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json              {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
+     * @param wrapKeyClazz      {@link java.lang.Class} <p>The wrap key clazz parameter is <code>Class</code> type.</p>
+     * @param contentMapClazz   {@link java.lang.Class} <p>The content map clazz parameter is <code>Class</code> type.</p>
+     * @param contentKeyClazz   {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
      * @param contentValueClazz {@link java.lang.Class} <p>The content value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.util.List
-     * @see  java.util.Map
-     * @see  java.io.Reader
-     * @see  java.lang.Class
-     * @return  {@link java.util.List} <p>The parse list map return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The parse list map return object is <code>List</code> type.</p>
+     * @see java.util.List
+     * @see java.util.Map
+     * @see java.io.Reader
+     * @see java.lang.Class
      */
     public static <Z extends List<?>, Y extends Map<?, ?>, T, K> List<Map<T, K>> parseListMap(Reader json, Class<Z> wrapKeyClazz, Class<Y> contentMapClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
         MapType contentType = TypeFactory.defaultInstance().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
@@ -2241,19 +2241,19 @@ public class JsonPurityUtils {
     /**
      * <code>parseListMap</code>
      * <p>The parse list map method.</p>
-     * @param <Z>  {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
-     * @param <Y>  {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json byte <p>The json parameter is <code>byte</code> type.</p>
-     * @param wrapKeyClazz {@link java.lang.Class} <p>The wrap key clazz parameter is <code>Class</code> type.</p>
-     * @param contentMapClazz {@link java.lang.Class} <p>The content map clazz parameter is <code>Class</code> type.</p>
-     * @param contentKeyClazz {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
+     * @param <Z>               {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
+     * @param <Y>               {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
+     * @param <T>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json              byte <p>The json parameter is <code>byte</code> type.</p>
+     * @param wrapKeyClazz      {@link java.lang.Class} <p>The wrap key clazz parameter is <code>Class</code> type.</p>
+     * @param contentMapClazz   {@link java.lang.Class} <p>The content map clazz parameter is <code>Class</code> type.</p>
+     * @param contentKeyClazz   {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
      * @param contentValueClazz {@link java.lang.Class} <p>The content value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.util.List
-     * @see  java.util.Map
-     * @see  java.lang.Class
-     * @return  {@link java.util.List} <p>The parse list map return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The parse list map return object is <code>List</code> type.</p>
+     * @see java.util.List
+     * @see java.util.Map
+     * @see java.lang.Class
      */
     public static <Z extends List<?>, Y extends Map<?, ?>, T, K> List<Map<T, K>> parseListMap(byte[] json, Class<Z> wrapKeyClazz, Class<Y> contentMapClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
         MapType contentType = TypeFactory.defaultInstance().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
@@ -2264,20 +2264,20 @@ public class JsonPurityUtils {
     /**
      * <code>parseListMap</code>
      * <p>The parse list map method.</p>
-     * @param <Z>  {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
-     * @param <Y>  {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
-     * @param wrapKeyClazz {@link java.lang.Class} <p>The wrap key clazz parameter is <code>Class</code> type.</p>
-     * @param contentMapClazz {@link java.lang.Class} <p>The content map clazz parameter is <code>Class</code> type.</p>
-     * @param contentKeyClazz {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
+     * @param <Z>               {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
+     * @param <Y>               {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
+     * @param <T>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json              {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
+     * @param wrapKeyClazz      {@link java.lang.Class} <p>The wrap key clazz parameter is <code>Class</code> type.</p>
+     * @param contentMapClazz   {@link java.lang.Class} <p>The content map clazz parameter is <code>Class</code> type.</p>
+     * @param contentKeyClazz   {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
      * @param contentValueClazz {@link java.lang.Class} <p>The content value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.util.List
-     * @see  java.util.Map
-     * @see  java.io.InputStream
-     * @see  java.lang.Class
-     * @return  {@link java.util.List} <p>The parse list map return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The parse list map return object is <code>List</code> type.</p>
+     * @see java.util.List
+     * @see java.util.Map
+     * @see java.io.InputStream
+     * @see java.lang.Class
      */
     public static <Z extends List<?>, Y extends Map<?, ?>, T, K> List<Map<T, K>> parseListMap(InputStream json, Class<Z> wrapKeyClazz, Class<Y> contentMapClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
         MapType contentType = TypeFactory.defaultInstance().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
@@ -2288,20 +2288,20 @@ public class JsonPurityUtils {
     /**
      * <code>parseListMap</code>
      * <p>The parse list map method.</p>
-     * @param <Z>  {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
-     * @param <Y>  {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
-     * @param wrapKeyClazz {@link java.lang.Class} <p>The wrap key clazz parameter is <code>Class</code> type.</p>
-     * @param contentMapClazz {@link java.lang.Class} <p>The content map clazz parameter is <code>Class</code> type.</p>
-     * @param contentKeyClazz {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
+     * @param <Z>               {@link java.util.List} <p>The generic parameter is <code>List</code> type.</p>
+     * @param <Y>               {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
+     * @param <T>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json              {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param wrapKeyClazz      {@link java.lang.Class} <p>The wrap key clazz parameter is <code>Class</code> type.</p>
+     * @param contentMapClazz   {@link java.lang.Class} <p>The content map clazz parameter is <code>Class</code> type.</p>
+     * @param contentKeyClazz   {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
      * @param contentValueClazz {@link java.lang.Class} <p>The content value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.util.List
-     * @see  java.util.Map
-     * @see  java.lang.String
-     * @see  java.lang.Class
-     * @return  {@link java.util.List} <p>The parse list map return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The parse list map return object is <code>List</code> type.</p>
+     * @see java.util.List
+     * @see java.util.Map
+     * @see java.lang.String
+     * @see java.lang.Class
      */
     public static <Z extends List<?>, Y extends Map<?, ?>, T, K> List<Map<T, K>> parseListMap(String json, Class<Z> wrapKeyClazz, Class<Y> contentMapClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
         MapType contentType = TypeFactory.defaultInstance().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
@@ -2312,15 +2312,15 @@ public class JsonPurityUtils {
     /**
      * <code>parseListMap</code>
      * <p>The parse list map method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
-     * @param contentKeyClazz {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
+     * @param <T>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json              {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
+     * @param contentKeyClazz   {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
      * @param contentValueClazz {@link java.lang.Class} <p>The content value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.io.File
-     * @see  java.lang.Class
-     * @see  java.util.List
-     * @return  {@link java.util.List} <p>The parse list map return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The parse list map return object is <code>List</code> type.</p>
+     * @see java.io.File
+     * @see java.lang.Class
+     * @see java.util.List
      */
     public static <T, K> List<Map<T, K>> parseListMap(File json, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
         MapType contentType = TypeFactory.defaultInstance().constructMapType(Map.class, contentKeyClazz, contentValueClazz);
@@ -2331,15 +2331,15 @@ public class JsonPurityUtils {
     /**
      * <code>parseListMap</code>
      * <p>The parse list map method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
-     * @param contentKeyClazz {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
+     * @param <T>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json              {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
+     * @param contentKeyClazz   {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
      * @param contentValueClazz {@link java.lang.Class} <p>The content value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.io.Reader
-     * @see  java.lang.Class
-     * @see  java.util.List
-     * @return  {@link java.util.List} <p>The parse list map return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The parse list map return object is <code>List</code> type.</p>
+     * @see java.io.Reader
+     * @see java.lang.Class
+     * @see java.util.List
      */
     public static <T, K> List<Map<T, K>> parseListMap(Reader json, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
         MapType contentType = TypeFactory.defaultInstance().constructMapType(Map.class, contentKeyClazz, contentValueClazz);
@@ -2350,14 +2350,14 @@ public class JsonPurityUtils {
     /**
      * <code>parseListMap</code>
      * <p>The parse list map method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json byte <p>The json parameter is <code>byte</code> type.</p>
-     * @param contentKeyClazz {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
+     * @param <T>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json              byte <p>The json parameter is <code>byte</code> type.</p>
+     * @param contentKeyClazz   {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
      * @param contentValueClazz {@link java.lang.Class} <p>The content value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.lang.Class
-     * @see  java.util.List
-     * @return  {@link java.util.List} <p>The parse list map return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The parse list map return object is <code>List</code> type.</p>
+     * @see java.lang.Class
+     * @see java.util.List
      */
     public static <T, K> List<Map<T, K>> parseListMap(byte[] json, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
         MapType contentType = TypeFactory.defaultInstance().constructMapType(Map.class, contentKeyClazz, contentValueClazz);
@@ -2368,15 +2368,15 @@ public class JsonPurityUtils {
     /**
      * <code>parseListMap</code>
      * <p>The parse list map method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
-     * @param contentKeyClazz {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
+     * @param <T>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json              {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
+     * @param contentKeyClazz   {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
      * @param contentValueClazz {@link java.lang.Class} <p>The content value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.io.InputStream
-     * @see  java.lang.Class
-     * @see  java.util.List
-     * @return  {@link java.util.List} <p>The parse list map return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The parse list map return object is <code>List</code> type.</p>
+     * @see java.io.InputStream
+     * @see java.lang.Class
+     * @see java.util.List
      */
     public static <T, K> List<Map<T, K>> parseListMap(InputStream json, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
         MapType contentType = TypeFactory.defaultInstance().constructMapType(Map.class, contentKeyClazz, contentValueClazz);
@@ -2387,15 +2387,15 @@ public class JsonPurityUtils {
     /**
      * <code>parseListMap</code>
      * <p>The parse list map method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
-     * @param contentKeyClazz {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
+     * @param <T>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json              {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param contentKeyClazz   {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
      * @param contentValueClazz {@link java.lang.Class} <p>The content value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.lang.String
-     * @see  java.lang.Class
-     * @see  java.util.List
-     * @return  {@link java.util.List} <p>The parse list map return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The parse list map return object is <code>List</code> type.</p>
+     * @see java.lang.String
+     * @see java.lang.Class
+     * @see java.util.List
      */
     public static <T, K> List<Map<T, K>> parseListMap(String json, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
         MapType contentType = TypeFactory.defaultInstance().constructMapType(Map.class, contentKeyClazz, contentValueClazz);
@@ -2406,21 +2406,21 @@ public class JsonPurityUtils {
     /**
      * <code>parseMapMap</code>
      * <p>The parse map map method.</p>
-     * @param <H>  {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
-     * @param <Y>  {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
-     * @param <Z>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
-     * @param wrapMapClazz {@link java.lang.Class} <p>The wrap map clazz parameter is <code>Class</code> type.</p>
-     * @param contentMapClazz {@link java.lang.Class} <p>The content map clazz parameter is <code>Class</code> type.</p>
-     * @param wrapKeyClazz {@link java.lang.Class} <p>The wrap key clazz parameter is <code>Class</code> type.</p>
-     * @param contentKeyClazz {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
+     * @param <H>               {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
+     * @param <Y>               {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
+     * @param <Z>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json              {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
+     * @param wrapMapClazz      {@link java.lang.Class} <p>The wrap map clazz parameter is <code>Class</code> type.</p>
+     * @param contentMapClazz   {@link java.lang.Class} <p>The content map clazz parameter is <code>Class</code> type.</p>
+     * @param wrapKeyClazz      {@link java.lang.Class} <p>The wrap key clazz parameter is <code>Class</code> type.</p>
+     * @param contentKeyClazz   {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
      * @param contentValueClazz {@link java.lang.Class} <p>The content value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.util.Map
-     * @see  java.io.File
-     * @see  java.lang.Class
-     * @return  {@link java.util.Map} <p>The parse map map return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map map return object is <code>Map</code> type.</p>
+     * @see java.util.Map
+     * @see java.io.File
+     * @see java.lang.Class
      */
     public static <H extends Map<?, ?>, Y extends Map<?, ?>, Z, T, K> Map<Z, Map<T, K>> parseMapMap(File json, Class<H> wrapMapClazz, Class<Y> contentMapClazz, Class<Z> wrapKeyClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
         MapType contentType = TypeFactory.defaultInstance().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
@@ -2431,21 +2431,21 @@ public class JsonPurityUtils {
     /**
      * <code>parseMapMap</code>
      * <p>The parse map map method.</p>
-     * @param <H>  {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
-     * @param <Y>  {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
-     * @param <Z>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
-     * @param wrapMapClazz {@link java.lang.Class} <p>The wrap map clazz parameter is <code>Class</code> type.</p>
-     * @param contentMapClazz {@link java.lang.Class} <p>The content map clazz parameter is <code>Class</code> type.</p>
-     * @param wrapKeyClazz {@link java.lang.Class} <p>The wrap key clazz parameter is <code>Class</code> type.</p>
-     * @param contentKeyClazz {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
+     * @param <H>               {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
+     * @param <Y>               {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
+     * @param <Z>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json              {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
+     * @param wrapMapClazz      {@link java.lang.Class} <p>The wrap map clazz parameter is <code>Class</code> type.</p>
+     * @param contentMapClazz   {@link java.lang.Class} <p>The content map clazz parameter is <code>Class</code> type.</p>
+     * @param wrapKeyClazz      {@link java.lang.Class} <p>The wrap key clazz parameter is <code>Class</code> type.</p>
+     * @param contentKeyClazz   {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
      * @param contentValueClazz {@link java.lang.Class} <p>The content value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.util.Map
-     * @see  java.io.Reader
-     * @see  java.lang.Class
-     * @return  {@link java.util.Map} <p>The parse map map return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map map return object is <code>Map</code> type.</p>
+     * @see java.util.Map
+     * @see java.io.Reader
+     * @see java.lang.Class
      */
     public static <H extends Map<?, ?>, Y extends Map<?, ?>, Z, T, K> Map<Z, Map<T, K>> parseMapMap(Reader json, Class<H> wrapMapClazz, Class<Y> contentMapClazz, Class<Z> wrapKeyClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
         MapType contentType = TypeFactory.defaultInstance().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
@@ -2456,20 +2456,20 @@ public class JsonPurityUtils {
     /**
      * <code>parseMapMap</code>
      * <p>The parse map map method.</p>
-     * @param <H>  {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
-     * @param <Y>  {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
-     * @param <Z>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json byte <p>The json parameter is <code>byte</code> type.</p>
-     * @param wrapMapClazz {@link java.lang.Class} <p>The wrap map clazz parameter is <code>Class</code> type.</p>
-     * @param contentMapClazz {@link java.lang.Class} <p>The content map clazz parameter is <code>Class</code> type.</p>
-     * @param wrapKeyClazz {@link java.lang.Class} <p>The wrap key clazz parameter is <code>Class</code> type.</p>
-     * @param contentKeyClazz {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
+     * @param <H>               {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
+     * @param <Y>               {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
+     * @param <Z>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json              byte <p>The json parameter is <code>byte</code> type.</p>
+     * @param wrapMapClazz      {@link java.lang.Class} <p>The wrap map clazz parameter is <code>Class</code> type.</p>
+     * @param contentMapClazz   {@link java.lang.Class} <p>The content map clazz parameter is <code>Class</code> type.</p>
+     * @param wrapKeyClazz      {@link java.lang.Class} <p>The wrap key clazz parameter is <code>Class</code> type.</p>
+     * @param contentKeyClazz   {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
      * @param contentValueClazz {@link java.lang.Class} <p>The content value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.util.Map
-     * @see  java.lang.Class
-     * @return  {@link java.util.Map} <p>The parse map map return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map map return object is <code>Map</code> type.</p>
+     * @see java.util.Map
+     * @see java.lang.Class
      */
     public static <H extends Map<?, ?>, Y extends Map<?, ?>, Z, T, K> Map<Z, Map<T, K>> parseMapMap(byte[] json, Class<H> wrapMapClazz, Class<Y> contentMapClazz, Class<Z> wrapKeyClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
         MapType contentType = TypeFactory.defaultInstance().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
@@ -2480,21 +2480,21 @@ public class JsonPurityUtils {
     /**
      * <code>parseMapMap</code>
      * <p>The parse map map method.</p>
-     * @param <H>  {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
-     * @param <Y>  {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
-     * @param <Z>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
-     * @param wrapMapClazz {@link java.lang.Class} <p>The wrap map clazz parameter is <code>Class</code> type.</p>
-     * @param contentMapClazz {@link java.lang.Class} <p>The content map clazz parameter is <code>Class</code> type.</p>
-     * @param wrapKeyClazz {@link java.lang.Class} <p>The wrap key clazz parameter is <code>Class</code> type.</p>
-     * @param contentKeyClazz {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
+     * @param <H>               {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
+     * @param <Y>               {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
+     * @param <Z>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json              {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
+     * @param wrapMapClazz      {@link java.lang.Class} <p>The wrap map clazz parameter is <code>Class</code> type.</p>
+     * @param contentMapClazz   {@link java.lang.Class} <p>The content map clazz parameter is <code>Class</code> type.</p>
+     * @param wrapKeyClazz      {@link java.lang.Class} <p>The wrap key clazz parameter is <code>Class</code> type.</p>
+     * @param contentKeyClazz   {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
      * @param contentValueClazz {@link java.lang.Class} <p>The content value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.util.Map
-     * @see  java.io.InputStream
-     * @see  java.lang.Class
-     * @return  {@link java.util.Map} <p>The parse map map return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map map return object is <code>Map</code> type.</p>
+     * @see java.util.Map
+     * @see java.io.InputStream
+     * @see java.lang.Class
      */
     public static <H extends Map<?, ?>, Y extends Map<?, ?>, Z, T, K> Map<Z, Map<T, K>> parseMapMap(InputStream json, Class<H> wrapMapClazz, Class<Y> contentMapClazz, Class<Z> wrapKeyClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
         MapType contentType = TypeFactory.defaultInstance().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
@@ -2505,21 +2505,21 @@ public class JsonPurityUtils {
     /**
      * <code>parseMapMap</code>
      * <p>The parse map map method.</p>
-     * @param <H>  {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
-     * @param <Y>  {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
-     * @param <Z>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
-     * @param wrapMapClazz {@link java.lang.Class} <p>The wrap map clazz parameter is <code>Class</code> type.</p>
-     * @param contentMapClazz {@link java.lang.Class} <p>The content map clazz parameter is <code>Class</code> type.</p>
-     * @param wrapKeyClazz {@link java.lang.Class} <p>The wrap key clazz parameter is <code>Class</code> type.</p>
-     * @param contentKeyClazz {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
+     * @param <H>               {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
+     * @param <Y>               {@link java.util.Map} <p>The generic parameter is <code>Map</code> type.</p>
+     * @param <Z>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json              {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param wrapMapClazz      {@link java.lang.Class} <p>The wrap map clazz parameter is <code>Class</code> type.</p>
+     * @param contentMapClazz   {@link java.lang.Class} <p>The content map clazz parameter is <code>Class</code> type.</p>
+     * @param wrapKeyClazz      {@link java.lang.Class} <p>The wrap key clazz parameter is <code>Class</code> type.</p>
+     * @param contentKeyClazz   {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
      * @param contentValueClazz {@link java.lang.Class} <p>The content value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.util.Map
-     * @see  java.lang.String
-     * @see  java.lang.Class
-     * @return  {@link java.util.Map} <p>The parse map map return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map map return object is <code>Map</code> type.</p>
+     * @see java.util.Map
+     * @see java.lang.String
+     * @see java.lang.Class
      */
     public static <H extends Map<?, ?>, Y extends Map<?, ?>, Z, T, K> Map<Z, Map<T, K>> parseMapMap(String json, Class<H> wrapMapClazz, Class<Y> contentMapClazz, Class<Z> wrapKeyClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
         MapType contentType = TypeFactory.defaultInstance().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
@@ -2530,17 +2530,17 @@ public class JsonPurityUtils {
     /**
      * <code>parseMapMap</code>
      * <p>The parse map map method.</p>
-     * @param <Z>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
-     * @param wrapKeyClazz {@link java.lang.Class} <p>The wrap key clazz parameter is <code>Class</code> type.</p>
-     * @param contentKeyClazz {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
+     * @param <Z>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json              {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
+     * @param wrapKeyClazz      {@link java.lang.Class} <p>The wrap key clazz parameter is <code>Class</code> type.</p>
+     * @param contentKeyClazz   {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
      * @param contentValueClazz {@link java.lang.Class} <p>The content value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.io.File
-     * @see  java.lang.Class
-     * @see  java.util.Map
-     * @return  {@link java.util.Map} <p>The parse map map return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map map return object is <code>Map</code> type.</p>
+     * @see java.io.File
+     * @see java.lang.Class
+     * @see java.util.Map
      */
     public static <Z, T, K> Map<Z, Map<T, K>> parseMapMap(File json, Class<Z> wrapKeyClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
         return parseMapMap(json, Map.class, Map.class, wrapKeyClazz, contentKeyClazz, contentValueClazz);
@@ -2549,17 +2549,17 @@ public class JsonPurityUtils {
     /**
      * <code>parseMapMap</code>
      * <p>The parse map map method.</p>
-     * @param <Z>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
-     * @param wrapKeyClazz {@link java.lang.Class} <p>The wrap key clazz parameter is <code>Class</code> type.</p>
-     * @param contentKeyClazz {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
+     * @param <Z>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json              {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
+     * @param wrapKeyClazz      {@link java.lang.Class} <p>The wrap key clazz parameter is <code>Class</code> type.</p>
+     * @param contentKeyClazz   {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
      * @param contentValueClazz {@link java.lang.Class} <p>The content value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.io.Reader
-     * @see  java.lang.Class
-     * @see  java.util.Map
-     * @return  {@link java.util.Map} <p>The parse map map return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map map return object is <code>Map</code> type.</p>
+     * @see java.io.Reader
+     * @see java.lang.Class
+     * @see java.util.Map
      */
     public static <Z, T, K> Map<Z, Map<T, K>> parseMapMap(Reader json, Class<Z> wrapKeyClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
         return parseMapMap(json, Map.class, Map.class, wrapKeyClazz, contentKeyClazz, contentValueClazz);
@@ -2568,16 +2568,16 @@ public class JsonPurityUtils {
     /**
      * <code>parseMapMap</code>
      * <p>The parse map map method.</p>
-     * @param <Z>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json byte <p>The json parameter is <code>byte</code> type.</p>
-     * @param wrapKeyClazz {@link java.lang.Class} <p>The wrap key clazz parameter is <code>Class</code> type.</p>
-     * @param contentKeyClazz {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
+     * @param <Z>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json              byte <p>The json parameter is <code>byte</code> type.</p>
+     * @param wrapKeyClazz      {@link java.lang.Class} <p>The wrap key clazz parameter is <code>Class</code> type.</p>
+     * @param contentKeyClazz   {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
      * @param contentValueClazz {@link java.lang.Class} <p>The content value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.lang.Class
-     * @see  java.util.Map
-     * @return  {@link java.util.Map} <p>The parse map map return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map map return object is <code>Map</code> type.</p>
+     * @see java.lang.Class
+     * @see java.util.Map
      */
     public static <Z, T, K> Map<Z, Map<T, K>> parseMapMap(byte[] json, Class<Z> wrapKeyClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
         return parseMapMap(json, Map.class, Map.class, wrapKeyClazz, contentKeyClazz, contentValueClazz);
@@ -2586,17 +2586,17 @@ public class JsonPurityUtils {
     /**
      * <code>parseMapMap</code>
      * <p>The parse map map method.</p>
-     * @param <Z>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
-     * @param wrapKeyClazz {@link java.lang.Class} <p>The wrap key clazz parameter is <code>Class</code> type.</p>
-     * @param contentKeyClazz {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
+     * @param <Z>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json              {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
+     * @param wrapKeyClazz      {@link java.lang.Class} <p>The wrap key clazz parameter is <code>Class</code> type.</p>
+     * @param contentKeyClazz   {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
      * @param contentValueClazz {@link java.lang.Class} <p>The content value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.io.InputStream
-     * @see  java.lang.Class
-     * @see  java.util.Map
-     * @return  {@link java.util.Map} <p>The parse map map return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map map return object is <code>Map</code> type.</p>
+     * @see java.io.InputStream
+     * @see java.lang.Class
+     * @see java.util.Map
      */
     public static <Z, T, K> Map<Z, Map<T, K>> parseMapMap(InputStream json, Class<Z> wrapKeyClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
         return parseMapMap(json, Map.class, Map.class, wrapKeyClazz, contentKeyClazz, contentValueClazz);
@@ -2605,17 +2605,17 @@ public class JsonPurityUtils {
     /**
      * <code>parseMapMap</code>
      * <p>The parse map map method.</p>
-     * @param <Z>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param <K>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
-     * @param wrapKeyClazz {@link java.lang.Class} <p>The wrap key clazz parameter is <code>Class</code> type.</p>
-     * @param contentKeyClazz {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
+     * @param <Z>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <K>               {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json              {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param wrapKeyClazz      {@link java.lang.Class} <p>The wrap key clazz parameter is <code>Class</code> type.</p>
+     * @param contentKeyClazz   {@link java.lang.Class} <p>The content key clazz parameter is <code>Class</code> type.</p>
      * @param contentValueClazz {@link java.lang.Class} <p>The content value clazz parameter is <code>Class</code> type.</p>
-     * @see  java.lang.String
-     * @see  java.lang.Class
-     * @see  java.util.Map
-     * @return  {@link java.util.Map} <p>The parse map map return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The parse map map return object is <code>Map</code> type.</p>
+     * @see java.lang.String
+     * @see java.lang.Class
+     * @see java.util.Map
      */
     public static <Z, T, K> Map<Z, Map<T, K>> parseMapMap(String json, Class<Z> wrapKeyClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
         return parseMapMap(json, Map.class, Map.class, wrapKeyClazz, contentKeyClazz, contentValueClazz);
@@ -2624,13 +2624,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseResult</code>
      * <p>The parse result method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json          {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
      * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
-     * @see  java.io.File
-     * @see  com.fasterxml.jackson.core.type.TypeReference
-     * @see  io.github.nichetoolkit.rest.RestResult
-     * @return  {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @see java.io.File
+     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see io.github.nichetoolkit.rest.RestResult
      */
     public static <T> RestResult<T> parseResult(File json, TypeReference<T> typeReference) {
         try {
@@ -2645,13 +2645,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseResult</code>
      * <p>The parse result method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json          {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
      * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
-     * @see  java.io.Reader
-     * @see  com.fasterxml.jackson.core.type.TypeReference
-     * @see  io.github.nichetoolkit.rest.RestResult
-     * @return  {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @see java.io.Reader
+     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see io.github.nichetoolkit.rest.RestResult
      */
     public static <T> RestResult<T> parseResult(Reader json, TypeReference<T> typeReference) {
         try {
@@ -2666,12 +2666,12 @@ public class JsonPurityUtils {
     /**
      * <code>parseResult</code>
      * <p>The parse result method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json byte <p>The json parameter is <code>byte</code> type.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json          byte <p>The json parameter is <code>byte</code> type.</p>
      * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
-     * @see  com.fasterxml.jackson.core.type.TypeReference
-     * @see  io.github.nichetoolkit.rest.RestResult
-     * @return  {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see io.github.nichetoolkit.rest.RestResult
      */
     public static <T> RestResult<T> parseResult(byte[] json, TypeReference<T> typeReference) {
         try {
@@ -2686,13 +2686,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseResult</code>
      * <p>The parse result method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json          {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
      * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
-     * @see  java.io.InputStream
-     * @see  com.fasterxml.jackson.core.type.TypeReference
-     * @see  io.github.nichetoolkit.rest.RestResult
-     * @return  {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @see java.io.InputStream
+     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see io.github.nichetoolkit.rest.RestResult
      */
     public static <T> RestResult<T> parseResult(InputStream json, TypeReference<T> typeReference) {
         try {
@@ -2707,13 +2707,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseResult</code>
      * <p>The parse result method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json          {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
      * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
-     * @see  java.lang.String
-     * @see  com.fasterxml.jackson.core.type.TypeReference
-     * @see  io.github.nichetoolkit.rest.RestResult
-     * @return  {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @see java.lang.String
+     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see io.github.nichetoolkit.rest.RestResult
      */
     public static <T> RestResult<T> parseResult(String json, TypeReference<T> typeReference) {
         try {
@@ -2728,13 +2728,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseResult</code>
      * <p>The parse result method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json     {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
      * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
-     * @see  java.io.File
-     * @see  com.fasterxml.jackson.databind.JavaType
-     * @see  io.github.nichetoolkit.rest.RestResult
-     * @return  {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @see java.io.File
+     * @see com.fasterxml.jackson.databind.JavaType
+     * @see io.github.nichetoolkit.rest.RestResult
      */
     public static <T> RestResult<T> parseResult(File json, JavaType javaType) {
         try {
@@ -2749,13 +2749,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseResult</code>
      * <p>The parse result method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json     {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
      * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
-     * @see  java.io.Reader
-     * @see  com.fasterxml.jackson.databind.JavaType
-     * @see  io.github.nichetoolkit.rest.RestResult
-     * @return  {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @see java.io.Reader
+     * @see com.fasterxml.jackson.databind.JavaType
+     * @see io.github.nichetoolkit.rest.RestResult
      */
     public static <T> RestResult<T> parseResult(Reader json, JavaType javaType) {
         try {
@@ -2770,12 +2770,12 @@ public class JsonPurityUtils {
     /**
      * <code>parseResult</code>
      * <p>The parse result method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json byte <p>The json parameter is <code>byte</code> type.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json     byte <p>The json parameter is <code>byte</code> type.</p>
      * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
-     * @see  com.fasterxml.jackson.databind.JavaType
-     * @see  io.github.nichetoolkit.rest.RestResult
-     * @return  {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @see com.fasterxml.jackson.databind.JavaType
+     * @see io.github.nichetoolkit.rest.RestResult
      */
     public static <T> RestResult<T> parseResult(byte[] json, JavaType javaType) {
         try {
@@ -2790,13 +2790,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseResult</code>
      * <p>The parse result method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json     {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
      * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
-     * @see  java.io.InputStream
-     * @see  com.fasterxml.jackson.databind.JavaType
-     * @see  io.github.nichetoolkit.rest.RestResult
-     * @return  {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @see java.io.InputStream
+     * @see com.fasterxml.jackson.databind.JavaType
+     * @see io.github.nichetoolkit.rest.RestResult
      */
     public static <T> RestResult<T> parseResult(InputStream json, JavaType javaType) {
         try {
@@ -2811,13 +2811,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseResult</code>
      * <p>The parse result method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json     {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
      * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
-     * @see  java.lang.String
-     * @see  com.fasterxml.jackson.databind.JavaType
-     * @see  io.github.nichetoolkit.rest.RestResult
-     * @return  {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @see java.lang.String
+     * @see com.fasterxml.jackson.databind.JavaType
+     * @see io.github.nichetoolkit.rest.RestResult
      */
     public static <T> RestResult<T> parseResult(String json, JavaType javaType) {
         try {
@@ -2832,13 +2832,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseResult</code>
      * <p>The parse result method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json  {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.io.File
-     * @see  java.lang.Class
-     * @see  io.github.nichetoolkit.rest.RestResult
-     * @return  {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @see java.io.File
+     * @see java.lang.Class
+     * @see io.github.nichetoolkit.rest.RestResult
      */
     public static <T> RestResult<T> parseResult(File json, Class<T> clazz) {
         try {
@@ -2853,13 +2853,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseResult</code>
      * <p>The parse result method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json  {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.io.Reader
-     * @see  java.lang.Class
-     * @see  io.github.nichetoolkit.rest.RestResult
-     * @return  {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @see java.io.Reader
+     * @see java.lang.Class
+     * @see io.github.nichetoolkit.rest.RestResult
      */
     public static <T> RestResult<T> parseResult(Reader json, Class<T> clazz) {
         try {
@@ -2874,12 +2874,12 @@ public class JsonPurityUtils {
     /**
      * <code>parseResult</code>
      * <p>The parse result method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json byte <p>The json parameter is <code>byte</code> type.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json  byte <p>The json parameter is <code>byte</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.lang.Class
-     * @see  io.github.nichetoolkit.rest.RestResult
-     * @return  {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @see java.lang.Class
+     * @see io.github.nichetoolkit.rest.RestResult
      */
     public static <T> RestResult<T> parseResult(byte[] json, Class<T> clazz) {
         try {
@@ -2894,13 +2894,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseResult</code>
      * <p>The parse result method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json  {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.io.InputStream
-     * @see  java.lang.Class
-     * @see  io.github.nichetoolkit.rest.RestResult
-     * @return  {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @see java.io.InputStream
+     * @see java.lang.Class
+     * @see io.github.nichetoolkit.rest.RestResult
      */
     public static <T> RestResult<T> parseResult(InputStream json, Class<T> clazz) {
         try {
@@ -2915,13 +2915,13 @@ public class JsonPurityUtils {
     /**
      * <code>parseResult</code>
      * <p>The parse result method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param json {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param json  {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.lang.String
-     * @see  java.lang.Class
-     * @see  io.github.nichetoolkit.rest.RestResult
-     * @return  {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @see java.lang.String
+     * @see java.lang.Class
+     * @see io.github.nichetoolkit.rest.RestResult
      */
     public static <T> RestResult<T> parseResult(String json, Class<T> clazz) {
         try {
@@ -2937,9 +2937,9 @@ public class JsonPurityUtils {
      * <code>parseResult</code>
      * <p>The parse result method.</p>
      * @param json {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
-     * @see  java.io.File
-     * @see  io.github.nichetoolkit.rest.RestResult
-     * @return  {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @see java.io.File
+     * @see io.github.nichetoolkit.rest.RestResult
      */
     public static RestResult<String> parseResult(File json) {
         try {
@@ -2955,9 +2955,9 @@ public class JsonPurityUtils {
      * <code>parseResult</code>
      * <p>The parse result method.</p>
      * @param json {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
-     * @see  java.io.Reader
-     * @see  io.github.nichetoolkit.rest.RestResult
-     * @return  {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @see java.io.Reader
+     * @see io.github.nichetoolkit.rest.RestResult
      */
     public static RestResult<String> parseResult(Reader json) {
         try {
@@ -2973,8 +2973,8 @@ public class JsonPurityUtils {
      * <code>parseResult</code>
      * <p>The parse result method.</p>
      * @param json byte <p>The json parameter is <code>byte</code> type.</p>
-     * @return  {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
-     * @see  io.github.nichetoolkit.rest.RestResult
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @see io.github.nichetoolkit.rest.RestResult
      */
     public static RestResult<String> parseResult(byte[] json) {
         try {
@@ -2990,9 +2990,9 @@ public class JsonPurityUtils {
      * <code>parseResult</code>
      * <p>The parse result method.</p>
      * @param json {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
-     * @see  java.io.InputStream
-     * @see  io.github.nichetoolkit.rest.RestResult
-     * @return  {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @see java.io.InputStream
+     * @see io.github.nichetoolkit.rest.RestResult
      */
     public static RestResult<String> parseResult(InputStream json) {
         try {
@@ -3008,9 +3008,9 @@ public class JsonPurityUtils {
      * <code>parseResult</code>
      * <p>The parse result method.</p>
      * @param json {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
-     * @see  java.lang.String
-     * @see  io.github.nichetoolkit.rest.RestResult
-     * @return  {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @see java.lang.String
+     * @see io.github.nichetoolkit.rest.RestResult
      */
     public static RestResult<String> parseResult(String json) {
         try {
@@ -3026,9 +3026,9 @@ public class JsonPurityUtils {
      * <code>parseResult</code>
      * <p>The parse result method.</p>
      * @param jsonNode {@link com.fasterxml.jackson.databind.JsonNode} <p>The json node parameter is <code>JsonNode</code> type.</p>
-     * @see  com.fasterxml.jackson.databind.JsonNode
-     * @see  io.github.nichetoolkit.rest.RestResult
-     * @return  {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
+     * @see com.fasterxml.jackson.databind.JsonNode
+     * @see io.github.nichetoolkit.rest.RestResult
      */
     public static RestResult<String> parseResult(JsonNode jsonNode) {
         return JsonHelper.parseResult(jsonNode);
@@ -3037,12 +3037,12 @@ public class JsonPurityUtils {
     /**
      * <code>parseConvert</code>
      * <p>The parse convert method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param <T>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param value {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  java.lang.Object
-     * @see  java.lang.Class
      * @return T <p>The parse convert return object is <code>T</code> type.</p>
+     * @see java.lang.Object
+     * @see java.lang.Class
      */
     public static <T> T parseConvert(Object value, Class<T> clazz) {
         try {
@@ -3057,12 +3057,12 @@ public class JsonPurityUtils {
     /**
      * <code>parseConvert</code>
      * <p>The parse convert method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param value {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
+     * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param value         {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
      * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
-     * @see  java.lang.Object
-     * @see  com.fasterxml.jackson.core.type.TypeReference
      * @return T <p>The parse convert return object is <code>T</code> type.</p>
+     * @see java.lang.Object
+     * @see com.fasterxml.jackson.core.type.TypeReference
      */
     public static <T> T parseConvert(Object value, TypeReference<T> typeReference) {
         try {
@@ -3077,12 +3077,12 @@ public class JsonPurityUtils {
     /**
      * <code>parseConvert</code>
      * <p>The parse convert method.</p>
-     * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param value {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
+     * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
+     * @param value    {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
      * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
-     * @see  java.lang.Object
-     * @see  com.fasterxml.jackson.databind.JavaType
      * @return T <p>The parse convert return object is <code>T</code> type.</p>
+     * @see java.lang.Object
+     * @see com.fasterxml.jackson.databind.JavaType
      */
     public static <T> T parseConvert(Object value, JavaType javaType) {
         try {

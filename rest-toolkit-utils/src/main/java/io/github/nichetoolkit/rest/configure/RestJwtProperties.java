@@ -25,7 +25,7 @@ import java.util.List;
  * @see lombok.Getter
  * @see lombok.Setter
  * @see org.springframework.boot.context.properties.ConfigurationProperties
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Getter
 @Setter

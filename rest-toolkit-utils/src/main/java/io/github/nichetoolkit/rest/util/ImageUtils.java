@@ -9,7 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import net.coobird.thumbnailator.Thumbnails;
 
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.swing.*;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -29,7 +29,7 @@ import java.util.stream.Collectors;
  * <p>The image utils class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Slf4j
 public class ImageUtils {

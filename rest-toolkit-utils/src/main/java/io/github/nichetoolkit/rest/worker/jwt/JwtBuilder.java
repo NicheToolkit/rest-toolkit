@@ -13,7 +13,7 @@ import java.util.Map;
  * <code>JwtBuilder</code>
  * <p>The jwt builder class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @since Jdk1.8
+ * @since Jdk17
  */
 public class JwtBuilder {
     /**

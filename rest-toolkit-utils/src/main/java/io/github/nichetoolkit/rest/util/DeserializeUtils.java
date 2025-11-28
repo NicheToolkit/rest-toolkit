@@ -13,9 +13,9 @@ import java.util.Map;
 /**
  * <code>DeserializeUtils</code>
  * <p>The deserialize utils class.</p>
- * @see  lombok.extern.slf4j.Slf4j
  * @author Cyan (snow22314@outlook.com)
- * @since Jdk1.8
+ * @see lombok.extern.slf4j.Slf4j
+ * @since Jdk17
  */
 @Slf4j
 public class DeserializeUtils {
@@ -24,9 +24,9 @@ public class DeserializeUtils {
      * <code>deserializerBean</code>
      * <p>The deserializer bean method.</p>
      * @param parser {@link com.fasterxml.jackson.core.JsonParser} <p>The parser parameter is <code>JsonParser</code> type.</p>
-     * @see  com.fasterxml.jackson.core.JsonParser
-     * @see  java.util.Map
-     * @return  {@link java.util.Map} <p>The deserializer bean return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The deserializer bean return object is <code>Map</code> type.</p>
+     * @see com.fasterxml.jackson.core.JsonParser
+     * @see java.util.Map
      */
     public static Map<String, JsonNode> deserializerBean(JsonParser parser) {
         try {
@@ -42,9 +42,9 @@ public class DeserializeUtils {
      * <code>deserializerBean</code>
      * <p>The deserializer bean method.</p>
      * @param jsonNode {@link com.fasterxml.jackson.databind.JsonNode} <p>The json node parameter is <code>JsonNode</code> type.</p>
-     * @see  com.fasterxml.jackson.databind.JsonNode
-     * @see  java.util.Map
-     * @return  {@link java.util.Map} <p>The deserializer bean return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The deserializer bean return object is <code>Map</code> type.</p>
+     * @see com.fasterxml.jackson.databind.JsonNode
+     * @see java.util.Map
      */
     public static Map<String, JsonNode> deserializerBean(JsonNode jsonNode) {
         return DeserializeHelper.deserializerBean(jsonNode);
@@ -54,9 +54,9 @@ public class DeserializeUtils {
      * <code>deserializerList</code>
      * <p>The deserializer list method.</p>
      * @param parser {@link com.fasterxml.jackson.core.JsonParser} <p>The parser parameter is <code>JsonParser</code> type.</p>
-     * @see  com.fasterxml.jackson.core.JsonParser
-     * @see  java.util.List
-     * @return  {@link java.util.List} <p>The deserializer list return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The deserializer list return object is <code>List</code> type.</p>
+     * @see com.fasterxml.jackson.core.JsonParser
+     * @see java.util.List
      */
     public static List<JsonNode> deserializerList(JsonParser parser) {
         try {
@@ -72,9 +72,9 @@ public class DeserializeUtils {
      * <code>deserializerList</code>
      * <p>The deserializer list method.</p>
      * @param jsonNode {@link com.fasterxml.jackson.databind.JsonNode} <p>The json node parameter is <code>JsonNode</code> type.</p>
-     * @see  com.fasterxml.jackson.databind.JsonNode
-     * @see  java.util.List
-     * @return  {@link java.util.List} <p>The deserializer list return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The deserializer list return object is <code>List</code> type.</p>
+     * @see com.fasterxml.jackson.databind.JsonNode
+     * @see java.util.List
      */
     public static List<JsonNode> deserializerList(JsonNode jsonNode) {
         return DeserializeHelper.deserializerList(jsonNode);
@@ -84,9 +84,9 @@ public class DeserializeUtils {
      * <code>deserializerBeanList</code>
      * <p>The deserializer bean list method.</p>
      * @param parser {@link com.fasterxml.jackson.core.JsonParser} <p>The parser parameter is <code>JsonParser</code> type.</p>
-     * @see  com.fasterxml.jackson.core.JsonParser
-     * @see  java.util.List
-     * @return  {@link java.util.List} <p>The deserializer bean list return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The deserializer bean list return object is <code>List</code> type.</p>
+     * @see com.fasterxml.jackson.core.JsonParser
+     * @see java.util.List
      */
     public static List<Map<String, JsonNode>> deserializerBeanList(JsonParser parser) {
         try {
@@ -102,9 +102,9 @@ public class DeserializeUtils {
      * <code>deserializerBeanList</code>
      * <p>The deserializer bean list method.</p>
      * @param jsonNode {@link com.fasterxml.jackson.databind.JsonNode} <p>The json node parameter is <code>JsonNode</code> type.</p>
-     * @see  com.fasterxml.jackson.databind.JsonNode
-     * @see  java.util.List
-     * @return  {@link java.util.List} <p>The deserializer bean list return object is <code>List</code> type.</p>
+     * @return {@link java.util.List} <p>The deserializer bean list return object is <code>List</code> type.</p>
+     * @see com.fasterxml.jackson.databind.JsonNode
+     * @see java.util.List
      */
     public static List<Map<String, JsonNode>> deserializerBeanList(JsonNode jsonNode) {
         return DeserializeHelper.deserializerBeanList(jsonNode);
@@ -114,9 +114,9 @@ public class DeserializeUtils {
      * <code>deserializerMap</code>
      * <p>The deserializer map method.</p>
      * @param parser {@link com.fasterxml.jackson.core.JsonParser} <p>The parser parameter is <code>JsonParser</code> type.</p>
-     * @see  com.fasterxml.jackson.core.JsonParser
-     * @see  java.util.Map
-     * @return  {@link java.util.Map} <p>The deserializer map return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The deserializer map return object is <code>Map</code> type.</p>
+     * @see com.fasterxml.jackson.core.JsonParser
+     * @see java.util.Map
      */
     public static Map<String, JsonNode> deserializerMap(JsonParser parser) {
         try {
@@ -132,9 +132,9 @@ public class DeserializeUtils {
      * <code>deserializerMap</code>
      * <p>The deserializer map method.</p>
      * @param jsonNode {@link com.fasterxml.jackson.databind.JsonNode} <p>The json node parameter is <code>JsonNode</code> type.</p>
-     * @see  com.fasterxml.jackson.databind.JsonNode
-     * @see  java.util.Map
-     * @return  {@link java.util.Map} <p>The deserializer map return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The deserializer map return object is <code>Map</code> type.</p>
+     * @see com.fasterxml.jackson.databind.JsonNode
+     * @see java.util.Map
      */
     public static Map<String, JsonNode> deserializerMap(JsonNode jsonNode) {
         return DeserializeHelper.deserializerMap(jsonNode);
@@ -145,9 +145,9 @@ public class DeserializeUtils {
      * <code>deserializerBeanMap</code>
      * <p>The deserializer bean map method.</p>
      * @param parser {@link com.fasterxml.jackson.core.JsonParser} <p>The parser parameter is <code>JsonParser</code> type.</p>
-     * @see  com.fasterxml.jackson.core.JsonParser
-     * @see  java.util.Map
-     * @return  {@link java.util.Map} <p>The deserializer bean map return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The deserializer bean map return object is <code>Map</code> type.</p>
+     * @see com.fasterxml.jackson.core.JsonParser
+     * @see java.util.Map
      */
     public static Map<String,Map<String, JsonNode>> deserializerBeanMap(JsonParser parser){
         try {
@@ -163,9 +163,9 @@ public class DeserializeUtils {
      * <code>deserializerBeanMap</code>
      * <p>The deserializer bean map method.</p>
      * @param jsonNode {@link com.fasterxml.jackson.databind.JsonNode} <p>The json node parameter is <code>JsonNode</code> type.</p>
-     * @see  com.fasterxml.jackson.databind.JsonNode
-     * @see  java.util.Map
-     * @return  {@link java.util.Map} <p>The deserializer bean map return object is <code>Map</code> type.</p>
+     * @return {@link java.util.Map} <p>The deserializer bean map return object is <code>Map</code> type.</p>
+     * @see com.fasterxml.jackson.databind.JsonNode
+     * @see java.util.Map
      */
     public static Map<String,Map<String, JsonNode>> deserializerBeanMap(JsonNode jsonNode) {
         return DeserializeHelper.deserializerBeanMap(jsonNode);

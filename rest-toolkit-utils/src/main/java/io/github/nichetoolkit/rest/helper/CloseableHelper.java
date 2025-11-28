@@ -11,7 +11,7 @@ import java.io.IOException;
  * <p>The closeable helper class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Slf4j
 public class CloseableHelper {
@@ -19,8 +19,8 @@ public class CloseableHelper {
     /**
      * <code>close</code>
      * <p>The close method.</p>
-     * @param close {@link java.io.Closeable} <p>The close parameter is <code>Closeable</code> type.</p>
-     * @see java.io.Closeable
+     * @param close {@link java.lang.AutoCloseable} <p>The close parameter is <code>AutoCloseable</code> type.</p>
+     * @see java.lang.AutoCloseable
      */
     public static void close(AutoCloseable... close) {
         if (GeneralUtils.isNotEmpty(close)) {
@@ -33,8 +33,8 @@ public class CloseableHelper {
     /**
      * <code>close</code>
      * <p>The close method.</p>
-     * @param closeable {@link java.io.Closeable} <p>The closeable parameter is <code>Closeable</code> type.</p>
-     * @see java.io.Closeable
+     * @param closeable {@link java.lang.AutoCloseable} <p>The closeable parameter is <code>AutoCloseable</code> type.</p>
+     * @see java.lang.AutoCloseable
      */
     public static void close(AutoCloseable closeable) {
         if (GeneralUtils.isNotEmpty(closeable)) {

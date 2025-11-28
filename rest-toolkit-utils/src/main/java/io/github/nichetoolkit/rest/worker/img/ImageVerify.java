@@ -20,7 +20,7 @@ import java.io.Serializable;
  * @see lombok.Setter
  * @see lombok.extern.slf4j.Slf4j
  * @see java.lang.SuppressWarnings
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Getter
 @Setter

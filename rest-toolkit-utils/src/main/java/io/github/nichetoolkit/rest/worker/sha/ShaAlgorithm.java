@@ -14,7 +14,7 @@ import java.util.Optional;
  * <p>The sha algorithm enumeration.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestAlgorithm
- * @since Jdk1.8
+ * @since Jdk17
  */
 public enum ShaAlgorithm implements RestAlgorithm<String> {
     /**

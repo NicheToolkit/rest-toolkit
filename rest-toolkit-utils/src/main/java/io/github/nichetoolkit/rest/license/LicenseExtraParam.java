@@ -13,14 +13,14 @@ import java.util.List;
  * <code>LicenseExtraParam</code>
  * <p>The license extra param class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @see RestServerInfo
+ * @see io.github.nichetoolkit.rest.license.LicenseExtraInfo
  * @see lombok.Getter
  * @see lombok.Setter
  * @see lombok.experimental.SuperBuilder
  * @see lombok.NoArgsConstructor
  * @see com.fasterxml.jackson.annotation.JsonInclude
  * @see com.fasterxml.jackson.annotation.JsonIgnoreProperties
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Getter
 @Setter

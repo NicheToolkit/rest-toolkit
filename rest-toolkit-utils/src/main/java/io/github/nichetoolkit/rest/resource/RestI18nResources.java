@@ -18,7 +18,7 @@ import java.util.Set;
  * @see lombok.Getter
  * @see lombok.Setter
  * @see lombok.experimental.SuperBuilder
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Getter
 @Setter

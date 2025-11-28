@@ -9,7 +9,7 @@ import io.github.nichetoolkit.rest.error.natives.FileErrorException;
  * <p>The image transfer exception class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.error.natives.FileErrorException
- * @since Jdk1.8
+ * @since Jdk17
  */
 public class ImageTransferException extends FileErrorException {
     /**

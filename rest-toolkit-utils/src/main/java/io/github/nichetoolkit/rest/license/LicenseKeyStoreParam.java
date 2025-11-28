@@ -20,7 +20,7 @@ import java.nio.file.Files;
  * @see lombok.Setter
  * @see com.fasterxml.jackson.annotation.JsonInclude
  * @see com.fasterxml.jackson.annotation.JsonIgnoreProperties
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Getter
 @Setter
