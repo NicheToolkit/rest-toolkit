@@ -19,7 +19,7 @@ import java.util.Optional;
  * @see lombok.Setter
  * @see lombok.experimental.SuperBuilder
  * @see lombok.EqualsAndHashCode
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Getter
 @Setter

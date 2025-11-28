@@ -19,13 +19,13 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
-import org.springframework.lang.NonNull;
-import org.springframework.lang.Nullable;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.util.Collections;
 import java.util.List;
 
@@ -50,26 +50,9 @@ public class RestControllerHandler implements ResponseBodyAdvice<Object>, Initia
      * <p>The <code>IS_HAS_INIT_OF_FULFILLED_FITTER</code> field.</p>
      */
     static boolean IS_HAS_INIT_OF_FULFILLED_FITTER = false;
-    /**
-     * <code>exceptionProperties</code>
-     * {@link io.github.nichetoolkit.rest.configure.RestExceptionProperties} <p>The <code>exceptionProperties</code> field.</p>
-     * @see io.github.nichetoolkit.rest.configure.RestExceptionProperties
-     */
     private final RestExceptionProperties exceptionProperties;
-    /**
-     * <code>exceptionAdvices</code>
-     * {@link java.util.List} <p>The <code>exceptionAdvices</code> field.</p>
-     * @see java.util.List
-     * @see org.springframework.lang.Nullable
-     */
     @Nullable
     private List<RestExceptionAdvice> exceptionAdvices;
-    /**
-     * <code>responseAdvices</code>
-     * {@link java.util.List} <p>The <code>responseAdvices</code> field.</p>
-     * @see java.util.List
-     * @see org.springframework.lang.Nullable
-     */
     @Nullable
     private List<RestResponseAdvice> responseAdvices;
 
@@ -153,13 +136,6 @@ public class RestControllerHandler implements ResponseBodyAdvice<Object>, Initia
         initOfFulfilledFitter();
     }
 
-    /**
-     * <code>initOfFulfilledFitter</code>
-     * <p>The init of fulfilled fitter method.</p>
-     * @throws BeansException {@link org.springframework.beans.BeansException} <p>The beans exception is <code>BeansException</code> type.</p>
-     * @see java.lang.SuppressWarnings
-     * @see org.springframework.beans.BeansException
-     */
     @SuppressWarnings("rawtypes")
     private void initOfFulfilledFitter() throws BeansException {
         if (IS_HAS_INIT_OF_FULFILLED_FITTER) {
@@ -187,12 +163,12 @@ public class RestControllerHandler implements ResponseBodyAdvice<Object>, Initia
      * <code>exceptionHandle</code>
      * <p>The exception handle method.</p>
      * @param exception {@link java.lang.Exception} <p>The exception parameter is <code>Exception</code> type.</p>
-     * @param request   {@link javax.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
-     * @param response  {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param request   {@link jakarta.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
+     * @param response  {@link jakarta.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
      * @return {@link org.springframework.http.ResponseEntity} <p>The exception handle return object is <code>ResponseEntity</code> type.</p>
      * @see java.lang.Exception
-     * @see javax.servlet.http.HttpServletRequest
-     * @see javax.servlet.http.HttpServletResponse
+     * @see jakarta.servlet.http.HttpServletRequest
+     * @see jakarta.servlet.http.HttpServletResponse
      * @see org.springframework.http.ResponseEntity
      * @see org.springframework.web.bind.annotation.ResponseBody
      * @see org.springframework.web.bind.annotation.ExceptionHandler
@@ -241,16 +217,6 @@ public class RestControllerHandler implements ResponseBodyAdvice<Object>, Initia
         }
     }
 
-    /**
-     * <code>preExceptionHandle</code>
-     * <p>The pre exception handle method.</p>
-     * @param exception {@link java.lang.Exception} <p>The exception parameter is <code>Exception</code> type.</p>
-     * @param request   {@link javax.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
-     * @param response  {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
-     * @see java.lang.Exception
-     * @see javax.servlet.http.HttpServletRequest
-     * @see javax.servlet.http.HttpServletResponse
-     */
     private void preExceptionHandle(Exception exception, HttpServletRequest request, HttpServletResponse response) {
         if (this.exceptionAdvices != null && !this.exceptionAdvices.isEmpty()) {
             for (RestExceptionAdvice advice : this.exceptionAdvices) {
@@ -259,16 +225,6 @@ public class RestControllerHandler implements ResponseBodyAdvice<Object>, Initia
         }
     }
 
-    /**
-     * <code>doRestExceptionHandle</code>
-     * <p>The do rest exception handle method.</p>
-     * @param restException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception parameter is <code>RestException</code> type.</p>
-     * @param request       {@link javax.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
-     * @param response      {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
-     * @see io.github.nichetoolkit.rest.RestException
-     * @see javax.servlet.http.HttpServletRequest
-     * @see javax.servlet.http.HttpServletResponse
-     */
     private void doRestExceptionHandle(RestException restException, HttpServletRequest request, HttpServletResponse response) {
         if (this.exceptionAdvices != null && !this.exceptionAdvices.isEmpty()) {
             for (RestExceptionAdvice advice : this.exceptionAdvices) {
@@ -277,16 +233,6 @@ public class RestControllerHandler implements ResponseBodyAdvice<Object>, Initia
         }
     }
 
-    /**
-     * <code>doExceptionHandle</code>
-     * <p>The do exception handle method.</p>
-     * @param exception {@link java.lang.Exception} <p>The exception parameter is <code>Exception</code> type.</p>
-     * @param request   {@link javax.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
-     * @param response  {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
-     * @see java.lang.Exception
-     * @see javax.servlet.http.HttpServletRequest
-     * @see javax.servlet.http.HttpServletResponse
-     */
     private void doExceptionHandle(Exception exception, HttpServletRequest request, HttpServletResponse response) {
         if (this.exceptionAdvices != null && !this.exceptionAdvices.isEmpty()) {
             for (RestExceptionAdvice advice : this.exceptionAdvices) {

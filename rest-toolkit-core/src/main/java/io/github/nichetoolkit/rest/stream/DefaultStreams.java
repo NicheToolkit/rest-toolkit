@@ -10,7 +10,7 @@ import java.util.Objects;
  * <code>DefaultStreams</code>
  * <p>The default streams class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @since Jdk1.8
+ * @since Jdk17
  */
 public final class DefaultStreams {
     /**
@@ -35,7 +35,7 @@ public final class DefaultStreams {
      * @param <S> {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The generic parameter is <code>DefaultSpliterator</code> type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
-     * @since Jdk1.8
+     * @since Jdk17
      */
     private static abstract class AbstractStreamBuilderImpl<T, S extends DefaultSpliterator<T>> implements DefaultSpliterator<T> {
 
@@ -69,7 +69,7 @@ public final class DefaultStreams {
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultStreams.AbstractStreamBuilderImpl
      * @see io.github.nichetoolkit.rest.stream.RestStream.Builder
-     * @since Jdk1.8
+     * @since Jdk17
      */
     static final class StreamBuilderImpl<T>
             extends AbstractStreamBuilderImpl<T, DefaultSpliterator<T>>
@@ -170,7 +170,7 @@ public final class DefaultStreams {
      * @param <T_SPLITR> {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The generic parameter is <code>DefaultSpliterator</code> type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
-     * @since Jdk1.8
+     * @since Jdk17
      */
     abstract static class ConcatSpliterator<T, T_SPLITR extends DefaultSpliterator<T>>
             implements DefaultSpliterator<T> {
@@ -277,7 +277,7 @@ public final class DefaultStreams {
          * <p>The of ref class.</p>
          * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @author Cyan (snow22314@outlook.com)
-         * @since Jdk1.8
+         * @since Jdk17
          */
         static class OfRef<T> extends ConcatSpliterator<T, DefaultSpliterator<T>> {
             /**
@@ -302,7 +302,7 @@ public final class DefaultStreams {
          * @param <T_SPLITR> {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator.OfPrimitive} <p>The generic parameter is <code>OfPrimitive</code> type.</p>
          * @author Cyan (snow22314@outlook.com)
          * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator.OfPrimitive
-         * @since Jdk1.8
+         * @since Jdk17
          */
         private static abstract class OfPrimitive<T, T_CONS, T_SPLITR extends DefaultSpliterator.OfPrimitive<T, T_CONS, T_SPLITR>>
                 extends ConcatSpliterator<T, T_SPLITR>

@@ -10,7 +10,7 @@ import java.util.function.*;
  * <p>The default node interface.</p>
  * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
- * @since Jdk1.8
+ * @since Jdk17
  */
 public interface DefaultNode<T> {
 
@@ -122,7 +122,7 @@ public interface DefaultNode<T> {
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultSink
-     * @since Jdk1.8
+     * @since Jdk17
      */
     interface Builder<T> extends DefaultSink<T> {
 
@@ -145,7 +145,7 @@ public interface DefaultNode<T> {
      * @param <T_NODE>   {@link io.github.nichetoolkit.rest.stream.DefaultNode.OfPrimitive} <p>The generic parameter is <code>OfPrimitive</code> type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator.OfPrimitive
-     * @since Jdk1.8
+     * @since Jdk17
      */
     interface OfPrimitive<T, T_CONS, T_ARR,
             T_SPLITR extends DefaultSpliterator.OfPrimitive<T, T_CONS, T_SPLITR>,

@@ -3,7 +3,7 @@ package io.github.nichetoolkit.rest.identity.worker;
 import io.github.nichetoolkit.rest.actuator.SupplierActuator;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.lang.NonNull;
+import org.jspecify.annotations.NonNull;
 
 /**
  * <code>IdentityWorkerTime</code>
@@ -45,7 +45,7 @@ class IdentityWorkerTime implements SupplierActuator<IdentityWorkerTime> {
      * <p>Instantiates a new identity worker time.</p>
      * @param time {@link java.lang.Long} <p>The time parameter is <code>Long</code> type.</p>
      * @see java.lang.Long
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     public IdentityWorkerTime(@NonNull Long time) {
         this.time = time - EPOCH;

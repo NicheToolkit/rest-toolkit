@@ -5,8 +5,8 @@ import io.github.nichetoolkit.rest.error.often.IoStreamTransferException;
 import io.github.nichetoolkit.rest.error.often.IoStreamWriteException;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletOutputStream;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;

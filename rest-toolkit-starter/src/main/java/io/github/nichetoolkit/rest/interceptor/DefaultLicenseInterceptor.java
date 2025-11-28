@@ -5,12 +5,12 @@ import io.github.nichetoolkit.rest.error.license.LicenseErrorException;
 import io.github.nichetoolkit.rest.error.license.LicenseErrorStatus;
 import io.github.nichetoolkit.rest.license.*;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
-import org.springframework.lang.NonNull;
+import org.jspecify.annotations.NonNull;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
 import java.util.List;
 

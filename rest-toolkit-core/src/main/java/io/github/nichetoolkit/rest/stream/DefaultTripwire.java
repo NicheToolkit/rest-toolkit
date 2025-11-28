@@ -10,7 +10,7 @@ import java.security.PrivilegedAction;
  * <p>The default tripwire class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Slf4j
 final class DefaultTripwire {
@@ -23,8 +23,10 @@ final class DefaultTripwire {
 
     /**
      * <code>ENABLED</code>
-     * <p>The <code>ENABLED</code> field.</p>
+     * <p>The constant <code>ENABLED</code> field.</p>
+     * @see java.lang.SuppressWarnings
      */
+    @SuppressWarnings("removal")
     static final boolean ENABLED = AccessController.doPrivileged(
             (PrivilegedAction<Boolean>) () -> Boolean.getBoolean(TRIPWIRE_PROPERTY));
 
@@ -32,7 +34,7 @@ final class DefaultTripwire {
      * <code>DefaultTripwire</code>
      * <p>Instantiates a new default tripwire.</p>
      */
-    private DefaultTripwire() { }
+    private DefaultTripwire() {}
 
     /**
      * <code>trip</code>

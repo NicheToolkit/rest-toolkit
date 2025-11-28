@@ -2,7 +2,7 @@ package io.github.nichetoolkit.rest.stream;
 
 import io.github.nichetoolkit.rest.RestException;
 import io.github.nichetoolkit.rest.actuator.ConsumerActuator;
-import org.springframework.lang.NonNull;
+import org.jspecify.annotations.NonNull;
 
 import java.util.*;
 import java.util.function.*;
@@ -15,7 +15,7 @@ import java.util.function.*;
  * @see io.github.nichetoolkit.rest.stream.DefaultAbstractSpinedBuffer
  * @see io.github.nichetoolkit.rest.actuator.ConsumerActuator
  * @see io.github.nichetoolkit.rest.stream.DefaultIterable
- * @since Jdk1.8
+ * @since Jdk17
  */
 class DefaultSpinedBuffer<E>
         extends DefaultAbstractSpinedBuffer
@@ -348,7 +348,7 @@ class DefaultSpinedBuffer<E>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultAbstractSpinedBuffer
      * @see io.github.nichetoolkit.rest.stream.DefaultIterable
-     * @since Jdk1.8
+     * @since Jdk17
      */
     abstract static class OfPrimitive<E, T_ARR, T_CONS>
             extends DefaultAbstractSpinedBuffer implements DefaultIterable<E> {
@@ -590,7 +590,7 @@ class DefaultSpinedBuffer<E>
          * @param <T_SPLITR> {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator.OfPrimitive} <p>The generic parameter is <code>OfPrimitive</code> type.</p>
          * @author Cyan (snow22314@outlook.com)
          * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator.OfPrimitive
-         * @since Jdk1.8
+         * @since Jdk17
          */
         abstract class BaseSpliterator<T_SPLITR extends DefaultSpliterator.OfPrimitive<E, T_CONS, T_SPLITR>>
                 implements DefaultSpliterator.OfPrimitive<E, T_CONS, T_SPLITR> {

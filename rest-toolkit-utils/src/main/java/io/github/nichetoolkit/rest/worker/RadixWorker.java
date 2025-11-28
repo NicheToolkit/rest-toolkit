@@ -6,7 +6,7 @@ import io.github.nichetoolkit.rest.error.lack.ConfigureLackError;
 import io.github.nichetoolkit.rest.util.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 import java.security.SecureRandom;
 
 /**
@@ -54,7 +54,7 @@ public class RadixWorker {
     /**
      * <code>radixWorkerInit</code>
      * <p>The radix worker init method.</p>
-     * @see javax.annotation.PostConstruct
+     * @see jakarta.annotation.PostConstruct
      */
     @PostConstruct
     public void radixWorkerInit() {

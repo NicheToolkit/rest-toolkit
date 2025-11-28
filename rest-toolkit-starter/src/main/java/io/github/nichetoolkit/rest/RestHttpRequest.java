@@ -6,16 +6,16 @@ import io.github.nichetoolkit.rest.util.JsonUtils;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.annotation.AnnotationUtils;
-import org.springframework.lang.NonNull;
+import org.jspecify.annotations.NonNull;
 import org.springframework.util.StreamUtils;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.multipart.support.StandardMultipartHttpServletRequest;
 
-import javax.servlet.ReadListener;
-import javax.servlet.ServletInputStream;
-import javax.servlet.ServletRequest;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletRequestWrapper;
+import jakarta.servlet.ReadListener;
+import jakarta.servlet.ServletInputStream;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequestWrapper;
 import java.io.*;
 import java.lang.annotation.Annotation;
 import java.util.*;
@@ -24,7 +24,7 @@ import java.util.*;
  * <code>RestHttpRequest</code>
  * <p>The rest http request class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @see javax.servlet.http.HttpServletRequestWrapper
+ * @see jakarta.servlet.http.HttpServletRequestWrapper
  * @see java.io.Closeable
  * @see lombok.extern.slf4j.Slf4j
  * @since Jdk1.8
@@ -61,8 +61,8 @@ public class RestHttpRequest extends HttpServletRequestWrapper implements Closea
 
     /**
      * <code>inputStream</code>
-     * {@link javax.servlet.ServletInputStream} <p>The <code>inputStream</code> field.</p>
-     * @see javax.servlet.ServletInputStream
+     * {@link jakarta.servlet.ServletInputStream} <p>The <code>inputStream</code> field.</p>
+     * @see jakarta.servlet.ServletInputStream
      */
     private ServletInputStream inputStream;
 
@@ -92,8 +92,8 @@ public class RestHttpRequest extends HttpServletRequestWrapper implements Closea
     /**
      * <code>RestHttpRequest</code>
      * <p>Instantiates a new rest http request.</p>
-     * @param request {@link javax.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
-     * @see javax.servlet.http.HttpServletRequest
+     * @param request {@link jakarta.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
+     * @see jakarta.servlet.http.HttpServletRequest
      */
     public RestHttpRequest(HttpServletRequest request) {
         super(request);
@@ -102,8 +102,8 @@ public class RestHttpRequest extends HttpServletRequestWrapper implements Closea
     /**
      * <code>cacheBody</code>
      * <p>The cache body method.</p>
-     * @param request {@link javax.servlet.ServletRequest} <p>The request parameter is <code>ServletRequest</code> type.</p>
-     * @see javax.servlet.ServletRequest
+     * @param request {@link jakarta.servlet.ServletRequest} <p>The request parameter is <code>ServletRequest</code> type.</p>
+     * @see jakarta.servlet.ServletRequest
      */
     private void cacheBody(ServletRequest request) {
         if (GeneralUtils.isEmpty(this.cacheBody)) {
@@ -346,7 +346,7 @@ public class RestHttpRequest extends HttpServletRequestWrapper implements Closea
      * <code>RequestCachingInputStream</code>
      * <p>The request caching input stream class.</p>
      * @author Cyan (snow22314@outlook.com)
-     * @see javax.servlet.ServletInputStream
+     * @see jakarta.servlet.ServletInputStream
      * @since Jdk1.8
      */
     private static class RequestCachingInputStream extends ServletInputStream {
@@ -401,9 +401,9 @@ public class RestHttpRequest extends HttpServletRequestWrapper implements Closea
     /**
      * <code>getHttpRequest</code>
      * <p>The get http request getter method.</p>
-     * @param request {@link javax.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
+     * @param request {@link jakarta.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestHttpRequest} <p>The get http request return object is <code>RestHttpRequest</code> type.</p>
-     * @see javax.servlet.http.HttpServletRequest
+     * @see jakarta.servlet.http.HttpServletRequest
      */
     public static RestHttpRequest getHttpRequest(HttpServletRequest request) {
         RestHttpRequest httpRequest = null;

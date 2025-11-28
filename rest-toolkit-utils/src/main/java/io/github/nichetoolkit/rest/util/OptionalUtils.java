@@ -12,7 +12,7 @@ import io.github.nichetoolkit.rest.error.often.IdentityNullException;
 import io.github.nichetoolkit.rest.error.often.NameRepeatException;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
-import org.springframework.lang.NonNull;
+import org.jspecify.annotations.NonNull;
 import org.springframework.lang.Nullable;
 
 import java.util.Objects;
@@ -42,7 +42,7 @@ public final class OptionalUtils {
      * @see java.lang.Throwable
      * @see org.springframework.lang.Nullable
      * @see java.util.function.Supplier
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     public static <T, X extends Throwable> X xOfNull(@Nullable T object, @NonNull Supplier<X> supplier) {
         Objects.requireNonNull(supplier);
@@ -75,7 +75,7 @@ public final class OptionalUtils {
      * @see java.lang.Throwable
      * @see org.springframework.lang.Nullable
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T, X extends Throwable> X xOfNullActuator(@Nullable T object, @NonNull SupplierActuator<X> actuator) throws RestException {
@@ -111,7 +111,7 @@ public final class OptionalUtils {
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
      * @see java.util.function.Function
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     public static <T, X extends Throwable> X xOfNull(@Nullable T object, String message, @NonNull Function<String, X> function) {
         Objects.requireNonNull(function);
@@ -145,7 +145,7 @@ public final class OptionalUtils {
      * @see org.springframework.lang.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.util.function.Function
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     public static <T, X extends Throwable> X xOfNull(@Nullable T object, RestStatus restStatus, @NonNull Function<RestStatus, X> function) {
         Objects.requireNonNull(function);
@@ -181,7 +181,7 @@ public final class OptionalUtils {
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T, X extends Throwable> X xOfNullActuator(@Nullable T object, String message, @NonNull FunctionActuator<String, X> actuator) throws RestException {
@@ -217,7 +217,7 @@ public final class OptionalUtils {
      * @see org.springframework.lang.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T, X extends Throwable> X xOfNullActuator(@Nullable T object, RestStatus restStatus, @NonNull FunctionActuator<RestStatus, X> actuator) throws RestException {
@@ -253,7 +253,7 @@ public final class OptionalUtils {
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
      * @see java.util.function.BiFunction
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     public static <T, X extends Throwable> X xOfNull(@Nullable T object, String message, String resource, @NonNull BiFunction<String, String, X> function) {
         Objects.requireNonNull(function);
@@ -289,7 +289,7 @@ public final class OptionalUtils {
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see java.util.function.BiFunction
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     public static <T, X extends Throwable> X xOfNull(@Nullable T object, RestStatus restStatus, String resource, @NonNull BiFunction<String, String, X> function) {
         return xOfNull(object, restStatus.getMessage(), resource, function);
@@ -310,7 +310,7 @@ public final class OptionalUtils {
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T, X extends Throwable> X xOfNullActuator(@Nullable T object, String message, String resource, @NonNull BiFunctionActuator<String, String, X> actuator) throws RestException {
@@ -348,7 +348,7 @@ public final class OptionalUtils {
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T, X extends Throwable> X xOfNullActuator(@Nullable T object, RestStatus restStatus, String resource, @NonNull BiFunctionActuator<String, String, X> actuator) throws RestException {
@@ -366,7 +366,7 @@ public final class OptionalUtils {
      * @see java.lang.Throwable
      * @see org.springframework.lang.Nullable
      * @see java.util.function.Supplier
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     public static <T, X extends Throwable> X xOfEmpty(@Nullable T object, @NonNull Supplier<X> supplier) {
         Objects.requireNonNull(supplier);
@@ -394,7 +394,7 @@ public final class OptionalUtils {
      * @see java.lang.Throwable
      * @see org.springframework.lang.Nullable
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T, X extends Throwable> X xOfEmptyActuator(@Nullable T object, @NonNull SupplierActuator<X> actuator) throws RestException {
@@ -424,7 +424,7 @@ public final class OptionalUtils {
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
      * @see java.util.function.Function
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     public static <T, X extends Throwable> X xOfEmpty(@Nullable T object, String message, @NonNull Function<String, X> function) {
         Objects.requireNonNull(function);
@@ -453,7 +453,7 @@ public final class OptionalUtils {
      * @see org.springframework.lang.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.util.function.Function
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     public static <T, X extends Throwable> X xOfEmpty(@Nullable T object, RestStatus restStatus, @NonNull Function<RestStatus, X> function) {
         Objects.requireNonNull(function);
@@ -483,7 +483,7 @@ public final class OptionalUtils {
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T, X extends Throwable> X xOfEmptyActuator(@Nullable T object, String message, @NonNull FunctionActuator<String, X> actuator) throws RestException {
@@ -514,7 +514,7 @@ public final class OptionalUtils {
      * @see org.springframework.lang.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T, X extends Throwable> X xOfEmptyActuator(@Nullable T object, RestStatus restStatus, @NonNull FunctionActuator<RestStatus, X> actuator) throws RestException {
@@ -545,7 +545,7 @@ public final class OptionalUtils {
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
      * @see java.util.function.BiFunction
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     public static <T, X extends Throwable> X xOfEmpty(@Nullable T object, String message, String resource, @NonNull BiFunction<String, String, X> function) {
         Objects.requireNonNull(function);
@@ -576,7 +576,7 @@ public final class OptionalUtils {
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see java.util.function.BiFunction
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     public static <T, X extends Throwable> X xOfEmpty(@Nullable T object, RestStatus restStatus, String resource, @NonNull BiFunction<String, String, X> function) {
         return xOfEmpty(object, restStatus.getMessage(), resource, function);
@@ -597,7 +597,7 @@ public final class OptionalUtils {
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T, X extends Throwable> X xOfEmptyActuator(@Nullable T object, String message, String resource, @NonNull BiFunctionActuator<String, String, X> actuator) throws RestException {
@@ -630,7 +630,7 @@ public final class OptionalUtils {
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T, X extends Throwable> X xOfEmptyActuator(@Nullable T object, RestStatus restStatus, String resource, @NonNull BiFunctionActuator<String, String, X> actuator) throws RestException {
@@ -648,7 +648,7 @@ public final class OptionalUtils {
      * @see java.lang.Throwable
      * @see org.springframework.lang.Nullable
      * @see java.util.function.Supplier
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     public static <T, X extends Throwable> X xOfInvalid(@Nullable T object, @NonNull Supplier<X> supplier) {
         Objects.requireNonNull(supplier);
@@ -676,7 +676,7 @@ public final class OptionalUtils {
      * @see java.lang.Throwable
      * @see org.springframework.lang.Nullable
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T, X extends Throwable> X xOfInvalidActuator(@Nullable T object, @NonNull SupplierActuator<X> actuator) throws RestException {
@@ -706,7 +706,7 @@ public final class OptionalUtils {
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
      * @see java.util.function.Function
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     public static <T, X extends Throwable> X xOfInvalid(@Nullable T object, String message, @NonNull Function<String, X> function) {
         Objects.requireNonNull(function);
@@ -735,7 +735,7 @@ public final class OptionalUtils {
      * @see org.springframework.lang.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.util.function.Function
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     public static <T, X extends Throwable> X xOfInvalid(@Nullable T object, RestStatus restStatus, @NonNull Function<RestStatus, X> function) {
         Objects.requireNonNull(function);
@@ -765,7 +765,7 @@ public final class OptionalUtils {
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T, X extends Throwable> X xOfInvalidActuator(@Nullable T object, String message, @NonNull FunctionActuator<String, X> actuator) throws RestException {
@@ -796,7 +796,7 @@ public final class OptionalUtils {
      * @see org.springframework.lang.Nullable
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see io.github.nichetoolkit.rest.actuator.FunctionActuator
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T, X extends Throwable> X xOfInvalidActuator(@Nullable T object, RestStatus restStatus, @NonNull FunctionActuator<RestStatus, X> actuator) throws RestException {
@@ -827,7 +827,7 @@ public final class OptionalUtils {
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
      * @see java.util.function.BiFunction
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     public static <T, X extends Throwable> X xOfInvalid(@Nullable T object, String message, String resource, @NonNull BiFunction<String, String, X> function) {
         Objects.requireNonNull(function);
@@ -858,7 +858,7 @@ public final class OptionalUtils {
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see java.util.function.BiFunction
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     public static <T, X extends Throwable> X xOfInvalid(@Nullable T object, RestStatus restStatus, String resource, @NonNull BiFunction<String, String, X> function) {
         return xOfInvalid(object, restStatus.getMessage(), resource, function);
@@ -879,7 +879,7 @@ public final class OptionalUtils {
      * @see org.springframework.lang.Nullable
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     public static <T, X extends RestException> X xOfInvalidActuator(@Nullable T object, String message, String resource, @NonNull BiFunctionActuator<String, String, X> actuator) throws RestException {
         Objects.requireNonNull(actuator);
@@ -911,7 +911,7 @@ public final class OptionalUtils {
      * @see io.github.nichetoolkit.rest.RestStatus
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.actuator.BiFunctionActuator
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     public static <T, X extends RestException> X xOfInvalidActuator(@Nullable T object, RestStatus restStatus, String resource, @NonNull BiFunctionActuator<String, String, X> actuator) throws RestException {
         return xOfInvalidActuator(object, restStatus.getMessage(), resource, actuator);
@@ -2309,7 +2309,7 @@ public final class OptionalUtils {
      * @see java.lang.Throwable
      * @see org.springframework.lang.Nullable
      * @see java.util.function.Supplier
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      * @see X
      */
     public static <T, X extends Throwable> void ofNull(@Nullable T object, @NonNull Supplier<X> supplier) throws X {
@@ -2329,7 +2329,7 @@ public final class OptionalUtils {
      * @see org.springframework.lang.Nullable
      * @see org.slf4j.Logger
      * @see java.util.function.Supplier
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      * @see X
      */
     public static <T, X extends Throwable> void ofNull(@Nullable T object, Logger logger, @NonNull Supplier<X> supplier) throws X {
@@ -2346,7 +2346,7 @@ public final class OptionalUtils {
      * @see io.github.nichetoolkit.rest.RestError
      * @see org.springframework.lang.Nullable
      * @see java.util.function.Supplier
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     public static <T, X extends RestError> void ofNullError(@Nullable T object, @NonNull Supplier<X> supplier) {
         ofCauseThrowError(xOfNull(object, supplier));
@@ -2364,7 +2364,7 @@ public final class OptionalUtils {
      * @see org.springframework.lang.Nullable
      * @see org.slf4j.Logger
      * @see java.util.function.Supplier
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     public static <T, X extends RestError> void ofNullError(@Nullable T object, Logger logger, @NonNull Supplier<X> supplier) {
         ofCauseThrowError(logger, xOfNull(object, supplier));
@@ -2381,7 +2381,7 @@ public final class OptionalUtils {
      * @see io.github.nichetoolkit.rest.RestException
      * @see org.springframework.lang.Nullable
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     public static <T, X extends RestException> void ofNullException(@Nullable T object, @NonNull SupplierActuator<X> actuator) throws RestException {
         ofCauseThrowException(xOfNullActuator(object, actuator));
@@ -2400,7 +2400,7 @@ public final class OptionalUtils {
      * @see org.springframework.lang.Nullable
      * @see org.slf4j.Logger
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     public static <T, X extends RestException> void ofNullException(@Nullable T object, Logger logger, @NonNull SupplierActuator<X> actuator) throws RestException {
         ofCauseThrowException(logger, xOfNullActuator(object, actuator));
@@ -2417,7 +2417,7 @@ public final class OptionalUtils {
      * @see java.lang.Throwable
      * @see org.springframework.lang.Nullable
      * @see java.util.function.Supplier
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      * @see X
      */
     public static <T, X extends Throwable> void ofEmpty(@Nullable T object, @NonNull Supplier<X> supplier) throws X {
@@ -2437,7 +2437,7 @@ public final class OptionalUtils {
      * @see org.springframework.lang.Nullable
      * @see org.slf4j.Logger
      * @see java.util.function.Supplier
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      * @see X
      */
     public static <T, X extends Throwable> void ofEmpty(@Nullable T object, Logger logger, @NonNull Supplier<X> supplier) throws X {
@@ -2454,7 +2454,7 @@ public final class OptionalUtils {
      * @see io.github.nichetoolkit.rest.RestError
      * @see org.springframework.lang.Nullable
      * @see java.util.function.Supplier
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     public static <T, X extends RestError> void ofEmptyError(@Nullable T object, @NonNull Supplier<X> supplier) {
         ofCauseThrowError(xOfEmpty(object, supplier));
@@ -2472,7 +2472,7 @@ public final class OptionalUtils {
      * @see org.springframework.lang.Nullable
      * @see org.slf4j.Logger
      * @see java.util.function.Supplier
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     public static <T, X extends RestError> void ofEmptyError(@Nullable T object, Logger logger, @NonNull Supplier<X> supplier) {
         ofCauseThrowError(logger, xOfEmpty(object, supplier));
@@ -2489,7 +2489,7 @@ public final class OptionalUtils {
      * @see io.github.nichetoolkit.rest.RestException
      * @see org.springframework.lang.Nullable
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     public static <T, X extends RestException> void ofEmptyException(@Nullable T object, @NonNull SupplierActuator<X> actuator) throws RestException {
         ofCauseThrowException(xOfEmptyActuator(object, actuator));
@@ -2508,7 +2508,7 @@ public final class OptionalUtils {
      * @see org.springframework.lang.Nullable
      * @see org.slf4j.Logger
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     public static <T, X extends RestException> void ofEmptyException(@Nullable T object, Logger logger, @NonNull SupplierActuator<X> actuator) throws RestException {
         ofCauseThrowException(logger, xOfEmptyActuator(object, actuator));
@@ -2525,7 +2525,7 @@ public final class OptionalUtils {
      * @see java.lang.Throwable
      * @see org.springframework.lang.Nullable
      * @see java.util.function.Supplier
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      * @see X
      */
     public static <T, X extends Throwable> void ofInvalid(@Nullable T object, @NonNull Supplier<X> supplier) throws X {
@@ -2545,7 +2545,7 @@ public final class OptionalUtils {
      * @see org.springframework.lang.Nullable
      * @see org.slf4j.Logger
      * @see java.util.function.Supplier
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      * @see X
      */
     public static <T, X extends Throwable> void ofInvalid(@Nullable T object, Logger logger, @NonNull Supplier<X> supplier) throws X {
@@ -2562,7 +2562,7 @@ public final class OptionalUtils {
      * @see io.github.nichetoolkit.rest.RestError
      * @see org.springframework.lang.Nullable
      * @see java.util.function.Supplier
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     public static <T, X extends RestError> void ofInvalidError(@Nullable T object, @NonNull Supplier<X> supplier) {
         ofCauseThrowError(xOfInvalid(object, supplier));
@@ -2580,7 +2580,7 @@ public final class OptionalUtils {
      * @see org.springframework.lang.Nullable
      * @see org.slf4j.Logger
      * @see java.util.function.Supplier
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     public static <T, X extends RestError> void ofInvalidError(@Nullable T object, Logger logger, @NonNull Supplier<X> supplier) {
         ofCauseThrowError(logger, xOfInvalid(object, supplier));
@@ -2597,7 +2597,7 @@ public final class OptionalUtils {
      * @see io.github.nichetoolkit.rest.RestException
      * @see org.springframework.lang.Nullable
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     public static <T, X extends RestException> void ofInvalidException(@Nullable T object, @NonNull SupplierActuator<X> actuator) throws RestException {
         ofCauseThrowException(xOfInvalidActuator(object, actuator));
@@ -2616,7 +2616,7 @@ public final class OptionalUtils {
      * @see org.springframework.lang.Nullable
      * @see org.slf4j.Logger
      * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     public static <T, X extends RestException> void ofInvalidException(@Nullable T object, Logger logger, @NonNull SupplierActuator<X> actuator) throws RestException {
         ofCauseThrowException(logger, xOfInvalidActuator(object, actuator));

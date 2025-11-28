@@ -12,7 +12,7 @@ import java.util.Objects;
  * @param <S> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.lang.FunctionalInterface
- * @since Jdk1.8
+ * @since Jdk17
  */
 @FunctionalInterface
 public interface MapPredicateActuator<T, U, S> {

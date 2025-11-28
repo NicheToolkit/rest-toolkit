@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
  * <p>The http result fail exception class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.error.network.HttpErrorException
- * @since Jdk1.8
+ * @since Jdk17
  */
 public class HttpResultFailException extends HttpErrorException {
 
@@ -113,7 +113,7 @@ public class HttpResultFailException extends HttpErrorException {
      * @see org.springframework.http.ResponseEntity
      */
     public HttpResultFailException(ResponseEntity<?> responseEntity) {
-        super(responseEntity.getStatusCodeValue(), responseEntity.toString());
+        super(responseEntity.getStatusCode().value(), responseEntity.toString());
     }
 
     /**
@@ -137,7 +137,7 @@ public class HttpResultFailException extends HttpErrorException {
      * @see org.springframework.http.ResponseEntity
      */
     public HttpResultFailException(String resource, ResponseEntity<?> responseEntity) {
-        super(responseEntity.getStatusCodeValue(), resource, responseEntity.toString());
+        super(responseEntity.getStatusCode().value(), resource, responseEntity.toString());
     }
 
     @Override

@@ -14,7 +14,7 @@ import java.util.concurrent.atomic.AtomicLong;
  * <code>DefaultStreamSpliterators</code>
  * <p>The default stream spliterators class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @since Jdk1.8
+ * @since Jdk17
  */
 class DefaultStreamSpliterators {
 
@@ -27,7 +27,7 @@ class DefaultStreamSpliterators {
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultAbstractSpinedBuffer
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
-     * @since Jdk1.8
+     * @since Jdk17
      */
     private static abstract class AbstractWrappingSpliterator<P_IN, P_OUT,
                                                               T_BUFFER extends DefaultAbstractSpinedBuffer>
@@ -278,7 +278,7 @@ class DefaultStreamSpliterators {
      * @param <P_OUT> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultStreamSpliterators.AbstractWrappingSpliterator
-     * @since Jdk1.8
+     * @since Jdk17
      */
     static final class WrappingSpliterator<P_IN, P_OUT>
             extends AbstractWrappingSpliterator<P_IN, P_OUT, DefaultSpinedBuffer<P_OUT>> {
@@ -357,7 +357,7 @@ class DefaultStreamSpliterators {
      * @param <T_SPLITR> {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The generic parameter is <code>DefaultSpliterator</code> type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
-     * @since Jdk1.8
+     * @since Jdk17
      */
     static class DelegatingSpliterator<T, T_SPLITR extends DefaultSpliterator<T>>
             implements DefaultSpliterator<T> {
@@ -451,7 +451,7 @@ class DefaultStreamSpliterators {
          * @param <T_SPLITR> {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator.OfPrimitive} <p>The generic parameter is <code>OfPrimitive</code> type.</p>
          * @author Cyan (snow22314@outlook.com)
          * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator.OfPrimitive
-         * @since Jdk1.8
+         * @since Jdk17
          */
         static class OfPrimitive<T, T_CONS, T_SPLITR extends DefaultSpliterator.OfPrimitive<T, T_CONS, T_SPLITR>>
             extends DelegatingSpliterator<T, T_SPLITR>
@@ -485,7 +485,7 @@ class DefaultStreamSpliterators {
      * @param <T_SPLITR> {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The generic parameter is <code>DefaultSpliterator</code> type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
-     * @since Jdk1.8
+     * @since Jdk17
      */
     static abstract class SliceSpliterator<T, T_SPLITR extends DefaultSpliterator<T>> {
         /**
@@ -613,7 +613,7 @@ class DefaultStreamSpliterators {
          * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @author Cyan (snow22314@outlook.com)
          * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
-         * @since Jdk1.8
+         * @since Jdk17
          */
         static final class OfRef<T>
                 extends SliceSpliterator<T, DefaultSpliterator<T>>
@@ -712,7 +712,7 @@ class DefaultStreamSpliterators {
          * @param <T_CONS>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @author Cyan (snow22314@outlook.com)
          * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator.OfPrimitive
-         * @since Jdk1.8
+         * @since Jdk17
          */
         static abstract class OfPrimitive<T,
                 T_SPLITR extends DefaultSpliterator.OfPrimitive<T, T_CONS, T_SPLITR>,
@@ -811,7 +811,7 @@ class DefaultStreamSpliterators {
      * @param <T_SPLITR> {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The generic parameter is <code>DefaultSpliterator</code> type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
-     * @since Jdk1.8
+     * @since Jdk17
      */
     static abstract class UnorderedSliceSpliterator<T, T_SPLITR extends DefaultSpliterator<T>> {
         /**
@@ -907,7 +907,7 @@ class DefaultStreamSpliterators {
          * <code>PermitStatus</code>
          * <p>The permit status enumeration.</p>
          * @author Cyan (snow22314@outlook.com)
-         * @since Jdk1.8
+         * @since Jdk17
          */
         enum PermitStatus {
             /**
@@ -992,7 +992,7 @@ class DefaultStreamSpliterators {
          * @author Cyan (snow22314@outlook.com)
          * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
          * @see io.github.nichetoolkit.rest.actuator.ConsumerActuator
-         * @since Jdk1.8
+         * @since Jdk17
          */
         static final class OfRef<T> extends UnorderedSliceSpliterator<T, DefaultSpliterator<T>>
                 implements DefaultSpliterator<T>, ConsumerActuator<T> {
@@ -1088,7 +1088,7 @@ class DefaultStreamSpliterators {
          * @author Cyan (snow22314@outlook.com)
          * @see io.github.nichetoolkit.rest.stream.DefaultStreamSpliterators.ArrayBuffer.OfPrimitive
          * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator.OfPrimitive
-         * @since Jdk1.8
+         * @since Jdk17
          */
         static abstract class OfPrimitive<
                 T,
@@ -1187,7 +1187,7 @@ class DefaultStreamSpliterators {
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
      * @see io.github.nichetoolkit.rest.actuator.ConsumerActuator
-     * @since Jdk1.8
+     * @since Jdk17
      */
     static final class DistinctSpliterator<T> implements DefaultSpliterator<T>, ConsumerActuator<T> {
         /**
@@ -1305,7 +1305,7 @@ class DefaultStreamSpliterators {
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
-     * @since Jdk1.8
+     * @since Jdk17
      */
     static abstract class InfiniteSupplyingSpliterator<T> implements DefaultSpliterator<T> {
         /**
@@ -1338,7 +1338,7 @@ class DefaultStreamSpliterators {
          * <p>The of ref class.</p>
          * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @author Cyan (snow22314@outlook.com)
-         * @since Jdk1.8
+         * @since Jdk17
          */
         static final class OfRef<T> extends InfiniteSupplyingSpliterator<T> {
             /**
@@ -1381,7 +1381,7 @@ class DefaultStreamSpliterators {
      * <code>ArrayBuffer</code>
      * <p>The array buffer class.</p>
      * @author Cyan (snow22314@outlook.com)
-     * @since Jdk1.8
+     * @since Jdk17
      */
 // @@@ Consolidate with Node.Builder
     static abstract class ArrayBuffer {
@@ -1405,7 +1405,7 @@ class DefaultStreamSpliterators {
          * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @author Cyan (snow22314@outlook.com)
          * @see io.github.nichetoolkit.rest.actuator.ConsumerActuator
-         * @since Jdk1.8
+         * @since Jdk17
          */
         static final class OfRef<T> extends ArrayBuffer implements ConsumerActuator<T> {
             /**
@@ -1452,7 +1452,7 @@ class DefaultStreamSpliterators {
          * <p>The of primitive class.</p>
          * @param <T_CONS> {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @author Cyan (snow22314@outlook.com)
-         * @since Jdk1.8
+         * @since Jdk17
          */
         static abstract class OfPrimitive<T_CONS> extends ArrayBuffer {
             /**

@@ -11,6 +11,6 @@ import io.github.nichetoolkit.rest.actuator.SupplierActuator;
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.stream.DefaultSink
  * @see io.github.nichetoolkit.rest.actuator.SupplierActuator
- * @since Jdk1.8
+ * @since Jdk17
  */
 interface DefaultTerminalSink<T, R> extends DefaultSink<T>, SupplierActuator<R> { }

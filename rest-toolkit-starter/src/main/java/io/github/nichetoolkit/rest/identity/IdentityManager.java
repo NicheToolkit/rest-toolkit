@@ -14,10 +14,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.env.Environment;
-import org.springframework.lang.NonNull;
+import org.jspecify.annotations.NonNull;
 import org.springframework.util.MultiValueMap;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 
 /**
  * <code>IdentityManager</code>
@@ -87,7 +87,7 @@ public class IdentityManager implements ApplicationRunner {
     /**
      * <code>identityManagerInit</code>
      * <p>The identity manager init method.</p>
-     * @see javax.annotation.PostConstruct
+     * @see jakarta.annotation.PostConstruct
      */
     @PostConstruct
     public void identityManagerInit() {
@@ -110,7 +110,7 @@ public class IdentityManager implements ApplicationRunner {
      * @param workerId {@link java.lang.Long} <p>The worker id parameter is <code>Long</code> type.</p>
      * @param centerId {@link java.lang.Long} <p>The center id parameter is <code>Long</code> type.</p>
      * @see java.lang.Long
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     public static void config(@NonNull Long workerId, @NonNull Long centerId) {
         IdentityWorker.get(workerId, centerId);

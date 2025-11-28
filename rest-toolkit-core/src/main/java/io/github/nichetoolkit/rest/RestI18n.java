@@ -4,11 +4,11 @@ import java.io.Serializable;
 import java.util.Set;
 
 /**
- * <code>RestI18nBasename</code>
- * <p>The rest i 18 n basename interface.</p>
+ * <code>RestI18n</code>
+ * <p>The rest i 18 n interface.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.io.Serializable
- * @since Jdk1.8
+ * @since Jdk17
  */
 public interface RestI18n extends Serializable {
     /**

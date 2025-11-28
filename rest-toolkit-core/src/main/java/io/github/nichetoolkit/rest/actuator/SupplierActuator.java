@@ -12,7 +12,7 @@ import java.util.function.Supplier;
  * @author Cyan (snow22314@outlook.com)
  * @see java.util.function.Supplier
  * @see java.lang.FunctionalInterface
- * @since Jdk1.8
+ * @since Jdk17
  */
 @FunctionalInterface
 public interface SupplierActuator<T> extends Supplier<T> {

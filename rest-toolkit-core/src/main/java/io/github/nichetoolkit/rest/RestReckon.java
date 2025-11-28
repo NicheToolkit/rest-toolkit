@@ -1,6 +1,6 @@
 package io.github.nichetoolkit.rest;
 
-import org.springframework.lang.NonNull;
+import org.jspecify.annotations.NonNull;
 
 import java.util.*;
 
@@ -11,7 +11,7 @@ import java.util.*;
  * @author Cyan (snow22314@outlook.com)
  * @see java.lang.Number
  * @see io.github.nichetoolkit.rest.RestValue
- * @since Jdk1.8
+ * @since Jdk17
  */
 public interface RestReckon<N extends Number> extends RestValue<String, N> {
 
@@ -161,7 +161,7 @@ public interface RestReckon<N extends Number> extends RestValue<String, N> {
      * @param reckon {@link io.github.nichetoolkit.rest.RestReckon} <p>The reckon parameter is <code>RestReckon</code> type.</p>
      * @return boolean <p>The reach value return object is <code>boolean</code> type.</p>
      * @see java.lang.Number
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     static <N extends Number> boolean reachValue(@NonNull N value, @NonNull RestReckon<N> reckon) {
         Number sourceValue = Optional.ofNullable(reckon.getValue()).map(Number::longValue).orElse(0L);
@@ -176,7 +176,7 @@ public interface RestReckon<N extends Number> extends RestValue<String, N> {
      * @param reckonValue N <p>The reckon value parameter is <code>N</code> type.</p>
      * @return boolean <p>The reach number return object is <code>boolean</code> type.</p>
      * @see java.lang.Number
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     static <N extends Number> boolean reachNumber(@NonNull N value, N reckonValue) {
         Number sourceValue = Optional.ofNullable(reckonValue).map(Number::longValue).orElse(0L);

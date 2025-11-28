@@ -13,7 +13,7 @@ import java.util.*;
  * <code>DefaultReduceOps</code>
  * <p>The default reduce ops class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @since Jdk1.8
+ * @since Jdk17
  */
 final class DefaultReduceOps {
 
@@ -267,7 +267,7 @@ final class DefaultReduceOps {
      * @param <K> {@link io.github.nichetoolkit.rest.stream.DefaultReduceOps.AccumulatingSink} <p>The generic parameter is <code>AccumulatingSink</code> type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultTerminalSink
-     * @since Jdk1.8
+     * @since Jdk17
      */
     private interface AccumulatingSink<T, R, K extends AccumulatingSink<T, R, K>>
             extends DefaultTerminalSink<T, R> {
@@ -286,7 +286,7 @@ final class DefaultReduceOps {
      * <p>The box class.</p>
      * @param <U> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
-     * @since Jdk1.8
+     * @since Jdk17
      */
     private static abstract class Box<U> {
         /**
@@ -320,7 +320,7 @@ final class DefaultReduceOps {
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultReduceOps.AccumulatingSink
      * @see io.github.nichetoolkit.rest.stream.DefaultTerminalOp
-     * @since Jdk1.8
+     * @since Jdk17
      */
     private static abstract class ReduceOp<T, R, S extends AccumulatingSink<T, R, S>>
             implements DefaultTerminalOp<T, R> {
@@ -376,7 +376,7 @@ final class DefaultReduceOps {
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultReduceOps.AccumulatingSink
      * @see io.github.nichetoolkit.rest.stream.DefaultAbstractTask
-     * @since Jdk1.8
+     * @since Jdk17
      */
     private static final class ReduceTask<P_IN, P_OUT, R,
                                           S extends AccumulatingSink<P_OUT, R, S>>

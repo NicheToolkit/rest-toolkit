@@ -4,8 +4,8 @@ import com.fasterxml.jackson.dataformat.xml.XmlFactory;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.xml.stream.XMLInputFactory;
-import javax.xml.stream.XMLOutputFactory;
+import jakarta.xml.stream.XMLInputFactory;
+import jakarta.xml.stream.XMLOutputFactory;
 
 /**
  * <code>XmlMapperHolder</code>

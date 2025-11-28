@@ -10,7 +10,7 @@ import io.github.nichetoolkit.rest.RestStatus;
  * <p>The parse error exception class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestErrorException
- * @since Jdk1.8
+ * @since Jdk17
  */
 public class ParseErrorException extends RestErrorException {
 

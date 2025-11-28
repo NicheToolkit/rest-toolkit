@@ -6,7 +6,7 @@ import io.github.nichetoolkit.rest.error.license.LicenseLackError;
 import io.github.nichetoolkit.rest.util.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 
 /**
  * <code>LicenseVerifierWorker</code>
@@ -43,7 +43,7 @@ public class LicenseVerifierWorker {
     /**
      * <code>licenseVerifierWorkerInit</code>
      * <p>The license verifier worker init method.</p>
-     * @see javax.annotation.PostConstruct
+     * @see jakarta.annotation.PostConstruct
      */
     @PostConstruct
     public void licenseVerifierWorkerInit() {

@@ -11,7 +11,7 @@ import java.util.function.*;
  * <code>DefaultForEachOps</code>
  * <p>The default for each ops class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @since Jdk1.8
+ * @since Jdk17
  */
 final class DefaultForEachOps {
 
@@ -45,7 +45,7 @@ final class DefaultForEachOps {
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultTerminalOp
      * @see io.github.nichetoolkit.rest.stream.DefaultTerminalSink
-     * @since Jdk1.8
+     * @since Jdk17
      */
     static abstract class ForEachOp<T>
             implements DefaultTerminalOp<T, Void>, DefaultTerminalSink<T, Void> {
@@ -95,7 +95,7 @@ final class DefaultForEachOps {
          * <p>The of ref class.</p>
          * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @author Cyan (snow22314@outlook.com)
-         * @since Jdk1.8
+         * @since Jdk17
          */
         static final class OfRef<T> extends ForEachOp<T> {
             /**
@@ -131,7 +131,7 @@ final class DefaultForEachOps {
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultCountedCompleter
-     * @since Jdk1.8
+     * @since Jdk17
      */
     static final class ForEachTask<S, T> extends DefaultCountedCompleter<Void> {
         /**
@@ -235,7 +235,7 @@ final class DefaultForEachOps {
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultCountedCompleter
-     * @since Jdk1.8
+     * @since Jdk17
      */
     static final class ForEachOrderedTask<S, T> extends DefaultCountedCompleter<Void> {
 

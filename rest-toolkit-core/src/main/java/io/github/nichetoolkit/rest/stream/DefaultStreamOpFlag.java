@@ -9,7 +9,7 @@ import java.util.Map;
  * <code>DefaultStreamOpFlag</code>
  * <p>The default stream op flag enumeration.</p>
  * @author Cyan (snow22314@outlook.com)
- * @since Jdk1.8
+ * @since Jdk17
  */
 enum DefaultStreamOpFlag {
 
@@ -53,7 +53,7 @@ enum DefaultStreamOpFlag {
      * <code>Type</code>
      * <p>The type enumeration.</p>
      * @author Cyan (snow22314@outlook.com)
-     * @since Jdk1.8
+     * @since Jdk17
      */
     enum Type {
         /**
@@ -121,7 +121,7 @@ enum DefaultStreamOpFlag {
      * <code>MaskBuilder</code>
      * <p>The mask builder class.</p>
      * @author Cyan (snow22314@outlook.com)
-     * @since Jdk1.8
+     * @since Jdk17
      */
     private static class MaskBuilder {
         /**

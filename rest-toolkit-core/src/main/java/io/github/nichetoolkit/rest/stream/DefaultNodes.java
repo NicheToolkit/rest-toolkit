@@ -11,7 +11,7 @@ import java.util.function.*;
  * <code>DefaultNodes</code>
  * <p>The default nodes class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @since Jdk1.8
+ * @since Jdk17
  */
 final class DefaultNodes {
 
@@ -192,7 +192,7 @@ final class DefaultNodes {
      * @param <T_ARR>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T_CONS> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
-     * @since Jdk1.8
+     * @since Jdk17
      */
     private static abstract class EmptyDefaultNode<T, T_ARR, T_CONS> implements DefaultNode<T> {
         /**
@@ -234,7 +234,7 @@ final class DefaultNodes {
          * <p>The of ref class.</p>
          * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @author Cyan (snow22314@outlook.com)
-         * @since Jdk1.8
+         * @since Jdk17
          */
         private static class OfRef<T> extends DefaultNodes.EmptyDefaultNode<T, T[], ConsumerActuator<? super T>> {
             /**
@@ -257,7 +257,7 @@ final class DefaultNodes {
      * <p>The array default node class.</p>
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
-     * @since Jdk1.8
+     * @since Jdk17
      */
     private static class ArrayDefaultNode<T> implements DefaultNode<T> {
         /**
@@ -338,7 +338,7 @@ final class DefaultNodes {
      * <p>The collection default node class.</p>
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
-     * @since Jdk1.8
+     * @since Jdk17
      */
     private static final class CollectionDefaultNode<T> implements DefaultNode<T> {
         /**
@@ -401,7 +401,7 @@ final class DefaultNodes {
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T_NODE> {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The generic parameter is <code>DefaultNode</code> type.</p>
      * @author Cyan (snow22314@outlook.com)
-     * @since Jdk1.8
+     * @since Jdk17
      */
     private static abstract class AbstractConcDefaultNode<T, T_NODE extends DefaultNode<T>> implements DefaultNode<T> {
         /**
@@ -456,7 +456,7 @@ final class DefaultNodes {
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultNodes.AbstractConcDefaultNode
-     * @since Jdk1.8
+     * @since Jdk17
      */
     static final class ConcDefaultNode<T>
             extends AbstractConcDefaultNode<T, DefaultNode<T>>
@@ -536,7 +536,7 @@ final class DefaultNodes {
          * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator.OfPrimitive
          * @see io.github.nichetoolkit.rest.stream.DefaultNode.OfPrimitive
          * @see io.github.nichetoolkit.rest.stream.DefaultNodes.AbstractConcDefaultNode
-         * @since Jdk1.8
+         * @since Jdk17
          */
         private abstract static class OfPrimitive<E, T_CONS, T_ARR,
                 T_SPLITR extends DefaultSpliterator.OfPrimitive<E, T_CONS, T_SPLITR>,
@@ -594,7 +594,7 @@ final class DefaultNodes {
      * @param <N> {@link io.github.nichetoolkit.rest.stream.DefaultNode} <p>The generic parameter is <code>DefaultNode</code> type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
-     * @since Jdk1.8
+     * @since Jdk17
      */
     private static abstract class InternalDefaultNodeSpliterator<T,
             S extends DefaultSpliterator<T>,
@@ -757,7 +757,7 @@ final class DefaultNodes {
          * <p>The of ref class.</p>
          * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @author Cyan (snow22314@outlook.com)
-         * @since Jdk1.8
+         * @since Jdk17
          */
         private static final class OfRef<T>
                 extends DefaultNodes.InternalDefaultNodeSpliterator<T, DefaultSpliterator<T>, DefaultNode<T>> {
@@ -823,7 +823,7 @@ final class DefaultNodes {
          * @author Cyan (snow22314@outlook.com)
          * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator.OfPrimitive
          * @see io.github.nichetoolkit.rest.stream.DefaultNode.OfPrimitive
-         * @since Jdk1.8
+         * @since Jdk17
          */
         private static abstract class OfPrimitive<T, T_CONS, T_ARR,
                 T_SPLITR extends DefaultSpliterator.OfPrimitive<T, T_CONS, T_SPLITR>,
@@ -889,7 +889,7 @@ final class DefaultNodes {
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultNodes.ArrayDefaultNode
      * @see io.github.nichetoolkit.rest.stream.DefaultNode.Builder
-     * @since Jdk1.8
+     * @since Jdk17
      */
     private static final class FixedDefaultNodeBuilder<T>
             extends ArrayDefaultNode<T>
@@ -954,7 +954,7 @@ final class DefaultNodes {
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultSpinedBuffer
      * @see io.github.nichetoolkit.rest.stream.DefaultNode.Builder
-     * @since Jdk1.8
+     * @since Jdk17
      */
     private static final class SpinedDefaultNodeBuilder<T>
             extends DefaultSpinedBuffer<T>
@@ -1033,7 +1033,7 @@ final class DefaultNodes {
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultSink
      * @see io.github.nichetoolkit.rest.stream.DefaultCountedCompleter
-     * @since Jdk1.8
+     * @since Jdk17
      */
     private static abstract class SizedCollectorTask<P_IN, P_OUT, T_SINK extends DefaultSink<P_OUT>,
             K extends DefaultNodes.SizedCollectorTask<P_IN, P_OUT, T_SINK, K>>
@@ -1179,7 +1179,7 @@ final class DefaultNodes {
          * @param <P_OUT> {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @author Cyan (snow22314@outlook.com)
          * @see io.github.nichetoolkit.rest.stream.DefaultSink
-         * @since Jdk1.8
+         * @since Jdk17
          */
         static final class OfRef<P_IN, P_OUT>
                 extends DefaultNodes.SizedCollectorTask<P_IN, P_OUT, DefaultSink<P_OUT>, OfRef<P_IN, P_OUT>>
@@ -1247,7 +1247,7 @@ final class DefaultNodes {
      * @param <K>      {@link io.github.nichetoolkit.rest.stream.DefaultNodes.ToArrayTask} <p>The generic parameter is <code>ToArrayTask</code> type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultCountedCompleter
-     * @since Jdk1.8
+     * @since Jdk17
      */
     private static abstract class ToArrayTask<T, T_NODE extends DefaultNode<T>,
             K extends DefaultNodes.ToArrayTask<T, T_NODE, K>>
@@ -1330,7 +1330,7 @@ final class DefaultNodes {
          * <p>The of ref class.</p>
          * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @author Cyan (snow22314@outlook.com)
-         * @since Jdk1.8
+         * @since Jdk17
          */
         private static final class OfRef<T>
                 extends DefaultNodes.ToArrayTask<T, DefaultNode<T>, OfRef<T>> {
@@ -1386,7 +1386,7 @@ final class DefaultNodes {
          * @author Cyan (snow22314@outlook.com)
          * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator.OfPrimitive
          * @see io.github.nichetoolkit.rest.stream.DefaultNode.OfPrimitive
-         * @since Jdk1.8
+         * @since Jdk17
          */
         private static class OfPrimitive<T, T_CONS, T_ARR,
                 T_SPLITR extends DefaultSpliterator.OfPrimitive<T, T_CONS, T_SPLITR>,
@@ -1444,7 +1444,7 @@ final class DefaultNodes {
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultNode.Builder
      * @see io.github.nichetoolkit.rest.stream.DefaultAbstractTask
-     * @since Jdk1.8
+     * @since Jdk17
      */
     private static class CollectorTask<P_IN, P_OUT, T_NODE extends DefaultNode<P_OUT>, T_BUILDER extends DefaultNode.Builder<P_OUT>>
             extends DefaultAbstractTask<P_IN, P_OUT, T_NODE, CollectorTask<P_IN, P_OUT, T_NODE, T_BUILDER>> {
@@ -1529,7 +1529,7 @@ final class DefaultNodes {
          * @param <P_IN>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @param <P_OUT> {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @author Cyan (snow22314@outlook.com)
-         * @since Jdk1.8
+         * @since Jdk17
          */
         private static final class OfRef<P_IN, P_OUT>
                 extends DefaultNodes.CollectorTask<P_IN, P_OUT, DefaultNode<P_OUT>, DefaultNode.Builder<P_OUT>> {

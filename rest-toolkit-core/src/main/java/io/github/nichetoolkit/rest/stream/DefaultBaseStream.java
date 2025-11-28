@@ -1,7 +1,7 @@
 package io.github.nichetoolkit.rest.stream;
 
 import io.github.nichetoolkit.rest.RestException;
-import org.springframework.lang.NonNull;
+import org.jspecify.annotations.NonNull;
 
 import java.util.Iterator;
 
@@ -12,8 +12,7 @@ import java.util.Iterator;
  * @param <S> {@link io.github.nichetoolkit.rest.stream.DefaultBaseStream} <p>The generic parameter is <code>DefaultBaseStream</code> type.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.lang.AutoCloseable
- * @see java.lang.SuppressWarnings
- * @since Jdk1.8
+ * @since Jdk17
  */
 interface DefaultBaseStream<T, S extends DefaultBaseStream<T, S>> extends AutoCloseable {
 
@@ -23,7 +22,7 @@ interface DefaultBaseStream<T, S extends DefaultBaseStream<T, S>> extends AutoCl
      * @return {@link java.util.Iterator} <p>The iterator return object is <code>Iterator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.util.Iterator
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      * @see io.github.nichetoolkit.rest.RestException
      */
     @NonNull
@@ -35,7 +34,7 @@ interface DefaultBaseStream<T, S extends DefaultBaseStream<T, S>> extends AutoCl
      * @return {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The spliterator return object is <code>DefaultSpliterator</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.stream.DefaultSpliterator
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      * @see io.github.nichetoolkit.rest.RestException
      */
     @NonNull
@@ -55,7 +54,7 @@ interface DefaultBaseStream<T, S extends DefaultBaseStream<T, S>> extends AutoCl
      * <p>The sequential method.</p>
      * @return S <p>The sequential return object is <code>S</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      * @see io.github.nichetoolkit.rest.RestException
      */
     @NonNull
@@ -66,7 +65,7 @@ interface DefaultBaseStream<T, S extends DefaultBaseStream<T, S>> extends AutoCl
      * <p>The parallel method.</p>
      * @return S <p>The parallel return object is <code>S</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      * @see io.github.nichetoolkit.rest.RestException
      */
     @NonNull
@@ -77,7 +76,7 @@ interface DefaultBaseStream<T, S extends DefaultBaseStream<T, S>> extends AutoCl
      * <p>The unordered method.</p>
      * @return S <p>The unordered return object is <code>S</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      * @see io.github.nichetoolkit.rest.RestException
      */
     @NonNull
@@ -89,7 +88,7 @@ interface DefaultBaseStream<T, S extends DefaultBaseStream<T, S>> extends AutoCl
      * @param closeHandler {@link java.lang.Runnable} <p>The close handler parameter is <code>Runnable</code> type.</p>
      * @return S <p>The on close return object is <code>S</code> type.</p>
      * @see java.lang.Runnable
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     @NonNull
     S onClose(Runnable closeHandler);

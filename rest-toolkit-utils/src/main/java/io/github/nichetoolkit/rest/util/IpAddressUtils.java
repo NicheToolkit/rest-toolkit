@@ -2,7 +2,7 @@ package io.github.nichetoolkit.rest.util;
 
 import io.github.nichetoolkit.rest.constant.UtilConstants;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -19,8 +19,8 @@ public class IpAddressUtils {
     /**
      * <code>getHttpServletRequest</code>
      * <p>The get http servlet request getter method.</p>
-     * @return {@link javax.servlet.http.HttpServletRequest} <p>The get http servlet request return object is <code>HttpServletRequest</code> type.</p>
-     * @see javax.servlet.http.HttpServletRequest
+     * @return {@link jakarta.servlet.http.HttpServletRequest} <p>The get http servlet request return object is <code>HttpServletRequest</code> type.</p>
+     * @see jakarta.servlet.http.HttpServletRequest
      */
     private static HttpServletRequest getHttpServletRequest() {
         return BeanUtils.beanOfType(HttpServletRequest.class);
@@ -39,9 +39,9 @@ public class IpAddressUtils {
     /**
      * <code>ipAddress</code>
      * <p>The ip address method.</p>
-     * @param httpServletRequest {@link javax.servlet.http.HttpServletRequest} <p>The http servlet request parameter is <code>HttpServletRequest</code> type.</p>
+     * @param httpServletRequest {@link jakarta.servlet.http.HttpServletRequest} <p>The http servlet request parameter is <code>HttpServletRequest</code> type.</p>
      * @return {@link java.lang.String} <p>The ip address return object is <code>String</code> type.</p>
-     * @see javax.servlet.http.HttpServletRequest
+     * @see jakarta.servlet.http.HttpServletRequest
      * @see java.lang.String
      */
     public static String ipAddress(HttpServletRequest httpServletRequest) {
@@ -51,10 +51,10 @@ public class IpAddressUtils {
     /**
      * <code>ipAddress</code>
      * <p>The ip address method.</p>
-     * @param httpServletRequest {@link javax.servlet.http.HttpServletRequest} <p>The http servlet request parameter is <code>HttpServletRequest</code> type.</p>
+     * @param httpServletRequest {@link jakarta.servlet.http.HttpServletRequest} <p>The http servlet request parameter is <code>HttpServletRequest</code> type.</p>
      * @param ignoredIpAddresses {@link java.util.List} <p>The ignored ip addresses parameter is <code>List</code> type.</p>
      * @return {@link java.lang.String} <p>The ip address return object is <code>String</code> type.</p>
-     * @see javax.servlet.http.HttpServletRequest
+     * @see jakarta.servlet.http.HttpServletRequest
      * @see java.util.List
      * @see java.lang.String
      */
@@ -128,9 +128,9 @@ public class IpAddressUtils {
     /**
      * <code>remoteIpAddress</code>
      * <p>The remote ip address method.</p>
-     * @param request {@link javax.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
+     * @param request {@link jakarta.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
      * @return {@link java.lang.String} <p>The remote ip address return object is <code>String</code> type.</p>
-     * @see javax.servlet.http.HttpServletRequest
+     * @see jakarta.servlet.http.HttpServletRequest
      * @see java.lang.String
      * @see java.lang.SuppressWarnings
      */
@@ -171,9 +171,9 @@ public class IpAddressUtils {
     /**
      * <code>userIpAddress</code>
      * <p>The user ip address method.</p>
-     * @param request {@link javax.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
+     * @param request {@link jakarta.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
      * @return {@link java.lang.String} <p>The user ip address return object is <code>String</code> type.</p>
-     * @see javax.servlet.http.HttpServletRequest
+     * @see jakarta.servlet.http.HttpServletRequest
      * @see java.lang.String
      */
     public static String userIpAddress(HttpServletRequest request) {
@@ -204,9 +204,9 @@ public class IpAddressUtils {
     /**
      * <code>baseIpAddress</code>
      * <p>The base ip address method.</p>
-     * @param request {@link javax.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
+     * @param request {@link jakarta.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
      * @return {@link java.lang.String} <p>The base ip address return object is <code>String</code> type.</p>
-     * @see javax.servlet.http.HttpServletRequest
+     * @see jakarta.servlet.http.HttpServletRequest
      * @see java.lang.String
      * @see java.lang.SuppressWarnings
      */

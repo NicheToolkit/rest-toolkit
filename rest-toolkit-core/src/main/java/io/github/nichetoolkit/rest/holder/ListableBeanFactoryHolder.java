@@ -4,14 +4,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
-import org.springframework.lang.NonNull;
+import org.jspecify.annotations.NonNull;
 
 /**
  * <code>ListableBeanFactoryHolder</code>
  * <p>The listable bean factory holder class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Slf4j
 public class ListableBeanFactoryHolder {
@@ -28,7 +28,7 @@ public class ListableBeanFactoryHolder {
      * <p>The init configurable listable bean factory method.</p>
      * @param listableBeanFactory {@link org.springframework.beans.factory.config.ConfigurableListableBeanFactory} <p>The listable bean factory parameter is <code>ConfigurableListableBeanFactory</code> type.</p>
      * @see org.springframework.beans.factory.config.ConfigurableListableBeanFactory
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     static void initConfigurableListableBeanFactory(@NonNull ConfigurableListableBeanFactory listableBeanFactory) {
         LISTABLE_BEAN_FACTORY = listableBeanFactory;
@@ -40,7 +40,7 @@ public class ListableBeanFactoryHolder {
      * <p>The get configurable listable bean factory getter method.</p>
      * @return {@link org.springframework.beans.factory.config.ConfigurableListableBeanFactory} <p>The get configurable listable bean factory return object is <code>ConfigurableListableBeanFactory</code> type.</p>
      * @see org.springframework.beans.factory.config.ConfigurableListableBeanFactory
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     @NonNull
     public static ConfigurableListableBeanFactory getConfigurableListableBeanFactory() {
@@ -75,9 +75,7 @@ public class ListableBeanFactoryHolder {
      * @see org.springframework.beans.BeansException
      */
     public static Object createAutowireBean(Class<?> beanType, int autowireMode, boolean dependencyCheck) throws BeansException {
-        Object createBean = LISTABLE_BEAN_FACTORY.createBean(beanType, autowireMode, dependencyCheck);
-        LISTABLE_BEAN_FACTORY.autowireBeanProperties(createBean, autowireMode, dependencyCheck);
-        return createBean;
+        return LISTABLE_BEAN_FACTORY.autowire(beanType, autowireMode, dependencyCheck);
     }
 
     /**
@@ -119,22 +117,6 @@ public class ListableBeanFactoryHolder {
      */
     public static Object configureBean(Object existingBean, String beanName) throws BeansException {
         return LISTABLE_BEAN_FACTORY.configureBean(existingBean, beanName);
-    }
-
-    /**
-     * <code>createBean</code>
-     * <p>The create bean method.</p>
-     * @param beanType        {@link java.lang.Class} <p>The bean type parameter is <code>Class</code> type.</p>
-     * @param autowireMode    int <p>The autowire mode parameter is <code>int</code> type.</p>
-     * @param dependencyCheck boolean <p>The dependency check parameter is <code>boolean</code> type.</p>
-     * @return {@link java.lang.Object} <p>The create bean return object is <code>Object</code> type.</p>
-     * @throws BeansException {@link org.springframework.beans.BeansException} <p>The beans exception is <code>BeansException</code> type.</p>
-     * @see java.lang.Class
-     * @see java.lang.Object
-     * @see org.springframework.beans.BeansException
-     */
-    public static Object createBean(Class<?> beanType, int autowireMode, boolean dependencyCheck) throws BeansException {
-        return LISTABLE_BEAN_FACTORY.createBean(beanType, autowireMode, dependencyCheck);
     }
 
     /**

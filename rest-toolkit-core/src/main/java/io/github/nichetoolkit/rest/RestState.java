@@ -11,10 +11,8 @@ import java.util.Objects;
  * @param <S> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestKey
- * @see java.lang.SuppressWarnings
- * @since Jdk1.8
+ * @since Jdk17
  */
-@SuppressWarnings("all")
 public interface RestState<S> extends RestKey<S> {
 
     /**
@@ -46,8 +44,8 @@ public interface RestState<S> extends RestKey<S> {
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.RestKey
      */
-    static <S> RestState of(String name, RestKey<S> restKey) {
-        return new OfRestState(name, restKey);
+    static <S> RestState<S> of(String name, RestKey<S> restKey) {
+        return new OfRestState<>(name, restKey);
     }
 
     /**
@@ -59,17 +57,18 @@ public interface RestState<S> extends RestKey<S> {
      * @return {@link io.github.nichetoolkit.rest.RestState} <p>The of return object is <code>RestState</code> type.</p>
      * @see java.lang.String
      */
-    static <S> RestState of(String name, S value) {
-        return new OfRestState(name, value);
+    static <S> RestState<S> of(String name, S value) {
+        return new OfRestState<>(name, value);
     }
 
     /**
      * <code>ofNull</code>
      * <p>The of null method.</p>
+     * @param <S> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestState} <p>The of null return object is <code>RestState</code> type.</p>
      */
-    static RestState ofNull() {
-        return new OfRestState();
+    static <S>  RestState<S> ofNull() {
+        return new OfRestState<>();
     }
 
     /**
@@ -79,7 +78,7 @@ public interface RestState<S> extends RestKey<S> {
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.RestKey.OfRestKey
      * @see lombok.Setter
-     * @since Jdk1.8
+     * @since Jdk17
      */
     @Setter
     class OfRestState<S> extends OfRestKey<S> implements RestState<S> {

@@ -17,7 +17,7 @@ import java.util.Set;
  * @param <A> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @param <R> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
- * @since Jdk1.8
+ * @since Jdk17
  */
 public interface RestCollector<T, A, R> {
 
@@ -132,7 +132,7 @@ public interface RestCollector<T, A, R> {
      * <code>Characteristics</code>
      * <p>The characteristics enumeration.</p>
      * @author Cyan (snow22314@outlook.com)
-     * @since Jdk1.8
+     * @since Jdk17
      */
     enum Characteristics {
 

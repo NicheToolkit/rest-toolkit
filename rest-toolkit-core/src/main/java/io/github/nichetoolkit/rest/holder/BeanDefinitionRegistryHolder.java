@@ -5,14 +5,14 @@ import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.DefaultBeanNameGenerator;
-import org.springframework.lang.NonNull;
+import org.jspecify.annotations.NonNull;
 
 /**
  * <code>BeanDefinitionRegistryHolder</code>
  * <p>The bean definition registry holder class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Slf4j
 public class BeanDefinitionRegistryHolder {
@@ -29,7 +29,7 @@ public class BeanDefinitionRegistryHolder {
      * <p>The init bean definition registry method.</p>
      * @param beanDefinitionRegistry {@link org.springframework.beans.factory.support.BeanDefinitionRegistry} <p>The bean definition registry parameter is <code>BeanDefinitionRegistry</code> type.</p>
      * @see org.springframework.beans.factory.support.BeanDefinitionRegistry
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     static void initBeanDefinitionRegistry(@NonNull BeanDefinitionRegistry beanDefinitionRegistry) {
         BEAN_DEFINITION_REGISTRY = beanDefinitionRegistry;
@@ -41,7 +41,7 @@ public class BeanDefinitionRegistryHolder {
      * <p>The get bean definition registry getter method.</p>
      * @return {@link org.springframework.beans.factory.support.BeanDefinitionRegistry} <p>The get bean definition registry return object is <code>BeanDefinitionRegistry</code> type.</p>
      * @see org.springframework.beans.factory.support.BeanDefinitionRegistry
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     @NonNull
     public static BeanDefinitionRegistry getBeanDefinitionRegistry() {

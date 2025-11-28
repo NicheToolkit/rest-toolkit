@@ -8,10 +8,10 @@ import io.github.nichetoolkit.rest.helper.JaxbHelper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletResponse;
-import javax.xml.bind.JAXB;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.Unmarshaller;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.xml.bind.JAXB;
+import jakarta.xml.bind.Marshaller;
+import jakarta.xml.bind.Unmarshaller;
 import java.io.File;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -32,9 +32,9 @@ public class JaxbUtils {
      * <code>encode</code>
      * <p>The encode method.</p>
      * @param filename {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
-     * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param response {@link jakarta.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
      * @see  java.lang.String
-     * @see  javax.servlet.http.HttpServletResponse
+     * @see  jakarta.servlet.http.HttpServletResponse
      */
     public static void encode(String filename, HttpServletResponse response) {
         JaxbHelper.encode(filename,response);
@@ -47,8 +47,8 @@ public class JaxbUtils {
      * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
      * @see  java.lang.Class
-     * @see  javax.xml.bind.Marshaller
-     * @return  {@link javax.xml.bind.Marshaller} <p>The marshaller return object is <code>Marshaller</code> type.</p>
+     * @see  jakarta.xml.bind.Marshaller
+     * @return  {@link jakarta.xml.bind.Marshaller} <p>The marshaller return object is <code>Marshaller</code> type.</p>
      */
     public static <T> Marshaller marshaller(Class<T> clazz)  {
         try {
@@ -66,8 +66,8 @@ public class JaxbUtils {
      * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
      * @see  java.lang.Class
-     * @see  javax.xml.bind.Unmarshaller
-     * @return  {@link javax.xml.bind.Unmarshaller} <p>The unmarshaller return object is <code>Unmarshaller</code> type.</p>
+     * @see  jakarta.xml.bind.Unmarshaller
+     * @return  {@link jakarta.xml.bind.Unmarshaller} <p>The unmarshaller return object is <code>Unmarshaller</code> type.</p>
      */
     public static <T> Unmarshaller unmarshaller(Class<T> clazz)  {
         try {
@@ -123,10 +123,10 @@ public class JaxbUtils {
      * <code>read</code>
      * <p>The read method.</p>
      * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param unmarshaller {@link javax.xml.bind.Unmarshaller} <p>The unmarshaller parameter is <code>Unmarshaller</code> type.</p>
+     * @param unmarshaller {@link jakarta.xml.bind.Unmarshaller} <p>The unmarshaller parameter is <code>Unmarshaller</code> type.</p>
      * @param inputStream {@link java.io.InputStream} <p>The input stream parameter is <code>InputStream</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  javax.xml.bind.Unmarshaller
+     * @see  jakarta.xml.bind.Unmarshaller
      * @see  java.io.InputStream
      * @see  java.lang.Class
      * @return T <p>The read return object is <code>T</code> type.</p>
@@ -165,13 +165,13 @@ public class JaxbUtils {
      * <code>write</code>
      * <p>The write method.</p>
      * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param marshaller {@link javax.xml.bind.Marshaller} <p>The marshaller parameter is <code>Marshaller</code> type.</p>
+     * @param marshaller {@link jakarta.xml.bind.Marshaller} <p>The marshaller parameter is <code>Marshaller</code> type.</p>
      * @param xmlObject T <p>The xml object parameter is <code>T</code> type.</p>
      * @param filename {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
-     * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
-     * @see  javax.xml.bind.Marshaller
+     * @param response {@link jakarta.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @see  jakarta.xml.bind.Marshaller
      * @see  java.lang.String
-     * @see  javax.servlet.http.HttpServletResponse
+     * @see  jakarta.servlet.http.HttpServletResponse
      */
     public static <T> void write(Marshaller marshaller, T xmlObject, String filename, HttpServletResponse response)  {
         try {
@@ -186,11 +186,11 @@ public class JaxbUtils {
      * <code>write</code>
      * <p>The write method.</p>
      * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param marshaller {@link javax.xml.bind.Marshaller} <p>The marshaller parameter is <code>Marshaller</code> type.</p>
+     * @param marshaller {@link jakarta.xml.bind.Marshaller} <p>The marshaller parameter is <code>Marshaller</code> type.</p>
      * @param xmlObject T <p>The xml object parameter is <code>T</code> type.</p>
-     * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
-     * @see  javax.xml.bind.Marshaller
-     * @see  javax.servlet.http.HttpServletResponse
+     * @param response {@link jakarta.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @see  jakarta.xml.bind.Marshaller
+     * @see  jakarta.servlet.http.HttpServletResponse
      */
     public static <T> void write(Marshaller marshaller, T xmlObject, HttpServletResponse response)  {
         try {
@@ -205,10 +205,10 @@ public class JaxbUtils {
      * <code>write</code>
      * <p>The write method.</p>
      * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param marshaller {@link javax.xml.bind.Marshaller} <p>The marshaller parameter is <code>Marshaller</code> type.</p>
+     * @param marshaller {@link jakarta.xml.bind.Marshaller} <p>The marshaller parameter is <code>Marshaller</code> type.</p>
      * @param xmlObject T <p>The xml object parameter is <code>T</code> type.</p>
      * @param outputStream {@link java.io.OutputStream} <p>The output stream parameter is <code>OutputStream</code> type.</p>
-     * @see  javax.xml.bind.Marshaller
+     * @see  jakarta.xml.bind.Marshaller
      * @see  java.io.OutputStream
      */
     public static <T> void write(Marshaller marshaller, T xmlObject, OutputStream outputStream)  {
@@ -226,9 +226,9 @@ public class JaxbUtils {
      * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xmlObject T <p>The xml object parameter is <code>T</code> type.</p>
      * @param filename {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
-     * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param response {@link jakarta.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
      * @see  java.lang.String
-     * @see  javax.servlet.http.HttpServletResponse
+     * @see  jakarta.servlet.http.HttpServletResponse
      */
     public static <T> void write(T xmlObject, String filename, HttpServletResponse response)  {
         try {
@@ -244,8 +244,8 @@ public class JaxbUtils {
      * <p>The write method.</p>
      * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xmlObject T <p>The xml object parameter is <code>T</code> type.</p>
-     * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
-     * @see  javax.servlet.http.HttpServletResponse
+     * @param response {@link jakarta.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @see  jakarta.servlet.http.HttpServletResponse
      */
     public static <T> void write(T xmlObject, HttpServletResponse response)  {
         try {
@@ -273,10 +273,10 @@ public class JaxbUtils {
      * <code>write</code>
      * <p>The write method.</p>
      * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param marshaller {@link javax.xml.bind.Marshaller} <p>The marshaller parameter is <code>Marshaller</code> type.</p>
+     * @param marshaller {@link jakarta.xml.bind.Marshaller} <p>The marshaller parameter is <code>Marshaller</code> type.</p>
      * @param xmlObject T <p>The xml object parameter is <code>T</code> type.</p>
      * @param writer {@link java.io.Writer} <p>The writer parameter is <code>Writer</code> type.</p>
-     * @see  javax.xml.bind.Marshaller
+     * @see  jakarta.xml.bind.Marshaller
      * @see  java.io.Writer
      */
     public static <T> void write(Marshaller marshaller, T xmlObject, Writer writer)  {
@@ -293,10 +293,10 @@ public class JaxbUtils {
      * <code>write</code>
      * <p>The write method.</p>
      * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param marshaller {@link javax.xml.bind.Marshaller} <p>The marshaller parameter is <code>Marshaller</code> type.</p>
+     * @param marshaller {@link jakarta.xml.bind.Marshaller} <p>The marshaller parameter is <code>Marshaller</code> type.</p>
      * @param xmlObject T <p>The xml object parameter is <code>T</code> type.</p>
      * @param path {@link java.nio.file.Path} <p>The path parameter is <code>Path</code> type.</p>
-     * @see  javax.xml.bind.Marshaller
+     * @see  jakarta.xml.bind.Marshaller
      * @see  java.nio.file.Path
      */
     public static <T> void write(Marshaller marshaller, T xmlObject, Path path)  {
@@ -313,10 +313,10 @@ public class JaxbUtils {
      * <code>write</code>
      * <p>The write method.</p>
      * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param marshaller {@link javax.xml.bind.Marshaller} <p>The marshaller parameter is <code>Marshaller</code> type.</p>
+     * @param marshaller {@link jakarta.xml.bind.Marshaller} <p>The marshaller parameter is <code>Marshaller</code> type.</p>
      * @param xmlObject T <p>The xml object parameter is <code>T</code> type.</p>
      * @param file {@link java.io.File} <p>The file parameter is <code>File</code> type.</p>
-     * @see  javax.xml.bind.Marshaller
+     * @see  jakarta.xml.bind.Marshaller
      * @see  java.io.File
      */
     public static <T> void write(Marshaller marshaller, T xmlObject, File file)  {
@@ -332,10 +332,10 @@ public class JaxbUtils {
      * <code>property</code>
      * <p>The property method.</p>
      * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param marshaller {@link javax.xml.bind.Marshaller} <p>The marshaller parameter is <code>Marshaller</code> type.</p>
+     * @param marshaller {@link jakarta.xml.bind.Marshaller} <p>The marshaller parameter is <code>Marshaller</code> type.</p>
      * @param key {@link java.lang.String} <p>The key parameter is <code>String</code> type.</p>
      * @param value {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
-     * @see  javax.xml.bind.Marshaller
+     * @see  jakarta.xml.bind.Marshaller
      * @see  java.lang.String
      * @see  java.lang.Object
      */

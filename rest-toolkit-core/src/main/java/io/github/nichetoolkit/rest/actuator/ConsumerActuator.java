@@ -13,7 +13,7 @@ import java.util.function.Consumer;
  * @author Cyan (snow22314@outlook.com)
  * @see java.util.function.Consumer
  * @see java.lang.FunctionalInterface
- * @since Jdk1.8
+ * @since Jdk17
  */
 @FunctionalInterface
 public interface ConsumerActuator<T> extends Consumer<T> {

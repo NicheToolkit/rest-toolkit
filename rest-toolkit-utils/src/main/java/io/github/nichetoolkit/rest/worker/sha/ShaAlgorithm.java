@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.github.nichetoolkit.rest.RestAlgorithm;
 import io.github.nichetoolkit.rest.RestKey;
 import io.github.nichetoolkit.rest.RestValue;
-import org.springframework.lang.NonNull;
+import org.jspecify.annotations.NonNull;
 
 import java.util.Optional;
 
@@ -101,7 +101,7 @@ public enum ShaAlgorithm implements RestAlgorithm<String> {
      * @param key {@link java.lang.Integer} <p>The key parameter is <code>Integer</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.worker.sha.ShaAlgorithm} <p>The parse key return object is <code>ShaAlgorithm</code> type.</p>
      * @see java.lang.Integer
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      * @see com.fasterxml.jackson.annotation.JsonCreator
      */
     @JsonCreator
@@ -116,7 +116,7 @@ public enum ShaAlgorithm implements RestAlgorithm<String> {
      * @param value {@link java.lang.String} <p>The value parameter is <code>String</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.worker.sha.ShaAlgorithm} <p>The parse value return object is <code>ShaAlgorithm</code> type.</p>
      * @see java.lang.String
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     public static ShaAlgorithm parseValue(@NonNull String value) {
         ShaAlgorithm typeEnum = RestValue.parseValue(ShaAlgorithm.class, value);
@@ -129,7 +129,7 @@ public enum ShaAlgorithm implements RestAlgorithm<String> {
      * @param algorithm {@link java.lang.String} <p>The algorithm parameter is <code>String</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.worker.sha.ShaAlgorithm} <p>The parse algorithm return object is <code>ShaAlgorithm</code> type.</p>
      * @see java.lang.String
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     public static ShaAlgorithm parseAlgorithm(@NonNull String algorithm) {
         ShaAlgorithm typeEnum = RestAlgorithm.parseAlgorithm(ShaAlgorithm.class, algorithm);

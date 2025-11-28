@@ -13,7 +13,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 import java.nio.file.Path;
 import java.security.PrivateKey;
 import java.security.PublicKey;
@@ -99,7 +99,7 @@ public class JwtWorker {
     /**
      * <code>jwtWorkerInit</code>
      * <p>The jwt worker init method.</p>
-     * @see javax.annotation.PostConstruct
+     * @see jakarta.annotation.PostConstruct
      */
     @PostConstruct
     public void jwtWorkerInit() {

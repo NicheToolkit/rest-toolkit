@@ -14,7 +14,7 @@ import java.util.function.BiConsumer;
  * @author Cyan (snow22314@outlook.com)
  * @see java.util.function.BiConsumer
  * @see java.lang.FunctionalInterface
- * @since Jdk1.8
+ * @since Jdk17
  */
 @FunctionalInterface
 public interface BiConsumerActuator<T, U> extends BiConsumer<T, U> {

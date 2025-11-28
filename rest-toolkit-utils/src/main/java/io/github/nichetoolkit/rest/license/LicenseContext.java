@@ -9,7 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
-import org.springframework.lang.NonNull;
+import org.jspecify.annotations.NonNull;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -88,7 +88,7 @@ public class LicenseContext implements Serializable {
      * <p>Instantiates a new license context.</p>
      * @param content {@link de.schlichtherle.license.LicenseContent} <p>The content parameter is <code>LicenseContent</code> type.</p>
      * @see de.schlichtherle.license.LicenseContent
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     public LicenseContext(@NonNull LicenseContent content) {
         this.subject = content.getSubject();
@@ -106,7 +106,7 @@ public class LicenseContext implements Serializable {
      * @param content {@link de.schlichtherle.license.LicenseContent} <p>The content parameter is <code>LicenseContent</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.license.LicenseContext} <p>The license context return object is <code>LicenseContext</code> type.</p>
      * @see de.schlichtherle.license.LicenseContent
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     public static LicenseContext licenseContext(@NonNull LicenseContent content) {
         return new LicenseContext(content);

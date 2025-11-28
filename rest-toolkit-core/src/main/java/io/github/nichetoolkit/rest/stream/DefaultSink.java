@@ -13,7 +13,7 @@ import java.util.Objects;
  * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.actuator.ConsumerActuator
- * @since Jdk1.8
+ * @since Jdk17
  */
 public interface DefaultSink<T> extends ConsumerActuator<T> {
     /**
@@ -48,7 +48,7 @@ public interface DefaultSink<T> extends ConsumerActuator<T> {
      * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <E_OUT> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
-     * @since Jdk1.8
+     * @since Jdk17
      */
     abstract class ChainedReference<T, E_OUT> implements DefaultSink<T> {
         /**

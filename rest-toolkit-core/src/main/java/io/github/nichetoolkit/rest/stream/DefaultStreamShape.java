@@ -4,7 +4,7 @@ package io.github.nichetoolkit.rest.stream;
  * <code>DefaultStreamShape</code>
  * <p>The default stream shape enumeration.</p>
  * @author Cyan (snow22314@outlook.com)
- * @since Jdk1.8
+ * @since Jdk17
  */
 public enum DefaultStreamShape {
     /**

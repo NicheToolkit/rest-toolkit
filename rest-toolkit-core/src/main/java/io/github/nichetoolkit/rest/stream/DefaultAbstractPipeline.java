@@ -2,7 +2,7 @@ package io.github.nichetoolkit.rest.stream;
 
 import io.github.nichetoolkit.rest.RestException;
 import io.github.nichetoolkit.rest.actuator.SupplierActuator;
-import org.springframework.lang.NonNull;
+import org.jspecify.annotations.NonNull;
 
 import java.util.Objects;
 import java.util.function.IntFunction;
@@ -16,7 +16,7 @@ import java.util.function.IntFunction;
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.stream.DefaultBaseStream
  * @see io.github.nichetoolkit.rest.stream.DefaultPipelineHelper
- * @since Jdk1.8
+ * @since Jdk17
  */
 abstract class DefaultAbstractPipeline<E_IN, E_OUT, S extends DefaultBaseStream<E_OUT, S>>
         extends DefaultPipelineHelper<E_OUT> implements DefaultBaseStream<E_OUT, S> {

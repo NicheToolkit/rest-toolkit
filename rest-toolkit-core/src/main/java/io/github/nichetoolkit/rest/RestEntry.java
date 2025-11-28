@@ -15,7 +15,7 @@ import java.util.Objects;
  * @param <V> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.util.Map.Entry
- * @since Jdk1.8
+ * @since Jdk17
  */
 public interface RestEntry<K, V> extends Map.Entry<K, V> {
 
@@ -127,7 +127,7 @@ public interface RestEntry<K, V> extends Map.Entry<K, V> {
      * @param <V> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.RestValue.OfRestValue
-     * @since Jdk1.8
+     * @since Jdk17
      */
     class OfRestEntry<K, V> extends RestValue.OfRestValue<K, V> implements RestEntry<K, V> {
 

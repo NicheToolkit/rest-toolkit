@@ -18,7 +18,7 @@ import java.util.Optional;
  * @see lombok.Getter
  * @see lombok.Setter
  * @see java.lang.SuppressWarnings
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Getter
 @Setter
@@ -120,7 +120,7 @@ class DefaultResult<T,S extends DefaultResult<T,S>> implements Serializable {
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <S> {@link io.github.nichetoolkit.rest.DefaultResult} <p>The generic parameter is <code>DefaultResult</code> type.</p>
      * @author Cyan (snow22314@outlook.com)
-     * @since Jdk1.8
+     * @since Jdk17
      */
     public static abstract class Builder<T,S extends DefaultResult<T,S>> {
         /**

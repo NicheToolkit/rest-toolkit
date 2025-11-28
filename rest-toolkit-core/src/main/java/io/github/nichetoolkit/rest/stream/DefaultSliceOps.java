@@ -9,7 +9,7 @@ import java.util.function.IntFunction;
  * <code>DefaultSliceOps</code>
  * <p>The default slice ops class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @since Jdk1.8
+ * @since Jdk17
  */
 final class DefaultSliceOps {
 
@@ -200,7 +200,7 @@ final class DefaultSliceOps {
      * @param <P_OUT> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultAbstractShortCircuitTask
-     * @since Jdk1.8
+     * @since Jdk17
      */
     private static final class SliceTask<P_IN, P_OUT>
             extends DefaultAbstractShortCircuitTask<P_IN, P_OUT, DefaultNode<P_OUT>, SliceTask<P_IN, P_OUT>> {

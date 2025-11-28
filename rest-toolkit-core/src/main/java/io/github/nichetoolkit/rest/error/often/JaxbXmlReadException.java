@@ -9,7 +9,7 @@ import io.github.nichetoolkit.rest.error.natives.JaxbXmlErrorException;
  * <p>The jaxb xml read exception class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.error.natives.JaxbXmlErrorException
- * @since Jdk1.8
+ * @since Jdk17
  */
 public class JaxbXmlReadException extends JaxbXmlErrorException {
     /**

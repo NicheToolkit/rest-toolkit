@@ -6,7 +6,7 @@ import io.github.nichetoolkit.rest.userlog.RestResponsePack;
 import io.github.nichetoolkit.rest.userlog.RestUsernotePack;
 import io.github.nichetoolkit.rest.util.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.lang.NonNull;
+import org.jspecify.annotations.NonNull;
 import org.springframework.stereotype.Service;
 
 /**

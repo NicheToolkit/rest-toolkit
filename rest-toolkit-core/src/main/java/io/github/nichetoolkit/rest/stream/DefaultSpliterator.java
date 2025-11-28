@@ -10,7 +10,7 @@ import java.util.*;
  * <p>The default spliterator interface.</p>
  * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
- * @since Jdk1.8
+ * @since Jdk17
  */
 public interface DefaultSpliterator<T> {
 
@@ -157,7 +157,7 @@ public interface DefaultSpliterator<T> {
      * @param <T_CONS>   {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <T_SPLITR> {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator.OfPrimitive} <p>The generic parameter is <code>OfPrimitive</code> type.</p>
      * @author Cyan (snow22314@outlook.com)
-     * @since Jdk1.8
+     * @since Jdk17
      */
     interface OfPrimitive<T, T_CONS, T_SPLITR extends DefaultSpliterator.OfPrimitive<T, T_CONS, T_SPLITR>>
             extends DefaultSpliterator<T> {

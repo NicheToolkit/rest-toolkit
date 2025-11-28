@@ -10,7 +10,7 @@ import java.util.*;
  * <code>DefaultSpliterators</code>
  * <p>The default spliterators class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @since Jdk1.8
+ * @since Jdk17
  */
 public final class DefaultSpliterators {
 
@@ -214,7 +214,7 @@ public final class DefaultSpliterators {
      * @param <S> {@link io.github.nichetoolkit.rest.stream.DefaultSpliterator} <p>The generic parameter is <code>DefaultSpliterator</code> type.</p>
      * @param <C> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
-     * @since Jdk1.8
+     * @since Jdk17
      */
     private static abstract class EmptySpliterator<T, S extends DefaultSpliterator<T>, C> {
 
@@ -278,7 +278,7 @@ public final class DefaultSpliterators {
          * <p>The of ref class.</p>
          * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @author Cyan (snow22314@outlook.com)
-         * @since Jdk1.8
+         * @since Jdk17
          */
         private static final class OfRef<T>
                 extends DefaultSpliterators.EmptySpliterator<T, DefaultSpliterator<T>, ConsumerActuator<? super T>>
@@ -298,7 +298,7 @@ public final class DefaultSpliterators {
      * <p>The array spliterator class.</p>
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
-     * @since Jdk1.8
+     * @since Jdk17
      */
     static final class ArraySpliterator<T> implements DefaultSpliterator<T> {
         /**
@@ -403,7 +403,7 @@ public final class DefaultSpliterators {
      * <p>The abstract spliterator class.</p>
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
-     * @since Jdk1.8
+     * @since Jdk17
      */
     public static abstract class AbstractSpliterator<T> implements DefaultSpliterator<T> {
         /**
@@ -451,7 +451,7 @@ public final class DefaultSpliterators {
          * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @author Cyan (snow22314@outlook.com)
          * @see io.github.nichetoolkit.rest.actuator.ConsumerActuator
-         * @since Jdk1.8
+         * @since Jdk17
          */
         static final class HoldingConsumer<T> implements ConsumerActuator<T> {
             /**
@@ -504,7 +504,7 @@ public final class DefaultSpliterators {
      * <p>The iterator spliterator class.</p>
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
-     * @since Jdk1.8
+     * @since Jdk17
      */
     static class IteratorSpliterator<T> implements DefaultSpliterator<T> {
         /**

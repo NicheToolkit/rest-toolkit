@@ -14,7 +14,7 @@ import java.util.concurrent.ForkJoinWorkerThread;
  * @param <K>     {@link io.github.nichetoolkit.rest.stream.DefaultAbstractTask} <p>The generic parameter is <code>DefaultAbstractTask</code> type.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.stream.DefaultCountedCompleter
- * @since Jdk1.8
+ * @since Jdk17
  */
 abstract class DefaultAbstractTask<P_IN, P_OUT, R,
         K extends DefaultAbstractTask<P_IN, P_OUT, R, K>>

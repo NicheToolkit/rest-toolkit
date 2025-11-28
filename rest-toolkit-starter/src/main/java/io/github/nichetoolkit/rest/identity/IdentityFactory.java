@@ -9,7 +9,7 @@ import io.github.nichetoolkit.rest.identity.worker.WorkerType;
 import io.github.nichetoolkit.rest.util.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 import java.security.SecureRandom;
 
 /**
@@ -84,7 +84,7 @@ public class IdentityFactory {
     /**
      * <code>identityWorkerInit</code>
      * <p>The identity worker init method.</p>
-     * @see javax.annotation.PostConstruct
+     * @see jakarta.annotation.PostConstruct
      */
     @PostConstruct
     public void identityWorkerInit() {

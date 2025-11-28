@@ -4,7 +4,7 @@ package io.github.nichetoolkit.rest.identity.worker;
 import io.github.nichetoolkit.rest.identity.IdentityErrorStatus;
 import io.github.nichetoolkit.rest.identity.error.IdentityWorkerError;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.lang.NonNull;
+import org.jspecify.annotations.NonNull;
 
 import java.util.Objects;
 
@@ -70,7 +70,7 @@ class IdentityWorkerMachine implements IdentityWorker {
      * @param centerId {@link java.lang.Long} <p>The center id parameter is <code>Long</code> type.</p>
      * @param sequence {@link java.lang.Long} <p>The sequence parameter is <code>Long</code> type.</p>
      * @see java.lang.Long
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     public IdentityWorkerMachine(@NonNull Long workerId, @NonNull Long centerId, Long sequence) {
         this(MACHINE_WORKER_NAME, workerId, centerId, sequence);
@@ -85,7 +85,7 @@ class IdentityWorkerMachine implements IdentityWorker {
      * @param sequence {@link java.lang.Long} <p>The sequence parameter is <code>Long</code> type.</p>
      * @see java.lang.String
      * @see java.lang.Long
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     public IdentityWorkerMachine(String mame, @NonNull Long workerId, @NonNull Long centerId, Long sequence) {
         this.name = mame;
@@ -112,7 +112,7 @@ class IdentityWorkerMachine implements IdentityWorker {
      * @param workerId {@link java.lang.Long} <p>The worker id parameter is <code>Long</code> type.</p>
      * @param centerId {@link java.lang.Long} <p>The center id parameter is <code>Long</code> type.</p>
      * @see java.lang.Long
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     public IdentityWorkerMachine(@NonNull Long workerId, @NonNull Long centerId) {
         this(workerId, centerId, null);

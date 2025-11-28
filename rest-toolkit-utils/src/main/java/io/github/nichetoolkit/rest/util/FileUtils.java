@@ -10,8 +10,8 @@ import org.springframework.http.MediaTypeFactory;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
@@ -653,11 +653,11 @@ public class FileUtils {
     /**
      * <code>attachment</code>
      * <p>The attachment method.</p>
-     * @param request  {@link javax.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
-     * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param request  {@link jakarta.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
+     * @param response {@link jakarta.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
      * @param fileName {@link java.lang.String} <p>The file name parameter is <code>String</code> type.</p>
-     * @see javax.servlet.http.HttpServletRequest
-     * @see javax.servlet.http.HttpServletResponse
+     * @see jakarta.servlet.http.HttpServletRequest
+     * @see jakarta.servlet.http.HttpServletResponse
      * @see java.lang.String
      */
     public static void attachment(HttpServletRequest request, HttpServletResponse response, String fileName) {

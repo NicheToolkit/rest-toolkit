@@ -10,7 +10,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.annotation.AnnotationAwareOrderComparator;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.io.ProtocolResolver;
-import org.springframework.lang.NonNull;
+import org.jspecify.annotations.NonNull;
 
 import java.lang.annotation.Annotation;
 import java.util.ArrayList;
@@ -23,7 +23,7 @@ import java.util.Map;
  * <p>The application context holder class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Slf4j
 public class ApplicationContextHolder {
@@ -39,7 +39,7 @@ public class ApplicationContextHolder {
      * <p>The init application context method.</p>
      * @param applicationContext {@link org.springframework.context.ConfigurableApplicationContext} <p>The application context parameter is <code>ConfigurableApplicationContext</code> type.</p>
      * @see org.springframework.context.ConfigurableApplicationContext
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     static void initApplicationContext(@NonNull ConfigurableApplicationContext applicationContext) {
         APPLICATION_CONTEXT = applicationContext;
@@ -60,7 +60,7 @@ public class ApplicationContextHolder {
      * <p>The get application context getter method.</p>
      * @return {@link org.springframework.context.ApplicationContext} <p>The get application context return object is <code>ApplicationContext</code> type.</p>
      * @see org.springframework.context.ApplicationContext
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     @NonNull
     public static ApplicationContext getApplicationContext() {

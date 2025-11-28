@@ -8,7 +8,7 @@ import java.lang.reflect.Type;
  * <p>The default generic array type class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.lang.reflect.GenericArrayType
- * @since Jdk1.8
+ * @since Jdk17
  */
 public class DefaultGenericArrayType implements GenericArrayType {
     /**

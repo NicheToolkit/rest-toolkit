@@ -8,7 +8,7 @@ import io.github.nichetoolkit.rest.RestException;
  * @param <E_IN> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @param <R>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
- * @since Jdk1.8
+ * @since Jdk17
  */
 interface DefaultTerminalOp<E_IN, R> {
     /**

@@ -4,7 +4,7 @@ package io.github.nichetoolkit.rest.constant;
  * <code>MillisecondConstants</code>
  * <p>The millisecond constants interface.</p>
  * @author Cyan (snow22314@outlook.com)
- * @since Jdk1.8
+ * @since Jdk17
  */
 public interface MillisecondConstants {
     /**

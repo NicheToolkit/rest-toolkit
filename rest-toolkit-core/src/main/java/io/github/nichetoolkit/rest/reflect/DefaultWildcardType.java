@@ -8,7 +8,7 @@ import java.lang.reflect.WildcardType;
  * <p>The default wildcard type class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.lang.reflect.WildcardType
- * @since Jdk1.8
+ * @since Jdk17
  */
 public class DefaultWildcardType implements WildcardType {
     /**

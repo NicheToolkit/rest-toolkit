@@ -10,7 +10,7 @@ import io.github.nichetoolkit.rest.error.natives.IdentityErrorException;
  * <p>The identity repeat exception class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.error.natives.IdentityErrorException
- * @since Jdk1.8
+ * @since Jdk17
  */
 public class IdentityRepeatException extends IdentityErrorException {
 

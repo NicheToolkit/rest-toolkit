@@ -11,7 +11,7 @@ import java.util.concurrent.*;
  * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.util.concurrent.CountedCompleter
- * @since Jdk1.8
+ * @since Jdk17
  */
 public abstract class DefaultCountedCompleter<T> extends CountedCompleter<T> {
     /**

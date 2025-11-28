@@ -21,7 +21,7 @@ import java.util.Optional;
  * @see lombok.Setter
  * @see lombok.EqualsAndHashCode
  * @see com.fasterxml.jackson.annotation.JsonIgnoreProperties
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Getter
 @Setter
@@ -212,7 +212,7 @@ class DefaultError extends Error implements Serializable {
      * <code>Builder</code>
      * <p>The builder class.</p>
      * @author Cyan (snow22314@outlook.com)
-     * @since Jdk1.8
+     * @since Jdk17
      */
     public static abstract class Builder {
         /**

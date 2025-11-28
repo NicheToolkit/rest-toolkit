@@ -47,7 +47,7 @@ import org.springframework.web.client.DefaultResponseErrorHandler;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.DefaultUriBuilderFactory;
 
-import javax.net.ssl.*;
+import jakarta.net.ssl.*;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.net.ProxySelector;
@@ -263,10 +263,10 @@ public class RestHttpAutoConfigure {
         /**
          * <code>okHttpClient</code>
          * <p>The ok http client method.</p>
-         * @param x509TrustManager {@link javax.net.ssl.X509TrustManager} <p>The x 509 trust manager parameter is <code>X509TrustManager</code> type.</p>
+         * @param x509TrustManager {@link jakarta.net.ssl.X509TrustManager} <p>The x 509 trust manager parameter is <code>X509TrustManager</code> type.</p>
          * @return {@link okhttp3.OkHttpClient} <p>The ok http client return object is <code>OkHttpClient</code> type.</p>
          * @throws HttpConfigError {@link io.github.nichetoolkit.rest.error.network.HttpConfigError} <p>The http config error is <code>HttpConfigError</code> type.</p>
-         * @see javax.net.ssl.X509TrustManager
+         * @see jakarta.net.ssl.X509TrustManager
          * @see okhttp3.OkHttpClient
          * @see org.springframework.context.annotation.Bean
          * @see io.github.nichetoolkit.rest.error.network.HttpConfigError
@@ -297,8 +297,8 @@ public class RestHttpAutoConfigure {
         /**
          * <code>x509TrustManager</code>
          * <p>The x 509 trust manager method.</p>
-         * @return {@link javax.net.ssl.X509TrustManager} <p>The x 509 trust manager return object is <code>X509TrustManager</code> type.</p>
-         * @see javax.net.ssl.X509TrustManager
+         * @return {@link jakarta.net.ssl.X509TrustManager} <p>The x 509 trust manager return object is <code>X509TrustManager</code> type.</p>
+         * @see jakarta.net.ssl.X509TrustManager
          * @see org.springframework.context.annotation.Bean
          * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
          */
@@ -381,10 +381,10 @@ public class RestHttpAutoConfigure {
         /**
          * <code>httpClient</code>
          * <p>The http client method.</p>
-         * @param x509TrustManager {@link javax.net.ssl.X509TrustManager} <p>The x 509 trust manager parameter is <code>X509TrustManager</code> type.</p>
+         * @param x509TrustManager {@link jakarta.net.ssl.X509TrustManager} <p>The x 509 trust manager parameter is <code>X509TrustManager</code> type.</p>
          * @return {@link org.apache.http.client.HttpClient} <p>The http client return object is <code>HttpClient</code> type.</p>
          * @throws HttpConfigError {@link io.github.nichetoolkit.rest.error.network.HttpConfigError} <p>The http config error is <code>HttpConfigError</code> type.</p>
-         * @see javax.net.ssl.X509TrustManager
+         * @see jakarta.net.ssl.X509TrustManager
          * @see org.apache.http.client.HttpClient
          * @see org.springframework.context.annotation.Bean
          * @see io.github.nichetoolkit.rest.error.network.HttpConfigError
@@ -435,8 +435,8 @@ public class RestHttpAutoConfigure {
         /**
          * <code>x509TrustManager</code>
          * <p>The x 509 trust manager method.</p>
-         * @return {@link javax.net.ssl.X509TrustManager} <p>The x 509 trust manager return object is <code>X509TrustManager</code> type.</p>
-         * @see javax.net.ssl.X509TrustManager
+         * @return {@link jakarta.net.ssl.X509TrustManager} <p>The x 509 trust manager return object is <code>X509TrustManager</code> type.</p>
+         * @see jakarta.net.ssl.X509TrustManager
          * @see org.springframework.context.annotation.Bean
          * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
          */

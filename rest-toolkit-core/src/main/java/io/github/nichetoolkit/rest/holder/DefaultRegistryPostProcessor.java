@@ -9,7 +9,7 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProcessor;
 import org.springframework.core.io.support.SpringFactoriesLoader;
-import org.springframework.lang.NonNull;
+import org.jspecify.annotations.NonNull;
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ import java.util.List;
  * @author Cyan (snow22314@outlook.com)
  * @see org.springframework.beans.factory.support.BeanDefinitionRegistryPostProcessor
  * @see lombok.extern.slf4j.Slf4j
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Slf4j
 public class DefaultRegistryPostProcessor implements BeanDefinitionRegistryPostProcessor {

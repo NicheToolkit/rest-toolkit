@@ -14,7 +14,7 @@ import java.util.Objects;
  * @see java.io.Serializable
  * @see lombok.Setter
  * @see lombok.experimental.SuperBuilder
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Setter
 @SuperBuilder

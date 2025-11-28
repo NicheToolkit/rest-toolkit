@@ -15,7 +15,7 @@
 
 package io.github.nichetoolkit.rest.http;
 
-import org.springframework.lang.NonNull;
+import org.jspecify.annotations.NonNull;
 
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;

@@ -7,9 +7,9 @@ import io.github.nichetoolkit.rest.error.supply.ResourceNotFoundException;
 import io.github.nichetoolkit.rest.util.*;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.annotation.PostConstruct;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.annotation.PostConstruct;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.net.URLEncoder;
 import java.util.Objects;
@@ -58,7 +58,7 @@ public class LicenseCreatorWorker {
     /**
      * <code>licenseCreatorWorkerInit</code>
      * <p>The license creator worker init method.</p>
-     * @see javax.annotation.PostConstruct
+     * @see jakarta.annotation.PostConstruct
      */
     @PostConstruct
     public void licenseCreatorWorkerInit() {
@@ -179,12 +179,12 @@ public class LicenseCreatorWorker {
      * <code>downloadLicense</code>
      * <p>The download license method.</p>
      * @param licensePath {@link java.lang.String} <p>The license path parameter is <code>String</code> type.</p>
-     * @param request     {@link javax.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
-     * @param response    {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param request     {@link jakarta.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
+     * @param response    {@link jakarta.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
      * @throws ResourceNotFoundException {@link io.github.nichetoolkit.rest.error.supply.ResourceNotFoundException} <p>The resource not found exception is <code>ResourceNotFoundException</code> type.</p>
      * @see java.lang.String
-     * @see javax.servlet.http.HttpServletRequest
-     * @see javax.servlet.http.HttpServletResponse
+     * @see jakarta.servlet.http.HttpServletRequest
+     * @see jakarta.servlet.http.HttpServletResponse
      * @see io.github.nichetoolkit.rest.error.supply.ResourceNotFoundException
      */
     public static void downloadLicense(String licensePath, HttpServletRequest request, HttpServletResponse response) throws ResourceNotFoundException {
@@ -204,11 +204,11 @@ public class LicenseCreatorWorker {
     /**
      * <code>setAttachmentCoding</code>
      * <p>The set attachment coding setter method.</p>
-     * @param request  {@link javax.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
-     * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param request  {@link jakarta.servlet.http.HttpServletRequest} <p>The request parameter is <code>HttpServletRequest</code> type.</p>
+     * @param response {@link jakarta.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
      * @param fileName {@link java.lang.String} <p>The file name parameter is <code>String</code> type.</p>
-     * @see javax.servlet.http.HttpServletRequest
-     * @see javax.servlet.http.HttpServletResponse
+     * @see jakarta.servlet.http.HttpServletRequest
+     * @see jakarta.servlet.http.HttpServletResponse
      * @see java.lang.String
      */
     private static void setAttachmentCoding(HttpServletRequest request, HttpServletResponse response, String fileName) {

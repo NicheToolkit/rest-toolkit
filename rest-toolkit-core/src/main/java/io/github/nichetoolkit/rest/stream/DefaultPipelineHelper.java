@@ -9,7 +9,7 @@ import java.util.function.IntFunction;
  * <p>The default pipeline helper class.</p>
  * @param <P_OUT> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
- * @since Jdk1.8
+ * @since Jdk17
  */
 abstract class DefaultPipelineHelper<P_OUT> {
 

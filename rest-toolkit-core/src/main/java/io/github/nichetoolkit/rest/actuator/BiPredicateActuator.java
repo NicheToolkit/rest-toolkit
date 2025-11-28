@@ -14,7 +14,7 @@ import java.util.function.BiPredicate;
  * @author Cyan (snow22314@outlook.com)
  * @see java.util.function.BiPredicate
  * @see java.lang.FunctionalInterface
- * @since Jdk1.8
+ * @since Jdk17
  */
 @FunctionalInterface
 public interface BiPredicateActuator<T, U> extends BiPredicate<T,U> {

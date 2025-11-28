@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicReference;
  * @param <K>     {@link io.github.nichetoolkit.rest.stream.DefaultAbstractShortCircuitTask} <p>The generic parameter is <code>DefaultAbstractShortCircuitTask</code> type.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.stream.DefaultAbstractTask
- * @since Jdk1.8
+ * @since Jdk17
  */
 abstract class DefaultAbstractShortCircuitTask<P_IN, P_OUT, R,
         K extends DefaultAbstractShortCircuitTask<P_IN, P_OUT, R, K>>

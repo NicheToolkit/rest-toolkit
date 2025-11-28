@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
 import java.io.OutputStream;
 import java.io.Serializable;
@@ -101,9 +101,9 @@ public class ImageVerify implements Serializable {
     /**
      * <code>writePng</code>
      * <p>The write png method.</p>
-     * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param response {@link jakarta.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
      * @throws ImageWriteException {@link io.github.nichetoolkit.rest.error.image.ImageWriteException} <p>The image write exception is <code>ImageWriteException</code> type.</p>
-     * @see javax.servlet.http.HttpServletResponse
+     * @see jakarta.servlet.http.HttpServletResponse
      * @see io.github.nichetoolkit.rest.error.image.ImageWriteException
      */
     public void writePng(HttpServletResponse response) throws ImageWriteException {
@@ -113,9 +113,9 @@ public class ImageVerify implements Serializable {
     /**
      * <code>writeJpeg</code>
      * <p>The write jpeg method.</p>
-     * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param response {@link jakarta.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
      * @throws ImageWriteException {@link io.github.nichetoolkit.rest.error.image.ImageWriteException} <p>The image write exception is <code>ImageWriteException</code> type.</p>
-     * @see javax.servlet.http.HttpServletResponse
+     * @see jakarta.servlet.http.HttpServletResponse
      * @see io.github.nichetoolkit.rest.error.image.ImageWriteException
      */
     public void writeJpeg(HttpServletResponse response) throws ImageWriteException {
@@ -125,10 +125,10 @@ public class ImageVerify implements Serializable {
     /**
      * <code>write</code>
      * <p>The write method.</p>
-     * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param response {@link jakarta.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
      * @param suffix   {@link java.lang.String} <p>The suffix parameter is <code>String</code> type.</p>
      * @throws ImageWriteException {@link io.github.nichetoolkit.rest.error.image.ImageWriteException} <p>The image write exception is <code>ImageWriteException</code> type.</p>
-     * @see javax.servlet.http.HttpServletResponse
+     * @see jakarta.servlet.http.HttpServletResponse
      * @see java.lang.String
      * @see io.github.nichetoolkit.rest.error.image.ImageWriteException
      */

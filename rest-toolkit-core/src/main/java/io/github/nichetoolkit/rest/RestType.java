@@ -15,10 +15,8 @@ import java.util.stream.Stream;
  * <p>The rest type interface.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestValue
- * @see java.lang.SuppressWarnings
- * @since Jdk1.8
+ * @since Jdk17
  */
-@SuppressWarnings("all")
 public interface RestType extends RestValue<Integer, String> {
 
     /**
@@ -160,7 +158,7 @@ public interface RestType extends RestValue<Integer, String> {
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.RestValue.OfRestValue
      * @see lombok.Setter
-     * @since Jdk1.8
+     * @since Jdk17
      */
     @Setter
     class OfRestType extends RestValue.OfRestValue<Integer, String> implements RestType {

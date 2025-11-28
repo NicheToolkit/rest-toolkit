@@ -14,7 +14,7 @@ import java.util.function.Function;
  * @author Cyan (snow22314@outlook.com)
  * @see java.util.function.Function
  * @see java.lang.FunctionalInterface
- * @since Jdk1.8
+ * @since Jdk17
  */
 @FunctionalInterface
 public interface FunctionActuator<T,R> extends Function<T,R> {

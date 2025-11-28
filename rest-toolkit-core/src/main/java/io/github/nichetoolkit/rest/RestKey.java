@@ -16,7 +16,7 @@ import java.util.stream.Stream;
  * @param <K> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.io.Serializable
- * @since Jdk1.8
+ * @since Jdk17
  */
 public interface RestKey<K> extends Serializable {
     /**
@@ -368,7 +368,7 @@ public interface RestKey<K> extends Serializable {
      * @param <K> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see lombok.Setter
-     * @since Jdk1.8
+     * @since Jdk17
      */
     @Setter
     class OfRestKey<K> implements RestKey<K> {

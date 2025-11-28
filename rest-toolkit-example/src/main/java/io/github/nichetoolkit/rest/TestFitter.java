@@ -7,7 +7,7 @@ import io.github.nichetoolkit.rest.util.JsonUtils;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * <code>TestFitter</code>
@@ -25,7 +25,7 @@ public class TestFitter implements RestFulfilledFitter<TestFitter> {
      * <code>radixProperties</code>
      * {@link io.github.nichetoolkit.rest.configure.RestRadixProperties} <p>The <code>radixProperties</code> field.</p>
      * @see io.github.nichetoolkit.rest.configure.RestRadixProperties
-     * @see javax.annotation.Resource
+     * @see jakarta.annotation.Resource
      */
     @Resource
     private RestRadixProperties radixProperties;
@@ -33,7 +33,7 @@ public class TestFitter implements RestFulfilledFitter<TestFitter> {
      * <code>rsaProperties</code>
      * {@link io.github.nichetoolkit.rest.configure.RestRsaProperties} <p>The <code>rsaProperties</code> field.</p>
      * @see io.github.nichetoolkit.rest.configure.RestRsaProperties
-     * @see javax.annotation.Resource
+     * @see jakarta.annotation.Resource
      */
     @Resource
     private RestRsaProperties rsaProperties;

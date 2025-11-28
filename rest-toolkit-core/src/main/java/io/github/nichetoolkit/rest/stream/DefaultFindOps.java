@@ -9,7 +9,7 @@ import io.github.nichetoolkit.rest.actuator.SupplierActuator;
  * <code>DefaultFindOps</code>
  * <p>The default find ops class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @since Jdk1.8
+ * @since Jdk17
  */
 final class DefaultFindOps {
 
@@ -86,7 +86,7 @@ final class DefaultFindOps {
      * @param <O> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultTerminalOp
-     * @since Jdk1.8
+     * @since Jdk17
      */
     private static final class FindOp<T, O> implements DefaultTerminalOp<T, O> {
         /**
@@ -173,7 +173,7 @@ final class DefaultFindOps {
      * @param <O> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultTerminalSink
-     * @since Jdk1.8
+     * @since Jdk17
      */
     private static abstract class FindSink<T, O> implements DefaultTerminalSink<T, O> {
         /**
@@ -212,7 +212,7 @@ final class DefaultFindOps {
          * <p>The of ref class.</p>
          * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
          * @author Cyan (snow22314@outlook.com)
-         * @since Jdk1.8
+         * @since Jdk17
          */
         static final class OfRef<T> extends DefaultFindOps.FindSink<T, RestOptional<T>> {
 
@@ -231,7 +231,7 @@ final class DefaultFindOps {
      * @param <O>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultAbstractShortCircuitTask
-     * @since Jdk1.8
+     * @since Jdk17
      */
     private static final class FindTask<P_IN, P_OUT, O>
             extends DefaultAbstractShortCircuitTask<P_IN, P_OUT, O, FindTask<P_IN, P_OUT, O>> {

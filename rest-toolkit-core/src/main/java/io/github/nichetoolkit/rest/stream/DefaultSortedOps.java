@@ -10,7 +10,7 @@ import java.util.function.IntFunction;
  * <code>DefaultSortedOps</code>
  * <p>The default sorted ops class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @since Jdk1.8
+ * @since Jdk17
  */
 final class DefaultSortedOps {
 
@@ -56,7 +56,7 @@ final class DefaultSortedOps {
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultReferencePipeline.StatefulOp
-     * @since Jdk1.8
+     * @since Jdk17
      */
     private static final class OfRef<T> extends  DefaultReferencePipeline.StatefulOp<T, T> {
         /**
@@ -133,7 +133,7 @@ final class DefaultSortedOps {
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultSink.ChainedReference
-     * @since Jdk1.8
+     * @since Jdk17
      */
     private static abstract class AbstractRefSortingSink<T> extends DefaultSink.ChainedReference<T, T> {
         /**
@@ -174,7 +174,7 @@ final class DefaultSortedOps {
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultSortedOps.AbstractRefSortingSink
-     * @since Jdk1.8
+     * @since Jdk17
      */
     private static final class SizedRefSortingSink<T> extends AbstractRefSortingSink<T> {
         /**
@@ -236,7 +236,7 @@ final class DefaultSortedOps {
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultSortedOps.AbstractRefSortingSink
-     * @since Jdk1.8
+     * @since Jdk17
      */
     private static final class RefSortingSink<T> extends AbstractRefSortingSink<T> {
         /**

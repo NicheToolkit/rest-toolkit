@@ -13,7 +13,7 @@ import java.io.IOException;
  * <p>The rest key serializer class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see com.fasterxml.jackson.databind.JsonSerializer
- * @since Jdk1.8
+ * @since Jdk17
  */
 public class RestKeySerializer extends JsonSerializer<RestKey<?>> {
     @Override

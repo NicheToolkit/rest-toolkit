@@ -10,7 +10,7 @@ import java.util.Objects;
  * <code>DefaultMatchOps</code>
  * <p>The default match ops class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @since Jdk1.8
+ * @since Jdk17
  */
 final class DefaultMatchOps {
 
@@ -25,7 +25,7 @@ final class DefaultMatchOps {
      * <code>MatchKind</code>
      * <p>The match kind enumeration.</p>
      * @author Cyan (snow22314@outlook.com)
-     * @since Jdk1.8
+     * @since Jdk17
      */
     enum MatchKind {
         /**
@@ -108,7 +108,7 @@ final class DefaultMatchOps {
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultTerminalOp
-     * @since Jdk1.8
+     * @since Jdk17
      */
     private static final class MatchOp<T> implements DefaultTerminalOp<T, Boolean> {
         /**
@@ -177,7 +177,7 @@ final class DefaultMatchOps {
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultSink
-     * @since Jdk1.8
+     * @since Jdk17
      */
     private static abstract class BooleanTerminalSink<T> implements DefaultSink<T> {
         /**
@@ -223,7 +223,7 @@ final class DefaultMatchOps {
      * @param <P_OUT> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.stream.DefaultAbstractShortCircuitTask
-     * @since Jdk1.8
+     * @since Jdk17
      */
     private static final class MatchTask<P_IN, P_OUT>
             extends DefaultAbstractShortCircuitTask<P_IN, P_OUT, Boolean, MatchTask<P_IN, P_OUT>> {

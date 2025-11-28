@@ -3,7 +3,7 @@ package io.github.nichetoolkit.rest.stream;
 import io.github.nichetoolkit.rest.RestException;
 import io.github.nichetoolkit.rest.RestOptional;
 import io.github.nichetoolkit.rest.actuator.*;
-import org.springframework.lang.NonNull;
+import org.jspecify.annotations.NonNull;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -14,7 +14,7 @@ import java.util.concurrent.ConcurrentMap;
  * <code>RestCollectors</code>
  * <p>The rest collectors class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @since Jdk1.8
+ * @since Jdk17
  */
 public final class RestCollectors {
 
@@ -98,7 +98,7 @@ public final class RestCollectors {
      * @param <A> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <R> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
-     * @since Jdk1.8
+     * @since Jdk17
      */
     static class CollectorImpl<T, A, R> implements RestCollector<T, A, R> {
         /**
@@ -1100,7 +1100,7 @@ public final class RestCollectors {
      * @author Cyan (snow22314@outlook.com)
      * @see java.util.AbstractMap
      * @see java.util.Map
-     * @since Jdk1.8
+     * @since Jdk17
      */
     private static final class Partition<T>
             extends AbstractMap<Boolean, T>

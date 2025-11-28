@@ -15,10 +15,8 @@ import java.util.stream.Collectors;
  * @param <F> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestValue
- * @see java.lang.SuppressWarnings
- * @since Jdk1.8
+ * @since Jdk17
  */
-@SuppressWarnings("all")
 public interface RestField<F> extends RestValue<String, F> {
 
     /**
@@ -85,6 +83,7 @@ public interface RestField<F> extends RestValue<String, F> {
      * <code>parseField</code>
      * <p>The parse field method.</p>
      * @param <T>    {@link io.github.nichetoolkit.rest.RestField} <p>The generic parameter is <code>RestField</code> type.</p>
+     * @param <F>    {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param values {@link java.util.Collection} <p>The values parameter is <code>Collection</code> type.</p>
      * @param name   {@link java.lang.String} <p>The name parameter is <code>String</code> type.</p>
      * @return T <p>The parse field return object is <code>T</code> type.</p>
@@ -93,7 +92,7 @@ public interface RestField<F> extends RestValue<String, F> {
      * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("Duplicates")
-    static <T extends RestField> T parseField(Collection<T> values, String name) {
+    static <T extends RestField<F>, F> T parseField(Collection<T> values, String name) {
         if (name != null && values != null && !values.isEmpty()) {
             Map<String, T> valueEnumMap = values.stream().collect(Collectors.toMap(RestField::getName, Function.identity(), (oldValue, newValue) -> newValue, HashMap::new));
             return valueEnumMap.get(name);
@@ -145,7 +144,7 @@ public interface RestField<F> extends RestValue<String, F> {
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.RestValue.OfRestValue
      * @see lombok.Setter
-     * @since Jdk1.8
+     * @since Jdk17
      */
     @Setter
     class OfRestField<F> extends RestValue.OfRestValue<String, F> implements RestField<F> {

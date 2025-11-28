@@ -7,10 +7,10 @@ import io.github.nichetoolkit.rest.error.often.JaxbXmlWriteException;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletResponse;
-import javax.xml.bind.*;
-import javax.xml.transform.stream.StreamSource;
+import jakarta.servlet.ServletOutputStream;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.xml.bind.*;
+import jakarta.xml.transform.stream.StreamSource;
 import java.io.*;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
@@ -29,9 +29,9 @@ public class JaxbHelper {
      * <code>encode</code>
      * <p>The encode method.</p>
      * @param filename {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
-     * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param response {@link jakarta.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
      * @see  java.lang.String
-     * @see  javax.servlet.http.HttpServletResponse
+     * @see  jakarta.servlet.http.HttpServletResponse
      */
     public static void encode(String filename, HttpServletResponse response) {
         String fileName = new String(filename.trim().getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8);
@@ -51,9 +51,9 @@ public class JaxbHelper {
      * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
      * @see  java.lang.Class
-     * @see  javax.xml.bind.Unmarshaller
+     * @see  jakarta.xml.bind.Unmarshaller
      * @see  io.github.nichetoolkit.rest.error.often.JaxbXmlMarshalException
-     * @return  {@link javax.xml.bind.Unmarshaller} <p>The unmarshaller return object is <code>Unmarshaller</code> type.</p>
+     * @return  {@link jakarta.xml.bind.Unmarshaller} <p>The unmarshaller return object is <code>Unmarshaller</code> type.</p>
      * @throws JaxbXmlMarshalException {@link io.github.nichetoolkit.rest.error.often.JaxbXmlMarshalException} <p>The jaxb xml marshal exception is <code>JaxbXmlMarshalException</code> type.</p>
      */
     public static <T> Unmarshaller unmarshaller(Class<T> clazz) throws JaxbXmlMarshalException {
@@ -72,9 +72,9 @@ public class JaxbHelper {
      * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
      * @see  java.lang.Class
-     * @see  javax.xml.bind.Marshaller
+     * @see  jakarta.xml.bind.Marshaller
      * @see  io.github.nichetoolkit.rest.error.often.JaxbXmlMarshalException
-     * @return  {@link javax.xml.bind.Marshaller} <p>The marshaller return object is <code>Marshaller</code> type.</p>
+     * @return  {@link jakarta.xml.bind.Marshaller} <p>The marshaller return object is <code>Marshaller</code> type.</p>
      * @throws JaxbXmlMarshalException {@link io.github.nichetoolkit.rest.error.often.JaxbXmlMarshalException} <p>The jaxb xml marshal exception is <code>JaxbXmlMarshalException</code> type.</p>
      */
     public static <T> Marshaller marshaller(Class<T> clazz) throws JaxbXmlMarshalException {
@@ -136,10 +136,10 @@ public class JaxbHelper {
      * <code>read</code>
      * <p>The read method.</p>
      * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param unmarshaller {@link javax.xml.bind.Unmarshaller} <p>The unmarshaller parameter is <code>Unmarshaller</code> type.</p>
+     * @param unmarshaller {@link jakarta.xml.bind.Unmarshaller} <p>The unmarshaller parameter is <code>Unmarshaller</code> type.</p>
      * @param inputStream {@link java.io.InputStream} <p>The input stream parameter is <code>InputStream</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
-     * @see  javax.xml.bind.Unmarshaller
+     * @see  jakarta.xml.bind.Unmarshaller
      * @see  java.io.InputStream
      * @see  java.lang.Class
      * @see  io.github.nichetoolkit.rest.error.often.JaxbXmlReadException
@@ -185,13 +185,13 @@ public class JaxbHelper {
      * <code>write</code>
      * <p>The write method.</p>
      * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param marshaller {@link javax.xml.bind.Marshaller} <p>The marshaller parameter is <code>Marshaller</code> type.</p>
+     * @param marshaller {@link jakarta.xml.bind.Marshaller} <p>The marshaller parameter is <code>Marshaller</code> type.</p>
      * @param xmlObject T <p>The xml object parameter is <code>T</code> type.</p>
      * @param filename {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
-     * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
-     * @see  javax.xml.bind.Marshaller
+     * @param response {@link jakarta.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @see  jakarta.xml.bind.Marshaller
      * @see  java.lang.String
-     * @see  javax.servlet.http.HttpServletResponse
+     * @see  jakarta.servlet.http.HttpServletResponse
      * @see  io.github.nichetoolkit.rest.error.often.JaxbXmlWriteException
      * @throws JaxbXmlWriteException {@link io.github.nichetoolkit.rest.error.often.JaxbXmlWriteException} <p>The jaxb xml write exception is <code>JaxbXmlWriteException</code> type.</p>
      */
@@ -212,11 +212,11 @@ public class JaxbHelper {
      * <code>write</code>
      * <p>The write method.</p>
      * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param marshaller {@link javax.xml.bind.Marshaller} <p>The marshaller parameter is <code>Marshaller</code> type.</p>
+     * @param marshaller {@link jakarta.xml.bind.Marshaller} <p>The marshaller parameter is <code>Marshaller</code> type.</p>
      * @param xmlObject T <p>The xml object parameter is <code>T</code> type.</p>
-     * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
-     * @see  javax.xml.bind.Marshaller
-     * @see  javax.servlet.http.HttpServletResponse
+     * @param response {@link jakarta.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @see  jakarta.xml.bind.Marshaller
+     * @see  jakarta.servlet.http.HttpServletResponse
      * @see  io.github.nichetoolkit.rest.error.often.JaxbXmlWriteException
      * @throws JaxbXmlWriteException {@link io.github.nichetoolkit.rest.error.often.JaxbXmlWriteException} <p>The jaxb xml write exception is <code>JaxbXmlWriteException</code> type.</p>
      */
@@ -236,10 +236,10 @@ public class JaxbHelper {
      * <code>write</code>
      * <p>The write method.</p>
      * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param marshaller {@link javax.xml.bind.Marshaller} <p>The marshaller parameter is <code>Marshaller</code> type.</p>
+     * @param marshaller {@link jakarta.xml.bind.Marshaller} <p>The marshaller parameter is <code>Marshaller</code> type.</p>
      * @param xmlObject T <p>The xml object parameter is <code>T</code> type.</p>
      * @param outputStream {@link java.io.OutputStream} <p>The output stream parameter is <code>OutputStream</code> type.</p>
-     * @see  javax.xml.bind.Marshaller
+     * @see  jakarta.xml.bind.Marshaller
      * @see  java.io.OutputStream
      * @see  io.github.nichetoolkit.rest.error.often.JaxbXmlWriteException
      * @throws JaxbXmlWriteException {@link io.github.nichetoolkit.rest.error.often.JaxbXmlWriteException} <p>The jaxb xml write exception is <code>JaxbXmlWriteException</code> type.</p>
@@ -261,9 +261,9 @@ public class JaxbHelper {
      * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xmlObject T <p>The xml object parameter is <code>T</code> type.</p>
      * @param filename {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
-     * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param response {@link jakarta.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
      * @see  java.lang.String
-     * @see  javax.servlet.http.HttpServletResponse
+     * @see  jakarta.servlet.http.HttpServletResponse
      * @see  io.github.nichetoolkit.rest.error.often.JaxbXmlWriteException
      * @throws JaxbXmlWriteException {@link io.github.nichetoolkit.rest.error.often.JaxbXmlWriteException} <p>The jaxb xml write exception is <code>JaxbXmlWriteException</code> type.</p>
      */
@@ -285,8 +285,8 @@ public class JaxbHelper {
      * <p>The write method.</p>
      * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xmlObject T <p>The xml object parameter is <code>T</code> type.</p>
-     * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
-     * @see  javax.servlet.http.HttpServletResponse
+     * @param response {@link jakarta.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @see  jakarta.servlet.http.HttpServletResponse
      * @see  io.github.nichetoolkit.rest.error.often.JaxbXmlWriteException
      * @throws JaxbXmlWriteException {@link io.github.nichetoolkit.rest.error.often.JaxbXmlWriteException} <p>The jaxb xml write exception is <code>JaxbXmlWriteException</code> type.</p>
      */
@@ -306,10 +306,10 @@ public class JaxbHelper {
      * <code>write</code>
      * <p>The write method.</p>
      * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param marshaller {@link javax.xml.bind.Marshaller} <p>The marshaller parameter is <code>Marshaller</code> type.</p>
+     * @param marshaller {@link jakarta.xml.bind.Marshaller} <p>The marshaller parameter is <code>Marshaller</code> type.</p>
      * @param xmlObject T <p>The xml object parameter is <code>T</code> type.</p>
      * @param writer {@link java.io.Writer} <p>The writer parameter is <code>Writer</code> type.</p>
-     * @see  javax.xml.bind.Marshaller
+     * @see  jakarta.xml.bind.Marshaller
      * @see  java.io.Writer
      * @see  io.github.nichetoolkit.rest.error.often.JaxbXmlWriteException
      * @throws JaxbXmlWriteException {@link io.github.nichetoolkit.rest.error.often.JaxbXmlWriteException} <p>The jaxb xml write exception is <code>JaxbXmlWriteException</code> type.</p>
@@ -329,10 +329,10 @@ public class JaxbHelper {
      * <code>write</code>
      * <p>The write method.</p>
      * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param marshaller {@link javax.xml.bind.Marshaller} <p>The marshaller parameter is <code>Marshaller</code> type.</p>
+     * @param marshaller {@link jakarta.xml.bind.Marshaller} <p>The marshaller parameter is <code>Marshaller</code> type.</p>
      * @param xmlObject T <p>The xml object parameter is <code>T</code> type.</p>
      * @param path {@link java.nio.file.Path} <p>The path parameter is <code>Path</code> type.</p>
-     * @see  javax.xml.bind.Marshaller
+     * @see  jakarta.xml.bind.Marshaller
      * @see  java.nio.file.Path
      * @see  io.github.nichetoolkit.rest.error.often.JaxbXmlWriteException
      * @throws JaxbXmlWriteException {@link io.github.nichetoolkit.rest.error.often.JaxbXmlWriteException} <p>The jaxb xml write exception is <code>JaxbXmlWriteException</code> type.</p>
@@ -352,10 +352,10 @@ public class JaxbHelper {
      * <code>write</code>
      * <p>The write method.</p>
      * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param marshaller {@link javax.xml.bind.Marshaller} <p>The marshaller parameter is <code>Marshaller</code> type.</p>
+     * @param marshaller {@link jakarta.xml.bind.Marshaller} <p>The marshaller parameter is <code>Marshaller</code> type.</p>
      * @param xmlObject T <p>The xml object parameter is <code>T</code> type.</p>
      * @param file {@link java.io.File} <p>The file parameter is <code>File</code> type.</p>
-     * @see  javax.xml.bind.Marshaller
+     * @see  jakarta.xml.bind.Marshaller
      * @see  java.io.File
      * @see  io.github.nichetoolkit.rest.error.often.JaxbXmlWriteException
      * @throws JaxbXmlWriteException {@link io.github.nichetoolkit.rest.error.often.JaxbXmlWriteException} <p>The jaxb xml write exception is <code>JaxbXmlWriteException</code> type.</p>
@@ -375,10 +375,10 @@ public class JaxbHelper {
      * <code>property</code>
      * <p>The property method.</p>
      * @param <T>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
-     * @param marshaller {@link javax.xml.bind.Marshaller} <p>The marshaller parameter is <code>Marshaller</code> type.</p>
+     * @param marshaller {@link jakarta.xml.bind.Marshaller} <p>The marshaller parameter is <code>Marshaller</code> type.</p>
      * @param key {@link java.lang.String} <p>The key parameter is <code>String</code> type.</p>
      * @param value {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
-     * @see  javax.xml.bind.Marshaller
+     * @see  jakarta.xml.bind.Marshaller
      * @see  java.lang.String
      * @see  java.lang.Object
      * @see  io.github.nichetoolkit.rest.error.often.JaxbXmlPropertyException

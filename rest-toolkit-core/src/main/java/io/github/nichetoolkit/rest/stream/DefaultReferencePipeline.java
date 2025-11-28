@@ -3,7 +3,7 @@ package io.github.nichetoolkit.rest.stream;
 import io.github.nichetoolkit.rest.RestException;
 import io.github.nichetoolkit.rest.RestOptional;
 import io.github.nichetoolkit.rest.actuator.*;
-import org.springframework.lang.NonNull;
+import org.jspecify.annotations.NonNull;
 
 import java.util.*;
 import java.util.function.*;
@@ -16,7 +16,7 @@ import java.util.function.*;
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.stream.DefaultAbstractPipeline
  * @see io.github.nichetoolkit.rest.stream.RestStream
- * @since Jdk1.8
+ * @since Jdk17
  */
 abstract class DefaultReferencePipeline<P_IN, P_OUT>
         extends DefaultAbstractPipeline<P_IN, P_OUT, RestStream<P_OUT>>
@@ -365,7 +365,7 @@ abstract class DefaultReferencePipeline<P_IN, P_OUT>
      * @param <E_IN>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <E_OUT> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
-     * @since Jdk1.8
+     * @since Jdk17
      */
     static class Head<E_IN, E_OUT> extends DefaultReferencePipeline<E_IN, E_OUT> {
         /**
@@ -429,7 +429,7 @@ abstract class DefaultReferencePipeline<P_IN, P_OUT>
      * @param <E_IN>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <E_OUT> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
-     * @since Jdk1.8
+     * @since Jdk17
      */
     abstract static class StatelessOp<E_IN, E_OUT>
             extends DefaultReferencePipeline<E_IN, E_OUT> {
@@ -461,7 +461,7 @@ abstract class DefaultReferencePipeline<P_IN, P_OUT>
      * @param <E_IN>  {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <E_OUT> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
-     * @since Jdk1.8
+     * @since Jdk17
      */
     abstract static class StatefulOp<E_IN, E_OUT>
             extends DefaultReferencePipeline<E_IN, E_OUT> {

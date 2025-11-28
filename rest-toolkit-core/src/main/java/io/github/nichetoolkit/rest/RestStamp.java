@@ -10,32 +10,30 @@ import java.util.stream.Stream;
 /**
  * <code>RestStamp</code>
  * <p>The rest stamp interface.</p>
- * @see  io.github.nichetoolkit.rest.RestValue
- * @see  java.lang.SuppressWarnings
  * @author Cyan (snow22314@outlook.com)
- * @since Jdk1.8
+ * @see io.github.nichetoolkit.rest.RestValue
+ * @since Jdk17
  */
-@SuppressWarnings("all")
 public interface RestStamp extends RestValue<Integer, String> {
 
     /**
      * <code>getStamp</code>
      * <p>The get stamp getter method.</p>
-     * @return  {@link java.lang.String} <p>The get stamp return object is <code>String</code> type.</p>
-     * @see  java.lang.String
+     * @return {@link java.lang.String} <p>The get stamp return object is <code>String</code> type.</p>
+     * @see java.lang.String
      */
     String getStamp();
 
     /**
      * <code>parseStamp</code>
      * <p>The parse stamp method.</p>
-     * @param <T>  {@link io.github.nichetoolkit.rest.RestStamp} <p>The generic parameter is <code>RestStamp</code> type.</p>
+     * @param <T>   {@link io.github.nichetoolkit.rest.RestStamp} <p>The generic parameter is <code>RestStamp</code> type.</p>
      * @param clazz {@link java.lang.Class} <p>The clazz parameter is <code>Class</code> type.</p>
      * @param stamp {@link java.lang.String} <p>The stamp parameter is <code>String</code> type.</p>
-     * @see  java.lang.Class
-     * @see  java.lang.String
-     * @see  java.lang.SuppressWarnings
      * @return T <p>The parse stamp return object is <code>T</code> type.</p>
+     * @see java.lang.Class
+     * @see java.lang.String
+     * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("Duplicates")
     static <T extends RestStamp> T parseStamp(Class<T> clazz, String stamp) {
@@ -50,13 +48,13 @@ public interface RestStamp extends RestValue<Integer, String> {
     /**
      * <code>parseStamp</code>
      * <p>The parse stamp method.</p>
-     * @param <T>  {@link io.github.nichetoolkit.rest.RestStamp} <p>The generic parameter is <code>RestStamp</code> type.</p>
+     * @param <T>    {@link io.github.nichetoolkit.rest.RestStamp} <p>The generic parameter is <code>RestStamp</code> type.</p>
      * @param values {@link java.util.Collection} <p>The values parameter is <code>Collection</code> type.</p>
-     * @param stamp {@link java.lang.String} <p>The stamp parameter is <code>String</code> type.</p>
-     * @see  java.util.Collection
-     * @see  java.lang.String
-     * @see  java.lang.SuppressWarnings
+     * @param stamp  {@link java.lang.String} <p>The stamp parameter is <code>String</code> type.</p>
      * @return T <p>The parse stamp return object is <code>T</code> type.</p>
+     * @see java.util.Collection
+     * @see java.lang.String
+     * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("Duplicates")
     static <T extends RestStamp> T parseStamp(Collection<T> values, String stamp) {

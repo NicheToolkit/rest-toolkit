@@ -23,7 +23,7 @@ import java.util.Date;
  * @see com.fasterxml.jackson.annotation.JsonInclude
  * @see com.fasterxml.jackson.annotation.JsonIgnoreProperties
  * @see java.lang.SuppressWarnings
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Getter
 @Setter
@@ -492,7 +492,7 @@ public class RestResult<T> extends DefaultResult<T,RestResult<T>> {
      * @param <T> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.DefaultResult.Builder
-     * @since Jdk1.8
+     * @since Jdk17
      */
     public static class Builder<T> extends DefaultResult.Builder<T,RestResult<T>> {
         /**

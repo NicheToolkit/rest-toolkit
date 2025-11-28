@@ -10,7 +10,7 @@ import io.github.nichetoolkit.rest.error.natives.FieldErrorException;
  * <p>The name repeat exception class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.error.natives.FieldErrorException
- * @since Jdk1.8
+ * @since Jdk17
  */
 public class NameRepeatException extends FieldErrorException {
     /**

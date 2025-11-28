@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.helpers.MessageFormatter;
 import org.springframework.beans.BeanUtils;
-import org.springframework.lang.NonNull;
+import org.jspecify.annotations.NonNull;
 
 /**
  * <code>DefaultMessageConverter</code>
@@ -60,7 +60,7 @@ public class DefaultMessageConverter extends MessageConverter {
      * @param arguments {@link java.lang.Object} <p>The arguments parameter is <code>Object</code> type.</p>
      * @return {@link java.lang.Object} <p>The arguments format return object is <code>Object</code> type.</p>
      * @see java.lang.Object
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     protected Object[] argumentsFormat(@NonNull Object[] arguments) {
         Object[] formats = new Object[arguments.length];
@@ -80,7 +80,7 @@ public class DefaultMessageConverter extends MessageConverter {
      * @param argument {@link java.lang.Object} <p>The argument parameter is <code>Object</code> type.</p>
      * @return {@link java.lang.Object} <p>The argument json return object is <code>Object</code> type.</p>
      * @see java.lang.Object
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      */
     protected Object argumentJson(@NonNull Object argument) {
         if (BeanUtils.isSimpleProperty(argument.getClass())) {

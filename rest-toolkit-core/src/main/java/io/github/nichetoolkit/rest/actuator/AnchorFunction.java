@@ -7,7 +7,7 @@ import java.util.Objects;
  * <p>The anchor function interface.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see java.lang.FunctionalInterface
- * @since Jdk1.8
+ * @since Jdk17
  */
 @FunctionalInterface
 public interface AnchorFunction {

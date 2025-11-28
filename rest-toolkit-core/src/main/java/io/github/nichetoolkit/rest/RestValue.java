@@ -17,7 +17,7 @@ import java.util.stream.Stream;
  * @param <V> {@link java.lang.Object} <p>The parameter can be of any type.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see io.github.nichetoolkit.rest.RestKey
- * @since Jdk1.8
+ * @since Jdk17
  */
 public interface RestValue<K, V> extends RestKey<K> {
 
@@ -503,7 +503,7 @@ public interface RestValue<K, V> extends RestKey<K> {
      * @param <V> {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @author Cyan (snow22314@outlook.com)
      * @see io.github.nichetoolkit.rest.RestKey.OfRestKey
-     * @since Jdk1.8
+     * @since Jdk17
      */
     class OfRestValue<K, V> extends RestKey.OfRestKey<K> implements RestValue<K, V> {
         /**

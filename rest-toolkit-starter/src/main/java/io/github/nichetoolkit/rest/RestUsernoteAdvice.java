@@ -3,7 +3,7 @@ package io.github.nichetoolkit.rest;
 import io.github.nichetoolkit.rest.userlog.RestRequestPack;
 import io.github.nichetoolkit.rest.userlog.RestResponsePack;
 import io.github.nichetoolkit.rest.userlog.RestUsernotePack;
-import org.springframework.lang.NonNull;
+import org.jspecify.annotations.NonNull;
 
 /**
  * <code>RestUsernoteAdvice</code>
@@ -20,7 +20,7 @@ public interface RestUsernoteAdvice {
      * @param responsePack {@link io.github.nichetoolkit.rest.userlog.RestResponsePack} <p>The response pack parameter is <code>RestResponsePack</code> type.</p>
      * @param usernotePack {@link io.github.nichetoolkit.rest.userlog.RestUsernotePack} <p>The usernote pack parameter is <code>RestUsernotePack</code> type.</p>
      * @see io.github.nichetoolkit.rest.userlog.RestRequestPack
-     * @see org.springframework.lang.NonNull
+     * @see org.jspecify.annotations.NonNull
      * @see io.github.nichetoolkit.rest.userlog.RestResponsePack
      * @see io.github.nichetoolkit.rest.userlog.RestUsernotePack
      */

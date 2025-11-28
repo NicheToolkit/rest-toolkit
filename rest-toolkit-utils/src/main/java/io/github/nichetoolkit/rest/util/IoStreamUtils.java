@@ -7,7 +7,7 @@ import io.github.nichetoolkit.rest.helper.IoStreamHelper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
@@ -352,9 +352,9 @@ public class IoStreamUtils {
     /**
      * <code>write</code>
      * <p>The write method.</p>
-     * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param response {@link jakarta.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
      * @param file     {@link java.io.File} <p>The file parameter is <code>File</code> type.</p>
-     * @see javax.servlet.http.HttpServletResponse
+     * @see jakarta.servlet.http.HttpServletResponse
      * @see java.io.File
      */
     public static void write(HttpServletResponse response, File file) {
@@ -369,9 +369,9 @@ public class IoStreamUtils {
     /**
      * <code>writeOfCloseResponse</code>
      * <p>The write of close response method.</p>
-     * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param response {@link jakarta.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
      * @param file     {@link java.io.File} <p>The file parameter is <code>File</code> type.</p>
-     * @see javax.servlet.http.HttpServletResponse
+     * @see jakarta.servlet.http.HttpServletResponse
      * @see java.io.File
      */
     public static void writeOfCloseResponse(HttpServletResponse response, File file) {
@@ -386,9 +386,9 @@ public class IoStreamUtils {
     /**
      * <code>writeOfUnclose</code>
      * <p>The write of unclose method.</p>
-     * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param response {@link jakarta.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
      * @param file     {@link java.io.File} <p>The file parameter is <code>File</code> type.</p>
-     * @see javax.servlet.http.HttpServletResponse
+     * @see jakarta.servlet.http.HttpServletResponse
      * @see java.io.File
      */
     public static void writeOfUnclose(HttpServletResponse response, File file) {
@@ -403,9 +403,9 @@ public class IoStreamUtils {
     /**
      * <code>write</code>
      * <p>The write method.</p>
-     * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param response {@link jakarta.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
      * @param json     {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
-     * @see javax.servlet.http.HttpServletResponse
+     * @see jakarta.servlet.http.HttpServletResponse
      * @see java.lang.String
      */
     public static void write(HttpServletResponse response, String json) {
@@ -420,9 +420,9 @@ public class IoStreamUtils {
     /**
      * <code>writeOfCloseResponse</code>
      * <p>The write of close response method.</p>
-     * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param response {@link jakarta.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
      * @param json     {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
-     * @see javax.servlet.http.HttpServletResponse
+     * @see jakarta.servlet.http.HttpServletResponse
      * @see java.lang.String
      */
     public static void writeOfCloseResponse(HttpServletResponse response, String json) {
@@ -437,9 +437,9 @@ public class IoStreamUtils {
     /**
      * <code>writeOfUnclose</code>
      * <p>The write of unclose method.</p>
-     * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param response {@link jakarta.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
      * @param json     {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
-     * @see javax.servlet.http.HttpServletResponse
+     * @see jakarta.servlet.http.HttpServletResponse
      * @see java.lang.String
      */
     public static void writeOfUnclose(HttpServletResponse response, String json) {
@@ -454,9 +454,9 @@ public class IoStreamUtils {
     /**
      * <code>write</code>
      * <p>The write method.</p>
-     * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param response {@link jakarta.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
      * @param data     byte <p>The data parameter is <code>byte</code> type.</p>
-     * @see javax.servlet.http.HttpServletResponse
+     * @see jakarta.servlet.http.HttpServletResponse
      */
     public static void write(HttpServletResponse response, byte[] data) {
         try {
@@ -470,9 +470,9 @@ public class IoStreamUtils {
     /**
      * <code>writeOfCloseResponse</code>
      * <p>The write of close response method.</p>
-     * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param response {@link jakarta.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
      * @param data     byte <p>The data parameter is <code>byte</code> type.</p>
-     * @see javax.servlet.http.HttpServletResponse
+     * @see jakarta.servlet.http.HttpServletResponse
      */
     public static void writeOfCloseResponse(HttpServletResponse response, byte[] data) {
         try {
@@ -486,9 +486,9 @@ public class IoStreamUtils {
     /**
      * <code>writeOfUnclose</code>
      * <p>The write of unclose method.</p>
-     * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param response {@link jakarta.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
      * @param data     byte <p>The data parameter is <code>byte</code> type.</p>
-     * @see javax.servlet.http.HttpServletResponse
+     * @see jakarta.servlet.http.HttpServletResponse
      */
     public static void writeOfUnclose(HttpServletResponse response, byte[] data) {
         try {
@@ -502,10 +502,10 @@ public class IoStreamUtils {
     /**
      * <code>write</code>
      * <p>The write method.</p>
-     * @param response {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param response {@link jakarta.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
      * @param file     {@link java.io.File} <p>The file parameter is <code>File</code> type.</p>
      * @param filename {@link java.lang.String} <p>The filename parameter is <code>String</code> type.</p>
-     * @see javax.servlet.http.HttpServletResponse
+     * @see jakarta.servlet.http.HttpServletResponse
      * @see java.io.File
      * @see java.lang.String
      */

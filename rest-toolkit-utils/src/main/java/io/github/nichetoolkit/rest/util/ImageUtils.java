@@ -8,8 +8,8 @@ import io.github.nichetoolkit.rest.helper.ImageHelper;
 import lombok.extern.slf4j.Slf4j;
 import net.coobird.thumbnailator.Thumbnails;
 
-import javax.servlet.http.HttpServletResponse;
-import javax.swing.*;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -81,9 +81,9 @@ public class ImageUtils {
      * <code>writePng</code>
      * <p>The write png method.</p>
      * @param bufferedImage {@link java.awt.image.BufferedImage} <p>The buffered image parameter is <code>BufferedImage</code> type.</p>
-     * @param response      {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param response      {@link jakarta.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
      * @see java.awt.image.BufferedImage
-     * @see javax.servlet.http.HttpServletResponse
+     * @see jakarta.servlet.http.HttpServletResponse
      */
     public static void writePng(BufferedImage bufferedImage, HttpServletResponse response) {
         write(bufferedImage, response, UtilConstants.PNG_IMAGE_SUFFIX);
@@ -93,9 +93,9 @@ public class ImageUtils {
      * <code>writeJpeg</code>
      * <p>The write jpeg method.</p>
      * @param bufferedImage {@link java.awt.image.BufferedImage} <p>The buffered image parameter is <code>BufferedImage</code> type.</p>
-     * @param response      {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param response      {@link jakarta.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
      * @see java.awt.image.BufferedImage
-     * @see javax.servlet.http.HttpServletResponse
+     * @see jakarta.servlet.http.HttpServletResponse
      */
     public static void writeJpeg(BufferedImage bufferedImage, HttpServletResponse response) {
         write(bufferedImage, response, UtilConstants.JPEG_IMAGE_SUFFIX);
@@ -105,10 +105,10 @@ public class ImageUtils {
      * <code>write</code>
      * <p>The write method.</p>
      * @param bufferedImage {@link java.awt.image.BufferedImage} <p>The buffered image parameter is <code>BufferedImage</code> type.</p>
-     * @param response      {@link javax.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
+     * @param response      {@link jakarta.servlet.http.HttpServletResponse} <p>The response parameter is <code>HttpServletResponse</code> type.</p>
      * @param suffix        {@link java.lang.String} <p>The suffix parameter is <code>String</code> type.</p>
      * @see java.awt.image.BufferedImage
-     * @see javax.servlet.http.HttpServletResponse
+     * @see jakarta.servlet.http.HttpServletResponse
      * @see java.lang.String
      */
     public static void write(BufferedImage bufferedImage, HttpServletResponse response, String suffix) {
