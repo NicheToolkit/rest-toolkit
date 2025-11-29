@@ -1,17 +1,17 @@
 package io.github.nichetoolkit.rest.util;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JavaType;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.type.ArrayType;
-import com.fasterxml.jackson.databind.type.CollectionType;
-import com.fasterxml.jackson.databind.type.MapType;
-import com.fasterxml.jackson.databind.type.TypeFactory;
+import io.github.nichetoolkit.rest.holder.ObjectMapperHolder;
+import tools.jackson.core.type.TypeReference;
+import tools.jackson.databind.JavaType;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.type.ArrayType;
+import tools.jackson.databind.type.CollectionType;
+import tools.jackson.databind.type.MapType;
 import io.github.nichetoolkit.rest.RestResult;
 import io.github.nichetoolkit.rest.error.json.*;
 import io.github.nichetoolkit.rest.error.supply.JsonParseException;
 import io.github.nichetoolkit.rest.helper.JsonHelper;
-import io.github.nichetoolkit.rest.helper.JsonPurityHelper;
+import io.github.nichetoolkit.rest.helper.JacksonHelper;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.*;
@@ -21,8 +21,8 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * <code>JsonPurityUtils</code>
- * <p>The json purity utils class.</p>
+ * <code>JacksonUtils</code>
+ * <p>The jackson utils class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
  * @see java.lang.SuppressWarnings
@@ -30,7 +30,7 @@ import java.util.Set;
  */
 @Slf4j
 @SuppressWarnings({"TypeParameterUnusedInFormals", "SameNameButDifferent"})
-public class JsonPurityUtils {
+public class JacksonUtils {
 
     /**
      * <code>parseJson</code>
@@ -42,7 +42,7 @@ public class JsonPurityUtils {
      */
     public static <T> void parseJson(T target, File file) {
         try {
-            JsonPurityHelper.parseJson(target, file);
+            JacksonHelper.parseJson(target, file);
         } catch (JsonParseException exception) {
             log.error("It is failed during bean to parse as json with file! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -59,7 +59,7 @@ public class JsonPurityUtils {
      */
     public static <T> void parseJson(T target, OutputStream outputStream) {
         try {
-            JsonPurityHelper.parseJson(target, outputStream);
+            JacksonHelper.parseJson(target, outputStream);
         } catch (JsonParseException exception) {
             log.error("It is failed during bean to parse as json with output stream! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -76,7 +76,7 @@ public class JsonPurityUtils {
      */
     public static <T> void parseJson(T target, Writer writer) {
         try {
-            JsonPurityHelper.parseJson(target, writer);
+            JacksonHelper.parseJson(target, writer);
         } catch (JsonParseException exception) {
             log.error("It is failed during bean to parse as json with writer! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -93,7 +93,7 @@ public class JsonPurityUtils {
      */
     public static <T> String parseJson(T target) {
         try {
-            return JsonPurityHelper.parseJson(target);
+            return JacksonHelper.parseJson(target);
         } catch (JsonParseException exception) {
             log.error("It is failed during bean to parse as json! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -110,7 +110,7 @@ public class JsonPurityUtils {
      */
     public static <T> byte[] parseJsonAsBytes(T target) {
         try {
-            return JsonPurityHelper.parseJsonAsBytes(target);
+            return JacksonHelper.parseJsonAsBytes(target);
         } catch (JsonParseException exception) {
             log.error("It is failed during bean to parse as json with bytes! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -123,14 +123,14 @@ public class JsonPurityUtils {
      * <p>The parse json method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param target        T <p>The target parameter is <code>T</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link java.lang.String} <p>The parse json return object is <code>String</code> type.</p>
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see java.lang.String
      */
     public static <T> String parseJson(T target, TypeReference<?> typeReference) {
         try {
-            return JsonPurityHelper.parseJson(target, typeReference);
+            return JacksonHelper.parseJson(target, typeReference);
         } catch (JsonParseException exception) {
             log.error("It is failed during bean to parse as json with type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -148,7 +148,7 @@ public class JsonPurityUtils {
      */
     public static <T> String parseJsonIgnoreNull(T target) {
         try {
-            return JsonPurityHelper.parseJsonIgnoreNull(target);
+            return JacksonHelper.parseJsonIgnoreNull(target);
         } catch (JsonParseException exception) {
             log.error("It is failed during bean to parse as json with ignoring null! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -168,7 +168,7 @@ public class JsonPurityUtils {
      */
     public static <T> T parseBean(File json, Class<T> clazz) {
         try {
-            return JsonPurityHelper.parseBean(json, clazz);
+            return JacksonHelper.parseBean(json, clazz);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as bean with file and class type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -188,7 +188,7 @@ public class JsonPurityUtils {
      */
     public static <T> T parseBean(Reader json, Class<T> clazz) {
         try {
-            return JsonPurityHelper.parseBean(json, clazz);
+            return JacksonHelper.parseBean(json, clazz);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as bean with reader and class type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -207,7 +207,7 @@ public class JsonPurityUtils {
      */
     public static <T> T parseBean(byte[] json, Class<T> clazz) {
         try {
-            return JsonPurityHelper.parseBean(json, clazz);
+            return JacksonHelper.parseBean(json, clazz);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as bean with bytes and class type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -227,7 +227,7 @@ public class JsonPurityUtils {
      */
     public static <T> T parseBean(InputStream json, Class<T> clazz) {
         try {
-            return JsonPurityHelper.parseBean(json, clazz);
+            return JacksonHelper.parseBean(json, clazz);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as bean with input stream and class type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -247,7 +247,7 @@ public class JsonPurityUtils {
      */
     public static <T> T parseBean(String json, Class<T> clazz) {
         try {
-            return JsonPurityHelper.parseBean(json, clazz);
+            return JacksonHelper.parseBean(json, clazz);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as bean with class type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -260,14 +260,14 @@ public class JsonPurityUtils {
      * <p>The parse bean method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json          {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
      * @see java.io.File
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      */
     public static <T> T parseBean(File json, TypeReference<T> typeReference) {
         try {
-            return JsonPurityHelper.parseBean(json, typeReference);
+            return JacksonHelper.parseBean(json, typeReference);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as bean with file and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -280,14 +280,14 @@ public class JsonPurityUtils {
      * <p>The parse bean method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json          {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
      * @see java.io.Reader
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      */
     public static <T> T parseBean(Reader json, TypeReference<T> typeReference) {
         try {
-            return JsonPurityHelper.parseBean(json, typeReference);
+            return JacksonHelper.parseBean(json, typeReference);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as bean with reader and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -300,13 +300,13 @@ public class JsonPurityUtils {
      * <p>The parse bean method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json          byte <p>The json parameter is <code>byte</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      */
     public static <T> T parseBean(byte[] json, TypeReference<T> typeReference) {
         try {
-            return JsonPurityHelper.parseBean(json, typeReference);
+            return JacksonHelper.parseBean(json, typeReference);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as bean with bytes and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -319,14 +319,14 @@ public class JsonPurityUtils {
      * <p>The parse bean method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json          {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
      * @see java.io.InputStream
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      */
     public static <T> T parseBean(InputStream json, TypeReference<T> typeReference) {
         try {
-            return JsonPurityHelper.parseBean(json, typeReference);
+            return JacksonHelper.parseBean(json, typeReference);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as bean with input stream and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -339,14 +339,14 @@ public class JsonPurityUtils {
      * <p>The parse bean method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json          {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
      * @see java.lang.String
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      */
     public static <T> T parseBean(String json, TypeReference<T> typeReference) {
         try {
-            return JsonPurityHelper.parseBean(json, typeReference);
+            return JacksonHelper.parseBean(json, typeReference);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as bean with type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -359,14 +359,14 @@ public class JsonPurityUtils {
      * <p>The parse bean method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json     {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
      * @see java.io.File
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      */
     public static <T> T parseBean(File json, JavaType javaType) {
         try {
-            return JsonPurityHelper.parseBean(json, javaType);
+            return JacksonHelper.parseBean(json, javaType);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as bean with file and java type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -379,14 +379,14 @@ public class JsonPurityUtils {
      * <p>The parse bean method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json     {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
      * @see java.io.Reader
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      */
     public static <T> T parseBean(Reader json, JavaType javaType) {
         try {
-            return JsonPurityHelper.parseBean(json, javaType);
+            return JacksonHelper.parseBean(json, javaType);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as bean with reader and java type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -399,13 +399,13 @@ public class JsonPurityUtils {
      * <p>The parse bean method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json     byte <p>The json parameter is <code>byte</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      */
     public static <T> T parseBean(byte[] json, JavaType javaType) {
         try {
-            return JsonPurityHelper.parseBean(json, javaType);
+            return JacksonHelper.parseBean(json, javaType);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as bean with bytes and java type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -418,14 +418,14 @@ public class JsonPurityUtils {
      * <p>The parse bean method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json     {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
      * @see java.io.InputStream
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      */
     public static <T> T parseBean(InputStream json, JavaType javaType) {
         try {
-            return JsonPurityHelper.parseBean(json, javaType);
+            return JacksonHelper.parseBean(json, javaType);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as bean with input stream and java type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -438,14 +438,14 @@ public class JsonPurityUtils {
      * <p>The parse bean method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json     {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
      * @see java.lang.String
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      */
     public static <T> T parseBean(String json, JavaType javaType) {
         try {
-            return JsonPurityHelper.parseBean(json, javaType);
+            return JacksonHelper.parseBean(json, javaType);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as bean with java type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -467,7 +467,7 @@ public class JsonPurityUtils {
      */
     public static <T, U> T parseBean(File json, Class<T> clazz, Class<U> innerClazz) {
         try {
-            return JsonPurityHelper.parseBean(json, clazz, innerClazz);
+            return JacksonHelper.parseBean(json, clazz, innerClazz);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as inner bean with file and class type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -489,7 +489,7 @@ public class JsonPurityUtils {
      */
     public static <T, U> T parseBean(Reader json, Class<T> clazz, Class<U> innerClazz) {
         try {
-            return JsonPurityHelper.parseBean(json, clazz, innerClazz);
+            return JacksonHelper.parseBean(json, clazz, innerClazz);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as inner bean with reader and class type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -510,7 +510,7 @@ public class JsonPurityUtils {
      */
     public static <T, U> T parseBean(byte[] json, Class<T> clazz, Class<U> innerClazz) {
         try {
-            return JsonPurityHelper.parseBean(json, clazz, innerClazz);
+            return JacksonHelper.parseBean(json, clazz, innerClazz);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as inner bean with bytes and class type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -532,7 +532,7 @@ public class JsonPurityUtils {
      */
     public static <T, U> T parseBean(InputStream json, Class<T> clazz, Class<U> innerClazz) {
         try {
-            return JsonPurityHelper.parseBean(json, clazz, innerClazz);
+            return JacksonHelper.parseBean(json, clazz, innerClazz);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as inner bean with input stream and class type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -554,7 +554,7 @@ public class JsonPurityUtils {
      */
     public static <T, U> T parseBean(String json, Class<T> clazz, Class<U> innerClazz) {
         try {
-            return JsonPurityHelper.parseBean(json, clazz, innerClazz);
+            return JacksonHelper.parseBean(json, clazz, innerClazz);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as inner bean with class type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -567,15 +567,15 @@ public class JsonPurityUtils {
      * <p>The parse list method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json     {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
-     * @param listType {@link com.fasterxml.jackson.databind.type.CollectionType} <p>The list type parameter is <code>CollectionType</code> type.</p>
+     * @param listType {@link tools.jackson.databind.type.CollectionType} <p>The list type parameter is <code>CollectionType</code> type.</p>
      * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
      * @see java.io.File
-     * @see com.fasterxml.jackson.databind.type.CollectionType
+     * @see tools.jackson.databind.type.CollectionType
      * @see java.util.List
      */
     public static <T> List<T> parseList(File json, CollectionType listType) {
         try {
-            return JsonPurityHelper.parseList(json, listType);
+            return JacksonHelper.parseList(json, listType);
         } catch (JsonParseListException exception) {
             log.error("It is failed during json to parse as list of collection with file and collection type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -588,15 +588,15 @@ public class JsonPurityUtils {
      * <p>The parse list method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json     {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
-     * @param listType {@link com.fasterxml.jackson.databind.type.CollectionType} <p>The list type parameter is <code>CollectionType</code> type.</p>
+     * @param listType {@link tools.jackson.databind.type.CollectionType} <p>The list type parameter is <code>CollectionType</code> type.</p>
      * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
      * @see java.io.Reader
-     * @see com.fasterxml.jackson.databind.type.CollectionType
+     * @see tools.jackson.databind.type.CollectionType
      * @see java.util.List
      */
     public static <T> List<T> parseList(Reader json, CollectionType listType) {
         try {
-            return JsonPurityHelper.parseList(json, listType);
+            return JacksonHelper.parseList(json, listType);
         } catch (JsonParseListException exception) {
             log.error("It is failed during json to parse as list of collection with reader and collection type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -609,14 +609,14 @@ public class JsonPurityUtils {
      * <p>The parse list method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json     byte <p>The json parameter is <code>byte</code> type.</p>
-     * @param listType {@link com.fasterxml.jackson.databind.type.CollectionType} <p>The list type parameter is <code>CollectionType</code> type.</p>
+     * @param listType {@link tools.jackson.databind.type.CollectionType} <p>The list type parameter is <code>CollectionType</code> type.</p>
      * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
-     * @see com.fasterxml.jackson.databind.type.CollectionType
+     * @see tools.jackson.databind.type.CollectionType
      * @see java.util.List
      */
     public static <T> List<T> parseList(byte[] json, CollectionType listType) {
         try {
-            return JsonPurityHelper.parseList(json, listType);
+            return JacksonHelper.parseList(json, listType);
         } catch (JsonParseListException exception) {
             log.error("It is failed during json to parse as list of collection with bytes and collection type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -629,15 +629,15 @@ public class JsonPurityUtils {
      * <p>The parse list method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json     {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
-     * @param listType {@link com.fasterxml.jackson.databind.type.CollectionType} <p>The list type parameter is <code>CollectionType</code> type.</p>
+     * @param listType {@link tools.jackson.databind.type.CollectionType} <p>The list type parameter is <code>CollectionType</code> type.</p>
      * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
      * @see java.io.InputStream
-     * @see com.fasterxml.jackson.databind.type.CollectionType
+     * @see tools.jackson.databind.type.CollectionType
      * @see java.util.List
      */
     public static <T> List<T> parseList(InputStream json, CollectionType listType) {
         try {
-            return JsonPurityHelper.parseList(json, listType);
+            return JacksonHelper.parseList(json, listType);
         } catch (JsonParseListException exception) {
             log.error("It is failed during json to parse as list of collection with input stream and collection type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -650,15 +650,15 @@ public class JsonPurityUtils {
      * <p>The parse list method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json     {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
-     * @param listType {@link com.fasterxml.jackson.databind.type.CollectionType} <p>The list type parameter is <code>CollectionType</code> type.</p>
+     * @param listType {@link tools.jackson.databind.type.CollectionType} <p>The list type parameter is <code>CollectionType</code> type.</p>
      * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
      * @see java.lang.String
-     * @see com.fasterxml.jackson.databind.type.CollectionType
+     * @see tools.jackson.databind.type.CollectionType
      * @see java.util.List
      */
     public static <T> List<T> parseList(String json, CollectionType listType) {
         try {
-            return JsonPurityHelper.parseList(json, listType);
+            return JacksonHelper.parseList(json, listType);
         } catch (JsonParseListException exception) {
             log.error("It is failed during json to parse as list of collection with collection type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -671,15 +671,15 @@ public class JsonPurityUtils {
      * <p>The parse list method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json          {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
      * @see java.io.File
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see java.util.List
      */
     public static <T> List<T> parseList(File json, TypeReference<List<T>> typeReference) {
         try {
-            return JsonPurityHelper.parseList(json, typeReference);
+            return JacksonHelper.parseList(json, typeReference);
         } catch (JsonParseListException exception) {
             log.error("It is failed during json to parse as list of collection with file and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -692,15 +692,15 @@ public class JsonPurityUtils {
      * <p>The parse list method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json          {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
      * @see java.io.Reader
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see java.util.List
      */
     public static <T> List<T> parseList(Reader json, TypeReference<List<T>> typeReference) {
         try {
-            return JsonPurityHelper.parseList(json, typeReference);
+            return JacksonHelper.parseList(json, typeReference);
         } catch (JsonParseListException exception) {
             log.error("It is failed during json to parse as list of collection with reader and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -713,14 +713,14 @@ public class JsonPurityUtils {
      * <p>The parse list method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json          byte <p>The json parameter is <code>byte</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see java.util.List
      */
     public static <T> List<T> parseList(byte[] json, TypeReference<List<T>> typeReference) {
         try {
-            return JsonPurityHelper.parseList(json, typeReference);
+            return JacksonHelper.parseList(json, typeReference);
         } catch (JsonParseListException exception) {
             log.error("It is failed during json to parse as list of collection with bytes and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -733,15 +733,15 @@ public class JsonPurityUtils {
      * <p>The parse list method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json          {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
      * @see java.io.InputStream
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see java.util.List
      */
     public static <T> List<T> parseList(InputStream json, TypeReference<List<T>> typeReference) {
         try {
-            return JsonPurityHelper.parseList(json, typeReference);
+            return JacksonHelper.parseList(json, typeReference);
         } catch (JsonParseListException exception) {
             log.error("It is failed during json to parse as list of collection with input stream and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -754,15 +754,15 @@ public class JsonPurityUtils {
      * <p>The parse list method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json          {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
      * @see java.lang.String
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see java.util.List
      */
     public static <T> List<T> parseList(String json, TypeReference<List<T>> typeReference) {
         try {
-            return JsonPurityHelper.parseList(json, typeReference);
+            return JacksonHelper.parseList(json, typeReference);
         } catch (JsonParseListException exception) {
             log.error("It is failed during json to parse as list of collection with type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -784,7 +784,7 @@ public class JsonPurityUtils {
      * @see java.lang.Class
      */
     public static <Z extends List<?>, T> List<T> parseList(File json, Class<Z> parseClazz, Class<T> clazz) {
-        CollectionType listType = TypeFactory.defaultInstance().constructCollectionType(parseClazz, clazz);
+        CollectionType listType = ObjectMapperHolder.typeFactory().constructCollectionType(parseClazz, clazz);
         return parseList(json, listType);
     }
 
@@ -802,7 +802,7 @@ public class JsonPurityUtils {
      * @see java.lang.Class
      */
     public static <Z extends List<?>, T> List<T> parseList(Reader json, Class<Z> parseClazz, Class<T> clazz) {
-        CollectionType listType = TypeFactory.defaultInstance().constructCollectionType(parseClazz, clazz);
+        CollectionType listType = ObjectMapperHolder.typeFactory().constructCollectionType(parseClazz, clazz);
         return parseList(json, listType);
     }
 
@@ -819,7 +819,7 @@ public class JsonPurityUtils {
      * @see java.lang.Class
      */
     public static <Z extends List<?>, T> List<T> parseList(byte[] json, Class<Z> parseClazz, Class<T> clazz) {
-        CollectionType listType = TypeFactory.defaultInstance().constructCollectionType(parseClazz, clazz);
+        CollectionType listType = ObjectMapperHolder.typeFactory().constructCollectionType(parseClazz, clazz);
         return parseList(json, listType);
     }
 
@@ -837,7 +837,7 @@ public class JsonPurityUtils {
      * @see java.lang.Class
      */
     public static <Z extends List<?>, T> List<T> parseList(InputStream json, Class<Z> parseClazz, Class<T> clazz) {
-        CollectionType listType = TypeFactory.defaultInstance().constructCollectionType(parseClazz, clazz);
+        CollectionType listType = ObjectMapperHolder.typeFactory().constructCollectionType(parseClazz, clazz);
         return parseList(json, listType);
     }
 
@@ -855,7 +855,7 @@ public class JsonPurityUtils {
      * @see java.lang.Class
      */
     public static <Z extends List<?>, T> List<T> parseList(String json, Class<Z> parseClazz, Class<T> clazz) {
-        CollectionType listType = TypeFactory.defaultInstance().constructCollectionType(parseClazz, clazz);
+        CollectionType listType = ObjectMapperHolder.typeFactory().constructCollectionType(parseClazz, clazz);
         return parseList(json, listType);
     }
 
@@ -938,15 +938,15 @@ public class JsonPurityUtils {
      * <p>The parse set method.</p>
      * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json    {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
-     * @param setType {@link com.fasterxml.jackson.databind.type.CollectionType} <p>The set type parameter is <code>CollectionType</code> type.</p>
+     * @param setType {@link tools.jackson.databind.type.CollectionType} <p>The set type parameter is <code>CollectionType</code> type.</p>
      * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
      * @see java.lang.String
-     * @see com.fasterxml.jackson.databind.type.CollectionType
+     * @see tools.jackson.databind.type.CollectionType
      * @see java.util.Set
      */
     public static <T> Set<T> parseSet(String json, CollectionType setType) {
         try {
-            return JsonPurityHelper.parseSet(json, setType);
+            return JacksonHelper.parseSet(json, setType);
         } catch (JsonParseSetException exception) {
             log.error("It is failed during json to parse as set of collection with set type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -959,15 +959,15 @@ public class JsonPurityUtils {
      * <p>The parse set method.</p>
      * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json    {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
-     * @param setType {@link com.fasterxml.jackson.databind.type.CollectionType} <p>The set type parameter is <code>CollectionType</code> type.</p>
+     * @param setType {@link tools.jackson.databind.type.CollectionType} <p>The set type parameter is <code>CollectionType</code> type.</p>
      * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
      * @see java.io.File
-     * @see com.fasterxml.jackson.databind.type.CollectionType
+     * @see tools.jackson.databind.type.CollectionType
      * @see java.util.Set
      */
     public static <T> Set<T> parseSet(File json, CollectionType setType) {
         try {
-            return JsonPurityHelper.parseSet(json, setType);
+            return JacksonHelper.parseSet(json, setType);
         } catch (JsonParseSetException exception) {
             log.error("It is failed during json to parse as set of collection with file and set type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -980,15 +980,15 @@ public class JsonPurityUtils {
      * <p>The parse set method.</p>
      * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json    {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
-     * @param setType {@link com.fasterxml.jackson.databind.type.CollectionType} <p>The set type parameter is <code>CollectionType</code> type.</p>
+     * @param setType {@link tools.jackson.databind.type.CollectionType} <p>The set type parameter is <code>CollectionType</code> type.</p>
      * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
      * @see java.io.Reader
-     * @see com.fasterxml.jackson.databind.type.CollectionType
+     * @see tools.jackson.databind.type.CollectionType
      * @see java.util.Set
      */
     public static <T> Set<T> parseSet(Reader json, CollectionType setType) {
         try {
-            return JsonPurityHelper.parseSet(json, setType);
+            return JacksonHelper.parseSet(json, setType);
         } catch (JsonParseSetException exception) {
             log.error("It is failed during json to parse as set of collection with reader and set type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1001,14 +1001,14 @@ public class JsonPurityUtils {
      * <p>The parse set method.</p>
      * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json    byte <p>The json parameter is <code>byte</code> type.</p>
-     * @param setType {@link com.fasterxml.jackson.databind.type.CollectionType} <p>The set type parameter is <code>CollectionType</code> type.</p>
+     * @param setType {@link tools.jackson.databind.type.CollectionType} <p>The set type parameter is <code>CollectionType</code> type.</p>
      * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
-     * @see com.fasterxml.jackson.databind.type.CollectionType
+     * @see tools.jackson.databind.type.CollectionType
      * @see java.util.Set
      */
     public static <T> Set<T> parseSet(byte[] json, CollectionType setType) {
         try {
-            return JsonPurityHelper.parseSet(json, setType);
+            return JacksonHelper.parseSet(json, setType);
         } catch (JsonParseSetException exception) {
             log.error("It is failed during json to parse as set of collection with bytes and set type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1021,15 +1021,15 @@ public class JsonPurityUtils {
      * <p>The parse set method.</p>
      * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json    {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
-     * @param setType {@link com.fasterxml.jackson.databind.type.CollectionType} <p>The set type parameter is <code>CollectionType</code> type.</p>
+     * @param setType {@link tools.jackson.databind.type.CollectionType} <p>The set type parameter is <code>CollectionType</code> type.</p>
      * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
      * @see java.io.InputStream
-     * @see com.fasterxml.jackson.databind.type.CollectionType
+     * @see tools.jackson.databind.type.CollectionType
      * @see java.util.Set
      */
     public static <T> Set<T> parseSet(InputStream json, CollectionType setType) {
         try {
-            return JsonPurityHelper.parseSet(json, setType);
+            return JacksonHelper.parseSet(json, setType);
         } catch (JsonParseSetException exception) {
             log.error("It is failed during json to parse as set of collection with input stream and set type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1042,15 +1042,15 @@ public class JsonPurityUtils {
      * <p>The parse set method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json          {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
      * @see java.io.File
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see java.util.Set
      */
     public static <T> Set<T> parseSet(File json, TypeReference<Set<T>> typeReference) {
         try {
-            return JsonPurityHelper.parseSet(json, typeReference);
+            return JacksonHelper.parseSet(json, typeReference);
         } catch (JsonParseSetException exception) {
             log.error("It is failed during json to parse as set of collection with file and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1063,15 +1063,15 @@ public class JsonPurityUtils {
      * <p>The parse set method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json          {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
      * @see java.io.Reader
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see java.util.Set
      */
     public static <T> Set<T> parseSet(Reader json, TypeReference<Set<T>> typeReference) {
         try {
-            return JsonPurityHelper.parseSet(json, typeReference);
+            return JacksonHelper.parseSet(json, typeReference);
         } catch (JsonParseSetException exception) {
             log.error("It is failed during json to parse as set of collection with reader and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1084,14 +1084,14 @@ public class JsonPurityUtils {
      * <p>The parse set method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json          byte <p>The json parameter is <code>byte</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see java.util.Set
      */
     public static <T> Set<T> parseSet(byte[] json, TypeReference<Set<T>> typeReference) {
         try {
-            return JsonPurityHelper.parseSet(json, typeReference);
+            return JacksonHelper.parseSet(json, typeReference);
         } catch (JsonParseSetException exception) {
             log.error("It is failed during json to parse as set of collection with bytes and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1104,15 +1104,15 @@ public class JsonPurityUtils {
      * <p>The parse set method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json          {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
      * @see java.io.InputStream
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see java.util.Set
      */
     public static <T> Set<T> parseSet(InputStream json, TypeReference<Set<T>> typeReference) {
         try {
-            return JsonPurityHelper.parseSet(json, typeReference);
+            return JacksonHelper.parseSet(json, typeReference);
         } catch (JsonParseSetException exception) {
             log.error("It is failed during json to parse as set of collection with input stream and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1125,15 +1125,15 @@ public class JsonPurityUtils {
      * <p>The parse set method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json          {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
      * @see java.lang.String
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see java.util.Set
      */
     public static <T> Set<T> parseSet(String json, TypeReference<Set<T>> typeReference) {
         try {
-            return JsonPurityHelper.parseSet(json, typeReference);
+            return JacksonHelper.parseSet(json, typeReference);
         } catch (JsonParseSetException exception) {
             log.error("It is failed during json to parse as set of collection with type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1155,7 +1155,7 @@ public class JsonPurityUtils {
      * @see java.lang.Class
      */
     public static <Z extends Set<?>, T> Set<T> parseSet(File json, Class<Z> parseClazz, Class<T> clazz) {
-        CollectionType setType = TypeFactory.defaultInstance().constructCollectionType(parseClazz, clazz);
+        CollectionType setType = ObjectMapperHolder.typeFactory().constructCollectionType(parseClazz, clazz);
         return parseSet(json, setType);
     }
 
@@ -1173,7 +1173,7 @@ public class JsonPurityUtils {
      * @see java.lang.Class
      */
     public static <Z extends Set<?>, T> Set<T> parseSet(Reader json, Class<Z> parseClazz, Class<T> clazz) {
-        CollectionType setType = TypeFactory.defaultInstance().constructCollectionType(parseClazz, clazz);
+        CollectionType setType = ObjectMapperHolder.typeFactory().constructCollectionType(parseClazz, clazz);
         return parseSet(json, setType);
     }
 
@@ -1190,7 +1190,7 @@ public class JsonPurityUtils {
      * @see java.lang.Class
      */
     public static <Z extends Set<?>, T> Set<T> parseSet(byte[] json, Class<Z> parseClazz, Class<T> clazz) {
-        CollectionType setType = TypeFactory.defaultInstance().constructCollectionType(parseClazz, clazz);
+        CollectionType setType = ObjectMapperHolder.typeFactory().constructCollectionType(parseClazz, clazz);
         return parseSet(json, setType);
     }
 
@@ -1208,7 +1208,7 @@ public class JsonPurityUtils {
      * @see java.lang.Class
      */
     public static <Z extends Set<?>, T> Set<T> parseSet(InputStream json, Class<Z> parseClazz, Class<T> clazz) {
-        CollectionType setType = TypeFactory.defaultInstance().constructCollectionType(parseClazz, clazz);
+        CollectionType setType = ObjectMapperHolder.typeFactory().constructCollectionType(parseClazz, clazz);
         return parseSet(json, setType);
     }
 
@@ -1226,7 +1226,7 @@ public class JsonPurityUtils {
      * @see java.lang.Class
      */
     public static <Z extends Set<?>, T> Set<T> parseSet(String json, Class<Z> parseClazz, Class<T> clazz) {
-        CollectionType setType = TypeFactory.defaultInstance().constructCollectionType(parseClazz, clazz);
+        CollectionType setType = ObjectMapperHolder.typeFactory().constructCollectionType(parseClazz, clazz);
         return parseSet(json, setType);
     }
 
@@ -1310,15 +1310,15 @@ public class JsonPurityUtils {
      * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <K>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json    {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
-     * @param mapType {@link com.fasterxml.jackson.databind.type.MapType} <p>The map type parameter is <code>MapType</code> type.</p>
+     * @param mapType {@link tools.jackson.databind.type.MapType} <p>The map type parameter is <code>MapType</code> type.</p>
      * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
      * @see java.io.File
-     * @see com.fasterxml.jackson.databind.type.MapType
+     * @see tools.jackson.databind.type.MapType
      * @see java.util.Map
      */
     public static <T, K> Map<T, K> parseMap(File json, MapType mapType) {
         try {
-            return JsonPurityHelper.parseMap(json, mapType);
+            return JacksonHelper.parseMap(json, mapType);
         } catch (JsonParseMapException exception) {
             log.error("It is failed during json to parse as map of bean with file and map type! {}", exception.getMessage(), exception);
             GeneralUtils.printStackTrace(exception);
@@ -1332,15 +1332,15 @@ public class JsonPurityUtils {
      * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <K>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json    {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
-     * @param mapType {@link com.fasterxml.jackson.databind.type.MapType} <p>The map type parameter is <code>MapType</code> type.</p>
+     * @param mapType {@link tools.jackson.databind.type.MapType} <p>The map type parameter is <code>MapType</code> type.</p>
      * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
      * @see java.io.Reader
-     * @see com.fasterxml.jackson.databind.type.MapType
+     * @see tools.jackson.databind.type.MapType
      * @see java.util.Map
      */
     public static <T, K> Map<T, K> parseMap(Reader json, MapType mapType) {
         try {
-            return JsonPurityHelper.parseMap(json, mapType);
+            return JacksonHelper.parseMap(json, mapType);
         } catch (JsonParseMapException exception) {
             log.error("It is failed during json to parse as map of bean with reader and map type! {}", exception.getMessage(), exception);
             GeneralUtils.printStackTrace(exception);
@@ -1354,14 +1354,14 @@ public class JsonPurityUtils {
      * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <K>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json    byte <p>The json parameter is <code>byte</code> type.</p>
-     * @param mapType {@link com.fasterxml.jackson.databind.type.MapType} <p>The map type parameter is <code>MapType</code> type.</p>
+     * @param mapType {@link tools.jackson.databind.type.MapType} <p>The map type parameter is <code>MapType</code> type.</p>
      * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
-     * @see com.fasterxml.jackson.databind.type.MapType
+     * @see tools.jackson.databind.type.MapType
      * @see java.util.Map
      */
     public static <T, K> Map<T, K> parseMap(byte[] json, MapType mapType) {
         try {
-            return JsonPurityHelper.parseMap(json, mapType);
+            return JacksonHelper.parseMap(json, mapType);
         } catch (JsonParseMapException exception) {
             log.error("It is failed during json to parse as map of bean with bytes and map type! {}", exception.getMessage(), exception);
             GeneralUtils.printStackTrace(exception);
@@ -1375,15 +1375,15 @@ public class JsonPurityUtils {
      * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <K>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json    {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
-     * @param mapType {@link com.fasterxml.jackson.databind.type.MapType} <p>The map type parameter is <code>MapType</code> type.</p>
+     * @param mapType {@link tools.jackson.databind.type.MapType} <p>The map type parameter is <code>MapType</code> type.</p>
      * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
      * @see java.io.InputStream
-     * @see com.fasterxml.jackson.databind.type.MapType
+     * @see tools.jackson.databind.type.MapType
      * @see java.util.Map
      */
     public static <T, K> Map<T, K> parseMap(InputStream json, MapType mapType) {
         try {
-            return JsonPurityHelper.parseMap(json, mapType);
+            return JacksonHelper.parseMap(json, mapType);
         } catch (JsonParseMapException exception) {
             log.error("It is failed during json to parse as map of bean with input stream and map type! {}", exception.getMessage(), exception);
             GeneralUtils.printStackTrace(exception);
@@ -1397,15 +1397,15 @@ public class JsonPurityUtils {
      * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <K>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json    {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
-     * @param mapType {@link com.fasterxml.jackson.databind.type.MapType} <p>The map type parameter is <code>MapType</code> type.</p>
+     * @param mapType {@link tools.jackson.databind.type.MapType} <p>The map type parameter is <code>MapType</code> type.</p>
      * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
      * @see java.lang.String
-     * @see com.fasterxml.jackson.databind.type.MapType
+     * @see tools.jackson.databind.type.MapType
      * @see java.util.Map
      */
     public static <T, K> Map<T, K> parseMap(String json, MapType mapType) {
         try {
-            return JsonPurityHelper.parseMap(json, mapType);
+            return JacksonHelper.parseMap(json, mapType);
         } catch (JsonParseMapException exception) {
             log.error("It is failed during json to parse as map of bean with map type! {}", exception.getMessage(), exception);
             GeneralUtils.printStackTrace(exception);
@@ -1419,15 +1419,15 @@ public class JsonPurityUtils {
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <K>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json          {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
      * @see java.io.File
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see java.util.Map
      */
     public static <T, K> Map<T, K> parseMap(File json, TypeReference<Map<T, K>> typeReference) {
         try {
-            return JsonPurityHelper.parseMap(json, typeReference);
+            return JacksonHelper.parseMap(json, typeReference);
         } catch (JsonParseMapException exception) {
             log.error("It is failed during json to parse as map of bean with file and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1441,15 +1441,15 @@ public class JsonPurityUtils {
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <K>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json          {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
      * @see java.io.Reader
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see java.util.Map
      */
     public static <T, K> Map<T, K> parseMap(Reader json, TypeReference<Map<T, K>> typeReference) {
         try {
-            return JsonPurityHelper.parseMap(json, typeReference);
+            return JacksonHelper.parseMap(json, typeReference);
         } catch (JsonParseMapException exception) {
             log.error("It is failed during json to parse as map of bean with reader and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1463,14 +1463,14 @@ public class JsonPurityUtils {
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <K>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json          byte <p>The json parameter is <code>byte</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see java.util.Map
      */
     public static <T, K> Map<T, K> parseMap(byte[] json, TypeReference<Map<T, K>> typeReference) {
         try {
-            return JsonPurityHelper.parseMap(json, typeReference);
+            return JacksonHelper.parseMap(json, typeReference);
         } catch (JsonParseMapException exception) {
             log.error("It is failed during json to parse as map of bean with bytes and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1484,15 +1484,15 @@ public class JsonPurityUtils {
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <K>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json          {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
      * @see java.io.InputStream
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see java.util.Map
      */
     public static <T, K> Map<T, K> parseMap(InputStream json, TypeReference<Map<T, K>> typeReference) {
         try {
-            return JsonPurityHelper.parseMap(json, typeReference);
+            return JacksonHelper.parseMap(json, typeReference);
         } catch (JsonParseMapException exception) {
             log.error("It is failed during json to parse as map of bean with input stream and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1506,15 +1506,15 @@ public class JsonPurityUtils {
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <K>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json          {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
      * @see java.lang.String
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see java.util.Map
      */
     public static <T, K> Map<T, K> parseMap(String json, TypeReference<Map<T, K>> typeReference) {
         try {
-            return JsonPurityHelper.parseMap(json, typeReference);
+            return JacksonHelper.parseMap(json, typeReference);
         } catch (JsonParseMapException exception) {
             log.error("It is failed during json to parse as map of bean with type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1527,14 +1527,14 @@ public class JsonPurityUtils {
      * <p>The parse array method.</p>
      * @param <T>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json      {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
-     * @param arrayType {@link com.fasterxml.jackson.databind.type.ArrayType} <p>The array type parameter is <code>ArrayType</code> type.</p>
+     * @param arrayType {@link tools.jackson.databind.type.ArrayType} <p>The array type parameter is <code>ArrayType</code> type.</p>
      * @return T <p>The parse array return object is <code>T</code> type.</p>
      * @see java.io.File
-     * @see com.fasterxml.jackson.databind.type.ArrayType
+     * @see tools.jackson.databind.type.ArrayType
      */
     public static <T> T[] parseArray(File json, ArrayType arrayType) {
         try {
-            return JsonPurityHelper.parseArray(json, arrayType);
+            return JacksonHelper.parseArray(json, arrayType);
         } catch (JsonParseArrayException exception) {
             log.error("It is failed during json to parse as array of bean with file and array type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1547,14 +1547,14 @@ public class JsonPurityUtils {
      * <p>The parse array method.</p>
      * @param <T>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json      {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
-     * @param arrayType {@link com.fasterxml.jackson.databind.type.ArrayType} <p>The array type parameter is <code>ArrayType</code> type.</p>
+     * @param arrayType {@link tools.jackson.databind.type.ArrayType} <p>The array type parameter is <code>ArrayType</code> type.</p>
      * @return T <p>The parse array return object is <code>T</code> type.</p>
      * @see java.io.Reader
-     * @see com.fasterxml.jackson.databind.type.ArrayType
+     * @see tools.jackson.databind.type.ArrayType
      */
     public static <T> T[] parseArray(Reader json, ArrayType arrayType) {
         try {
-            return JsonPurityHelper.parseArray(json, arrayType);
+            return JacksonHelper.parseArray(json, arrayType);
         } catch (JsonParseArrayException exception) {
             log.error("It is failed during json to parse as array of bean with reader and array type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1567,13 +1567,13 @@ public class JsonPurityUtils {
      * <p>The parse array method.</p>
      * @param <T>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json      byte <p>The json parameter is <code>byte</code> type.</p>
-     * @param arrayType {@link com.fasterxml.jackson.databind.type.ArrayType} <p>The array type parameter is <code>ArrayType</code> type.</p>
+     * @param arrayType {@link tools.jackson.databind.type.ArrayType} <p>The array type parameter is <code>ArrayType</code> type.</p>
      * @return T <p>The parse array return object is <code>T</code> type.</p>
-     * @see com.fasterxml.jackson.databind.type.ArrayType
+     * @see tools.jackson.databind.type.ArrayType
      */
     public static <T> T[] parseArray(byte[] json, ArrayType arrayType) {
         try {
-            return JsonPurityHelper.parseArray(json, arrayType);
+            return JacksonHelper.parseArray(json, arrayType);
         } catch (JsonParseArrayException exception) {
             log.error("It is failed during json to parse as array of bean with bytes and array type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1586,14 +1586,14 @@ public class JsonPurityUtils {
      * <p>The parse array method.</p>
      * @param <T>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json      {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
-     * @param arrayType {@link com.fasterxml.jackson.databind.type.ArrayType} <p>The array type parameter is <code>ArrayType</code> type.</p>
+     * @param arrayType {@link tools.jackson.databind.type.ArrayType} <p>The array type parameter is <code>ArrayType</code> type.</p>
      * @return T <p>The parse array return object is <code>T</code> type.</p>
      * @see java.io.InputStream
-     * @see com.fasterxml.jackson.databind.type.ArrayType
+     * @see tools.jackson.databind.type.ArrayType
      */
     public static <T> T[] parseArray(InputStream json, ArrayType arrayType) {
         try {
-            return JsonPurityHelper.parseArray(json, arrayType);
+            return JacksonHelper.parseArray(json, arrayType);
         } catch (JsonParseArrayException exception) {
             log.error("It is failed during json to parse as array of bean with input stream and array type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1606,14 +1606,14 @@ public class JsonPurityUtils {
      * <p>The parse array method.</p>
      * @param <T>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json      {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
-     * @param arrayType {@link com.fasterxml.jackson.databind.type.ArrayType} <p>The array type parameter is <code>ArrayType</code> type.</p>
+     * @param arrayType {@link tools.jackson.databind.type.ArrayType} <p>The array type parameter is <code>ArrayType</code> type.</p>
      * @return T <p>The parse array return object is <code>T</code> type.</p>
      * @see java.lang.String
-     * @see com.fasterxml.jackson.databind.type.ArrayType
+     * @see tools.jackson.databind.type.ArrayType
      */
     public static <T> T[] parseArray(String json, ArrayType arrayType) {
         try {
-            return JsonPurityHelper.parseArray(json, arrayType);
+            return JacksonHelper.parseArray(json, arrayType);
         } catch (JsonParseArrayException exception) {
             log.error("It is failed during json to parse as array of bean with array type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1626,14 +1626,14 @@ public class JsonPurityUtils {
      * <p>The parse array method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json          {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return T <p>The parse array return object is <code>T</code> type.</p>
      * @see java.io.File
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      */
     public static <T> T[] parseArray(File json, TypeReference<T> typeReference) {
         try {
-            return JsonPurityHelper.parseArray(json, typeReference);
+            return JacksonHelper.parseArray(json, typeReference);
         } catch (JsonParseArrayException exception) {
             log.error("It is failed during json to parse as array of bean with file and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1646,14 +1646,14 @@ public class JsonPurityUtils {
      * <p>The parse array method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json          {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return T <p>The parse array return object is <code>T</code> type.</p>
      * @see java.io.Reader
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      */
     public static <T> T[] parseArray(Reader json, TypeReference<T> typeReference) {
         try {
-            return JsonPurityHelper.parseArray(json, typeReference);
+            return JacksonHelper.parseArray(json, typeReference);
         } catch (JsonParseArrayException exception) {
             log.error("It is failed during json to parse as array of bean with reader and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1666,13 +1666,13 @@ public class JsonPurityUtils {
      * <p>The parse array method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json          byte <p>The json parameter is <code>byte</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return T <p>The parse array return object is <code>T</code> type.</p>
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      */
     public static <T> T[] parseArray(byte[] json, TypeReference<T> typeReference) {
         try {
-            return JsonPurityHelper.parseArray(json, typeReference);
+            return JacksonHelper.parseArray(json, typeReference);
         } catch (JsonParseArrayException exception) {
             log.error("It is failed during json to parse as array of bean with bytes and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1685,14 +1685,14 @@ public class JsonPurityUtils {
      * <p>The parse array method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json          {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return T <p>The parse array return object is <code>T</code> type.</p>
      * @see java.io.InputStream
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      */
     public static <T> T[] parseArray(InputStream json, TypeReference<T> typeReference) {
         try {
-            return JsonPurityHelper.parseArray(json, typeReference);
+            return JacksonHelper.parseArray(json, typeReference);
         } catch (JsonParseArrayException exception) {
             log.error("It is failed during json to parse as array of bean with input stream and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1705,14 +1705,14 @@ public class JsonPurityUtils {
      * <p>The parse array method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json          {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return T <p>The parse array return object is <code>T</code> type.</p>
      * @see java.lang.String
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      */
     public static <T> T[] parseArray(String json, TypeReference<T> typeReference) {
         try {
-            return JsonPurityHelper.parseArray(json, typeReference);
+            return JacksonHelper.parseArray(json, typeReference);
         } catch (JsonParseArrayException exception) {
             log.error("It is failed during json to parse as array of bean with type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1733,7 +1733,7 @@ public class JsonPurityUtils {
      * @see java.lang.Class
      */
     public static <Z extends List<?>, T> T[] parseArray(File json, Class<T> clazz) {
-        ArrayType arrayType = TypeFactory.defaultInstance().constructArrayType(clazz);
+        ArrayType arrayType = ObjectMapperHolder.typeFactory().constructArrayType(clazz);
         return parseArray(json, arrayType);
     }
 
@@ -1750,7 +1750,7 @@ public class JsonPurityUtils {
      * @see java.lang.Class
      */
     public static <Z extends List<?>, T> T[] parseArray(Reader json, Class<T> clazz) {
-        ArrayType arrayType = TypeFactory.defaultInstance().constructArrayType(clazz);
+        ArrayType arrayType = ObjectMapperHolder.typeFactory().constructArrayType(clazz);
         return parseArray(json, arrayType);
     }
 
@@ -1766,7 +1766,7 @@ public class JsonPurityUtils {
      * @see java.lang.Class
      */
     public static <Z extends List<?>, T> T[] parseArray(byte[] json, Class<T> clazz) {
-        ArrayType arrayType = TypeFactory.defaultInstance().constructArrayType(clazz);
+        ArrayType arrayType = ObjectMapperHolder.typeFactory().constructArrayType(clazz);
         return parseArray(json, arrayType);
     }
 
@@ -1783,7 +1783,7 @@ public class JsonPurityUtils {
      * @see java.lang.Class
      */
     public static <Z extends List<?>, T> T[] parseArray(InputStream json, Class<T> clazz) {
-        ArrayType arrayType = TypeFactory.defaultInstance().constructArrayType(clazz);
+        ArrayType arrayType = ObjectMapperHolder.typeFactory().constructArrayType(clazz);
         return parseArray(json, arrayType);
     }
 
@@ -1800,7 +1800,7 @@ public class JsonPurityUtils {
      * @see java.lang.Class
      */
     public static <Z extends List<?>, T> T[] parseArray(String json, Class<T> clazz) {
-        ArrayType arrayType = TypeFactory.defaultInstance().constructArrayType(clazz);
+        ArrayType arrayType = ObjectMapperHolder.typeFactory().constructArrayType(clazz);
         return parseArray(json, arrayType);
     }
 
@@ -1820,7 +1820,7 @@ public class JsonPurityUtils {
      * @see java.lang.Class
      */
     public static <Z extends Map<?, ?>, T, K> Map<T, K> parseMap(File json, Class<Z> parseClazz, Class<T> keyClazz, Class<K> valueClazz) {
-        MapType mapType = TypeFactory.defaultInstance().constructMapType(parseClazz, keyClazz, valueClazz);
+        MapType mapType = ObjectMapperHolder.typeFactory().constructMapType(parseClazz, keyClazz, valueClazz);
         return parseMap(json, mapType);
     }
 
@@ -1840,7 +1840,7 @@ public class JsonPurityUtils {
      * @see java.lang.Class
      */
     public static <Z extends Map<?, ?>, T, K> Map<T, K> parseMap(Reader json, Class<Z> parseClazz, Class<T> keyClazz, Class<K> valueClazz) {
-        MapType mapType = TypeFactory.defaultInstance().constructMapType(parseClazz, keyClazz, valueClazz);
+        MapType mapType = ObjectMapperHolder.typeFactory().constructMapType(parseClazz, keyClazz, valueClazz);
         return parseMap(json, mapType);
     }
 
@@ -1859,7 +1859,7 @@ public class JsonPurityUtils {
      * @see java.lang.Class
      */
     public static <Z extends Map<?, ?>, T, K> Map<T, K> parseMap(byte[] json, Class<Z> parseClazz, Class<T> keyClazz, Class<K> valueClazz) {
-        MapType mapType = TypeFactory.defaultInstance().constructMapType(parseClazz, keyClazz, valueClazz);
+        MapType mapType = ObjectMapperHolder.typeFactory().constructMapType(parseClazz, keyClazz, valueClazz);
         return parseMap(json, mapType);
     }
 
@@ -1879,7 +1879,7 @@ public class JsonPurityUtils {
      * @see java.lang.Class
      */
     public static <Z extends Map<?, ?>, T, K> Map<T, K> parseMap(InputStream json, Class<Z> parseClazz, Class<T> keyClazz, Class<K> valueClazz) {
-        MapType mapType = TypeFactory.defaultInstance().constructMapType(parseClazz, keyClazz, valueClazz);
+        MapType mapType = ObjectMapperHolder.typeFactory().constructMapType(parseClazz, keyClazz, valueClazz);
         return parseMap(json, mapType);
     }
 
@@ -1899,7 +1899,7 @@ public class JsonPurityUtils {
      * @see java.lang.Class
      */
     public static <Z extends Map<?, ?>, T, K> Map<T, K> parseMap(String json, Class<Z> parseClazz, Class<T> keyClazz, Class<K> valueClazz) {
-        MapType mapType = TypeFactory.defaultInstance().constructMapType(parseClazz, keyClazz, valueClazz);
+        MapType mapType = ObjectMapperHolder.typeFactory().constructMapType(parseClazz, keyClazz, valueClazz);
         return parseMap(json, mapType);
     }
 
@@ -2006,8 +2006,8 @@ public class JsonPurityUtils {
      * @see java.lang.Class
      */
     public static <H extends List<?>, Y extends Map<?, ?>, T, K> Map<T, List<K>> parseMapList(File json, Class<H> parseListClazz, Class<Y> parseMapClazz, Class<T> keyClazz, Class<K> valueClazz) {
-        CollectionType collectionType = TypeFactory.defaultInstance().constructCollectionType(parseListClazz, valueClazz);
-        MapType mapType = TypeFactory.defaultInstance().constructMapType(parseMapClazz, keyClazz, collectionType.getRawClass());
+        CollectionType collectionType = ObjectMapperHolder.typeFactory().constructCollectionType(parseListClazz, valueClazz);
+        MapType mapType = ObjectMapperHolder.typeFactory().constructMapType(parseMapClazz, keyClazz, collectionType.getRawClass());
         return parseMap(json, mapType);
     }
 
@@ -2030,8 +2030,8 @@ public class JsonPurityUtils {
      * @see java.lang.Class
      */
     public static <H extends List<?>, Y extends Map<?, ?>, T, K> Map<T, List<K>> parseMapList(Reader json, Class<H> parseListClazz, Class<Y> parseMapClazz, Class<T> keyClazz, Class<K> valueClazz) {
-        CollectionType collectionType = TypeFactory.defaultInstance().constructCollectionType(parseListClazz, valueClazz);
-        MapType mapType = TypeFactory.defaultInstance().constructMapType(parseMapClazz, keyClazz, collectionType.getRawClass());
+        CollectionType collectionType = ObjectMapperHolder.typeFactory().constructCollectionType(parseListClazz, valueClazz);
+        MapType mapType = ObjectMapperHolder.typeFactory().constructMapType(parseMapClazz, keyClazz, collectionType.getRawClass());
         return parseMap(json, mapType);
     }
 
@@ -2053,8 +2053,8 @@ public class JsonPurityUtils {
      * @see java.lang.Class
      */
     public static <H extends List<?>, Y extends Map<?, ?>, T, K> Map<T, List<K>> parseMapList(byte[] json, Class<H> parseListClazz, Class<Y> parseMapClazz, Class<T> keyClazz, Class<K> valueClazz) {
-        CollectionType collectionType = TypeFactory.defaultInstance().constructCollectionType(parseListClazz, valueClazz);
-        MapType mapType = TypeFactory.defaultInstance().constructMapType(parseMapClazz, keyClazz, collectionType.getRawClass());
+        CollectionType collectionType = ObjectMapperHolder.typeFactory().constructCollectionType(parseListClazz, valueClazz);
+        MapType mapType = ObjectMapperHolder.typeFactory().constructMapType(parseMapClazz, keyClazz, collectionType.getRawClass());
         return parseMap(json, mapType);
     }
 
@@ -2077,8 +2077,8 @@ public class JsonPurityUtils {
      * @see java.lang.Class
      */
     public static <H extends List<?>, Y extends Map<?, ?>, T, K> Map<T, List<K>> parseMapList(InputStream json, Class<H> parseListClazz, Class<Y> parseMapClazz, Class<T> keyClazz, Class<K> valueClazz) {
-        CollectionType collectionType = TypeFactory.defaultInstance().constructCollectionType(parseListClazz, valueClazz);
-        MapType mapType = TypeFactory.defaultInstance().constructMapType(parseMapClazz, keyClazz, collectionType.getRawClass());
+        CollectionType collectionType = ObjectMapperHolder.typeFactory().constructCollectionType(parseListClazz, valueClazz);
+        MapType mapType = ObjectMapperHolder.typeFactory().constructMapType(parseMapClazz, keyClazz, collectionType.getRawClass());
         return parseMap(json, mapType);
     }
 
@@ -2101,8 +2101,8 @@ public class JsonPurityUtils {
      * @see java.lang.Class
      */
     public static <H extends List<?>, Y extends Map<?, ?>, T, K> Map<T, List<K>> parseMapList(String json, Class<H> parseListClazz, Class<Y> parseMapClazz, Class<T> keyClazz, Class<K> valueClazz) {
-        CollectionType collectionType = TypeFactory.defaultInstance().constructCollectionType(parseListClazz, valueClazz);
-        MapType mapType = TypeFactory.defaultInstance().constructMapType(parseMapClazz, keyClazz, collectionType.getRawClass());
+        CollectionType collectionType = ObjectMapperHolder.typeFactory().constructCollectionType(parseListClazz, valueClazz);
+        MapType mapType = ObjectMapperHolder.typeFactory().constructMapType(parseMapClazz, keyClazz, collectionType.getRawClass());
         return parseMap(json, mapType);
     }
 
@@ -2209,8 +2209,8 @@ public class JsonPurityUtils {
      * @see java.lang.Class
      */
     public static <Z extends List<?>, Y extends Map<?, ?>, T, K> List<Map<T, K>> parseListMap(File json, Class<Z> wrapKeyClazz, Class<Y> contentMapClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
-        MapType contentType = TypeFactory.defaultInstance().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
-        CollectionType collectionType = TypeFactory.defaultInstance().constructCollectionType(wrapKeyClazz, contentType.getRawClass());
+        MapType contentType = ObjectMapperHolder.typeFactory().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
+        CollectionType collectionType = ObjectMapperHolder.typeFactory().constructCollectionType(wrapKeyClazz, contentType.getRawClass());
         return parseList(json, collectionType);
     }
 
@@ -2233,8 +2233,8 @@ public class JsonPurityUtils {
      * @see java.lang.Class
      */
     public static <Z extends List<?>, Y extends Map<?, ?>, T, K> List<Map<T, K>> parseListMap(Reader json, Class<Z> wrapKeyClazz, Class<Y> contentMapClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
-        MapType contentType = TypeFactory.defaultInstance().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
-        CollectionType collectionType = TypeFactory.defaultInstance().constructCollectionType(wrapKeyClazz, contentType.getRawClass());
+        MapType contentType = ObjectMapperHolder.typeFactory().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
+        CollectionType collectionType = ObjectMapperHolder.typeFactory().constructCollectionType(wrapKeyClazz, contentType.getRawClass());
         return parseList(json, collectionType);
     }
 
@@ -2256,8 +2256,8 @@ public class JsonPurityUtils {
      * @see java.lang.Class
      */
     public static <Z extends List<?>, Y extends Map<?, ?>, T, K> List<Map<T, K>> parseListMap(byte[] json, Class<Z> wrapKeyClazz, Class<Y> contentMapClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
-        MapType contentType = TypeFactory.defaultInstance().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
-        CollectionType collectionType = TypeFactory.defaultInstance().constructCollectionType(wrapKeyClazz, contentType.getRawClass());
+        MapType contentType = ObjectMapperHolder.typeFactory().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
+        CollectionType collectionType = ObjectMapperHolder.typeFactory().constructCollectionType(wrapKeyClazz, contentType.getRawClass());
         return parseList(json, collectionType);
     }
 
@@ -2280,8 +2280,8 @@ public class JsonPurityUtils {
      * @see java.lang.Class
      */
     public static <Z extends List<?>, Y extends Map<?, ?>, T, K> List<Map<T, K>> parseListMap(InputStream json, Class<Z> wrapKeyClazz, Class<Y> contentMapClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
-        MapType contentType = TypeFactory.defaultInstance().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
-        CollectionType collectionType = TypeFactory.defaultInstance().constructCollectionType(wrapKeyClazz, contentType.getRawClass());
+        MapType contentType = ObjectMapperHolder.typeFactory().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
+        CollectionType collectionType = ObjectMapperHolder.typeFactory().constructCollectionType(wrapKeyClazz, contentType.getRawClass());
         return parseList(json, collectionType);
     }
 
@@ -2304,8 +2304,8 @@ public class JsonPurityUtils {
      * @see java.lang.Class
      */
     public static <Z extends List<?>, Y extends Map<?, ?>, T, K> List<Map<T, K>> parseListMap(String json, Class<Z> wrapKeyClazz, Class<Y> contentMapClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
-        MapType contentType = TypeFactory.defaultInstance().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
-        CollectionType collectionType = TypeFactory.defaultInstance().constructCollectionType(wrapKeyClazz, contentType.getRawClass());
+        MapType contentType = ObjectMapperHolder.typeFactory().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
+        CollectionType collectionType = ObjectMapperHolder.typeFactory().constructCollectionType(wrapKeyClazz, contentType.getRawClass());
         return parseList(json, collectionType);
     }
 
@@ -2323,8 +2323,8 @@ public class JsonPurityUtils {
      * @see java.util.List
      */
     public static <T, K> List<Map<T, K>> parseListMap(File json, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
-        MapType contentType = TypeFactory.defaultInstance().constructMapType(Map.class, contentKeyClazz, contentValueClazz);
-        CollectionType collectionType = TypeFactory.defaultInstance().constructCollectionType(List.class, contentType.getRawClass());
+        MapType contentType = ObjectMapperHolder.typeFactory().constructMapType(Map.class, contentKeyClazz, contentValueClazz);
+        CollectionType collectionType = ObjectMapperHolder.typeFactory().constructCollectionType(List.class, contentType.getRawClass());
         return parseList(json, collectionType);
     }
 
@@ -2342,8 +2342,8 @@ public class JsonPurityUtils {
      * @see java.util.List
      */
     public static <T, K> List<Map<T, K>> parseListMap(Reader json, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
-        MapType contentType = TypeFactory.defaultInstance().constructMapType(Map.class, contentKeyClazz, contentValueClazz);
-        CollectionType collectionType = TypeFactory.defaultInstance().constructCollectionType(List.class, contentType.getRawClass());
+        MapType contentType = ObjectMapperHolder.typeFactory().constructMapType(Map.class, contentKeyClazz, contentValueClazz);
+        CollectionType collectionType = ObjectMapperHolder.typeFactory().constructCollectionType(List.class, contentType.getRawClass());
         return parseList(json, collectionType);
     }
 
@@ -2360,8 +2360,8 @@ public class JsonPurityUtils {
      * @see java.util.List
      */
     public static <T, K> List<Map<T, K>> parseListMap(byte[] json, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
-        MapType contentType = TypeFactory.defaultInstance().constructMapType(Map.class, contentKeyClazz, contentValueClazz);
-        CollectionType collectionType = TypeFactory.defaultInstance().constructCollectionType(List.class, contentType.getRawClass());
+        MapType contentType = ObjectMapperHolder.typeFactory().constructMapType(Map.class, contentKeyClazz, contentValueClazz);
+        CollectionType collectionType = ObjectMapperHolder.typeFactory().constructCollectionType(List.class, contentType.getRawClass());
         return parseList(json, collectionType);
     }
 
@@ -2379,8 +2379,8 @@ public class JsonPurityUtils {
      * @see java.util.List
      */
     public static <T, K> List<Map<T, K>> parseListMap(InputStream json, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
-        MapType contentType = TypeFactory.defaultInstance().constructMapType(Map.class, contentKeyClazz, contentValueClazz);
-        CollectionType collectionType = TypeFactory.defaultInstance().constructCollectionType(List.class, contentType.getRawClass());
+        MapType contentType = ObjectMapperHolder.typeFactory().constructMapType(Map.class, contentKeyClazz, contentValueClazz);
+        CollectionType collectionType = ObjectMapperHolder.typeFactory().constructCollectionType(List.class, contentType.getRawClass());
         return parseList(json, collectionType);
     }
 
@@ -2398,8 +2398,8 @@ public class JsonPurityUtils {
      * @see java.util.List
      */
     public static <T, K> List<Map<T, K>> parseListMap(String json, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
-        MapType contentType = TypeFactory.defaultInstance().constructMapType(Map.class, contentKeyClazz, contentValueClazz);
-        CollectionType collectionType = TypeFactory.defaultInstance().constructCollectionType(List.class, contentType.getRawClass());
+        MapType contentType = ObjectMapperHolder.typeFactory().constructMapType(Map.class, contentKeyClazz, contentValueClazz);
+        CollectionType collectionType = ObjectMapperHolder.typeFactory().constructCollectionType(List.class, contentType.getRawClass());
         return parseList(json, collectionType);
     }
 
@@ -2423,8 +2423,8 @@ public class JsonPurityUtils {
      * @see java.lang.Class
      */
     public static <H extends Map<?, ?>, Y extends Map<?, ?>, Z, T, K> Map<Z, Map<T, K>> parseMapMap(File json, Class<H> wrapMapClazz, Class<Y> contentMapClazz, Class<Z> wrapKeyClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
-        MapType contentType = TypeFactory.defaultInstance().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
-        MapType mapType = TypeFactory.defaultInstance().constructMapType(wrapMapClazz, wrapKeyClazz, contentType.getRawClass());
+        MapType contentType = ObjectMapperHolder.typeFactory().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
+        MapType mapType = ObjectMapperHolder.typeFactory().constructMapType(wrapMapClazz, wrapKeyClazz, contentType.getRawClass());
         return parseMap(json, mapType);
     }
 
@@ -2448,8 +2448,8 @@ public class JsonPurityUtils {
      * @see java.lang.Class
      */
     public static <H extends Map<?, ?>, Y extends Map<?, ?>, Z, T, K> Map<Z, Map<T, K>> parseMapMap(Reader json, Class<H> wrapMapClazz, Class<Y> contentMapClazz, Class<Z> wrapKeyClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
-        MapType contentType = TypeFactory.defaultInstance().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
-        MapType mapType = TypeFactory.defaultInstance().constructMapType(wrapMapClazz, wrapKeyClazz, contentType.getRawClass());
+        MapType contentType = ObjectMapperHolder.typeFactory().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
+        MapType mapType = ObjectMapperHolder.typeFactory().constructMapType(wrapMapClazz, wrapKeyClazz, contentType.getRawClass());
         return parseMap(json, mapType);
     }
 
@@ -2472,8 +2472,8 @@ public class JsonPurityUtils {
      * @see java.lang.Class
      */
     public static <H extends Map<?, ?>, Y extends Map<?, ?>, Z, T, K> Map<Z, Map<T, K>> parseMapMap(byte[] json, Class<H> wrapMapClazz, Class<Y> contentMapClazz, Class<Z> wrapKeyClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
-        MapType contentType = TypeFactory.defaultInstance().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
-        MapType mapType = TypeFactory.defaultInstance().constructMapType(wrapMapClazz, wrapKeyClazz, contentType.getRawClass());
+        MapType contentType = ObjectMapperHolder.typeFactory().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
+        MapType mapType = ObjectMapperHolder.typeFactory().constructMapType(wrapMapClazz, wrapKeyClazz, contentType.getRawClass());
         return parseMap(json, mapType);
     }
 
@@ -2497,8 +2497,8 @@ public class JsonPurityUtils {
      * @see java.lang.Class
      */
     public static <H extends Map<?, ?>, Y extends Map<?, ?>, Z, T, K> Map<Z, Map<T, K>> parseMapMap(InputStream json, Class<H> wrapMapClazz, Class<Y> contentMapClazz, Class<Z> wrapKeyClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
-        MapType contentType = TypeFactory.defaultInstance().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
-        MapType mapType = TypeFactory.defaultInstance().constructMapType(wrapMapClazz, wrapKeyClazz, contentType.getRawClass());
+        MapType contentType = ObjectMapperHolder.typeFactory().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
+        MapType mapType = ObjectMapperHolder.typeFactory().constructMapType(wrapMapClazz, wrapKeyClazz, contentType.getRawClass());
         return parseMap(json, mapType);
     }
 
@@ -2522,8 +2522,8 @@ public class JsonPurityUtils {
      * @see java.lang.Class
      */
     public static <H extends Map<?, ?>, Y extends Map<?, ?>, Z, T, K> Map<Z, Map<T, K>> parseMapMap(String json, Class<H> wrapMapClazz, Class<Y> contentMapClazz, Class<Z> wrapKeyClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
-        MapType contentType = TypeFactory.defaultInstance().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
-        MapType mapType = TypeFactory.defaultInstance().constructMapType(wrapMapClazz, wrapKeyClazz, contentType.getRawClass());
+        MapType contentType = ObjectMapperHolder.typeFactory().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
+        MapType mapType = ObjectMapperHolder.typeFactory().constructMapType(wrapMapClazz, wrapKeyClazz, contentType.getRawClass());
         return parseMap(json, mapType);
     }
 
@@ -2626,15 +2626,15 @@ public class JsonPurityUtils {
      * <p>The parse result method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json          {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
      * @see java.io.File
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      */
     public static <T> RestResult<T> parseResult(File json, TypeReference<T> typeReference) {
         try {
-            return JsonPurityHelper.parseResult(json, typeReference);
+            return JacksonHelper.parseResult(json, typeReference);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as rest result with file and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -2647,15 +2647,15 @@ public class JsonPurityUtils {
      * <p>The parse result method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json          {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
      * @see java.io.Reader
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      */
     public static <T> RestResult<T> parseResult(Reader json, TypeReference<T> typeReference) {
         try {
-            return JsonPurityHelper.parseResult(json, typeReference);
+            return JacksonHelper.parseResult(json, typeReference);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as rest result with reader and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -2668,14 +2668,14 @@ public class JsonPurityUtils {
      * <p>The parse result method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json          byte <p>The json parameter is <code>byte</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      */
     public static <T> RestResult<T> parseResult(byte[] json, TypeReference<T> typeReference) {
         try {
-            return JsonPurityHelper.parseResult(json, typeReference);
+            return JacksonHelper.parseResult(json, typeReference);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as rest result with bytes and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -2688,15 +2688,15 @@ public class JsonPurityUtils {
      * <p>The parse result method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json          {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
      * @see java.io.InputStream
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      */
     public static <T> RestResult<T> parseResult(InputStream json, TypeReference<T> typeReference) {
         try {
-            return JsonPurityHelper.parseResult(json, typeReference);
+            return JacksonHelper.parseResult(json, typeReference);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as rest result with input stram and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -2709,15 +2709,15 @@ public class JsonPurityUtils {
      * <p>The parse result method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json          {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
      * @see java.lang.String
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      */
     public static <T> RestResult<T> parseResult(String json, TypeReference<T> typeReference) {
         try {
-            return JsonPurityHelper.parseResult(json, typeReference);
+            return JacksonHelper.parseResult(json, typeReference);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as rest result with type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -2730,15 +2730,15 @@ public class JsonPurityUtils {
      * <p>The parse result method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json     {@link java.io.File} <p>The json parameter is <code>File</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
      * @see java.io.File
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      */
     public static <T> RestResult<T> parseResult(File json, JavaType javaType) {
         try {
-            return JsonPurityHelper.parseResult(json, javaType);
+            return JacksonHelper.parseResult(json, javaType);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as rest result with file and java type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -2751,15 +2751,15 @@ public class JsonPurityUtils {
      * <p>The parse result method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json     {@link java.io.Reader} <p>The json parameter is <code>Reader</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
      * @see java.io.Reader
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      */
     public static <T> RestResult<T> parseResult(Reader json, JavaType javaType) {
         try {
-            return JsonPurityHelper.parseResult(json, javaType);
+            return JacksonHelper.parseResult(json, javaType);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as rest result with reader and java type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -2772,14 +2772,14 @@ public class JsonPurityUtils {
      * <p>The parse result method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json     byte <p>The json parameter is <code>byte</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      */
     public static <T> RestResult<T> parseResult(byte[] json, JavaType javaType) {
         try {
-            return JsonPurityHelper.parseResult(json, javaType);
+            return JacksonHelper.parseResult(json, javaType);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as rest result with bytes and java type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -2792,15 +2792,15 @@ public class JsonPurityUtils {
      * <p>The parse result method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json     {@link java.io.InputStream} <p>The json parameter is <code>InputStream</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
      * @see java.io.InputStream
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      */
     public static <T> RestResult<T> parseResult(InputStream json, JavaType javaType) {
         try {
-            return JsonPurityHelper.parseResult(json, javaType);
+            return JacksonHelper.parseResult(json, javaType);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as rest result with input stream and java type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -2813,15 +2813,15 @@ public class JsonPurityUtils {
      * <p>The parse result method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param json     {@link java.lang.String} <p>The json parameter is <code>String</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
      * @see java.lang.String
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      */
     public static <T> RestResult<T> parseResult(String json, JavaType javaType) {
         try {
-            return JsonPurityHelper.parseResult(json, javaType);
+            return JacksonHelper.parseResult(json, javaType);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as rest result with java type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -2842,7 +2842,7 @@ public class JsonPurityUtils {
      */
     public static <T> RestResult<T> parseResult(File json, Class<T> clazz) {
         try {
-            return JsonPurityHelper.parseResult(json, clazz);
+            return JacksonHelper.parseResult(json, clazz);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as rest result with file and class type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -2863,7 +2863,7 @@ public class JsonPurityUtils {
      */
     public static <T> RestResult<T> parseResult(Reader json, Class<T> clazz) {
         try {
-            return JsonPurityHelper.parseResult(json, clazz);
+            return JacksonHelper.parseResult(json, clazz);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as rest result with reader and class type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -2883,7 +2883,7 @@ public class JsonPurityUtils {
      */
     public static <T> RestResult<T> parseResult(byte[] json, Class<T> clazz) {
         try {
-            return JsonPurityHelper.parseResult(json, clazz);
+            return JacksonHelper.parseResult(json, clazz);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as rest result with bytes and class type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -2904,7 +2904,7 @@ public class JsonPurityUtils {
      */
     public static <T> RestResult<T> parseResult(InputStream json, Class<T> clazz) {
         try {
-            return JsonPurityHelper.parseResult(json, clazz);
+            return JacksonHelper.parseResult(json, clazz);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as rest result with input stream and class type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -2925,7 +2925,7 @@ public class JsonPurityUtils {
      */
     public static <T> RestResult<T> parseResult(String json, Class<T> clazz) {
         try {
-            return JsonPurityHelper.parseResult(json, clazz);
+            return JacksonHelper.parseResult(json, clazz);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as rest result with class type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -2943,7 +2943,7 @@ public class JsonPurityUtils {
      */
     public static RestResult<String> parseResult(File json) {
         try {
-            return JsonPurityHelper.parseResult(json);
+            return JacksonHelper.parseResult(json);
         } catch (JsonParseResultException exception) {
             log.error("It is failed during json to parse as rest result with file! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -2961,7 +2961,7 @@ public class JsonPurityUtils {
      */
     public static RestResult<String> parseResult(Reader json) {
         try {
-            return JsonPurityHelper.parseResult(json);
+            return JacksonHelper.parseResult(json);
         } catch (JsonParseResultException exception) {
             log.error("It is failed during json to parse as rest result with reader! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -2978,7 +2978,7 @@ public class JsonPurityUtils {
      */
     public static RestResult<String> parseResult(byte[] json) {
         try {
-            return JsonPurityHelper.parseResult(json);
+            return JacksonHelper.parseResult(json);
         } catch (JsonParseResultException exception) {
             log.error("It is failed during json to parse as rest result with bytes! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -2996,7 +2996,7 @@ public class JsonPurityUtils {
      */
     public static RestResult<String> parseResult(InputStream json) {
         try {
-            return JsonPurityHelper.parseResult(json);
+            return JacksonHelper.parseResult(json);
         } catch (JsonParseResultException exception) {
             log.error("It is failed during json to parse as rest result with input stream! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -3014,7 +3014,7 @@ public class JsonPurityUtils {
      */
     public static RestResult<String> parseResult(String json) {
         try {
-            return JsonPurityHelper.parseResult(json);
+            return JacksonHelper.parseResult(json);
         } catch (JsonParseResultException exception) {
             log.error("It is failed during json to parse as rest result! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -3025,9 +3025,9 @@ public class JsonPurityUtils {
     /**
      * <code>parseResult</code>
      * <p>The parse result method.</p>
-     * @param jsonNode {@link com.fasterxml.jackson.databind.JsonNode} <p>The json node parameter is <code>JsonNode</code> type.</p>
+     * @param jsonNode {@link tools.jackson.databind.JsonNode} <p>The json node parameter is <code>JsonNode</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The parse result return object is <code>RestResult</code> type.</p>
-     * @see com.fasterxml.jackson.databind.JsonNode
+     * @see tools.jackson.databind.JsonNode
      * @see io.github.nichetoolkit.rest.RestResult
      */
     public static RestResult<String> parseResult(JsonNode jsonNode) {
@@ -3046,7 +3046,7 @@ public class JsonPurityUtils {
      */
     public static <T> T parseConvert(Object value, Class<T> clazz) {
         try {
-            return JsonPurityHelper.parseConvert(value, clazz);
+            return JacksonHelper.parseConvert(value, clazz);
         } catch (JsonParseConvertException exception) {
             log.error("It is failed during object to convert as bean with class type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -3059,14 +3059,14 @@ public class JsonPurityUtils {
      * <p>The parse convert method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param value         {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return T <p>The parse convert return object is <code>T</code> type.</p>
      * @see java.lang.Object
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      */
     public static <T> T parseConvert(Object value, TypeReference<T> typeReference) {
         try {
-            return JsonPurityHelper.parseConvert(value, typeReference);
+            return JacksonHelper.parseConvert(value, typeReference);
         } catch (JsonParseConvertException exception) {
             log.error("It is failed during object to convert as bean with type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -3079,14 +3079,14 @@ public class JsonPurityUtils {
      * <p>The parse convert method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param value    {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return T <p>The parse convert return object is <code>T</code> type.</p>
      * @see java.lang.Object
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      */
     public static <T> T parseConvert(Object value, JavaType javaType) {
         try {
-            return JsonPurityHelper.parseConvert(value, javaType);
+            return JacksonHelper.parseConvert(value, javaType);
         } catch (JsonParseConvertException exception) {
             log.error("It is failed during object to convert as bean with java type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);

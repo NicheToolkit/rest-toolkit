@@ -1,8 +1,8 @@
 package io.github.nichetoolkit.rest.http;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JavaType;
-import com.fasterxml.jackson.databind.type.TypeFactory;
+import io.github.nichetoolkit.rest.holder.ObjectMapperHolder;
+import tools.jackson.core.type.TypeReference;
+import tools.jackson.databind.JavaType;
 import io.github.nichetoolkit.rest.RestException;
 import io.github.nichetoolkit.rest.RestResult;
 import io.github.nichetoolkit.rest.error.network.HttpResponseNullException;
@@ -36,11 +36,11 @@ public class RestResults {
      * <p>The result method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param response      {@link java.lang.String} <p>The response parameter is <code>String</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -53,12 +53,12 @@ public class RestResults {
      * <p>The result method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param response      {@link java.lang.String} <p>The response parameter is <code>String</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @param isCheckData   boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -73,12 +73,12 @@ public class RestResults {
      * @param response      {@link java.lang.String} <p>The response parameter is <code>String</code> type.</p>
      * @param method        {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.HttpMethod
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -94,13 +94,13 @@ public class RestResults {
      * @param response      {@link java.lang.String} <p>The response parameter is <code>String</code> type.</p>
      * @param method        {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @param isCheckData   boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.HttpMethod
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -117,13 +117,13 @@ public class RestResults {
      * @param method        {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers       {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.HttpMethod
      * @see org.springframework.http.HttpHeaders
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -140,14 +140,14 @@ public class RestResults {
      * @param method        {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers       {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @param isCheckData   boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.HttpMethod
      * @see org.springframework.http.HttpHeaders
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -164,13 +164,13 @@ public class RestResults {
      * @param method        {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param params        {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.HttpMethod
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -187,14 +187,14 @@ public class RestResults {
      * @param method        {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param params        {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @param isCheckData   boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.HttpMethod
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -211,13 +211,13 @@ public class RestResults {
      * @param method        {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param body          {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.HttpMethod
      * @see java.lang.Object
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -234,14 +234,14 @@ public class RestResults {
      * @param method        {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param body          {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @param isCheckData   boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.HttpMethod
      * @see java.lang.Object
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -259,14 +259,14 @@ public class RestResults {
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers       {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param body          {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.HttpMethod
      * @see org.springframework.http.HttpHeaders
      * @see java.lang.Object
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -284,7 +284,7 @@ public class RestResults {
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers       {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param body          {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @param isCheckData   boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -292,7 +292,7 @@ public class RestResults {
      * @see org.springframework.http.HttpMethod
      * @see org.springframework.http.HttpHeaders
      * @see java.lang.Object
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -310,14 +310,14 @@ public class RestResults {
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers       {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param params        {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.HttpMethod
      * @see org.springframework.http.HttpHeaders
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -335,7 +335,7 @@ public class RestResults {
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers       {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param params        {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @param isCheckData   boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -343,7 +343,7 @@ public class RestResults {
      * @see org.springframework.http.HttpMethod
      * @see org.springframework.http.HttpHeaders
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -361,14 +361,14 @@ public class RestResults {
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param body          {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
      * @param params        {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.HttpMethod
      * @see java.lang.Object
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -386,7 +386,7 @@ public class RestResults {
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param body          {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
      * @param params        {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @param isCheckData   boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -394,7 +394,7 @@ public class RestResults {
      * @see org.springframework.http.HttpMethod
      * @see java.lang.Object
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -413,7 +413,7 @@ public class RestResults {
      * @param headers       {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param body          {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
      * @param params        {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
@@ -421,7 +421,7 @@ public class RestResults {
      * @see org.springframework.http.HttpHeaders
      * @see java.lang.Object
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -440,7 +440,7 @@ public class RestResults {
      * @param headers       {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param body          {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
      * @param params        {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @param isCheckData   boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -449,7 +449,7 @@ public class RestResults {
      * @see org.springframework.http.HttpHeaders
      * @see java.lang.Object
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -464,12 +464,12 @@ public class RestResults {
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param response      {@link java.lang.String} <p>The response parameter is <code>String</code> type.</p>
      * @param resource      {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @param method        {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see org.springframework.http.HttpMethod
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
@@ -484,17 +484,17 @@ public class RestResults {
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param response      {@link java.lang.String} <p>The response parameter is <code>String</code> type.</p>
      * @param resource      {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @param isCheckData   boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(String response, String resource, TypeReference<T> typeReference, boolean isCheckData) throws RestException {
-        JavaType javaType = TypeFactory.defaultInstance().constructType(typeReference);
+        JavaType javaType = ObjectMapperHolder.typeFactory().constructType(typeReference);
         return result(response, resource, javaType, isCheckData);
     }
 
@@ -961,7 +961,7 @@ public class RestResults {
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(String response, String resource, Class<T> clazz, boolean isCheckData) throws RestException {
-        JavaType javaType = TypeFactory.defaultInstance().constructType(clazz);
+        JavaType javaType = ObjectMapperHolder.typeFactory().constructType(clazz);
         return result(response, resource, javaType, isCheckData);
     }
 
@@ -970,11 +970,11 @@ public class RestResults {
      * <p>The result method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param response {@link java.lang.String} <p>The response parameter is <code>String</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -987,12 +987,12 @@ public class RestResults {
      * <p>The result method.</p>
      * @param <T>         {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param response    {@link java.lang.String} <p>The response parameter is <code>String</code> type.</p>
-     * @param javaType    {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType    {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @param isCheckData boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -1007,12 +1007,12 @@ public class RestResults {
      * @param response {@link java.lang.String} <p>The response parameter is <code>String</code> type.</p>
      * @param method   {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url      {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.HttpMethod
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -1028,13 +1028,13 @@ public class RestResults {
      * @param response    {@link java.lang.String} <p>The response parameter is <code>String</code> type.</p>
      * @param method      {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url         {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
-     * @param javaType    {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType    {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @param isCheckData boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.HttpMethod
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -1051,13 +1051,13 @@ public class RestResults {
      * @param method   {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url      {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers  {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.HttpMethod
      * @see org.springframework.http.HttpHeaders
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -1074,14 +1074,14 @@ public class RestResults {
      * @param method      {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url         {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers     {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
-     * @param javaType    {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType    {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @param isCheckData boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.HttpMethod
      * @see org.springframework.http.HttpHeaders
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -1098,13 +1098,13 @@ public class RestResults {
      * @param method   {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url      {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param params   {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.HttpMethod
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -1121,14 +1121,14 @@ public class RestResults {
      * @param method      {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url         {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param params      {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param javaType    {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType    {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @param isCheckData boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.HttpMethod
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -1145,13 +1145,13 @@ public class RestResults {
      * @param method   {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url      {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param body     {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.HttpMethod
      * @see java.lang.Object
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -1168,14 +1168,14 @@ public class RestResults {
      * @param method      {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url         {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param body        {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
-     * @param javaType    {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType    {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @param isCheckData boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.HttpMethod
      * @see java.lang.Object
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -1193,14 +1193,14 @@ public class RestResults {
      * @param url      {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers  {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param body     {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.HttpMethod
      * @see org.springframework.http.HttpHeaders
      * @see java.lang.Object
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -1218,7 +1218,7 @@ public class RestResults {
      * @param url         {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers     {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param body        {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
-     * @param javaType    {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType    {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @param isCheckData boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -1226,7 +1226,7 @@ public class RestResults {
      * @see org.springframework.http.HttpMethod
      * @see org.springframework.http.HttpHeaders
      * @see java.lang.Object
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -1244,14 +1244,14 @@ public class RestResults {
      * @param url      {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers  {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param params   {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.HttpMethod
      * @see org.springframework.http.HttpHeaders
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -1269,7 +1269,7 @@ public class RestResults {
      * @param url         {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers     {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param params      {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param javaType    {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType    {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @param isCheckData boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -1277,7 +1277,7 @@ public class RestResults {
      * @see org.springframework.http.HttpMethod
      * @see org.springframework.http.HttpHeaders
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -1295,14 +1295,14 @@ public class RestResults {
      * @param url      {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param body     {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
      * @param params   {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.HttpMethod
      * @see java.lang.Object
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -1320,7 +1320,7 @@ public class RestResults {
      * @param url         {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param body        {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
      * @param params      {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param javaType    {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType    {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @param isCheckData boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -1328,7 +1328,7 @@ public class RestResults {
      * @see org.springframework.http.HttpMethod
      * @see java.lang.Object
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -1347,7 +1347,7 @@ public class RestResults {
      * @param headers  {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param body     {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
      * @param params   {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
@@ -1355,7 +1355,7 @@ public class RestResults {
      * @see org.springframework.http.HttpHeaders
      * @see java.lang.Object
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -1374,7 +1374,7 @@ public class RestResults {
      * @param headers     {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param body        {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
      * @param params      {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param javaType    {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType    {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @param isCheckData boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -1383,7 +1383,7 @@ public class RestResults {
      * @see org.springframework.http.HttpHeaders
      * @see java.lang.Object
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -1398,12 +1398,12 @@ public class RestResults {
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param response {@link java.lang.String} <p>The response parameter is <code>String</code> type.</p>
      * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @param method   {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see org.springframework.http.HttpMethod
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
@@ -1418,12 +1418,12 @@ public class RestResults {
      * @param <T>         {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param response    {@link java.lang.String} <p>The response parameter is <code>String</code> type.</p>
      * @param resource    {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
-     * @param javaType    {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType    {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @param isCheckData boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -1438,11 +1438,11 @@ public class RestResults {
      * <p>The bean method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param response      {@link java.lang.String} <p>The response parameter is <code>String</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return T <p>The bean return object is <code>T</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> T bean(String response, TypeReference<T> typeReference) throws RestException {
@@ -1456,12 +1456,12 @@ public class RestResults {
      * @param response      {@link java.lang.String} <p>The response parameter is <code>String</code> type.</p>
      * @param method        {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return T <p>The bean return object is <code>T</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.HttpMethod
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> T bean(String response, HttpMethod method, String url, TypeReference<T> typeReference) throws RestException {
@@ -1477,13 +1477,13 @@ public class RestResults {
      * @param method        {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers       {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return T <p>The bean return object is <code>T</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.HttpMethod
      * @see org.springframework.http.HttpHeaders
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> T bean(String response, HttpMethod method, String url, HttpHeaders headers, TypeReference<T> typeReference) throws RestException {
@@ -1499,13 +1499,13 @@ public class RestResults {
      * @param method        {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param params        {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return T <p>The bean return object is <code>T</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.HttpMethod
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> T bean(String response, HttpMethod method, String url, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
@@ -1521,13 +1521,13 @@ public class RestResults {
      * @param method        {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param body          {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return T <p>The bean return object is <code>T</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.HttpMethod
      * @see java.lang.Object
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> T bean(String response, HttpMethod method, String url, Object body, TypeReference<T> typeReference) throws RestException {
@@ -1544,14 +1544,14 @@ public class RestResults {
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers       {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param body          {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return T <p>The bean return object is <code>T</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.HttpMethod
      * @see org.springframework.http.HttpHeaders
      * @see java.lang.Object
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> T bean(String response, HttpMethod method, String url, HttpHeaders headers, Object body, TypeReference<T> typeReference) throws RestException {
@@ -1568,14 +1568,14 @@ public class RestResults {
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers       {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param params        {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return T <p>The bean return object is <code>T</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.HttpMethod
      * @see org.springframework.http.HttpHeaders
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> T bean(String response, HttpMethod method, String url, HttpHeaders headers, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
@@ -1592,14 +1592,14 @@ public class RestResults {
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param body          {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
      * @param params        {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return T <p>The bean return object is <code>T</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.HttpMethod
      * @see java.lang.Object
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> T bean(String response, HttpMethod method, String url, Object body, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
@@ -1617,7 +1617,7 @@ public class RestResults {
      * @param headers       {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param body          {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
      * @param params        {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return T <p>The bean return object is <code>T</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
@@ -1625,7 +1625,7 @@ public class RestResults {
      * @see org.springframework.http.HttpHeaders
      * @see java.lang.Object
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> T bean(String response, HttpMethod method, String url, HttpHeaders headers, Object body, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
@@ -1639,15 +1639,15 @@ public class RestResults {
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param response      {@link java.lang.String} <p>The response parameter is <code>String</code> type.</p>
      * @param resource      {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return T <p>The bean return object is <code>T</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> T bean(String response, String resource, TypeReference<T> typeReference) throws RestException {
-        JavaType javaType = TypeFactory.defaultInstance().constructType(typeReference);
+        JavaType javaType = ObjectMapperHolder.typeFactory().constructType(typeReference);
         return bean(response, resource, javaType);
     }
 
@@ -1865,7 +1865,7 @@ public class RestResults {
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> T bean(String response, String resource, Class<T> clazz) throws RestException {
-        JavaType javaType = TypeFactory.defaultInstance().constructType(clazz);
+        JavaType javaType = ObjectMapperHolder.typeFactory().constructType(clazz);
         return bean(response, resource, javaType);
     }
 
@@ -1874,11 +1874,11 @@ public class RestResults {
      * <p>The bean method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param response {@link java.lang.String} <p>The response parameter is <code>String</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return T <p>The bean return object is <code>T</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> T bean(String response, JavaType javaType) throws RestException {
@@ -1892,12 +1892,12 @@ public class RestResults {
      * @param response {@link java.lang.String} <p>The response parameter is <code>String</code> type.</p>
      * @param method   {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url      {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return T <p>The bean return object is <code>T</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.HttpMethod
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> T bean(String response, HttpMethod method, String url, JavaType javaType) throws RestException {
@@ -1913,13 +1913,13 @@ public class RestResults {
      * @param method   {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url      {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers  {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return T <p>The bean return object is <code>T</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.HttpMethod
      * @see org.springframework.http.HttpHeaders
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> T bean(String response, HttpMethod method, String url, HttpHeaders headers, JavaType javaType) throws RestException {
@@ -1935,13 +1935,13 @@ public class RestResults {
      * @param method   {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url      {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param params   {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return T <p>The bean return object is <code>T</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.HttpMethod
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> T bean(String response, HttpMethod method, String url, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
@@ -1957,13 +1957,13 @@ public class RestResults {
      * @param method   {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url      {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param body     {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return T <p>The bean return object is <code>T</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.HttpMethod
      * @see java.lang.Object
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> T bean(String response, HttpMethod method, String url, Object body, JavaType javaType) throws RestException {
@@ -1980,14 +1980,14 @@ public class RestResults {
      * @param url      {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers  {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param body     {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return T <p>The bean return object is <code>T</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.HttpMethod
      * @see org.springframework.http.HttpHeaders
      * @see java.lang.Object
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> T bean(String response, HttpMethod method, String url, HttpHeaders headers, Object body, JavaType javaType) throws RestException {
@@ -2004,14 +2004,14 @@ public class RestResults {
      * @param url      {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers  {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param params   {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return T <p>The bean return object is <code>T</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.HttpMethod
      * @see org.springframework.http.HttpHeaders
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> T bean(String response, HttpMethod method, String url, HttpHeaders headers, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
@@ -2028,14 +2028,14 @@ public class RestResults {
      * @param url      {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param body     {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
      * @param params   {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return T <p>The bean return object is <code>T</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
      * @see org.springframework.http.HttpMethod
      * @see java.lang.Object
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> T bean(String response, HttpMethod method, String url, Object body, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
@@ -2053,7 +2053,7 @@ public class RestResults {
      * @param headers  {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param body     {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
      * @param params   {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return T <p>The bean return object is <code>T</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
@@ -2061,7 +2061,7 @@ public class RestResults {
      * @see org.springframework.http.HttpHeaders
      * @see java.lang.Object
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> T bean(String response, HttpMethod method, String url, HttpHeaders headers, Object body, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
@@ -2075,11 +2075,11 @@ public class RestResults {
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param response {@link java.lang.String} <p>The response parameter is <code>String</code> type.</p>
      * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return T <p>The bean return object is <code>T</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see java.lang.String
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> T bean(String response, String resource, JavaType javaType) throws RestException {
@@ -2092,11 +2092,11 @@ public class RestResults {
      * <p>The result method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param response      {@link io.github.nichetoolkit.rest.RestResult} <p>The response parameter is <code>RestResult</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestResult
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(RestResult response, TypeReference<T> typeReference) throws RestException {
@@ -2108,12 +2108,12 @@ public class RestResults {
      * <p>The result method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param response      {@link io.github.nichetoolkit.rest.RestResult} <p>The response parameter is <code>RestResult</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @param isCheckData   boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestResult
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(RestResult response, TypeReference<T> typeReference, boolean isCheckData) throws RestException {
@@ -2127,13 +2127,13 @@ public class RestResults {
      * @param response      {@link io.github.nichetoolkit.rest.RestResult} <p>The response parameter is <code>RestResult</code> type.</p>
      * @param method        {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestResult
      * @see org.springframework.http.HttpMethod
      * @see java.lang.String
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(RestResult response, HttpMethod method, String url, TypeReference<T> typeReference) throws RestException {
@@ -2148,14 +2148,14 @@ public class RestResults {
      * @param response      {@link io.github.nichetoolkit.rest.RestResult} <p>The response parameter is <code>RestResult</code> type.</p>
      * @param method        {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @param isCheckData   boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestResult
      * @see org.springframework.http.HttpMethod
      * @see java.lang.String
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(RestResult response, HttpMethod method, String url, TypeReference<T> typeReference, boolean isCheckData) throws RestException {
@@ -2171,14 +2171,14 @@ public class RestResults {
      * @param method        {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers       {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestResult
      * @see org.springframework.http.HttpMethod
      * @see java.lang.String
      * @see org.springframework.http.HttpHeaders
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(RestResult response, HttpMethod method, String url, HttpHeaders headers, TypeReference<T> typeReference) throws RestException {
@@ -2194,7 +2194,7 @@ public class RestResults {
      * @param method        {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers       {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @param isCheckData   boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -2202,7 +2202,7 @@ public class RestResults {
      * @see org.springframework.http.HttpMethod
      * @see java.lang.String
      * @see org.springframework.http.HttpHeaders
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(RestResult response, HttpMethod method, String url, HttpHeaders headers, TypeReference<T> typeReference, boolean isCheckData) throws RestException {
@@ -2218,14 +2218,14 @@ public class RestResults {
      * @param method        {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param params        {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestResult
      * @see org.springframework.http.HttpMethod
      * @see java.lang.String
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(RestResult response, HttpMethod method, String url, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
@@ -2241,7 +2241,7 @@ public class RestResults {
      * @param method        {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param params        {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @param isCheckData   boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -2249,7 +2249,7 @@ public class RestResults {
      * @see org.springframework.http.HttpMethod
      * @see java.lang.String
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(RestResult response, HttpMethod method, String url, MultiValueMap<String, String> params, TypeReference<T> typeReference, boolean isCheckData) throws RestException {
@@ -2265,14 +2265,14 @@ public class RestResults {
      * @param method        {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param body          {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestResult
      * @see org.springframework.http.HttpMethod
      * @see java.lang.String
      * @see java.lang.Object
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(RestResult response, HttpMethod method, String url, Object body, TypeReference<T> typeReference) throws RestException {
@@ -2288,7 +2288,7 @@ public class RestResults {
      * @param method        {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param body          {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @param isCheckData   boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -2296,7 +2296,7 @@ public class RestResults {
      * @see org.springframework.http.HttpMethod
      * @see java.lang.String
      * @see java.lang.Object
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(RestResult response, HttpMethod method, String url, Object body, TypeReference<T> typeReference, boolean isCheckData) throws RestException {
@@ -2313,7 +2313,7 @@ public class RestResults {
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers       {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param body          {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestResult
@@ -2321,7 +2321,7 @@ public class RestResults {
      * @see java.lang.String
      * @see org.springframework.http.HttpHeaders
      * @see java.lang.Object
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(RestResult response, HttpMethod method, String url, HttpHeaders headers, Object body, TypeReference<T> typeReference) throws RestException {
@@ -2338,7 +2338,7 @@ public class RestResults {
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers       {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param body          {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @param isCheckData   boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -2347,7 +2347,7 @@ public class RestResults {
      * @see java.lang.String
      * @see org.springframework.http.HttpHeaders
      * @see java.lang.Object
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(RestResult response, HttpMethod method, String url, HttpHeaders headers, Object body, TypeReference<T> typeReference, boolean isCheckData) throws RestException {
@@ -2364,7 +2364,7 @@ public class RestResults {
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers       {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param params        {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestResult
@@ -2372,7 +2372,7 @@ public class RestResults {
      * @see java.lang.String
      * @see org.springframework.http.HttpHeaders
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(RestResult response, HttpMethod method, String url, HttpHeaders headers, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
@@ -2389,7 +2389,7 @@ public class RestResults {
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers       {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param params        {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @param isCheckData   boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -2398,7 +2398,7 @@ public class RestResults {
      * @see java.lang.String
      * @see org.springframework.http.HttpHeaders
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(RestResult response, HttpMethod method, String url, HttpHeaders headers, MultiValueMap<String, String> params, TypeReference<T> typeReference, boolean isCheckData) throws RestException {
@@ -2415,7 +2415,7 @@ public class RestResults {
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param body          {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
      * @param params        {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestResult
@@ -2423,7 +2423,7 @@ public class RestResults {
      * @see java.lang.String
      * @see java.lang.Object
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(RestResult response, HttpMethod method, String url, Object body, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
@@ -2440,7 +2440,7 @@ public class RestResults {
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param body          {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
      * @param params        {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @param isCheckData   boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -2449,7 +2449,7 @@ public class RestResults {
      * @see java.lang.String
      * @see java.lang.Object
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(RestResult response, HttpMethod method, String url, Object body, MultiValueMap<String, String> params, TypeReference<T> typeReference, boolean isCheckData) throws RestException {
@@ -2467,7 +2467,7 @@ public class RestResults {
      * @param headers       {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param body          {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
      * @param params        {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestResult
@@ -2476,7 +2476,7 @@ public class RestResults {
      * @see org.springframework.http.HttpHeaders
      * @see java.lang.Object
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(RestResult response, HttpMethod method, String url, HttpHeaders headers, Object body, MultiValueMap<String, String> params, TypeReference<T> typeReference) throws RestException {
@@ -2494,7 +2494,7 @@ public class RestResults {
      * @param headers       {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param body          {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
      * @param params        {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @param isCheckData   boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -2504,7 +2504,7 @@ public class RestResults {
      * @see org.springframework.http.HttpHeaders
      * @see java.lang.Object
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(RestResult response, HttpMethod method, String url, HttpHeaders headers, Object body, MultiValueMap<String, String> params, TypeReference<T> typeReference, boolean isCheckData) throws RestException {
@@ -2518,13 +2518,13 @@ public class RestResults {
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param response      {@link io.github.nichetoolkit.rest.RestResult} <p>The response parameter is <code>RestResult</code> type.</p>
      * @param resource      {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @param method        {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestResult
      * @see java.lang.String
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see org.springframework.http.HttpMethod
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -2538,17 +2538,17 @@ public class RestResults {
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param response      {@link io.github.nichetoolkit.rest.RestResult} <p>The response parameter is <code>RestResult</code> type.</p>
      * @param resource      {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @param isCheckData   boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestResult
      * @see java.lang.String
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(RestResult response, String resource, TypeReference<T> typeReference, boolean isCheckData) throws RestException {
-        JavaType javaType = TypeFactory.defaultInstance().constructType(typeReference);
+        JavaType javaType = ObjectMapperHolder.typeFactory().constructType(typeReference);
         return result(response, resource, javaType, isCheckData);
     }
 
@@ -3014,7 +3014,7 @@ public class RestResults {
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(RestResult response, String resource, Class<T> clazz, boolean isCheckData) throws RestException {
-        JavaType javaType = TypeFactory.defaultInstance().constructType(clazz);
+        JavaType javaType = ObjectMapperHolder.typeFactory().constructType(clazz);
         return result(response, resource, javaType, isCheckData);
     }
 
@@ -3023,11 +3023,11 @@ public class RestResults {
      * <p>The result method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param response {@link io.github.nichetoolkit.rest.RestResult} <p>The response parameter is <code>RestResult</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestResult
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(RestResult response, JavaType javaType) throws RestException {
@@ -3039,12 +3039,12 @@ public class RestResults {
      * <p>The result method.</p>
      * @param <T>         {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param response    {@link io.github.nichetoolkit.rest.RestResult} <p>The response parameter is <code>RestResult</code> type.</p>
-     * @param javaType    {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType    {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @param isCheckData boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestResult
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(RestResult response, JavaType javaType, boolean isCheckData) throws RestException {
@@ -3058,13 +3058,13 @@ public class RestResults {
      * @param response {@link io.github.nichetoolkit.rest.RestResult} <p>The response parameter is <code>RestResult</code> type.</p>
      * @param method   {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url      {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestResult
      * @see org.springframework.http.HttpMethod
      * @see java.lang.String
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(RestResult response, HttpMethod method, String url, JavaType javaType) throws RestException {
@@ -3079,14 +3079,14 @@ public class RestResults {
      * @param response    {@link io.github.nichetoolkit.rest.RestResult} <p>The response parameter is <code>RestResult</code> type.</p>
      * @param method      {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url         {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
-     * @param javaType    {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType    {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @param isCheckData boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestResult
      * @see org.springframework.http.HttpMethod
      * @see java.lang.String
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(RestResult response, HttpMethod method, String url, JavaType javaType, boolean isCheckData) throws RestException {
@@ -3102,14 +3102,14 @@ public class RestResults {
      * @param method   {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url      {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers  {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestResult
      * @see org.springframework.http.HttpMethod
      * @see java.lang.String
      * @see org.springframework.http.HttpHeaders
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(RestResult response, HttpMethod method, String url, HttpHeaders headers, JavaType javaType) throws RestException {
@@ -3125,7 +3125,7 @@ public class RestResults {
      * @param method      {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url         {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers     {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
-     * @param javaType    {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType    {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @param isCheckData boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -3133,7 +3133,7 @@ public class RestResults {
      * @see org.springframework.http.HttpMethod
      * @see java.lang.String
      * @see org.springframework.http.HttpHeaders
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(RestResult response, HttpMethod method, String url, HttpHeaders headers, JavaType javaType, boolean isCheckData) throws RestException {
@@ -3149,14 +3149,14 @@ public class RestResults {
      * @param method   {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url      {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param params   {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestResult
      * @see org.springframework.http.HttpMethod
      * @see java.lang.String
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(RestResult response, HttpMethod method, String url, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
@@ -3172,7 +3172,7 @@ public class RestResults {
      * @param method      {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url         {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param params      {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param javaType    {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType    {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @param isCheckData boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -3180,7 +3180,7 @@ public class RestResults {
      * @see org.springframework.http.HttpMethod
      * @see java.lang.String
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(RestResult response, HttpMethod method, String url, MultiValueMap<String, String> params, JavaType javaType, boolean isCheckData) throws RestException {
@@ -3196,14 +3196,14 @@ public class RestResults {
      * @param method   {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url      {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param body     {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestResult
      * @see org.springframework.http.HttpMethod
      * @see java.lang.String
      * @see java.lang.Object
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(RestResult response, HttpMethod method, String url, Object body, JavaType javaType) throws RestException {
@@ -3219,7 +3219,7 @@ public class RestResults {
      * @param method      {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url         {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param body        {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
-     * @param javaType    {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType    {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @param isCheckData boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -3227,7 +3227,7 @@ public class RestResults {
      * @see org.springframework.http.HttpMethod
      * @see java.lang.String
      * @see java.lang.Object
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(RestResult response, HttpMethod method, String url, Object body, JavaType javaType, boolean isCheckData) throws RestException {
@@ -3244,7 +3244,7 @@ public class RestResults {
      * @param url      {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers  {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param body     {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestResult
@@ -3252,7 +3252,7 @@ public class RestResults {
      * @see java.lang.String
      * @see org.springframework.http.HttpHeaders
      * @see java.lang.Object
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(RestResult response, HttpMethod method, String url, HttpHeaders headers, Object body, JavaType javaType) throws RestException {
@@ -3269,7 +3269,7 @@ public class RestResults {
      * @param url         {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers     {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param body        {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
-     * @param javaType    {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType    {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @param isCheckData boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -3278,7 +3278,7 @@ public class RestResults {
      * @see java.lang.String
      * @see org.springframework.http.HttpHeaders
      * @see java.lang.Object
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(RestResult response, HttpMethod method, String url, HttpHeaders headers, Object body, JavaType javaType, boolean isCheckData) throws RestException {
@@ -3295,7 +3295,7 @@ public class RestResults {
      * @param url      {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers  {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param params   {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestResult
@@ -3303,7 +3303,7 @@ public class RestResults {
      * @see java.lang.String
      * @see org.springframework.http.HttpHeaders
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(RestResult response, HttpMethod method, String url, HttpHeaders headers, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
@@ -3320,7 +3320,7 @@ public class RestResults {
      * @param url         {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers     {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param params      {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param javaType    {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType    {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @param isCheckData boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -3329,7 +3329,7 @@ public class RestResults {
      * @see java.lang.String
      * @see org.springframework.http.HttpHeaders
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(RestResult response, HttpMethod method, String url, HttpHeaders headers, MultiValueMap<String, String> params, JavaType javaType, boolean isCheckData) throws RestException {
@@ -3346,7 +3346,7 @@ public class RestResults {
      * @param url      {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param body     {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
      * @param params   {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestResult
@@ -3354,7 +3354,7 @@ public class RestResults {
      * @see java.lang.String
      * @see java.lang.Object
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(RestResult response, HttpMethod method, String url, Object body, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
@@ -3371,7 +3371,7 @@ public class RestResults {
      * @param url         {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param body        {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
      * @param params      {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param javaType    {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType    {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @param isCheckData boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -3380,7 +3380,7 @@ public class RestResults {
      * @see java.lang.String
      * @see java.lang.Object
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(RestResult response, HttpMethod method, String url, Object body, MultiValueMap<String, String> params, JavaType javaType, boolean isCheckData) throws RestException {
@@ -3398,7 +3398,7 @@ public class RestResults {
      * @param headers  {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param body     {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
      * @param params   {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestResult
@@ -3407,7 +3407,7 @@ public class RestResults {
      * @see org.springframework.http.HttpHeaders
      * @see java.lang.Object
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(RestResult response, HttpMethod method, String url, HttpHeaders headers, Object body, MultiValueMap<String, String> params, JavaType javaType) throws RestException {
@@ -3425,7 +3425,7 @@ public class RestResults {
      * @param headers     {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param body        {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
      * @param params      {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param javaType    {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType    {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @param isCheckData boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -3435,7 +3435,7 @@ public class RestResults {
      * @see org.springframework.http.HttpHeaders
      * @see java.lang.Object
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(RestResult response, HttpMethod method, String url, HttpHeaders headers, Object body, MultiValueMap<String, String> params, JavaType javaType, boolean isCheckData) throws RestException {
@@ -3449,13 +3449,13 @@ public class RestResults {
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param response {@link io.github.nichetoolkit.rest.RestResult} <p>The response parameter is <code>RestResult</code> type.</p>
      * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @param method   {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestResult
      * @see java.lang.String
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see org.springframework.http.HttpMethod
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -3469,13 +3469,13 @@ public class RestResults {
      * @param <T>         {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param response    {@link io.github.nichetoolkit.rest.RestResult} <p>The response parameter is <code>RestResult</code> type.</p>
      * @param resource    {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
-     * @param javaType    {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType    {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @param isCheckData boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see io.github.nichetoolkit.rest.RestResult
      * @see java.lang.String
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(RestResult response, String resource, JavaType javaType, boolean isCheckData) throws RestException {
@@ -3489,11 +3489,11 @@ public class RestResults {
      * <p>The result method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param response      {@link org.springframework.http.ResponseEntity} <p>The response parameter is <code>ResponseEntity</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see org.springframework.http.ResponseEntity
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -3506,12 +3506,12 @@ public class RestResults {
      * <p>The result method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param response      {@link org.springframework.http.ResponseEntity} <p>The response parameter is <code>ResponseEntity</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @param isCheckData   boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see org.springframework.http.ResponseEntity
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -3526,13 +3526,13 @@ public class RestResults {
      * @param response      {@link org.springframework.http.ResponseEntity} <p>The response parameter is <code>ResponseEntity</code> type.</p>
      * @param method        {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see org.springframework.http.ResponseEntity
      * @see org.springframework.http.HttpMethod
      * @see java.lang.String
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -3548,14 +3548,14 @@ public class RestResults {
      * @param response      {@link org.springframework.http.ResponseEntity} <p>The response parameter is <code>ResponseEntity</code> type.</p>
      * @param method        {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @param isCheckData   boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see org.springframework.http.ResponseEntity
      * @see org.springframework.http.HttpMethod
      * @see java.lang.String
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -3572,14 +3572,14 @@ public class RestResults {
      * @param method        {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers       {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see org.springframework.http.ResponseEntity
      * @see org.springframework.http.HttpMethod
      * @see java.lang.String
      * @see org.springframework.http.HttpHeaders
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -3596,7 +3596,7 @@ public class RestResults {
      * @param method        {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers       {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @param isCheckData   boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -3604,7 +3604,7 @@ public class RestResults {
      * @see org.springframework.http.HttpMethod
      * @see java.lang.String
      * @see org.springframework.http.HttpHeaders
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -3621,14 +3621,14 @@ public class RestResults {
      * @param method        {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param params        {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see org.springframework.http.ResponseEntity
      * @see org.springframework.http.HttpMethod
      * @see java.lang.String
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -3645,7 +3645,7 @@ public class RestResults {
      * @param method        {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param params        {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @param isCheckData   boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -3653,7 +3653,7 @@ public class RestResults {
      * @see org.springframework.http.HttpMethod
      * @see java.lang.String
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -3670,14 +3670,14 @@ public class RestResults {
      * @param method        {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param body          {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see org.springframework.http.ResponseEntity
      * @see org.springframework.http.HttpMethod
      * @see java.lang.String
      * @see java.lang.Object
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -3694,7 +3694,7 @@ public class RestResults {
      * @param method        {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param body          {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @param isCheckData   boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -3702,7 +3702,7 @@ public class RestResults {
      * @see org.springframework.http.HttpMethod
      * @see java.lang.String
      * @see java.lang.Object
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -3720,7 +3720,7 @@ public class RestResults {
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers       {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param body          {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see org.springframework.http.ResponseEntity
@@ -3728,7 +3728,7 @@ public class RestResults {
      * @see java.lang.String
      * @see org.springframework.http.HttpHeaders
      * @see java.lang.Object
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -3746,7 +3746,7 @@ public class RestResults {
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers       {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param body          {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @param isCheckData   boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -3755,7 +3755,7 @@ public class RestResults {
      * @see java.lang.String
      * @see org.springframework.http.HttpHeaders
      * @see java.lang.Object
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -3773,7 +3773,7 @@ public class RestResults {
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers       {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param params        {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see org.springframework.http.ResponseEntity
@@ -3781,7 +3781,7 @@ public class RestResults {
      * @see java.lang.String
      * @see org.springframework.http.HttpHeaders
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -3799,7 +3799,7 @@ public class RestResults {
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers       {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param params        {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @param isCheckData   boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -3808,7 +3808,7 @@ public class RestResults {
      * @see java.lang.String
      * @see org.springframework.http.HttpHeaders
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -3826,7 +3826,7 @@ public class RestResults {
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param body          {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
      * @param params        {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see org.springframework.http.ResponseEntity
@@ -3834,7 +3834,7 @@ public class RestResults {
      * @see java.lang.String
      * @see java.lang.Object
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -3852,7 +3852,7 @@ public class RestResults {
      * @param url           {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param body          {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
      * @param params        {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @param isCheckData   boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -3861,7 +3861,7 @@ public class RestResults {
      * @see java.lang.String
      * @see java.lang.Object
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -3880,7 +3880,7 @@ public class RestResults {
      * @param headers       {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param body          {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
      * @param params        {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see org.springframework.http.ResponseEntity
@@ -3889,7 +3889,7 @@ public class RestResults {
      * @see org.springframework.http.HttpHeaders
      * @see java.lang.Object
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -3908,7 +3908,7 @@ public class RestResults {
      * @param headers       {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param body          {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
      * @param params        {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @param isCheckData   boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -3918,7 +3918,7 @@ public class RestResults {
      * @see org.springframework.http.HttpHeaders
      * @see java.lang.Object
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -3933,13 +3933,13 @@ public class RestResults {
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param response      {@link org.springframework.http.ResponseEntity} <p>The response parameter is <code>ResponseEntity</code> type.</p>
      * @param resource      {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @param method        {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see org.springframework.http.ResponseEntity
      * @see java.lang.String
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see org.springframework.http.HttpMethod
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
@@ -3954,19 +3954,19 @@ public class RestResults {
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param response      {@link org.springframework.http.ResponseEntity} <p>The response parameter is <code>ResponseEntity</code> type.</p>
      * @param resource      {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @param isCheckBody   boolean <p>The is check body parameter is <code>boolean</code> type.</p>
      * @param isCheckData   boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see org.springframework.http.ResponseEntity
      * @see java.lang.String
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(ResponseEntity<RestResult> response, String resource, TypeReference<T> typeReference, boolean isCheckBody, boolean isCheckData) throws RestException {
-        JavaType javaType = TypeFactory.defaultInstance().constructType(typeReference);
+        JavaType javaType = ObjectMapperHolder.typeFactory().constructType(typeReference);
         return result(response, resource, javaType, isCheckBody, isCheckData);
     }
 
@@ -4452,7 +4452,7 @@ public class RestResults {
      * @see io.github.nichetoolkit.rest.RestException
      */
     public static <T> RestResult<T> result(ResponseEntity<RestResult> response, String resource, Class<T> clazz, boolean isCheckBody, boolean isCheckData) throws RestException {
-        JavaType javaType = TypeFactory.defaultInstance().constructType(clazz);
+        JavaType javaType = ObjectMapperHolder.typeFactory().constructType(clazz);
         return result(response, resource, javaType, isCheckBody, isCheckData);
     }
 
@@ -4461,11 +4461,11 @@ public class RestResults {
      * <p>The result method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param response {@link org.springframework.http.ResponseEntity} <p>The response parameter is <code>ResponseEntity</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see org.springframework.http.ResponseEntity
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -4478,12 +4478,12 @@ public class RestResults {
      * <p>The result method.</p>
      * @param <T>         {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param response    {@link org.springframework.http.ResponseEntity} <p>The response parameter is <code>ResponseEntity</code> type.</p>
-     * @param javaType    {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType    {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @param isCheckData boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see org.springframework.http.ResponseEntity
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -4498,13 +4498,13 @@ public class RestResults {
      * @param response {@link org.springframework.http.ResponseEntity} <p>The response parameter is <code>ResponseEntity</code> type.</p>
      * @param method   {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url      {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see org.springframework.http.ResponseEntity
      * @see org.springframework.http.HttpMethod
      * @see java.lang.String
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -4520,14 +4520,14 @@ public class RestResults {
      * @param response    {@link org.springframework.http.ResponseEntity} <p>The response parameter is <code>ResponseEntity</code> type.</p>
      * @param method      {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url         {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
-     * @param javaType    {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType    {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @param isCheckData boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see org.springframework.http.ResponseEntity
      * @see org.springframework.http.HttpMethod
      * @see java.lang.String
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -4544,14 +4544,14 @@ public class RestResults {
      * @param method   {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url      {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers  {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see org.springframework.http.ResponseEntity
      * @see org.springframework.http.HttpMethod
      * @see java.lang.String
      * @see org.springframework.http.HttpHeaders
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -4568,7 +4568,7 @@ public class RestResults {
      * @param method      {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url         {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers     {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
-     * @param javaType    {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType    {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @param isCheckData boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -4576,7 +4576,7 @@ public class RestResults {
      * @see org.springframework.http.HttpMethod
      * @see java.lang.String
      * @see org.springframework.http.HttpHeaders
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -4593,14 +4593,14 @@ public class RestResults {
      * @param method   {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url      {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param params   {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see org.springframework.http.ResponseEntity
      * @see org.springframework.http.HttpMethod
      * @see java.lang.String
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -4617,7 +4617,7 @@ public class RestResults {
      * @param method      {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url         {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param params      {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param javaType    {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType    {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @param isCheckData boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -4625,7 +4625,7 @@ public class RestResults {
      * @see org.springframework.http.HttpMethod
      * @see java.lang.String
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -4642,14 +4642,14 @@ public class RestResults {
      * @param method   {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url      {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param body     {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see org.springframework.http.ResponseEntity
      * @see org.springframework.http.HttpMethod
      * @see java.lang.String
      * @see java.lang.Object
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -4666,7 +4666,7 @@ public class RestResults {
      * @param method      {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @param url         {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param body        {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
-     * @param javaType    {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType    {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @param isCheckData boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -4674,7 +4674,7 @@ public class RestResults {
      * @see org.springframework.http.HttpMethod
      * @see java.lang.String
      * @see java.lang.Object
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -4692,7 +4692,7 @@ public class RestResults {
      * @param url      {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers  {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param body     {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see org.springframework.http.ResponseEntity
@@ -4700,7 +4700,7 @@ public class RestResults {
      * @see java.lang.String
      * @see org.springframework.http.HttpHeaders
      * @see java.lang.Object
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -4718,7 +4718,7 @@ public class RestResults {
      * @param url         {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers     {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param body        {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
-     * @param javaType    {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType    {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @param isCheckData boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -4727,7 +4727,7 @@ public class RestResults {
      * @see java.lang.String
      * @see org.springframework.http.HttpHeaders
      * @see java.lang.Object
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -4745,7 +4745,7 @@ public class RestResults {
      * @param url      {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers  {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param params   {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see org.springframework.http.ResponseEntity
@@ -4753,7 +4753,7 @@ public class RestResults {
      * @see java.lang.String
      * @see org.springframework.http.HttpHeaders
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -4771,7 +4771,7 @@ public class RestResults {
      * @param url         {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param headers     {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param params      {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param javaType    {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType    {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @param isCheckData boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -4780,7 +4780,7 @@ public class RestResults {
      * @see java.lang.String
      * @see org.springframework.http.HttpHeaders
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -4798,7 +4798,7 @@ public class RestResults {
      * @param url      {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param body     {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
      * @param params   {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see org.springframework.http.ResponseEntity
@@ -4806,7 +4806,7 @@ public class RestResults {
      * @see java.lang.String
      * @see java.lang.Object
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -4824,7 +4824,7 @@ public class RestResults {
      * @param url         {@link java.lang.String} <p>The url parameter is <code>String</code> type.</p>
      * @param body        {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
      * @param params      {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param javaType    {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType    {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @param isCheckData boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -4833,7 +4833,7 @@ public class RestResults {
      * @see java.lang.String
      * @see java.lang.Object
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -4852,7 +4852,7 @@ public class RestResults {
      * @param headers  {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param body     {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
      * @param params   {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see org.springframework.http.ResponseEntity
@@ -4861,7 +4861,7 @@ public class RestResults {
      * @see org.springframework.http.HttpHeaders
      * @see java.lang.Object
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -4880,7 +4880,7 @@ public class RestResults {
      * @param headers     {@link org.springframework.http.HttpHeaders} <p>The headers parameter is <code>HttpHeaders</code> type.</p>
      * @param body        {@link java.lang.Object} <p>The body parameter is <code>Object</code> type.</p>
      * @param params      {@link org.springframework.util.MultiValueMap} <p>The params parameter is <code>MultiValueMap</code> type.</p>
-     * @param javaType    {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType    {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @param isCheckData boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
@@ -4890,7 +4890,7 @@ public class RestResults {
      * @see org.springframework.http.HttpHeaders
      * @see java.lang.Object
      * @see org.springframework.util.MultiValueMap
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */
@@ -4905,13 +4905,13 @@ public class RestResults {
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param response {@link org.springframework.http.ResponseEntity} <p>The response parameter is <code>ResponseEntity</code> type.</p>
      * @param resource {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @param method   {@link org.springframework.http.HttpMethod} <p>The method parameter is <code>HttpMethod</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see org.springframework.http.ResponseEntity
      * @see java.lang.String
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see org.springframework.http.HttpMethod
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
@@ -4926,14 +4926,14 @@ public class RestResults {
      * @param <T>         {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param response    {@link org.springframework.http.ResponseEntity} <p>The response parameter is <code>ResponseEntity</code> type.</p>
      * @param resource    {@link java.lang.String} <p>The resource parameter is <code>String</code> type.</p>
-     * @param javaType    {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType    {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @param isCheckBody boolean <p>The is check body parameter is <code>boolean</code> type.</p>
      * @param isCheckData boolean <p>The is check data parameter is <code>boolean</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.RestResult} <p>The result return object is <code>RestResult</code> type.</p>
      * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
      * @see org.springframework.http.ResponseEntity
      * @see java.lang.String
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      * @see io.github.nichetoolkit.rest.RestResult
      * @see io.github.nichetoolkit.rest.RestException
      */

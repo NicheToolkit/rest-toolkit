@@ -1,0 +1,221 @@
+2025-11-30 00:46:43.955   [main] DEBUG i.g.n.rest.holder.ApplicationContextHolder - The application context holder has be initiated
+2025-11-30 00:46:43.957   [main] DEBUG i.g.nichetoolkit.rest.holder.MessageSourceHolder - The message source context holder has be initiated
+2025-11-30 00:46:43.972   [main] INFO  io.github.nichetoolkit.rest.JwtWorkerTest - Starting JwtWorkerTest using Java 17.0.13 with PID 10000 (started by Snow in F:\GitHubWorkspaces\NicheToolkit\rest-toolkit\rest-toolkit-example)
+2025-11-30 00:46:43.973   [main] DEBUG io.github.nichetoolkit.rest.JwtWorkerTest - Running with Spring Boot v4.0.0, Spring v7.0.1
+2025-11-30 00:46:43.973   [main] INFO  io.github.nichetoolkit.rest.JwtWorkerTest - No active profile set, falling back to 1 default profile: "default"
+2025-11-30 00:46:44.024   [main] DEBUG i.g.n.rest.holder.BeanDefinitionRegistryHolder - The bean definition registry holder has be initiated
+2025-11-30 00:46:44.719   [main] DEBUG i.g.n.rest.holder.ListableBeanFactoryHolder - The listable bean factory holder has be initiated
+2025-11-30 00:46:44.836   [main] DEBUG i.g.n.rest.configure.RestI18nAutoConfigure - The auto configuration for [rest-i18n] initiated
+2025-11-30 00:46:44.852   [main] DEBUG i.g.n.rest.configure.RestI18nAutoConfigure - The auto configuration for [i18n-message] initiated
+2025-11-30 00:46:44.852   [main] DEBUG i.g.nichetoolkit.rest.holder.MessageSourceHolder - The message source context holder has be refreshed
+2025-11-30 00:46:44.928   [main] DEBUG i.g.n.rest.configure.RestWorkerAutoConfigure - The auto configuration for [rest-worker] initiated
+2025-11-30 00:46:44.994   [main] DEBUG io.github.nichetoolkit.rest.worker.RadixWorker - The radix      properties: {"digits":"qwe8as2dzx9c7p5ik3mjufr4vyltn6bgh","enabled":true,"minLength":6,"supply":"o"}
+2025-11-30 00:46:45.004   [main] DEBUG io.github.nichetoolkit.rest.worker.sha.ShaWorker - The sha        properties: {"algorithm":3,"enabled":true,"secret":"4AFa1sTe45FAst2^aPHV7sVG"}
+2025-11-30 00:46:45.017   [main] DEBUG io.github.nichetoolkit.rest.worker.jwt.JwtWorker - The jwt        properties: {"algorithm":"HS256","audiences":[],"enabled":true,"expireTime":0,"expireUnit":"Millis","issuedDelayTime":0,"issuedDelayUnit":"Millis","issuer":"io.github.nichetoolkit","kid":"","notBeforeEnabled":false,"secret":"4AFa1sTe45FAst2^aPHV7sVG"}
+2025-11-30 00:46:45.029   [main] DEBUG i.g.n.rest.configure.RestInterceptAutoConfigure - The auto configuration for [rest-intercept] initiated
+2025-11-30 00:46:45.032   [main] DEBUG i.g.n.rest.handler.RestControllerHandler - The exception      properties: {"consoleLog":{"commonExceptionEnabled":true,"restExceptionEnabled":true},"messageI18n":{"messagePrefix":"i18n@","transformEnabled":false}}
+2025-11-30 00:46:45.043   [main] DEBUG io.github.nichetoolkit.rest.util.LoggerUtils - The fitter bean of [io.github.nichetoolkit.rest.TestFitter] type for named 'testFitter' has be initiated.
+2025-11-30 00:46:45.054   [main] INFO  io.github.nichetoolkit.rest.TestFitter - [TestFitter] > afterPropertiesSet: {"autoVerify":true,"enabled":true,"keySize":1024,"privateKey":"MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBAJ034mnCO7_djBEcSLSLo5iMXeeFjjOypIlnfp4nTCVNdufIVJieot1D0dvatI2IlFb5JCjmPmB3nvXhx5ao-8oISoch6ZvH2rsI5Sj6NBv39f7TjQHiWYWRDk68RzXXOQxh2DGYKlSOyPrHmBWL1EG4HiRJplfEmBevMvKd4CRBAgMBAAECgYBAY7f2Kpe__-Oyyku4rgwlmS-Id_mCkOK0Z8_CxEN6b5yIV1LWYvo-9tzHV25lHQ_sAwPdQFdBuRxAheTxfmoIb5IOUO6D_Km6BrloDIB37B5smxdrsS-1xCiengA4GK6ND2v8Zv2UnQ0J95EfHWVhOh63gPpw4hC_5Bb33UNgAQJBAPfb0B2KwEhIqUS_Cpf1QMNpefup5GRAygvxqansrtKehmxhvSAfRisHRkeg1eO4x0vEXfz-awvbRAPkIWpDjoECQQCiYeW7iuwQQmn3UHLtJZsnhGU9e2BTnLIi3GROHjq_EWcpewjibSBGujVUIUPZKg4qipxnSRy9JcKss6Pd8TXBAkAd6lP2HNcUYmC7wWsf6CQG8eYdL-Y3C3LXejWGIuD-3s9OqYVQKTYo31nmL01hjN3REURe0r5M0gwlhBVcZAcBAkAwS7WsRfFYFKi3qfHEnr66ziHeW2eW9q_0tmAO6-bFFUP9jl5iGdrTrmZWE16-pEd6V6eVAKXPi_-Opg9C348BAkAIApHVGuXj0KY2jyTQpDJzbCqhXKWUKgYQ6LbgzWf5vn_1BSS5Wx4ltQrqe3uhusx8TuoZo7jys00H4Xow1VaR","publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCdN-Jpwju_3YwRHEi0i6OYjF3nhY4zsqSJZ36eJ0wlTXbnyFSYnqLdQ9Hb2rSNiJRW-SQo5j5gd5714ceWqPvKCEqHIembx9q7COUo-jQb9_X-040B4lmFkQ5OvEc11zkMYdgxmCpUjsj6x5gVi9RBuB4kSaZXxJgXrzLyneAkQQIDAQAB"}
+2025-11-30 00:46:45.055   [main] DEBUG i.g.n.rest.handler.RestControllerHandler - There are 1 fulfilled fitter beans has be initiated.
+2025-11-30 00:46:45.120   [main] DEBUG i.g.n.rest.configure.RestLicenseAutoConfigure - The auto configuration for [rest-license] initiated
+2025-11-30 00:46:45.401   [main] DEBUG i.g.n.rest.configure.RestCoreAutoConfigure - The auto configuration for [rest-core] initiated
+2025-11-30 00:46:45.577   [main] DEBUG io.github.nichetoolkit.rest.worker.rsa.RsaWorker - The rsa        properties: {"autoVerify":true,"enabled":true,"keySize":1024,"privateKey":"MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBAJ034mnCO7_djBEcSLSLo5iMXeeFjjOypIlnfp4nTCVNdufIVJieot1D0dvatI2IlFb5JCjmPmB3nvXhx5ao-8oISoch6ZvH2rsI5Sj6NBv39f7TjQHiWYWRDk68RzXXOQxh2DGYKlSOyPrHmBWL1EG4HiRJplfEmBevMvKd4CRBAgMBAAECgYBAY7f2Kpe__-Oyyku4rgwlmS-Id_mCkOK0Z8_CxEN6b5yIV1LWYvo-9tzHV25lHQ_sAwPdQFdBuRxAheTxfmoIb5IOUO6D_Km6BrloDIB37B5smxdrsS-1xCiengA4GK6ND2v8Zv2UnQ0J95EfHWVhOh63gPpw4hC_5Bb33UNgAQJBAPfb0B2KwEhIqUS_Cpf1QMNpefup5GRAygvxqansrtKehmxhvSAfRisHRkeg1eO4x0vEXfz-awvbRAPkIWpDjoECQQCiYeW7iuwQQmn3UHLtJZsnhGU9e2BTnLIi3GROHjq_EWcpewjibSBGujVUIUPZKg4qipxnSRy9JcKss6Pd8TXBAkAd6lP2HNcUYmC7wWsf6CQG8eYdL-Y3C3LXejWGIuD-3s9OqYVQKTYo31nmL01hjN3REURe0r5M0gwlhBVcZAcBAkAwS7WsRfFYFKi3qfHEnr66ziHeW2eW9q_0tmAO6-bFFUP9jl5iGdrTrmZWE16-pEd6V6eVAKXPi_-Opg9C348BAkAIApHVGuXj0KY2jyTQpDJzbCqhXKWUKgYQ6LbgzWf5vn_1BSS5Wx4ltQrqe3uhusx8TuoZo7jys00H4Xow1VaR","publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCdN-Jpwju_3YwRHEi0i6OYjF3nhY4zsqSJZ36eJ0wlTXbnyFSYnqLdQ9Hb2rSNiJRW-SQo5j5gd5714ceWqPvKCEqHIembx9q7COUo-jQb9_X-040B4lmFkQ5OvEc11zkMYdgxmCpUjsj6x5gVi9RBuB4kSaZXxJgXrzLyneAkQQIDAQAB"}
+2025-11-30 00:46:45.596   [main] DEBUG i.g.nichetoolkit.rest.license.LicenseCreatorWorker - The creator    properties: {"consumerSize":1,"consumerType":"user","description":"rest server info license","expiryTime":"2025-11-02 00:00:00","extraInfo":{"boardCheck":true,"boardSerial":"Default string be filled by O.E.M","cpuCheck":true,"cpuSerial":"BFEBFBFF000906A3","ipAddress":["192.168.5.50"],"ipCheck":true,"macAddress":["C0-BF-BE-EA-C5-24"],"macCheck":true},"issuedTime":"2025-11-01 00:00:00","keyPass":"sCEuUecTNet3ZnUJaTxu","licensePath":"F:\\GitHubWorkspaces\\NicheToolkit\\rest-toolkit\\rest-toolkit-example\\licenses\\license.lic","privateAlias":"privateKey","privateKeysStorePath":"F:\\GitHubWorkspaces\\NicheToolkit\\rest-toolkit\\rest-toolkit-example\\licenses\\privateKeys.keystore","storePass":"5rjbahNkhcCKpGtpT2Xs","subject":"rest-server"}
+2025-11-30 00:46:45.614   [main] DEBUG i.g.n.rest.configure.RestUtilsAutoConfigure - The auto configuration for [rest-utils] initiated
+2025-11-30 00:46:45.617   [main] DEBUG i.g.n.rest.configure.RestStarterAutoConfigure - The auto configuration for [rest-starter] initiated
+2025-11-30 00:46:45.618   [main] DEBUG i.g.n.rest.configure.RestExampleAutoConfigure - The auto configuration for [rest-example] initiated
+2025-11-30 00:46:45.628   [main] DEBUG i.g.n.rest.configure.RestHttpAutoConfigure - The auto configuration for [rest-http] initiated
+2025-11-30 00:46:45.628   [main] DEBUG i.g.n.rest.configure.RestHttpAutoConfigure - The auto configuration for [defaultClient] rest template initiated
+2025-11-30 00:46:45.649   [main] DEBUG i.g.n.rest.configure.RestHttpAutoConfigure - The http       properties: {"charset":"UTF-8","connectTimeout":2000,"enabled":true,"encodingMode":"NONE","httpType":"default_client","keepAliveHosts":null,"keepAliveTime":600000,"maxCoreSize":5,"maxIdleSize":10,"proxy":{"hostname":"","port":null,"type":"socks"},"readTimeout":30000,"requestTimeout":200,"retryTimes":0}
+2025-11-30 00:46:45.655   [main] DEBUG i.g.n.rest.configure.RestIdentityAutoConfigure - The auto configuration for [rest-identity] initiated
+2025-11-30 00:46:45.661   [main] DEBUG i.g.nichetoolkit.rest.identity.IdentityFactory - The identity   properties: {"config":{"centerId":2,"sequence":1,"workerId":1},"enabled":true,"server":{"api":"","sequence":1,"url":""},"type":"CONFIG"}
+2025-11-30 00:46:45.661   [main] DEBUG i.g.n.rest.configure.RestLogbackAutoConfigure - The auto configuration for [rest-logback] initiated
+2025-11-30 00:46:46.004   [main] INFO  i.g.n.rest.license.LicenseInstallListener - ================= Install License ================= 
+2025-11-30 00:46:46.042   [main] ERROR io.github.nichetoolkit.rest.license.LicenseWorker - The license installed has error, error: F:\GitHubWorkspaces\NicheToolkit\rest-toolkit\rest-toolkit-example\licenses\license.lic (系统找不到指定的路径。)
+java.io.FileNotFoundException: F:\GitHubWorkspaces\NicheToolkit\rest-toolkit\rest-toolkit-example\licenses\license.lic (系统找不到指定的路径。)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:216)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at de.schlichtherle.license.LicenseManager.loadLicenseKey(LicenseManager.java:737)
+	at de.schlichtherle.license.LicenseManager.install(LicenseManager.java:406)
+	at de.schlichtherle.license.LicenseManager.install(LicenseManager.java:382)
+	at io.github.nichetoolkit.rest.license.LicenseWorker.installLicense(LicenseWorker.java:169)
+	at io.github.nichetoolkit.rest.license.LicenseInstallListener.installLicense(LicenseInstallListener.java:91)
+	at io.github.nichetoolkit.rest.license.LicenseInstallListener.onApplicationEvent(LicenseInstallListener.java:107)
+	at io.github.nichetoolkit.rest.license.LicenseInstallListener.onApplicationEvent(LicenseInstallListener.java:27)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:180)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:173)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:151)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:447)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:380)
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:1005)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:623)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:765)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:454)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321)
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$2(SpringBootContextLoader.java:148)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46)
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1474)
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:573)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:148)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:114)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:247)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.lambda$loadContext$0(DefaultCacheAwareContextLoaderDelegate.java:167)
+	at org.springframework.test.context.cache.DefaultContextCache.put(DefaultContextCache.java:172)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:160)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:128)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:200)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:139)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:203)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$1(ClassBasedTestDescriptor.java:423)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:428)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$0(ClassBasedTestDescriptor.java:422)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:422)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$0(ClassBasedTestDescriptor.java:334)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:333)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$1(ClassBasedTestDescriptor.java:322)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$0(ClassBasedTestDescriptor.java:321)
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:27)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:127)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:126)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:70)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$0(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:110)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:42)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$2(NodeTestTask.java:180)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$1(NodeTestTask.java:166)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$0(NodeTestTask.java:164)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:163)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:116)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:42)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$2(NodeTestTask.java:180)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$1(NodeTestTask.java:166)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$0(NodeTestTask.java:164)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:163)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:116)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:36)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:52)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.executeEngine(EngineExecutionOrchestrator.java:246)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.failOrExecuteEngine(EngineExecutionOrchestrator.java:218)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:179)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:108)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:66)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:157)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:65)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:125)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:93)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:48)
+	at org.junit.platform.launcher.core.InterceptingLauncher.lambda$execute$0(InterceptingLauncher.java:41)
+	at org.junit.platform.launcher.core.ClasspathAlignmentCheckingLauncherInterceptor.intercept(ClasspathAlignmentCheckingLauncherInterceptor.java:25)
+	at org.junit.platform.launcher.core.InterceptingLauncher.execute(InterceptingLauncher.java:40)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:48)
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:67)
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:57)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:231)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55)
+2025-11-30 00:46:46.060   [main] INFO  i.g.n.rest.license.LicenseInstallListener - ================= Install Failure ================= 
+2025-11-30 00:47:35.957   [main] DEBUG i.g.n.rest.holder.ApplicationContextHolder - The application context holder has be initiated
+2025-11-30 00:47:35.961   [main] DEBUG i.g.nichetoolkit.rest.holder.MessageSourceHolder - The message source context holder has be initiated
+2025-11-30 00:47:35.970   [main] INFO  io.github.nichetoolkit.rest.JwtWorkerTest - Starting JwtWorkerTest using Java 17.0.13 with PID 4736 (started by Snow in F:\GitHubWorkspaces\NicheToolkit\rest-toolkit\rest-toolkit-example)
+2025-11-30 00:47:35.973   [main] DEBUG io.github.nichetoolkit.rest.JwtWorkerTest - Running with Spring Boot v4.0.0, Spring v7.0.1
+2025-11-30 00:47:35.974   [main] INFO  io.github.nichetoolkit.rest.JwtWorkerTest - No active profile set, falling back to 1 default profile: "default"
+2025-11-30 00:47:36.017   [main] DEBUG i.g.n.rest.holder.BeanDefinitionRegistryHolder - The bean definition registry holder has be initiated
+2025-11-30 00:47:36.704   [main] DEBUG i.g.n.rest.holder.ListableBeanFactoryHolder - The listable bean factory holder has be initiated
+2025-11-30 00:47:36.826   [main] DEBUG i.g.n.rest.configure.RestI18nAutoConfigure - The auto configuration for [rest-i18n] initiated
+2025-11-30 00:47:36.829   [main] DEBUG i.g.n.rest.configure.RestI18nAutoConfigure - The auto configuration for [i18n-message] initiated
+2025-11-30 00:47:36.833   [main] DEBUG i.g.nichetoolkit.rest.holder.MessageSourceHolder - The message source context holder has be refreshed
+2025-11-30 00:47:36.891   [main] DEBUG i.g.n.rest.configure.RestWorkerAutoConfigure - The auto configuration for [rest-worker] initiated
+2025-11-30 00:47:36.959   [main] DEBUG io.github.nichetoolkit.rest.worker.RadixWorker - The radix      properties: {"digits":"qwe8as2dzx9c7p5ik3mjufr4vyltn6bgh","enabled":true,"minLength":6,"supply":"o"}
+2025-11-30 00:47:36.970   [main] DEBUG io.github.nichetoolkit.rest.worker.sha.ShaWorker - The sha        properties: {"algorithm":3,"enabled":true,"secret":"4AFa1sTe45FAst2^aPHV7sVG"}
+2025-11-30 00:47:36.985   [main] DEBUG io.github.nichetoolkit.rest.worker.jwt.JwtWorker - The jwt        properties: {"algorithm":"HS256","audiences":[],"enabled":true,"expireTime":0,"expireUnit":"Millis","issuedDelayTime":0,"issuedDelayUnit":"Millis","issuer":"io.github.nichetoolkit","kid":"","notBeforeEnabled":false,"secret":"4AFa1sTe45FAst2^aPHV7sVG"}
+2025-11-30 00:47:36.997   [main] DEBUG i.g.n.rest.configure.RestInterceptAutoConfigure - The auto configuration for [rest-intercept] initiated
+2025-11-30 00:47:37.000   [main] DEBUG i.g.n.rest.handler.RestControllerHandler - The exception      properties: {"consoleLog":{"commonExceptionEnabled":true,"restExceptionEnabled":true},"messageI18n":{"messagePrefix":"i18n@","transformEnabled":false}}
+2025-11-30 00:47:37.010   [main] DEBUG io.github.nichetoolkit.rest.util.LoggerUtils - The fitter bean of [io.github.nichetoolkit.rest.TestFitter] type for named 'testFitter' has be initiated.
+2025-11-30 00:47:37.016   [main] INFO  io.github.nichetoolkit.rest.TestFitter - [TestFitter] > afterPropertiesSet: {"autoVerify":true,"enabled":true,"keySize":1024,"privateKey":"MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBAJ034mnCO7_djBEcSLSLo5iMXeeFjjOypIlnfp4nTCVNdufIVJieot1D0dvatI2IlFb5JCjmPmB3nvXhx5ao-8oISoch6ZvH2rsI5Sj6NBv39f7TjQHiWYWRDk68RzXXOQxh2DGYKlSOyPrHmBWL1EG4HiRJplfEmBevMvKd4CRBAgMBAAECgYBAY7f2Kpe__-Oyyku4rgwlmS-Id_mCkOK0Z8_CxEN6b5yIV1LWYvo-9tzHV25lHQ_sAwPdQFdBuRxAheTxfmoIb5IOUO6D_Km6BrloDIB37B5smxdrsS-1xCiengA4GK6ND2v8Zv2UnQ0J95EfHWVhOh63gPpw4hC_5Bb33UNgAQJBAPfb0B2KwEhIqUS_Cpf1QMNpefup5GRAygvxqansrtKehmxhvSAfRisHRkeg1eO4x0vEXfz-awvbRAPkIWpDjoECQQCiYeW7iuwQQmn3UHLtJZsnhGU9e2BTnLIi3GROHjq_EWcpewjibSBGujVUIUPZKg4qipxnSRy9JcKss6Pd8TXBAkAd6lP2HNcUYmC7wWsf6CQG8eYdL-Y3C3LXejWGIuD-3s9OqYVQKTYo31nmL01hjN3REURe0r5M0gwlhBVcZAcBAkAwS7WsRfFYFKi3qfHEnr66ziHeW2eW9q_0tmAO6-bFFUP9jl5iGdrTrmZWE16-pEd6V6eVAKXPi_-Opg9C348BAkAIApHVGuXj0KY2jyTQpDJzbCqhXKWUKgYQ6LbgzWf5vn_1BSS5Wx4ltQrqe3uhusx8TuoZo7jys00H4Xow1VaR","publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCdN-Jpwju_3YwRHEi0i6OYjF3nhY4zsqSJZ36eJ0wlTXbnyFSYnqLdQ9Hb2rSNiJRW-SQo5j5gd5714ceWqPvKCEqHIembx9q7COUo-jQb9_X-040B4lmFkQ5OvEc11zkMYdgxmCpUjsj6x5gVi9RBuB4kSaZXxJgXrzLyneAkQQIDAQAB"}
+2025-11-30 00:47:37.016   [main] DEBUG i.g.n.rest.handler.RestControllerHandler - There are 1 fulfilled fitter beans has be initiated.
+2025-11-30 00:47:37.354   [main] DEBUG i.g.n.rest.configure.RestCoreAutoConfigure - The auto configuration for [rest-core] initiated
+2025-11-30 00:47:37.513   [main] DEBUG io.github.nichetoolkit.rest.worker.rsa.RsaWorker - The rsa        properties: {"autoVerify":true,"enabled":true,"keySize":1024,"privateKey":"MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBAJ034mnCO7_djBEcSLSLo5iMXeeFjjOypIlnfp4nTCVNdufIVJieot1D0dvatI2IlFb5JCjmPmB3nvXhx5ao-8oISoch6ZvH2rsI5Sj6NBv39f7TjQHiWYWRDk68RzXXOQxh2DGYKlSOyPrHmBWL1EG4HiRJplfEmBevMvKd4CRBAgMBAAECgYBAY7f2Kpe__-Oyyku4rgwlmS-Id_mCkOK0Z8_CxEN6b5yIV1LWYvo-9tzHV25lHQ_sAwPdQFdBuRxAheTxfmoIb5IOUO6D_Km6BrloDIB37B5smxdrsS-1xCiengA4GK6ND2v8Zv2UnQ0J95EfHWVhOh63gPpw4hC_5Bb33UNgAQJBAPfb0B2KwEhIqUS_Cpf1QMNpefup5GRAygvxqansrtKehmxhvSAfRisHRkeg1eO4x0vEXfz-awvbRAPkIWpDjoECQQCiYeW7iuwQQmn3UHLtJZsnhGU9e2BTnLIi3GROHjq_EWcpewjibSBGujVUIUPZKg4qipxnSRy9JcKss6Pd8TXBAkAd6lP2HNcUYmC7wWsf6CQG8eYdL-Y3C3LXejWGIuD-3s9OqYVQKTYo31nmL01hjN3REURe0r5M0gwlhBVcZAcBAkAwS7WsRfFYFKi3qfHEnr66ziHeW2eW9q_0tmAO6-bFFUP9jl5iGdrTrmZWE16-pEd6V6eVAKXPi_-Opg9C348BAkAIApHVGuXj0KY2jyTQpDJzbCqhXKWUKgYQ6LbgzWf5vn_1BSS5Wx4ltQrqe3uhusx8TuoZo7jys00H4Xow1VaR","publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCdN-Jpwju_3YwRHEi0i6OYjF3nhY4zsqSJZ36eJ0wlTXbnyFSYnqLdQ9Hb2rSNiJRW-SQo5j5gd5714ceWqPvKCEqHIembx9q7COUo-jQb9_X-040B4lmFkQ5OvEc11zkMYdgxmCpUjsj6x5gVi9RBuB4kSaZXxJgXrzLyneAkQQIDAQAB"}
+2025-11-30 00:47:37.530   [main] DEBUG i.g.nichetoolkit.rest.license.LicenseCreatorWorker - The creator    properties: {"consumerSize":1,"consumerType":"user","description":"rest server info license","expiryTime":"2025-11-02 00:00:00","extraInfo":{"boardCheck":true,"boardSerial":"Default string be filled by O.E.M","cpuCheck":true,"cpuSerial":"BFEBFBFF000906A3","ipAddress":["192.168.5.50"],"ipCheck":true,"macAddress":["C0-BF-BE-EA-C5-24"],"macCheck":true},"issuedTime":"2025-11-01 00:00:00","keyPass":"sCEuUecTNet3ZnUJaTxu","licensePath":"F:\\GitHubWorkspaces\\NicheToolkit\\rest-toolkit\\rest-toolkit-example\\licenses\\license.lic","privateAlias":"privateKey","privateKeysStorePath":"F:\\GitHubWorkspaces\\NicheToolkit\\rest-toolkit\\rest-toolkit-example\\licenses\\privateKeys.keystore","storePass":"5rjbahNkhcCKpGtpT2Xs","subject":"rest-server"}
+2025-11-30 00:47:37.530   [main] DEBUG i.g.n.rest.configure.RestUtilsAutoConfigure - The auto configuration for [rest-utils] initiated
+2025-11-30 00:47:37.532   [main] DEBUG i.g.n.rest.configure.RestStarterAutoConfigure - The auto configuration for [rest-starter] initiated
+2025-11-30 00:47:37.533   [main] DEBUG i.g.n.rest.configure.RestExampleAutoConfigure - The auto configuration for [rest-example] initiated
+2025-11-30 00:47:37.541   [main] DEBUG i.g.n.rest.configure.RestHttpAutoConfigure - The auto configuration for [rest-http] initiated
+2025-11-30 00:47:37.541   [main] DEBUG i.g.n.rest.configure.RestHttpAutoConfigure - The auto configuration for [defaultClient] rest template initiated
+2025-11-30 00:47:37.563   [main] DEBUG i.g.n.rest.configure.RestHttpAutoConfigure - The http       properties: {"charset":"UTF-8","connectTimeout":2000,"enabled":true,"encodingMode":"NONE","httpType":"default_client","keepAliveHosts":null,"keepAliveTime":600000,"maxCoreSize":5,"maxIdleSize":10,"proxy":{"hostname":"","port":null,"type":"socks"},"readTimeout":30000,"requestTimeout":200,"retryTimes":0}
+2025-11-30 00:47:37.571   [main] DEBUG i.g.n.rest.configure.RestIdentityAutoConfigure - The auto configuration for [rest-identity] initiated
+2025-11-30 00:47:37.578   [main] DEBUG i.g.nichetoolkit.rest.identity.IdentityFactory - The identity   properties: {"config":{"centerId":2,"sequence":1,"workerId":1},"enabled":true,"server":{"api":"","sequence":1,"url":""},"type":"CONFIG"}
+2025-11-30 00:47:37.582   [main] DEBUG i.g.n.rest.configure.RestLicenseAutoConfigure - The auto configuration for [rest-license] initiated
+2025-11-30 00:47:37.585   [main] DEBUG i.g.n.rest.configure.RestLogbackAutoConfigure - The auto configuration for [rest-logback] initiated
+2025-11-30 00:47:37.942   [main] INFO  io.github.nichetoolkit.rest.JwtWorkerTest - Started JwtWorkerTest in 2.336 seconds (process running for 3.653)
+2025-11-30 00:47:38.662   [main] INFO  io.github.nichetoolkit.rest.JwtWorkerTest - the unique id: 74968ada5c05aa2240f4b0fdef5e0214
+2025-11-30 00:47:38.666   [main] INFO  io.github.nichetoolkit.rest.JwtWorkerTest - the subject: 1994810495899025408
+2025-11-30 00:47:38.682   [main] INFO  io.github.nichetoolkit.rest.JwtWorkerTest - the token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOm51bGwsImV4cCI6bnVsbCwiaWF0IjoxNzY0NDM0ODU2LCJpc3MiOiJpby5naXRodWIubmljaGV0b29sa2l0IiwianRpIjoiNzQ5NjhhZGE1YzA1YWEyMjQwZjRiMGZkZWY1ZTAyMTQiLCJuYmYiOm51bGwsInN1YiI6IjE5OTQ4MTA0OTU4OTkwMjU0MDgifQ.hPcKEiUL7iXJN75zSDfjkgSqc9yDpPCS1F6tgpdxGLI
+2025-11-30 00:47:38.715   [main] INFO  io.github.nichetoolkit.rest.JwtWorkerTest - the jwt: {"aud":null,"exp":null,"iat":1764434856,"iss":"io.github.nichetoolkit","jti":"74968ada5c05aa2240f4b0fdef5e0214","nbf":null,"sub":"1994810495899025408"}
+2025-11-30 00:49:41.670   [main] DEBUG i.g.n.rest.holder.ApplicationContextHolder - The application context holder has be initiated
+2025-11-30 00:49:41.674   [main] DEBUG i.g.nichetoolkit.rest.holder.MessageSourceHolder - The message source context holder has be initiated
+2025-11-30 00:49:41.690   [main] INFO  io.github.nichetoolkit.rest.JwtWorkerTest - Starting JwtWorkerTest using Java 17.0.13 with PID 17524 (started by Snow in F:\GitHubWorkspaces\NicheToolkit\rest-toolkit\rest-toolkit-example)
+2025-11-30 00:49:41.690   [main] DEBUG io.github.nichetoolkit.rest.JwtWorkerTest - Running with Spring Boot v4.0.0, Spring v7.0.1
+2025-11-30 00:49:41.692   [main] INFO  io.github.nichetoolkit.rest.JwtWorkerTest - No active profile set, falling back to 1 default profile: "default"
+2025-11-30 00:49:41.734   [main] DEBUG i.g.n.rest.holder.BeanDefinitionRegistryHolder - The bean definition registry holder has be initiated
+2025-11-30 00:49:42.454   [main] DEBUG i.g.n.rest.holder.ListableBeanFactoryHolder - The listable bean factory holder has be initiated
+2025-11-30 00:49:42.579   [main] DEBUG i.g.n.rest.configure.RestI18nAutoConfigure - The auto configuration for [rest-i18n] initiated
+2025-11-30 00:49:42.583   [main] DEBUG i.g.n.rest.configure.RestI18nAutoConfigure - The auto configuration for [i18n-message] initiated
+2025-11-30 00:49:42.587   [main] DEBUG i.g.nichetoolkit.rest.holder.MessageSourceHolder - The message source context holder has be refreshed
+2025-11-30 00:49:42.668   [main] DEBUG i.g.n.rest.configure.RestWorkerAutoConfigure - The auto configuration for [rest-worker] initiated
+2025-11-30 00:49:42.749   [main] DEBUG io.github.nichetoolkit.rest.worker.RadixWorker - The radix      properties: {"digits":"qwe8as2dzx9c7p5ik3mjufr4vyltn6bgh","enabled":true,"minLength":6,"supply":"o"}
+2025-11-30 00:49:42.758   [main] DEBUG io.github.nichetoolkit.rest.worker.sha.ShaWorker - The sha        properties: {"algorithm":3,"enabled":true,"secret":"4AFa1sTe45FAst2^aPHV7sVG"}
+2025-11-30 00:49:42.773   [main] DEBUG io.github.nichetoolkit.rest.worker.jwt.JwtWorker - The jwt        properties: {"algorithm":"HS256","audiences":[],"enabled":true,"expireTime":0,"expireUnit":"Millis","issuedDelayTime":0,"issuedDelayUnit":"Millis","issuer":"io.github.nichetoolkit","kid":"","notBeforeEnabled":false,"secret":"4AFa1sTe45FAst2^aPHV7sVG"}
+2025-11-30 00:49:42.784   [main] DEBUG i.g.n.rest.configure.RestInterceptAutoConfigure - The auto configuration for [rest-intercept] initiated
+2025-11-30 00:49:42.789   [main] DEBUG i.g.n.rest.handler.RestControllerHandler - The exception      properties: {"consoleLog":{"commonExceptionEnabled":true,"restExceptionEnabled":true},"messageI18n":{"messagePrefix":"i18n@","transformEnabled":false}}
+2025-11-30 00:49:42.796   [main] DEBUG io.github.nichetoolkit.rest.util.LoggerUtils - The fitter bean of [io.github.nichetoolkit.rest.TestFitter] type for named 'testFitter' has be initiated.
+2025-11-30 00:49:42.802   [main] INFO  io.github.nichetoolkit.rest.TestFitter - [TestFitter] > afterPropertiesSet: {"autoVerify":true,"enabled":true,"keySize":1024,"privateKey":"MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBAJ034mnCO7_djBEcSLSLo5iMXeeFjjOypIlnfp4nTCVNdufIVJieot1D0dvatI2IlFb5JCjmPmB3nvXhx5ao-8oISoch6ZvH2rsI5Sj6NBv39f7TjQHiWYWRDk68RzXXOQxh2DGYKlSOyPrHmBWL1EG4HiRJplfEmBevMvKd4CRBAgMBAAECgYBAY7f2Kpe__-Oyyku4rgwlmS-Id_mCkOK0Z8_CxEN6b5yIV1LWYvo-9tzHV25lHQ_sAwPdQFdBuRxAheTxfmoIb5IOUO6D_Km6BrloDIB37B5smxdrsS-1xCiengA4GK6ND2v8Zv2UnQ0J95EfHWVhOh63gPpw4hC_5Bb33UNgAQJBAPfb0B2KwEhIqUS_Cpf1QMNpefup5GRAygvxqansrtKehmxhvSAfRisHRkeg1eO4x0vEXfz-awvbRAPkIWpDjoECQQCiYeW7iuwQQmn3UHLtJZsnhGU9e2BTnLIi3GROHjq_EWcpewjibSBGujVUIUPZKg4qipxnSRy9JcKss6Pd8TXBAkAd6lP2HNcUYmC7wWsf6CQG8eYdL-Y3C3LXejWGIuD-3s9OqYVQKTYo31nmL01hjN3REURe0r5M0gwlhBVcZAcBAkAwS7WsRfFYFKi3qfHEnr66ziHeW2eW9q_0tmAO6-bFFUP9jl5iGdrTrmZWE16-pEd6V6eVAKXPi_-Opg9C348BAkAIApHVGuXj0KY2jyTQpDJzbCqhXKWUKgYQ6LbgzWf5vn_1BSS5Wx4ltQrqe3uhusx8TuoZo7jys00H4Xow1VaR","publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCdN-Jpwju_3YwRHEi0i6OYjF3nhY4zsqSJZ36eJ0wlTXbnyFSYnqLdQ9Hb2rSNiJRW-SQo5j5gd5714ceWqPvKCEqHIembx9q7COUo-jQb9_X-040B4lmFkQ5OvEc11zkMYdgxmCpUjsj6x5gVi9RBuB4kSaZXxJgXrzLyneAkQQIDAQAB"}
+2025-11-30 00:49:42.802   [main] DEBUG i.g.n.rest.handler.RestControllerHandler - There are 1 fulfilled fitter beans has be initiated.
+2025-11-30 00:49:43.202   [main] DEBUG i.g.n.rest.configure.RestCoreAutoConfigure - The auto configuration for [rest-core] initiated
+2025-11-30 00:49:43.343   [main] DEBUG io.github.nichetoolkit.rest.worker.rsa.RsaWorker - The rsa        properties: {"autoVerify":true,"enabled":true,"keySize":1024,"privateKey":"MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBAJ034mnCO7_djBEcSLSLo5iMXeeFjjOypIlnfp4nTCVNdufIVJieot1D0dvatI2IlFb5JCjmPmB3nvXhx5ao-8oISoch6ZvH2rsI5Sj6NBv39f7TjQHiWYWRDk68RzXXOQxh2DGYKlSOyPrHmBWL1EG4HiRJplfEmBevMvKd4CRBAgMBAAECgYBAY7f2Kpe__-Oyyku4rgwlmS-Id_mCkOK0Z8_CxEN6b5yIV1LWYvo-9tzHV25lHQ_sAwPdQFdBuRxAheTxfmoIb5IOUO6D_Km6BrloDIB37B5smxdrsS-1xCiengA4GK6ND2v8Zv2UnQ0J95EfHWVhOh63gPpw4hC_5Bb33UNgAQJBAPfb0B2KwEhIqUS_Cpf1QMNpefup5GRAygvxqansrtKehmxhvSAfRisHRkeg1eO4x0vEXfz-awvbRAPkIWpDjoECQQCiYeW7iuwQQmn3UHLtJZsnhGU9e2BTnLIi3GROHjq_EWcpewjibSBGujVUIUPZKg4qipxnSRy9JcKss6Pd8TXBAkAd6lP2HNcUYmC7wWsf6CQG8eYdL-Y3C3LXejWGIuD-3s9OqYVQKTYo31nmL01hjN3REURe0r5M0gwlhBVcZAcBAkAwS7WsRfFYFKi3qfHEnr66ziHeW2eW9q_0tmAO6-bFFUP9jl5iGdrTrmZWE16-pEd6V6eVAKXPi_-Opg9C348BAkAIApHVGuXj0KY2jyTQpDJzbCqhXKWUKgYQ6LbgzWf5vn_1BSS5Wx4ltQrqe3uhusx8TuoZo7jys00H4Xow1VaR","publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCdN-Jpwju_3YwRHEi0i6OYjF3nhY4zsqSJZ36eJ0wlTXbnyFSYnqLdQ9Hb2rSNiJRW-SQo5j5gd5714ceWqPvKCEqHIembx9q7COUo-jQb9_X-040B4lmFkQ5OvEc11zkMYdgxmCpUjsj6x5gVi9RBuB4kSaZXxJgXrzLyneAkQQIDAQAB"}
+2025-11-30 00:49:43.358   [main] DEBUG i.g.nichetoolkit.rest.license.LicenseCreatorWorker - The creator    properties: {"consumerSize":1,"consumerType":"user","description":"rest server info license","expiryTime":"2025-11-02 00:00:00","extraInfo":{"boardCheck":true,"boardSerial":"Default string be filled by O.E.M","cpuCheck":true,"cpuSerial":"BFEBFBFF000906A3","ipAddress":["192.168.5.50"],"ipCheck":true,"macAddress":["C0-BF-BE-EA-C5-24"],"macCheck":true},"issuedTime":"2025-11-01 00:00:00","keyPass":"sCEuUecTNet3ZnUJaTxu","licensePath":"F:\\GitHubWorkspaces\\NicheToolkit\\rest-toolkit\\rest-toolkit-example\\licenses\\license.lic","privateAlias":"privateKey","privateKeysStorePath":"F:\\GitHubWorkspaces\\NicheToolkit\\rest-toolkit\\rest-toolkit-example\\licenses\\privateKeys.keystore","storePass":"5rjbahNkhcCKpGtpT2Xs","subject":"rest-server"}
+2025-11-30 00:49:43.359   [main] DEBUG i.g.n.rest.configure.RestUtilsAutoConfigure - The auto configuration for [rest-utils] initiated
+2025-11-30 00:49:43.362   [main] DEBUG i.g.n.rest.configure.RestStarterAutoConfigure - The auto configuration for [rest-starter] initiated
+2025-11-30 00:49:43.362   [main] DEBUG i.g.n.rest.configure.RestExampleAutoConfigure - The auto configuration for [rest-example] initiated
+2025-11-30 00:49:43.369   [main] DEBUG i.g.n.rest.configure.RestHttpAutoConfigure - The auto configuration for [rest-http] initiated
+2025-11-30 00:49:43.370   [main] DEBUG i.g.n.rest.configure.RestHttpAutoConfigure - The auto configuration for [defaultClient] rest template initiated
+2025-11-30 00:49:43.402   [main] DEBUG i.g.n.rest.configure.RestHttpAutoConfigure - The http       properties: {"charset":"UTF-8","connectTimeout":2000,"enabled":true,"encodingMode":"NONE","httpType":"default_client","keepAliveHosts":null,"keepAliveTime":600000,"maxCoreSize":5,"maxIdleSize":10,"proxy":{"hostname":"","port":null,"type":"socks"},"readTimeout":30000,"requestTimeout":200,"retryTimes":0}
+2025-11-30 00:49:43.414   [main] DEBUG i.g.n.rest.configure.RestIdentityAutoConfigure - The auto configuration for [rest-identity] initiated
+2025-11-30 00:49:43.418   [main] DEBUG i.g.nichetoolkit.rest.identity.IdentityFactory - The identity   properties: {"config":{"centerId":2,"sequence":1,"workerId":1},"enabled":true,"server":{"api":"","sequence":1,"url":""},"type":"CONFIG"}
+2025-11-30 00:49:43.424   [main] DEBUG i.g.n.rest.configure.RestLicenseAutoConfigure - The auto configuration for [rest-license] initiated
+2025-11-30 00:49:43.428   [main] DEBUG i.g.n.rest.configure.RestLogbackAutoConfigure - The auto configuration for [rest-logback] initiated
+2025-11-30 00:49:43.779   [main] INFO  io.github.nichetoolkit.rest.JwtWorkerTest - Started JwtWorkerTest in 2.461 seconds (process running for 3.824)
+2025-11-30 00:49:44.380   [main] INFO  io.github.nichetoolkit.rest.JwtWorkerTest - the unique id: ca25eaeca7f4919535d37d8a293c674b
+2025-11-30 00:49:44.384   [main] INFO  io.github.nichetoolkit.rest.JwtWorkerTest - the subject: 1994811023198535680
+2025-11-30 00:49:44.401   [main] INFO  io.github.nichetoolkit.rest.JwtWorkerTest - the token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOm51bGwsImV4cCI6bnVsbCwiaWF0IjoxNzY0NDM0OTgyLCJpc3MiOiJpby5naXRodWIubmljaGV0b29sa2l0IiwianRpIjoiY2EyNWVhZWNhN2Y0OTE5NTM1ZDM3ZDhhMjkzYzY3NGIiLCJuYmYiOm51bGwsInN1YiI6IjE5OTQ4MTEwMjMxOTg1MzU2ODAifQ.hW5nmviXqc0HltzMTC--5jknv_cENAzutBRTo9iy3_w
+2025-11-30 00:49:44.435   [main] INFO  io.github.nichetoolkit.rest.JwtWorkerTest - the jwt: {"aud":null,"exp":null,"iat":1764434982,"iss":"io.github.nichetoolkit","jti":"ca25eaeca7f4919535d37d8a293c674b","nbf":null,"sub":"1994811023198535680"}

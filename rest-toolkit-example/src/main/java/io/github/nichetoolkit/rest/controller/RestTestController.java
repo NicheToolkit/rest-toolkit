@@ -1,6 +1,6 @@
 package io.github.nichetoolkit.rest.controller;
 
-import io.fusionauth.jwt.domain.JWT;
+import io.github.nichetoolkit.fusionauth.jwt.domain.JWT;
 import io.github.nichetoolkit.rest.RestErrorStatus;
 import io.github.nichetoolkit.rest.RestException;
 import io.github.nichetoolkit.rest.RestResult;

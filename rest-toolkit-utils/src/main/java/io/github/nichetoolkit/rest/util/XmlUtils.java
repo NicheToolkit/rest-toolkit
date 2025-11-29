@@ -1,11 +1,11 @@
 package io.github.nichetoolkit.rest.util;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JavaType;
-import com.fasterxml.jackson.databind.type.ArrayType;
-import com.fasterxml.jackson.databind.type.CollectionType;
-import com.fasterxml.jackson.databind.type.MapType;
-import com.fasterxml.jackson.databind.type.TypeFactory;
+import io.github.nichetoolkit.rest.holder.ObjectMapperHolder;
+import tools.jackson.core.type.TypeReference;
+import tools.jackson.databind.JavaType;
+import tools.jackson.databind.type.ArrayType;
+import tools.jackson.databind.type.CollectionType;
+import tools.jackson.databind.type.MapType;
 import io.github.nichetoolkit.rest.error.xml.*;
 import io.github.nichetoolkit.rest.error.supply.XmlParseException;
 import io.github.nichetoolkit.rest.helper.XmlHelper;
@@ -121,9 +121,9 @@ public class XmlUtils {
      * <p>The parse xml method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param target        T <p>The target parameter is <code>T</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link java.lang.String} <p>The parse xml return object is <code>String</code> type.</p>
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see java.lang.String
      */
     public static <T> String parseXml(T target, TypeReference<?> typeReference) {
@@ -258,10 +258,10 @@ public class XmlUtils {
      * <p>The parse bean method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml           {@link java.io.File} <p>The xml parameter is <code>File</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
      * @see java.io.File
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      */
     public static <T> T parseBean(File xml, TypeReference<T> typeReference) {
         try {
@@ -278,10 +278,10 @@ public class XmlUtils {
      * <p>The parse bean method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml           {@link java.io.Reader} <p>The xml parameter is <code>Reader</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
      * @see java.io.Reader
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      */
     public static <T> T parseBean(Reader xml, TypeReference<T> typeReference) {
         try {
@@ -298,9 +298,9 @@ public class XmlUtils {
      * <p>The parse bean method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml           byte <p>The xml parameter is <code>byte</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      */
     public static <T> T parseBean(byte[] xml, TypeReference<T> typeReference) {
         try {
@@ -317,10 +317,10 @@ public class XmlUtils {
      * <p>The parse bean method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml           {@link java.io.InputStream} <p>The xml parameter is <code>InputStream</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
      * @see java.io.InputStream
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      */
     public static <T> T parseBean(InputStream xml, TypeReference<T> typeReference) {
         try {
@@ -337,10 +337,10 @@ public class XmlUtils {
      * <p>The parse bean method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml           {@link java.lang.String} <p>The xml parameter is <code>String</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
      * @see java.lang.String
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      */
     public static <T> T parseBean(String xml, TypeReference<T> typeReference) {
         try {
@@ -357,10 +357,10 @@ public class XmlUtils {
      * <p>The parse bean method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml      {@link java.io.File} <p>The xml parameter is <code>File</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
      * @see java.io.File
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      */
     public static <T> T parseBean(File xml, JavaType javaType) {
         try {
@@ -377,10 +377,10 @@ public class XmlUtils {
      * <p>The parse bean method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml      {@link java.io.Reader} <p>The xml parameter is <code>Reader</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
      * @see java.io.Reader
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      */
     public static <T> T parseBean(Reader xml, JavaType javaType) {
         try {
@@ -397,9 +397,9 @@ public class XmlUtils {
      * <p>The parse bean method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml      byte <p>The xml parameter is <code>byte</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      */
     public static <T> T parseBean(byte[] xml, JavaType javaType) {
         try {
@@ -416,10 +416,10 @@ public class XmlUtils {
      * <p>The parse bean method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml      {@link java.io.InputStream} <p>The xml parameter is <code>InputStream</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
      * @see java.io.InputStream
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      */
     public static <T> T parseBean(InputStream xml, JavaType javaType) {
         try {
@@ -436,10 +436,10 @@ public class XmlUtils {
      * <p>The parse bean method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml      {@link java.lang.String} <p>The xml parameter is <code>String</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return T <p>The parse bean return object is <code>T</code> type.</p>
      * @see java.lang.String
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      */
     public static <T> T parseBean(String xml, JavaType javaType) {
         try {
@@ -565,10 +565,10 @@ public class XmlUtils {
      * <p>The parse list method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml      {@link java.io.File} <p>The xml parameter is <code>File</code> type.</p>
-     * @param listType {@link com.fasterxml.jackson.databind.type.CollectionType} <p>The list type parameter is <code>CollectionType</code> type.</p>
+     * @param listType {@link tools.jackson.databind.type.CollectionType} <p>The list type parameter is <code>CollectionType</code> type.</p>
      * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
      * @see java.io.File
-     * @see com.fasterxml.jackson.databind.type.CollectionType
+     * @see tools.jackson.databind.type.CollectionType
      * @see java.util.List
      */
     public static <T> List<T> parseList(File xml, CollectionType listType) {
@@ -586,10 +586,10 @@ public class XmlUtils {
      * <p>The parse list method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml      {@link java.io.Reader} <p>The xml parameter is <code>Reader</code> type.</p>
-     * @param listType {@link com.fasterxml.jackson.databind.type.CollectionType} <p>The list type parameter is <code>CollectionType</code> type.</p>
+     * @param listType {@link tools.jackson.databind.type.CollectionType} <p>The list type parameter is <code>CollectionType</code> type.</p>
      * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
      * @see java.io.Reader
-     * @see com.fasterxml.jackson.databind.type.CollectionType
+     * @see tools.jackson.databind.type.CollectionType
      * @see java.util.List
      */
     public static <T> List<T> parseList(Reader xml, CollectionType listType) {
@@ -607,9 +607,9 @@ public class XmlUtils {
      * <p>The parse list method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml      byte <p>The xml parameter is <code>byte</code> type.</p>
-     * @param listType {@link com.fasterxml.jackson.databind.type.CollectionType} <p>The list type parameter is <code>CollectionType</code> type.</p>
+     * @param listType {@link tools.jackson.databind.type.CollectionType} <p>The list type parameter is <code>CollectionType</code> type.</p>
      * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
-     * @see com.fasterxml.jackson.databind.type.CollectionType
+     * @see tools.jackson.databind.type.CollectionType
      * @see java.util.List
      */
     public static <T> List<T> parseList(byte[] xml, CollectionType listType) {
@@ -627,10 +627,10 @@ public class XmlUtils {
      * <p>The parse list method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml      {@link java.io.InputStream} <p>The xml parameter is <code>InputStream</code> type.</p>
-     * @param listType {@link com.fasterxml.jackson.databind.type.CollectionType} <p>The list type parameter is <code>CollectionType</code> type.</p>
+     * @param listType {@link tools.jackson.databind.type.CollectionType} <p>The list type parameter is <code>CollectionType</code> type.</p>
      * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
      * @see java.io.InputStream
-     * @see com.fasterxml.jackson.databind.type.CollectionType
+     * @see tools.jackson.databind.type.CollectionType
      * @see java.util.List
      */
     public static <T> List<T> parseList(InputStream xml, CollectionType listType) {
@@ -648,10 +648,10 @@ public class XmlUtils {
      * <p>The parse list method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml      {@link java.lang.String} <p>The xml parameter is <code>String</code> type.</p>
-     * @param listType {@link com.fasterxml.jackson.databind.type.CollectionType} <p>The list type parameter is <code>CollectionType</code> type.</p>
+     * @param listType {@link tools.jackson.databind.type.CollectionType} <p>The list type parameter is <code>CollectionType</code> type.</p>
      * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
      * @see java.lang.String
-     * @see com.fasterxml.jackson.databind.type.CollectionType
+     * @see tools.jackson.databind.type.CollectionType
      * @see java.util.List
      */
     public static <T> List<T> parseList(String xml, CollectionType listType) {
@@ -669,10 +669,10 @@ public class XmlUtils {
      * <p>The parse list method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml           {@link java.io.File} <p>The xml parameter is <code>File</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
      * @see java.io.File
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see java.util.List
      */
     public static <T> List<T> parseList(File xml, TypeReference<List<T>> typeReference) {
@@ -690,10 +690,10 @@ public class XmlUtils {
      * <p>The parse list method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml           {@link java.io.Reader} <p>The xml parameter is <code>Reader</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
      * @see java.io.Reader
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see java.util.List
      */
     public static <T> List<T> parseList(Reader xml, TypeReference<List<T>> typeReference) {
@@ -711,9 +711,9 @@ public class XmlUtils {
      * <p>The parse list method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml           byte <p>The xml parameter is <code>byte</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see java.util.List
      */
     public static <T> List<T> parseList(byte[] xml, TypeReference<List<T>> typeReference) {
@@ -731,10 +731,10 @@ public class XmlUtils {
      * <p>The parse list method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml           {@link java.io.InputStream} <p>The xml parameter is <code>InputStream</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
      * @see java.io.InputStream
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see java.util.List
      */
     public static <T> List<T> parseList(InputStream xml, TypeReference<List<T>> typeReference) {
@@ -752,10 +752,10 @@ public class XmlUtils {
      * <p>The parse list method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml           {@link java.lang.String} <p>The xml parameter is <code>String</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link java.util.List} <p>The parse list return object is <code>List</code> type.</p>
      * @see java.lang.String
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see java.util.List
      */
     public static <T> List<T> parseList(String xml, TypeReference<List<T>> typeReference) {
@@ -782,7 +782,7 @@ public class XmlUtils {
      * @see java.lang.Class
      */
     public static <Z extends List<?>, T> List<T> parseList(File xml, Class<Z> parseClazz, Class<T> clazz) {
-        CollectionType listType = TypeFactory.defaultInstance().constructCollectionType(parseClazz, clazz);
+        CollectionType listType = ObjectMapperHolder.typeFactory().constructCollectionType(parseClazz, clazz);
         return parseList(xml, listType);
     }
 
@@ -800,7 +800,7 @@ public class XmlUtils {
      * @see java.lang.Class
      */
     public static <Z extends List<?>, T> List<T> parseList(Reader xml, Class<Z> parseClazz, Class<T> clazz) {
-        CollectionType listType = TypeFactory.defaultInstance().constructCollectionType(parseClazz, clazz);
+        CollectionType listType = ObjectMapperHolder.typeFactory().constructCollectionType(parseClazz, clazz);
         return parseList(xml, listType);
     }
 
@@ -817,7 +817,7 @@ public class XmlUtils {
      * @see java.lang.Class
      */
     public static <Z extends List<?>, T> List<T> parseList(byte[] xml, Class<Z> parseClazz, Class<T> clazz) {
-        CollectionType listType = TypeFactory.defaultInstance().constructCollectionType(parseClazz, clazz);
+        CollectionType listType = ObjectMapperHolder.typeFactory().constructCollectionType(parseClazz, clazz);
         return parseList(xml, listType);
     }
 
@@ -835,7 +835,7 @@ public class XmlUtils {
      * @see java.lang.Class
      */
     public static <Z extends List<?>, T> List<T> parseList(InputStream xml, Class<Z> parseClazz, Class<T> clazz) {
-        CollectionType listType = TypeFactory.defaultInstance().constructCollectionType(parseClazz, clazz);
+        CollectionType listType = ObjectMapperHolder.typeFactory().constructCollectionType(parseClazz, clazz);
         return parseList(xml, listType);
     }
 
@@ -853,7 +853,7 @@ public class XmlUtils {
      * @see java.lang.Class
      */
     public static <Z extends List<?>, T> List<T> parseList(String xml, Class<Z> parseClazz, Class<T> clazz) {
-        CollectionType listType = TypeFactory.defaultInstance().constructCollectionType(parseClazz, clazz);
+        CollectionType listType = ObjectMapperHolder.typeFactory().constructCollectionType(parseClazz, clazz);
         return parseList(xml, listType);
     }
 
@@ -936,10 +936,10 @@ public class XmlUtils {
      * <p>The parse set method.</p>
      * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml     {@link java.io.File} <p>The xml parameter is <code>File</code> type.</p>
-     * @param setType {@link com.fasterxml.jackson.databind.type.CollectionType} <p>The set type parameter is <code>CollectionType</code> type.</p>
+     * @param setType {@link tools.jackson.databind.type.CollectionType} <p>The set type parameter is <code>CollectionType</code> type.</p>
      * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
      * @see java.io.File
-     * @see com.fasterxml.jackson.databind.type.CollectionType
+     * @see tools.jackson.databind.type.CollectionType
      * @see java.util.Set
      */
     public static <T> Set<T> parseSet(File xml, CollectionType setType) {
@@ -957,10 +957,10 @@ public class XmlUtils {
      * <p>The parse set method.</p>
      * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml     {@link java.io.Reader} <p>The xml parameter is <code>Reader</code> type.</p>
-     * @param setType {@link com.fasterxml.jackson.databind.type.CollectionType} <p>The set type parameter is <code>CollectionType</code> type.</p>
+     * @param setType {@link tools.jackson.databind.type.CollectionType} <p>The set type parameter is <code>CollectionType</code> type.</p>
      * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
      * @see java.io.Reader
-     * @see com.fasterxml.jackson.databind.type.CollectionType
+     * @see tools.jackson.databind.type.CollectionType
      * @see java.util.Set
      */
     public static <T> Set<T> parseSet(Reader xml, CollectionType setType) {
@@ -978,9 +978,9 @@ public class XmlUtils {
      * <p>The parse set method.</p>
      * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml     byte <p>The xml parameter is <code>byte</code> type.</p>
-     * @param setType {@link com.fasterxml.jackson.databind.type.CollectionType} <p>The set type parameter is <code>CollectionType</code> type.</p>
+     * @param setType {@link tools.jackson.databind.type.CollectionType} <p>The set type parameter is <code>CollectionType</code> type.</p>
      * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
-     * @see com.fasterxml.jackson.databind.type.CollectionType
+     * @see tools.jackson.databind.type.CollectionType
      * @see java.util.Set
      */
     public static <T> Set<T> parseSet(byte[] xml, CollectionType setType) {
@@ -998,10 +998,10 @@ public class XmlUtils {
      * <p>The parse set method.</p>
      * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml     {@link java.io.InputStream} <p>The xml parameter is <code>InputStream</code> type.</p>
-     * @param setType {@link com.fasterxml.jackson.databind.type.CollectionType} <p>The set type parameter is <code>CollectionType</code> type.</p>
+     * @param setType {@link tools.jackson.databind.type.CollectionType} <p>The set type parameter is <code>CollectionType</code> type.</p>
      * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
      * @see java.io.InputStream
-     * @see com.fasterxml.jackson.databind.type.CollectionType
+     * @see tools.jackson.databind.type.CollectionType
      * @see java.util.Set
      */
     public static <T> Set<T> parseSet(InputStream xml, CollectionType setType) {
@@ -1019,10 +1019,10 @@ public class XmlUtils {
      * <p>The parse set method.</p>
      * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml     {@link java.lang.String} <p>The xml parameter is <code>String</code> type.</p>
-     * @param setType {@link com.fasterxml.jackson.databind.type.CollectionType} <p>The set type parameter is <code>CollectionType</code> type.</p>
+     * @param setType {@link tools.jackson.databind.type.CollectionType} <p>The set type parameter is <code>CollectionType</code> type.</p>
      * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
      * @see java.lang.String
-     * @see com.fasterxml.jackson.databind.type.CollectionType
+     * @see tools.jackson.databind.type.CollectionType
      * @see java.util.Set
      */
     public static <T> Set<T> parseSet(String xml, CollectionType setType) {
@@ -1040,10 +1040,10 @@ public class XmlUtils {
      * <p>The parse set method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml           {@link java.io.File} <p>The xml parameter is <code>File</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
      * @see java.io.File
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see java.util.Set
      */
     public static <T> Set<T> parseSet(File xml, TypeReference<Set<T>> typeReference) {
@@ -1061,10 +1061,10 @@ public class XmlUtils {
      * <p>The parse set method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml           {@link java.io.Reader} <p>The xml parameter is <code>Reader</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
      * @see java.io.Reader
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see java.util.Set
      */
     public static <T> Set<T> parseSet(Reader xml, TypeReference<Set<T>> typeReference) {
@@ -1082,9 +1082,9 @@ public class XmlUtils {
      * <p>The parse set method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml           byte <p>The xml parameter is <code>byte</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see java.util.Set
      */
     public static <T> Set<T> parseSet(byte[] xml, TypeReference<Set<T>> typeReference) {
@@ -1102,10 +1102,10 @@ public class XmlUtils {
      * <p>The parse set method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml           {@link java.io.InputStream} <p>The xml parameter is <code>InputStream</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
      * @see java.io.InputStream
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see java.util.Set
      */
     public static <T> Set<T> parseSet(InputStream xml, TypeReference<Set<T>> typeReference) {
@@ -1123,10 +1123,10 @@ public class XmlUtils {
      * <p>The parse set method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml           {@link java.lang.String} <p>The xml parameter is <code>String</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link java.util.Set} <p>The parse set return object is <code>Set</code> type.</p>
      * @see java.lang.String
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see java.util.Set
      */
     public static <T> Set<T> parseSet(String xml, TypeReference<Set<T>> typeReference) {
@@ -1153,7 +1153,7 @@ public class XmlUtils {
      * @see java.lang.Class
      */
     public static <Z extends Set<?>, T> Set<T> parseSet(File xml, Class<Z> parseClazz, Class<T> clazz) {
-        CollectionType setType = TypeFactory.defaultInstance().constructCollectionType(parseClazz, clazz);
+        CollectionType setType = ObjectMapperHolder.typeFactory().constructCollectionType(parseClazz, clazz);
         return parseSet(xml, setType);
     }
 
@@ -1171,7 +1171,7 @@ public class XmlUtils {
      * @see java.lang.Class
      */
     public static <Z extends Set<?>, T> Set<T> parseSet(Reader xml, Class<Z> parseClazz, Class<T> clazz) {
-        CollectionType setType = TypeFactory.defaultInstance().constructCollectionType(parseClazz, clazz);
+        CollectionType setType = ObjectMapperHolder.typeFactory().constructCollectionType(parseClazz, clazz);
         return parseSet(xml, setType);
     }
 
@@ -1188,7 +1188,7 @@ public class XmlUtils {
      * @see java.lang.Class
      */
     public static <Z extends Set<?>, T> Set<T> parseSet(byte[] xml, Class<Z> parseClazz, Class<T> clazz) {
-        CollectionType setType = TypeFactory.defaultInstance().constructCollectionType(parseClazz, clazz);
+        CollectionType setType = ObjectMapperHolder.typeFactory().constructCollectionType(parseClazz, clazz);
         return parseSet(xml, setType);
     }
 
@@ -1206,7 +1206,7 @@ public class XmlUtils {
      * @see java.lang.Class
      */
     public static <Z extends Set<?>, T> Set<T> parseSet(InputStream xml, Class<Z> parseClazz, Class<T> clazz) {
-        CollectionType setType = TypeFactory.defaultInstance().constructCollectionType(parseClazz, clazz);
+        CollectionType setType = ObjectMapperHolder.typeFactory().constructCollectionType(parseClazz, clazz);
         return parseSet(xml, setType);
     }
 
@@ -1224,7 +1224,7 @@ public class XmlUtils {
      * @see java.lang.Class
      */
     public static <Z extends Set<?>, T> Set<T> parseSet(String xml, Class<Z> parseClazz, Class<T> clazz) {
-        CollectionType setType = TypeFactory.defaultInstance().constructCollectionType(parseClazz, clazz);
+        CollectionType setType = ObjectMapperHolder.typeFactory().constructCollectionType(parseClazz, clazz);
         return parseSet(xml, setType);
     }
 
@@ -1308,10 +1308,10 @@ public class XmlUtils {
      * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <K>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml     {@link java.io.File} <p>The xml parameter is <code>File</code> type.</p>
-     * @param mapType {@link com.fasterxml.jackson.databind.type.MapType} <p>The map type parameter is <code>MapType</code> type.</p>
+     * @param mapType {@link tools.jackson.databind.type.MapType} <p>The map type parameter is <code>MapType</code> type.</p>
      * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
      * @see java.io.File
-     * @see com.fasterxml.jackson.databind.type.MapType
+     * @see tools.jackson.databind.type.MapType
      * @see java.util.Map
      */
     public static <T, K> Map<T, K> parseMap(File xml, MapType mapType) {
@@ -1330,10 +1330,10 @@ public class XmlUtils {
      * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <K>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml     {@link java.io.Reader} <p>The xml parameter is <code>Reader</code> type.</p>
-     * @param mapType {@link com.fasterxml.jackson.databind.type.MapType} <p>The map type parameter is <code>MapType</code> type.</p>
+     * @param mapType {@link tools.jackson.databind.type.MapType} <p>The map type parameter is <code>MapType</code> type.</p>
      * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
      * @see java.io.Reader
-     * @see com.fasterxml.jackson.databind.type.MapType
+     * @see tools.jackson.databind.type.MapType
      * @see java.util.Map
      */
     public static <T, K> Map<T, K> parseMap(Reader xml, MapType mapType) {
@@ -1352,9 +1352,9 @@ public class XmlUtils {
      * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <K>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml     byte <p>The xml parameter is <code>byte</code> type.</p>
-     * @param mapType {@link com.fasterxml.jackson.databind.type.MapType} <p>The map type parameter is <code>MapType</code> type.</p>
+     * @param mapType {@link tools.jackson.databind.type.MapType} <p>The map type parameter is <code>MapType</code> type.</p>
      * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
-     * @see com.fasterxml.jackson.databind.type.MapType
+     * @see tools.jackson.databind.type.MapType
      * @see java.util.Map
      */
     public static <T, K> Map<T, K> parseMap(byte[] xml, MapType mapType) {
@@ -1373,10 +1373,10 @@ public class XmlUtils {
      * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <K>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml     {@link java.io.InputStream} <p>The xml parameter is <code>InputStream</code> type.</p>
-     * @param mapType {@link com.fasterxml.jackson.databind.type.MapType} <p>The map type parameter is <code>MapType</code> type.</p>
+     * @param mapType {@link tools.jackson.databind.type.MapType} <p>The map type parameter is <code>MapType</code> type.</p>
      * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
      * @see java.io.InputStream
-     * @see com.fasterxml.jackson.databind.type.MapType
+     * @see tools.jackson.databind.type.MapType
      * @see java.util.Map
      */
     public static <T, K> Map<T, K> parseMap(InputStream xml, MapType mapType) {
@@ -1395,10 +1395,10 @@ public class XmlUtils {
      * @param <T>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <K>     {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml     {@link java.lang.String} <p>The xml parameter is <code>String</code> type.</p>
-     * @param mapType {@link com.fasterxml.jackson.databind.type.MapType} <p>The map type parameter is <code>MapType</code> type.</p>
+     * @param mapType {@link tools.jackson.databind.type.MapType} <p>The map type parameter is <code>MapType</code> type.</p>
      * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
      * @see java.lang.String
-     * @see com.fasterxml.jackson.databind.type.MapType
+     * @see tools.jackson.databind.type.MapType
      * @see java.util.Map
      */
     public static <T, K> Map<T, K> parseMap(String xml, MapType mapType) {
@@ -1417,10 +1417,10 @@ public class XmlUtils {
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <K>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml           {@link java.io.File} <p>The xml parameter is <code>File</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
      * @see java.io.File
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see java.util.Map
      */
     public static <T, K> Map<T, K> parseMap(File xml, TypeReference<Map<T, K>> typeReference) {
@@ -1439,10 +1439,10 @@ public class XmlUtils {
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <K>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml           {@link java.io.Reader} <p>The xml parameter is <code>Reader</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
      * @see java.io.Reader
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see java.util.Map
      */
     public static <T, K> Map<T, K> parseMap(Reader xml, TypeReference<Map<T, K>> typeReference) {
@@ -1461,9 +1461,9 @@ public class XmlUtils {
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <K>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml           byte <p>The xml parameter is <code>byte</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see java.util.Map
      */
     public static <T, K> Map<T, K> parseMap(byte[] xml, TypeReference<Map<T, K>> typeReference) {
@@ -1482,10 +1482,10 @@ public class XmlUtils {
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <K>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml           {@link java.io.InputStream} <p>The xml parameter is <code>InputStream</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
      * @see java.io.InputStream
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see java.util.Map
      */
     public static <T, K> Map<T, K> parseMap(InputStream xml, TypeReference<Map<T, K>> typeReference) {
@@ -1504,10 +1504,10 @@ public class XmlUtils {
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param <K>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml           {@link java.lang.String} <p>The xml parameter is <code>String</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return {@link java.util.Map} <p>The parse map return object is <code>Map</code> type.</p>
      * @see java.lang.String
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      * @see java.util.Map
      */
     public static <T, K> Map<T, K> parseMap(String xml, TypeReference<Map<T, K>> typeReference) {
@@ -1525,10 +1525,10 @@ public class XmlUtils {
      * <p>The parse array method.</p>
      * @param <T>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml       {@link java.io.File} <p>The xml parameter is <code>File</code> type.</p>
-     * @param arrayType {@link com.fasterxml.jackson.databind.type.ArrayType} <p>The array type parameter is <code>ArrayType</code> type.</p>
+     * @param arrayType {@link tools.jackson.databind.type.ArrayType} <p>The array type parameter is <code>ArrayType</code> type.</p>
      * @return T <p>The parse array return object is <code>T</code> type.</p>
      * @see java.io.File
-     * @see com.fasterxml.jackson.databind.type.ArrayType
+     * @see tools.jackson.databind.type.ArrayType
      */
     public static <T> T[] parseArray(File xml, ArrayType arrayType) {
         try {
@@ -1545,10 +1545,10 @@ public class XmlUtils {
      * <p>The parse array method.</p>
      * @param <T>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml       {@link java.io.Reader} <p>The xml parameter is <code>Reader</code> type.</p>
-     * @param arrayType {@link com.fasterxml.jackson.databind.type.ArrayType} <p>The array type parameter is <code>ArrayType</code> type.</p>
+     * @param arrayType {@link tools.jackson.databind.type.ArrayType} <p>The array type parameter is <code>ArrayType</code> type.</p>
      * @return T <p>The parse array return object is <code>T</code> type.</p>
      * @see java.io.Reader
-     * @see com.fasterxml.jackson.databind.type.ArrayType
+     * @see tools.jackson.databind.type.ArrayType
      */
     public static <T> T[] parseArray(Reader xml, ArrayType arrayType) {
         try {
@@ -1565,9 +1565,9 @@ public class XmlUtils {
      * <p>The parse array method.</p>
      * @param <T>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml       byte <p>The xml parameter is <code>byte</code> type.</p>
-     * @param arrayType {@link com.fasterxml.jackson.databind.type.ArrayType} <p>The array type parameter is <code>ArrayType</code> type.</p>
+     * @param arrayType {@link tools.jackson.databind.type.ArrayType} <p>The array type parameter is <code>ArrayType</code> type.</p>
      * @return T <p>The parse array return object is <code>T</code> type.</p>
-     * @see com.fasterxml.jackson.databind.type.ArrayType
+     * @see tools.jackson.databind.type.ArrayType
      */
     public static <T> T[] parseArray(byte[] xml, ArrayType arrayType) {
         try {
@@ -1584,10 +1584,10 @@ public class XmlUtils {
      * <p>The parse array method.</p>
      * @param <T>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml       {@link java.io.InputStream} <p>The xml parameter is <code>InputStream</code> type.</p>
-     * @param arrayType {@link com.fasterxml.jackson.databind.type.ArrayType} <p>The array type parameter is <code>ArrayType</code> type.</p>
+     * @param arrayType {@link tools.jackson.databind.type.ArrayType} <p>The array type parameter is <code>ArrayType</code> type.</p>
      * @return T <p>The parse array return object is <code>T</code> type.</p>
      * @see java.io.InputStream
-     * @see com.fasterxml.jackson.databind.type.ArrayType
+     * @see tools.jackson.databind.type.ArrayType
      */
     public static <T> T[] parseArray(InputStream xml, ArrayType arrayType) {
         try {
@@ -1604,10 +1604,10 @@ public class XmlUtils {
      * <p>The parse array method.</p>
      * @param <T>       {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml       {@link java.lang.String} <p>The xml parameter is <code>String</code> type.</p>
-     * @param arrayType {@link com.fasterxml.jackson.databind.type.ArrayType} <p>The array type parameter is <code>ArrayType</code> type.</p>
+     * @param arrayType {@link tools.jackson.databind.type.ArrayType} <p>The array type parameter is <code>ArrayType</code> type.</p>
      * @return T <p>The parse array return object is <code>T</code> type.</p>
      * @see java.lang.String
-     * @see com.fasterxml.jackson.databind.type.ArrayType
+     * @see tools.jackson.databind.type.ArrayType
      */
     public static <T> T[] parseArray(String xml, ArrayType arrayType) {
         try {
@@ -1624,10 +1624,10 @@ public class XmlUtils {
      * <p>The parse array method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml           {@link java.io.File} <p>The xml parameter is <code>File</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return T <p>The parse array return object is <code>T</code> type.</p>
      * @see java.io.File
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      */
     public static <T> T[] parseArray(File xml, TypeReference<T> typeReference) {
         try {
@@ -1644,10 +1644,10 @@ public class XmlUtils {
      * <p>The parse array method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml           {@link java.io.Reader} <p>The xml parameter is <code>Reader</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return T <p>The parse array return object is <code>T</code> type.</p>
      * @see java.io.Reader
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      */
     public static <T> T[] parseArray(Reader xml, TypeReference<T> typeReference) {
         try {
@@ -1664,9 +1664,9 @@ public class XmlUtils {
      * <p>The parse array method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml           byte <p>The xml parameter is <code>byte</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return T <p>The parse array return object is <code>T</code> type.</p>
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      */
     public static <T> T[] parseArray(byte[] xml, TypeReference<T> typeReference) {
         try {
@@ -1683,10 +1683,10 @@ public class XmlUtils {
      * <p>The parse array method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml           {@link java.io.InputStream} <p>The xml parameter is <code>InputStream</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return T <p>The parse array return object is <code>T</code> type.</p>
      * @see java.io.InputStream
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      */
     public static <T> T[] parseArray(InputStream xml, TypeReference<T> typeReference) {
         try {
@@ -1703,10 +1703,10 @@ public class XmlUtils {
      * <p>The parse array method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param xml           {@link java.lang.String} <p>The xml parameter is <code>String</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return T <p>The parse array return object is <code>T</code> type.</p>
      * @see java.lang.String
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      */
     public static <T> T[] parseArray(String xml, TypeReference<T> typeReference) {
         try {
@@ -1731,7 +1731,7 @@ public class XmlUtils {
      * @see java.lang.Class
      */
     public static <Z extends List<?>, T> T[] parseArray(File xml, Class<T> clazz) {
-        ArrayType arrayType = TypeFactory.defaultInstance().constructArrayType(clazz);
+        ArrayType arrayType = ObjectMapperHolder.typeFactory().constructArrayType(clazz);
         return parseArray(xml, arrayType);
     }
 
@@ -1748,7 +1748,7 @@ public class XmlUtils {
      * @see java.lang.Class
      */
     public static <Z extends List<?>, T> T[] parseArray(Reader xml, Class<T> clazz) {
-        ArrayType arrayType = TypeFactory.defaultInstance().constructArrayType(clazz);
+        ArrayType arrayType = ObjectMapperHolder.typeFactory().constructArrayType(clazz);
         return parseArray(xml, arrayType);
     }
 
@@ -1764,7 +1764,7 @@ public class XmlUtils {
      * @see java.lang.Class
      */
     public static <Z extends List<?>, T> T[] parseArray(byte[] xml, Class<T> clazz) {
-        ArrayType arrayType = TypeFactory.defaultInstance().constructArrayType(clazz);
+        ArrayType arrayType = ObjectMapperHolder.typeFactory().constructArrayType(clazz);
         return parseArray(xml, arrayType);
     }
 
@@ -1781,7 +1781,7 @@ public class XmlUtils {
      * @see java.lang.Class
      */
     public static <Z extends List<?>, T> T[] parseArray(InputStream xml, Class<T> clazz) {
-        ArrayType arrayType = TypeFactory.defaultInstance().constructArrayType(clazz);
+        ArrayType arrayType = ObjectMapperHolder.typeFactory().constructArrayType(clazz);
         return parseArray(xml, arrayType);
     }
 
@@ -1798,7 +1798,7 @@ public class XmlUtils {
      * @see java.lang.Class
      */
     public static <Z extends List<?>, T> T[] parseArray(String xml, Class<T> clazz) {
-        ArrayType arrayType = TypeFactory.defaultInstance().constructArrayType(clazz);
+        ArrayType arrayType = ObjectMapperHolder.typeFactory().constructArrayType(clazz);
         return parseArray(xml, arrayType);
     }
 
@@ -1818,7 +1818,7 @@ public class XmlUtils {
      * @see java.lang.Class
      */
     public static <Z extends Map<?, ?>, T, K> Map<T, K> parseMap(File xml, Class<Z> parseClazz, Class<T> keyClazz, Class<K> valueClazz) {
-        MapType mapType = TypeFactory.defaultInstance().constructMapType(parseClazz, keyClazz, valueClazz);
+        MapType mapType = ObjectMapperHolder.typeFactory().constructMapType(parseClazz, keyClazz, valueClazz);
         return parseMap(xml, mapType);
     }
 
@@ -1838,7 +1838,7 @@ public class XmlUtils {
      * @see java.lang.Class
      */
     public static <Z extends Map<?, ?>, T, K> Map<T, K> parseMap(Reader xml, Class<Z> parseClazz, Class<T> keyClazz, Class<K> valueClazz) {
-        MapType mapType = TypeFactory.defaultInstance().constructMapType(parseClazz, keyClazz, valueClazz);
+        MapType mapType = ObjectMapperHolder.typeFactory().constructMapType(parseClazz, keyClazz, valueClazz);
         return parseMap(xml, mapType);
     }
 
@@ -1857,7 +1857,7 @@ public class XmlUtils {
      * @see java.lang.Class
      */
     public static <Z extends Map<?, ?>, T, K> Map<T, K> parseMap(byte[] xml, Class<Z> parseClazz, Class<T> keyClazz, Class<K> valueClazz) {
-        MapType mapType = TypeFactory.defaultInstance().constructMapType(parseClazz, keyClazz, valueClazz);
+        MapType mapType = ObjectMapperHolder.typeFactory().constructMapType(parseClazz, keyClazz, valueClazz);
         return parseMap(xml, mapType);
     }
 
@@ -1877,7 +1877,7 @@ public class XmlUtils {
      * @see java.lang.Class
      */
     public static <Z extends Map<?, ?>, T, K> Map<T, K> parseMap(InputStream xml, Class<Z> parseClazz, Class<T> keyClazz, Class<K> valueClazz) {
-        MapType mapType = TypeFactory.defaultInstance().constructMapType(parseClazz, keyClazz, valueClazz);
+        MapType mapType = ObjectMapperHolder.typeFactory().constructMapType(parseClazz, keyClazz, valueClazz);
         return parseMap(xml, mapType);
     }
 
@@ -1897,7 +1897,7 @@ public class XmlUtils {
      * @see java.lang.Class
      */
     public static <Z extends Map<?, ?>, T, K> Map<T, K> parseMap(String xml, Class<Z> parseClazz, Class<T> keyClazz, Class<K> valueClazz) {
-        MapType mapType = TypeFactory.defaultInstance().constructMapType(parseClazz, keyClazz, valueClazz);
+        MapType mapType = ObjectMapperHolder.typeFactory().constructMapType(parseClazz, keyClazz, valueClazz);
         return parseMap(xml, mapType);
     }
 
@@ -2004,8 +2004,8 @@ public class XmlUtils {
      * @see java.lang.Class
      */
     public static <H extends List<?>, Y extends Map<?, ?>, T, K> Map<T, List<K>> parseMapList(File xml, Class<H> parseListClazz, Class<Y> parseMapClazz, Class<T> keyClazz, Class<K> valueClazz) {
-        CollectionType collectionType = TypeFactory.defaultInstance().constructCollectionType(parseListClazz, valueClazz);
-        MapType mapType = TypeFactory.defaultInstance().constructMapType(parseMapClazz, keyClazz, collectionType.getRawClass());
+        CollectionType collectionType = ObjectMapperHolder.typeFactory().constructCollectionType(parseListClazz, valueClazz);
+        MapType mapType = ObjectMapperHolder.typeFactory().constructMapType(parseMapClazz, keyClazz, collectionType.getRawClass());
         return parseMap(xml, mapType);
     }
 
@@ -2028,8 +2028,8 @@ public class XmlUtils {
      * @see java.lang.Class
      */
     public static <H extends List<?>, Y extends Map<?, ?>, T, K> Map<T, List<K>> parseMapList(Reader xml, Class<H> parseListClazz, Class<Y> parseMapClazz, Class<T> keyClazz, Class<K> valueClazz) {
-        CollectionType collectionType = TypeFactory.defaultInstance().constructCollectionType(parseListClazz, valueClazz);
-        MapType mapType = TypeFactory.defaultInstance().constructMapType(parseMapClazz, keyClazz, collectionType.getRawClass());
+        CollectionType collectionType = ObjectMapperHolder.typeFactory().constructCollectionType(parseListClazz, valueClazz);
+        MapType mapType = ObjectMapperHolder.typeFactory().constructMapType(parseMapClazz, keyClazz, collectionType.getRawClass());
         return parseMap(xml, mapType);
     }
 
@@ -2051,8 +2051,8 @@ public class XmlUtils {
      * @see java.lang.Class
      */
     public static <H extends List<?>, Y extends Map<?, ?>, T, K> Map<T, List<K>> parseMapList(byte[] xml, Class<H> parseListClazz, Class<Y> parseMapClazz, Class<T> keyClazz, Class<K> valueClazz) {
-        CollectionType collectionType = TypeFactory.defaultInstance().constructCollectionType(parseListClazz, valueClazz);
-        MapType mapType = TypeFactory.defaultInstance().constructMapType(parseMapClazz, keyClazz, collectionType.getRawClass());
+        CollectionType collectionType = ObjectMapperHolder.typeFactory().constructCollectionType(parseListClazz, valueClazz);
+        MapType mapType = ObjectMapperHolder.typeFactory().constructMapType(parseMapClazz, keyClazz, collectionType.getRawClass());
         return parseMap(xml, mapType);
     }
 
@@ -2075,8 +2075,8 @@ public class XmlUtils {
      * @see java.lang.Class
      */
     public static <H extends List<?>, Y extends Map<?, ?>, T, K> Map<T, List<K>> parseMapList(InputStream xml, Class<H> parseListClazz, Class<Y> parseMapClazz, Class<T> keyClazz, Class<K> valueClazz) {
-        CollectionType collectionType = TypeFactory.defaultInstance().constructCollectionType(parseListClazz, valueClazz);
-        MapType mapType = TypeFactory.defaultInstance().constructMapType(parseMapClazz, keyClazz, collectionType.getRawClass());
+        CollectionType collectionType = ObjectMapperHolder.typeFactory().constructCollectionType(parseListClazz, valueClazz);
+        MapType mapType = ObjectMapperHolder.typeFactory().constructMapType(parseMapClazz, keyClazz, collectionType.getRawClass());
         return parseMap(xml, mapType);
     }
 
@@ -2099,8 +2099,8 @@ public class XmlUtils {
      * @see java.lang.Class
      */
     public static <H extends List<?>, Y extends Map<?, ?>, T, K> Map<T, List<K>> parseMapList(String xml, Class<H> parseListClazz, Class<Y> parseMapClazz, Class<T> keyClazz, Class<K> valueClazz) {
-        CollectionType collectionType = TypeFactory.defaultInstance().constructCollectionType(parseListClazz, valueClazz);
-        MapType mapType = TypeFactory.defaultInstance().constructMapType(parseMapClazz, keyClazz, collectionType.getRawClass());
+        CollectionType collectionType = ObjectMapperHolder.typeFactory().constructCollectionType(parseListClazz, valueClazz);
+        MapType mapType = ObjectMapperHolder.typeFactory().constructMapType(parseMapClazz, keyClazz, collectionType.getRawClass());
         return parseMap(xml, mapType);
     }
 
@@ -2207,8 +2207,8 @@ public class XmlUtils {
      * @see java.lang.Class
      */
     public static <Z extends List<?>, Y extends Map<?, ?>, T, K> List<Map<T, K>> parseListMap(File xml, Class<Z> wrapKeyClazz, Class<Y> contentMapClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
-        MapType contentType = TypeFactory.defaultInstance().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
-        CollectionType collectionType = TypeFactory.defaultInstance().constructCollectionType(wrapKeyClazz, contentType.getRawClass());
+        MapType contentType = ObjectMapperHolder.typeFactory().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
+        CollectionType collectionType = ObjectMapperHolder.typeFactory().constructCollectionType(wrapKeyClazz, contentType.getRawClass());
         return parseList(xml, collectionType);
     }
 
@@ -2231,8 +2231,8 @@ public class XmlUtils {
      * @see java.lang.Class
      */
     public static <Z extends List<?>, Y extends Map<?, ?>, T, K> List<Map<T, K>> parseListMap(Reader xml, Class<Z> wrapKeyClazz, Class<Y> contentMapClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
-        MapType contentType = TypeFactory.defaultInstance().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
-        CollectionType collectionType = TypeFactory.defaultInstance().constructCollectionType(wrapKeyClazz, contentType.getRawClass());
+        MapType contentType = ObjectMapperHolder.typeFactory().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
+        CollectionType collectionType = ObjectMapperHolder.typeFactory().constructCollectionType(wrapKeyClazz, contentType.getRawClass());
         return parseList(xml, collectionType);
     }
 
@@ -2254,8 +2254,8 @@ public class XmlUtils {
      * @see java.lang.Class
      */
     public static <Z extends List<?>, Y extends Map<?, ?>, T, K> List<Map<T, K>> parseListMap(byte[] xml, Class<Z> wrapKeyClazz, Class<Y> contentMapClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
-        MapType contentType = TypeFactory.defaultInstance().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
-        CollectionType collectionType = TypeFactory.defaultInstance().constructCollectionType(wrapKeyClazz, contentType.getRawClass());
+        MapType contentType = ObjectMapperHolder.typeFactory().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
+        CollectionType collectionType = ObjectMapperHolder.typeFactory().constructCollectionType(wrapKeyClazz, contentType.getRawClass());
         return parseList(xml, collectionType);
     }
 
@@ -2278,8 +2278,8 @@ public class XmlUtils {
      * @see java.lang.Class
      */
     public static <Z extends List<?>, Y extends Map<?, ?>, T, K> List<Map<T, K>> parseListMap(InputStream xml, Class<Z> wrapKeyClazz, Class<Y> contentMapClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
-        MapType contentType = TypeFactory.defaultInstance().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
-        CollectionType collectionType = TypeFactory.defaultInstance().constructCollectionType(wrapKeyClazz, contentType.getRawClass());
+        MapType contentType = ObjectMapperHolder.typeFactory().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
+        CollectionType collectionType = ObjectMapperHolder.typeFactory().constructCollectionType(wrapKeyClazz, contentType.getRawClass());
         return parseList(xml, collectionType);
     }
 
@@ -2302,8 +2302,8 @@ public class XmlUtils {
      * @see java.lang.Class
      */
     public static <Z extends List<?>, Y extends Map<?, ?>, T, K> List<Map<T, K>> parseListMap(String xml, Class<Z> wrapKeyClazz, Class<Y> contentMapClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
-        MapType contentType = TypeFactory.defaultInstance().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
-        CollectionType collectionType = TypeFactory.defaultInstance().constructCollectionType(wrapKeyClazz, contentType.getRawClass());
+        MapType contentType = ObjectMapperHolder.typeFactory().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
+        CollectionType collectionType = ObjectMapperHolder.typeFactory().constructCollectionType(wrapKeyClazz, contentType.getRawClass());
         return parseList(xml, collectionType);
     }
 
@@ -2321,8 +2321,8 @@ public class XmlUtils {
      * @see java.util.List
      */
     public static <T, K> List<Map<T, K>> parseListMap(File xml, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
-        MapType contentType = TypeFactory.defaultInstance().constructMapType(Map.class, contentKeyClazz, contentValueClazz);
-        CollectionType collectionType = TypeFactory.defaultInstance().constructCollectionType(List.class, contentType.getRawClass());
+        MapType contentType = ObjectMapperHolder.typeFactory().constructMapType(Map.class, contentKeyClazz, contentValueClazz);
+        CollectionType collectionType = ObjectMapperHolder.typeFactory().constructCollectionType(List.class, contentType.getRawClass());
         return parseList(xml, collectionType);
     }
 
@@ -2340,8 +2340,8 @@ public class XmlUtils {
      * @see java.util.List
      */
     public static <T, K> List<Map<T, K>> parseListMap(Reader xml, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
-        MapType contentType = TypeFactory.defaultInstance().constructMapType(Map.class, contentKeyClazz, contentValueClazz);
-        CollectionType collectionType = TypeFactory.defaultInstance().constructCollectionType(List.class, contentType.getRawClass());
+        MapType contentType = ObjectMapperHolder.typeFactory().constructMapType(Map.class, contentKeyClazz, contentValueClazz);
+        CollectionType collectionType = ObjectMapperHolder.typeFactory().constructCollectionType(List.class, contentType.getRawClass());
         return parseList(xml, collectionType);
     }
 
@@ -2358,8 +2358,8 @@ public class XmlUtils {
      * @see java.util.List
      */
     public static <T, K> List<Map<T, K>> parseListMap(byte[] xml, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
-        MapType contentType = TypeFactory.defaultInstance().constructMapType(Map.class, contentKeyClazz, contentValueClazz);
-        CollectionType collectionType = TypeFactory.defaultInstance().constructCollectionType(List.class, contentType.getRawClass());
+        MapType contentType = ObjectMapperHolder.typeFactory().constructMapType(Map.class, contentKeyClazz, contentValueClazz);
+        CollectionType collectionType = ObjectMapperHolder.typeFactory().constructCollectionType(List.class, contentType.getRawClass());
         return parseList(xml, collectionType);
     }
 
@@ -2377,8 +2377,8 @@ public class XmlUtils {
      * @see java.util.List
      */
     public static <T, K> List<Map<T, K>> parseListMap(InputStream xml, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
-        MapType contentType = TypeFactory.defaultInstance().constructMapType(Map.class, contentKeyClazz, contentValueClazz);
-        CollectionType collectionType = TypeFactory.defaultInstance().constructCollectionType(List.class, contentType.getRawClass());
+        MapType contentType = ObjectMapperHolder.typeFactory().constructMapType(Map.class, contentKeyClazz, contentValueClazz);
+        CollectionType collectionType = ObjectMapperHolder.typeFactory().constructCollectionType(List.class, contentType.getRawClass());
         return parseList(xml, collectionType);
     }
 
@@ -2396,8 +2396,8 @@ public class XmlUtils {
      * @see java.util.List
      */
     public static <T, K> List<Map<T, K>> parseListMap(String xml, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
-        MapType contentType = TypeFactory.defaultInstance().constructMapType(Map.class, contentKeyClazz, contentValueClazz);
-        CollectionType collectionType = TypeFactory.defaultInstance().constructCollectionType(List.class, contentType.getRawClass());
+        MapType contentType = ObjectMapperHolder.typeFactory().constructMapType(Map.class, contentKeyClazz, contentValueClazz);
+        CollectionType collectionType = ObjectMapperHolder.typeFactory().constructCollectionType(List.class, contentType.getRawClass());
         return parseList(xml, collectionType);
     }
 
@@ -2421,8 +2421,8 @@ public class XmlUtils {
      * @see java.lang.Class
      */
     public static <H extends Map<?, ?>, Y extends Map<?, ?>, Z, T, K> Map<Z, Map<T, K>> parseMapMap(File xml, Class<H> wrapMapClazz, Class<Y> contentMapClazz, Class<Z> wrapKeyClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
-        MapType contentType = TypeFactory.defaultInstance().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
-        MapType mapType = TypeFactory.defaultInstance().constructMapType(wrapMapClazz, wrapKeyClazz, contentType.getRawClass());
+        MapType contentType = ObjectMapperHolder.typeFactory().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
+        MapType mapType = ObjectMapperHolder.typeFactory().constructMapType(wrapMapClazz, wrapKeyClazz, contentType.getRawClass());
         return parseMap(xml, mapType);
     }
 
@@ -2446,8 +2446,8 @@ public class XmlUtils {
      * @see java.lang.Class
      */
     public static <H extends Map<?, ?>, Y extends Map<?, ?>, Z, T, K> Map<Z, Map<T, K>> parseMapMap(Reader xml, Class<H> wrapMapClazz, Class<Y> contentMapClazz, Class<Z> wrapKeyClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
-        MapType contentType = TypeFactory.defaultInstance().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
-        MapType mapType = TypeFactory.defaultInstance().constructMapType(wrapMapClazz, wrapKeyClazz, contentType.getRawClass());
+        MapType contentType = ObjectMapperHolder.typeFactory().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
+        MapType mapType = ObjectMapperHolder.typeFactory().constructMapType(wrapMapClazz, wrapKeyClazz, contentType.getRawClass());
         return parseMap(xml, mapType);
     }
 
@@ -2470,8 +2470,8 @@ public class XmlUtils {
      * @see java.lang.Class
      */
     public static <H extends Map<?, ?>, Y extends Map<?, ?>, Z, T, K> Map<Z, Map<T, K>> parseMapMap(byte[] xml, Class<H> wrapMapClazz, Class<Y> contentMapClazz, Class<Z> wrapKeyClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
-        MapType contentType = TypeFactory.defaultInstance().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
-        MapType mapType = TypeFactory.defaultInstance().constructMapType(wrapMapClazz, wrapKeyClazz, contentType.getRawClass());
+        MapType contentType = ObjectMapperHolder.typeFactory().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
+        MapType mapType = ObjectMapperHolder.typeFactory().constructMapType(wrapMapClazz, wrapKeyClazz, contentType.getRawClass());
         return parseMap(xml, mapType);
     }
 
@@ -2495,8 +2495,8 @@ public class XmlUtils {
      * @see java.lang.Class
      */
     public static <H extends Map<?, ?>, Y extends Map<?, ?>, Z, T, K> Map<Z, Map<T, K>> parseMapMap(InputStream xml, Class<H> wrapMapClazz, Class<Y> contentMapClazz, Class<Z> wrapKeyClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
-        MapType contentType = TypeFactory.defaultInstance().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
-        MapType mapType = TypeFactory.defaultInstance().constructMapType(wrapMapClazz, wrapKeyClazz, contentType.getRawClass());
+        MapType contentType = ObjectMapperHolder.typeFactory().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
+        MapType mapType = ObjectMapperHolder.typeFactory().constructMapType(wrapMapClazz, wrapKeyClazz, contentType.getRawClass());
         return parseMap(xml, mapType);
     }
 
@@ -2520,8 +2520,8 @@ public class XmlUtils {
      * @see java.lang.Class
      */
     public static <H extends Map<?, ?>, Y extends Map<?, ?>, Z, T, K> Map<Z, Map<T, K>> parseMapMap(String xml, Class<H> wrapMapClazz, Class<Y> contentMapClazz, Class<Z> wrapKeyClazz, Class<T> contentKeyClazz, Class<K> contentValueClazz) {
-        MapType contentType = TypeFactory.defaultInstance().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
-        MapType mapType = TypeFactory.defaultInstance().constructMapType(wrapMapClazz, wrapKeyClazz, contentType.getRawClass());
+        MapType contentType = ObjectMapperHolder.typeFactory().constructMapType(contentMapClazz, contentKeyClazz, contentValueClazz);
+        MapType mapType = ObjectMapperHolder.typeFactory().constructMapType(wrapMapClazz, wrapKeyClazz, contentType.getRawClass());
         return parseMap(xml, mapType);
     }
 
@@ -2644,10 +2644,10 @@ public class XmlUtils {
      * <p>The parse convert method.</p>
      * @param <T>           {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param value         {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
-     * @param typeReference {@link com.fasterxml.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
+     * @param typeReference {@link tools.jackson.core.type.TypeReference} <p>The type reference parameter is <code>TypeReference</code> type.</p>
      * @return T <p>The parse convert return object is <code>T</code> type.</p>
      * @see java.lang.Object
-     * @see com.fasterxml.jackson.core.type.TypeReference
+     * @see tools.jackson.core.type.TypeReference
      */
     public static <T> T parseConvert(Object value, TypeReference<T> typeReference) {
         try {
@@ -2664,10 +2664,10 @@ public class XmlUtils {
      * <p>The parse convert method.</p>
      * @param <T>      {@link java.lang.Object} <p>The parameter can be of any type.</p>
      * @param value    {@link java.lang.Object} <p>The value parameter is <code>Object</code> type.</p>
-     * @param javaType {@link com.fasterxml.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
+     * @param javaType {@link tools.jackson.databind.JavaType} <p>The java type parameter is <code>JavaType</code> type.</p>
      * @return T <p>The parse convert return object is <code>T</code> type.</p>
      * @see java.lang.Object
-     * @see com.fasterxml.jackson.databind.JavaType
+     * @see tools.jackson.databind.JavaType
      */
     public static <T> T parseConvert(Object value, JavaType javaType) {
         try {

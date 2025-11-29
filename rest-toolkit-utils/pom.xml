@@ -94,7 +94,7 @@
         </dependency>
 
         <dependency>
-            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <groupId>tools.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-xml</artifactId>
         </dependency>
 
@@ -129,7 +129,7 @@
         </dependency>
 
         <dependency>
-            <groupId>io.fusionauth</groupId>
+            <groupId>io.github.nichetoolkit</groupId>
             <artifactId>fusionauth-jwt</artifactId>
         </dependency>
 

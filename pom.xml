@@ -109,13 +109,12 @@
         <maven-release-plugin.version>3.2.0</maven-release-plugin.version>
 
         <rest-toolkit.version>4.1.2-SNAPSHOT</rest-toolkit.version>
+        <fusionauth-jwt-toolkit.version>4.1.2-SNAPSHOT</fusionauth-jwt-toolkit.version>
         <springframework.version>7.0.1</springframework.version>
 
-        <okhttp.version>4.9.3</okhttp.version>
         <thumbnailator.version>0.4.20</thumbnailator.version>
         <guava.version>33.5.0-jre</guava.version>
         <bcprov.version>1.83</bcprov.version>
-        <fusionauth-jwt.version>5.3.3</fusionauth-jwt.version>
         <truelicense.version>1.33</truelicense.version>
     </properties>
 
@@ -150,9 +149,9 @@
             </dependency>
 
             <dependency>
-                <groupId>com.squareup.okhttp3</groupId>
-                <artifactId>okhttp</artifactId>
-                <version>${okhttp.version}</version>
+                <groupId>io.github.nichetoolkit</groupId>
+                <artifactId>fusionauth-jwt</artifactId>
+                <version>${fusionauth-jwt-toolkit.version}</version>
             </dependency>
 
             <dependency>
@@ -165,12 +164,6 @@
                 <groupId>org.bouncycastle</groupId>
                 <artifactId>bcprov-jdk18on</artifactId>
                 <version>${bcprov.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>io.fusionauth</groupId>
-                <artifactId>fusionauth-jwt</artifactId>
-                <version>${fusionauth-jwt.version}</version>
             </dependency>
 
             <dependency>

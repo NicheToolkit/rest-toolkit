@@ -2,19 +2,18 @@ package io.github.nichetoolkit.rest.worker.jwt;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.fusionauth.jwt.Signer;
-import io.fusionauth.jwt.UnsecuredSigner;
-import io.fusionauth.jwt.Verifier;
-import io.fusionauth.jwt.domain.Algorithm;
-import io.fusionauth.jwt.ec.ECSigner;
-import io.fusionauth.jwt.ec.ECVerifier;
-import io.fusionauth.jwt.hmac.HMACSigner;
-import io.fusionauth.jwt.hmac.HMACVerifier;
-import io.fusionauth.jwt.rsa.RSAPSSSigner;
-import io.fusionauth.jwt.rsa.RSAPSSVerifier;
-import io.fusionauth.jwt.rsa.RSASigner;
-import io.fusionauth.jwt.rsa.RSAVerifier;
-import io.fusionauth.security.CryptoProvider;
+import io.github.nichetoolkit.fusionauth.jwt.Signer;
+import io.github.nichetoolkit.fusionauth.jwt.UnsecuredSigner;
+import io.github.nichetoolkit.fusionauth.jwt.Verifier;
+import io.github.nichetoolkit.fusionauth.jwt.domain.Algorithm;
+import io.github.nichetoolkit.fusionauth.jwt.ec.ECSigner;
+import io.github.nichetoolkit.fusionauth.jwt.ec.ECVerifier;
+import io.github.nichetoolkit.fusionauth.jwt.hmac.HMACSigner;
+import io.github.nichetoolkit.fusionauth.jwt.hmac.HMACVerifier;
+import io.github.nichetoolkit.fusionauth.jwt.rsa.RSAPSSSigner;
+import io.github.nichetoolkit.fusionauth.jwt.rsa.RSAPSSVerifier;
+import io.github.nichetoolkit.fusionauth.jwt.rsa.RSASigner;
+import io.github.nichetoolkit.fusionauth.jwt.rsa.RSAVerifier;
 import io.github.nichetoolkit.rest.RestKey;
 import io.github.nichetoolkit.rest.RestValue;
 
@@ -23,19 +22,8 @@ import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.util.Optional;
 
-/**
- * <code>JwtAlgorithm</code>
- * <p>The jwt algorithm enumeration.</p>
- * @author Cyan (snow22314@outlook.com)
- * @see io.github.nichetoolkit.rest.worker.jwt.JwtSigner
- * @since Jdk17
- */
 public enum JwtAlgorithm implements JwtSigner {
 
-    /**
-     * <code>NONE</code>
-     * {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The <code>NONE</code> field.</p>
-     */
     NONE(0, "none", Algorithm.none) {
         @Override
         public final Signer signer() {
@@ -45,10 +33,6 @@ public enum JwtAlgorithm implements JwtSigner {
         }
     },
 
-    /**
-     * <code>ES256</code>
-     * {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The <code>ES256</code> field.</p>
-     */
     ES256(1, "ES256", Algorithm.ES256) {
         @Override
         public final Signer signer(String secret) {
@@ -60,20 +44,6 @@ public enum JwtAlgorithm implements JwtSigner {
         @Override
         public final Signer signer(String secret, String kid) {
             ECSigner signer = ECSigner.newSHA256Signer(secret, kid);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
-        public final Signer signer(String secret, CryptoProvider cryptoProvider) {
-            ECSigner signer = ECSigner.newSHA256Signer(secret, cryptoProvider);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
-        public final Signer signer(String secret, String kid, CryptoProvider cryptoProvider) {
-            ECSigner signer = ECSigner.newSHA256Signer(secret, kid, cryptoProvider);
             setSigner(signer);
             return signer;
         }
@@ -93,20 +63,6 @@ public enum JwtAlgorithm implements JwtSigner {
         }
 
         @Override
-        public final Signer signer(PrivateKey privateKey, CryptoProvider cryptoProvider) {
-            ECSigner signer = ECSigner.newSHA256Signer(privateKey, cryptoProvider);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
-        public final Signer signer(PrivateKey privateKey, String kid, CryptoProvider cryptoProvider) {
-            ECSigner signer = ECSigner.newSHA256Signer(privateKey, kid, cryptoProvider);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
         public final Verifier verifier(String secret) {
             ECVerifier verifier = ECVerifier.newVerifier(secret);
             setVerifier(verifier);
@@ -134,38 +90,7 @@ public enum JwtAlgorithm implements JwtSigner {
             return verifier;
         }
 
-        @Override
-        public final Verifier verifier(String secret, CryptoProvider cryptoProvider) {
-            ECVerifier verifier = ECVerifier.newVerifier(secret, cryptoProvider);
-            setVerifier(verifier);
-            return verifier;
-        }
-
-        @Override
-        public final Verifier verifier(PublicKey publicKey, CryptoProvider cryptoProvider) {
-            ECVerifier verifier = ECVerifier.newVerifier(publicKey, cryptoProvider);
-            setVerifier(verifier);
-            return verifier;
-        }
-
-        @Override
-        public final Verifier verifier(Path path, CryptoProvider cryptoProvider) {
-            ECVerifier verifier = ECVerifier.newVerifier(path, cryptoProvider);
-            setVerifier(verifier);
-            return verifier;
-        }
-
-        @Override
-        public final Verifier verifier(byte[] bytes, CryptoProvider cryptoProvider) {
-            ECVerifier verifier = ECVerifier.newVerifier(bytes, cryptoProvider);
-            setVerifier(verifier);
-            return verifier;
-        }
     },
-    /**
-     * <code>ES384</code>
-     * {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The <code>ES384</code> field.</p>
-     */
     ES384(2, "ES384", Algorithm.ES384) {
         @Override
         public final Signer signer(String secret) {
@@ -177,20 +102,6 @@ public enum JwtAlgorithm implements JwtSigner {
         @Override
         public final Signer signer(String secret, String kid) {
             ECSigner signer = ECSigner.newSHA384Signer(secret, kid);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
-        public final Signer signer(String secret, CryptoProvider cryptoProvider) {
-            ECSigner signer = ECSigner.newSHA384Signer(secret, cryptoProvider);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
-        public final Signer signer(String secret, String kid, CryptoProvider cryptoProvider) {
-            ECSigner signer = ECSigner.newSHA384Signer(secret, kid, cryptoProvider);
             setSigner(signer);
             return signer;
         }
@@ -210,20 +121,6 @@ public enum JwtAlgorithm implements JwtSigner {
         }
 
         @Override
-        public final Signer signer(PrivateKey privateKey, CryptoProvider cryptoProvider) {
-            ECSigner signer = ECSigner.newSHA384Signer(privateKey, cryptoProvider);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
-        public final Signer signer(PrivateKey privateKey, String kid, CryptoProvider cryptoProvider) {
-            ECSigner signer = ECSigner.newSHA384Signer(privateKey, kid, cryptoProvider);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
         public final Verifier verifier(String secret) {
             ECVerifier verifier = ECVerifier.newVerifier(secret);
             setVerifier(verifier);
@@ -251,38 +148,7 @@ public enum JwtAlgorithm implements JwtSigner {
             return verifier;
         }
 
-        @Override
-        public final Verifier verifier(String secret, CryptoProvider cryptoProvider) {
-            ECVerifier verifier = ECVerifier.newVerifier(secret, cryptoProvider);
-            setVerifier(verifier);
-            return verifier;
-        }
-
-        @Override
-        public final Verifier verifier(PublicKey publicKey, CryptoProvider cryptoProvider) {
-            ECVerifier verifier = ECVerifier.newVerifier(publicKey, cryptoProvider);
-            setVerifier(verifier);
-            return verifier;
-        }
-
-        @Override
-        public final Verifier verifier(Path path, CryptoProvider cryptoProvider) {
-            ECVerifier verifier = ECVerifier.newVerifier(path, cryptoProvider);
-            setVerifier(verifier);
-            return verifier;
-        }
-
-        @Override
-        public final Verifier verifier(byte[] bytes, CryptoProvider cryptoProvider) {
-            ECVerifier verifier = ECVerifier.newVerifier(bytes, cryptoProvider);
-            setVerifier(verifier);
-            return verifier;
-        }
     },
-    /**
-     * <code>ES512</code>
-     * {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The <code>ES512</code> field.</p>
-     */
     ES512(3, "ES512", Algorithm.ES512) {
         @Override
         public final Signer signer(String secret) {
@@ -294,20 +160,6 @@ public enum JwtAlgorithm implements JwtSigner {
         @Override
         public final Signer signer(String secret, String kid) {
             ECSigner signer = ECSigner.newSHA512Signer(secret, kid);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
-        public final Signer signer(String secret, CryptoProvider cryptoProvider) {
-            ECSigner signer = ECSigner.newSHA512Signer(secret, cryptoProvider);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
-        public final Signer signer(String secret, String kid, CryptoProvider cryptoProvider) {
-            ECSigner signer = ECSigner.newSHA512Signer(secret, kid, cryptoProvider);
             setSigner(signer);
             return signer;
         }
@@ -327,20 +179,6 @@ public enum JwtAlgorithm implements JwtSigner {
         }
 
         @Override
-        public final Signer signer(PrivateKey privateKey, CryptoProvider cryptoProvider) {
-            ECSigner signer = ECSigner.newSHA512Signer(privateKey, cryptoProvider);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
-        public final Signer signer(PrivateKey privateKey, String kid, CryptoProvider cryptoProvider) {
-            ECSigner signer = ECSigner.newSHA512Signer(privateKey, kid, cryptoProvider);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
         public final Verifier verifier(String secret) {
             ECVerifier verifier = ECVerifier.newVerifier(secret);
             setVerifier(verifier);
@@ -368,38 +206,7 @@ public enum JwtAlgorithm implements JwtSigner {
             return verifier;
         }
 
-        @Override
-        public final Verifier verifier(String secret, CryptoProvider cryptoProvider) {
-            ECVerifier verifier = ECVerifier.newVerifier(secret, cryptoProvider);
-            setVerifier(verifier);
-            return verifier;
-        }
-
-        @Override
-        public final Verifier verifier(PublicKey publicKey, CryptoProvider cryptoProvider) {
-            ECVerifier verifier = ECVerifier.newVerifier(publicKey, cryptoProvider);
-            setVerifier(verifier);
-            return verifier;
-        }
-
-        @Override
-        public final Verifier verifier(Path path, CryptoProvider cryptoProvider) {
-            ECVerifier verifier = ECVerifier.newVerifier(path, cryptoProvider);
-            setVerifier(verifier);
-            return verifier;
-        }
-
-        @Override
-        public final Verifier verifier(byte[] bytes, CryptoProvider cryptoProvider) {
-            ECVerifier verifier = ECVerifier.newVerifier(bytes, cryptoProvider);
-            setVerifier(verifier);
-            return verifier;
-        }
     },
-    /**
-     * <code>HS256</code>
-     * {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The <code>HS256</code> field.</p>
-     */
     HS256(4, "HS256", Algorithm.HS256) {
         @Override
         public final Signer signer(byte[] secret) {
@@ -430,27 +237,6 @@ public enum JwtAlgorithm implements JwtSigner {
         }
 
         @Override
-        public final Signer signer(String secret, CryptoProvider cryptoProvider) {
-            HMACSigner signer = HMACSigner.newSHA256Signer(secret, cryptoProvider);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
-        public final Signer signer(byte[] secret, String kid, CryptoProvider cryptoProvider) {
-            HMACSigner signer = HMACSigner.newSHA256Signer(secret, kid, cryptoProvider);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
-        public final Signer signer(String secret, String kid, CryptoProvider cryptoProvider) {
-            HMACSigner signer = HMACSigner.newSHA256Signer(secret, kid, cryptoProvider);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
         public final Verifier verifier(String secret) {
             HMACVerifier verifier = HMACVerifier.newVerifier(secret);
             setVerifier(verifier);
@@ -471,31 +257,7 @@ public enum JwtAlgorithm implements JwtSigner {
             return verifier;
         }
 
-        @Override
-        public final Verifier verifier(String secret, CryptoProvider cryptoProvider) {
-            HMACVerifier verifier = HMACVerifier.newVerifier(secret, cryptoProvider);
-            setVerifier(verifier);
-            return verifier;
-        }
-
-        @Override
-        public final Verifier verifier(Path path, CryptoProvider cryptoProvider) {
-            HMACVerifier verifier = HMACVerifier.newVerifier(path, cryptoProvider);
-            setVerifier(verifier);
-            return verifier;
-        }
-
-        @Override
-        public final Verifier verifier(byte[] bytes, CryptoProvider cryptoProvider) {
-            HMACVerifier verifier = HMACVerifier.newVerifier(bytes, cryptoProvider);
-            setVerifier(verifier);
-            return verifier;
-        }
     },
-    /**
-     * <code>HS384</code>
-     * {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The <code>HS384</code> field.</p>
-     */
     HS384(5, "HS384", Algorithm.HS384) {
         @Override
         public final Signer signer(byte[] secret) {
@@ -526,27 +288,6 @@ public enum JwtAlgorithm implements JwtSigner {
         }
 
         @Override
-        public final Signer signer(String secret, CryptoProvider cryptoProvider) {
-            HMACSigner signer = HMACSigner.newSHA384Signer(secret, cryptoProvider);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
-        public final Signer signer(byte[] secret, String kid, CryptoProvider cryptoProvider) {
-            HMACSigner signer = HMACSigner.newSHA384Signer(secret, kid, cryptoProvider);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
-        public final Signer signer(String secret, String kid, CryptoProvider cryptoProvider) {
-            HMACSigner signer = HMACSigner.newSHA384Signer(secret, kid, cryptoProvider);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
         public final Verifier verifier(String secret) {
             HMACVerifier verifier = HMACVerifier.newVerifier(secret);
             setVerifier(verifier);
@@ -567,31 +308,7 @@ public enum JwtAlgorithm implements JwtSigner {
             return verifier;
         }
 
-        @Override
-        public final Verifier verifier(String secret, CryptoProvider cryptoProvider) {
-            HMACVerifier verifier = HMACVerifier.newVerifier(secret, cryptoProvider);
-            setVerifier(verifier);
-            return verifier;
-        }
-
-        @Override
-        public final Verifier verifier(Path path, CryptoProvider cryptoProvider) {
-            HMACVerifier verifier = HMACVerifier.newVerifier(path, cryptoProvider);
-            setVerifier(verifier);
-            return verifier;
-        }
-
-        @Override
-        public final Verifier verifier(byte[] bytes, CryptoProvider cryptoProvider) {
-            HMACVerifier verifier = HMACVerifier.newVerifier(bytes, cryptoProvider);
-            setVerifier(verifier);
-            return verifier;
-        }
     },
-    /**
-     * <code>HS512</code>
-     * {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The <code>HS512</code> field.</p>
-     */
     HS512(6, "HS512", Algorithm.HS512) {
         @Override
         public final Signer signer(byte[] secret) {
@@ -621,26 +338,6 @@ public enum JwtAlgorithm implements JwtSigner {
             return signer;
         }
 
-        @Override
-        public final Signer signer(String secret, CryptoProvider cryptoProvider) {
-            HMACSigner signer = HMACSigner.newSHA512Signer(secret, cryptoProvider);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
-        public final Signer signer(byte[] secret, String kid, CryptoProvider cryptoProvider) {
-            HMACSigner signer = HMACSigner.newSHA512Signer(secret, kid, cryptoProvider);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
-        public final Signer signer(String secret, String kid, CryptoProvider cryptoProvider) {
-            HMACSigner signer = HMACSigner.newSHA512Signer(secret, kid, cryptoProvider);
-            setSigner(signer);
-            return signer;
-        }
 
         @Override
         public final Verifier verifier(String secret) {
@@ -663,31 +360,7 @@ public enum JwtAlgorithm implements JwtSigner {
             return verifier;
         }
 
-        @Override
-        public final Verifier verifier(String secret, CryptoProvider cryptoProvider) {
-            HMACVerifier verifier = HMACVerifier.newVerifier(secret, cryptoProvider);
-            setVerifier(verifier);
-            return verifier;
-        }
-
-        @Override
-        public final Verifier verifier(Path path, CryptoProvider cryptoProvider) {
-            HMACVerifier verifier = HMACVerifier.newVerifier(path, cryptoProvider);
-            setVerifier(verifier);
-            return verifier;
-        }
-
-        @Override
-        public final Verifier verifier(byte[] bytes, CryptoProvider cryptoProvider) {
-            HMACVerifier verifier = HMACVerifier.newVerifier(bytes, cryptoProvider);
-            setVerifier(verifier);
-            return verifier;
-        }
     },
-    /**
-     * <code>PS256</code>
-     * {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The <code>PS256</code> field.</p>
-     */
     PS256(7, "PS256", Algorithm.PS256) {
         @Override
         public final Signer signer(String secret) {
@@ -699,20 +372,6 @@ public enum JwtAlgorithm implements JwtSigner {
         @Override
         public final Signer signer(String secret, String kid) {
             RSAPSSSigner signer = RSAPSSSigner.newSHA256Signer(secret, kid);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
-        public final Signer signer(String secret, CryptoProvider cryptoProvider) {
-            RSAPSSSigner signer = RSAPSSSigner.newSHA256Signer(secret, cryptoProvider);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
-        public final Signer signer(String secret, String kid, CryptoProvider cryptoProvider) {
-            RSAPSSSigner signer = RSAPSSSigner.newSHA256Signer(secret, kid, cryptoProvider);
             setSigner(signer);
             return signer;
         }
@@ -732,20 +391,6 @@ public enum JwtAlgorithm implements JwtSigner {
         }
 
         @Override
-        public final Signer signer(PrivateKey privateKey, CryptoProvider cryptoProvider) {
-            RSAPSSSigner signer = RSAPSSSigner.newSHA256Signer(privateKey, cryptoProvider);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
-        public final Signer signer(PrivateKey privateKey, String kid, CryptoProvider cryptoProvider) {
-            RSAPSSSigner signer = RSAPSSSigner.newSHA256Signer(privateKey, kid, cryptoProvider);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
         public final Verifier verifier(String secret) {
             RSAPSSVerifier verifier = RSAPSSVerifier.newVerifier(secret);
             setVerifier(verifier);
@@ -773,32 +418,7 @@ public enum JwtAlgorithm implements JwtSigner {
             return verifier;
         }
 
-        @Override
-        public final Verifier verifier(String secret, CryptoProvider cryptoProvider) {
-            RSAPSSVerifier verifier = RSAPSSVerifier.newVerifier(secret, cryptoProvider);
-            setVerifier(verifier);
-            return verifier;
-        }
-
-        @Override
-        public final Verifier verifier(PublicKey publicKey, CryptoProvider cryptoProvider) {
-            RSAPSSVerifier verifier = RSAPSSVerifier.newVerifier(publicKey, cryptoProvider);
-            setVerifier(verifier);
-            return verifier;
-        }
-
-        @Override
-        public final Verifier verifier(Path path, CryptoProvider cryptoProvider) {
-            RSAPSSVerifier verifier = RSAPSSVerifier.newVerifier(path, cryptoProvider);
-            setVerifier(verifier);
-            return verifier;
-        }
-
     },
-    /**
-     * <code>PS384</code>
-     * {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The <code>PS384</code> field.</p>
-     */
     PS384(8, "PS384", Algorithm.PS384) {
         @Override
         public final Signer signer(String secret) {
@@ -810,20 +430,6 @@ public enum JwtAlgorithm implements JwtSigner {
         @Override
         public final Signer signer(String secret, String kid) {
             RSAPSSSigner signer = RSAPSSSigner.newSHA384Signer(secret, kid);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
-        public final Signer signer(String secret, CryptoProvider cryptoProvider) {
-            RSAPSSSigner signer = RSAPSSSigner.newSHA384Signer(secret, cryptoProvider);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
-        public final Signer signer(String secret, String kid, CryptoProvider cryptoProvider) {
-            RSAPSSSigner signer = RSAPSSSigner.newSHA384Signer(secret, kid, cryptoProvider);
             setSigner(signer);
             return signer;
         }
@@ -843,20 +449,6 @@ public enum JwtAlgorithm implements JwtSigner {
         }
 
         @Override
-        public final Signer signer(PrivateKey privateKey, CryptoProvider cryptoProvider) {
-            RSAPSSSigner signer = RSAPSSSigner.newSHA384Signer(privateKey, cryptoProvider);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
-        public final Signer signer(PrivateKey privateKey, String kid, CryptoProvider cryptoProvider) {
-            RSAPSSSigner signer = RSAPSSSigner.newSHA384Signer(privateKey, kid, cryptoProvider);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
         public final Verifier verifier(String secret) {
             RSAPSSVerifier verifier = RSAPSSVerifier.newVerifier(secret);
             setVerifier(verifier);
@@ -884,31 +476,7 @@ public enum JwtAlgorithm implements JwtSigner {
             return verifier;
         }
 
-        @Override
-        public final Verifier verifier(String secret, CryptoProvider cryptoProvider) {
-            RSAPSSVerifier verifier = RSAPSSVerifier.newVerifier(secret, cryptoProvider);
-            setVerifier(verifier);
-            return verifier;
-        }
-
-        @Override
-        public final Verifier verifier(PublicKey publicKey, CryptoProvider cryptoProvider) {
-            RSAPSSVerifier verifier = RSAPSSVerifier.newVerifier(publicKey, cryptoProvider);
-            setVerifier(verifier);
-            return verifier;
-        }
-
-        @Override
-        public final Verifier verifier(Path path, CryptoProvider cryptoProvider) {
-            RSAPSSVerifier verifier = RSAPSSVerifier.newVerifier(path, cryptoProvider);
-            setVerifier(verifier);
-            return verifier;
-        }
     },
-    /**
-     * <code>PS512</code>
-     * {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The <code>PS512</code> field.</p>
-     */
     PS512(9, "PS512", Algorithm.PS512) {
         @Override
         public final Signer signer(String secret) {
@@ -920,20 +488,6 @@ public enum JwtAlgorithm implements JwtSigner {
         @Override
         public final Signer signer(String secret, String kid) {
             RSAPSSSigner signer = RSAPSSSigner.newSHA512Signer(secret, kid);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
-        public final Signer signer(String secret, CryptoProvider cryptoProvider) {
-            RSAPSSSigner signer = RSAPSSSigner.newSHA512Signer(secret, cryptoProvider);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
-        public final Signer signer(String secret, String kid, CryptoProvider cryptoProvider) {
-            RSAPSSSigner signer = RSAPSSSigner.newSHA512Signer(secret, kid, cryptoProvider);
             setSigner(signer);
             return signer;
         }
@@ -953,20 +507,6 @@ public enum JwtAlgorithm implements JwtSigner {
         }
 
         @Override
-        public final Signer signer(PrivateKey privateKey, CryptoProvider cryptoProvider) {
-            RSAPSSSigner signer = RSAPSSSigner.newSHA512Signer(privateKey, cryptoProvider);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
-        public final Signer signer(PrivateKey privateKey, String kid, CryptoProvider cryptoProvider) {
-            RSAPSSSigner signer = RSAPSSSigner.newSHA512Signer(privateKey, kid, cryptoProvider);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
         public final Verifier verifier(String secret) {
             RSAPSSVerifier verifier = RSAPSSVerifier.newVerifier(secret);
             setVerifier(verifier);
@@ -994,31 +534,7 @@ public enum JwtAlgorithm implements JwtSigner {
             return verifier;
         }
 
-        @Override
-        public final Verifier verifier(String secret, CryptoProvider cryptoProvider) {
-            RSAPSSVerifier verifier = RSAPSSVerifier.newVerifier(secret, cryptoProvider);
-            setVerifier(verifier);
-            return verifier;
-        }
-
-        @Override
-        public final Verifier verifier(PublicKey publicKey, CryptoProvider cryptoProvider) {
-            RSAPSSVerifier verifier = RSAPSSVerifier.newVerifier(publicKey, cryptoProvider);
-            setVerifier(verifier);
-            return verifier;
-        }
-
-        @Override
-        public final Verifier verifier(Path path, CryptoProvider cryptoProvider) {
-            RSAPSSVerifier verifier = RSAPSSVerifier.newVerifier(path, cryptoProvider);
-            setVerifier(verifier);
-            return verifier;
-        }
     },
-    /**
-     * <code>RS256</code>
-     * {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The <code>RS256</code> field.</p>
-     */
     RS256(10, "RS256", Algorithm.RS256) {
         @Override
         public final Signer signer(String secret) {
@@ -1030,20 +546,6 @@ public enum JwtAlgorithm implements JwtSigner {
         @Override
         public final Signer signer(String secret, String kid) {
             RSASigner signer = RSASigner.newSHA256Signer(secret, kid);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
-        public final Signer signer(String secret, CryptoProvider cryptoProvider) {
-            RSASigner signer = RSASigner.newSHA256Signer(secret, cryptoProvider);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
-        public final Signer signer(String secret, String kid, CryptoProvider cryptoProvider) {
-            RSASigner signer = RSASigner.newSHA256Signer(secret, kid, cryptoProvider);
             setSigner(signer);
             return signer;
         }
@@ -1063,20 +565,6 @@ public enum JwtAlgorithm implements JwtSigner {
         }
 
         @Override
-        public final Signer signer(PrivateKey privateKey, CryptoProvider cryptoProvider) {
-            RSASigner signer = RSASigner.newSHA256Signer(privateKey, cryptoProvider);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
-        public final Signer signer(PrivateKey privateKey, String kid, CryptoProvider cryptoProvider) {
-            RSASigner signer = RSASigner.newSHA256Signer(privateKey, kid, cryptoProvider);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
         public final Verifier verifier(String secret) {
             RSAVerifier verifier = RSAVerifier.newVerifier(secret);
             setVerifier(verifier);
@@ -1104,31 +592,7 @@ public enum JwtAlgorithm implements JwtSigner {
             return verifier;
         }
 
-        @Override
-        public final Verifier verifier(String secret, CryptoProvider cryptoProvider) {
-            RSAVerifier verifier = RSAVerifier.newVerifier(secret, cryptoProvider);
-            setVerifier(verifier);
-            return verifier;
-        }
-
-        @Override
-        public final Verifier verifier(PublicKey publicKey, CryptoProvider cryptoProvider) {
-            RSAVerifier verifier = RSAVerifier.newVerifier(publicKey, cryptoProvider);
-            setVerifier(verifier);
-            return verifier;
-        }
-
-        @Override
-        public final Verifier verifier(Path path, CryptoProvider cryptoProvider) {
-            RSAVerifier verifier = RSAVerifier.newVerifier(path, cryptoProvider);
-            setVerifier(verifier);
-            return verifier;
-        }
     },
-    /**
-     * <code>RS384</code>
-     * {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The <code>RS384</code> field.</p>
-     */
     RS384(11, "RS384", Algorithm.RS384) {
         @Override
         public final Signer signer(String secret) {
@@ -1140,20 +604,6 @@ public enum JwtAlgorithm implements JwtSigner {
         @Override
         public final Signer signer(String secret, String kid) {
             RSASigner signer = RSASigner.newSHA384Signer(secret, kid);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
-        public final Signer signer(String secret, CryptoProvider cryptoProvider) {
-            RSASigner signer = RSASigner.newSHA384Signer(secret, cryptoProvider);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
-        public final Signer signer(String secret, String kid, CryptoProvider cryptoProvider) {
-            RSASigner signer = RSASigner.newSHA384Signer(secret, kid, cryptoProvider);
             setSigner(signer);
             return signer;
         }
@@ -1173,20 +623,6 @@ public enum JwtAlgorithm implements JwtSigner {
         }
 
         @Override
-        public final Signer signer(PrivateKey privateKey, CryptoProvider cryptoProvider) {
-            RSASigner signer = RSASigner.newSHA384Signer(privateKey, cryptoProvider);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
-        public final Signer signer(PrivateKey privateKey, String kid, CryptoProvider cryptoProvider) {
-            RSASigner signer = RSASigner.newSHA384Signer(privateKey, kid, cryptoProvider);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
         public final Verifier verifier(String secret) {
             RSAVerifier verifier = RSAVerifier.newVerifier(secret);
             setVerifier(verifier);
@@ -1214,31 +650,7 @@ public enum JwtAlgorithm implements JwtSigner {
             return verifier;
         }
 
-        @Override
-        public final Verifier verifier(String secret, CryptoProvider cryptoProvider) {
-            RSAVerifier verifier = RSAVerifier.newVerifier(secret, cryptoProvider);
-            setVerifier(verifier);
-            return verifier;
-        }
-
-        @Override
-        public final Verifier verifier(PublicKey publicKey, CryptoProvider cryptoProvider) {
-            RSAVerifier verifier = RSAVerifier.newVerifier(publicKey, cryptoProvider);
-            setVerifier(verifier);
-            return verifier;
-        }
-
-        @Override
-        public final Verifier verifier(Path path, CryptoProvider cryptoProvider) {
-            RSAVerifier verifier = RSAVerifier.newVerifier(path, cryptoProvider);
-            setVerifier(verifier);
-            return verifier;
-        }
     },
-    /**
-     * <code>RS512</code>
-     * {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The <code>RS512</code> field.</p>
-     */
     RS512(12, "RS512", Algorithm.RS512) {
         @Override
         public final Signer signer(String secret) {
@@ -1250,20 +662,6 @@ public enum JwtAlgorithm implements JwtSigner {
         @Override
         public final Signer signer(String secret, String kid) {
             RSASigner signer = RSASigner.newSHA512Signer(secret, kid);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
-        public final Signer signer(String secret, CryptoProvider cryptoProvider) {
-            RSASigner signer = RSASigner.newSHA512Signer(secret, cryptoProvider);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
-        public final Signer signer(String secret, String kid, CryptoProvider cryptoProvider) {
-            RSASigner signer = RSASigner.newSHA512Signer(secret, kid, cryptoProvider);
             setSigner(signer);
             return signer;
         }
@@ -1283,20 +681,6 @@ public enum JwtAlgorithm implements JwtSigner {
         }
 
         @Override
-        public final Signer signer(PrivateKey privateKey, CryptoProvider cryptoProvider) {
-            RSASigner signer = RSASigner.newSHA512Signer(privateKey, cryptoProvider);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
-        public final Signer signer(PrivateKey privateKey, String kid, CryptoProvider cryptoProvider) {
-            RSASigner signer = RSASigner.newSHA512Signer(privateKey, kid, cryptoProvider);
-            setSigner(signer);
-            return signer;
-        }
-
-        @Override
         public final Verifier verifier(String secret) {
             RSAVerifier verifier = RSAVerifier.newVerifier(secret);
             setVerifier(verifier);
@@ -1323,71 +707,15 @@ public enum JwtAlgorithm implements JwtSigner {
             setVerifier(verifier);
             return verifier;
         }
-
-        @Override
-        public final Verifier verifier(String secret, CryptoProvider cryptoProvider) {
-            RSAVerifier verifier = RSAVerifier.newVerifier(secret, cryptoProvider);
-            setVerifier(verifier);
-            return verifier;
-        }
-
-        @Override
-        public final Verifier verifier(PublicKey publicKey, CryptoProvider cryptoProvider) {
-            RSAVerifier verifier = RSAVerifier.newVerifier(publicKey, cryptoProvider);
-            setVerifier(verifier);
-            return verifier;
-        }
-
-        @Override
-        public final Verifier verifier(Path path, CryptoProvider cryptoProvider) {
-            RSAVerifier verifier = RSAVerifier.newVerifier(path, cryptoProvider);
-            setVerifier(verifier);
-            return verifier;
-        }
     },
     ;
 
-    /**
-     * <code>key</code>
-     * {@link java.lang.Integer} <p>The <code>key</code> field.</p>
-     * @see java.lang.Integer
-     */
     private final Integer key;
-    /**
-     * <code>value</code>
-     * {@link java.lang.String} <p>The <code>value</code> field.</p>
-     * @see java.lang.String
-     */
     private final String value;
-    /**
-     * <code>algorithm</code>
-     * {@link io.fusionauth.jwt.domain.Algorithm} <p>The <code>algorithm</code> field.</p>
-     * @see io.fusionauth.jwt.domain.Algorithm
-     */
     private final Algorithm algorithm;
-    /**
-     * <code>signer</code>
-     * {@link io.fusionauth.jwt.Signer} <p>The <code>signer</code> field.</p>
-     * @see io.fusionauth.jwt.Signer
-     */
     private Signer signer;
-    /**
-     * <code>verifier</code>
-     * {@link io.fusionauth.jwt.Verifier} <p>The <code>verifier</code> field.</p>
-     * @see io.fusionauth.jwt.Verifier
-     */
     private Verifier verifier;
 
-    /**
-     * <code>JwtAlgorithm</code>
-     * <p>Instantiates a new jwt algorithm.</p>
-     * @param key       {@link java.lang.Integer} <p>The key parameter is <code>Integer</code> type.</p>
-     * @param value     {@link java.lang.String} <p>The value parameter is <code>String</code> type.</p>
-     * @param algorithm {@link io.fusionauth.jwt.domain.Algorithm} <p>The algorithm parameter is <code>Algorithm</code> type.</p>
-     * @see java.lang.Integer
-     * @see java.lang.String
-     * @see io.fusionauth.jwt.domain.Algorithm
-     */
     JwtAlgorithm(Integer key, String value, Algorithm algorithm) {
         this.key = key;
         this.value = value;
@@ -1410,66 +738,27 @@ public enum JwtAlgorithm implements JwtSigner {
         return this.algorithm;
     }
 
-    /**
-     * <code>setSigner</code>
-     * <p>The set signer setter method.</p>
-     * @param signer {@link io.fusionauth.jwt.Signer} <p>The signer parameter is <code>Signer</code> type.</p>
-     * @see io.fusionauth.jwt.Signer
-     */
     protected void setSigner(Signer signer) {
         this.signer = signer;
     }
 
-    /**
-     * <code>getSigner</code>
-     * <p>The get signer getter method.</p>
-     * @return {@link io.fusionauth.jwt.Signer} <p>The get signer return object is <code>Signer</code> type.</p>
-     * @see io.fusionauth.jwt.Signer
-     */
     public final Signer getSigner() {
         return signer;
     }
 
-    /**
-     * <code>getVerifier</code>
-     * <p>The get verifier getter method.</p>
-     * @return {@link io.fusionauth.jwt.Verifier} <p>The get verifier return object is <code>Verifier</code> type.</p>
-     * @see io.fusionauth.jwt.Verifier
-     */
     public final Verifier getVerifier() {
         return verifier;
     }
 
-    /**
-     * <code>setVerifier</code>
-     * <p>The set verifier setter method.</p>
-     * @param verifier {@link io.fusionauth.jwt.Verifier} <p>The verifier parameter is <code>Verifier</code> type.</p>
-     * @see io.fusionauth.jwt.Verifier
-     */
     protected void setVerifier(Verifier verifier) {
         this.verifier = verifier;
     }
 
-    /**
-     * <code>parseKey</code>
-     * <p>The parse key method.</p>
-     * @param key {@link java.lang.Integer} <p>The key parameter is <code>Integer</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The parse key return object is <code>JwtAlgorithm</code> type.</p>
-     * @see java.lang.Integer
-     */
     public static JwtAlgorithm parseKey(Integer key) {
         JwtAlgorithm sortTypeEnum = RestKey.parseKey(JwtAlgorithm.class, key);
         return Optional.ofNullable(sortTypeEnum).orElse(JwtAlgorithm.HS256);
     }
 
-    /**
-     * <code>parseValue</code>
-     * <p>The parse value method.</p>
-     * @param value {@link java.lang.String} <p>The value parameter is <code>String</code> type.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The parse value return object is <code>JwtAlgorithm</code> type.</p>
-     * @see java.lang.String
-     * @see com.fasterxml.jackson.annotation.JsonCreator
-     */
     @JsonCreator
     public static JwtAlgorithm parseValue(String value) {
         JwtAlgorithm sortTypeEnum = RestValue.parseValue(JwtAlgorithm.class, value);

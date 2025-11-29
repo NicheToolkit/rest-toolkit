@@ -1,6 +1,6 @@
 package io.github.nichetoolkit.rest;
 
-import io.fusionauth.jwt.domain.JWT;
+import io.github.nichetoolkit.fusionauth.jwt.domain.JWT;
 import io.github.nichetoolkit.rest.identity.IdentityUtils;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import io.github.nichetoolkit.rest.util.JsonUtils;

@@ -1,16 +1,15 @@
 package io.github.nichetoolkit.rest.configure;
 
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import io.github.nichetoolkit.rest.holder.XmlMapperHolder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
+import tools.jackson.dataformat.xml.XmlMapper;
 
 /**
  * <code>RestUtilsAutoConfigure</code>
@@ -39,9 +38,9 @@ public class RestUtilsAutoConfigure {
     /**
      * <code>defaultXmlMapperHolder</code>
      * <p>The default xml mapper holder method.</p>
-     * @param xmlMapper {@link com.fasterxml.jackson.dataformat.xml.XmlMapper} <p>The xml mapper parameter is <code>XmlMapper</code> type.</p>
+     * @param xmlMapper {@link tools.jackson.dataformat.xml.XmlMapper} <p>The xml mapper parameter is <code>XmlMapper</code> type.</p>
      * @return {@link io.github.nichetoolkit.rest.holder.XmlMapperHolder} <p>The default xml mapper holder return object is <code>XmlMapperHolder</code> type.</p>
-     * @see com.fasterxml.jackson.dataformat.xml.XmlMapper
+     * @see tools.jackson.dataformat.xml.XmlMapper
      * @see io.github.nichetoolkit.rest.holder.XmlMapperHolder
      * @see org.springframework.context.annotation.Bean
      * @see org.springframework.context.annotation.Primary

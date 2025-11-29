@@ -1,6 +1,6 @@
 package io.github.nichetoolkit.rest.worker.jwt;
 
-import io.fusionauth.jwt.domain.JWT;
+import io.github.nichetoolkit.fusionauth.jwt.domain.JWT;
 import io.github.nichetoolkit.rest.util.BeanUtils;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 
@@ -201,8 +201,8 @@ public class JwtBuilder {
     /**
      * <code>toBean</code>
      * <p>The to bean method.</p>
-     * @return {@link io.fusionauth.jwt.domain.JWT} <p>The to bean return object is <code>JWT</code> type.</p>
-     * @see io.fusionauth.jwt.domain.JWT
+     * @return {@link io.github.nichetoolkit.fusionauth.jwt.domain.JWT} <p>The to bean return object is <code>JWT</code> type.</p>
+     * @see io.github.nichetoolkit.fusionauth.jwt.domain.JWT
      */
     public JWT toBean() {
         JWT jwt = new JWT();
@@ -213,8 +213,8 @@ public class JwtBuilder {
     /**
      * <code>build</code>
      * <p>The build method.</p>
-     * @return {@link io.fusionauth.jwt.domain.JWT} <p>The build return object is <code>JWT</code> type.</p>
-     * @see io.fusionauth.jwt.domain.JWT
+     * @return {@link io.github.nichetoolkit.fusionauth.jwt.domain.JWT} <p>The build return object is <code>JWT</code> type.</p>
+     * @see io.github.nichetoolkit.fusionauth.jwt.domain.JWT
      */
     public JWT build() {
         JWT jwt = new JWT().setAudience(this.audience)

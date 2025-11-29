@@ -1,8 +1,8 @@
 package io.github.nichetoolkit.rest.holder;
 
-import com.fasterxml.jackson.dataformat.xml.XmlFactory;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.extern.slf4j.Slf4j;
+import tools.jackson.dataformat.xml.XmlMapper;
 
 
 /**
@@ -17,21 +17,21 @@ public class XmlMapperHolder {
 
     /**
      * <code>XML_MAPPER</code>
-     * {@link com.fasterxml.jackson.dataformat.xml.XmlMapper} <p>The constant <code>XML_MAPPER</code> field.</p>
-     * @see com.fasterxml.jackson.dataformat.xml.XmlMapper
+     * {@link tools.jackson.dataformat.xml.XmlMapper} <p>The constant <code>XML_MAPPER</code> field.</p>
+     * @see tools.jackson.dataformat.xml.XmlMapper
      */
     private static XmlMapper XML_MAPPER;
 
     /**
-     * <code>PURITY_MAPPER</code>
-     * {@link com.fasterxml.jackson.dataformat.xml.XmlMapper} <p>The constant <code>PURITY_MAPPER</code> field.</p>
-     * @see com.fasterxml.jackson.dataformat.xml.XmlMapper
+     * <code>JACKXML_MAPPER</code>
+     * {@link tools.jackson.dataformat.xml.XmlMapper} <p>The constant <code>JACKXML_MAPPER</code> field.</p>
+     * @see tools.jackson.dataformat.xml.XmlMapper
      */
-    private static final XmlMapper PURITY_MAPPER;
+    private static final XmlMapper JACKXML_MAPPER;
 
     static {
-        PURITY_MAPPER = ofPurityMapper();
-        XML_MAPPER = PURITY_MAPPER;
+        JACKXML_MAPPER = ofJackxmlMapper();
+        XML_MAPPER = JACKXML_MAPPER;
     }
 
     /**
@@ -44,8 +44,8 @@ public class XmlMapperHolder {
     /**
      * <code>XmlMapperHolder</code>
      * <p>Instantiates a new xml mapper holder.</p>
-     * @param xmlMapper {@link com.fasterxml.jackson.dataformat.xml.XmlMapper} <p>The xml mapper parameter is <code>XmlMapper</code> type.</p>
-     * @see com.fasterxml.jackson.dataformat.xml.XmlMapper
+     * @param xmlMapper {@link tools.jackson.dataformat.xml.XmlMapper} <p>The xml mapper parameter is <code>XmlMapper</code> type.</p>
+     * @see tools.jackson.dataformat.xml.XmlMapper
      */
     public XmlMapperHolder(XmlMapper xmlMapper) {
         XML_MAPPER = xmlMapper;
@@ -55,30 +55,35 @@ public class XmlMapperHolder {
     /**
      * <code>xmlMapper</code>
      * <p>The xml mapper method.</p>
-     * @return {@link com.fasterxml.jackson.dataformat.xml.XmlMapper} <p>The xml mapper return object is <code>XmlMapper</code> type.</p>
-     * @see com.fasterxml.jackson.dataformat.xml.XmlMapper
+     * @return {@link tools.jackson.dataformat.xml.XmlMapper} <p>The xml mapper return object is <code>XmlMapper</code> type.</p>
+     * @see tools.jackson.dataformat.xml.XmlMapper
      */
     public static XmlMapper xmlMapper() {
         return XML_MAPPER;
     }
 
     /**
-     * <code>purityMapper</code>
-     * <p>The purity mapper method.</p>
-     * @return {@link com.fasterxml.jackson.dataformat.xml.XmlMapper} <p>The purity mapper return object is <code>XmlMapper</code> type.</p>
-     * @see com.fasterxml.jackson.dataformat.xml.XmlMapper
+     * <code>jackxmlMapper</code>
+     * <p>The jackxml mapper method.</p>
+     * @return {@link tools.jackson.dataformat.xml.XmlMapper} <p>The jackxml mapper return object is <code>XmlMapper</code> type.</p>
+     * @see tools.jackson.dataformat.xml.XmlMapper
      */
-    public static XmlMapper purityMapper() {
-        return PURITY_MAPPER;
+    public static XmlMapper jackxmlMapper() {
+        return JACKXML_MAPPER;
     }
 
     /**
-     * <code>ofPurityMapper</code>
-     * <p>The of purity mapper method.</p>
-     * @return {@link com.fasterxml.jackson.dataformat.xml.XmlMapper} <p>The of purity mapper return object is <code>XmlMapper</code> type.</p>
-     * @see com.fasterxml.jackson.dataformat.xml.XmlMapper
+     * <code>ofJackxmlMapper</code>
+     * <p>The of jackxml mapper method.</p>
+     * @return {@link tools.jackson.dataformat.xml.XmlMapper} <p>The of jackxml mapper return object is <code>XmlMapper</code> type.</p>
+     * @see tools.jackson.dataformat.xml.XmlMapper
      */
-    public static XmlMapper ofPurityMapper() {
-        return new XmlMapper(new XmlFactory());
+    public static XmlMapper ofJackxmlMapper() {
+        XmlMapper.Builder builder = XmlMapper.builder();
+        builder.changeDefaultPropertyInclusion((value) -> {
+            value.withValueInclusion(JsonInclude.Include.NON_NULL);
+            return value.withContentInclusion(JsonInclude.Include.NON_NULL);
+        });
+        return builder.build();
     }
 }

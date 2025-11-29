@@ -1,26 +1,27 @@
 package io.github.nichetoolkit.rest.serialize;
 
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.databind.JsonSerializer;
-import com.fasterxml.jackson.databind.SerializerProvider;
+
 import io.github.nichetoolkit.rest.RestKey;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
+import tools.jackson.core.JacksonException;
+import tools.jackson.core.JsonGenerator;
+import tools.jackson.databind.SerializationContext;
+import tools.jackson.databind.ValueSerializer;
 
-import java.io.IOException;
 
 /**
  * <code>RestKeySerializer</code>
  * <p>The rest key serializer class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @see com.fasterxml.jackson.databind.JsonSerializer
+ * @see tools.jackson.databind.ValueSerializer
  * @since Jdk17
  */
-public class RestKeySerializer extends JsonSerializer<RestKey<?>> {
+public class RestKeySerializer extends ValueSerializer<RestKey<?>> {
     @Override
-    public void serialize(RestKey<?> restKey, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws
-    IOException {
+    public void serialize(RestKey<?> restKey, JsonGenerator jsonGenerator, SerializationContext serializerProvider) throws
+            JacksonException {
         if (GeneralUtils.isNotEmpty(restKey)) {
-            jsonGenerator.writeObject(restKey.getKey());
+            jsonGenerator.writePOJO(restKey.getKey());
         }
     }
 }
