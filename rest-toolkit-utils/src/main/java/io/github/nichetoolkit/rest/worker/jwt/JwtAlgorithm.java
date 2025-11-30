@@ -22,8 +22,19 @@ import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.util.Optional;
 
+/**
+ * <code>JwtAlgorithm</code>
+ * <p>The jwt algorithm enumeration.</p>
+ * @author Cyan (snow22314@outlook.com)
+ * @see io.github.nichetoolkit.rest.worker.jwt.JwtSigner
+ * @since Jdk17
+ */
 public enum JwtAlgorithm implements JwtSigner {
 
+    /**
+     * <code>NONE</code>
+     * {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The <code>NONE</code> field.</p>
+     */
     NONE(0, "none", Algorithm.none) {
         @Override
         public final Signer signer() {
@@ -33,6 +44,10 @@ public enum JwtAlgorithm implements JwtSigner {
         }
     },
 
+    /**
+     * <code>ES256</code>
+     * {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The <code>ES256</code> field.</p>
+     */
     ES256(1, "ES256", Algorithm.ES256) {
         @Override
         public final Signer signer(String secret) {
@@ -91,6 +106,10 @@ public enum JwtAlgorithm implements JwtSigner {
         }
 
     },
+    /**
+     * <code>ES384</code>
+     * {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The <code>ES384</code> field.</p>
+     */
     ES384(2, "ES384", Algorithm.ES384) {
         @Override
         public final Signer signer(String secret) {
@@ -149,6 +168,10 @@ public enum JwtAlgorithm implements JwtSigner {
         }
 
     },
+    /**
+     * <code>ES512</code>
+     * {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The <code>ES512</code> field.</p>
+     */
     ES512(3, "ES512", Algorithm.ES512) {
         @Override
         public final Signer signer(String secret) {
@@ -207,6 +230,10 @@ public enum JwtAlgorithm implements JwtSigner {
         }
 
     },
+    /**
+     * <code>HS256</code>
+     * {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The <code>HS256</code> field.</p>
+     */
     HS256(4, "HS256", Algorithm.HS256) {
         @Override
         public final Signer signer(byte[] secret) {
@@ -258,6 +285,10 @@ public enum JwtAlgorithm implements JwtSigner {
         }
 
     },
+    /**
+     * <code>HS384</code>
+     * {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The <code>HS384</code> field.</p>
+     */
     HS384(5, "HS384", Algorithm.HS384) {
         @Override
         public final Signer signer(byte[] secret) {
@@ -309,6 +340,10 @@ public enum JwtAlgorithm implements JwtSigner {
         }
 
     },
+    /**
+     * <code>HS512</code>
+     * {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The <code>HS512</code> field.</p>
+     */
     HS512(6, "HS512", Algorithm.HS512) {
         @Override
         public final Signer signer(byte[] secret) {
@@ -361,6 +396,10 @@ public enum JwtAlgorithm implements JwtSigner {
         }
 
     },
+    /**
+     * <code>PS256</code>
+     * {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The <code>PS256</code> field.</p>
+     */
     PS256(7, "PS256", Algorithm.PS256) {
         @Override
         public final Signer signer(String secret) {
@@ -419,6 +458,10 @@ public enum JwtAlgorithm implements JwtSigner {
         }
 
     },
+    /**
+     * <code>PS384</code>
+     * {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The <code>PS384</code> field.</p>
+     */
     PS384(8, "PS384", Algorithm.PS384) {
         @Override
         public final Signer signer(String secret) {
@@ -477,6 +520,10 @@ public enum JwtAlgorithm implements JwtSigner {
         }
 
     },
+    /**
+     * <code>PS512</code>
+     * {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The <code>PS512</code> field.</p>
+     */
     PS512(9, "PS512", Algorithm.PS512) {
         @Override
         public final Signer signer(String secret) {
@@ -535,6 +582,10 @@ public enum JwtAlgorithm implements JwtSigner {
         }
 
     },
+    /**
+     * <code>RS256</code>
+     * {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The <code>RS256</code> field.</p>
+     */
     RS256(10, "RS256", Algorithm.RS256) {
         @Override
         public final Signer signer(String secret) {
@@ -593,6 +644,10 @@ public enum JwtAlgorithm implements JwtSigner {
         }
 
     },
+    /**
+     * <code>RS384</code>
+     * {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The <code>RS384</code> field.</p>
+     */
     RS384(11, "RS384", Algorithm.RS384) {
         @Override
         public final Signer signer(String secret) {
@@ -651,6 +706,10 @@ public enum JwtAlgorithm implements JwtSigner {
         }
 
     },
+    /**
+     * <code>RS512</code>
+     * {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The <code>RS512</code> field.</p>
+     */
     RS512(12, "RS512", Algorithm.RS512) {
         @Override
         public final Signer signer(String secret) {
@@ -710,12 +769,47 @@ public enum JwtAlgorithm implements JwtSigner {
     },
     ;
 
+    /**
+     * <code>key</code>
+     * {@link java.lang.Integer} <p>The <code>key</code> field.</p>
+     * @see java.lang.Integer
+     */
     private final Integer key;
+    /**
+     * <code>value</code>
+     * {@link java.lang.String} <p>The <code>value</code> field.</p>
+     * @see java.lang.String
+     */
     private final String value;
+    /**
+     * <code>algorithm</code>
+     * {@link io.github.nichetoolkit.fusionauth.jwt.domain.Algorithm} <p>The <code>algorithm</code> field.</p>
+     * @see io.github.nichetoolkit.fusionauth.jwt.domain.Algorithm
+     */
     private final Algorithm algorithm;
+    /**
+     * <code>signer</code>
+     * {@link io.github.nichetoolkit.fusionauth.jwt.Signer} <p>The <code>signer</code> field.</p>
+     * @see io.github.nichetoolkit.fusionauth.jwt.Signer
+     */
     private Signer signer;
+    /**
+     * <code>verifier</code>
+     * {@link io.github.nichetoolkit.fusionauth.jwt.Verifier} <p>The <code>verifier</code> field.</p>
+     * @see io.github.nichetoolkit.fusionauth.jwt.Verifier
+     */
     private Verifier verifier;
 
+    /**
+     * <code>JwtAlgorithm</code>
+     * <p>Instantiates a new jwt algorithm.</p>
+     * @param key       {@link java.lang.Integer} <p>The key parameter is <code>Integer</code> type.</p>
+     * @param value     {@link java.lang.String} <p>The value parameter is <code>String</code> type.</p>
+     * @param algorithm {@link io.github.nichetoolkit.fusionauth.jwt.domain.Algorithm} <p>The algorithm parameter is <code>Algorithm</code> type.</p>
+     * @see java.lang.Integer
+     * @see java.lang.String
+     * @see io.github.nichetoolkit.fusionauth.jwt.domain.Algorithm
+     */
     JwtAlgorithm(Integer key, String value, Algorithm algorithm) {
         this.key = key;
         this.value = value;
@@ -738,27 +832,66 @@ public enum JwtAlgorithm implements JwtSigner {
         return this.algorithm;
     }
 
+    /**
+     * <code>setSigner</code>
+     * <p>The set signer setter method.</p>
+     * @param signer {@link io.github.nichetoolkit.fusionauth.jwt.Signer} <p>The signer parameter is <code>Signer</code> type.</p>
+     * @see io.github.nichetoolkit.fusionauth.jwt.Signer
+     */
     protected void setSigner(Signer signer) {
         this.signer = signer;
     }
 
+    /**
+     * <code>getSigner</code>
+     * <p>The get signer getter method.</p>
+     * @return {@link io.github.nichetoolkit.fusionauth.jwt.Signer} <p>The get signer return object is <code>Signer</code> type.</p>
+     * @see io.github.nichetoolkit.fusionauth.jwt.Signer
+     */
     public final Signer getSigner() {
         return signer;
     }
 
+    /**
+     * <code>getVerifier</code>
+     * <p>The get verifier getter method.</p>
+     * @return {@link io.github.nichetoolkit.fusionauth.jwt.Verifier} <p>The get verifier return object is <code>Verifier</code> type.</p>
+     * @see io.github.nichetoolkit.fusionauth.jwt.Verifier
+     */
     public final Verifier getVerifier() {
         return verifier;
     }
 
+    /**
+     * <code>setVerifier</code>
+     * <p>The set verifier setter method.</p>
+     * @param verifier {@link io.github.nichetoolkit.fusionauth.jwt.Verifier} <p>The verifier parameter is <code>Verifier</code> type.</p>
+     * @see io.github.nichetoolkit.fusionauth.jwt.Verifier
+     */
     protected void setVerifier(Verifier verifier) {
         this.verifier = verifier;
     }
 
+    /**
+     * <code>parseKey</code>
+     * <p>The parse key method.</p>
+     * @param key {@link java.lang.Integer} <p>The key parameter is <code>Integer</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The parse key return object is <code>JwtAlgorithm</code> type.</p>
+     * @see java.lang.Integer
+     */
     public static JwtAlgorithm parseKey(Integer key) {
         JwtAlgorithm sortTypeEnum = RestKey.parseKey(JwtAlgorithm.class, key);
         return Optional.ofNullable(sortTypeEnum).orElse(JwtAlgorithm.HS256);
     }
 
+    /**
+     * <code>parseValue</code>
+     * <p>The parse value method.</p>
+     * @param value {@link java.lang.String} <p>The value parameter is <code>String</code> type.</p>
+     * @return {@link io.github.nichetoolkit.rest.worker.jwt.JwtAlgorithm} <p>The parse value return object is <code>JwtAlgorithm</code> type.</p>
+     * @see java.lang.String
+     * @see com.fasterxml.jackson.annotation.JsonCreator
+     */
     @JsonCreator
     public static JwtAlgorithm parseValue(String value) {
         JwtAlgorithm sortTypeEnum = RestValue.parseValue(JwtAlgorithm.class, value);
