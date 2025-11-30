@@ -1,9 +1,9 @@
 package io.github.nichetoolkit.rest.http.config;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.io.Serializable;
@@ -18,16 +18,25 @@ import java.net.Proxy;
  * @see lombok.Getter
  * @see lombok.Setter
  * @see lombok.experimental.SuperBuilder
+ * @see lombok.NoArgsConstructor
+ * @see lombok.AllArgsConstructor
+ * @see com.fasterxml.jackson.annotation.JsonInclude
+ * @see com.fasterxml.jackson.annotation.JsonIgnoreProperties
  * @since Jdk17
  */
 @Getter
 @Setter
 @SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
+@JsonInclude(value = JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ProxyConfig implements Serializable {
     /**
      * <code>type</code>
      * {@link io.github.nichetoolkit.rest.http.config.ProxyType} <p>The <code>type</code> field.</p>
      * @see io.github.nichetoolkit.rest.http.config.ProxyType
+     * @see lombok.Builder.Default
      */
     @Builder.Default
     private ProxyType type = ProxyType.SOCKS;
@@ -43,13 +52,6 @@ public class ProxyConfig implements Serializable {
      * @see java.lang.Integer
      */
     private Integer port;
-
-    /**
-     * <code>ProxyConfig</code>
-     * <p>Instantiates a new proxy config.</p>
-     */
-    public ProxyConfig() {
-    }
 
     /**
      * <code>toProxy</code>

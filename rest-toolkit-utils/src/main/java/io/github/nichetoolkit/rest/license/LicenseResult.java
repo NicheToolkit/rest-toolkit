@@ -8,10 +8,7 @@ import io.github.nichetoolkit.rest.RestStatus;
 import io.github.nichetoolkit.rest.error.license.LicenseErrorStatus;
 import io.github.nichetoolkit.rest.util.DateUtils;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.io.Serializable;
@@ -26,6 +23,7 @@ import java.util.Date;
  * @see lombok.Setter
  * @see lombok.experimental.SuperBuilder
  * @see lombok.NoArgsConstructor
+ * @see lombok.AllArgsConstructor
  * @see com.fasterxml.jackson.annotation.JsonInclude
  * @see com.fasterxml.jackson.annotation.JsonIgnoreProperties
  * @since Jdk17
@@ -34,6 +32,7 @@ import java.util.Date;
 @Setter
 @SuperBuilder
 @NoArgsConstructor
+@AllArgsConstructor
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class LicenseResult implements Serializable {

@@ -3,10 +3,7 @@ package io.github.nichetoolkit.rest.license;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.io.Serializable;
@@ -20,17 +17,19 @@ import java.util.Date;
  * @see lombok.Getter
  * @see lombok.Setter
  * @see lombok.experimental.SuperBuilder
- * @see lombok.NoArgsConstructor
  * @see com.fasterxml.jackson.annotation.JsonInclude
  * @see com.fasterxml.jackson.annotation.JsonIgnoreProperties
+ * @see lombok.NoArgsConstructor
+ * @see lombok.AllArgsConstructor
  * @since Jdk17
  */
 @Getter
 @Setter
 @SuperBuilder
-@NoArgsConstructor
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
+@NoArgsConstructor
+@AllArgsConstructor
 public class LicenseCreateParam implements Serializable {
     /**
      * <code>subject</code>
