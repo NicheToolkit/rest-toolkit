@@ -93,6 +93,7 @@ public class LicenseResult implements Serializable {
      * @see de.schlichtherle.license.LicenseContent
      */
     public LicenseResult(String message, LicenseContent content) {
+        this();
         this.result = true;
         this.message = message;
         this.context = LicenseContext.licenseContext(content);
@@ -107,6 +108,7 @@ public class LicenseResult implements Serializable {
      * @see java.lang.Exception
      */
     public LicenseResult(String message, Exception exception) {
+        this();
         this.result = false;
         this.message = message;
         this.errorCode = LicenseErrorStatus.LICENSE_ERROR.getStatus();
@@ -122,6 +124,7 @@ public class LicenseResult implements Serializable {
      * @see java.lang.Exception
      */
     public LicenseResult(RestStatus restStatus, Exception exception) {
+        this();
         this.result = false;
         this.errorCode = restStatus.getStatus();
         this.message = restStatus.getMessage();
@@ -138,6 +141,7 @@ public class LicenseResult implements Serializable {
      * @see java.lang.Exception
      */
     public LicenseResult(RestStatus restStatus, Exception exception, boolean stopServer) {
+        this();
         this.result = false;
         this.stopServer = stopServer;
         this.errorCode = restStatus.getStatus();
