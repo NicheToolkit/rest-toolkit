@@ -23,7 +23,7 @@ import java.util.regex.Pattern;
  * <p>The general utils class.</p>
  * @author Cyan (snow22314@outlook.com)
  * @see lombok.extern.slf4j.Slf4j
- * @since Jdk1.8
+ * @since Jdk17
  */
 @Slf4j
 public class GeneralUtils {
@@ -377,6 +377,32 @@ public class GeneralUtils {
     }
 
     /**
+     * <code>loggingStackTrace</code>
+     * <p>The logging stack trace method.</p>
+     * @param exception {@link java.lang.Throwable} <p>The exception parameter is <code>Throwable</code> type.</p>
+     * @return {@link java.lang.String} <p>The logging stack trace return object is <code>String</code> type.</p>
+     * @see java.lang.Throwable
+     * @see java.lang.String
+     */
+    public static String loggingStackTrace(Throwable exception) {
+        return printStackTrace(exception, true);
+    }
+
+    /**
+     * <code>loggingStackTrace</code>
+     * <p>The logging stack trace method.</p>
+     * @param logger    {@link org.slf4j.Logger} <p>The logger parameter is <code>Logger</code> type.</p>
+     * @param exception {@link java.lang.Throwable} <p>The exception parameter is <code>Throwable</code> type.</p>
+     * @return {@link java.lang.String} <p>The logging stack trace return object is <code>String</code> type.</p>
+     * @see org.slf4j.Logger
+     * @see java.lang.Throwable
+     * @see java.lang.String
+     */
+    public static String loggingStackTrace(Logger logger, Throwable exception) {
+        return printStackTrace(logger, exception, true);
+    }
+
+    /**
      * <code>printStackTrace</code>
      * <p>The print stack trace method.</p>
      * @param exception {@link java.lang.Throwable} <p>The exception parameter is <code>Throwable</code> type.</p>
@@ -399,6 +425,20 @@ public class GeneralUtils {
      */
     public static String printStackTrace(Throwable exception, boolean isLogging) {
         return printStackTrace(log, exception, isLogging);
+    }
+
+    /**
+     * <code>printStackTrace</code>
+     * <p>The print stack trace method.</p>
+     * @param logger    {@link org.slf4j.Logger} <p>The logger parameter is <code>Logger</code> type.</p>
+     * @param exception {@link java.lang.Throwable} <p>The exception parameter is <code>Throwable</code> type.</p>
+     * @return {@link java.lang.String} <p>The print stack trace return object is <code>String</code> type.</p>
+     * @see org.slf4j.Logger
+     * @see java.lang.Throwable
+     * @see java.lang.String
+     */
+    public static String printStackTrace(Logger logger,Throwable exception) {
+        return printStackTrace(logger, exception, false);
     }
 
     /**
