@@ -114,11 +114,17 @@ public enum RestErrorStatus implements RestStatus {
      * <p>The timeout rest error status field.</p>
      */
     TIMEOUT(10000, "timeout"),
+
     /**
      * <code>PARAM_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>PARAM_ERROR</code> field.</p>
      */
     PARAM_ERROR(10010, "It has encountered a param related error"),
+    /**
+     * <code>PARAM_EMPTY</code>
+     * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>PARAM_EMPTY</code> field.</p>
+     */
+    PARAM_EMPTY(10013, "The param is empty."),
     /**
      * <code>PARAM_INVALID</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>PARAM_INVALID</code> field.</p>
@@ -129,6 +135,44 @@ public enum RestErrorStatus implements RestStatus {
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>PARAM_MISSING</code> field.</p>
      */
     PARAM_MISSING(10011, "The param is missing."),
+
+    /**
+     * <code>THREAD_ERROR</code>
+     * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>THREAD_ERROR</code> field.</p>
+     */
+    THREAD_ERROR(10020, "It has encountered a thread related error"),
+
+    /**
+     * <code>THREAD_INTERRUPTED_ERROR</code>
+     * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>THREAD_INTERRUPTED_ERROR</code> field.</p>
+     */
+    THREAD_INTERRUPTED_ERROR(10021, "It has encountered a thread interrupted related error"),
+    /**
+     * <code>THREAD_EXECUTION_ERROR</code>
+     * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>THREAD_EXECUTION_ERROR</code> field.</p>
+     */
+    THREAD_EXECUTION_ERROR(10022, "It has encountered a thread execution related error"),
+    /**
+     * <code>THREAD_CANCELLATION_ERROR</code>
+     * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>THREAD_CANCELLATION_ERROR</code> field.</p>
+     */
+    THREAD_CANCELLATION_ERROR(10023, "It has encountered a thread cancellation related error"),
+    /**
+     * <code>THREAD_COMPLETION_ERROR</code>
+     * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>THREAD_COMPLETION_ERROR</code> field.</p>
+     */
+    THREAD_COMPLETION_ERROR(10024, "It has encountered a thread completion related error"),
+    /**
+     * <code>THREAD_TIMEOUT_ERROR</code>
+     * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>THREAD_TIMEOUT_ERROR</code> field.</p>
+     */
+    THREAD_TIMEOUT_ERROR(10025, "It has encountered a thread timeout related error"),
+    /**
+     * <code>THREAD_POINTER_EMPTY</code>
+     * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>THREAD_POINTER_EMPTY</code> field.</p>
+     */
+    THREAD_POINTER_EMPTY(10026, "It has encountered a thread pointer empty error"),
+
     /**
      * <code>PARSE_ERROR</code>
      * {@link io.github.nichetoolkit.rest.RestErrorStatus} <p>The <code>PARSE_ERROR</code> field.</p>

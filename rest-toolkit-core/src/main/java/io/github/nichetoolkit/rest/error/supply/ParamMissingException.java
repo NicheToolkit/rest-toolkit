@@ -2,17 +2,17 @@ package io.github.nichetoolkit.rest.error.supply;
 
 import io.github.nichetoolkit.rest.RestErrorStatus;
 import io.github.nichetoolkit.rest.RestError;
-import io.github.nichetoolkit.rest.RestErrorException;
 import io.github.nichetoolkit.rest.RestStatus;
+import io.github.nichetoolkit.rest.error.natives.ParamErrorException;
 
 /**
  * <code>ParamMissingException</code>
  * <p>The param missing exception class.</p>
  * @author Cyan (snow22314@outlook.com)
- * @see io.github.nichetoolkit.rest.RestErrorException
+ * @see io.github.nichetoolkit.rest.error.natives.ParamErrorException
  * @since Jdk1.8
  */
-public class ParamMissingException extends RestErrorException {
+public class ParamMissingException extends ParamErrorException {
 
     /**
      * <code>ParamMissingException</code>
