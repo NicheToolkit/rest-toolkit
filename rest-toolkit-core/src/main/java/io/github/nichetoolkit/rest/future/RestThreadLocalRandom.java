@@ -2,6 +2,8 @@ package io.github.nichetoolkit.rest.future;
 
 import sun.misc.VM;
 
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.io.ObjectStreamField;
 import java.util.Random;
 import java.util.Spliterator;
@@ -142,7 +144,7 @@ public class RestThreadLocalRandom extends Random {
      * <code>localInit</code>
      * <p>The local init method.</p>
      */
-    static final void localInit() {
+    static void localInit() {
         int p = probeGenerator.addAndGet(PROBE_INCREMENT);
         int probe = (p == 0) ? 1 : p; // skip 0
         long seed = mix64(seeder.getAndAdd(SEEDER_INCREMENT));
@@ -782,7 +784,7 @@ public class RestThreadLocalRandom extends Random {
      * <p>The get probe getter method.</p>
      * @return int <p>The get probe return object is <code>int</code> type.</p>
      */
-    static final int getProbe() {
+    static int getProbe() {
         return UNSAFE.getInt(Thread.currentThread(), PROBE);
     }
 
@@ -792,7 +794,7 @@ public class RestThreadLocalRandom extends Random {
      * @param probe int <p>The probe parameter is <code>int</code> type.</p>
      * @return int <p>The advance probe return object is <code>int</code> type.</p>
      */
-    static final int advanceProbe(int probe) {
+    static int advanceProbe(int probe) {
         probe ^= probe << 13;   // xor shift
         probe ^= probe >>> 17;
         probe ^= probe << 5;
@@ -805,7 +807,7 @@ public class RestThreadLocalRandom extends Random {
      * <p>The next secondary seed method.</p>
      * @return int <p>The next secondary seed return object is <code>int</code> type.</p>
      */
-    static final int nextSecondarySeed() {
+    static int nextSecondarySeed() {
         int r;
         Thread t = Thread.currentThread();
         if ((r = UNSAFE.getInt(t, SECONDARY)) != 0) {
@@ -847,10 +849,8 @@ public class RestThreadLocalRandom extends Random {
      * @see java.io.ObjectOutputStream
      * @see java.io.IOException
      */
-    private void writeObject(java.io.ObjectOutputStream s)
-            throws java.io.IOException {
-
-        java.io.ObjectOutputStream.PutField fields = s.putFields();
+    private void writeObject(ObjectOutputStream s) throws IOException {
+        ObjectOutputStream.PutField fields = s.putFields();
         fields.put("rnd", UNSAFE.getLong(Thread.currentThread(), SEED));
         fields.put("initialized", true);
         s.writeFields();
