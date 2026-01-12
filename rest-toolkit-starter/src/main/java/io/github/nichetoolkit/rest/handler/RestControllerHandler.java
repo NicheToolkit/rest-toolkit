@@ -27,7 +27,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * <code>RestControllerHandler</code>
@@ -46,13 +45,6 @@ import java.util.Optional;
 public class RestControllerHandler implements ResponseBodyAdvice<Object>, InitializingBean {
 
     /**
-     * <code>DEFAULT_RESOLVER</code>
-     * {@link io.github.nichetoolkit.rest.RestExceptionResolver} <p>The <code>DEFAULT_RESOLVER</code> field.</p>
-     * @see  io.github.nichetoolkit.rest.RestExceptionResolver
-     */
-    static final RestExceptionResolver DEFAULT_RESOLVER = new RestExceptionResolver() {};
-
-    /**
      * <code>IS_HAS_INIT_OF_FULFILLED_FITTER</code>
      * <p>The <code>IS_HAS_INIT_OF_FULFILLED_FITTER</code> field.</p>
      */
@@ -63,6 +55,12 @@ public class RestControllerHandler implements ResponseBodyAdvice<Object>, Initia
      * @see  io.github.nichetoolkit.rest.configure.RestExceptionProperties
      */
     private final RestExceptionProperties exceptionProperties;
+    /**
+     * <code>exceptionResolver</code>
+     * {@link io.github.nichetoolkit.rest.RestExceptionResolver} <p>The <code>exceptionResolver</code> field.</p>
+     * @see  io.github.nichetoolkit.rest.RestExceptionResolver
+     */
+    private final RestExceptionResolver exceptionResolver;
     /**
      * <code>exceptionAdvices</code>
      * {@link java.util.List} <p>The <code>exceptionAdvices</code> field.</p>
@@ -81,22 +79,16 @@ public class RestControllerHandler implements ResponseBodyAdvice<Object>, Initia
     private List<RestResponseAdvice> responseAdvices;
 
     /**
-     * <code>exceptionResolver</code>
-     * {@link io.github.nichetoolkit.rest.RestExceptionResolver} <p>The <code>exceptionResolver</code> field.</p>
-     * @see  io.github.nichetoolkit.rest.RestExceptionResolver
-     * @see  org.springframework.lang.Nullable
-     */
-    @Nullable
-    private RestExceptionResolver exceptionResolver;
-
-    /**
      * <code>RestControllerHandler</code>
      * <p>Instantiates a new rest controller handler.</p>
      * @param exceptionProperties {@link io.github.nichetoolkit.rest.configure.RestExceptionProperties} <p>The exception properties parameter is <code>RestExceptionProperties</code> type.</p>
+     * @param exceptionResolver {@link io.github.nichetoolkit.rest.RestExceptionResolver} <p>The exception resolver parameter is <code>RestExceptionResolver</code> type.</p>
      * @see  io.github.nichetoolkit.rest.configure.RestExceptionProperties
+     * @see  io.github.nichetoolkit.rest.RestExceptionResolver
      */
-    public RestControllerHandler(RestExceptionProperties exceptionProperties) {
+    public RestControllerHandler(RestExceptionProperties exceptionProperties,RestExceptionResolver exceptionResolver) {
         this.exceptionProperties = exceptionProperties;
+        this.exceptionResolver = exceptionResolver;
     }
 
     @Override
@@ -138,16 +130,6 @@ public class RestControllerHandler implements ResponseBodyAdvice<Object>, Initia
     }
 
     /**
-     * <code>applyExceptionResolver</code>
-     * <p>The apply exception resolver method.</p>
-     * @return  {@link io.github.nichetoolkit.rest.RestExceptionResolver} <p>The apply exception resolver return object is <code>RestExceptionResolver</code> type.</p>
-     * @see  io.github.nichetoolkit.rest.RestExceptionResolver
-     */
-    public RestExceptionResolver applyExceptionResolver() {
-        return ApplicationContextHolder.beanOfType(RestExceptionResolver.class);
-    }
-
-    /**
      * <code>getExceptionAdvices</code>
      * <p>The get exception advices getter method.</p>
      * @return  {@link java.util.List} <p>The get exception advices return object is <code>List</code> type.</p>
@@ -174,9 +156,6 @@ public class RestControllerHandler implements ResponseBodyAdvice<Object>, Initia
         }
         if (this.responseAdvices == null) {
             this.responseAdvices = applyResponseAdvices();
-        }
-        if (this.exceptionResolver == null) {
-            this.exceptionResolver = applyExceptionResolver();
         }
         log.debug("The exception      properties: {}", JsonUtils.parseJson(exceptionProperties));
         initOfFulfilledFitter();
@@ -229,7 +208,6 @@ public class RestControllerHandler implements ResponseBodyAdvice<Object>, Initia
     @ResponseBody
     @ExceptionHandler({Exception.class})
     public ResponseEntity<Object> exceptionHandle(Exception exception, HttpServletRequest request, HttpServletResponse response) {
-        RestExceptionResolver localExceptionResolver = Optional.ofNullable(this.exceptionResolver).orElse(DEFAULT_RESOLVER);
         preExceptionHandle(exception, request, response);
         if (exception instanceof RestException) {
             RestException restException = (RestException) exception;
@@ -245,12 +223,12 @@ public class RestControllerHandler implements ResponseBodyAdvice<Object>, Initia
                 if (message.startsWith(messagePrefix)) {
                     message = message.substring(messagePrefix.length());
                     String i18nMessage = I18nUtils.message(message);
-                    return localExceptionResolver.restExceptionResult(restException, i18nMessage);
+                    return this.exceptionResolver.restExceptionResult(restException, i18nMessage);
                 } else {
-                    return localExceptionResolver.restExceptionResult(restException);
+                    return this.exceptionResolver.restExceptionResult(restException);
                 }
             } else {
-                return localExceptionResolver.restExceptionResult(restException);
+                return this.exceptionResolver.restExceptionResult(restException);
             }
         } else {
             doExceptionHandle(exception, request, response);
@@ -261,12 +239,12 @@ public class RestControllerHandler implements ResponseBodyAdvice<Object>, Initia
             Throwable cause = exception.getCause();
             if (cause instanceof RestStatus) {
                 RestStatus restStatus = (RestStatus) cause;
-                return localExceptionResolver.unrecognizedRestStatusResult(restStatus);
+                return this.exceptionResolver.unrecognizedRestStatusResult(restStatus);
             } else if (exception instanceof RestStatus) {
                 RestStatus restStatus = (RestStatus) exception;
-                return localExceptionResolver.unrecognizedRestStatusResult(restStatus);
+                return this.exceptionResolver.unrecognizedRestStatusResult(restStatus);
             } else {
-                return localExceptionResolver.unrecognizedExceptionResult(exception);
+                return this.exceptionResolver.unrecognizedExceptionResult(exception);
             }
         }
     }

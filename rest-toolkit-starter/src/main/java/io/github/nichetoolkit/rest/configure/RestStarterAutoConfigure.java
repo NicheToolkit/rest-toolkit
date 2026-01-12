@@ -1,5 +1,7 @@
 package io.github.nichetoolkit.rest.configure;
 
+import io.github.nichetoolkit.rest.RestExceptionResolver;
+import io.github.nichetoolkit.rest.interceptor.DefaultExceptionResultResolver;
 import io.github.nichetoolkit.rest.shadow.RequestShadowArgumentResolver;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
@@ -24,6 +26,7 @@ import java.util.List;
  * @see  org.springframework.boot.autoconfigure.AutoConfigureAfter
  * @see  org.springframework.context.annotation.ComponentScan
  * @see  org.springframework.boot.context.properties.EnableConfigurationProperties
+ * @see  org.springframework.context.annotation.Import
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
@@ -59,8 +62,23 @@ public class RestStarterAutoConfigure {
 
 
     /**
-     * <code>DefaultFilterAutoConfigure</code>
-     * <p>The default filter auto configure class.</p>
+     * <code>exceptionResultResolver</code>
+     * <p>The exception result resolver method.</p>
+     * @return  {@link io.github.nichetoolkit.rest.RestExceptionResolver} <p>The exception result resolver return object is <code>RestExceptionResolver</code> type.</p>
+     * @see  io.github.nichetoolkit.rest.RestExceptionResolver
+     * @see  org.springframework.context.annotation.Bean
+     * @see  org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
+     */
+    @Bean
+    @ConditionalOnMissingBean({RestExceptionResolver.class})
+    public RestExceptionResolver exceptionResultResolver() {
+        return new DefaultExceptionResultResolver();
+    }
+
+
+    /**
+     * <code>RequestShadowAutoConfigure</code>
+     * <p>The request shadow auto configure class.</p>
      * @see  org.springframework.web.servlet.config.annotation.WebMvcConfigurer
      * @see  org.springframework.context.annotation.Configuration
      * @author Cyan (snow22314@outlook.com)
@@ -77,8 +95,8 @@ public class RestStarterAutoConfigure {
         private final RequestShadowArgumentResolver requestShadowArgumentResolver;
 
         /**
-         * <code>DefaultFilterAutoConfigure</code>
-         * <p>Instantiates a new default filter auto configure.</p>
+         * <code>RequestShadowAutoConfigure</code>
+         * <p>Instantiates a new request shadow auto configure.</p>
          * @param requestShadowArgumentResolver {@link io.github.nichetoolkit.rest.shadow.RequestShadowArgumentResolver} <p>The request shadow argument resolver parameter is <code>RequestShadowArgumentResolver</code> type.</p>
          * @see  io.github.nichetoolkit.rest.shadow.RequestShadowArgumentResolver
          */
