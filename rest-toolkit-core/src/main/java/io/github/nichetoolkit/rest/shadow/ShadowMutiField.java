@@ -5,8 +5,8 @@ import org.springframework.stereotype.Indexed;
 import java.lang.annotation.*;
 
 /**
- * <code>RestMutiField</code>
- * <p>The rest muti field interface.</p>
+ * <code>ShadowMutiField</code>
+ * <p>The shadow muti field interface.</p>
  * @see  java.lang.annotation.Annotation
  * @see  java.lang.annotation.Target
  * @see  java.lang.annotation.Retention
@@ -19,5 +19,5 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Indexed
-public @interface RestMutiField {
+public @interface ShadowMutiField {
 }

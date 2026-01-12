@@ -74,7 +74,7 @@ public class RequestShadowArgumentResolver implements HandlerMethodArgumentResol
         Field[] declaredFields = type.getDeclaredFields();
         if (GeneralUtils.isNotEmpty(declaredFields)) {
             Arrays.stream(declaredFields).forEach(field -> {
-                if (GeneralUtils.isNotEmpty(field.getAnnotation(RestMutiField.class))) {
+                if (GeneralUtils.isNotEmpty(field.getAnnotation(ShadowMutiField.class))) {
                     fieldNames.add(field.getName());
                 }
             });
