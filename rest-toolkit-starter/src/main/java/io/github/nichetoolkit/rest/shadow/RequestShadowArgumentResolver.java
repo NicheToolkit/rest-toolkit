@@ -42,8 +42,7 @@ public class RequestShadowArgumentResolver implements HandlerMethodArgumentResol
         if (multipartResolver.isMultipart(request) || requestShadow.formData()) {
             MultipartHttpServletRequest multipartRequest = multipartResolver.resolveMultipart(request);
             Map<String, Object> parameterMap = filterParameterMap(multiFields, multipartRequest.getParameterMap());
-            String parameterJson = JsonUtils.parseJson(parameterMap);
-            filter = JsonUtils.parseBean(parameterJson, filterType);
+            filter = JsonUtils.parseConvert(parameterMap,filterType);
             if (requestShadow.formFile()) {
                 Iterator<String> fileNames = multipartRequest.getFileNames();
                 while (fileNames.hasNext()) {
@@ -64,8 +63,7 @@ public class RequestShadowArgumentResolver implements HandlerMethodArgumentResol
             multipartResolver.cleanupMultipart(multipartRequest);
         } else {
             Map<String, Object> parameterMap = filterParameterMap(multiFields, request.getParameterMap());
-            String parameterJson = JsonUtils.parseJson(parameterMap);
-            filter = JsonUtils.parseBean(parameterJson, filterType);
+            filter = JsonUtils.parseConvert(parameterMap,filterType);
         }
         return Optional.ofNullable(filter).orElse(filterType.newInstance());
     }
