@@ -39,7 +39,7 @@ public class RequestShadowArgumentResolver implements HandlerMethodArgumentResol
         Class<?> filterType = requestShadow.type() != Object.class ? requestShadow.type() : parameter.getParameterType();
         List<String> multiFields = filterMultiFields(requestShadow, filterType);
         Object filter;
-        if (multipartResolver.isMultipart(request) || requestShadow.formData()) {
+        if (multipartResolver.isMultipart(request) && requestShadow.formData()) {
             MultipartHttpServletRequest multipartRequest = multipartResolver.resolveMultipart(request);
             Map<String, Object> parameterMap = filterParameterMap(multiFields, multipartRequest.getParameterMap());
             filter = JsonUtils.parseConvert(parameterMap,filterType);
