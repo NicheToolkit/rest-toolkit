@@ -20,6 +20,8 @@ import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
+import org.springframework.validation.BindException;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
@@ -236,10 +238,20 @@ public class RestControllerHandler implements ResponseBodyAdvice<Object>, Initia
             if (commonExceptionEnabled) {
                 GeneralUtils.printStackTrace(log, exception, true);
             }
+            if (exception instanceof BindException) {
+                BindException bindException = (BindException) exception;
+                return this.exceptionResolver.bindExceptionResult(bindException);
+            }
             Throwable cause = exception.getCause();
             if (cause instanceof RestStatus) {
                 RestStatus restStatus = (RestStatus) cause;
                 return this.exceptionResolver.unrecognizedRestStatusResult(restStatus);
+            } else if (cause instanceof BindException) {
+                BindException bindException = (BindException) cause;
+                return this.exceptionResolver.bindExceptionResult(bindException);
+            } else if (exception instanceof Errors) {
+                Errors errors = (Errors) exception;
+                return this.exceptionResolver.unrecognizedErrorsResult(errors);
             } else if (exception instanceof RestStatus) {
                 RestStatus restStatus = (RestStatus) exception;
                 return this.exceptionResolver.unrecognizedRestStatusResult(restStatus);

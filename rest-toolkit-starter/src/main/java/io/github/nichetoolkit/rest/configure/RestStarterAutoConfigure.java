@@ -106,7 +106,7 @@ public class RestStarterAutoConfigure {
 
         @Override
         public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
-            resolvers.add(this.requestShadowArgumentResolver);
+            resolvers.add(0,this.requestShadowArgumentResolver);
         }
     }
 }

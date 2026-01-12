@@ -2,6 +2,8 @@ package io.github.nichetoolkit.rest;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindException;
+import org.springframework.validation.Errors;
 
 /**
  * <code>RestExceptionResolver</code>
@@ -36,6 +38,18 @@ public interface RestExceptionResolver {
     }
 
     /**
+     * <code>bindExceptionResult</code>
+     * <p>The bind exception result method.</p>
+     * @param exception {@link org.springframework.validation.BindException} <p>The exception parameter is <code>BindException</code> type.</p>
+     * @see  org.springframework.validation.BindException
+     * @see  org.springframework.http.ResponseEntity
+     * @return  {@link org.springframework.http.ResponseEntity} <p>The bind exception result return object is <code>ResponseEntity</code> type.</p>
+     */
+    default ResponseEntity<Object> bindExceptionResult(BindException exception) {
+        return ResponseEntity.ok(RestError.error(RestErrorStatus.BIND_ERROR,exception).buildResult());
+    }
+
+    /**
      * <code>unrecognizedRestStatusResult</code>
      * <p>The unrecognized rest status result method.</p>
      * @param restStatus {@link io.github.nichetoolkit.rest.RestStatus} <p>The rest status parameter is <code>RestStatus</code> type.</p>
@@ -45,6 +59,18 @@ public interface RestExceptionResolver {
      */
     default ResponseEntity<Object> unrecognizedRestStatusResult(RestStatus restStatus) {
         return ResponseEntity.ok(restStatus.buildResult());
+    }
+
+    /**
+     * <code>unrecognizedErrorsResult</code>
+     * <p>The unrecognized errors result method.</p>
+     * @param errors {@link org.springframework.validation.Errors} <p>The errors parameter is <code>Errors</code> type.</p>
+     * @see  org.springframework.validation.Errors
+     * @see  org.springframework.http.ResponseEntity
+     * @return  {@link org.springframework.http.ResponseEntity} <p>The unrecognized errors result return object is <code>ResponseEntity</code> type.</p>
+     */
+    default ResponseEntity<Object> unrecognizedErrorsResult(Errors errors) {
+        return ResponseEntity.ok(RestError.error(RestErrorStatus.BIND_ERROR,errors).buildResult());
     }
 
     /**
