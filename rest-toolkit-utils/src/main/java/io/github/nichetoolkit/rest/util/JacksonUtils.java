@@ -11,7 +11,7 @@ import io.github.nichetoolkit.rest.RestResult;
 import io.github.nichetoolkit.rest.error.json.*;
 import io.github.nichetoolkit.rest.error.supply.JsonParseException;
 import io.github.nichetoolkit.rest.helper.JsonHelper;
-import io.github.nichetoolkit.rest.helper.JsonPurityHelper;
+import io.github.nichetoolkit.rest.helper.JacksonHelper;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.*;
@@ -21,8 +21,8 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * <code>JsonPurityUtils</code>
- * <p>The json purity utils class.</p>
+ * <code>JacksonUtils</code>
+ * <p>The jackson utils class.</p>
  * @see  lombok.extern.slf4j.Slf4j
  * @see  java.lang.SuppressWarnings
  * @author Cyan (snow22314@outlook.com)
@@ -30,7 +30,7 @@ import java.util.Set;
  */
 @Slf4j
 @SuppressWarnings({"TypeParameterUnusedInFormals", "SameNameButDifferent"})
-public class JsonPurityUtils {
+public class JacksonUtils {
 
     /**
      * <code>parseJson</code>
@@ -42,7 +42,7 @@ public class JsonPurityUtils {
      */
     public static <T> void parseJson(T target, File file) {
         try {
-            JsonPurityHelper.parseJson(target, file);
+            JacksonHelper.parseJson(target, file);
         } catch (JsonParseException exception) {
             log.error("It is failed during bean to parse as json with file! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -59,7 +59,7 @@ public class JsonPurityUtils {
      */
     public static <T> void parseJson(T target, OutputStream outputStream) {
         try {
-            JsonPurityHelper.parseJson(target, outputStream);
+            JacksonHelper.parseJson(target, outputStream);
         } catch (JsonParseException exception) {
             log.error("It is failed during bean to parse as json with output stream! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -76,7 +76,7 @@ public class JsonPurityUtils {
      */
     public static <T> void parseJson(T target, Writer writer) {
         try {
-            JsonPurityHelper.parseJson(target, writer);
+            JacksonHelper.parseJson(target, writer);
         } catch (JsonParseException exception) {
             log.error("It is failed during bean to parse as json with writer! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -93,7 +93,7 @@ public class JsonPurityUtils {
      */
     public static <T> String parseJson(T target) {
         try {
-            return JsonPurityHelper.parseJson(target);
+            return JacksonHelper.parseJson(target);
         } catch (JsonParseException exception) {
             log.error("It is failed during bean to parse as json! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -110,7 +110,7 @@ public class JsonPurityUtils {
      */
     public static <T> byte[] parseJsonAsBytes(T target) {
         try {
-            return JsonPurityHelper.parseJsonAsBytes(target);
+            return JacksonHelper.parseJsonAsBytes(target);
         } catch (JsonParseException exception) {
             log.error("It is failed during bean to parse as json with bytes! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -130,7 +130,7 @@ public class JsonPurityUtils {
      */
     public static <T> String parseJson(T target, TypeReference<?> typeReference) {
         try {
-            return JsonPurityHelper.parseJson(target, typeReference);
+            return JacksonHelper.parseJson(target, typeReference);
         } catch (JsonParseException exception) {
             log.error("It is failed during bean to parse as json with type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -148,7 +148,7 @@ public class JsonPurityUtils {
      */
     public static <T> String parseJsonIgnoreNull(T target) {
         try {
-            return JsonPurityHelper.parseJsonIgnoreNull(target);
+            return JacksonHelper.parseJsonIgnoreNull(target);
         } catch (JsonParseException exception) {
             log.error("It is failed during bean to parse as json with ignoring null! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -168,7 +168,7 @@ public class JsonPurityUtils {
      */
     public static <T> T parseBean(File json, Class<T> clazz) {
         try {
-            return JsonPurityHelper.parseBean(json, clazz);
+            return JacksonHelper.parseBean(json, clazz);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as bean with file and class type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -188,7 +188,7 @@ public class JsonPurityUtils {
      */
     public static <T> T parseBean(Reader json, Class<T> clazz) {
         try {
-            return JsonPurityHelper.parseBean(json, clazz);
+            return JacksonHelper.parseBean(json, clazz);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as bean with reader and class type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -207,7 +207,7 @@ public class JsonPurityUtils {
      */
     public static <T> T parseBean(byte[] json, Class<T> clazz) {
         try {
-            return JsonPurityHelper.parseBean(json, clazz);
+            return JacksonHelper.parseBean(json, clazz);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as bean with bytes and class type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -227,7 +227,7 @@ public class JsonPurityUtils {
      */
     public static <T> T parseBean(InputStream json, Class<T> clazz) {
         try {
-            return JsonPurityHelper.parseBean(json, clazz);
+            return JacksonHelper.parseBean(json, clazz);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as bean with input stream and class type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -247,7 +247,7 @@ public class JsonPurityUtils {
      */
     public static <T> T parseBean(String json, Class<T> clazz) {
         try {
-            return JsonPurityHelper.parseBean(json, clazz);
+            return JacksonHelper.parseBean(json, clazz);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as bean with class type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -267,7 +267,7 @@ public class JsonPurityUtils {
      */
     public static <T> T parseBean(File json, TypeReference<T> typeReference) {
         try {
-            return JsonPurityHelper.parseBean(json, typeReference);
+            return JacksonHelper.parseBean(json, typeReference);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as bean with file and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -287,7 +287,7 @@ public class JsonPurityUtils {
      */
     public static <T> T parseBean(Reader json, TypeReference<T> typeReference) {
         try {
-            return JsonPurityHelper.parseBean(json, typeReference);
+            return JacksonHelper.parseBean(json, typeReference);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as bean with reader and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -306,7 +306,7 @@ public class JsonPurityUtils {
      */
     public static <T> T parseBean(byte[] json, TypeReference<T> typeReference) {
         try {
-            return JsonPurityHelper.parseBean(json, typeReference);
+            return JacksonHelper.parseBean(json, typeReference);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as bean with bytes and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -326,7 +326,7 @@ public class JsonPurityUtils {
      */
     public static <T> T parseBean(InputStream json, TypeReference<T> typeReference) {
         try {
-            return JsonPurityHelper.parseBean(json, typeReference);
+            return JacksonHelper.parseBean(json, typeReference);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as bean with input stream and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -346,7 +346,7 @@ public class JsonPurityUtils {
      */
     public static <T> T parseBean(String json, TypeReference<T> typeReference) {
         try {
-            return JsonPurityHelper.parseBean(json, typeReference);
+            return JacksonHelper.parseBean(json, typeReference);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as bean with type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -366,7 +366,7 @@ public class JsonPurityUtils {
      */
     public static <T> T parseBean(File json, JavaType javaType) {
         try {
-            return JsonPurityHelper.parseBean(json, javaType);
+            return JacksonHelper.parseBean(json, javaType);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as bean with file and java type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -386,7 +386,7 @@ public class JsonPurityUtils {
      */
     public static <T> T parseBean(Reader json, JavaType javaType) {
         try {
-            return JsonPurityHelper.parseBean(json, javaType);
+            return JacksonHelper.parseBean(json, javaType);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as bean with reader and java type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -405,7 +405,7 @@ public class JsonPurityUtils {
      */
     public static <T> T parseBean(byte[] json, JavaType javaType) {
         try {
-            return JsonPurityHelper.parseBean(json, javaType);
+            return JacksonHelper.parseBean(json, javaType);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as bean with bytes and java type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -425,7 +425,7 @@ public class JsonPurityUtils {
      */
     public static <T> T parseBean(InputStream json, JavaType javaType) {
         try {
-            return JsonPurityHelper.parseBean(json, javaType);
+            return JacksonHelper.parseBean(json, javaType);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as bean with input stream and java type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -445,7 +445,7 @@ public class JsonPurityUtils {
      */
     public static <T> T parseBean(String json, JavaType javaType) {
         try {
-            return JsonPurityHelper.parseBean(json, javaType);
+            return JacksonHelper.parseBean(json, javaType);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as bean with java type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -467,7 +467,7 @@ public class JsonPurityUtils {
      */
     public static <T, U> T parseBean(File json, Class<T> clazz, Class<U> innerClazz) {
         try {
-            return JsonPurityHelper.parseBean(json, clazz, innerClazz);
+            return JacksonHelper.parseBean(json, clazz, innerClazz);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as inner bean with file and class type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -489,7 +489,7 @@ public class JsonPurityUtils {
      */
     public static <T, U> T parseBean(Reader json, Class<T> clazz, Class<U> innerClazz) {
         try {
-            return JsonPurityHelper.parseBean(json, clazz, innerClazz);
+            return JacksonHelper.parseBean(json, clazz, innerClazz);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as inner bean with reader and class type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -510,7 +510,7 @@ public class JsonPurityUtils {
      */
     public static <T, U> T parseBean(byte[] json, Class<T> clazz, Class<U> innerClazz) {
         try {
-            return JsonPurityHelper.parseBean(json, clazz, innerClazz);
+            return JacksonHelper.parseBean(json, clazz, innerClazz);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as inner bean with bytes and class type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -532,7 +532,7 @@ public class JsonPurityUtils {
      */
     public static <T, U> T parseBean(InputStream json, Class<T> clazz, Class<U> innerClazz) {
         try {
-            return JsonPurityHelper.parseBean(json, clazz, innerClazz);
+            return JacksonHelper.parseBean(json, clazz, innerClazz);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as inner bean with input stream and class type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -554,7 +554,7 @@ public class JsonPurityUtils {
      */
     public static <T, U> T parseBean(String json, Class<T> clazz, Class<U> innerClazz) {
         try {
-            return JsonPurityHelper.parseBean(json, clazz, innerClazz);
+            return JacksonHelper.parseBean(json, clazz, innerClazz);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as inner bean with class type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -575,7 +575,7 @@ public class JsonPurityUtils {
      */
     public static <T> List<T> parseList(File json, CollectionType listType) {
         try {
-            return JsonPurityHelper.parseList(json, listType);
+            return JacksonHelper.parseList(json, listType);
         } catch (JsonParseListException exception) {
             log.error("It is failed during json to parse as list of collection with file and collection type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -596,7 +596,7 @@ public class JsonPurityUtils {
      */
     public static <T> List<T> parseList(Reader json, CollectionType listType) {
         try {
-            return JsonPurityHelper.parseList(json, listType);
+            return JacksonHelper.parseList(json, listType);
         } catch (JsonParseListException exception) {
             log.error("It is failed during json to parse as list of collection with reader and collection type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -616,7 +616,7 @@ public class JsonPurityUtils {
      */
     public static <T> List<T> parseList(byte[] json, CollectionType listType) {
         try {
-            return JsonPurityHelper.parseList(json, listType);
+            return JacksonHelper.parseList(json, listType);
         } catch (JsonParseListException exception) {
             log.error("It is failed during json to parse as list of collection with bytes and collection type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -637,7 +637,7 @@ public class JsonPurityUtils {
      */
     public static <T> List<T> parseList(InputStream json, CollectionType listType) {
         try {
-            return JsonPurityHelper.parseList(json, listType);
+            return JacksonHelper.parseList(json, listType);
         } catch (JsonParseListException exception) {
             log.error("It is failed during json to parse as list of collection with input stream and collection type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -658,7 +658,7 @@ public class JsonPurityUtils {
      */
     public static <T> List<T> parseList(String json, CollectionType listType) {
         try {
-            return JsonPurityHelper.parseList(json, listType);
+            return JacksonHelper.parseList(json, listType);
         } catch (JsonParseListException exception) {
             log.error("It is failed during json to parse as list of collection with collection type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -679,7 +679,7 @@ public class JsonPurityUtils {
      */
     public static <T> List<T> parseList(File json, TypeReference<List<T>> typeReference) {
         try {
-            return JsonPurityHelper.parseList(json, typeReference);
+            return JacksonHelper.parseList(json, typeReference);
         } catch (JsonParseListException exception) {
             log.error("It is failed during json to parse as list of collection with file and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -700,7 +700,7 @@ public class JsonPurityUtils {
      */
     public static <T> List<T> parseList(Reader json, TypeReference<List<T>> typeReference) {
         try {
-            return JsonPurityHelper.parseList(json, typeReference);
+            return JacksonHelper.parseList(json, typeReference);
         } catch (JsonParseListException exception) {
             log.error("It is failed during json to parse as list of collection with reader and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -720,7 +720,7 @@ public class JsonPurityUtils {
      */
     public static <T> List<T> parseList(byte[] json, TypeReference<List<T>> typeReference) {
         try {
-            return JsonPurityHelper.parseList(json, typeReference);
+            return JacksonHelper.parseList(json, typeReference);
         } catch (JsonParseListException exception) {
             log.error("It is failed during json to parse as list of collection with bytes and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -741,7 +741,7 @@ public class JsonPurityUtils {
      */
     public static <T> List<T> parseList(InputStream json, TypeReference<List<T>> typeReference) {
         try {
-            return JsonPurityHelper.parseList(json, typeReference);
+            return JacksonHelper.parseList(json, typeReference);
         } catch (JsonParseListException exception) {
             log.error("It is failed during json to parse as list of collection with input stream and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -762,7 +762,7 @@ public class JsonPurityUtils {
      */
     public static <T> List<T> parseList(String json, TypeReference<List<T>> typeReference) {
         try {
-            return JsonPurityHelper.parseList(json, typeReference);
+            return JacksonHelper.parseList(json, typeReference);
         } catch (JsonParseListException exception) {
             log.error("It is failed during json to parse as list of collection with type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -946,7 +946,7 @@ public class JsonPurityUtils {
      */
     public static <T> Set<T> parseSet(String json, CollectionType setType) {
         try {
-            return JsonPurityHelper.parseSet(json, setType);
+            return JacksonHelper.parseSet(json, setType);
         } catch (JsonParseSetException exception) {
             log.error("It is failed during json to parse as set of collection with set type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -967,7 +967,7 @@ public class JsonPurityUtils {
      */
     public static <T> Set<T> parseSet(File json, CollectionType setType) {
         try {
-            return JsonPurityHelper.parseSet(json, setType);
+            return JacksonHelper.parseSet(json, setType);
         } catch (JsonParseSetException exception) {
             log.error("It is failed during json to parse as set of collection with file and set type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -988,7 +988,7 @@ public class JsonPurityUtils {
      */
     public static <T> Set<T> parseSet(Reader json, CollectionType setType) {
         try {
-            return JsonPurityHelper.parseSet(json, setType);
+            return JacksonHelper.parseSet(json, setType);
         } catch (JsonParseSetException exception) {
             log.error("It is failed during json to parse as set of collection with reader and set type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1008,7 +1008,7 @@ public class JsonPurityUtils {
      */
     public static <T> Set<T> parseSet(byte[] json, CollectionType setType) {
         try {
-            return JsonPurityHelper.parseSet(json, setType);
+            return JacksonHelper.parseSet(json, setType);
         } catch (JsonParseSetException exception) {
             log.error("It is failed during json to parse as set of collection with bytes and set type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1029,7 +1029,7 @@ public class JsonPurityUtils {
      */
     public static <T> Set<T> parseSet(InputStream json, CollectionType setType) {
         try {
-            return JsonPurityHelper.parseSet(json, setType);
+            return JacksonHelper.parseSet(json, setType);
         } catch (JsonParseSetException exception) {
             log.error("It is failed during json to parse as set of collection with input stream and set type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1050,7 +1050,7 @@ public class JsonPurityUtils {
      */
     public static <T> Set<T> parseSet(File json, TypeReference<Set<T>> typeReference) {
         try {
-            return JsonPurityHelper.parseSet(json, typeReference);
+            return JacksonHelper.parseSet(json, typeReference);
         } catch (JsonParseSetException exception) {
             log.error("It is failed during json to parse as set of collection with file and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1071,7 +1071,7 @@ public class JsonPurityUtils {
      */
     public static <T> Set<T> parseSet(Reader json, TypeReference<Set<T>> typeReference) {
         try {
-            return JsonPurityHelper.parseSet(json, typeReference);
+            return JacksonHelper.parseSet(json, typeReference);
         } catch (JsonParseSetException exception) {
             log.error("It is failed during json to parse as set of collection with reader and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1091,7 +1091,7 @@ public class JsonPurityUtils {
      */
     public static <T> Set<T> parseSet(byte[] json, TypeReference<Set<T>> typeReference) {
         try {
-            return JsonPurityHelper.parseSet(json, typeReference);
+            return JacksonHelper.parseSet(json, typeReference);
         } catch (JsonParseSetException exception) {
             log.error("It is failed during json to parse as set of collection with bytes and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1112,7 +1112,7 @@ public class JsonPurityUtils {
      */
     public static <T> Set<T> parseSet(InputStream json, TypeReference<Set<T>> typeReference) {
         try {
-            return JsonPurityHelper.parseSet(json, typeReference);
+            return JacksonHelper.parseSet(json, typeReference);
         } catch (JsonParseSetException exception) {
             log.error("It is failed during json to parse as set of collection with input stream and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1133,7 +1133,7 @@ public class JsonPurityUtils {
      */
     public static <T> Set<T> parseSet(String json, TypeReference<Set<T>> typeReference) {
         try {
-            return JsonPurityHelper.parseSet(json, typeReference);
+            return JacksonHelper.parseSet(json, typeReference);
         } catch (JsonParseSetException exception) {
             log.error("It is failed during json to parse as set of collection with type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1318,7 +1318,7 @@ public class JsonPurityUtils {
      */
     public static <T, K> Map<T, K> parseMap(File json, MapType mapType) {
         try {
-            return JsonPurityHelper.parseMap(json, mapType);
+            return JacksonHelper.parseMap(json, mapType);
         } catch (JsonParseMapException exception) {
             log.error("It is failed during json to parse as map of bean with file and map type! {}", exception.getMessage(), exception);
             GeneralUtils.printStackTrace(exception);
@@ -1340,7 +1340,7 @@ public class JsonPurityUtils {
      */
     public static <T, K> Map<T, K> parseMap(Reader json, MapType mapType) {
         try {
-            return JsonPurityHelper.parseMap(json, mapType);
+            return JacksonHelper.parseMap(json, mapType);
         } catch (JsonParseMapException exception) {
             log.error("It is failed during json to parse as map of bean with reader and map type! {}", exception.getMessage(), exception);
             GeneralUtils.printStackTrace(exception);
@@ -1361,7 +1361,7 @@ public class JsonPurityUtils {
      */
     public static <T, K> Map<T, K> parseMap(byte[] json, MapType mapType) {
         try {
-            return JsonPurityHelper.parseMap(json, mapType);
+            return JacksonHelper.parseMap(json, mapType);
         } catch (JsonParseMapException exception) {
             log.error("It is failed during json to parse as map of bean with bytes and map type! {}", exception.getMessage(), exception);
             GeneralUtils.printStackTrace(exception);
@@ -1383,7 +1383,7 @@ public class JsonPurityUtils {
      */
     public static <T, K> Map<T, K> parseMap(InputStream json, MapType mapType) {
         try {
-            return JsonPurityHelper.parseMap(json, mapType);
+            return JacksonHelper.parseMap(json, mapType);
         } catch (JsonParseMapException exception) {
             log.error("It is failed during json to parse as map of bean with input stream and map type! {}", exception.getMessage(), exception);
             GeneralUtils.printStackTrace(exception);
@@ -1405,7 +1405,7 @@ public class JsonPurityUtils {
      */
     public static <T, K> Map<T, K> parseMap(String json, MapType mapType) {
         try {
-            return JsonPurityHelper.parseMap(json, mapType);
+            return JacksonHelper.parseMap(json, mapType);
         } catch (JsonParseMapException exception) {
             log.error("It is failed during json to parse as map of bean with map type! {}", exception.getMessage(), exception);
             GeneralUtils.printStackTrace(exception);
@@ -1427,7 +1427,7 @@ public class JsonPurityUtils {
      */
     public static <T, K> Map<T, K> parseMap(File json, TypeReference<Map<T, K>> typeReference) {
         try {
-            return JsonPurityHelper.parseMap(json, typeReference);
+            return JacksonHelper.parseMap(json, typeReference);
         } catch (JsonParseMapException exception) {
             log.error("It is failed during json to parse as map of bean with file and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1449,7 +1449,7 @@ public class JsonPurityUtils {
      */
     public static <T, K> Map<T, K> parseMap(Reader json, TypeReference<Map<T, K>> typeReference) {
         try {
-            return JsonPurityHelper.parseMap(json, typeReference);
+            return JacksonHelper.parseMap(json, typeReference);
         } catch (JsonParseMapException exception) {
             log.error("It is failed during json to parse as map of bean with reader and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1470,7 +1470,7 @@ public class JsonPurityUtils {
      */
     public static <T, K> Map<T, K> parseMap(byte[] json, TypeReference<Map<T, K>> typeReference) {
         try {
-            return JsonPurityHelper.parseMap(json, typeReference);
+            return JacksonHelper.parseMap(json, typeReference);
         } catch (JsonParseMapException exception) {
             log.error("It is failed during json to parse as map of bean with bytes and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1492,7 +1492,7 @@ public class JsonPurityUtils {
      */
     public static <T, K> Map<T, K> parseMap(InputStream json, TypeReference<Map<T, K>> typeReference) {
         try {
-            return JsonPurityHelper.parseMap(json, typeReference);
+            return JacksonHelper.parseMap(json, typeReference);
         } catch (JsonParseMapException exception) {
             log.error("It is failed during json to parse as map of bean with input stream and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1514,7 +1514,7 @@ public class JsonPurityUtils {
      */
     public static <T, K> Map<T, K> parseMap(String json, TypeReference<Map<T, K>> typeReference) {
         try {
-            return JsonPurityHelper.parseMap(json, typeReference);
+            return JacksonHelper.parseMap(json, typeReference);
         } catch (JsonParseMapException exception) {
             log.error("It is failed during json to parse as map of bean with type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1534,7 +1534,7 @@ public class JsonPurityUtils {
      */
     public static <T> T[] parseArray(File json, ArrayType arrayType) {
         try {
-            return JsonPurityHelper.parseArray(json, arrayType);
+            return JacksonHelper.parseArray(json, arrayType);
         } catch (JsonParseArrayException exception) {
             log.error("It is failed during json to parse as array of bean with file and array type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1554,7 +1554,7 @@ public class JsonPurityUtils {
      */
     public static <T> T[] parseArray(Reader json, ArrayType arrayType) {
         try {
-            return JsonPurityHelper.parseArray(json, arrayType);
+            return JacksonHelper.parseArray(json, arrayType);
         } catch (JsonParseArrayException exception) {
             log.error("It is failed during json to parse as array of bean with reader and array type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1573,7 +1573,7 @@ public class JsonPurityUtils {
      */
     public static <T> T[] parseArray(byte[] json, ArrayType arrayType) {
         try {
-            return JsonPurityHelper.parseArray(json, arrayType);
+            return JacksonHelper.parseArray(json, arrayType);
         } catch (JsonParseArrayException exception) {
             log.error("It is failed during json to parse as array of bean with bytes and array type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1593,7 +1593,7 @@ public class JsonPurityUtils {
      */
     public static <T> T[] parseArray(InputStream json, ArrayType arrayType) {
         try {
-            return JsonPurityHelper.parseArray(json, arrayType);
+            return JacksonHelper.parseArray(json, arrayType);
         } catch (JsonParseArrayException exception) {
             log.error("It is failed during json to parse as array of bean with input stream and array type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1613,7 +1613,7 @@ public class JsonPurityUtils {
      */
     public static <T> T[] parseArray(String json, ArrayType arrayType) {
         try {
-            return JsonPurityHelper.parseArray(json, arrayType);
+            return JacksonHelper.parseArray(json, arrayType);
         } catch (JsonParseArrayException exception) {
             log.error("It is failed during json to parse as array of bean with array type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1633,7 +1633,7 @@ public class JsonPurityUtils {
      */
     public static <T> T[] parseArray(File json, TypeReference<T> typeReference) {
         try {
-            return JsonPurityHelper.parseArray(json, typeReference);
+            return JacksonHelper.parseArray(json, typeReference);
         } catch (JsonParseArrayException exception) {
             log.error("It is failed during json to parse as array of bean with file and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1653,7 +1653,7 @@ public class JsonPurityUtils {
      */
     public static <T> T[] parseArray(Reader json, TypeReference<T> typeReference) {
         try {
-            return JsonPurityHelper.parseArray(json, typeReference);
+            return JacksonHelper.parseArray(json, typeReference);
         } catch (JsonParseArrayException exception) {
             log.error("It is failed during json to parse as array of bean with reader and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1672,7 +1672,7 @@ public class JsonPurityUtils {
      */
     public static <T> T[] parseArray(byte[] json, TypeReference<T> typeReference) {
         try {
-            return JsonPurityHelper.parseArray(json, typeReference);
+            return JacksonHelper.parseArray(json, typeReference);
         } catch (JsonParseArrayException exception) {
             log.error("It is failed during json to parse as array of bean with bytes and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1692,7 +1692,7 @@ public class JsonPurityUtils {
      */
     public static <T> T[] parseArray(InputStream json, TypeReference<T> typeReference) {
         try {
-            return JsonPurityHelper.parseArray(json, typeReference);
+            return JacksonHelper.parseArray(json, typeReference);
         } catch (JsonParseArrayException exception) {
             log.error("It is failed during json to parse as array of bean with input stream and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -1712,7 +1712,7 @@ public class JsonPurityUtils {
      */
     public static <T> T[] parseArray(String json, TypeReference<T> typeReference) {
         try {
-            return JsonPurityHelper.parseArray(json, typeReference);
+            return JacksonHelper.parseArray(json, typeReference);
         } catch (JsonParseArrayException exception) {
             log.error("It is failed during json to parse as array of bean with type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -2634,7 +2634,7 @@ public class JsonPurityUtils {
      */
     public static <T> RestResult<T> parseResult(File json, TypeReference<T> typeReference) {
         try {
-            return JsonPurityHelper.parseResult(json, typeReference);
+            return JacksonHelper.parseResult(json, typeReference);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as rest result with file and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -2655,7 +2655,7 @@ public class JsonPurityUtils {
      */
     public static <T> RestResult<T> parseResult(Reader json, TypeReference<T> typeReference) {
         try {
-            return JsonPurityHelper.parseResult(json, typeReference);
+            return JacksonHelper.parseResult(json, typeReference);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as rest result with reader and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -2675,7 +2675,7 @@ public class JsonPurityUtils {
      */
     public static <T> RestResult<T> parseResult(byte[] json, TypeReference<T> typeReference) {
         try {
-            return JsonPurityHelper.parseResult(json, typeReference);
+            return JacksonHelper.parseResult(json, typeReference);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as rest result with bytes and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -2696,7 +2696,7 @@ public class JsonPurityUtils {
      */
     public static <T> RestResult<T> parseResult(InputStream json, TypeReference<T> typeReference) {
         try {
-            return JsonPurityHelper.parseResult(json, typeReference);
+            return JacksonHelper.parseResult(json, typeReference);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as rest result with input stram and type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -2717,7 +2717,7 @@ public class JsonPurityUtils {
      */
     public static <T> RestResult<T> parseResult(String json, TypeReference<T> typeReference) {
         try {
-            return JsonPurityHelper.parseResult(json, typeReference);
+            return JacksonHelper.parseResult(json, typeReference);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as rest result with type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -2738,7 +2738,7 @@ public class JsonPurityUtils {
      */
     public static <T> RestResult<T> parseResult(File json, JavaType javaType) {
         try {
-            return JsonPurityHelper.parseResult(json, javaType);
+            return JacksonHelper.parseResult(json, javaType);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as rest result with file and java type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -2759,7 +2759,7 @@ public class JsonPurityUtils {
      */
     public static <T> RestResult<T> parseResult(Reader json, JavaType javaType) {
         try {
-            return JsonPurityHelper.parseResult(json, javaType);
+            return JacksonHelper.parseResult(json, javaType);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as rest result with reader and java type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -2779,7 +2779,7 @@ public class JsonPurityUtils {
      */
     public static <T> RestResult<T> parseResult(byte[] json, JavaType javaType) {
         try {
-            return JsonPurityHelper.parseResult(json, javaType);
+            return JacksonHelper.parseResult(json, javaType);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as rest result with bytes and java type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -2800,7 +2800,7 @@ public class JsonPurityUtils {
      */
     public static <T> RestResult<T> parseResult(InputStream json, JavaType javaType) {
         try {
-            return JsonPurityHelper.parseResult(json, javaType);
+            return JacksonHelper.parseResult(json, javaType);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as rest result with input stream and java type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -2821,7 +2821,7 @@ public class JsonPurityUtils {
      */
     public static <T> RestResult<T> parseResult(String json, JavaType javaType) {
         try {
-            return JsonPurityHelper.parseResult(json, javaType);
+            return JacksonHelper.parseResult(json, javaType);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as rest result with java type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -2842,7 +2842,7 @@ public class JsonPurityUtils {
      */
     public static <T> RestResult<T> parseResult(File json, Class<T> clazz) {
         try {
-            return JsonPurityHelper.parseResult(json, clazz);
+            return JacksonHelper.parseResult(json, clazz);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as rest result with file and class type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -2863,7 +2863,7 @@ public class JsonPurityUtils {
      */
     public static <T> RestResult<T> parseResult(Reader json, Class<T> clazz) {
         try {
-            return JsonPurityHelper.parseResult(json, clazz);
+            return JacksonHelper.parseResult(json, clazz);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as rest result with reader and class type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -2883,7 +2883,7 @@ public class JsonPurityUtils {
      */
     public static <T> RestResult<T> parseResult(byte[] json, Class<T> clazz) {
         try {
-            return JsonPurityHelper.parseResult(json, clazz);
+            return JacksonHelper.parseResult(json, clazz);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as rest result with bytes and class type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -2904,7 +2904,7 @@ public class JsonPurityUtils {
      */
     public static <T> RestResult<T> parseResult(InputStream json, Class<T> clazz) {
         try {
-            return JsonPurityHelper.parseResult(json, clazz);
+            return JacksonHelper.parseResult(json, clazz);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as rest result with input stream and class type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -2925,7 +2925,7 @@ public class JsonPurityUtils {
      */
     public static <T> RestResult<T> parseResult(String json, Class<T> clazz) {
         try {
-            return JsonPurityHelper.parseResult(json, clazz);
+            return JacksonHelper.parseResult(json, clazz);
         } catch (JsonParseBeanException exception) {
             log.error("It is failed during json to parse as rest result with class type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -2943,7 +2943,7 @@ public class JsonPurityUtils {
      */
     public static RestResult<String> parseResult(File json) {
         try {
-            return JsonPurityHelper.parseResult(json);
+            return JacksonHelper.parseResult(json);
         } catch (JsonParseResultException exception) {
             log.error("It is failed during json to parse as rest result with file! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -2961,7 +2961,7 @@ public class JsonPurityUtils {
      */
     public static RestResult<String> parseResult(Reader json) {
         try {
-            return JsonPurityHelper.parseResult(json);
+            return JacksonHelper.parseResult(json);
         } catch (JsonParseResultException exception) {
             log.error("It is failed during json to parse as rest result with reader! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -2978,7 +2978,7 @@ public class JsonPurityUtils {
      */
     public static RestResult<String> parseResult(byte[] json) {
         try {
-            return JsonPurityHelper.parseResult(json);
+            return JacksonHelper.parseResult(json);
         } catch (JsonParseResultException exception) {
             log.error("It is failed during json to parse as rest result with bytes! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -2996,7 +2996,7 @@ public class JsonPurityUtils {
      */
     public static RestResult<String> parseResult(InputStream json) {
         try {
-            return JsonPurityHelper.parseResult(json);
+            return JacksonHelper.parseResult(json);
         } catch (JsonParseResultException exception) {
             log.error("It is failed during json to parse as rest result with input stream! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -3014,7 +3014,7 @@ public class JsonPurityUtils {
      */
     public static RestResult<String> parseResult(String json) {
         try {
-            return JsonPurityHelper.parseResult(json);
+            return JacksonHelper.parseResult(json);
         } catch (JsonParseResultException exception) {
             log.error("It is failed during json to parse as rest result! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -3046,7 +3046,7 @@ public class JsonPurityUtils {
      */
     public static <T> T parseConvert(Object value, Class<T> clazz) {
         try {
-            return JsonPurityHelper.parseConvert(value, clazz);
+            return JacksonHelper.parseConvert(value, clazz);
         } catch (JsonParseConvertException exception) {
             log.error("It is failed during object to convert as bean with class type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -3066,7 +3066,7 @@ public class JsonPurityUtils {
      */
     public static <T> T parseConvert(Object value, TypeReference<T> typeReference) {
         try {
-            return JsonPurityHelper.parseConvert(value, typeReference);
+            return JacksonHelper.parseConvert(value, typeReference);
         } catch (JsonParseConvertException exception) {
             log.error("It is failed during object to convert as bean with type reference! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);
@@ -3086,7 +3086,7 @@ public class JsonPurityUtils {
      */
     public static <T> T parseConvert(Object value, JavaType javaType) {
         try {
-            return JsonPurityHelper.parseConvert(value, javaType);
+            return JacksonHelper.parseConvert(value, javaType);
         } catch (JsonParseConvertException exception) {
             log.error("It is failed during object to convert as bean with java type! {}", exception.getMessage());
             GeneralUtils.printStackTrace(exception);

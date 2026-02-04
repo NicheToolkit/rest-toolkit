@@ -25,14 +25,14 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * <code>JsonPurityHelper</code>
- * <p>The json purity helper class.</p>
+ * <code>JacksonHelper</code>
+ * <p>The jackson helper class.</p>
  * @see  lombok.extern.slf4j.Slf4j
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
 @Slf4j
-public class JsonPurityHelper {
+public class JacksonHelper {
 
     /**
      * <code>parseJson</code>

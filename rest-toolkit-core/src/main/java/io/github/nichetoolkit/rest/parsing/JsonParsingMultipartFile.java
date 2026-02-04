@@ -1,12 +1,12 @@
-package io.github.nichetoolkit.rest.shadow;
+package io.github.nichetoolkit.rest.parsing;
 
 import org.springframework.stereotype.Indexed;
 
 import java.lang.annotation.*;
 
 /**
- * <code>ShadowMutiField</code>
- * <p>The shadow muti field interface.</p>
+ * <code>JsonParsingMultipartFile</code>
+ * <p>The json parsing multipart file interface.</p>
  * @see  java.lang.annotation.Annotation
  * @see  java.lang.annotation.Target
  * @see  java.lang.annotation.Retention
@@ -19,5 +19,6 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Indexed
-public @interface ShadowMutiField {
+public @interface JsonParsingMultipartFile {
+
 }

@@ -21,6 +21,11 @@
       "type": "io.github.nichetoolkit.rest.configure.RestI18nProperties"
     },
     {
+      "name": "nichetoolkit.rest.parsing",
+      "sourceType": "io.github.nichetoolkit.rest.configure.RestParsingProperties",
+      "type": "io.github.nichetoolkit.rest.configure.RestParsingProperties"
+    },
+    {
       "name": "nichetoolkit.rest.logback",
       "sourceType": "io.github.nichetoolkit.rest.configure.RestLogbackProperties",
       "type": "io.github.nichetoolkit.rest.configure.RestLogbackProperties"
@@ -222,6 +227,47 @@
       "type": "java.lang.Integer",
       "sourceType": "java.lang.Integer",
       "description": "the proxy port of http client configuration."
+    },
+    {
+      "name": "nichetoolkit.rest.parsing.enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "java.lang.Boolean",
+      "description": "the switch of parsing configuration.",
+      "defaultValue": true
+    },
+    {
+      "name": "nichetoolkit.rest.parsing.form-data",
+      "type": "java.lang.Boolean",
+      "sourceType": "java.lang.Boolean",
+      "description": "the switch of form data parsing configuration.",
+      "defaultValue": true
+    },
+    {
+      "name": "nichetoolkit.rest.parsing.form-file",
+      "type": "java.lang.Boolean",
+      "sourceType": "java.lang.Boolean",
+      "description": "the switch of form file parsing configuration.",
+      "defaultValue": false
+    },
+    {
+      "name": "nichetoolkit.rest.parsing.multi-file",
+      "type": "java.lang.Boolean",
+      "sourceType": "java.lang.Boolean",
+      "description": "the switch of multi file parsing configuration.",
+      "defaultValue": false
+    },
+    {
+      "name": "nichetoolkit.rest.parsing.ignored.fields",
+      "type": "java.lang.String[]",
+      "sourceType": "java.lang.String[]",
+      "description": "the fields of ignored parsing configuration.",
+    },
+    {
+      "name": "nichetoolkit.rest.parsing.ignored.values",
+      "type": "java.lang.String[]",
+      "sourceType": "java.lang.String[]",
+      "description": "the values of ignored parsing configuration.",
+      "defaultValue": "null,undefined"
     },
     {
       "name": "nichetoolkit.rest.i18n.enabled",
