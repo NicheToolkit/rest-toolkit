@@ -260,7 +260,7 @@
       "name": "nichetoolkit.rest.parsing.ignored.fields",
       "type": "java.lang.String[]",
       "sourceType": "java.lang.String[]",
-      "description": "the fields of ignored parsing configuration.",
+      "description": "the fields of ignored parsing configuration."
     },
     {
       "name": "nichetoolkit.rest.parsing.ignored.values",

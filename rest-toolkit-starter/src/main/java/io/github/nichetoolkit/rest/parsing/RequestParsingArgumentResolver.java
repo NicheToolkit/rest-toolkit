@@ -8,6 +8,7 @@ import io.github.nichetoolkit.rest.reflect.RestGenericTypes;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import io.github.nichetoolkit.rest.util.JsonUtils;
 import org.springframework.core.MethodParameter;
+import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.lang.NonNull;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.support.WebDataBinderFactory;
@@ -337,7 +338,7 @@ public abstract class RequestParsingArgumentResolver implements HandlerMethodArg
      */
     private void parsingSingleFileValue(String fileName, Field declaredField, Object parsing, MultipartFile file) throws Exception {
         Class<?> fieldType = declaredField.getType();
-        JsonParsingMultipartFile parsingMultipartFile = declaredField.getAnnotation(JsonParsingMultipartFile.class);
+        JsonParsingMultipartFile parsingMultipartFile = AnnotationUtils.getAnnotation(declaredField,JsonParsingMultipartFile.class);
         if (GeneralUtils.isNotEmpty(parsingMultipartFile)) {
             Object resolveFile = resolveSingleFile(fileName, fieldType, file);
             if (GeneralUtils.isNotEmpty(resolveFile)) {
@@ -369,7 +370,7 @@ public abstract class RequestParsingArgumentResolver implements HandlerMethodArg
      * @throws Exception {@link java.lang.Exception} <p>The exception is <code>Exception</code> type.</p>
      */
     private void parsingListFileValue(String fileName, Class<?> fieldType, Field declaredField, Object parsing, List<MultipartFile> files) throws Exception {
-        JsonParsingMultipartFile parsingMultipartFile = declaredField.getAnnotation(JsonParsingMultipartFile.class);
+        JsonParsingMultipartFile parsingMultipartFile = AnnotationUtils.getAnnotation(declaredField,JsonParsingMultipartFile.class);
         if (GeneralUtils.isNotEmpty(parsingMultipartFile)) {
             Object resolveFile = resolveListFile(fileName, fieldType, files);
             if (GeneralUtils.isNotEmpty(resolveFile)) {
@@ -401,7 +402,7 @@ public abstract class RequestParsingArgumentResolver implements HandlerMethodArg
      * @throws Exception {@link java.lang.Exception} <p>The exception is <code>Exception</code> type.</p>
      */
     private void parsingArrayFileValue(String fileName, Class<?> fieldType, Field declaredField, Object parsing, MultipartFile[] files) throws Exception {
-        JsonParsingMultipartFile parsingMultipartFile = declaredField.getAnnotation(JsonParsingMultipartFile.class);
+        JsonParsingMultipartFile parsingMultipartFile = AnnotationUtils.getAnnotation(declaredField,JsonParsingMultipartFile.class);
         if (GeneralUtils.isNotEmpty(parsingMultipartFile)) {
             Object resolveFile = resolveArrayFile(fileName, fieldType, files);
             if (GeneralUtils.isNotEmpty(resolveFile)) {
@@ -433,17 +434,17 @@ public abstract class RequestParsingArgumentResolver implements HandlerMethodArg
     private void parsingNestedFields(Field parentField, RestParsingFieldPack parent, List<RestParsingFieldPack> parsingFields, Class<?> parsingType, String prefix) {
         List<String> ignoredFields = new ArrayList<>();
         List<String> multiFields = new ArrayList<>();
-        JsonParsingNestedIgnoredFields nestIgnoredFields = parentField.getAnnotation(JsonParsingNestedIgnoredFields.class);
+        JsonParsingNestedIgnoredFields nestIgnoredFields = AnnotationUtils.getAnnotation(parentField, JsonParsingNestedIgnoredFields.class);
         if (GeneralUtils.isNotEmpty(nestIgnoredFields) && GeneralUtils.isNotEmpty(nestIgnoredFields.fields())) {
             ignoredFields.addAll(Arrays.asList(nestIgnoredFields.fields()));
         }
-        JsonParsingNestedMultiFields nestMultiFields = parentField.getAnnotation(JsonParsingNestedMultiFields.class);
+        JsonParsingNestedMultiFields nestMultiFields = AnnotationUtils.getAnnotation(parentField,JsonParsingNestedMultiFields.class);
         if (GeneralUtils.isNotEmpty(nestMultiFields) && GeneralUtils.isNotEmpty(nestMultiFields.fields())) {
             multiFields.addAll(Arrays.asList(nestMultiFields.fields()));
         }
 
         parsingIgnoredFields(ignoredFields, multiFields, parsingType);
-        JsonParsingUnderline jsonParsingUnderline = parsingType.getAnnotation(JsonParsingUnderline.class);
+        JsonParsingUnderline jsonParsingUnderline = AnnotationUtils.getAnnotation(parsingType,JsonParsingUnderline.class);
         boolean parsingUnderline = GeneralUtils.isNotEmpty(jsonParsingUnderline);
         parsingFields(parsingFields, parsingType, ignoredFields, multiFields, parsingUnderline, parent, prefix);
     }
@@ -471,12 +472,12 @@ public abstract class RequestParsingArgumentResolver implements HandlerMethodArg
                 RestParsingFieldPack.RestParsingFieldPackBuilder fieldBuilder = RestParsingFieldPack.builder()
                         .declaringType(field.getDeclaringClass()).name(fieldName).field(field);
 
-                if (parsingUnderline || GeneralUtils.isNotEmpty(field.getAnnotation(JsonParsingUnderline.class))) {
+                if (parsingUnderline || GeneralUtils.isNotEmpty(AnnotationUtils.getAnnotation(field,JsonParsingUnderline.class))) {
                     fieldName = GeneralUtils.camelToLine(fieldName);
                     fieldBuilder.name(fieldName);
                     fieldBuilder.underline(true);
                 }
-                JsonParsingField jsonParsingField = field.getAnnotation(JsonParsingField.class);
+                JsonParsingField jsonParsingField = AnnotationUtils.getAnnotation(field,JsonParsingField.class);
                 if (GeneralUtils.isNotEmpty(jsonParsingField) && GeneralUtils.isNotEmpty(jsonParsingField.name())) {
                     fieldName = jsonParsingField.name();
                     fieldBuilder.name(jsonParsingField.name());
@@ -492,7 +493,7 @@ public abstract class RequestParsingArgumentResolver implements HandlerMethodArg
                 if (multiFields.contains(fieldName) || multiFields.contains(field.getName()) || GeneralUtils.isNotEmpty(field.getAnnotation(JsonParsingMultiField.class))) {
                     fieldBuilder.multiple(true);
                 }
-                JsonParsingNestedField jsonParsingNestField = field.getAnnotation(JsonParsingNestedField.class);
+                JsonParsingNestedField jsonParsingNestField = AnnotationUtils.getAnnotation(field,JsonParsingNestedField.class);
                 RestParsingFieldPack parsingField = null;
                 if (GeneralUtils.isNotEmpty(jsonParsingNestField)) {
                     fieldBuilder.nested(true);
@@ -509,7 +510,7 @@ public abstract class RequestParsingArgumentResolver implements HandlerMethodArg
         Class<?> superclass = parsingType.getSuperclass();
         if (GeneralUtils.isNotEmpty(superclass)) {
             parsingIgnoredFields(ignoredFields, multiFields, superclass);
-            JsonParsingUnderline jsonParsingUnderline = superclass.getAnnotation(JsonParsingUnderline.class);
+            JsonParsingUnderline jsonParsingUnderline = AnnotationUtils.getAnnotation(superclass,JsonParsingUnderline.class);
             parsingUnderline = GeneralUtils.isNotEmpty(jsonParsingUnderline);
             parsingFields(parsingFields, superclass, ignoredFields, multiFields, parsingUnderline, null, null);
         }
@@ -530,11 +531,11 @@ public abstract class RequestParsingArgumentResolver implements HandlerMethodArg
         if (GeneralUtils.isNotEmpty(fields)) {
             ignoredFields.addAll(fields);
         }
-        JsonParsingIgnoredFields parsingIgnoredFields = parsingType.getAnnotation(JsonParsingIgnoredFields.class);
+        JsonParsingIgnoredFields parsingIgnoredFields = AnnotationUtils.getAnnotation(parsingType,JsonParsingIgnoredFields.class);
         if (GeneralUtils.isNotEmpty(parsingIgnoredFields) && GeneralUtils.isNotEmpty(parsingIgnoredFields.fields())) {
             ignoredFields.addAll(Arrays.asList(parsingIgnoredFields.fields()));
         }
-        JsonParsingMultiFields parsingMultiFields = parsingType.getAnnotation(JsonParsingMultiFields.class);
+        JsonParsingMultiFields parsingMultiFields = AnnotationUtils.getAnnotation(parsingType,JsonParsingMultiFields.class);
         if (GeneralUtils.isNotEmpty(parsingMultiFields) && GeneralUtils.isNotEmpty(parsingMultiFields.fields())) {
             multiFields.addAll(Arrays.asList(parsingMultiFields.fields()));
         }
@@ -553,7 +554,7 @@ public abstract class RequestParsingArgumentResolver implements HandlerMethodArg
         List<String> ignoredFields = new ArrayList<>();
         List<String> multiFields = new ArrayList<>();
         parsingIgnoredFields(ignoredFields, multiFields, parsingType);
-        JsonParsingUnderline jsonParsingUnderline = parsingType.getAnnotation(JsonParsingUnderline.class);
+        JsonParsingUnderline jsonParsingUnderline = AnnotationUtils.getAnnotation(parsingType,JsonParsingUnderline.class);
         boolean parsingUnderline = GeneralUtils.isNotEmpty(jsonParsingUnderline);
         parsingFields(parsingFields, parsingType, ignoredFields, multiFields, parsingUnderline, null, null);
         return parsingFields;
