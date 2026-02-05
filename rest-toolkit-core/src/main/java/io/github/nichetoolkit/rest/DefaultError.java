@@ -297,7 +297,7 @@ class DefaultError extends Error implements Serializable {
          * @see java.lang.Throwable
          */
         public DefaultError.Builder message(Throwable cause) {
-            this.message = cause.getMessage();
+            this.message(cause.getMessage());
             return this;
         }
 

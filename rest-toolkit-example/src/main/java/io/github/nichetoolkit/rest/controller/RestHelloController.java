@@ -20,4 +20,9 @@ public class RestHelloController {
     public RestResult<?> test() throws UnsupportedErrorException {
         throw new UnsupportedErrorException();
     }
+
+    @RequestMapping(value = "/null", method = RequestMethod.GET)
+    public RestResult<?> testNull() throws NullPointerException {
+        throw new NullPointerException();
+    }
 }

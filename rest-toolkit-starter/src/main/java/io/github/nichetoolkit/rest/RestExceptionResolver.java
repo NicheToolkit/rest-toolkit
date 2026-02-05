@@ -82,7 +82,7 @@ public interface RestExceptionResolver {
      * @return  {@link org.springframework.http.ResponseEntity} <p>The unrecognized exception result return object is <code>ResponseEntity</code> type.</p>
      */
     default ResponseEntity<Object> unrecognizedExceptionResult(Exception exception) {
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(RestResult.mistake(RestErrorStatus.UNKNOWN_ERROR, exception));
+        return ResponseEntity.ok(RestError.error(exception).buildResult());
     }
 
 }

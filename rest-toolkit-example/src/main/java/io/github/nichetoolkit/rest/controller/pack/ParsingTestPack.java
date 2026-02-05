@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Getter
 @Setter
@@ -13,8 +14,11 @@ public class ParsingTestPack implements Serializable {
     private String id;
     @JsonParsingField("none")
     private String test;
+    private String name;
+    private List<String> nameList;
+    private String[] nameArray;
     @JsonParsingNestedField
     @JsonParsingNestedIgnoredFields("id")
-    @JsonParsingNestedMultiFields({"nameList","nameArray","keyList","keyArray","valueList","valueArray"})
+    @JsonParsingNestedMultiFields({"keyList","keyArray"})
     private ParsingNestedPack nested;
 }

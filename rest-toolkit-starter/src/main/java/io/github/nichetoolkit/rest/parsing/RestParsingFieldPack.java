@@ -27,12 +27,13 @@ public class RestParsingFieldPack implements Serializable {
      * @see  java.lang.String
      */
     private String name;
+
     /**
-     * <code>nestedName</code>
-     * {@link java.lang.String} <p>The <code>nestedName</code> field.</p>
+     * <code>fieldName</code>
+     * {@link java.lang.String} <p>The <code>fieldName</code> field.</p>
      * @see  java.lang.String
      */
-    private String nestedName;
+    private String fieldName;
     /**
      * <code>parent</code>
      * {@link io.github.nichetoolkit.rest.parsing.RestParsingFieldPack} <p>The <code>parent</code> field.</p>
@@ -75,4 +76,5 @@ public class RestParsingFieldPack implements Serializable {
      * <p>The <code>multiple</code> field.</p>
      */
     private boolean multiple;
+
 }
