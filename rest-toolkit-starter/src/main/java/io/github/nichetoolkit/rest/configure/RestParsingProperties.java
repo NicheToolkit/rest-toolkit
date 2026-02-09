@@ -49,6 +49,13 @@ public class RestParsingProperties {
     private Boolean multiFile = false;
 
     /**
+     * <code>parameterLogging</code>
+     * {@link java.lang.Boolean} <p>The <code>parameterLogging</code> field.</p>
+     * @see  java.lang.Boolean
+     */
+    private Boolean parameterLogging = false;
+
+    /**
      * <code>ignored</code>
      * {@link io.github.nichetoolkit.rest.configure.RestParsingProperties.ParsingIgnored} <p>The <code>ignored</code> field.</p>
      * @see  io.github.nichetoolkit.rest.configure.RestParsingProperties.ParsingIgnored

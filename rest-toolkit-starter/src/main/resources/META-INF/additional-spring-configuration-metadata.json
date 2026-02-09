@@ -257,6 +257,13 @@
       "defaultValue": false
     },
     {
+      "name": "nichetoolkit.rest.parsing.parameter-logging",
+      "type": "java.lang.Boolean",
+      "sourceType": "java.lang.Boolean",
+      "description": "the switch of parameter logging parsing configuration.",
+      "defaultValue": false
+    },
+    {
       "name": "nichetoolkit.rest.parsing.ignored.fields",
       "type": "java.lang.String[]",
       "sourceType": "java.lang.String[]",

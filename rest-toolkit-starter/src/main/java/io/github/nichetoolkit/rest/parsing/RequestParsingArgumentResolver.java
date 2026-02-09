@@ -6,7 +6,9 @@ import io.github.nichetoolkit.rest.RestOptional;
 import io.github.nichetoolkit.rest.configure.RestParsingProperties;
 import io.github.nichetoolkit.rest.reflect.RestGenericTypes;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
+import io.github.nichetoolkit.rest.util.JacksonUtils;
 import io.github.nichetoolkit.rest.util.JsonUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.MethodParameter;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.lang.NonNull;
@@ -32,9 +34,11 @@ import java.util.stream.Collectors;
  * <code>RequestParsingArgumentResolver</code>
  * <p>The request parsing argument resolver class.</p>
  * @see  org.springframework.web.method.support.HandlerMethodArgumentResolver
+ * @see  lombok.extern.slf4j.Slf4j
  * @author Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
+@Slf4j
 public abstract class RequestParsingArgumentResolver implements HandlerMethodArgumentResolver {
     /**
      * <code>multipartResolver</code>
@@ -71,11 +75,14 @@ public abstract class RequestParsingArgumentResolver implements HandlerMethodArg
         Assert.state(requestParsing != null, "No RequestParsing annotation");
         RestHttpRequest request = RestHttpRequest.getHttpRequest((HttpServletRequest) webRequest.getNativeRequest());
         Class<?> parsingType = requestParsing.type() != Object.class ? requestParsing.type() : parameter.getParameterType();
-        List<RestParsingFieldPack> parsingFields = parsingFields(parsingType);
+        List<RestParsingFieldPack> parsingFields = afterParsingFields(parsingFields(parsingType));
         Object parsing;
         if (multipartResolver.isMultipart(request) && parsingProperties.getFormData()) {
             MultipartHttpServletRequest multipartRequest = multipartResolver.resolveMultipart(request);
             Map<String, Object> parameterMap = parsingParameterMap(parsingFields, multipartRequest.getParameterMap());
+            if (parsingProperties.getParameterLogging()) {
+                log.info("[multipart parsing] -- parameters: {}", JacksonUtils.parseJson(parameterMap));
+            }
             parsing = beforeParsingParameter(parameterMap, parsingType);
             if (parsingProperties.getFormFile()) {
                 Iterator<String> fileNames = multipartRequest.getFileNames();
@@ -97,10 +104,26 @@ public abstract class RequestParsingArgumentResolver implements HandlerMethodArg
             multipartResolver.cleanupMultipart(multipartRequest);
         } else {
             Map<String, Object> parameterMap = parsingParameterMap(parsingFields, request.getParameterMap());
+            if (parsingProperties.getParameterLogging()) {
+                log.info("[parameter parsing] -- parameters: {}", JacksonUtils.parseJson(parameterMap));
+            }
             parsing = beforeParsingParameter(parameterMap, parsingType);
         }
         parsing = afterParsingArgument(parsing, parsingType);
         return parsing;
+    }
+
+    /**
+     * <code>afterParsingFields</code>
+     * <p>The after parsing fields method.</p>
+     * @param parsingFields {@link java.util.List} <p>The parsing fields parameter is <code>List</code> type.</p>
+     * @see  java.util.List
+     * @see  io.github.nichetoolkit.rest.RestException
+     * @return  {@link java.util.List} <p>The after parsing fields return object is <code>List</code> type.</p>
+     * @throws RestException {@link io.github.nichetoolkit.rest.RestException} <p>The rest exception is <code>RestException</code> type.</p>
+     */
+    protected List<RestParsingFieldPack> afterParsingFields(List<RestParsingFieldPack> parsingFields) throws RestException {
+        return parsingFields;
     }
 
 
@@ -500,7 +523,7 @@ public abstract class RequestParsingArgumentResolver implements HandlerMethodArg
                     fieldBuilder.nested(true);
                     parsingField = fieldBuilder.build();
                     Class<?> nestType = jsonParsingNestField.type() != Object.class ? jsonParsingNestField.type() : RestGenericTypes.resolveFieldType(field);
-                    prefix = GeneralUtils.isNotEmpty(jsonParsingNestField.prefix()) ? jsonParsingNestField.prefix() : fieldName;
+                    prefix = GeneralUtils.isNotEmpty(jsonParsingNestField.prefix()) ? jsonParsingNestField.prefix() : parsingField.getName();
                     parsingNestedFields(field, parsingField, parsingFields, nestType, prefix);
                 }
                 parsingFields.add(Optional.ofNullable(parsingField).orElse(fieldBuilder.build()));
@@ -590,37 +613,85 @@ public abstract class RequestParsingArgumentResolver implements HandlerMethodArg
                 if (GeneralUtils.isEmpty(nested)) {
                     nested = new LinkedHashMap<>();
                 }
-                parsingFieldValue(fieldPack,fieldName,value,nested,ignoredValues);
+                parsingFieldValue(fieldPack, fieldName, value, nested, ignoredValues);
                 nestedParameters.put(parentFieldName, nested);
             } else {
-                parsingFieldValue(fieldPack,fieldName,value,parameters,ignoredValues);
+                parsingFieldValue(fieldPack, fieldName, value, parameters, ignoredValues);
             }
         }
         if (GeneralUtils.isNotEmpty(nestedParameters)) {
-            parsingFields.stream().filter(RestParsingFieldPack::isNested).forEach(fieldPack -> {
-                parsingNestedValue(fieldPack,parameters,nestedParameters);
+            List<RestParsingFieldPack> nestedFieldPacks = parsingFields.stream().filter(RestParsingFieldPack::isNested).collect(Collectors.toList());
+            Collections.reverse(nestedFieldPacks);
+            nestedFieldPacks.forEach(fieldPack -> {
+                parsingNestedValue(fieldPack, parameters, nestedParameters);
             });
         }
         return parameters;
     }
 
-    private void parsingNestedValue(RestParsingFieldPack nestedFieldPack, Map<String, Object> parameters,Map<String, Map<String, Object>> nestedParameters) {
-        RestParsingFieldPack parent = nestedFieldPack.getParent();
+    /**
+     * <code>parsingNestedValue</code>
+     * <p>The parsing nested value method.</p>
+     * @param fieldPack {@link io.github.nichetoolkit.rest.parsing.RestParsingFieldPack} <p>The field pack parameter is <code>RestParsingFieldPack</code> type.</p>
+     * @param parameters {@link java.util.Map} <p>The parameters parameter is <code>Map</code> type.</p>
+     * @param nestedParameters {@link java.util.Map} <p>The nested parameters parameter is <code>Map</code> type.</p>
+     * @see  io.github.nichetoolkit.rest.parsing.RestParsingFieldPack
+     * @see  java.util.Map
+     * @see  java.lang.SuppressWarnings
+     * @return  {@link java.util.Map} <p>The parsing nested value return object is <code>Map</code> type.</p>
+     */
+    @SuppressWarnings("unchecked")
+    private Map<String, Object> parsingNestedValue(RestParsingFieldPack fieldPack, Map<String, Object> parameters, Map<String, Map<String, Object>> nestedParameters) {
+        RestParsingFieldPack parent = fieldPack.getParent();
         if (GeneralUtils.isEmpty(parent)) {
-            String fieldName = nestedFieldPack.getFieldName();
-            Map<String, Object> valueMap = nestedParameters.get(fieldName);
-            if (GeneralUtils.isNotEmpty(valueMap)) {
-                parameters.put(fieldName, valueMap);
+            String fieldName = fieldPack.getFieldName();
+            Object object = parameters.get(fieldName);
+            Map<String, Object> fieldValues;
+            if (GeneralUtils.isNotEmpty(object)) {
+                if (object instanceof Map) {
+                    fieldValues = (Map<String, Object>) object;
+                } else {
+                    fieldValues = new LinkedHashMap<>();
+                }
+            } else {
+                fieldValues = new LinkedHashMap<>();
             }
+            Map<String, Object> nestedValues = nestedParameters.get(fieldName);
+            if (GeneralUtils.isNotEmpty(nestedValues)) {
+                fieldValues.putAll(nestedValues);
+            }
+            parameters.put(fieldName, fieldValues);
+            return fieldValues;
         } else {
-            Map<String, Object> parentParameters = new LinkedHashMap<>();
-            parsingNestedValue(parent,parentParameters,nestedParameters);
-            parameters.put(parent.getFieldName(),parentParameters);
+            Map<String, Object> parentParameters = parsingNestedValue(parent, parameters, nestedParameters);
+            String fieldName = fieldPack.getFieldName();
+            Map<String, Object> fieldValues = nestedParameters.get(fieldName);
+            if (GeneralUtils.isEmpty(fieldValues)) {
+                fieldValues = new LinkedHashMap<>();
+            }
+            parentParameters.put(fieldName, fieldValues);
+            return fieldValues;
         }
     }
 
-    private void parsingFieldValue(RestParsingFieldPack fieldPack,String fieldName, String[] value, Map<String, Object> parameters,List<String> ignoredValues) {
+    /**
+     * <code>parsingFieldValue</code>
+     * <p>The parsing field value method.</p>
+     * @param fieldPack {@link io.github.nichetoolkit.rest.parsing.RestParsingFieldPack} <p>The field pack parameter is <code>RestParsingFieldPack</code> type.</p>
+     * @param fieldName {@link java.lang.String} <p>The field name parameter is <code>String</code> type.</p>
+     * @param value {@link java.lang.String} <p>The value parameter is <code>String</code> type.</p>
+     * @param parameters {@link java.util.Map} <p>The parameters parameter is <code>Map</code> type.</p>
+     * @param ignoredValues {@link java.util.List} <p>The ignored values parameter is <code>List</code> type.</p>
+     * @see  io.github.nichetoolkit.rest.parsing.RestParsingFieldPack
+     * @see  java.lang.String
+     * @see  java.util.Map
+     * @see  java.util.List
+     */
+    private void parsingFieldValue(RestParsingFieldPack fieldPack, String fieldName, String[] value, Map<String, Object> parameters, List<String> ignoredValues) {
         if (fieldPack.isMultiple()) {
+            Object values = parsingFieldArrayValue(value, ignoredValues);
+            parameters.put(fieldName, values);
+        } else if (value[0].contains(",")) {
             Object values = parsingFieldArrayValue(value, ignoredValues);
             parameters.put(fieldName, values);
         } else if (!ignoredValues.contains(value[0])) {
@@ -628,6 +699,16 @@ public abstract class RequestParsingArgumentResolver implements HandlerMethodArg
         }
     }
 
+    /**
+     * <code>parsingFieldArrayValue</code>
+     * <p>The parsing field array value method.</p>
+     * @param value {@link java.lang.String} <p>The value parameter is <code>String</code> type.</p>
+     * @param ignoredValues {@link java.util.List} <p>The ignored values parameter is <code>List</code> type.</p>
+     * @see  java.lang.String
+     * @see  java.util.List
+     * @see  java.lang.Object
+     * @return  {@link java.lang.Object} <p>The parsing field array value return object is <code>Object</code> type.</p>
+     */
     private Object parsingFieldArrayValue(String[] value, List<String> ignoredValues) {
         List<String> values = new ArrayList<>();
         Arrays.stream(value).forEach(fieldValue -> {
