@@ -2,7 +2,6 @@ package io.github.nichetoolkit.rest.interceptor;
 
 import com.google.common.io.ByteStreams;
 import io.github.nichetoolkit.rest.configure.RestInterceptProperties;
-import io.github.nichetoolkit.rest.util.CommonUtils;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import io.github.nichetoolkit.rest.util.JsonUtils;
 import lombok.extern.slf4j.Slf4j;

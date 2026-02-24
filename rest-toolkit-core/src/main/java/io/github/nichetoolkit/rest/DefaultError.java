@@ -1,6 +1,7 @@
 package io.github.nichetoolkit.rest;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import io.github.nichetoolkit.rest.util.GeneralUtils;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -272,7 +273,7 @@ class DefaultError extends Error implements Serializable {
          */
         public DefaultError.Builder message(String message) {
             if (message != null && !message.isEmpty()) {
-                this.message = message;
+                this.message = GeneralUtils.message(message,1024);
             }
             return this;
         }

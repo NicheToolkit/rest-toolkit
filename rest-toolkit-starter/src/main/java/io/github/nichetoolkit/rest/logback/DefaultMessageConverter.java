@@ -6,7 +6,6 @@ import io.github.nichetoolkit.rest.configure.RestLogbackProperties;
 import io.github.nichetoolkit.rest.error.supply.JsonParseException;
 import io.github.nichetoolkit.rest.helper.JsonHelper;
 import io.github.nichetoolkit.rest.holder.ApplicationContextHolder;
-import io.github.nichetoolkit.rest.util.CommonUtils;
 import io.github.nichetoolkit.rest.util.GeneralUtils;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -102,7 +101,7 @@ public class DefaultMessageConverter extends MessageConverter {
             if (argument.toString().length() < argumentLength) {
                 return argument;
             } else {
-                return CommonUtils.substring(((String) argument), argumentLength);
+                return GeneralUtils.substring(((String) argument), argumentLength);
             }
         }
         String argumentJson;
@@ -115,7 +114,7 @@ public class DefaultMessageConverter extends MessageConverter {
             if (argumentJson.length() < argumentLength) {
                 return argumentJson;
             } else {
-                return CommonUtils.substring(argumentJson, argumentLength);
+                return GeneralUtils.substring(argumentJson, argumentLength);
             }
         }
         return argument;

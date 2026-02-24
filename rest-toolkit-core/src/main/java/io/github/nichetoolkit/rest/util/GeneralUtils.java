@@ -21,9 +21,9 @@ import java.util.regex.Pattern;
 /**
  * <code>GeneralUtils</code>
  * <p>The general utils class.</p>
+ * @see  lombok.extern.slf4j.Slf4j
  * @author Cyan (snow22314@outlook.com)
- * @see lombok.extern.slf4j.Slf4j
- * @since Jdk17
+ * @since Jdk1.8
  */
 @Slf4j
 public class GeneralUtils {
@@ -31,20 +31,20 @@ public class GeneralUtils {
     /**
      * <code>LINE_PATTERN</code>
      * {@link java.util.regex.Pattern} <p>The constant <code>LINE_PATTERN</code> field.</p>
-     * @see java.util.regex.Pattern
+     * @see  java.util.regex.Pattern
      */
     private static final Pattern LINE_PATTERN = Pattern.compile("_(\\w)");
     /**
      * <code>CAMEL_PATTERN</code>
      * {@link java.util.regex.Pattern} <p>The constant <code>CAMEL_PATTERN</code> field.</p>
-     * @see java.util.regex.Pattern
+     * @see  java.util.regex.Pattern
      */
     private static final Pattern CAMEL_PATTERN = Pattern.compile("[a-z]");
 
     /**
      * <code>PASCAL_PATTERN</code>
      * {@link java.util.regex.Pattern} <p>The constant <code>PASCAL_PATTERN</code> field.</p>
-     * @see java.util.regex.Pattern
+     * @see  java.util.regex.Pattern
      */
     private static final Pattern PASCAL_PATTERN = Pattern.compile("[A-Z]");
 
@@ -52,10 +52,10 @@ public class GeneralUtils {
      * <code>isNotEmpty</code>
      * <p>The is not empty method.</p>
      * @param object {@link java.lang.Object} <p>The object parameter is <code>Object</code> type.</p>
+     * @see  java.lang.Object
+     * @see  org.springframework.lang.Nullable
+     * @see  java.lang.SuppressWarnings
      * @return boolean <p>The is not empty return object is <code>boolean</code> type.</p>
-     * @see java.lang.Object
-     * @see org.springframework.lang.Nullable
-     * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("Duplicates")
     public static boolean isNotEmpty(@Nullable Object object) {
@@ -110,10 +110,10 @@ public class GeneralUtils {
      * <code>isValid</code>
      * <p>The is valid method.</p>
      * @param object {@link java.lang.Object} <p>The object parameter is <code>Object</code> type.</p>
+     * @see  java.lang.Object
+     * @see  org.springframework.lang.Nullable
+     * @see  java.lang.SuppressWarnings
      * @return boolean <p>The is valid return object is <code>boolean</code> type.</p>
-     * @see java.lang.Object
-     * @see org.springframework.lang.Nullable
-     * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("Duplicates")
     public static boolean isValid(@Nullable Object object) {
@@ -168,10 +168,10 @@ public class GeneralUtils {
      * <code>isUsable</code>
      * <p>The is usable method.</p>
      * @param object {@link java.lang.Object} <p>The object parameter is <code>Object</code> type.</p>
+     * @see  java.lang.Object
+     * @see  org.springframework.lang.Nullable
+     * @see  java.lang.SuppressWarnings
      * @return boolean <p>The is usable return object is <code>boolean</code> type.</p>
-     * @see java.lang.Object
-     * @see org.springframework.lang.Nullable
-     * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("Duplicates")
     public static boolean isUsable(@Nullable Object object) {
@@ -204,9 +204,9 @@ public class GeneralUtils {
      * <code>isNotNull</code>
      * <p>The is not null method.</p>
      * @param object {@link java.lang.Object} <p>The object parameter is <code>Object</code> type.</p>
+     * @see  java.lang.Object
+     * @see  org.springframework.lang.Nullable
      * @return boolean <p>The is not null return object is <code>boolean</code> type.</p>
-     * @see java.lang.Object
-     * @see org.springframework.lang.Nullable
      */
     public static boolean isNotNull(@Nullable Object object) {
         return !Objects.isNull(object);
@@ -216,10 +216,10 @@ public class GeneralUtils {
      * <code>isEmpty</code>
      * <p>The is empty method.</p>
      * @param object {@link java.lang.Object} <p>The object parameter is <code>Object</code> type.</p>
+     * @see  java.lang.Object
+     * @see  org.springframework.lang.Nullable
+     * @see  java.lang.SuppressWarnings
      * @return boolean <p>The is empty return object is <code>boolean</code> type.</p>
-     * @see java.lang.Object
-     * @see org.springframework.lang.Nullable
-     * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("Duplicates")
     public static boolean isEmpty(@Nullable Object object) {
@@ -274,10 +274,10 @@ public class GeneralUtils {
      * <code>isInvalid</code>
      * <p>The is invalid method.</p>
      * @param object {@link java.lang.Object} <p>The object parameter is <code>Object</code> type.</p>
+     * @see  java.lang.Object
+     * @see  org.springframework.lang.Nullable
+     * @see  java.lang.SuppressWarnings
      * @return boolean <p>The is invalid return object is <code>boolean</code> type.</p>
-     * @see java.lang.Object
-     * @see org.springframework.lang.Nullable
-     * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("Duplicates")
     public static boolean isInvalid(@Nullable Object object) {
@@ -332,10 +332,10 @@ public class GeneralUtils {
      * <code>isUnusable</code>
      * <p>The is unusable method.</p>
      * @param object {@link java.lang.Object} <p>The object parameter is <code>Object</code> type.</p>
+     * @see  java.lang.Object
+     * @see  org.springframework.lang.Nullable
+     * @see  java.lang.SuppressWarnings
      * @return boolean <p>The is unusable return object is <code>boolean</code> type.</p>
-     * @see java.lang.Object
-     * @see org.springframework.lang.Nullable
-     * @see java.lang.SuppressWarnings
      */
     @SuppressWarnings("Duplicates")
     public static boolean isUnusable(@Nullable Object object) {
@@ -368,9 +368,9 @@ public class GeneralUtils {
      * <code>isNull</code>
      * <p>The is null method.</p>
      * @param object {@link java.lang.Object} <p>The object parameter is <code>Object</code> type.</p>
+     * @see  java.lang.Object
+     * @see  org.springframework.lang.Nullable
      * @return boolean <p>The is null return object is <code>boolean</code> type.</p>
-     * @see java.lang.Object
-     * @see org.springframework.lang.Nullable
      */
     public static boolean isNull(@Nullable Object object) {
         return Objects.isNull(object);
@@ -380,9 +380,9 @@ public class GeneralUtils {
      * <code>loggingStackTrace</code>
      * <p>The logging stack trace method.</p>
      * @param exception {@link java.lang.Throwable} <p>The exception parameter is <code>Throwable</code> type.</p>
-     * @return {@link java.lang.String} <p>The logging stack trace return object is <code>String</code> type.</p>
-     * @see java.lang.Throwable
-     * @see java.lang.String
+     * @see  java.lang.Throwable
+     * @see  java.lang.String
+     * @return  {@link java.lang.String} <p>The logging stack trace return object is <code>String</code> type.</p>
      */
     public static String loggingStackTrace(Throwable exception) {
         return printStackTrace(exception, true);
@@ -391,12 +391,12 @@ public class GeneralUtils {
     /**
      * <code>loggingStackTrace</code>
      * <p>The logging stack trace method.</p>
-     * @param logger    {@link org.slf4j.Logger} <p>The logger parameter is <code>Logger</code> type.</p>
+     * @param logger {@link org.slf4j.Logger} <p>The logger parameter is <code>Logger</code> type.</p>
      * @param exception {@link java.lang.Throwable} <p>The exception parameter is <code>Throwable</code> type.</p>
-     * @return {@link java.lang.String} <p>The logging stack trace return object is <code>String</code> type.</p>
-     * @see org.slf4j.Logger
-     * @see java.lang.Throwable
-     * @see java.lang.String
+     * @see  org.slf4j.Logger
+     * @see  java.lang.Throwable
+     * @see  java.lang.String
+     * @return  {@link java.lang.String} <p>The logging stack trace return object is <code>String</code> type.</p>
      */
     public static String loggingStackTrace(Logger logger, Throwable exception) {
         return printStackTrace(logger, exception, true);
@@ -406,9 +406,9 @@ public class GeneralUtils {
      * <code>printStackTrace</code>
      * <p>The print stack trace method.</p>
      * @param exception {@link java.lang.Throwable} <p>The exception parameter is <code>Throwable</code> type.</p>
-     * @return {@link java.lang.String} <p>The print stack trace return object is <code>String</code> type.</p>
-     * @see java.lang.Throwable
-     * @see java.lang.String
+     * @see  java.lang.Throwable
+     * @see  java.lang.String
+     * @return  {@link java.lang.String} <p>The print stack trace return object is <code>String</code> type.</p>
      */
     public static String printStackTrace(Throwable exception) {
         return printStackTrace(exception, false);
@@ -419,9 +419,9 @@ public class GeneralUtils {
      * <p>The print stack trace method.</p>
      * @param exception {@link java.lang.Throwable} <p>The exception parameter is <code>Throwable</code> type.</p>
      * @param isLogging boolean <p>The is logging parameter is <code>boolean</code> type.</p>
-     * @return {@link java.lang.String} <p>The print stack trace return object is <code>String</code> type.</p>
-     * @see java.lang.Throwable
-     * @see java.lang.String
+     * @see  java.lang.Throwable
+     * @see  java.lang.String
+     * @return  {@link java.lang.String} <p>The print stack trace return object is <code>String</code> type.</p>
      */
     public static String printStackTrace(Throwable exception, boolean isLogging) {
         return printStackTrace(log, exception, isLogging);
@@ -430,12 +430,12 @@ public class GeneralUtils {
     /**
      * <code>printStackTrace</code>
      * <p>The print stack trace method.</p>
-     * @param logger    {@link org.slf4j.Logger} <p>The logger parameter is <code>Logger</code> type.</p>
+     * @param logger {@link org.slf4j.Logger} <p>The logger parameter is <code>Logger</code> type.</p>
      * @param exception {@link java.lang.Throwable} <p>The exception parameter is <code>Throwable</code> type.</p>
-     * @return {@link java.lang.String} <p>The print stack trace return object is <code>String</code> type.</p>
-     * @see org.slf4j.Logger
-     * @see java.lang.Throwable
-     * @see java.lang.String
+     * @see  org.slf4j.Logger
+     * @see  java.lang.Throwable
+     * @see  java.lang.String
+     * @return  {@link java.lang.String} <p>The print stack trace return object is <code>String</code> type.</p>
      */
     public static String printStackTrace(Logger logger,Throwable exception) {
         return printStackTrace(logger, exception, false);
@@ -444,13 +444,13 @@ public class GeneralUtils {
     /**
      * <code>printStackTrace</code>
      * <p>The print stack trace method.</p>
-     * @param logger    {@link org.slf4j.Logger} <p>The logger parameter is <code>Logger</code> type.</p>
+     * @param logger {@link org.slf4j.Logger} <p>The logger parameter is <code>Logger</code> type.</p>
      * @param exception {@link java.lang.Throwable} <p>The exception parameter is <code>Throwable</code> type.</p>
      * @param isLogging boolean <p>The is logging parameter is <code>boolean</code> type.</p>
-     * @return {@link java.lang.String} <p>The print stack trace return object is <code>String</code> type.</p>
-     * @see org.slf4j.Logger
-     * @see java.lang.Throwable
-     * @see java.lang.String
+     * @see  org.slf4j.Logger
+     * @see  java.lang.Throwable
+     * @see  java.lang.String
+     * @return  {@link java.lang.String} <p>The print stack trace return object is <code>String</code> type.</p>
      */
     public static String printStackTrace(Logger logger, Throwable exception, boolean isLogging) {
         StackTraceElement stackTraceElement = exception.getStackTrace()[0];
@@ -477,8 +477,8 @@ public class GeneralUtils {
      * <code>randomHex</code>
      * <p>The random hex method.</p>
      * @param size int <p>The size parameter is <code>int</code> type.</p>
-     * @return {@link java.lang.String} <p>The random hex return object is <code>String</code> type.</p>
-     * @see java.lang.String
+     * @return  {@link java.lang.String} <p>The random hex return object is <code>String</code> type.</p>
+     * @see  java.lang.String
      */
     public static String randomHex(int size) {
         StringBuilder result = new StringBuilder();
@@ -492,8 +492,8 @@ public class GeneralUtils {
      * <code>lineToCamel</code>
      * <p>The line to camel method.</p>
      * @param line {@link java.lang.String} <p>The line parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>The line to camel return object is <code>String</code> type.</p>
-     * @see java.lang.String
+     * @see  java.lang.String
+     * @return  {@link java.lang.String} <p>The line to camel return object is <code>String</code> type.</p>
      */
     public static String lineToCamel(String line) {
         line = line.toLowerCase();
@@ -511,8 +511,8 @@ public class GeneralUtils {
      * <code>camelToLine</code>
      * <p>The camel to line method.</p>
      * @param camel {@link java.lang.String} <p>The camel parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>The camel to line return object is <code>String</code> type.</p>
-     * @see java.lang.String
+     * @see  java.lang.String
+     * @return  {@link java.lang.String} <p>The camel to line return object is <code>String</code> type.</p>
      */
     public static String camelToLine(String camel) {
         Matcher matcher = PASCAL_PATTERN.matcher(camel);
@@ -528,8 +528,8 @@ public class GeneralUtils {
      * <code>camelCase</code>
      * <p>The camel case method.</p>
      * @param pascalCase {@link java.lang.String} <p>The pascal case parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>The camel case return object is <code>String</code> type.</p>
-     * @see java.lang.String
+     * @see  java.lang.String
+     * @return  {@link java.lang.String} <p>The camel case return object is <code>String</code> type.</p>
      */
     public static String camelCase(String pascalCase) {
         char firstCase = Character.toLowerCase(pascalCase.charAt(0));
@@ -543,8 +543,8 @@ public class GeneralUtils {
      * <code>pascalCase</code>
      * <p>The pascal case method.</p>
      * @param camelCase {@link java.lang.String} <p>The camel case parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>The pascal case return object is <code>String</code> type.</p>
-     * @see java.lang.String
+     * @see  java.lang.String
+     * @return  {@link java.lang.String} <p>The pascal case return object is <code>String</code> type.</p>
      */
     public static String pascalCase(String camelCase) {
         char firstCase = Character.toUpperCase(camelCase.charAt(0));
@@ -558,8 +558,8 @@ public class GeneralUtils {
      * <code>underline</code>
      * <p>The underline method.</p>
      * @param underline {@link java.lang.String} <p>The underline parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>The underline return object is <code>String</code> type.</p>
-     * @see java.lang.String
+     * @see  java.lang.String
+     * @return  {@link java.lang.String} <p>The underline return object is <code>String</code> type.</p>
      */
     public static String underline(String underline) {
         if (isEmpty(underline)) return underline;
@@ -583,8 +583,8 @@ public class GeneralUtils {
      * <code>abbreviate</code>
      * <p>The abbreviate method.</p>
      * @param abbreviate {@link java.lang.String} <p>The abbreviate parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>The abbreviate return object is <code>String</code> type.</p>
-     * @see java.lang.String
+     * @see  java.lang.String
+     * @return  {@link java.lang.String} <p>The abbreviate return object is <code>String</code> type.</p>
      */
     public static String abbreviate(String abbreviate) {
         return abbreviate(abbreviate, 0, false);
@@ -593,11 +593,11 @@ public class GeneralUtils {
     /**
      * <code>abbreviate</code>
      * <p>The abbreviate method.</p>
-     * @param abbreviate  {@link java.lang.String} <p>The abbreviate parameter is <code>String</code> type.</p>
-     * @param length      int <p>The length parameter is <code>int</code> type.</p>
+     * @param abbreviate {@link java.lang.String} <p>The abbreviate parameter is <code>String</code> type.</p>
+     * @param length int <p>The length parameter is <code>int</code> type.</p>
      * @param isUnderline boolean <p>The is underline parameter is <code>boolean</code> type.</p>
-     * @return {@link java.lang.String} <p>The abbreviate return object is <code>String</code> type.</p>
-     * @see java.lang.String
+     * @see  java.lang.String
+     * @return  {@link java.lang.String} <p>The abbreviate return object is <code>String</code> type.</p>
      */
     public static String abbreviate(String abbreviate, int length, boolean isUnderline) {
         if (isEmpty(abbreviate)) return abbreviate;
@@ -631,8 +631,8 @@ public class GeneralUtils {
     /**
      * <code>uuid</code>
      * <p>The uuid method.</p>
-     * @return {@link java.lang.String} <p>The uuid return object is <code>String</code> type.</p>
-     * @see java.lang.String
+     * @return  {@link java.lang.String} <p>The uuid return object is <code>String</code> type.</p>
+     * @see  java.lang.String
      */
     public static String uuid() {
         ThreadLocalRandom random = ThreadLocalRandom.current();
@@ -650,10 +650,10 @@ public class GeneralUtils {
     /**
      * <code>format</code>
      * <p>The format method.</p>
-     * @param val    long <p>The val parameter is <code>long</code> type.</p>
-     * @param buf    byte <p>The buf parameter is <code>byte</code> type.</p>
+     * @param val long <p>The val parameter is <code>long</code> type.</p>
+     * @param buf byte <p>The buf parameter is <code>byte</code> type.</p>
      * @param offset int <p>The offset parameter is <code>int</code> type.</p>
-     * @param len    int <p>The len parameter is <code>int</code> type.</p>
+     * @param len int <p>The len parameter is <code>int</code> type.</p>
      */
     private static void format(long val, byte[] buf, int offset, int len) {
         int charPos = offset + len;
@@ -663,5 +663,56 @@ public class GeneralUtils {
             buf[--charPos] = SystemConstants.DIGITS[((int) val) & mask];
             val >>>= 4;
         } while (charPos > offset);
+    }
+
+    /**
+     * <code>substring</code>
+     * <p>The substring method.</p>
+     * @param content {@link java.lang.String} <p>The content parameter is <code>String</code> type.</p>
+     * @param limit {@link java.lang.Integer} <p>The limit parameter is <code>Integer</code> type.</p>
+     * @see  java.lang.String
+     * @see  java.lang.Integer
+     * @return  {@link java.lang.String} <p>The substring return object is <code>String</code> type.</p>
+     */
+    public static String substring(String content, Integer limit) {
+        if (GeneralUtils.isEmpty(content)) {
+            return null;
+        }
+        String result;
+        String contentTrim = content.replaceAll("\r", "")
+                .replaceAll("\n", "")
+                .trim();
+        if (contentTrim.length() > limit) {
+            result = contentTrim.substring(0, limit).concat("...");
+        } else {
+            result = contentTrim;
+        }
+        return result;
+    }
+
+    /**
+     * <code>message</code>
+     * <p>The message method.</p>
+     * @param message {@link java.lang.String} <p>The message parameter is <code>String</code> type.</p>
+     * @param limit {@link java.lang.Integer} <p>The limit parameter is <code>Integer</code> type.</p>
+     * @see  java.lang.String
+     * @see  java.lang.Integer
+     * @return  {@link java.lang.String} <p>The message return object is <code>String</code> type.</p>
+     */
+    public static String message(String message, Integer limit) {
+        if (GeneralUtils.isEmpty(message)) {
+            return null;
+        }
+        String result;
+        if (message.length() > limit) {
+            if (message.contains(":")) {
+                result = message.substring(message.lastIndexOf(":"));
+            } else {
+                result = message.substring(0, limit).concat("...");
+            }
+        } else {
+            result = message;
+        }
+        return result;
     }
 }
