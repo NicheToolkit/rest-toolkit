@@ -705,7 +705,7 @@ public class GeneralUtils {
         }
         String result = message;
         if (result.contains("Exception: ")) {
-            result = result.substring(result.lastIndexOf("Exception: ")+10);
+            result = result.substring(result.lastIndexOf("Exception: ")+11);
         }
         if (result.length() > limit) {
             result = message.substring(0, limit).concat("...");
