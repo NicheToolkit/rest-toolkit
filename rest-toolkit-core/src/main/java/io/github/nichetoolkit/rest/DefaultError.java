@@ -273,7 +273,7 @@ class DefaultError extends Error implements Serializable {
          */
         public DefaultError.Builder message(String message) {
             if (message != null && !message.isEmpty()) {
-                this.message = GeneralUtils.message(message,1024);
+                this.message = message;
             }
             return this;
         }
@@ -298,7 +298,8 @@ class DefaultError extends Error implements Serializable {
          * @see java.lang.Throwable
          */
         public DefaultError.Builder message(Throwable cause) {
-            this.message(cause.getMessage());
+            String message = GeneralUtils.causeMessage(cause.getMessage(),1024);
+            this.message(message);
             return this;
         }
 

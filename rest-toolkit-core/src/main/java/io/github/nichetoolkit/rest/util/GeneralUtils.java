@@ -699,19 +699,16 @@ public class GeneralUtils {
      * @see  java.lang.Integer
      * @return  {@link java.lang.String} <p>The message return object is <code>String</code> type.</p>
      */
-    public static String message(String message, Integer limit) {
+    public static String causeMessage(String message, Integer limit) {
         if (GeneralUtils.isEmpty(message)) {
             return null;
         }
-        String result;
-        if (message.length() > limit) {
-            if (message.contains(":")) {
-                result = message.substring(message.lastIndexOf(":"));
-            } else {
-                result = message.substring(0, limit).concat("...");
-            }
-        } else {
-            result = message;
+        String result = message;
+        if (result.contains(":")) {
+            result = result.substring(result.lastIndexOf(":"));
+        }
+        if (result.length() > limit) {
+            result = message.substring(0, limit).concat("...");
         }
         return result;
     }
