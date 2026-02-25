@@ -122,7 +122,7 @@ public class DefaultLoggingInterceptor implements AsyncHandlerInterceptor, RestR
                 restResponse.setData(restResult.getData());
                 restResponse.setRestResult(new RestResult<>(restResult.getStatus(), restResult.getMessage()));
             }
-            String resultString = CommonUtils.substring(result, interceptProperties.getResultLength());
+            String resultString = GeneralUtils.substring(result, interceptProperties.getResultLength());
             restResponse.setResultString(resultString);
             Method method = params.getMethod();
             if (GeneralUtils.isNotEmpty(method)) {
@@ -331,8 +331,8 @@ public class DefaultLoggingInterceptor implements AsyncHandlerInterceptor, RestR
                     messageContent = exception.getMessage();
                     errorContent = exception.toString();
                 }
-                String message = CommonUtils.substring(messageContent, interceptProperties.getMessageLength());
-                String error = CommonUtils.substring(errorContent, interceptProperties.getErrorLength());
+                String message = GeneralUtils.substring(messageContent, interceptProperties.getMessageLength());
+                String error = GeneralUtils.substring(errorContent, interceptProperties.getErrorLength());
                 restResponse.setMessage(message);
                 restResponse.setError(error);
             }
@@ -375,7 +375,7 @@ public class DefaultLoggingInterceptor implements AsyncHandlerInterceptor, RestR
                 Integer bodyLength = interceptProperties.getBodyLength();
                 String bodyString;
                 if (GeneralUtils.isNotEmpty(bodyLength)) {
-                    bodyString = CommonUtils.substring(body, bodyLength);
+                    bodyString = GeneralUtils.substring(body, bodyLength);
                 } else {
                     bodyString = body;
                 }
