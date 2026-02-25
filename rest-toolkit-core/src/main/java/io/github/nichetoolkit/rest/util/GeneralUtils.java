@@ -704,8 +704,8 @@ public class GeneralUtils {
             return null;
         }
         String result = message;
-        if (result.contains(":")) {
-            result = result.substring(result.lastIndexOf(":"));
+        if (result.contains("Exception: ")) {
+            result = result.substring(result.lastIndexOf("Exception: ")+10);
         }
         if (result.length() > limit) {
             result = message.substring(0, limit).concat("...");

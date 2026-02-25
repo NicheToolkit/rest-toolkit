@@ -1,5 +1,6 @@
 package io.github.nichetoolkit.rest;
 
+import io.github.nichetoolkit.rest.util.GeneralUtils;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -75,7 +76,7 @@ public class RestErrorIssue extends DefaultErrorIssue implements RestStatus {
      * @see  java.lang.Throwable
      */
     public RestErrorIssue(RestStatus status, Throwable cause) {
-        super(cause.getMessage());
+        super(GeneralUtils.causeMessage(cause.getMessage(),1024));
         this.status = status.getStatus();
     }
 
@@ -156,7 +157,7 @@ public class RestErrorIssue extends DefaultErrorIssue implements RestStatus {
      * @see  java.lang.Throwable
      */
     public RestErrorIssue(String field, RestStatus status, Throwable cause) {
-        super(field, cause.getMessage());
+        super(field, GeneralUtils.causeMessage(cause.getMessage(),1024));
         this.status = status.getStatus();
     }
 
