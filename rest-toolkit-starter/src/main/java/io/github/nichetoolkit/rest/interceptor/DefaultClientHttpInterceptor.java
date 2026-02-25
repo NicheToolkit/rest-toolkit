@@ -78,7 +78,7 @@ public class DefaultClientHttpInterceptor implements ClientHttpRequestIntercepto
             Integer bodyLength = interceptProperties.getBodyLength();
             String bodyString;
             if (GeneralUtils.isNotEmpty(bodyLength)) {
-                bodyString = CommonUtils.substring(content, bodyLength);
+                bodyString = GeneralUtils.substring(content, bodyLength);
             } else {
                 bodyString = content;
             }
