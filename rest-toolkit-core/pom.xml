@@ -238,7 +238,7 @@
                 <artifactId>central-publishing-maven-plugin</artifactId>
                 <extensions>true</extensions>
                 <configuration>
-                    <centralBaseUrl>https://central.sonatype.com/</centralBaseUrl>
+                    <centralBaseUrl>https://central.sonatype.com</centralBaseUrl>
                     <centralSnapshotsUrl>https://central.sonatype.com/repository/maven-snapshots/</centralSnapshotsUrl>
                     <publishingServerId>sonatype-nexus-release</publishingServerId>
                     <autoPublish>true</autoPublish>
