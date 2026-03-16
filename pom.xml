@@ -5,7 +5,7 @@
 
     <groupId>io.github.nichetoolkit</groupId>
     <artifactId>rest-toolkit-parent</artifactId>
-    <version>1.1.2</version>
+    <version>1.1.3-SNAPSHOT</version>
 
     <modules>
         <module>rest-toolkit-example</module>
@@ -109,7 +109,7 @@
         <central-publishing-maven-plugin.version>0.10.0</central-publishing-maven-plugin.version>
         <maven-release-plugin.version>3.1.1</maven-release-plugin.version>
 
-        <rest-toolkit.version>1.1.2</rest-toolkit.version>
+        <rest-toolkit.version>1.1.3-SNAPSHOT</rest-toolkit.version>
 
         <!-- fix spring-core:5.3.31 CVE-2024-22233 7.5 vulnerability -->
         <!-- fix spring-web:5.3.31 CVE-2016-1000027 9.8 vulnerability
@@ -131,7 +131,7 @@
         <!-- fix tomcat-embed-core:9.0.83 CVE-2024-23672 7.5 vulnerability
                                           CVE-2024-24549 6.5 vulnerability -->
         <!-- fix tomcat-embed-websocket:9.0.83 CVE-2024-23672 7.5 vulnerability -->
-        <tomcat.version>9.0.90</tomcat.version>
+        <tomcat.version>9.0.99</tomcat.version>
         <thumbnailator.version>0.4.20</thumbnailator.version>
         <!-- fix okio:2.8.0 CVE-2023-3635 7.5 vulnerability       -->
         <squareup.version>3.4.0</squareup.version>
