@@ -68,7 +68,13 @@
       "defaultValue": false
     },
     {
-      "name": "nichetoolkit.rest.sha.secret",
+      "name": "nichetoolkit.rest.sha.app-key",
+      "type": "java.lang.String",
+      "sourceType": "java.lang.String",
+      "description": "the secret key of sha worker."
+    },
+    {
+      "name": "nichetoolkit.rest.sha.secret-key",
       "type": "java.lang.String",
       "sourceType": "java.lang.String",
       "description": "the secret key of sha worker."

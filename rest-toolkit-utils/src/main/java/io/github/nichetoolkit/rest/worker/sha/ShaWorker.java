@@ -3,6 +3,7 @@ package io.github.nichetoolkit.rest.worker.sha;
 import io.github.nichetoolkit.rest.RestOptional;
 import io.github.nichetoolkit.rest.configure.RestShaProperties;
 import io.github.nichetoolkit.rest.error.lack.ConfigureLackError;
+import io.github.nichetoolkit.rest.util.GeneralUtils;
 import io.github.nichetoolkit.rest.util.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
 
@@ -18,8 +19,8 @@ import java.util.Set;
 /**
  * <code>ShaWorker</code>
  * <p>The sha worker class.</p>
- * @author Cyan (snow22314@outlook.com)
- * @see lombok.extern.slf4j.Slf4j
+ * @see  lombok.extern.slf4j.Slf4j
+ * @author  Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
 @Slf4j
@@ -28,21 +29,27 @@ public class ShaWorker {
     /**
      * <code>SIGN_KEY</code>
      * {@link java.lang.String} <p>The constant <code>SIGN_KEY</code> field.</p>
-     * @see java.lang.String
+     * @see  java.lang.String
      */
     private static final String SIGN_KEY = "sign";
 
     /**
-     * <code>PASSWORD_KEY</code>
-     * {@link java.lang.String} <p>The constant <code>PASSWORD_KEY</code> field.</p>
-     * @see java.lang.String
+     * <code>APP_KEY</code>
+     * {@link java.lang.String} <p>The constant <code>APP_KEY</code> field.</p>
+     * @see  java.lang.String
      */
-    private static final String PASSWORD_KEY = "password";
+    private static final String APP_KEY = "appKey";
+    /**
+     * <code>SECRET_KEY</code>
+     * {@link java.lang.String} <p>The constant <code>SECRET_KEY</code> field.</p>
+     * @see  java.lang.String
+     */
+    private static final String SECRET_KEY = "secretKey";
 
     /**
      * <code>shaProperties</code>
      * {@link io.github.nichetoolkit.rest.configure.RestShaProperties} <p>The <code>shaProperties</code> field.</p>
-     * @see io.github.nichetoolkit.rest.configure.RestShaProperties
+     * @see  io.github.nichetoolkit.rest.configure.RestShaProperties
      */
     private final RestShaProperties shaProperties;
 
@@ -55,7 +62,7 @@ public class ShaWorker {
     /**
      * <code>instance</code>
      * <p>The instance method.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.sha.ShaWorker} <p>The instance return object is <code>ShaWorker</code> type.</p>
+     * @return  {@link io.github.nichetoolkit.rest.worker.sha.ShaWorker} <p>The instance return object is <code>ShaWorker</code> type.</p>
      */
     public static ShaWorker instance() {
         return RestOptional.ofNullable(INSTANCE).orNullThrow(ConfigureLackError::new);
@@ -65,7 +72,7 @@ public class ShaWorker {
      * <code>ShaWorker</code>
      * <p>Instantiates a new sha worker.</p>
      * @param shaProperties {@link io.github.nichetoolkit.rest.configure.RestShaProperties} <p>The sha properties parameter is <code>RestShaProperties</code> type.</p>
-     * @see io.github.nichetoolkit.rest.configure.RestShaProperties
+     * @see  io.github.nichetoolkit.rest.configure.RestShaProperties
      */
     public ShaWorker(RestShaProperties shaProperties) {
         this.shaProperties = shaProperties;
@@ -74,7 +81,7 @@ public class ShaWorker {
     /**
      * <code>shaWorkerInit</code>
      * <p>The sha worker init method.</p>
-     * @see javax.annotation.PostConstruct
+     * @see  javax.annotation.PostConstruct
      */
     @PostConstruct
     public void shaWorkerInit() {
@@ -83,24 +90,24 @@ public class ShaWorker {
     }
 
     /**
-     * <code>shaEncrypt</code>
-     * <p>The sha encrypt method.</p>
+     * <code>algorithm</code>
+     * <p>The algorithm method.</p>
      * @param source {@link java.lang.String} <p>The source parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>The sha encrypt return object is <code>String</code> type.</p>
-     * @see java.lang.String
+     * @see  java.lang.String
+     * @return  {@link java.lang.String} <p>The algorithm return object is <code>String</code> type.</p>
      */
-    private static String shaEncrypt(String source) {
+    private static String algorithm(String source) {
         return encrypt(source,instance().shaProperties.getAlgorithm());
     }
 
     /**
      * <code>encrypt</code>
      * <p>The encrypt method.</p>
-     * @param source    {@link java.lang.String} <p>The source parameter is <code>String</code> type.</p>
+     * @param source {@link java.lang.String} <p>The source parameter is <code>String</code> type.</p>
      * @param algorithm {@link io.github.nichetoolkit.rest.worker.sha.ShaAlgorithm} <p>The algorithm parameter is <code>ShaAlgorithm</code> type.</p>
-     * @return {@link java.lang.String} <p>The encrypt return object is <code>String</code> type.</p>
-     * @see java.lang.String
-     * @see io.github.nichetoolkit.rest.worker.sha.ShaAlgorithm
+     * @see  java.lang.String
+     * @see  io.github.nichetoolkit.rest.worker.sha.ShaAlgorithm
+     * @return  {@link java.lang.String} <p>The encrypt return object is <code>String</code> type.</p>
      */
     public static String encrypt(String source, ShaAlgorithm algorithm) {
         StringBuilder hexBuilder = new StringBuilder();
@@ -120,22 +127,22 @@ public class ShaWorker {
      * <code>encrypt</code>
      * <p>The encrypt method.</p>
      * @param source {@link java.lang.String} <p>The source parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>The encrypt return object is <code>String</code> type.</p>
-     * @see java.lang.String
+     * @see  java.lang.String
+     * @return  {@link java.lang.String} <p>The encrypt return object is <code>String</code> type.</p>
      */
     public String encrypt(String source) {
-        return encrypts(source, this.shaProperties.getSecret());
+        return encrypts(source, this.shaProperties.getSecretKey());
     }
 
     /**
      * <code>encrypts</code>
      * <p>The encrypts method.</p>
      * @param source {@link java.lang.String} <p>The source parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>The encrypts return object is <code>String</code> type.</p>
-     * @see java.lang.String
+     * @see  java.lang.String
+     * @return  {@link java.lang.String} <p>The encrypts return object is <code>String</code> type.</p>
      */
     public static String encrypts(String source) {
-        return encrypts(source,instance().shaProperties.getSecret());
+        return encrypts(source,instance().shaProperties.getSecretKey());
     }
 
     /**
@@ -143,13 +150,17 @@ public class ShaWorker {
      * <p>The encrypts method.</p>
      * @param source {@link java.lang.String} <p>The source parameter is <code>String</code> type.</p>
      * @param secret {@link java.lang.String} <p>The secret parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>The encrypts return object is <code>String</code> type.</p>
-     * @see java.lang.String
+     * @see  java.lang.String
+     * @return  {@link java.lang.String} <p>The encrypts return object is <code>String</code> type.</p>
      */
     public static String encrypts(String source, String secret) {
         Map<String, Object> paramMap = new HashMap<>();
-        String target = shaEncrypt(source);
-        paramMap.put(PASSWORD_KEY, target);
+
+        if (GeneralUtils.isNotEmpty(instance().shaProperties.getAppKey())) {
+            paramMap.put(APP_KEY, instance().shaProperties.getAppKey());
+        }
+        String target = algorithm(source);
+        paramMap.put(SECRET_KEY, target);
         return encrypts(paramMap, secret);
     }
 
@@ -158,9 +169,9 @@ public class ShaWorker {
      * <p>The encrypts method.</p>
      * @param source {@link java.util.Map} <p>The source parameter is <code>Map</code> type.</p>
      * @param secret {@link java.lang.String} <p>The secret parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>The encrypts return object is <code>String</code> type.</p>
-     * @see java.util.Map
-     * @see java.lang.String
+     * @see  java.util.Map
+     * @see  java.lang.String
+     * @return  {@link java.lang.String} <p>The encrypts return object is <code>String</code> type.</p>
      */
     public static String encrypts(final Map<String, Object> source, String secret) {
         Set<String> keySet = source.keySet();
@@ -179,6 +190,6 @@ public class ShaWorker {
             }
         }
         keyBuilder.append("key=").append(secret);
-        return shaEncrypt(keyBuilder.toString()).toUpperCase();
+        return algorithm(keyBuilder.toString()).toUpperCase();
     }
 }

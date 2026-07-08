@@ -32,7 +32,14 @@ public class RestShaProperties {
      * {@link java.lang.String} <p>The <code>secret</code> field.</p>
      * @see java.lang.String
      */
-    private String secret;
+    private String appKey;
+
+    /**
+     * <code>secret</code>
+     * {@link java.lang.String} <p>The <code>secret</code> field.</p>
+     * @see java.lang.String
+     */
+    private String secretKey;
 
     /**
      * <code>algorithm</code>
@@ -54,10 +61,10 @@ public class RestShaProperties {
      * @return {@link java.lang.String} <p>The get secret return object is <code>String</code> type.</p>
      * @see java.lang.String
      */
-    public String getSecret() {
-        if (GeneralUtils.isEmpty(this.secret)) {
-            return secret = RadixWorker.encrypts(System.currentTimeMillis());
+    public String getSecretKey() {
+        if (GeneralUtils.isEmpty(this.secretKey)) {
+            return secretKey = RadixWorker.encrypts(System.currentTimeMillis());
         }
-        return secret;
+        return secretKey;
     }
 }

@@ -3,9 +3,11 @@ package io.github.nichetoolkit.rest.worker;
 import io.github.nichetoolkit.rest.RestOptional;
 import io.github.nichetoolkit.rest.configure.RestAesProperties;
 import io.github.nichetoolkit.rest.error.lack.ConfigureLackError;
+import io.github.nichetoolkit.rest.util.GeneralUtils;
 import io.github.nichetoolkit.rest.util.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
 
+import javax.annotation.Nullable;
 import javax.annotation.PostConstruct;
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
@@ -21,8 +23,8 @@ import java.util.Base64;
 /**
  * <code>AesWorker</code>
  * <p>The aes worker class.</p>
- * @author Cyan (snow22314@outlook.com)
- * @see lombok.extern.slf4j.Slf4j
+ * @see  lombok.extern.slf4j.Slf4j
+ * @author  Cyan (snow22314@outlook.com)
  * @since Jdk1.8
  */
 @Slf4j
@@ -31,21 +33,21 @@ public class AesWorker {
     /**
      * <code>TRANSFORMATION</code>
      * {@link java.lang.String} <p>The constant <code>TRANSFORMATION</code> field.</p>
-     * @see java.lang.String
+     * @see  java.lang.String
      */
     private static final String TRANSFORMATION = "AES/CBC/PKCS5Padding";
 
     /**
      * <code>ALGORITHM</code>
      * {@link java.lang.String} <p>The constant <code>ALGORITHM</code> field.</p>
-     * @see java.lang.String
+     * @see  java.lang.String
      */
     private static final String ALGORITHM = "AES";
 
     /**
      * <code>aesProperties</code>
      * {@link io.github.nichetoolkit.rest.configure.RestAesProperties} <p>The <code>aesProperties</code> field.</p>
-     * @see io.github.nichetoolkit.rest.configure.RestAesProperties
+     * @see  io.github.nichetoolkit.rest.configure.RestAesProperties
      */
     private final RestAesProperties aesProperties;
 
@@ -59,7 +61,7 @@ public class AesWorker {
      * <code>AesWorker</code>
      * <p>Instantiates a new aes worker.</p>
      * @param aesProperties {@link io.github.nichetoolkit.rest.configure.RestAesProperties} <p>The aes properties parameter is <code>RestAesProperties</code> type.</p>
-     * @see io.github.nichetoolkit.rest.configure.RestAesProperties
+     * @see  io.github.nichetoolkit.rest.configure.RestAesProperties
      */
     public AesWorker(RestAesProperties aesProperties) {
         this.aesProperties = aesProperties;
@@ -68,7 +70,7 @@ public class AesWorker {
     /**
      * <code>radixWorkerInit</code>
      * <p>The radix worker init method.</p>
-     * @see javax.annotation.PostConstruct
+     * @see  javax.annotation.PostConstruct
      */
     @PostConstruct
     public void radixWorkerInit() {
@@ -79,7 +81,7 @@ public class AesWorker {
     /**
      * <code>instance</code>
      * <p>The instance method.</p>
-     * @return {@link io.github.nichetoolkit.rest.worker.AesWorker} <p>The instance return object is <code>AesWorker</code> type.</p>
+     * @return  {@link io.github.nichetoolkit.rest.worker.AesWorker} <p>The instance return object is <code>AesWorker</code> type.</p>
      */
     public static AesWorker instance() {
         return RestOptional.ofNullable(INSTANCE).orNullThrow(ConfigureLackError::new);
@@ -89,8 +91,8 @@ public class AesWorker {
      * <code>encrypt</code>
      * <p>The encrypt method.</p>
      * @param source {@link java.lang.String} <p>The source parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>The encrypt return object is <code>String</code> type.</p>
-     * @see java.lang.String
+     * @see  java.lang.String
+     * @return  {@link java.lang.String} <p>The encrypt return object is <code>String</code> type.</p>
      */
     public String encrypt(String source) {
         return encrypts(source, aesProperties);
@@ -100,8 +102,8 @@ public class AesWorker {
      * <code>decrypt</code>
      * <p>The decrypt method.</p>
      * @param target {@link java.lang.String} <p>The target parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>The decrypt return object is <code>String</code> type.</p>
-     * @see java.lang.String
+     * @see  java.lang.String
+     * @return  {@link java.lang.String} <p>The decrypt return object is <code>String</code> type.</p>
      */
     public String decrypt(String target) {
         return decrypts(target, aesProperties);
@@ -110,11 +112,11 @@ public class AesWorker {
     /**
      * <code>encrypts</code>
      * <p>The encrypts method.</p>
-     * @param source     {@link java.lang.String} <p>The source parameter is <code>String</code> type.</p>
+     * @param source {@link java.lang.String} <p>The source parameter is <code>String</code> type.</p>
      * @param properties {@link io.github.nichetoolkit.rest.configure.RestAesProperties} <p>The properties parameter is <code>RestAesProperties</code> type.</p>
-     * @return {@link java.lang.String} <p>The encrypts return object is <code>String</code> type.</p>
-     * @see java.lang.String
-     * @see io.github.nichetoolkit.rest.configure.RestAesProperties
+     * @see  java.lang.String
+     * @see  io.github.nichetoolkit.rest.configure.RestAesProperties
+     * @return  {@link java.lang.String} <p>The encrypts return object is <code>String</code> type.</p>
      */
     private static synchronized String encrypts(String source, RestAesProperties properties) {
         return encrypts(source, properties.getSecretKey(), properties.getSecretIv());
@@ -124,8 +126,8 @@ public class AesWorker {
      * <code>encrypts</code>
      * <p>The encrypts method.</p>
      * @param source {@link java.lang.String} <p>The source parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>The encrypts return object is <code>String</code> type.</p>
-     * @see java.lang.String
+     * @see  java.lang.String
+     * @return  {@link java.lang.String} <p>The encrypts return object is <code>String</code> type.</p>
      */
     public static synchronized String encrypts(String source) {
         return encrypts(source, instance().aesProperties.getSecretKey(), instance().aesProperties.getSecretIv());
@@ -134,30 +136,36 @@ public class AesWorker {
     /**
      * <code>encrypts</code>
      * <p>The encrypts method.</p>
-     * @param source   {@link java.lang.String} <p>The source parameter is <code>String</code> type.</p>
+     * @param source {@link java.lang.String} <p>The source parameter is <code>String</code> type.</p>
      * @param secretIv {@link java.lang.String} <p>The secret iv parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>The encrypts return object is <code>String</code> type.</p>
-     * @see java.lang.String
+     * @see  java.lang.String
+     * @see  javax.annotation.Nullable
+     * @return  {@link java.lang.String} <p>The encrypts return object is <code>String</code> type.</p>
      */
-    public static synchronized String encrypts(String source, String secretIv) {
+    public static synchronized String encrypts(String source, @Nullable String secretIv) {
         return encrypts(source, instance().aesProperties.getSecretKey(), secretIv);
     }
 
     /**
      * <code>encrypts</code>
      * <p>The encrypts method.</p>
-     * @param source    {@link java.lang.String} <p>The source parameter is <code>String</code> type.</p>
+     * @param source {@link java.lang.String} <p>The source parameter is <code>String</code> type.</p>
      * @param secretKey {@link java.lang.String} <p>The secret key parameter is <code>String</code> type.</p>
-     * @param secretIv  {@link java.lang.String} <p>The secret iv parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>The encrypts return object is <code>String</code> type.</p>
-     * @see java.lang.String
+     * @param secretIv {@link java.lang.String} <p>The secret iv parameter is <code>String</code> type.</p>
+     * @see  java.lang.String
+     * @see  javax.annotation.Nullable
+     * @return  {@link java.lang.String} <p>The encrypts return object is <code>String</code> type.</p>
      */
-    public static synchronized String encrypts(String source, String secretKey, String secretIv) {
+    public static synchronized String encrypts(String source, String secretKey, @Nullable String secretIv) {
         try {
             SecretKeySpec keySpec = new SecretKeySpec(secretKey.getBytes(), ALGORITHM);
-            IvParameterSpec ivSpec = new IvParameterSpec(secretIv.getBytes());
             Cipher cipher = Cipher.getInstance(TRANSFORMATION);
-            cipher.init(Cipher.ENCRYPT_MODE, keySpec, ivSpec);
+            if (GeneralUtils.isNotEmpty(secretIv)) {
+                IvParameterSpec ivSpec = new IvParameterSpec(secretIv.getBytes());
+                cipher.init(Cipher.ENCRYPT_MODE, keySpec, ivSpec);
+            } else {
+                cipher.init(Cipher.ENCRYPT_MODE, keySpec);
+            }
             byte[] encryptedBytes = cipher.doFinal(source.getBytes());
             return Base64.getEncoder().encodeToString(encryptedBytes);
         } catch (NoSuchAlgorithmException | NoSuchPaddingException | IllegalBlockSizeException
@@ -170,11 +178,11 @@ public class AesWorker {
     /**
      * <code>decrypts</code>
      * <p>The decrypts method.</p>
-     * @param target     {@link java.lang.String} <p>The target parameter is <code>String</code> type.</p>
+     * @param target {@link java.lang.String} <p>The target parameter is <code>String</code> type.</p>
      * @param properties {@link io.github.nichetoolkit.rest.configure.RestAesProperties} <p>The properties parameter is <code>RestAesProperties</code> type.</p>
-     * @return {@link java.lang.String} <p>The decrypts return object is <code>String</code> type.</p>
-     * @see java.lang.String
-     * @see io.github.nichetoolkit.rest.configure.RestAesProperties
+     * @see  java.lang.String
+     * @see  io.github.nichetoolkit.rest.configure.RestAesProperties
+     * @return  {@link java.lang.String} <p>The decrypts return object is <code>String</code> type.</p>
      */
     private static synchronized String decrypts(String target, RestAesProperties properties) {
         return decrypts(target, properties.getSecretKey(), properties.getSecretIv());
@@ -184,8 +192,8 @@ public class AesWorker {
      * <code>decrypts</code>
      * <p>The decrypts method.</p>
      * @param target {@link java.lang.String} <p>The target parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>The decrypts return object is <code>String</code> type.</p>
-     * @see java.lang.String
+     * @see  java.lang.String
+     * @return  {@link java.lang.String} <p>The decrypts return object is <code>String</code> type.</p>
      */
     public static synchronized String decrypts(String target) {
         return decrypts(target, instance().aesProperties.getSecretKey(), instance().aesProperties.getSecretIv());
@@ -194,10 +202,10 @@ public class AesWorker {
     /**
      * <code>decrypts</code>
      * <p>The decrypts method.</p>
-     * @param target   {@link java.lang.String} <p>The target parameter is <code>String</code> type.</p>
+     * @param target {@link java.lang.String} <p>The target parameter is <code>String</code> type.</p>
      * @param secretIv {@link java.lang.String} <p>The secret iv parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>The decrypts return object is <code>String</code> type.</p>
-     * @see java.lang.String
+     * @see  java.lang.String
+     * @return  {@link java.lang.String} <p>The decrypts return object is <code>String</code> type.</p>
      */
     public static synchronized String decrypts(String target, String secretIv) {
         return decrypts(target, instance().aesProperties.getSecretKey(), secretIv);
@@ -206,18 +214,23 @@ public class AesWorker {
     /**
      * <code>decrypts</code>
      * <p>The decrypts method.</p>
-     * @param target    {@link java.lang.String} <p>The target parameter is <code>String</code> type.</p>
+     * @param target {@link java.lang.String} <p>The target parameter is <code>String</code> type.</p>
      * @param secretKey {@link java.lang.String} <p>The secret key parameter is <code>String</code> type.</p>
-     * @param secretIv  {@link java.lang.String} <p>The secret iv parameter is <code>String</code> type.</p>
-     * @return {@link java.lang.String} <p>The decrypts return object is <code>String</code> type.</p>
-     * @see java.lang.String
+     * @param secretIv {@link java.lang.String} <p>The secret iv parameter is <code>String</code> type.</p>
+     * @see  java.lang.String
+     * @see  javax.annotation.Nullable
+     * @return  {@link java.lang.String} <p>The decrypts return object is <code>String</code> type.</p>
      */
-    public static synchronized String decrypts(String target, String secretKey, String secretIv) {
+    public static synchronized String decrypts(String target, String secretKey, @Nullable String secretIv) {
         try {
             SecretKeySpec keySpec = new SecretKeySpec(secretKey.getBytes(), ALGORITHM);
-            IvParameterSpec ivSpec = new IvParameterSpec(secretIv.getBytes());
             Cipher cipher = Cipher.getInstance(TRANSFORMATION);
-            cipher.init(Cipher.DECRYPT_MODE, keySpec, ivSpec);
+            if (GeneralUtils.isNotEmpty(secretIv)) {
+                IvParameterSpec ivSpec = new IvParameterSpec(secretIv.getBytes());
+                cipher.init(Cipher.DECRYPT_MODE, keySpec, ivSpec);
+            } else {
+                cipher.init(Cipher.DECRYPT_MODE, keySpec);
+            }
             byte[] decodedBytes = Base64.getDecoder().decode(target);
             byte[] decryptedBytes = cipher.doFinal(decodedBytes);
             return new String(decryptedBytes);
